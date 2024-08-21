@@ -432,6 +432,21 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                     'insurerConfig2',
                     ParamType.Document,
                   ),
+                  carLost: params.getParam<String>(
+                    'carLost',
+                    ParamType.String,
+                    isList: true,
+                  ),
+                  motorAddOn: params.getParam<String>(
+                    'motorAddOn',
+                    ParamType.String,
+                    isList: true,
+                  ),
+                  driverBehavior: params.getParam<String>(
+                    'driverBehavior',
+                    ParamType.String,
+                    isList: true,
+                  ),
                 ),
               ),
             ),
@@ -719,6 +734,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   insurerConfig: params.getParam(
                     'insurerConfig',
                     ParamType.Document,
+                  ),
+                  carLost: params.getParam(
+                    'carLost',
+                    ParamType.String,
+                  ),
+                  motorAddOn: params.getParam(
+                    'motorAddOn',
+                    ParamType.String,
+                  ),
+                  driverBehavior: params.getParam(
+                    'driverBehavior',
+                    ParamType.String,
                   ),
                 ),
               ),
@@ -1081,6 +1108,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'workType',
                   ParamType.String,
                 ),
+                yearChrist: params.getParam(
+                  'yearChrist',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
@@ -1346,6 +1377,21 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 ),
                 cc: params.getParam<String>(
                   'cc',
+                  ParamType.String,
+                  isList: true,
+                ),
+                carLost: params.getParam<String>(
+                  'carLost',
+                  ParamType.String,
+                  isList: true,
+                ),
+                motorAddOn: params.getParam<String>(
+                  'motorAddOn',
+                  ParamType.String,
+                  isList: true,
+                ),
+                driverBehavior: params.getParam<String>(
+                  'driverBehavior',
                   ParamType.String,
                   isList: true,
                 ),
@@ -1856,6 +1902,62 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'testPage',
               path: 'testPage',
               builder: (context, params) => TestPageWidget(),
+            ),
+            FFRoute(
+              name: 'insurerListOverallPage',
+              path: 'insurerListOverallPage',
+              builder: (context, params) => InsurerListOverallPageWidget(
+                brandCode: params.getParam(
+                  'brandCode',
+                  ParamType.String,
+                ),
+                modelCode: params.getParam(
+                  'modelCode',
+                  ParamType.String,
+                ),
+                year: params.getParam(
+                  'year',
+                  ParamType.String,
+                ),
+                province: params.getParam(
+                  'province',
+                  ParamType.String,
+                ),
+                vehicleUsage: params.getParam(
+                  'vehicleUsage',
+                  ParamType.String,
+                ),
+                coverType: params.getParam<String>(
+                  'coverType',
+                  ParamType.String,
+                  isList: true,
+                ),
+                garageType: params.getParam<String>(
+                  'garageType',
+                  ParamType.String,
+                  isList: true,
+                ),
+                brandName: params.getParam(
+                  'brandName',
+                  ParamType.String,
+                ),
+                modelName: params.getParam(
+                  'modelName',
+                  ParamType.String,
+                ),
+                carTypeDetail: params.getParam(
+                  'carTypeDetail',
+                  ParamType.String,
+                ),
+                oldVmiExpDate: params.getParam(
+                  'oldVmiExpDate',
+                  ParamType.String,
+                ),
+                provinceCode: params.getParam(
+                  'provinceCode',
+                  ParamType.String,
+                ),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

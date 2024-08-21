@@ -87,11 +87,11 @@ class _PointInfomationContainerWidgetState
                       }
                       List<UserCustomRecord> circleImageUserCustomRecordList =
                           snapshot.data!;
-
                       final circleImageUserCustomRecord =
                           circleImageUserCustomRecordList.isNotEmpty
                               ? circleImageUserCustomRecordList.first
                               : null;
+
                       return Container(
                         width: 80.0,
                         height: 80.0,

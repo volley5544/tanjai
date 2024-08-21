@@ -16,7 +16,6 @@ class NonePackageEditPage1Model
     extends FlutterFlowModel<NonePackageEditPage1Widget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
@@ -27,7 +26,6 @@ class NonePackageEditPage1Model
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     textFieldFocusNode?.dispose();
     textController?.dispose();
   }

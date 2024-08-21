@@ -26,7 +26,6 @@ class SearchInsurancePageModel
     extends FlutterFlowModel<SearchInsurancePageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Custom Action - getBuildVersion1] action in SearchInsurancePage widget.
   String? getBuildVersion;
   // Stores action output result for [Custom Action - getBuildNumber] action in SearchInsurancePage widget.
@@ -71,7 +70,5 @@ class SearchInsurancePageModel
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

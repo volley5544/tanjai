@@ -19,7 +19,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class AddLeadsPageModel extends FlutterFlowModel<AddLeadsPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for firstName widget.
   FocusNode? firstNameFocusNode;
   TextEditingController? firstNameTextController;
@@ -49,7 +48,6 @@ class AddLeadsPageModel extends FlutterFlowModel<AddLeadsPageWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     firstNameFocusNode?.dispose();
     firstNameTextController?.dispose();
 

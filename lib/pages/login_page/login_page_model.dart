@@ -15,12 +15,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 
 class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Custom Action - a11] action in LoginPage widget.
   String? getFCMToken;
   // Stores action output result for [Custom Action - getBuildVersion1] action in LoginPage widget.
@@ -60,7 +60,6 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     usernameTextFieldFocusNode?.dispose();
     usernameTextFieldTextController?.dispose();
 

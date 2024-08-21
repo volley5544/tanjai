@@ -16,7 +16,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class InformationActModel extends FlutterFlowModel<InformationActWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   DateTime? datePicked;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
@@ -32,7 +31,6 @@ class InformationActModel extends FlutterFlowModel<InformationActWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     textFieldFocusNode?.dispose();
     textController?.dispose();
   }

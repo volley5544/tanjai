@@ -54,9 +54,7 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -117,7 +115,6 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                   }
                   List<InsurerConfig2Record> columnInsurerConfig2RecordList =
                       snapshot.data!;
-
                   // Return an empty Container when the item does not exist.
                   if (snapshot.data!.isEmpty) {
                     return Container();
@@ -126,6 +123,7 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                       columnInsurerConfig2RecordList.isNotEmpty
                           ? columnInsurerConfig2RecordList.first
                           : null;
+
                   return Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -464,12 +462,8 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                                           builder: (context) {
                                             return WebViewAware(
                                               child: GestureDetector(
-                                                onTap: () => _model.unfocusNode
-                                                        .canRequestFocus
-                                                    ? FocusScope.of(context)
-                                                        .requestFocus(
-                                                            _model.unfocusNode)
-                                                    : FocusScope.of(context)
+                                                onTap: () =>
+                                                    FocusScope.of(context)
                                                         .unfocus(),
                                                 child: Padding(
                                                   padding:
@@ -493,9 +487,9 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                                                   ? 'จ่ายเต็ม'
                                                   : 'ผ่อนชำระ',
                                           imageApplication: FFAppState()
-                                              .insuranceInfoImageApplication,
+                                              .insuranceInfoPage4ImageApplication,
                                           fileLoanApplicationRegister: FFAppState()
-                                              .insuranceInfoImageFileloanApplicationRegister,
+                                              .insuranceInfoPage4FileLoanApplicationRegister,
                                           insuranceUrl: FFAppState()
                                               .apiUrlInsuranceAppState,
                                           leadDtlId: FFAppState()

@@ -61,9 +61,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => _model.unfocusNode.canRequestFocus
-                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                  : FocusScope.of(context).unfocus(),
+              onTap: () => FocusScope.of(context).unfocus(),
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: Container(
@@ -148,6 +146,9 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
       FFAppState().AddCustomerPageCarRegistration = '';
       FFAppState().addCustomerQuotationSaveSuccess = false;
       FFAppState().insurarerQuotationPdf = [];
+      FFAppState().filterInsurerList = [];
+      FFAppState().filterCoverTypeList = [];
+      FFAppState().filterGarageTypeList = [];
       setState(() {});
       FFAppState().insuranceInfoRegistrationCodeSelect = '';
       FFAppState().insuranceInfoRegistrationProvinceSelect = '';
@@ -1370,9 +1371,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -3080,6 +3079,79 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                               FFAppState().filterGarageTypeList = [];
                               FFAppState().filterCoverTypeList = [];
                               setState(() {});
+                              if (FFAppState().searchPackageSubProduct !=
+                                  'MC') {
+                                context.pushNamed(
+                                  'insurerListOverallPage',
+                                  queryParameters: {
+                                    'brandCode': serializeParam(
+                                      FFAppState().insuranceBasicBrandId,
+                                      ParamType.String,
+                                    ),
+                                    'modelCode': serializeParam(
+                                      FFAppState().insuranceBasicModelId,
+                                      ParamType.String,
+                                    ),
+                                    'year': serializeParam(
+                                      (int.parse(FFAppState()
+                                                  .insuranceBasicYear) -
+                                              543)
+                                          .toString(),
+                                      ParamType.String,
+                                    ),
+                                    'province': serializeParam(
+                                      FFAppState()
+                                          .insuranceInfoRegistrationProvinceSelect,
+                                      ParamType.String,
+                                    ),
+                                    'vehicleUsage': serializeParam(
+                                      FFAppState()
+                                          .insuranceBasicVehicleUsedTypeCode,
+                                      ParamType.String,
+                                    ),
+                                    'coverType': serializeParam(
+                                      FFAppState()
+                                          .insuranceBasicCoverTypeCodeOutputList,
+                                      ParamType.String,
+                                      isList: true,
+                                    ),
+                                    'garageType': serializeParam(
+                                      functions.createGarageTypeCodeList(
+                                          FFAppState()
+                                              .insuranceBasicGarageTypeInPackage
+                                              .toList()),
+                                      ParamType.String,
+                                      isList: true,
+                                    ),
+                                    'brandName': serializeParam(
+                                      FFAppState().insuranceBasicBrandName,
+                                      ParamType.String,
+                                    ),
+                                    'modelName': serializeParam(
+                                      FFAppState().insuranceBasicModelName,
+                                      ParamType.String,
+                                    ),
+                                    'carTypeDetail': serializeParam(
+                                      '',
+                                      ParamType.String,
+                                    ),
+                                    'oldVmiExpDate': serializeParam(
+                                      _model.datePicked != null
+                                          ? functions
+                                              .getDateFormat(_model.datePicked)
+                                          : '',
+                                      ParamType.String,
+                                    ),
+                                    'provinceCode': serializeParam(
+                                      FFAppState()
+                                          .insuranceInfoRegistrationCodeSelect,
+                                      ParamType.String,
+                                    ),
+                                  }.withoutNulls,
+                                );
+
+                                return;
+                              }
 
                               context.pushNamed(
                                 'insurerListPage',

@@ -18,7 +18,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class PaywithQRcodeModel extends FlutterFlowModel<PaywithQRcodeWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Custom Action - capQrCode] action in Button widget.
   String? cap;
 
@@ -26,7 +25,5 @@ class PaywithQRcodeModel extends FlutterFlowModel<PaywithQRcodeWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

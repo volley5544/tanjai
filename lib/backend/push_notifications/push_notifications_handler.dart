@@ -3,10 +3,11 @@ import 'dart:convert';
 
 import 'serialization_util.dart';
 import '../backend.dart';
-import '../../flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
 import '../../flutter_flow/flutter_flow_util.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 
 import '../../index.dart';
 import '../../main.dart';
@@ -72,7 +73,9 @@ class _PushNotificationsHandlerState extends State<PushNotificationsHandler> {
   @override
   void initState() {
     super.initState();
-    handleOpenedPushNotification();
+    SchedulerBinding.instance.addPostFrameCallback((_) {
+      handleOpenedPushNotification();
+    });
   }
 
   @override
@@ -235,6 +238,9 @@ final parametersBuilderMap =
           'cc': getParameter<String>(data, 'cc'),
           'insurerConfig': await getDocumentParameter<InsurerConfig2Record>(
               data, 'insurerConfig', InsurerConfig2Record.fromSnapshot),
+          'carLost': getParameter<String>(data, 'carLost'),
+          'motorAddOn': getParameter<String>(data, 'motorAddOn'),
+          'driverBehavior': getParameter<String>(data, 'driverBehavior'),
         },
       ),
   'NonePackageEditPage1': ParameterData.none(),
@@ -338,6 +344,7 @@ final parametersBuilderMap =
           'oldVmi': getParameter<String>(data, 'oldVmi'),
           'oldVmiExpireDate': getParameter<String>(data, 'oldVmiExpireDate'),
           'workType': getParameter<String>(data, 'workType'),
+          'yearChrist': getParameter<String>(data, 'yearChrist'),
         },
       ),
   'Email_1': ParameterData.none(),
@@ -537,6 +544,20 @@ final parametersBuilderMap =
   'GeminiPage': ParameterData.none(),
   'SelectOrdinary': ParameterData.none(),
   'testPage': ParameterData.none(),
+  'insurerListOverallPage': (data) async => ParameterData(
+        allParams: {
+          'brandCode': getParameter<String>(data, 'brandCode'),
+          'modelCode': getParameter<String>(data, 'modelCode'),
+          'year': getParameter<String>(data, 'year'),
+          'province': getParameter<String>(data, 'province'),
+          'vehicleUsage': getParameter<String>(data, 'vehicleUsage'),
+          'brandName': getParameter<String>(data, 'brandName'),
+          'modelName': getParameter<String>(data, 'modelName'),
+          'carTypeDetail': getParameter<String>(data, 'carTypeDetail'),
+          'oldVmiExpDate': getParameter<String>(data, 'oldVmiExpDate'),
+          'provinceCode': getParameter<String>(data, 'provinceCode'),
+        },
+      ),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

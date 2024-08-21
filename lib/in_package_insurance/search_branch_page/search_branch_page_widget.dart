@@ -50,9 +50,7 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => _model.unfocusNode.canRequestFocus
-                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                  : FocusScope.of(context).unfocus(),
+              onTap: () => FocusScope.of(context).unfocus(),
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: LoadingSceneWidget(),
@@ -155,9 +153,7 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -327,13 +323,8 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
                                       builder: (context) {
                                         return WebViewAware(
                                           child: GestureDetector(
-                                            onTap: () => _model
-                                                    .unfocusNode.canRequestFocus
-                                                ? FocusScope.of(context)
-                                                    .requestFocus(
-                                                        _model.unfocusNode)
-                                                : FocusScope.of(context)
-                                                    .unfocus(),
+                                            onTap: () => FocusScope.of(context)
+                                                .unfocus(),
                                             child: Padding(
                                               padding: MediaQuery.viewInsetsOf(
                                                   context),
@@ -522,15 +513,18 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
                                         visible: _model.textController.text !=
                                                     null &&
                                                 _model.textController.text != ''
-                                            ? (functions.containWordinStringUrl(
-                                                    _model.textController.text
-                                                        .toUpperCase(),
-                                                    GetlocationAPICall
-                                                        .branchCode(
-                                                      (_model.getBranchSearched
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    )?[branchListItemIndex])! ||
+                                            ? ((functions
+                                                    .containWordinStringUrl(
+                                                        _model
+                                                            .textController.text
+                                                            .toUpperCase(),
+                                                        GetlocationAPICall
+                                                                .branchCode(
+                                                          (_model.getBranchSearched
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        )?[
+                                                            branchListItemIndex])! ||
                                                 functions
                                                     .containWordinStringUrl(
                                                         _model
@@ -541,7 +535,7 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
                                                           (_model.getBranchSearched
                                                                   ?.jsonBody ??
                                                               ''),
-                                                        )?[branchListItemIndex])!)
+                                                        )?[branchListItemIndex])!))
                                             : true,
                                         child: InkWell(
                                           splashColor: Colors.transparent,
@@ -552,11 +546,12 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
                                             if (widget!.fromPage ==
                                                 'RenewBasic') {
                                               FFAppState().renewBranchCode =
-                                                  GetlocationAPICall.branchCode(
+                                                  (GetlocationAPICall
+                                                          .branchCode(
                                                 (_model.getBranchSearched
                                                         ?.jsonBody ??
                                                     ''),
-                                              )![branchListItemIndex]
+                                              )![branchListItemIndex])
                                                       .toUpperCase();
                                               FFAppState().renewBranchName =
                                                   GetlocationAPICall.branchName(
@@ -572,11 +567,12 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
                                                 'NonePackage') {
                                               FFAppState()
                                                       .nonePackageBranchCode =
-                                                  GetlocationAPICall.branchCode(
+                                                  (GetlocationAPICall
+                                                          .branchCode(
                                                 (_model.getBranchSearched
                                                         ?.jsonBody ??
                                                     ''),
-                                              )![branchListItemIndex]
+                                              )![branchListItemIndex])
                                                       .toUpperCase();
                                               FFAppState()
                                                       .nonePackageBranchName =
@@ -591,11 +587,11 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
                                             }
                                             FFAppState()
                                                     .insuranceInfoBranchCode =
-                                                GetlocationAPICall.branchCode(
+                                                (GetlocationAPICall.branchCode(
                                               (_model.getBranchSearched
                                                       ?.jsonBody ??
                                                   ''),
-                                            )![branchListItemIndex]
+                                            )![branchListItemIndex])
                                                     .toUpperCase();
                                             FFAppState()
                                                     .insuranceInfoBranchNameOutput =

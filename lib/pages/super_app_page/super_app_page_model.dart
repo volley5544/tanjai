@@ -4,7 +4,6 @@ import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
 import '/components/custom_dialog_component_widget.dart';
 import '/components/license_select_component_widget.dart';
-import '/components/open_chrome_component_widget.dart';
 import '/components/search_old_vmi_widget.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -39,7 +38,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - Read Document] action in SuperAppPage widget.
   HideInAppContentRecord? getHideContentTableauDoc;
   // Stores action output result for [Custom Action - a14] action in SuperAppPage widget.
@@ -89,7 +87,6 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     expandableExpandableController.dispose();
   }
 }

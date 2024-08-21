@@ -71,15 +71,13 @@ class _NonePackageEditPage2CopyWidgetState
         }
         List<UrlLinkStorageRecord>
             nonePackageEditPage2CopyUrlLinkStorageRecordList = snapshot.data!;
-
         final nonePackageEditPage2CopyUrlLinkStorageRecord =
             nonePackageEditPage2CopyUrlLinkStorageRecordList.isNotEmpty
                 ? nonePackageEditPage2CopyUrlLinkStorageRecordList.first
                 : null;
+
         return GestureDetector(
-          onTap: () => _model.unfocusNode.canRequestFocus
-              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-              : FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).unfocus(),
           child: WillPopScope(
             onWillPop: () async => false,
             child: Scaffold(

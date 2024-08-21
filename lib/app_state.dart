@@ -13285,6 +13285,422 @@ class FFAppState extends ChangeNotifier {
   set tempVariable(String value) {
     _tempVariable = value;
   }
+
+  List<String> _searchInsurerInsurershortname = [];
+  List<String> get searchInsurerInsurershortname =>
+      _searchInsurerInsurershortname;
+  set searchInsurerInsurershortname(List<String> value) {
+    _searchInsurerInsurershortname = value;
+  }
+
+  void addToSearchInsurerInsurershortname(String value) {
+    searchInsurerInsurershortname.add(value);
+  }
+
+  void removeFromSearchInsurerInsurershortname(String value) {
+    searchInsurerInsurershortname.remove(value);
+  }
+
+  void removeAtIndexFromSearchInsurerInsurershortname(int index) {
+    searchInsurerInsurershortname.removeAt(index);
+  }
+
+  void updateSearchInsurerInsurershortnameAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    searchInsurerInsurershortname[index] =
+        updateFn(_searchInsurerInsurershortname[index]);
+  }
+
+  void insertAtIndexInSearchInsurerInsurershortname(int index, String value) {
+    searchInsurerInsurershortname.insert(index, value);
+  }
+
+  List<String> _searchInsurerInsurername = [];
+  List<String> get searchInsurerInsurername => _searchInsurerInsurername;
+  set searchInsurerInsurername(List<String> value) {
+    _searchInsurerInsurername = value;
+  }
+
+  void addToSearchInsurerInsurername(String value) {
+    searchInsurerInsurername.add(value);
+  }
+
+  void removeFromSearchInsurerInsurername(String value) {
+    searchInsurerInsurername.remove(value);
+  }
+
+  void removeAtIndexFromSearchInsurerInsurername(int index) {
+    searchInsurerInsurername.removeAt(index);
+  }
+
+  void updateSearchInsurerInsurernameAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    searchInsurerInsurername[index] =
+        updateFn(_searchInsurerInsurername[index]);
+  }
+
+  void insertAtIndexInSearchInsurerInsurername(int index, String value) {
+    searchInsurerInsurername.insert(index, value);
+  }
+
+  List<String> _searchInsurerInsurercode = [];
+  List<String> get searchInsurerInsurercode => _searchInsurerInsurercode;
+  set searchInsurerInsurercode(List<String> value) {
+    _searchInsurerInsurercode = value;
+  }
+
+  void addToSearchInsurerInsurercode(String value) {
+    searchInsurerInsurercode.add(value);
+  }
+
+  void removeFromSearchInsurerInsurercode(String value) {
+    searchInsurerInsurercode.remove(value);
+  }
+
+  void removeAtIndexFromSearchInsurerInsurercode(int index) {
+    searchInsurerInsurercode.removeAt(index);
+  }
+
+  void updateSearchInsurerInsurercodeAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    searchInsurerInsurercode[index] =
+        updateFn(_searchInsurerInsurercode[index]);
+  }
+
+  void insertAtIndexInSearchInsurerInsurercode(int index, String value) {
+    searchInsurerInsurercode.insert(index, value);
+  }
+
+  List<String> _searchInsurerCompanyid = [];
+  List<String> get searchInsurerCompanyid => _searchInsurerCompanyid;
+  set searchInsurerCompanyid(List<String> value) {
+    _searchInsurerCompanyid = value;
+  }
+
+  void addToSearchInsurerCompanyid(String value) {
+    searchInsurerCompanyid.add(value);
+  }
+
+  void removeFromSearchInsurerCompanyid(String value) {
+    searchInsurerCompanyid.remove(value);
+  }
+
+  void removeAtIndexFromSearchInsurerCompanyid(int index) {
+    searchInsurerCompanyid.removeAt(index);
+  }
+
+  void updateSearchInsurerCompanyidAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    searchInsurerCompanyid[index] = updateFn(_searchInsurerCompanyid[index]);
+  }
+
+  void insertAtIndexInSearchInsurerCompanyid(int index, String value) {
+    searchInsurerCompanyid.insert(index, value);
+  }
+
+  List<String> _searchInsurerLogo = [];
+  List<String> get searchInsurerLogo => _searchInsurerLogo;
+  set searchInsurerLogo(List<String> value) {
+    _searchInsurerLogo = value;
+  }
+
+  void addToSearchInsurerLogo(String value) {
+    searchInsurerLogo.add(value);
+  }
+
+  void removeFromSearchInsurerLogo(String value) {
+    searchInsurerLogo.remove(value);
+  }
+
+  void removeAtIndexFromSearchInsurerLogo(int index) {
+    searchInsurerLogo.removeAt(index);
+  }
+
+  void updateSearchInsurerLogoAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    searchInsurerLogo[index] = updateFn(_searchInsurerLogo[index]);
+  }
+
+  void insertAtIndexInSearchInsurerLogo(int index, String value) {
+    searchInsurerLogo.insert(index, value);
+  }
+
+  List<String> _searchInsurerCovertypelist = [];
+  List<String> get searchInsurerCovertypelist => _searchInsurerCovertypelist;
+  set searchInsurerCovertypelist(List<String> value) {
+    _searchInsurerCovertypelist = value;
+  }
+
+  void addToSearchInsurerCovertypelist(String value) {
+    searchInsurerCovertypelist.add(value);
+  }
+
+  void removeFromSearchInsurerCovertypelist(String value) {
+    searchInsurerCovertypelist.remove(value);
+  }
+
+  void removeAtIndexFromSearchInsurerCovertypelist(int index) {
+    searchInsurerCovertypelist.removeAt(index);
+  }
+
+  void updateSearchInsurerCovertypelistAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    searchInsurerCovertypelist[index] =
+        updateFn(_searchInsurerCovertypelist[index]);
+  }
+
+  void insertAtIndexInSearchInsurerCovertypelist(int index, String value) {
+    searchInsurerCovertypelist.insert(index, value);
+  }
+
+  List<String> _searchInsurerGaragetypelist = [];
+  List<String> get searchInsurerGaragetypelist => _searchInsurerGaragetypelist;
+  set searchInsurerGaragetypelist(List<String> value) {
+    _searchInsurerGaragetypelist = value;
+  }
+
+  void addToSearchInsurerGaragetypelist(String value) {
+    searchInsurerGaragetypelist.add(value);
+  }
+
+  void removeFromSearchInsurerGaragetypelist(String value) {
+    searchInsurerGaragetypelist.remove(value);
+  }
+
+  void removeAtIndexFromSearchInsurerGaragetypelist(int index) {
+    searchInsurerGaragetypelist.removeAt(index);
+  }
+
+  void updateSearchInsurerGaragetypelistAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    searchInsurerGaragetypelist[index] =
+        updateFn(_searchInsurerGaragetypelist[index]);
+  }
+
+  void insertAtIndexInSearchInsurerGaragetypelist(int index, String value) {
+    searchInsurerGaragetypelist.insert(index, value);
+  }
+
+  List<String> _searchInsurerMaxnetpremium = [];
+  List<String> get searchInsurerMaxnetpremium => _searchInsurerMaxnetpremium;
+  set searchInsurerMaxnetpremium(List<String> value) {
+    _searchInsurerMaxnetpremium = value;
+  }
+
+  void addToSearchInsurerMaxnetpremium(String value) {
+    searchInsurerMaxnetpremium.add(value);
+  }
+
+  void removeFromSearchInsurerMaxnetpremium(String value) {
+    searchInsurerMaxnetpremium.remove(value);
+  }
+
+  void removeAtIndexFromSearchInsurerMaxnetpremium(int index) {
+    searchInsurerMaxnetpremium.removeAt(index);
+  }
+
+  void updateSearchInsurerMaxnetpremiumAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    searchInsurerMaxnetpremium[index] =
+        updateFn(_searchInsurerMaxnetpremium[index]);
+  }
+
+  void insertAtIndexInSearchInsurerMaxnetpremium(int index, String value) {
+    searchInsurerMaxnetpremium.insert(index, value);
+  }
+
+  List<String> _searchInsurerMinnetpremium = [];
+  List<String> get searchInsurerMinnetpremium => _searchInsurerMinnetpremium;
+  set searchInsurerMinnetpremium(List<String> value) {
+    _searchInsurerMinnetpremium = value;
+  }
+
+  void addToSearchInsurerMinnetpremium(String value) {
+    searchInsurerMinnetpremium.add(value);
+  }
+
+  void removeFromSearchInsurerMinnetpremium(String value) {
+    searchInsurerMinnetpremium.remove(value);
+  }
+
+  void removeAtIndexFromSearchInsurerMinnetpremium(int index) {
+    searchInsurerMinnetpremium.removeAt(index);
+  }
+
+  void updateSearchInsurerMinnetpremiumAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    searchInsurerMinnetpremium[index] =
+        updateFn(_searchInsurerMinnetpremium[index]);
+  }
+
+  void insertAtIndexInSearchInsurerMinnetpremium(int index, String value) {
+    searchInsurerMinnetpremium.insert(index, value);
+  }
+
+  List<String> _searchInsurerMaxsuminsured = [];
+  List<String> get searchInsurerMaxsuminsured => _searchInsurerMaxsuminsured;
+  set searchInsurerMaxsuminsured(List<String> value) {
+    _searchInsurerMaxsuminsured = value;
+  }
+
+  void addToSearchInsurerMaxsuminsured(String value) {
+    searchInsurerMaxsuminsured.add(value);
+  }
+
+  void removeFromSearchInsurerMaxsuminsured(String value) {
+    searchInsurerMaxsuminsured.remove(value);
+  }
+
+  void removeAtIndexFromSearchInsurerMaxsuminsured(int index) {
+    searchInsurerMaxsuminsured.removeAt(index);
+  }
+
+  void updateSearchInsurerMaxsuminsuredAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    searchInsurerMaxsuminsured[index] =
+        updateFn(_searchInsurerMaxsuminsured[index]);
+  }
+
+  void insertAtIndexInSearchInsurerMaxsuminsured(int index, String value) {
+    searchInsurerMaxsuminsured.insert(index, value);
+  }
+
+  List<String> _searchInsurerMinsuminsured = [];
+  List<String> get searchInsurerMinsuminsured => _searchInsurerMinsuminsured;
+  set searchInsurerMinsuminsured(List<String> value) {
+    _searchInsurerMinsuminsured = value;
+  }
+
+  void addToSearchInsurerMinsuminsured(String value) {
+    searchInsurerMinsuminsured.add(value);
+  }
+
+  void removeFromSearchInsurerMinsuminsured(String value) {
+    searchInsurerMinsuminsured.remove(value);
+  }
+
+  void removeAtIndexFromSearchInsurerMinsuminsured(int index) {
+    searchInsurerMinsuminsured.removeAt(index);
+  }
+
+  void updateSearchInsurerMinsuminsuredAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    searchInsurerMinsuminsured[index] =
+        updateFn(_searchInsurerMinsuminsured[index]);
+  }
+
+  void insertAtIndexInSearchInsurerMinsuminsured(int index, String value) {
+    searchInsurerMinsuminsured.insert(index, value);
+  }
+
+  List<String> _searchCarlost = [];
+  List<String> get searchCarlost => _searchCarlost;
+  set searchCarlost(List<String> value) {
+    _searchCarlost = value;
+  }
+
+  void addToSearchCarlost(String value) {
+    searchCarlost.add(value);
+  }
+
+  void removeFromSearchCarlost(String value) {
+    searchCarlost.remove(value);
+  }
+
+  void removeAtIndexFromSearchCarlost(int index) {
+    searchCarlost.removeAt(index);
+  }
+
+  void updateSearchCarlostAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    searchCarlost[index] = updateFn(_searchCarlost[index]);
+  }
+
+  void insertAtIndexInSearchCarlost(int index, String value) {
+    searchCarlost.insert(index, value);
+  }
+
+  List<String> _searchMotoraddon = [];
+  List<String> get searchMotoraddon => _searchMotoraddon;
+  set searchMotoraddon(List<String> value) {
+    _searchMotoraddon = value;
+  }
+
+  void addToSearchMotoraddon(String value) {
+    searchMotoraddon.add(value);
+  }
+
+  void removeFromSearchMotoraddon(String value) {
+    searchMotoraddon.remove(value);
+  }
+
+  void removeAtIndexFromSearchMotoraddon(int index) {
+    searchMotoraddon.removeAt(index);
+  }
+
+  void updateSearchMotoraddonAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    searchMotoraddon[index] = updateFn(_searchMotoraddon[index]);
+  }
+
+  void insertAtIndexInSearchMotoraddon(int index, String value) {
+    searchMotoraddon.insert(index, value);
+  }
+
+  List<String> _searchDriverbehavior = [];
+  List<String> get searchDriverbehavior => _searchDriverbehavior;
+  set searchDriverbehavior(List<String> value) {
+    _searchDriverbehavior = value;
+  }
+
+  void addToSearchDriverbehavior(String value) {
+    searchDriverbehavior.add(value);
+  }
+
+  void removeFromSearchDriverbehavior(String value) {
+    searchDriverbehavior.remove(value);
+  }
+
+  void removeAtIndexFromSearchDriverbehavior(int index) {
+    searchDriverbehavior.removeAt(index);
+  }
+
+  void updateSearchDriverbehaviorAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    searchDriverbehavior[index] = updateFn(_searchDriverbehavior[index]);
+  }
+
+  void insertAtIndexInSearchDriverbehavior(int index, String value) {
+    searchDriverbehavior.insert(index, value);
+  }
 }
 
 void _safeInit(Function() initializeField) {

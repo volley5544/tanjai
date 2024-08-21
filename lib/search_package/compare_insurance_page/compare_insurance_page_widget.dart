@@ -60,6 +60,9 @@ class CompareInsurancePageWidget extends StatefulWidget {
     this.insurerCondition,
     required this.cc,
     required this.insurerConfig2,
+    required this.carLost,
+    required this.motorAddOn,
+    required this.driverBehavior,
   })  : this.currentDate = currentDate ?? '-',
         this.brandId = brandId ?? '-',
         this.brandName = brandName ?? '-',
@@ -110,6 +113,9 @@ class CompareInsurancePageWidget extends StatefulWidget {
   final List<String>? insurerCondition;
   final List<String>? cc;
   final InsurerConfig2Record? insurerConfig2;
+  final List<String>? carLost;
+  final List<String>? motorAddOn;
+  final List<String>? driverBehavior;
 
   @override
   State<CompareInsurancePageWidget> createState() =>
@@ -143,9 +149,7 @@ class _CompareInsurancePageWidgetState
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -211,7 +215,6 @@ class _CompareInsurancePageWidgetState
                 }
                 List<HideInAppContentRecord> columnHideInAppContentRecordList =
                     snapshot.data!;
-
                 // Return an empty Container when the item does not exist.
                 if (snapshot.data!.isEmpty) {
                   return Container();
@@ -220,6 +223,7 @@ class _CompareInsurancePageWidgetState
                     columnHideInAppContentRecordList.isNotEmpty
                         ? columnHideInAppContentRecordList.first
                         : null;
+
                 return SingleChildScrollView(
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
@@ -390,13 +394,13 @@ class _CompareInsurancePageWidgetState
                                                               )) ==
                                                               '-'
                                                           ? '-'
-                                                          : valueOrDefault<
+                                                          : (valueOrDefault<
                                                               String>(
                                                               widget!.insurerFullName?[
                                                                   _model
                                                                       .indexDataCompare!],
                                                               '-',
-                                                            ),
+                                                            )),
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .bodyMedium
@@ -486,13 +490,13 @@ class _CompareInsurancePageWidgetState
                                                               )) ==
                                                               '-'
                                                           ? '-'
-                                                          : valueOrDefault<
+                                                          : (valueOrDefault<
                                                               String>(
                                                               widget!.coverTypeName?[
                                                                   _model
                                                                       .indexDataCompare!],
                                                               '-',
-                                                            ),
+                                                            )),
                                                       textAlign:
                                                           TextAlign.justify,
                                                       style: FlutterFlowTheme
@@ -545,13 +549,13 @@ class _CompareInsurancePageWidgetState
                                                               )) ==
                                                               '-'
                                                           ? '-'
-                                                          : valueOrDefault<
+                                                          : (valueOrDefault<
                                                               String>(
                                                               widget!.garageTypeName?[
                                                                   _model
                                                                       .indexDataCompare!],
                                                               '-',
-                                                            ),
+                                                            )),
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .bodyMedium
@@ -967,7 +971,7 @@ class _CompareInsurancePageWidgetState
                                                 )) ==
                                                 '-'
                                             ? '-'
-                                            : valueOrDefault<String>(
+                                            : (valueOrDefault<String>(
                                                 functions.showNumberWithComma(
                                                     valueOrDefault<String>(
                                                   widget!.grossTotal?[
@@ -975,7 +979,7 @@ class _CompareInsurancePageWidgetState
                                                   '-',
                                                 )),
                                                 '-',
-                                              ),
+                                              )),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -1029,7 +1033,7 @@ class _CompareInsurancePageWidgetState
                                                 )) ==
                                                 '-'
                                             ? '-'
-                                            : valueOrDefault<String>(
+                                            : (valueOrDefault<String>(
                                                 functions.showNumberWithComma(
                                                     valueOrDefault<String>(
                                                   widget!.sumInsured?[
@@ -1037,7 +1041,7 @@ class _CompareInsurancePageWidgetState
                                                   '-',
                                                 )),
                                                 '-',
-                                              ),
+                                              )),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -1088,12 +1092,12 @@ class _CompareInsurancePageWidgetState
                                                 )) ==
                                                 '-'
                                             ? '-'
-                                            : valueOrDefault<String>(
+                                            : (valueOrDefault<String>(
                                                 functions.showNumberWithComma(
                                                     widget!.deductible?[_model
                                                         .indexDataCompare!]),
                                                 '-',
-                                              ),
+                                              )),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -1145,7 +1149,7 @@ class _CompareInsurancePageWidgetState
                                                 )) ==
                                                 '-'
                                             ? '-'
-                                            : valueOrDefault<String>(
+                                            : (valueOrDefault<String>(
                                                 functions.showNumberWithComma(
                                                     valueOrDefault<String>(
                                                   widget!.tpbiAccident?[
@@ -1153,7 +1157,7 @@ class _CompareInsurancePageWidgetState
                                                   '-',
                                                 )),
                                                 '-',
-                                              ),
+                                              )),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -1200,12 +1204,12 @@ class _CompareInsurancePageWidgetState
                                                         .indexDataCompare!]) ==
                                                 '-'
                                             ? '-'
-                                            : valueOrDefault<String>(
+                                            : (valueOrDefault<String>(
                                                 functions.showNumberWithComma(
                                                     widget!.pa?[_model
                                                         .indexDataCompare!]),
                                                 '-',
-                                              ),
+                                              )),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -1255,7 +1259,7 @@ class _CompareInsurancePageWidgetState
                                                 )) ==
                                                 '-'
                                             ? '-'
-                                            : valueOrDefault<String>(
+                                            : (valueOrDefault<String>(
                                                 functions.showNumberWithComma(
                                                     valueOrDefault<String>(
                                                   widget!.grossTotal?[
@@ -1263,7 +1267,7 @@ class _CompareInsurancePageWidgetState
                                                   '-',
                                                 )),
                                                 '-',
-                                              ),
+                                              )),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -1313,7 +1317,7 @@ class _CompareInsurancePageWidgetState
                                                 )) ==
                                                 '-'
                                             ? '-'
-                                            : valueOrDefault<String>(
+                                            : (valueOrDefault<String>(
                                                 functions.showNumberWithComma(
                                                     functions.getGrossAct(
                                                         widget!.grossTotal?[_model
@@ -1321,7 +1325,7 @@ class _CompareInsurancePageWidgetState
                                                         widget!.grossAct?[_model
                                                             .indexDataCompare!])),
                                                 '-',
-                                              ),
+                                              )),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -1373,12 +1377,12 @@ class _CompareInsurancePageWidgetState
                                                     )) ==
                                                     '-'
                                                 ? '-'
-                                                : functions.changeADToBD(
+                                                : (functions.changeADToBD(
                                                     valueOrDefault<String>(
                                                     widget!.expireDate?[_model
                                                         .indexDataCompare!],
                                                     '-',
-                                                  )),
+                                                  ))),
                                             '-',
                                           ),
                                           style: FlutterFlowTheme.of(context)
@@ -1727,6 +1731,26 @@ class _CompareInsurancePageWidgetState
                                                               ParamType.String,
                                                               isList: true,
                                                             ),
+                                                            'carLost':
+                                                                serializeParam(
+                                                              widget!.carLost,
+                                                              ParamType.String,
+                                                              isList: true,
+                                                            ),
+                                                            'motorAddOn':
+                                                                serializeParam(
+                                                              widget!
+                                                                  .motorAddOn,
+                                                              ParamType.String,
+                                                              isList: true,
+                                                            ),
+                                                            'driverBehavior':
+                                                                serializeParam(
+                                                              widget!
+                                                                  .driverBehavior,
+                                                              ParamType.String,
+                                                              isList: true,
+                                                            ),
                                                           }.withoutNulls,
                                                         );
                                                       },
@@ -1892,13 +1916,13 @@ class _CompareInsurancePageWidgetState
                                                                     )) ==
                                                                     '-'
                                                                 ? '-'
-                                                                : valueOrDefault<
+                                                                : (valueOrDefault<
                                                                     String>(
                                                                     widget!.coverTypeName?[
                                                                         _model
                                                                             .indexDataCompare!],
                                                                     '-',
-                                                                  )) ==
+                                                                  ))) ==
                                                             'ชั้น 1') {
                                                           await showDialog(
                                                             context: context,
@@ -2220,6 +2244,23 @@ class _CompareInsurancePageWidgetState
                                                       ),
                                                       'cc': serializeParam(
                                                         widget!.cc,
+                                                        ParamType.String,
+                                                        isList: true,
+                                                      ),
+                                                      'carLost': serializeParam(
+                                                        widget!.carLost,
+                                                        ParamType.String,
+                                                        isList: true,
+                                                      ),
+                                                      'motorAddOn':
+                                                          serializeParam(
+                                                        widget!.motorAddOn,
+                                                        ParamType.String,
+                                                        isList: true,
+                                                      ),
+                                                      'driverBehavior':
+                                                          serializeParam(
+                                                        widget!.driverBehavior,
                                                         ParamType.String,
                                                         isList: true,
                                                       ),

@@ -26,9 +26,10 @@ class InformationCustomer2Model
     extends FlutterFlowModel<InformationCustomer2Widget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Custom Action - getBuildVersion1] action in informationCustomer2 widget.
   String? getBuildVersion;
+  // Stores action output result for [Custom Action - getBuildNumber] action in informationCustomer2 widget.
+  int? deviceBuildNumber;
   // Stores action output result for [Firestore Query - Query a collection] action in informationCustomer2 widget.
   BuildVersionRecord? buildVersionQuery;
   // Stores action output result for [Firestore Query - Query a collection] action in informationCustomer2 widget.
@@ -66,7 +67,6 @@ class InformationCustomer2Model
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     firstnameFocusNode?.dispose();
     firstnameTextController?.dispose();
 

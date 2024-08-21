@@ -25,7 +25,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class LeadFollowUpPageModel extends FlutterFlowModel<LeadFollowUpPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Custom Action - getBuildVersion1] action in LeadFollowUpPage widget.
   String? getBuildVersion;
   // Stores action output result for [Custom Action - getBuildNumber] action in LeadFollowUpPage widget.
@@ -41,7 +40,5 @@ class LeadFollowUpPageModel extends FlutterFlowModel<LeadFollowUpPageWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

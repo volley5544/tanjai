@@ -46,9 +46,7 @@ class _NotificationIBSWidgetState extends State<NotificationIBSWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -295,7 +293,7 @@ class _NotificationIBSWidgetState extends State<NotificationIBSWidget> {
                                                                 0.0, 0.0),
                                                     child: Text(
                                                       dateTimeFormat(
-                                                        'Hm',
+                                                        "Hm",
                                                         listViewNotificationRecord
                                                             .notiTime!,
                                                         locale:

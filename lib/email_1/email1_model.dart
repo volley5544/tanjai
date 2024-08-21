@@ -17,7 +17,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class Email1Model extends FlutterFlowModel<Email1Widget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Custom Action - enoughEmail] action in Email_1 widget.
   List<String>? subjectEmailOutput;
   // Stores action output result for [Custom Action - enoughEmail] action in Email_1 widget.
@@ -34,7 +33,6 @@ class Email1Model extends FlutterFlowModel<Email1Widget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     textFieldFocusNode?.dispose();
     textController?.dispose();
   }

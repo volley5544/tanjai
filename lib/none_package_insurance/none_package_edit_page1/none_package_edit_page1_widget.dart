@@ -90,15 +90,13 @@ class _NonePackageEditPage1WidgetState
         }
         List<UrlLinkStorageRecord>
             nonePackageEditPage1UrlLinkStorageRecordList = snapshot.data!;
-
         final nonePackageEditPage1UrlLinkStorageRecord =
             nonePackageEditPage1UrlLinkStorageRecordList.isNotEmpty
                 ? nonePackageEditPage1UrlLinkStorageRecordList.first
                 : null;
+
         return GestureDetector(
-          onTap: () => _model.unfocusNode.canRequestFocus
-              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-              : FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).unfocus(),
           child: WillPopScope(
             onWillPop: () async => false,
             child: Scaffold(

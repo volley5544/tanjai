@@ -260,7 +260,7 @@ class _NonePackageShowStatusComponentWidgetState
                                                                 children: [
                                                                   Text(
                                                                     dateTimeFormat(
-                                                                      'Hm',
+                                                                      "Hm",
                                                                       functions.parseStringToDatetime(functions.removeLastIndexList(widget!
                                                                           .updateAtList
                                                                           ?.toList())?[quotaionStatusListViewIndex]),
@@ -501,7 +501,7 @@ class _NonePackageShowStatusComponentWidgetState
                                                           children: [
                                                             Text(
                                                               dateTimeFormat(
-                                                                'Hm',
+                                                                "Hm",
                                                                 functions.parseStringToDatetime(
                                                                     valueOrDefault<
                                                                         String>(
@@ -605,7 +605,7 @@ class _NonePackageShowStatusComponentWidgetState
                                                           children: [
                                                             Text(
                                                               dateTimeFormat(
-                                                                'Hm',
+                                                                "Hm",
                                                                 functions.parseStringToDatetime(
                                                                     widget!
                                                                         .updateAtList

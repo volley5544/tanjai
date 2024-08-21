@@ -18,9 +18,10 @@ class NonePackageRenewPageModel
     extends FlutterFlowModel<NonePackageRenewPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Custom Action - getBuildVersion1] action in NonePackageRenewPage widget.
   String? getBuildVersion;
+  // Stores action output result for [Custom Action - getBuildNumber] action in NonePackageRenewPage widget.
+  int? deviceBuildNumber;
   // Stores action output result for [Firestore Query - Query a collection] action in NonePackageRenewPage widget.
   BuildVersionRecord? buildVersionQuery;
   // Stores action output result for [Firestore Query - Query a collection] action in NonePackageRenewPage widget.
@@ -30,7 +31,5 @@ class NonePackageRenewPageModel
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

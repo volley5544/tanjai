@@ -49,9 +49,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -854,11 +852,8 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                               builder: (context) {
                                 return WebViewAware(
                                   child: GestureDetector(
-                                    onTap: () => _model
-                                            .unfocusNode.canRequestFocus
-                                        ? FocusScope.of(context)
-                                            .requestFocus(_model.unfocusNode)
-                                        : FocusScope.of(context).unfocus(),
+                                    onTap: () =>
+                                        FocusScope.of(context).unfocus(),
                                     child: Padding(
                                       padding: MediaQuery.viewInsetsOf(context),
                                       child: LoadingSceneWidget(),
@@ -874,7 +869,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                               token: FFAppState().accessToken,
                               chassisNbr: _model.textController.text,
                               effDate: dateTimeFormat(
-                                'dd-MM-yyyy',
+                                "dd-MM-yyyy",
                                 _model.datePicked,
                                 locale:
                                     FFLocalizations.of(context).languageCode,
@@ -1077,11 +1072,8 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                 builder: (context) {
                                   return WebViewAware(
                                     child: GestureDetector(
-                                      onTap: () => _model
-                                              .unfocusNode.canRequestFocus
-                                          ? FocusScope.of(context)
-                                              .requestFocus(_model.unfocusNode)
-                                          : FocusScope.of(context).unfocus(),
+                                      onTap: () =>
+                                          FocusScope.of(context).unfocus(),
                                       child: Padding(
                                         padding:
                                             MediaQuery.viewInsetsOf(context),
@@ -1098,7 +1090,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                 token: FFAppState().accessToken,
                                 chassisNbr: _model.textController.text,
                                 effDate: dateTimeFormat(
-                                  'dd-MM-yyyy',
+                                  "dd-MM-yyyy",
                                   _model.datePicked,
                                   locale:
                                       FFLocalizations.of(context).languageCode,

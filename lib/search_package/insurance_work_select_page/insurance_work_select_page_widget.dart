@@ -46,9 +46,7 @@ class _InsuranceWorkSelectPageWidgetState
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -287,11 +285,11 @@ class _InsuranceWorkSelectPageWidgetState
                 }
                 List<HideInAppContentRecord> columnHideInAppContentRecordList =
                     snapshot.data!;
-
                 final columnHideInAppContentRecord =
                     columnHideInAppContentRecordList.isNotEmpty
                         ? columnHideInAppContentRecordList.first
                         : null;
+
                 return Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [

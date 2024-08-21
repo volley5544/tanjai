@@ -60,6 +60,9 @@ class DetailsInsurancePageWidget extends StatefulWidget {
     this.insurerCondition,
     required this.cc,
     required this.insurerConfig,
+    required this.carLost,
+    required this.motorAddOn,
+    required this.driverBehavior,
   })  : this.insurerFullName = insurerFullName ?? '-',
         this.currentDate = currentDate ?? '-',
         this.brandId = brandId ?? '-',
@@ -131,6 +134,9 @@ class DetailsInsurancePageWidget extends StatefulWidget {
   final String? insurerCondition;
   final String? cc;
   final InsurerConfig2Record? insurerConfig;
+  final String? carLost;
+  final String? motorAddOn;
+  final String? driverBehavior;
 
   @override
   State<DetailsInsurancePageWidget> createState() =>
@@ -164,9 +170,7 @@ class _DetailsInsurancePageWidgetState
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -232,7 +236,6 @@ class _DetailsInsurancePageWidgetState
                 }
                 List<HideInAppContentRecord> columnHideInAppContentRecordList =
                     snapshot.data!;
-
                 // Return an empty Container when the item does not exist.
                 if (snapshot.data!.isEmpty) {
                   return Container();
@@ -241,6 +244,7 @@ class _DetailsInsurancePageWidgetState
                     columnHideInAppContentRecordList.isNotEmpty
                         ? columnHideInAppContentRecordList.first
                         : null;
+
                 return SingleChildScrollView(
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
@@ -1356,6 +1360,24 @@ class _DetailsInsurancePageWidgetState
                                               ParamType.String,
                                               isList: true,
                                             ),
+                                            'carLost': serializeParam(
+                                              functions.makeStringToList1(
+                                                  widget!.carLost),
+                                              ParamType.String,
+                                              isList: true,
+                                            ),
+                                            'motorAddOn': serializeParam(
+                                              functions.makeStringToList1(
+                                                  widget!.motorAddOn),
+                                              ParamType.String,
+                                              isList: true,
+                                            ),
+                                            'driverBehavior': serializeParam(
+                                              functions.makeStringToList1(
+                                                  widget!.driverBehavior),
+                                              ParamType.String,
+                                              isList: true,
+                                            ),
                                           }.withoutNulls,
                                         );
                                       },
@@ -1749,6 +1771,24 @@ class _DetailsInsurancePageWidgetState
                                             'cc': serializeParam(
                                               functions.makeStringToList1(
                                                   widget!.cc),
+                                              ParamType.String,
+                                              isList: true,
+                                            ),
+                                            'carLost': serializeParam(
+                                              functions.makeStringToList1(
+                                                  widget!.carLost),
+                                              ParamType.String,
+                                              isList: true,
+                                            ),
+                                            'motorAddOn': serializeParam(
+                                              functions.makeStringToList1(
+                                                  widget!.motorAddOn),
+                                              ParamType.String,
+                                              isList: true,
+                                            ),
+                                            'driverBehavior': serializeParam(
+                                              functions.makeStringToList1(
+                                                  widget!.driverBehavior),
                                               ParamType.String,
                                               isList: true,
                                             ),

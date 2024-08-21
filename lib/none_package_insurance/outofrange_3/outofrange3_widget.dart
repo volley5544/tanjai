@@ -69,15 +69,13 @@ class _Outofrange3WidgetState extends State<Outofrange3Widget> {
         }
         List<UrlLinkStorageRecord> outofrange3UrlLinkStorageRecordList =
             snapshot.data!;
-
         final outofrange3UrlLinkStorageRecord =
             outofrange3UrlLinkStorageRecordList.isNotEmpty
                 ? outofrange3UrlLinkStorageRecordList.first
                 : null;
+
         return GestureDetector(
-          onTap: () => _model.unfocusNode.canRequestFocus
-              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-              : FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).unfocus(),
           child: WillPopScope(
             onWillPop: () async => false,
             child: Scaffold(

@@ -63,9 +63,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => _model.unfocusNode.canRequestFocus
-                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                  : FocusScope.of(context).unfocus(),
+              onTap: () => FocusScope.of(context).unfocus(),
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: Container(
@@ -79,6 +77,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
       ).then((value) => safeSetState(() {}));
 
       _model.getBuildVersion = await actions.getBuildVersion1();
+      _model.deviceBuildNumber = await actions.getBuildNumber();
       _model.buildVersionQuery = await queryBuildVersionRecordOnce(
         singleRecord: true,
       ).then((s) => s.firstOrNull);
@@ -90,8 +89,8 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
         singleRecord: true,
       ).then((s) => s.firstOrNull);
       if (isAndroid) {
-        if (!((_model.buildVersionQuery?.appVersion ==
-                _model.getBuildVersion) ||
+        if (!((_model.buildVersionQuery!.buildNumberAndroid <=
+                _model.deviceBuildNumber!) ||
             _model.adminVersionQuery!.employeeIdList
                 .contains(FFAppState().employeeID))) {
           await showDialog(
@@ -115,8 +114,8 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
           return;
         }
       } else {
-        if (!((_model.buildVersionQuery?.appVersionIos ==
-                _model.getBuildVersion) ||
+        if (!((_model.buildVersionQuery!.buildNumberIos <=
+                _model.deviceBuildNumber!) ||
             _model.adminVersionQuery!.employeeIdList
                 .contains(FFAppState().employeeID))) {
           await showDialog(
@@ -514,9 +513,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -2413,11 +2410,8 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                 builder: (context) {
                                   return WebViewAware(
                                     child: GestureDetector(
-                                      onTap: () => _model
-                                              .unfocusNode.canRequestFocus
-                                          ? FocusScope.of(context)
-                                              .requestFocus(_model.unfocusNode)
-                                          : FocusScope.of(context).unfocus(),
+                                      onTap: () =>
+                                          FocusScope.of(context).unfocus(),
                                       child: Padding(
                                         padding:
                                             MediaQuery.viewInsetsOf(context),
@@ -2467,7 +2461,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                 vehicleName: FFAppState().actCoverTypeName,
                                 bodyNumber: widget!.bodyNumber,
                                 effectiveDateAct: dateTimeFormat(
-                                  'yyyy-MM-dd',
+                                  "yyyy-MM-dd",
                                   widget!.effectiveDateAct,
                                   locale:
                                       FFLocalizations.of(context).languageCode,

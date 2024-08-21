@@ -63,6 +63,7 @@ class NonePackageBasicPageWidget extends StatefulWidget {
     this.oldVmi,
     this.oldVmiExpireDate,
     required this.workType,
+    this.yearChrist,
   });
 
   final String? branchCode;
@@ -102,6 +103,7 @@ class NonePackageBasicPageWidget extends StatefulWidget {
   final String? oldVmi;
   final String? oldVmiExpireDate;
   final String? workType;
+  final String? yearChrist;
 
   @override
   State<NonePackageBasicPageWidget> createState() =>
@@ -131,9 +133,7 @@ class _NonePackageBasicPageWidgetState
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => _model.unfocusNode.canRequestFocus
-                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                  : FocusScope.of(context).unfocus(),
+              onTap: () => FocusScope.of(context).unfocus(),
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: Container(
@@ -727,9 +727,7 @@ class _NonePackageBasicPageWidgetState
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -3238,7 +3236,7 @@ class _NonePackageBasicPageWidgetState
                                                   FFAppState()
                                                       .nonePackageUsedTypeName)!
                                               ? 'กรุณาเลือกลักษณะการใช้รถ'
-                                              : (functions.generateInsuranceVehicleTypeDropdown(
+                                              : ((functions.generateInsuranceVehicleTypeDropdown(
                                                   FFAppState()
                                                       .nonePackageUsedTypeCodeList
                                                       .toList(),
@@ -3253,7 +3251,7 @@ class _NonePackageBasicPageWidgetState
                                                           .nonePackageUsedTypeCodeList
                                                           .toList(),
                                                       FFAppState()
-                                                          .nonePackageUsedTypeCode)]),
+                                                          .nonePackageUsedTypeCode)])),
                                           'เลือกการใช้งาน',
                                         ),
                                         style: FlutterFlowTheme.of(context)

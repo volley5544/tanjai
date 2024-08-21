@@ -64,9 +64,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => _model.unfocusNode.canRequestFocus
-                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                  : FocusScope.of(context).unfocus(),
+              onTap: () => FocusScope.of(context).unfocus(),
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: Container(
@@ -478,9 +476,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -538,10 +534,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                       builder: (context) {
                         return WebViewAware(
                           child: GestureDetector(
-                            onTap: () => _model.unfocusNode.canRequestFocus
-                                ? FocusScope.of(context)
-                                    .requestFocus(_model.unfocusNode)
-                                : FocusScope.of(context).unfocus(),
+                            onTap: () => FocusScope.of(context).unfocus(),
                             child: Padding(
                               padding: MediaQuery.viewInsetsOf(context),
                               child: Container(
@@ -585,11 +578,11 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                   }
                   List<RoleMenuRecord> columnRoleMenuRecordList =
                       snapshot.data!;
-
                   final columnRoleMenuRecord =
                       columnRoleMenuRecordList.isNotEmpty
                           ? columnRoleMenuRecordList.first
                           : null;
+
                   return SingleChildScrollView(
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
@@ -2313,15 +2306,8 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                         return WebViewAware(
                                                           child:
                                                               GestureDetector(
-                                                            onTap: () => _model
-                                                                    .unfocusNode
-                                                                    .canRequestFocus
-                                                                ? FocusScope.of(
-                                                                        context)
-                                                                    .requestFocus(
-                                                                        _model
-                                                                            .unfocusNode)
-                                                                : FocusScope.of(
+                                                            onTap: () =>
+                                                                FocusScope.of(
                                                                         context)
                                                                     .unfocus(),
                                                             child: Padding(
@@ -4757,15 +4743,8 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                           return WebViewAware(
                                                             child:
                                                                 GestureDetector(
-                                                              onTap: () => _model
-                                                                      .unfocusNode
-                                                                      .canRequestFocus
-                                                                  ? FocusScope.of(
-                                                                          context)
-                                                                      .requestFocus(
-                                                                          _model
-                                                                              .unfocusNode)
-                                                                  : FocusScope.of(
+                                                              onTap: () =>
+                                                                  FocusScope.of(
                                                                           context)
                                                                       .unfocus(),
                                                               child: Padding(
@@ -4996,12 +4975,8 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                       WebViewAware(
                                                                     child:
                                                                         GestureDetector(
-                                                                      onTap: () => _model
-                                                                              .unfocusNode
-                                                                              .canRequestFocus
-                                                                          ? FocusScope.of(context).requestFocus(_model
-                                                                              .unfocusNode)
-                                                                          : FocusScope.of(context)
+                                                                      onTap: () =>
+                                                                          FocusScope.of(dialogContext)
                                                                               .unfocus(),
                                                                       child:
                                                                           CustomDialogComponentCopyWidget(
@@ -5012,9 +4987,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                   ),
                                                                 );
                                                               },
-                                                            ).then((value) =>
-                                                                setState(
-                                                                    () {}));
+                                                            );
 
                                                             if (_shouldSetState)
                                                               setState(() {});

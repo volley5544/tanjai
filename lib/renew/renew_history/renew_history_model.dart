@@ -19,7 +19,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class RenewHistoryModel extends FlutterFlowModel<RenewHistoryWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (renewCallStatusGetHistory)] action in renewHistory widget.
   ApiCallResponse? historyAPIOutput;
 
@@ -27,7 +26,5 @@ class RenewHistoryModel extends FlutterFlowModel<RenewHistoryWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

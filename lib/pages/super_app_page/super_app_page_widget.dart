@@ -4,7 +4,6 @@ import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
 import '/components/custom_dialog_component_widget.dart';
 import '/components/license_select_component_widget.dart';
-import '/components/open_chrome_component_widget.dart';
 import '/components/search_old_vmi_widget.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -72,9 +71,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => _model.unfocusNode.canRequestFocus
-                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                  : FocusScope.of(context).unfocus(),
+              onTap: () => FocusScope.of(context).unfocus(),
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: Container(
@@ -452,9 +449,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -616,14 +611,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                             return WebViewAware(
                                                               child:
                                                                   GestureDetector(
-                                                                onTap: () => _model
-                                                                        .unfocusNode
-                                                                        .canRequestFocus
-                                                                    ? FocusScope.of(
-                                                                            context)
-                                                                        .requestFocus(_model
-                                                                            .unfocusNode)
-                                                                    : FocusScope.of(
+                                                                onTap: () =>
+                                                                    FocusScope.of(
                                                                             context)
                                                                         .unfocus(),
                                                                 child: Padding(
@@ -1014,8 +1003,9 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                   () async {
                                                     FFAppState()
                                                             .homeMenuIsExpanded =
-                                                        !FFAppState()
-                                                            .homeMenuIsExpanded;
+                                                        !(FFAppState()
+                                                                .homeMenuIsExpanded ??
+                                                            true);
                                                     setState(() {});
                                                   },
                                                 );
@@ -1244,15 +1234,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                             child:
                                                                                 WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                onTap: () => FocusScope.of(dialogContext).unfocus(),
                                                                                 child: CustomDialogComponentWidget(),
                                                                               ),
                                                                             ),
                                                                           );
                                                                         },
-                                                                      ).then((value) =>
-                                                                          setState(
-                                                                              () {}));
+                                                                      );
 
                                                                       if (!FFAppState()
                                                                           .isTouchVmiButton) {
@@ -1273,7 +1261,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                onTap: () => FocusScope.of(context).unfocus(),
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -1648,14 +1636,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                               alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
                                                                               child: WebViewAware(
                                                                                 child: GestureDetector(
-                                                                                  onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                  onTap: () => FocusScope.of(dialogContext).unfocus(),
                                                                                   child: CustomDialogComponentWidget(),
                                                                                 ),
                                                                               ),
                                                                             );
                                                                           },
-                                                                        ).then((value) =>
-                                                                            setState(() {}));
+                                                                        );
 
                                                                         if (!FFAppState()
                                                                             .isTouchVmiButton) {
@@ -1676,7 +1663,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                                 (context) {
                                                                               return WebViewAware(
                                                                                 child: GestureDetector(
-                                                                                  onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                  onTap: () => FocusScope.of(context).unfocus(),
                                                                                   child: Padding(
                                                                                     padding: MediaQuery.viewInsetsOf(context),
                                                                                     child: Container(
@@ -2459,7 +2446,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                onTap: () => FocusScope.of(context).unfocus(),
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -2835,99 +2822,89 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                       ),
                                                                     ),
                                                                   if (true)
-                                                                    Builder(
-                                                                      builder:
-                                                                          (context) =>
-                                                                              InkWell(
-                                                                        splashColor:
-                                                                            Colors.transparent,
-                                                                        focusColor:
-                                                                            Colors.transparent,
-                                                                        hoverColor:
-                                                                            Colors.transparent,
-                                                                        highlightColor:
-                                                                            Colors.transparent,
-                                                                        onTap:
-                                                                            () async {
-                                                                          if (isAndroid) {
-                                                                            await actions.urlLauncherAction(
-                                                                              'https://vcall.swpfin.com:8888/',
-                                                                              'android',
-                                                                            );
-                                                                          } else {
-                                                                            await showDialog(
-                                                                              context: context,
-                                                                              builder: (dialogContext) {
-                                                                                return Dialog(
-                                                                                  elevation: 0,
-                                                                                  insetPadding: EdgeInsets.zero,
-                                                                                  backgroundColor: Colors.transparent,
-                                                                                  alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
-                                                                                  child: WebViewAware(
-                                                                                    child: GestureDetector(
-                                                                                      onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
-                                                                                      child: OpenChromeComponentWidget(
-                                                                                        linkUrl: '',
-                                                                                      ),
-                                                                                    ),
-                                                                                  ),
-                                                                                );
-                                                                              },
-                                                                            ).then((value) =>
-                                                                                setState(() {}));
-                                                                          }
-                                                                        },
+                                                                    InkWell(
+                                                                      splashColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      focusColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      hoverColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      highlightColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      onTap:
+                                                                          () async {
+                                                                        if (isAndroid) {
+                                                                          await actions
+                                                                              .urlLauncherAction(
+                                                                            'https://vcall.swpfin.com:8888/',
+                                                                            'android',
+                                                                          );
+                                                                        } else {
+                                                                          await actions
+                                                                              .urlLauncherActionSafari(
+                                                                            'https://vcall.swpfin.com:8888/',
+                                                                            'ios',
+                                                                          );
+                                                                        }
+                                                                      },
+                                                                      child:
+                                                                          Container(
+                                                                        width: MediaQuery.sizeOf(context).width *
+                                                                            0.28,
+                                                                        height:
+                                                                            100.0,
+                                                                        decoration:
+                                                                            BoxDecoration(
+                                                                          color:
+                                                                              Colors.white,
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(15.0),
+                                                                        ),
                                                                         child:
-                                                                            Container(
-                                                                          width:
-                                                                              MediaQuery.sizeOf(context).width * 0.28,
-                                                                          height:
-                                                                              100.0,
-                                                                          decoration:
-                                                                              BoxDecoration(
-                                                                            color:
-                                                                                Colors.white,
-                                                                            borderRadius:
-                                                                                BorderRadius.circular(15.0),
-                                                                          ),
+                                                                            Align(
+                                                                          alignment: AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
                                                                           child:
-                                                                              Align(
-                                                                            alignment:
-                                                                                AlignmentDirectional(0.0, 0.0),
-                                                                            child:
-                                                                                Column(
-                                                                              mainAxisSize: MainAxisSize.max,
-                                                                              mainAxisAlignment: MainAxisAlignment.center,
-                                                                              crossAxisAlignment: CrossAxisAlignment.center,
-                                                                              children: [
-                                                                                Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
-                                                                                  child: Icon(
-                                                                                    Icons.videocam_sharp,
-                                                                                    color: Color(0xFFDB771A),
-                                                                                    size: 30.0,
+                                                                              Column(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.max,
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.center,
+                                                                            crossAxisAlignment:
+                                                                                CrossAxisAlignment.center,
+                                                                            children: [
+                                                                              Padding(
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
+                                                                                child: Icon(
+                                                                                  Icons.videocam_sharp,
+                                                                                  color: Color(0xFFDB771A),
+                                                                                  size: 30.0,
+                                                                                ),
+                                                                              ),
+                                                                              Container(
+                                                                                width: 100.0,
+                                                                                decoration: BoxDecoration(),
+                                                                                child: Padding(
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 7.0, 0.0, 0.0),
+                                                                                  child: Text(
+                                                                                    'ลูกค้าประกัน',
+                                                                                    textAlign: TextAlign.center,
+                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                          fontFamily: 'Noto Sans Thai',
+                                                                                          color: Colors.black,
+                                                                                          fontSize: 14.0,
+                                                                                          letterSpacing: 0.0,
+                                                                                          fontWeight: FontWeight.w600,
+                                                                                        ),
                                                                                   ),
                                                                                 ),
-                                                                                Container(
-                                                                                  width: 100.0,
-                                                                                  decoration: BoxDecoration(),
-                                                                                  child: Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 7.0, 0.0, 0.0),
-                                                                                    child: Text(
-                                                                                      'วีดิโอลูกค้า',
-                                                                                      textAlign: TextAlign.center,
-                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                            fontFamily: 'Noto Sans Thai',
-                                                                                            color: Colors.black,
-                                                                                            fontSize: 14.0,
-                                                                                            letterSpacing: 0.0,
-                                                                                            fontWeight: FontWeight.w600,
-                                                                                          ),
-                                                                                    ),
-                                                                                  ),
-                                                                                ),
-                                                                              ],
-                                                                            ),
+                                                                              ),
+                                                                            ],
                                                                           ),
                                                                         ),
                                                                       ),
@@ -3826,7 +3803,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                                 (context) {
                                                                               return WebViewAware(
                                                                                 child: GestureDetector(
-                                                                                  onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                  onTap: () => FocusScope.of(context).unfocus(),
                                                                                   child: Padding(
                                                                                     padding: MediaQuery.viewInsetsOf(context),
                                                                                     child: LicenseSelectComponentWidget(
@@ -4217,11 +4194,11 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                       }
                       List<HideInAppContentRecord>
                           columnHideInAppContentRecordList = snapshot.data!;
-
                       final columnHideInAppContentRecord =
                           columnHideInAppContentRecordList.isNotEmpty
                               ? columnHideInAppContentRecordList.first
                               : null;
+
                       return Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -4515,13 +4492,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                             List<AuthorizationRecord>
                                 propiedasdesListAuthorizationRecordList =
                                 snapshot.data!;
-
                             final propiedasdesListAuthorizationRecord =
                                 propiedasdesListAuthorizationRecordList
                                         .isNotEmpty
                                     ? propiedasdesListAuthorizationRecordList
                                         .first
                                     : null;
+
                             return Container(
                               width: MediaQuery.sizeOf(context).width * 1.0,
                               height: 200.0,
@@ -4589,13 +4566,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                             List<UrlLinkStorageRecord>
                                                 carouselUrlLinkStorageRecordList =
                                                 snapshot.data!;
-
                                             final carouselUrlLinkStorageRecord =
                                                 carouselUrlLinkStorageRecordList
                                                         .isNotEmpty
                                                     ? carouselUrlLinkStorageRecordList
                                                         .first
                                                     : null;
+
                                             return Container(
                                               width: double.infinity,
                                               height: 200.0,
@@ -4665,13 +4642,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                     containerGenLinkUrlLinkStorageRecordList =
                                                                     snapshot
                                                                         .data!;
-
                                                                 final containerGenLinkUrlLinkStorageRecord =
                                                                     containerGenLinkUrlLinkStorageRecordList
                                                                             .isNotEmpty
                                                                         ? containerGenLinkUrlLinkStorageRecordList
                                                                             .first
                                                                         : null;
+
                                                                 return InkWell(
                                                                   splashColor:
                                                                       Colors
@@ -5011,13 +4988,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                         List<UrlLinkStorageRecord>
                                                             containerUrlLinkStorageRecordList =
                                                             snapshot.data!;
-
                                                         final containerUrlLinkStorageRecord =
                                                             containerUrlLinkStorageRecordList
                                                                     .isNotEmpty
                                                                 ? containerUrlLinkStorageRecordList
                                                                     .first
                                                                 : null;
+
                                                         return InkWell(
                                                           splashColor: Colors
                                                               .transparent,
@@ -5049,12 +5026,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                   return WebViewAware(
                                                                     child:
                                                                         GestureDetector(
-                                                                      onTap: () => _model
-                                                                              .unfocusNode
-                                                                              .canRequestFocus
-                                                                          ? FocusScope.of(context).requestFocus(_model
-                                                                              .unfocusNode)
-                                                                          : FocusScope.of(context)
+                                                                      onTap: () =>
+                                                                          FocusScope.of(context)
                                                                               .unfocus(),
                                                                       child:
                                                                           Padding(
@@ -5285,11 +5258,11 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                               List<TanjaiBannerRecord>
                                   pageViewTanjaiBannerRecordList =
                                   snapshot.data!;
-
                               final pageViewTanjaiBannerRecord =
                                   pageViewTanjaiBannerRecordList.isNotEmpty
                                       ? pageViewTanjaiBannerRecordList.first
                                       : null;
+
                               return Builder(
                                 builder: (context) {
                                   final imageListItem =
@@ -5380,14 +5353,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                               return WebViewAware(
                                                                 child:
                                                                     GestureDetector(
-                                                                  onTap: () => _model
-                                                                          .unfocusNode
-                                                                          .canRequestFocus
-                                                                      ? FocusScope.of(
-                                                                              context)
-                                                                          .requestFocus(_model
-                                                                              .unfocusNode)
-                                                                      : FocusScope.of(
+                                                                  onTap: () =>
+                                                                      FocusScope.of(
                                                                               context)
                                                                           .unfocus(),
                                                                   child:

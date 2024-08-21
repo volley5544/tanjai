@@ -21,7 +21,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class AddCustomerNameModel extends FlutterFlowModel<AddCustomerNameWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for firstname widget.
   FocusNode? firstnameFocusNode;
   TextEditingController? firstnameTextController;
@@ -49,7 +48,6 @@ class AddCustomerNameModel extends FlutterFlowModel<AddCustomerNameWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     firstnameFocusNode?.dispose();
     firstnameTextController?.dispose();
 

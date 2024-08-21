@@ -91,7 +91,6 @@ class _EffectiveDatePickerComponentWidgetState
               }
               List<EffectiveDayConfigRecord>
                   columnEffectiveDayConfigRecordList = snapshot.data!;
-
               // Return an empty Container when the item does not exist.
               if (snapshot.data!.isEmpty) {
                 return Container();
@@ -100,6 +99,7 @@ class _EffectiveDatePickerComponentWidgetState
                   columnEffectiveDayConfigRecordList.isNotEmpty
                       ? columnEffectiveDayConfigRecordList.first
                       : null;
+
               return Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.start,

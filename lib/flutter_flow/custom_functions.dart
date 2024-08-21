@@ -4582,6 +4582,9 @@ dynamic sendJsonData(
   List<String>? grosstotal,
   List<String>? contractProcessstate,
   List<String>? cc,
+  List<String>? carLost,
+  List<String>? motorAddOn,
+  List<String>? driverBehavior,
 ) {
   List<Map<String, String>> jsonList = [];
 
@@ -4619,6 +4622,9 @@ dynamic sendJsonData(
       'gross_total': grosstotal![i],
       'contractProcessstate': contractProcessstate![i],
       'cc': cc![i],
+      'car_lost': carLost![i],
+      'motor_add_on': motorAddOn![i],
+      'driver_behavior': driverBehavior![i],
     };
     jsonList.add(jsonObject);
   }
@@ -5169,4 +5175,17 @@ bool? containsValueInDataTypeList(
     }
   }
   return false;
+}
+
+String? addCoverType(String? input) {
+  // Split the original string by commas
+  List<String> parts = input!.split(',');
+
+  // Prepend "ชั้น" to each part
+  List<String> modifiedParts = parts.map((part) => 'ชั้น$part').toList();
+
+  // Join the parts back together with commas
+  String modifiedString = modifiedParts.join(',');
+
+  return modifiedString;
 }

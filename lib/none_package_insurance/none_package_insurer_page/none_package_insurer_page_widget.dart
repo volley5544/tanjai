@@ -52,9 +52,7 @@ class _NonePackageInsurerPageWidgetState
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => _model.unfocusNode.canRequestFocus
-                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                  : FocusScope.of(context).unfocus(),
+              onTap: () => FocusScope.of(context).unfocus(),
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: Container(
@@ -207,9 +205,7 @@ class _NonePackageInsurerPageWidgetState
         final nonePackageInsurerPageInsurerConfig2Record = snapshot.data!;
 
         return GestureDetector(
-          onTap: () => _model.unfocusNode.canRequestFocus
-              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-              : FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).unfocus(),
           child: WillPopScope(
             onWillPop: () async => false,
             child: Scaffold(
@@ -432,13 +428,13 @@ class _NonePackageInsurerPageWidgetState
                                   List<InsurerConfigRecord>
                                       containerInsurerConfigRecordList =
                                       snapshot.data!;
-
                                   final containerInsurerConfigRecord =
                                       containerInsurerConfigRecordList
                                               .isNotEmpty
                                           ? containerInsurerConfigRecordList
                                               .first
                                           : null;
+
                                   return Container(
                                     width: double.infinity,
                                     decoration: BoxDecoration(),
@@ -485,13 +481,13 @@ class _NonePackageInsurerPageWidgetState
                                           List<InsurerConfigRecord>
                                               listViewInsurerConfigRecordList =
                                               snapshot.data!;
-
                                           final listViewInsurerConfigRecord =
                                               listViewInsurerConfigRecordList
                                                       .isNotEmpty
                                                   ? listViewInsurerConfigRecordList
                                                       .first
                                                   : null;
+
                                           return Builder(
                                             builder: (context) {
                                               final dataList = FFAppState()

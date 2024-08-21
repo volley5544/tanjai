@@ -166,3 +166,5 @@ export '/in_package_insurance/show_driver_page/show_driver_page_widget.dart'
 export '/pages/gemini_page/gemini_page_widget.dart' show GeminiPageWidget;
 export '/select_ordinary/select_ordinary_widget.dart' show SelectOrdinaryWidget;
 export '/test_page/test_page_widget.dart' show TestPageWidget;
+export '/search_package/insurer_list_overall_page/insurer_list_overall_page_widget.dart'
+    show InsurerListOverallPageWidget;

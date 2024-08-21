@@ -10,7 +10,6 @@ import 'package:provider/provider.dart';
 class Search7Renew1Model extends FlutterFlowModel<Search7Renew1Widget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for CusNameTextField widget.
   FocusNode? cusNameTextFieldFocusNode1;
   TextEditingController? cusNameTextFieldTextController1;
@@ -36,7 +35,6 @@ class Search7Renew1Model extends FlutterFlowModel<Search7Renew1Widget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     cusNameTextFieldFocusNode1?.dispose();
     cusNameTextFieldTextController1?.dispose();
 

@@ -16,7 +16,6 @@ class DetailsInsurancePageModel
     extends FlutterFlowModel<DetailsInsurancePageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (getDateTimeAPI)] action in Button widget.
   ApiCallResponse? getServerDateTime;
 
@@ -24,7 +23,5 @@ class DetailsInsurancePageModel
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

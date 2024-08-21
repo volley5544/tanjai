@@ -47,9 +47,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => _model.unfocusNode.canRequestFocus
-                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                  : FocusScope.of(context).unfocus(),
+              onTap: () => FocusScope.of(context).unfocus(),
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: Container(
@@ -104,9 +102,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -167,154 +163,159 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                               decoration: BoxDecoration(),
                             ).animateOnPageLoad(
                                 animationsMap['containerOnPageLoadAnimation']!),
-                          Container(
-                            width: double.infinity,
-                            decoration: BoxDecoration(),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      24.0, 0.0, 24.0, 4.0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        'บริษัทประกัน',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Noto Sans Thai',
-                                              color: Color(0xFF404040),
-                                              fontSize: 15.0,
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 0.0, 0.0),
-                                        child: Text(
-                                          '(บังคับเลือก)',
+                          if (FFAppState().searchPackageSubProduct == 'MC')
+                            Container(
+                              width: double.infinity,
+                              decoration: BoxDecoration(),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        24.0, 0.0, 24.0, 4.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          'บริษัทประกัน',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
-                                                color: Color(0xFFF40606),
-                                                fontSize: 12.0,
+                                                color: Color(0xFF404040),
+                                                fontSize: 15.0,
                                                 letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w600,
+                                                fontWeight: FontWeight.w500,
                                               ),
                                         ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 0.0, 16.0, 0.0),
-                                  child: InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      context.pushNamed(
-                                        'SearchableListPage',
-                                        queryParameters: {
-                                          'titleText': serializeParam(
-                                            'ค้นหาเปรียบเทียบบริษัทประกัน',
-                                            ParamType.String,
-                                          ),
-                                          'searchLabel': serializeParam(
-                                            'ระบุชื่อบริษัทประกัน',
-                                            ParamType.String,
-                                          ),
-                                          'dataList': serializeParam(
-                                            functions.removeDupeInList(
-                                                FFAppState()
-                                                    .searchSerialName
-                                                    .toList()),
-                                            ParamType.String,
-                                            isList: true,
-                                          ),
-                                          'multiSelect': serializeParam(
-                                            true,
-                                            ParamType.bool,
-                                          ),
-                                          'maxSelected': serializeParam(
-                                            0,
-                                            ParamType.int,
-                                          ),
-                                          'fromPage': serializeParam(
-                                            'searchPackage',
-                                            ParamType.String,
-                                          ),
-                                        }.withoutNulls,
-                                      );
-                                    },
-                                    child: Container(
-                                      width: double.infinity,
-                                      height: 50.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
-                                        border: Border.all(
-                                          width: 0.5,
-                                        ),
-                                      ),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            4.0, 0.0, 0.0, 0.0),
-                                        child: ListTile(
-                                          title: Text(
-                                            FFAppState()
-                                                        .filterInsurerList
-                                                        .length ==
-                                                    0
-                                                ? 'เลือกบริษัทประกัน'
-                                                : functions
-                                                    .combineStringFromList(
-                                                        FFAppState()
-                                                            .filterInsurerList
-                                                            .toList())!,
-                                            textAlign: TextAlign.start,
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  10.0, 0.0, 0.0, 0.0),
+                                          child: Text(
+                                            '(บังคับเลือก)',
                                             style: FlutterFlowTheme.of(context)
-                                                .titleLarge
+                                                .bodyMedium
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
-                                                  color: Color(0xFF9F9F9F),
-                                                  fontSize: 15.0,
+                                                  color: Color(0xFFF40606),
+                                                  fontSize: 12.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                           ),
-                                          trailing: Icon(
-                                            Icons.arrow_forward_ios,
-                                            color: Color(0xFF474747),
-                                            size: 20.0,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        16.0, 0.0, 16.0, 0.0),
+                                    child: InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        context.pushNamed(
+                                          'SearchableListPage',
+                                          queryParameters: {
+                                            'titleText': serializeParam(
+                                              'ค้นหาเปรียบเทียบบริษัทประกัน',
+                                              ParamType.String,
+                                            ),
+                                            'searchLabel': serializeParam(
+                                              'ระบุชื่อบริษัทประกัน',
+                                              ParamType.String,
+                                            ),
+                                            'dataList': serializeParam(
+                                              functions.removeDupeInList(
+                                                  FFAppState()
+                                                      .searchSerialName
+                                                      .toList()),
+                                              ParamType.String,
+                                              isList: true,
+                                            ),
+                                            'multiSelect': serializeParam(
+                                              true,
+                                              ParamType.bool,
+                                            ),
+                                            'maxSelected': serializeParam(
+                                              0,
+                                              ParamType.int,
+                                            ),
+                                            'fromPage': serializeParam(
+                                              'searchPackage',
+                                              ParamType.String,
+                                            ),
+                                          }.withoutNulls,
+                                        );
+                                      },
+                                      child: Container(
+                                        width: double.infinity,
+                                        height: 50.0,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                          borderRadius:
+                                              BorderRadius.circular(10.0),
+                                          border: Border.all(
+                                            width: 0.5,
                                           ),
-                                          tileColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .secondaryBackground,
-                                          dense: false,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(10.0),
+                                        ),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  4.0, 0.0, 0.0, 0.0),
+                                          child: ListTile(
+                                            title: Text(
+                                              FFAppState()
+                                                          .filterInsurerList
+                                                          .length ==
+                                                      0
+                                                  ? 'เลือกบริษัทประกัน'
+                                                  : functions
+                                                      .combineStringFromList(
+                                                          FFAppState()
+                                                              .filterInsurerList
+                                                              .toList())!,
+                                              textAlign: TextAlign.start,
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .titleLarge
+                                                  .override(
+                                                    fontFamily:
+                                                        'Noto Sans Thai',
+                                                    color: Color(0xFF9F9F9F),
+                                                    fontSize: 15.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w600,
+                                                  ),
+                                            ),
+                                            trailing: Icon(
+                                              Icons.arrow_forward_ios,
+                                              color: Color(0xFF474747),
+                                              size: 20.0,
+                                            ),
+                                            tileColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .secondaryBackground,
+                                            dense: false,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(10.0),
+                                            ),
                                           ),
                                         ),
                                       ),
                                     ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
-                          ),
                           Container(
                             width: double.infinity,
                             decoration: BoxDecoration(),

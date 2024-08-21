@@ -67,9 +67,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => _model.unfocusNode.canRequestFocus
-                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                  : FocusScope.of(context).unfocus(),
+              onTap: () => FocusScope.of(context).unfocus(),
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: Container(
@@ -83,6 +81,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
       ).then((value) => safeSetState(() {}));
 
       _model.getBuildVersion = await actions.getBuildVersion1();
+      _model.deviceBuildNumber = await actions.getBuildNumber();
       _model.buildVersionQuery = await queryBuildVersionRecordOnce(
         singleRecord: true,
       ).then((s) => s.firstOrNull);
@@ -94,8 +93,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
         singleRecord: true,
       ).then((s) => s.firstOrNull);
       if (isAndroid) {
-        if (!((_model.buildVersionQuery?.appVersion ==
-                _model.getBuildVersion) ||
+        if (!((_model.buildVersionQuery!.buildNumberAndroid <=
+                _model.deviceBuildNumber!) ||
             _model.adminVersionQuery!.employeeIdList
                 .contains(FFAppState().employeeID))) {
           await showDialog(
@@ -119,8 +118,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
           return;
         }
       } else {
-        if (!((_model.buildVersionQuery?.appVersionIos ==
-                _model.getBuildVersion) ||
+        if (!((_model.buildVersionQuery!.buildNumberIos <=
+                _model.deviceBuildNumber!) ||
             _model.adminVersionQuery!.employeeIdList
                 .contains(FFAppState().employeeID))) {
           await showDialog(
@@ -246,9 +245,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -441,10 +438,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                       builder: (context) {
                         return WebViewAware(
                           child: GestureDetector(
-                            onTap: () => _model.unfocusNode.canRequestFocus
-                                ? FocusScope.of(context)
-                                    .requestFocus(_model.unfocusNode)
-                                : FocusScope.of(context).unfocus(),
+                            onTap: () => FocusScope.of(context).unfocus(),
                             child: Padding(
                               padding: MediaQuery.viewInsetsOf(context),
                               child: Container(
@@ -1795,14 +1789,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                               return WebViewAware(
                                                                 child:
                                                                     GestureDetector(
-                                                                  onTap: () => _model
-                                                                          .unfocusNode
-                                                                          .canRequestFocus
-                                                                      ? FocusScope.of(
-                                                                              context)
-                                                                          .requestFocus(_model
-                                                                              .unfocusNode)
-                                                                      : FocusScope.of(
+                                                                  onTap: () =>
+                                                                      FocusScope.of(
                                                                               context)
                                                                           .unfocus(),
                                                                   child:
@@ -2916,14 +2904,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                               return WebViewAware(
                                                                 child:
                                                                     GestureDetector(
-                                                                  onTap: () => _model
-                                                                          .unfocusNode
-                                                                          .canRequestFocus
-                                                                      ? FocusScope.of(
-                                                                              context)
-                                                                          .requestFocus(_model
-                                                                              .unfocusNode)
-                                                                      : FocusScope.of(
+                                                                  onTap: () =>
+                                                                      FocusScope.of(
                                                                               context)
                                                                           .unfocus(),
                                                                   child:
@@ -3424,13 +3406,14 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                   )}') ==
                                                                   '-'
                                                               ? 'กรุณาเลือกปีจดทะเบียน'
-                                                              : functions
-                                                                  .checkNullValueAndReturn(
-                                                                      '${InsuranceRequestDetailAPICall.year(
-                                                                  (_model.getDetailApiDup
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                )}');
+                                                              : ((int.parse(functions
+                                                                          .checkNullValueAndReturn(
+                                                                              '${InsuranceRequestDetailAPICall.year(
+                                                                        (_model.getDetailApiDup?.jsonBody ??
+                                                                            ''),
+                                                                      )}')) +
+                                                                      543)
+                                                                  .toString());
                                                           FFAppState()
                                                               .nonePackageUsedTypeId = functions
                                                                       .checkNullValueAndReturn(
@@ -3978,6 +3961,23 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                           ?.jsonBody ??
                                                                       ''),
                                                                 )}');
+                                                          FFAppState()
+                                                              .nonePackageYearChrist = functions
+                                                                      .checkNullValueAndReturn(
+                                                                          '${InsuranceRequestDetailAPICall.year(
+                                                                    (_model.getDetailApiDup
+                                                                            ?.jsonBody ??
+                                                                        ''),
+                                                                  )}') ==
+                                                                  '-'
+                                                              ? 'กรุณาเลือกปีจดทะเบียน'
+                                                              : functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.year(
+                                                                  (_model.getDetailApiDup
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )}');
                                                           setState(() {});
                                                           FFAppState()
                                                               .updateNonePackageReasonAtIndex(
@@ -4249,6 +4249,13 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                               'workType':
                                                                   serializeParam(
                                                                 'manual',
+                                                                ParamType
+                                                                    .String,
+                                                              ),
+                                                              'yearChrist':
+                                                                  serializeParam(
+                                                                FFAppState()
+                                                                    .nonePackageYearChrist,
                                                                 ParamType
                                                                     .String,
                                                               ),
@@ -4786,9 +4793,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                     return WebViewAware(
                                                                       child:
                                                                           GestureDetector(
-                                                                        onTap: () => _model.unfocusNode.canRequestFocus
-                                                                            ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                                                                            : FocusScope.of(context).unfocus(),
+                                                                        onTap: () =>
+                                                                            FocusScope.of(context).unfocus(),
                                                                         child:
                                                                             Padding(
                                                                           padding:

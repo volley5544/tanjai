@@ -78,9 +78,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => _model.unfocusNode.canRequestFocus
-                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                  : FocusScope.of(context).unfocus(),
+              onTap: () => FocusScope.of(context).unfocus(),
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: LoadingSceneWidget(),
@@ -426,7 +424,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
         }
         if (TelePackageSearchAPICall.total(
               (_model.packageAPIOutput?.jsonBody ?? ''),
-            ) ==
+            )?.length ==
             0) {
           await showDialog(
             context: context,
@@ -662,9 +660,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -684,6 +680,8 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                 size: 30.0,
               ),
               onPressed: () async {
+                FFAppState().filterInsurerList = [];
+                setState(() {});
                 context.safePop();
               },
             ),
@@ -735,7 +733,6 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                             }
                             List<InsurerConfig2Record>
                                 columnInsurerConfig2RecordList = snapshot.data!;
-
                             // Return an empty Container when the item does not exist.
                             if (snapshot.data!.isEmpty) {
                               return Container();
@@ -744,6 +741,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                 columnInsurerConfig2RecordList.isNotEmpty
                                     ? columnInsurerConfig2RecordList.first
                                     : null;
+
                             return Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -776,13 +774,13 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                     List<HideInAppContentRecord>
                                         columnHideInAppContentRecordList =
                                         snapshot.data!;
-
                                     final columnHideInAppContentRecord =
                                         columnHideInAppContentRecordList
                                                 .isNotEmpty
                                             ? columnHideInAppContentRecordList
                                                 .first
                                             : null;
+
                                     return Column(
                                       mainAxisSize: MainAxisSize.max,
                                       crossAxisAlignment:
@@ -877,7 +875,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                             (_model.packageAPIOutput
                                                                     ?.jsonBody ??
                                                                 ''),
-                                                          ) ==
+                                                          )?.length ==
                                                           0) {
                                                         await showDialog(
                                                           context: context,
@@ -1046,7 +1044,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                               (_model.packageAPIOutput
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ) !=
+                                                            )?.length !=
                                                             0) &&
                                                         (TelePackageSearchAPICall
                                                                 .statusLayer1(
@@ -1717,6 +1715,18 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                                                 columnInsurerConfig2Record,
                                                                                                 ParamType.Document,
                                                                                               ),
+                                                                                              'carLost': serializeParam(
+                                                                                                FFAppState().searchCarlost[listinsuranceIndex],
+                                                                                                ParamType.String,
+                                                                                              ),
+                                                                                              'motorAddOn': serializeParam(
+                                                                                                FFAppState().searchMotoraddon[listinsuranceIndex],
+                                                                                                ParamType.String,
+                                                                                              ),
+                                                                                              'driverBehavior': serializeParam(
+                                                                                                FFAppState().searchDriverbehavior[listinsuranceIndex],
+                                                                                                ParamType.String,
+                                                                                              ),
                                                                                             }.withoutNulls,
                                                                                             extra: <String, dynamic>{
                                                                                               'insurerConfig': columnInsurerConfig2Record,
@@ -1769,7 +1779,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                       (_model.packageAPIOutput
                                                               ?.jsonBody ??
                                                           ''),
-                                                    ) ==
+                                                    )?.length ==
                                                     0)
                                                   Align(
                                                     alignment:
@@ -1844,7 +1854,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                           (_model.packageAPIOutput
                                                                   ?.jsonBody ??
                                                               ''),
-                                                        ) !=
+                                                        )?.length !=
                                                         0) &&
                                                     (TelePackageSearchAPICall
                                                             .statusLayer1(
@@ -2427,6 +2437,45 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                         serializeParam(
                                                       columnInsurerConfig2Record,
                                                       ParamType.Document,
+                                                    ),
+                                                    'carLost': serializeParam(
+                                                      functions
+                                                          .returnMappedListFromBoolList(
+                                                              FFAppState()
+                                                                  .searchCarlost
+                                                                  .toList(),
+                                                              FFAppState()
+                                                                  .selectInsurerList
+                                                                  .toList(),
+                                                              true),
+                                                      ParamType.String,
+                                                      isList: true,
+                                                    ),
+                                                    'motorAddOn':
+                                                        serializeParam(
+                                                      functions.returnMappedListFromBoolList(
+                                                          FFAppState()
+                                                              .searchMotoraddon
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .selectInsurerList
+                                                              .toList(),
+                                                          true),
+                                                      ParamType.String,
+                                                      isList: true,
+                                                    ),
+                                                    'driverBehavior':
+                                                        serializeParam(
+                                                      functions.returnMappedListFromBoolList(
+                                                          FFAppState()
+                                                              .searchDriverbehavior
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .selectInsurerList
+                                                              .toList(),
+                                                          true),
+                                                      ParamType.String,
+                                                      isList: true,
                                                     ),
                                                   }.withoutNulls,
                                                   extra: <String, dynamic>{

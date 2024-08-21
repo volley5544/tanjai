@@ -16,7 +16,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class AddDriverPageModel extends FlutterFlowModel<AddDriverPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Model for DriverInfomationFormComponent component.
   late DriverInfomationFormComponentModel driverInfomationFormComponentModel;
 
@@ -28,7 +27,6 @@ class AddDriverPageModel extends FlutterFlowModel<AddDriverPageWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     driverInfomationFormComponentModel.dispose();
   }
 }

@@ -79,15 +79,13 @@ class _NonePackageBasicImage1PageWidgetState
         }
         List<UrlLinkStorageRecord>
             nonePackageBasicImage1PageUrlLinkStorageRecordList = snapshot.data!;
-
         final nonePackageBasicImage1PageUrlLinkStorageRecord =
             nonePackageBasicImage1PageUrlLinkStorageRecordList.isNotEmpty
                 ? nonePackageBasicImage1PageUrlLinkStorageRecordList.first
                 : null;
+
         return GestureDetector(
-          onTap: () => _model.unfocusNode.canRequestFocus
-              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-              : FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).unfocus(),
           child: WillPopScope(
             onWillPop: () async => false,
             child: Scaffold(

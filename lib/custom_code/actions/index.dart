@@ -1,4 +1,5 @@
 export 'lock_orientation.dart' show lockOrientation;
+export 'url_launcher_action_safari.dart' show urlLauncherActionSafari;
 export 'clear_all_app_data_copy.dart' show clearAllAppDataCopy;
 export 'a1.dart' show a1;
 export 'a2.dart' show a2;

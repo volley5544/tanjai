@@ -19,7 +19,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class HomepageRequest23Model extends FlutterFlowModel<HomepageRequest23Widget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (GetFinance)] action in Homepage_Request_2_3 widget.
   ApiCallResponse? getFinanceAPIOutput;
   // State field(s) for Checkbox1 widget.
@@ -37,7 +36,6 @@ class HomepageRequest23Model extends FlutterFlowModel<HomepageRequest23Widget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     textFieldFocusNode?.dispose();
     textController?.dispose();
   }

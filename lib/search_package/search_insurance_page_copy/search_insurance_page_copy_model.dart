@@ -19,14 +19,11 @@ class SearchInsurancePageCopyModel
     extends FlutterFlowModel<SearchInsurancePageCopyWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   DateTime? datePicked;
 
   @override
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

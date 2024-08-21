@@ -15,7 +15,6 @@ class SearchablePickUpListPageModel
     extends FlutterFlowModel<SearchablePickUpListPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
@@ -26,7 +25,6 @@ class SearchablePickUpListPageModel
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     textFieldFocusNode?.dispose();
     textController?.dispose();
   }

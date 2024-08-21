@@ -14,6 +14,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'login_page_model.dart';
 export 'login_page_model.dart';
@@ -83,9 +84,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -114,11 +113,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                 }
                 List<KeyStorage3Record> columnKeyStorage3RecordList =
                     snapshot.data!;
-
                 final columnKeyStorage3Record =
                     columnKeyStorage3RecordList.isNotEmpty
                         ? columnKeyStorage3RecordList.first
                         : null;
+
                 return Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -144,11 +143,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                           }
                           List<KeyStorageRecord> columnKeyStorageRecordList =
                               snapshot.data!;
-
                           final columnKeyStorageRecord =
                               columnKeyStorageRecordList.isNotEmpty
                                   ? columnKeyStorageRecordList.first
                                   : null;
+
                           return Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -183,12 +182,12 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                     List<UrlLinkStorageRecord>
                                         stackUrlLinkStorageRecordList =
                                         snapshot.data!;
-
                                     final stackUrlLinkStorageRecord =
                                         stackUrlLinkStorageRecordList.isNotEmpty
                                             ? stackUrlLinkStorageRecordList
                                                 .first
                                             : null;
+
                                     return Stack(
                                       children: [
                                         Row(
@@ -353,38 +352,46 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                     CrossAxisAlignment
                                                                         .start,
                                                                 children: [
-                                                                  InkWell(
-                                                                    splashColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    focusColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    hoverColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    highlightColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    onTap:
-                                                                        () async {},
-                                                                    child: Text(
-                                                                      'เข้าสู่ระบบ',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .titleMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Noto Sans Thai',
-                                                                            color:
-                                                                                Color(0xFF002D5E),
-                                                                            fontSize:
-                                                                                24.0,
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            fontWeight:
-                                                                                FontWeight.w600,
-                                                                          ),
+                                                                  Builder(
+                                                                    builder:
+                                                                        (context) =>
+                                                                            InkWell(
+                                                                      splashColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      focusColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      hoverColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      highlightColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      onTap:
+                                                                          () async {
+                                                                        await Share
+                                                                            .share(
+                                                                          'newibsapp://newibsapp.com${GoRouterState.of(context).uri.toString()}',
+                                                                          sharePositionOrigin:
+                                                                              getWidgetBoundingBox(context),
+                                                                        );
+                                                                        await launchURL(
+                                                                            'newibsapp://newibsapp.com${GoRouterState.of(context).uri.toString()}');
+                                                                      },
+                                                                      child:
+                                                                          Text(
+                                                                        'เข้าสู่ระบบ',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .titleMedium
+                                                                            .override(
+                                                                              fontFamily: 'Noto Sans Thai',
+                                                                              color: Color(0xFF002D5E),
+                                                                              fontSize: 24.0,
+                                                                              letterSpacing: 0.0,
+                                                                              fontWeight: FontWeight.w600,
+                                                                            ),
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                 ],

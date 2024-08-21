@@ -14,7 +14,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class UploadImgPageModel extends FlutterFlowModel<UploadImgPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   bool isDataUploading1 = false;
   FFUploadedFile uploadedLocalFile1 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
@@ -47,7 +46,5 @@ class UploadImgPageModel extends FlutterFlowModel<UploadImgPageWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

@@ -18,7 +18,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class SearchBranchPageModel extends FlutterFlowModel<SearchBranchPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (GetlocationAPI)] action in SearchBranchPage widget.
   ApiCallResponse? getBranchSearched;
   // State field(s) for TextField widget.
@@ -33,7 +32,6 @@ class SearchBranchPageModel extends FlutterFlowModel<SearchBranchPageWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     textFieldFocusNode?.dispose();
     textController?.dispose();
   }

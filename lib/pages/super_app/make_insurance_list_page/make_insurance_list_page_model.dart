@@ -30,9 +30,10 @@ class MakeInsuranceListPageModel
     extends FlutterFlowModel<MakeInsuranceListPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Custom Action - getBuildVersion1] action in MakeInsuranceListPage widget.
   String? getBuildVersion;
+  // Stores action output result for [Custom Action - getBuildNumber] action in MakeInsuranceListPage widget.
+  int? deviceBuildNumber;
   // Stores action output result for [Firestore Query - Query a collection] action in MakeInsuranceListPage widget.
   BuildVersionRecord? buildVersionQuery;
   // Stores action output result for [Firestore Query - Query a collection] action in MakeInsuranceListPage widget.
@@ -56,7 +57,6 @@ class MakeInsuranceListPageModel
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     searchFirstnameFocusNode?.dispose();
     searchFirstnameTextController?.dispose();
   }

@@ -15,7 +15,6 @@ class NonePackageEditPage2CopyModel
     extends FlutterFlowModel<NonePackageEditPage2CopyWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   bool isDataUploading1 = false;
   FFUploadedFile uploadedLocalFile1 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
@@ -56,7 +55,5 @@ class NonePackageEditPage2CopyModel
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

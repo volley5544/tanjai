@@ -94,7 +94,8 @@ class _OpenChromeComponentWidgetState extends State<OpenChromeComponentWidget> {
                           child: Align(
                             alignment: AlignmentDirectional(0.0, -1.0),
                             child: Text(
-                              'กรุณาเปิดในแอพ Chrome เท่านั้น',
+                              'ฟีเจอร์นี้สามารถใช้ได้ใน Chrome เท่านั้น\nกรุณาคัดลอกลิงค์ไปเปิดในแอพ Chrome',
+                              textAlign: TextAlign.center,
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(

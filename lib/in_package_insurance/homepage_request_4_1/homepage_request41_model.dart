@@ -17,7 +17,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class HomepageRequest41Model extends FlutterFlowModel<HomepageRequest41Widget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (ibsApplicationsSave)] action in Button widget.
   ApiCallResponse? save4APIOutput;
 
@@ -25,7 +24,5 @@ class HomepageRequest41Model extends FlutterFlowModel<HomepageRequest41Widget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

@@ -95,15 +95,13 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
         }
         List<UrlLinkStorageRecord> paywithQRcodeUrlLinkStorageRecordList =
             snapshot.data!;
-
         final paywithQRcodeUrlLinkStorageRecord =
             paywithQRcodeUrlLinkStorageRecordList.isNotEmpty
                 ? paywithQRcodeUrlLinkStorageRecordList.first
                 : null;
+
         return GestureDetector(
-          onTap: () => _model.unfocusNode.canRequestFocus
-              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-              : FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).unfocus(),
           child: WillPopScope(
             onWillPop: () async => false,
             child: Scaffold(
@@ -184,6 +182,70 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                           crossAxisAlignment:
                                               CrossAxisAlignment.center,
                                           children: [
+                                            Container(
+                                              width: 300.0,
+                                              height: 60.0,
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                              ),
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  if ((widget!.fromPage !=
+                                                          'VlonePayment') &&
+                                                      (FFAppState()
+                                                              .insuranceinfoActType !=
+                                                          'CMI'))
+                                                    AutoSizeText(
+                                                      ' *ใช้สำหรับชำระประกันครั้งแรกเท่านั้น',
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      maxLines: 1,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            color: Color(
+                                                                0xFFCC0000),
+                                                            fontSize: 16.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .normal,
+                                                          ),
+                                                    ),
+                                                  if ((widget!.fromPage !=
+                                                          'VlonePayment') &&
+                                                      (FFAppState()
+                                                              .insuranceinfoActType !=
+                                                          'CMI'))
+                                                    AutoSizeText(
+                                                      '**ห้ามนำ QR นี้ไปชำระค่างวดผ่อนชำระ',
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      maxLines: 1,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            color: Color(
+                                                                0xFFCC0000),
+                                                            fontSize: 16.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .normal,
+                                                          ),
+                                                    ),
+                                                ],
+                                              ),
+                                            ),
                                             Stack(
                                               children: [
                                                 Row(
@@ -258,42 +320,50 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                             alignment:
                                                                 AlignmentDirectional(
                                                                     0.0, 0.0),
-                                                            child: Container(
-                                                              width: MediaQuery
-                                                                          .sizeOf(
-                                                                              context)
-                                                                      .width *
-                                                                  0.5,
-                                                              height: 50.0,
-                                                              decoration:
-                                                                  BoxDecoration(
-                                                                color: Color(
-                                                                    0xFF204A77),
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            35.0),
-                                                              ),
-                                                              child: Align(
-                                                                alignment:
-                                                                    AlignmentDirectional(
-                                                                        0.0,
-                                                                        0.0),
-                                                                child: Text(
-                                                                  'คิวอาร์โค้ด',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Noto Sans Thai',
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .secondaryBackground,
-                                                                        fontSize:
-                                                                            15.0,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                      ),
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          10.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Container(
+                                                                width: MediaQuery.sizeOf(
+                                                                            context)
+                                                                        .width *
+                                                                    0.5,
+                                                                height: 50.0,
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Color(
+                                                                      0xFF204A77),
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              35.0),
+                                                                ),
+                                                                child: Align(
+                                                                  alignment:
+                                                                      AlignmentDirectional(
+                                                                          0.0,
+                                                                          0.0),
+                                                                  child: Text(
+                                                                    'คิวอาร์โค้ด',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Noto Sans Thai',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).secondaryBackground,
+                                                                          fontSize:
+                                                                              15.0,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                        ),
+                                                                  ),
                                                                 ),
                                                               ),
                                                             ),
@@ -750,41 +820,6 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                                   0.0,
                                                                   0.0),
                                                       child: AutoSizeText(
-                                                        'ใช้สำหรับชำระประกันครั้งแรกเท่านั้น',
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        maxLines: 1,
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Noto Sans Thai',
-                                                              color: Color(
-                                                                  0xFFCC0000),
-                                                              fontSize: 14.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .normal,
-                                                            ),
-                                                      ),
-                                                    ),
-                                                  if ((widget!.fromPage !=
-                                                          'VlonePayment') &&
-                                                      (FFAppState()
-                                                              .insuranceinfoActType !=
-                                                          'CMI'))
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  10.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: AutoSizeText(
                                                         '***กรณีวันหยุด เสาร์-อาทิตย์ และนักขัตฤกษ์\nจะออกกรมธรรม์ในวันทำการถัดไป',
                                                         textAlign:
                                                             TextAlign.center,
@@ -923,13 +958,8 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                       builder: (context) {
                                         return WebViewAware(
                                           child: GestureDetector(
-                                            onTap: () => _model
-                                                    .unfocusNode.canRequestFocus
-                                                ? FocusScope.of(context)
-                                                    .requestFocus(
-                                                        _model.unfocusNode)
-                                                : FocusScope.of(context)
-                                                    .unfocus(),
+                                            onTap: () => FocusScope.of(context)
+                                                .unfocus(),
                                             child: Padding(
                                               padding: MediaQuery.viewInsetsOf(
                                                   context),
@@ -947,6 +977,9 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                       widget!.ref2,
                                       widget!.amount,
                                       widget!.taxId,
+                                      (widget!.fromPage != 'VlonePayment') &&
+                                          (FFAppState().insuranceinfoActType !=
+                                              'CMI'),
                                     );
                                     Navigator.pop(context);
                                     await showDialog(

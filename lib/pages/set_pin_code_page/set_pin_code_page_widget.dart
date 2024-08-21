@@ -54,9 +54,7 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -148,13 +146,13 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                                       List<InsuranceLicenseDataRecord>
                                           pinCodeInsuranceLicenseDataRecordList =
                                           snapshot.data!;
-
                                       final pinCodeInsuranceLicenseDataRecord =
                                           pinCodeInsuranceLicenseDataRecordList
                                                   .isNotEmpty
                                               ? pinCodeInsuranceLicenseDataRecordList
                                                   .first
                                               : null;
+
                                       return PinCodeTextField(
                                         autoDisposeControllers: false,
                                         appContext: context,
@@ -196,9 +194,6 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                                           activeColor: Colors.white,
                                           inactiveColor: Color(0xFFF6F6F6),
                                           selectedColor: Color(0x66FFFFFF),
-                                          activeFillColor: Colors.white,
-                                          inactiveFillColor: Color(0xFFF6F6F6),
-                                          selectedFillColor: Color(0x66FFFFFF),
                                         ),
                                         controller: _model.pinCodeController,
                                         onChanged: (_) {},
@@ -250,11 +245,11 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                       }
                       List<UserCustomRecord> buttonUserCustomRecordList =
                           snapshot.data!;
-
                       final buttonUserCustomRecord =
                           buttonUserCustomRecordList.isNotEmpty
                               ? buttonUserCustomRecordList.first
                               : null;
+
                       return FFButtonWidget(
                         onPressed: () async {
                           currentUserLocationValue =

@@ -47,9 +47,7 @@ class _HomepageRequest22WidgetState extends State<HomepageRequest22Widget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -108,7 +106,6 @@ class _HomepageRequest22WidgetState extends State<HomepageRequest22Widget> {
                 }
                 List<EffectiveDayConfigRecord>
                     columnEffectiveDayConfigRecordList = snapshot.data!;
-
                 // Return an empty Container when the item does not exist.
                 if (snapshot.data!.isEmpty) {
                   return Container();
@@ -117,6 +114,7 @@ class _HomepageRequest22WidgetState extends State<HomepageRequest22Widget> {
                     columnEffectiveDayConfigRecordList.isNotEmpty
                         ? columnEffectiveDayConfigRecordList.first
                         : null;
+
                 return Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [

@@ -20,7 +20,6 @@ class NonePackageInsurerPageModel
     extends FlutterFlowModel<NonePackageInsurerPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (insuranceRequestGetInsurerAPI)] action in NonePackageInsurerPage widget.
   ApiCallResponse? getInsurer;
   // State field(s) for TextField widget.
@@ -37,7 +36,6 @@ class NonePackageInsurerPageModel
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     textFieldFocusNode?.dispose();
     textController?.dispose();
   }

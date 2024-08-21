@@ -74,9 +74,7 @@ class _MakeInsuranceListPageWidgetState
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => _model.unfocusNode.canRequestFocus
-                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                  : FocusScope.of(context).unfocus(),
+              onTap: () => FocusScope.of(context).unfocus(),
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: Container(
@@ -90,6 +88,7 @@ class _MakeInsuranceListPageWidgetState
       ).then((value) => safeSetState(() {}));
 
       _model.getBuildVersion = await actions.getBuildVersion1();
+      _model.deviceBuildNumber = await actions.getBuildNumber();
       _model.buildVersionQuery = await queryBuildVersionRecordOnce(
         singleRecord: true,
       ).then((s) => s.firstOrNull);
@@ -101,8 +100,8 @@ class _MakeInsuranceListPageWidgetState
         singleRecord: true,
       ).then((s) => s.firstOrNull);
       if (isAndroid) {
-        if (!((_model.buildVersionQuery?.appVersion ==
-                _model.getBuildVersion) ||
+        if (!((_model.buildVersionQuery!.buildNumberAndroid <=
+                _model.deviceBuildNumber!) ||
             _model.adminVersionQuery!.employeeIdList
                 .contains(FFAppState().employeeID))) {
           await showDialog(
@@ -126,8 +125,8 @@ class _MakeInsuranceListPageWidgetState
           return;
         }
       } else {
-        if (!((_model.buildVersionQuery?.appVersionIos ==
-                _model.getBuildVersion) ||
+        if (!((_model.buildVersionQuery!.buildNumberIos <=
+                _model.deviceBuildNumber!) ||
             _model.adminVersionQuery!.employeeIdList
                 .contains(FFAppState().employeeID))) {
           await showDialog(
@@ -200,15 +199,13 @@ class _MakeInsuranceListPageWidgetState
         }
         List<UrlLinkStorageRecord>
             makeInsuranceListPageUrlLinkStorageRecordList = snapshot.data!;
-
         final makeInsuranceListPageUrlLinkStorageRecord =
             makeInsuranceListPageUrlLinkStorageRecordList.isNotEmpty
                 ? makeInsuranceListPageUrlLinkStorageRecordList.first
                 : null;
+
         return GestureDetector(
-          onTap: () => _model.unfocusNode.canRequestFocus
-              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-              : FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).unfocus(),
           child: WillPopScope(
             onWillPop: () async => false,
             child: Scaffold(
@@ -275,11 +272,7 @@ class _MakeInsuranceListPageWidgetState
                             builder: (context) {
                               return WebViewAware(
                                 child: GestureDetector(
-                                  onTap: () =>
-                                      _model.unfocusNode.canRequestFocus
-                                          ? FocusScope.of(context)
-                                              .requestFocus(_model.unfocusNode)
-                                          : FocusScope.of(context).unfocus(),
+                                  onTap: () => FocusScope.of(context).unfocus(),
                                   child: Padding(
                                     padding: MediaQuery.viewInsetsOf(context),
                                     child: Container(
@@ -356,12 +349,8 @@ class _MakeInsuranceListPageWidgetState
                                         builder: (context) {
                                           return WebViewAware(
                                             child: GestureDetector(
-                                              onTap: () => _model.unfocusNode
-                                                      .canRequestFocus
-                                                  ? FocusScope.of(context)
-                                                      .requestFocus(
-                                                          _model.unfocusNode)
-                                                  : FocusScope.of(context)
+                                              onTap: () =>
+                                                  FocusScope.of(context)
                                                       .unfocus(),
                                               child: Padding(
                                                 padding:
@@ -528,11 +517,11 @@ class _MakeInsuranceListPageWidgetState
                           }
                           List<HideInAppContentRecord>
                               columnHideInAppContentRecordList = snapshot.data!;
-
                           final columnHideInAppContentRecord =
                               columnHideInAppContentRecordList.isNotEmpty
                                   ? columnHideInAppContentRecordList.first
                                   : null;
+
                           return Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -916,10 +905,10 @@ class _MakeInsuranceListPageWidgetState
                                                                                           widget!.list?[leadListItemIndex],
                                                                                           r'''$.act_total''',
                                                                                         ).toString()
-                                                                                    ? functions.showNumberWithComma(getJsonField(
+                                                                                    ? (functions.showNumberWithComma(getJsonField(
                                                                                         widget!.list?[leadListItemIndex],
                                                                                         r'''$.act_total''',
-                                                                                      ).toString())
+                                                                                      ).toString()))
                                                                                     : '-',
                                                                                 '-',
                                                                               ),
@@ -1000,10 +989,10 @@ class _MakeInsuranceListPageWidgetState
                                                                                         widget!.list![leadListItemIndex],
                                                                                         r'''$.quotation_status''',
                                                                                       ).toString()
-                                                                                    : functions.checkNullValueAndReturn(getJsonField(
+                                                                                    : (functions.checkNullValueAndReturn(getJsonField(
                                                                                         widget!.list?[leadListItemIndex],
                                                                                         r'''$.insurer_status''',
-                                                                                      ).toString()),
+                                                                                      ).toString())),
                                                                                 textAlign: TextAlign.end,
                                                                                 maxLines: 2,
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1026,13 +1015,13 @@ class _MakeInsuranceListPageWidgetState
                                                                       if (widget!.checkPayment ==
                                                                               '1'
                                                                           ? true
-                                                                          : ('${getJsonField(
+                                                                          : (('${getJsonField(
                                                                                     widget!.list?[leadListItemIndex],
                                                                                     r'''$.quotation_status''',
                                                                                   ).toString()}' ==
                                                                                   'ขอคืนเงิน'
                                                                               ? true
-                                                                              : false))
+                                                                              : false)))
                                                                         Row(
                                                                           mainAxisSize:
                                                                               MainAxisSize.max,
@@ -1186,11 +1175,11 @@ class _MakeInsuranceListPageWidgetState
                                                                                     widget!.list?[leadListItemIndex],
                                                                                     r'''$.quotation_type''',
                                                                                   ).toString()
-                                                                              ? ('ปฏิเสธ' !=
+                                                                              ? (('ปฏิเสธ' !=
                                                                                   functions.checkNullValueAndReturn(getJsonField(
                                                                                     widget!.list?[leadListItemIndex],
                                                                                     r'''$.insurer_status''',
-                                                                                  ).toString()))
+                                                                                  ).toString())))
                                                                               : true) &&
                                                                           ('CMI' !=
                                                                               getJsonField(
@@ -1376,7 +1365,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                               alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
                                                                                               child: WebViewAware(
                                                                                                 child: GestureDetector(
-                                                                                                  onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                                  onTap: () => FocusScope.of(dialogContext).unfocus(),
                                                                                                   child: CustomDialogComponentCopyWidget(
                                                                                                     linkUrl: '${GetFileVmiApiCall.vmiDocumentUrl(
                                                                                                       (_model.getFileVmiButton?.jsonBody ?? ''),
@@ -1386,7 +1375,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                               ),
                                                                                             );
                                                                                           },
-                                                                                        ).then((value) => setState(() {}));
+                                                                                        );
 
                                                                                         if (_shouldSetState) setState(() {});
                                                                                         return;
@@ -1636,7 +1625,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                     builder: (context) {
                                                                                       return WebViewAware(
                                                                                         child: GestureDetector(
-                                                                                          onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                          onTap: () => FocusScope.of(context).unfocus(),
                                                                                           child: Padding(
                                                                                             padding: MediaQuery.viewInsetsOf(context),
                                                                                             child: Container(
@@ -1864,7 +1853,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                       widget!.list?[leadListItemIndex],
                                                                                       r'''$.quotation_status''',
                                                                                     ).toString()
-                                                                                ? (('' !=
+                                                                                ? ((('' !=
                                                                                         getJsonField(
                                                                                           widget!.list?[leadListItemIndex],
                                                                                           r'''$.pdf_quotation''',
@@ -1873,8 +1862,8 @@ class _MakeInsuranceListPageWidgetState
                                                                                           widget!.list?[leadListItemIndex],
                                                                                           r'''$.pdf_quotation''',
                                                                                         ).toString()) !=
-                                                                                        '-'))
-                                                                                : (('' !=
+                                                                                        '-')))
+                                                                                : ((('' !=
                                                                                         getJsonField(
                                                                                           widget!.list?[leadListItemIndex],
                                                                                           r'''$.pdf_quotation''',
@@ -1883,17 +1872,17 @@ class _MakeInsuranceListPageWidgetState
                                                                                           widget!.list?[leadListItemIndex],
                                                                                           r'''$.pdf_quotation''',
                                                                                         ).toString()) !=
-                                                                                        '-'))) &&
+                                                                                        '-')))) &&
                                                                             ('manual' ==
                                                                                     getJsonField(
                                                                                       widget!.list?[leadListItemIndex],
                                                                                       r'''$.quotation_type''',
                                                                                     ).toString()
-                                                                                ? ('ปฏิเสธ' !=
+                                                                                ? (('ปฏิเสธ' !=
                                                                                     functions.checkNullValueAndReturn(getJsonField(
                                                                                       widget!.list?[leadListItemIndex],
                                                                                       r'''$.insurer_status''',
-                                                                                    ).toString()))
+                                                                                    ).toString())))
                                                                                 : true) &&
                                                                             ('1' ==
                                                                                     getJsonField(
@@ -2416,10 +2405,10 @@ class _MakeInsuranceListPageWidgetState
                                                                                           ).toString()}' ==
                                                                                           'null'
                                                                                       ? ''
-                                                                                      : '${getJsonField(
+                                                                                      : ('${getJsonField(
                                                                                           widget!.list?[leadListItemIndex],
                                                                                           r'''$.master_act_amount''',
-                                                                                        ).toString()}',
+                                                                                        ).toString()}'),
                                                                                   ParamType.String,
                                                                                 ),
                                                                               }.withoutNulls,

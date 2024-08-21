@@ -68,6 +68,9 @@ class AddCustomerNameWidget extends StatefulWidget {
     this.indexPage,
     this.oldVMIExpDate,
     required this.cc,
+    required this.carLost,
+    required this.motorAddOn,
+    required this.driverBehavior,
   }) : this.driverType = driverType ?? '0';
 
   final List<String>? insurerId;
@@ -116,6 +119,9 @@ class AddCustomerNameWidget extends StatefulWidget {
   final int? indexPage;
   final String? oldVMIExpDate;
   final List<String>? cc;
+  final List<String>? carLost;
+  final List<String>? motorAddOn;
+  final List<String>? driverBehavior;
 
   @override
   State<AddCustomerNameWidget> createState() => _AddCustomerNameWidgetState();
@@ -174,9 +180,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -1121,12 +1125,8 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                   builder: (context) {
                                     return WebViewAware(
                                       child: GestureDetector(
-                                        onTap: () => _model
-                                                .unfocusNode.canRequestFocus
-                                            ? FocusScope.of(context)
-                                                .requestFocus(
-                                                    _model.unfocusNode)
-                                            : FocusScope.of(context).unfocus(),
+                                        onTap: () =>
+                                            FocusScope.of(context).unfocus(),
                                         child: Padding(
                                           padding:
                                               MediaQuery.viewInsetsOf(context),
@@ -1199,7 +1199,10 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                         widget!.stamp?.toList(),
                                         widget!.grossTotal?.toList(),
                                         widget!.contractProcessstate?.toList(),
-                                        widget!.cc?.toList()),
+                                        widget!.cc?.toList(),
+                                        widget!.carLost?.toList(),
+                                        widget!.motorAddOn?.toList(),
+                                        widget!.driverBehavior?.toList()),
                                     r'''$''',
                                   ),
                                   insuranceUrl:

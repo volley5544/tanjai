@@ -200,9 +200,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -236,11 +234,11 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                 }
                 List<UrlLinkStorageRecord> columnfirstUrlLinkStorageRecordList =
                     snapshot.data!;
-
                 final columnfirstUrlLinkStorageRecord =
                     columnfirstUrlLinkStorageRecordList.isNotEmpty
                         ? columnfirstUrlLinkStorageRecordList.first
                         : null;
+
                 return Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -265,7 +263,6 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                         }
                         List<BuildVersionRecord>
                             columnsecBuildVersionRecordList = snapshot.data!;
-
                         // Return an empty Container when the item does not exist.
                         if (snapshot.data!.isEmpty) {
                           return Container();
@@ -274,6 +271,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                             columnsecBuildVersionRecordList.isNotEmpty
                                 ? columnsecBuildVersionRecordList.first
                                 : null;
+
                         return SingleChildScrollView(
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
@@ -303,11 +301,11 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                   List<KeyStorageRecord>
                                       columntriKeyStorageRecordList =
                                       snapshot.data!;
-
                                   final columntriKeyStorageRecord =
                                       columntriKeyStorageRecordList.isNotEmpty
                                           ? columntriKeyStorageRecordList.first
                                           : null;
+
                                   return Column(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
@@ -345,13 +343,13 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                           List<UserCustomRecord>
                                               columnfourUserCustomRecordList =
                                               snapshot.data!;
-
                                           final columnfourUserCustomRecord =
                                               columnfourUserCustomRecordList
                                                       .isNotEmpty
                                                   ? columnfourUserCustomRecordList
                                                       .first
                                                   : null;
+
                                           return Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -419,12 +417,8 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                   return WebViewAware(
                                                                     child:
                                                                         GestureDetector(
-                                                                      onTap: () => _model
-                                                                              .unfocusNode
-                                                                              .canRequestFocus
-                                                                          ? FocusScope.of(context).requestFocus(_model
-                                                                              .unfocusNode)
-                                                                          : FocusScope.of(context)
+                                                                      onTap: () =>
+                                                                          FocusScope.of(context)
                                                                               .unfocus(),
                                                                       child:
                                                                           Padding(
@@ -910,13 +904,13 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                   List<KeyStorage3Record>
                                                       containerKeyStorage3RecordList =
                                                       snapshot.data!;
-
                                                   final containerKeyStorage3Record =
                                                       containerKeyStorage3RecordList
                                                               .isNotEmpty
                                                           ? containerKeyStorage3RecordList
                                                               .first
                                                           : null;
+
                                                   return Container(
                                                     width: double.infinity,
                                                     height: MediaQuery.sizeOf(
@@ -1091,8 +1085,6 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                               shape: PinCodeFieldShape.box,
                                                                               activeColor: FlutterFlowTheme.of(context).primaryBackground,
                                                                               selectedColor: Color(0x66FFFFFF),
-                                                                              activeFillColor: FlutterFlowTheme.of(context).primaryBackground,
-                                                                              selectedFillColor: Color(0x66FFFFFF),
                                                                             ),
                                                                             controller:
                                                                                 _model.pinCodeController,
@@ -1139,7 +1131,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                 builder: (context) {
                                                                                   return WebViewAware(
                                                                                     child: GestureDetector(
-                                                                                      onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                      onTap: () => FocusScope.of(context).unfocus(),
                                                                                       child: Padding(
                                                                                         padding: MediaQuery.viewInsetsOf(context),
                                                                                         child: Container(
@@ -1823,9 +1815,8 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                       return WebViewAware(
                                                                         child:
                                                                             GestureDetector(
-                                                                          onTap: () => _model.unfocusNode.canRequestFocus
-                                                                              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                                                                              : FocusScope.of(context).unfocus(),
+                                                                          onTap: () =>
+                                                                              FocusScope.of(context).unfocus(),
                                                                           child:
                                                                               Padding(
                                                                             padding:

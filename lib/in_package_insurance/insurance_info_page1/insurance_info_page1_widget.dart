@@ -66,9 +66,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => _model.unfocusNode.canRequestFocus
-                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                  : FocusScope.of(context).unfocus(),
+              onTap: () => FocusScope.of(context).unfocus(),
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: LoadingSceneWidget(),
@@ -570,13 +568,13 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
             (_model.detailAPIOutput?.jsonBody ?? ''),
           ) != '' ? IbsApplicationsDetailCall.cc(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ) : (IbsApplicationsDetailCall.leaddetailcc(
+        ) : ((IbsApplicationsDetailCall.leaddetailcc(
           (_model.detailAPIOutput?.jsonBody ?? ''),
         )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
             (_model.detailAPIOutput?.jsonBody ?? ''),
             r'''$.results.data.leads_detail[:].lead_dtl_id''',
             true,
-          )).toList(), widget!.leadDtailId)])}';
+          )).toList(), widget!.leadDtailId)]))}';
       FFAppState().insuranceInfoWeightCar = '${IbsApplicationsDetailCall.weight(
         (_model.detailAPIOutput?.jsonBody ?? ''),
       )}';
@@ -820,13 +818,13 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                 (_model.detailAPIOutput?.jsonBody ?? ''),
               ) != '') ? IbsApplicationsDetailCall.netpremiumtotalAppdetail(
               (_model.detailAPIOutput?.jsonBody ?? ''),
-            ) : '${IbsApplicationsDetailCall.grosstotalnetList(
+            ) : ('${IbsApplicationsDetailCall.grosstotalnetList(
               (_model.detailAPIOutput?.jsonBody ?? ''),
             )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
                 (_model.detailAPIOutput?.jsonBody ?? ''),
                 r'''$.results.data.leads_detail[:].lead_dtl_id''',
                 true,
-              )).toList(), widget!.leadDtailId)]}'}';
+              )).toList(), widget!.leadDtailId)]}')}';
       FFAppState().insuranceInfoActFlag = '${IbsApplicationsDetailCall.actflg(
         (_model.detailAPIOutput?.jsonBody ?? ''),
       )}';
@@ -904,10 +902,14 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
           '${IbsApplicationsDetailCall.horsePower(
         (_model.detailAPIOutput?.jsonBody ?? ''),
       )}';
-      FFAppState().isCorporate = '${IbsApplicationsDetailCall.customertype(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              )}' ==
-              'นิติบุคคล'
+      FFAppState().isCorporate = ('${IbsApplicationsDetailCall.customertype(
+                    (_model.detailAPIOutput?.jsonBody ?? ''),
+                  )}' ==
+                  'นิติบุคคล') &&
+              ('${IbsApplicationsDetailCall.subProduct(
+                    (_model.detailAPIOutput?.jsonBody ?? ''),
+                  )}' ==
+                  'CMI')
           ? true
           : false;
       setState(() {});
@@ -1505,9 +1507,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
           builder: (context) {
             return WebViewAware(
               child: GestureDetector(
-                onTap: () => _model.unfocusNode.canRequestFocus
-                    ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                    : FocusScope.of(context).unfocus(),
+                onTap: () => FocusScope.of(context).unfocus(),
                 child: Padding(
                   padding: MediaQuery.viewInsetsOf(context),
                   child: LoadingSceneWidget(),
@@ -1662,9 +1662,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -1728,11 +1726,11 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                   }
                   List<DataListRecord> columnDataListRecordList =
                       snapshot.data!;
-
                   final columnDataListRecord =
                       columnDataListRecordList.isNotEmpty
                           ? columnDataListRecordList.first
                           : null;
+
                   return SingleChildScrollView(
                     primary: false,
                     child: Column(
@@ -2732,15 +2730,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                     builder: (context) {
                                                       return WebViewAware(
                                                         child: GestureDetector(
-                                                          onTap: () => _model
-                                                                  .unfocusNode
-                                                                  .canRequestFocus
-                                                              ? FocusScope.of(
-                                                                      context)
-                                                                  .requestFocus(
-                                                                      _model
-                                                                          .unfocusNode)
-                                                              : FocusScope.of(
+                                                          onTap: () =>
+                                                              FocusScope.of(
                                                                       context)
                                                                   .unfocus(),
                                                           child: Padding(
@@ -3257,15 +3248,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                     builder: (context) {
                                                       return WebViewAware(
                                                         child: GestureDetector(
-                                                          onTap: () => _model
-                                                                  .unfocusNode
-                                                                  .canRequestFocus
-                                                              ? FocusScope.of(
-                                                                      context)
-                                                                  .requestFocus(
-                                                                      _model
-                                                                          .unfocusNode)
-                                                              : FocusScope.of(
+                                                          onTap: () =>
+                                                              FocusScope.of(
                                                                       context)
                                                                   .unfocus(),
                                                           child: Padding(
@@ -3455,7 +3439,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                             'Passport') ||
                                         (FFAppState().insuranceInfoCardType ==
                                             '2')) &&
-                                    FFAppState().isCorporate
+                                    !FFAppState().isCorporate
                                 ? true
                                 : false)
                               Padding(
@@ -3717,15 +3701,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                     builder: (context) {
                                                       return WebViewAware(
                                                         child: GestureDetector(
-                                                          onTap: () => _model
-                                                                  .unfocusNode
-                                                                  .canRequestFocus
-                                                              ? FocusScope.of(
-                                                                      context)
-                                                                  .requestFocus(
-                                                                      _model
-                                                                          .unfocusNode)
-                                                              : FocusScope.of(
+                                                          onTap: () =>
+                                                              FocusScope.of(
                                                                       context)
                                                                   .unfocus(),
                                                           child: Padding(
@@ -6266,14 +6243,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                             return WebViewAware(
                                                               child:
                                                                   GestureDetector(
-                                                                onTap: () => _model
-                                                                        .unfocusNode
-                                                                        .canRequestFocus
-                                                                    ? FocusScope.of(
-                                                                            context)
-                                                                        .requestFocus(_model
-                                                                            .unfocusNode)
-                                                                    : FocusScope.of(
+                                                                onTap: () =>
+                                                                    FocusScope.of(
                                                                             context)
                                                                         .unfocus(),
                                                                 child: Padding(
@@ -7663,14 +7634,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                   builder: (context) {
                                                     return WebViewAware(
                                                       child: GestureDetector(
-                                                        onTap: () => _model
-                                                                .unfocusNode
-                                                                .canRequestFocus
-                                                            ? FocusScope.of(
-                                                                    context)
-                                                                .requestFocus(_model
-                                                                    .unfocusNode)
-                                                            : FocusScope.of(
+                                                        onTap: () =>
+                                                            FocusScope.of(
                                                                     context)
                                                                 .unfocus(),
                                                         child: Padding(
@@ -7715,7 +7680,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                     if (_model.datePicked !=
                                                         null) {
                                                       return dateTimeFormat(
-                                                        'y-MM-dd',
+                                                        "y-MM-dd",
                                                         _model.datePicked,
                                                         locale:
                                                             FFLocalizations.of(
@@ -7776,11 +7741,25 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                       .removeCommaFromNumText(
                                                           FFAppState()
                                                               .insuranceInfoIdCard),
-                                                  gender: FFAppState()
-                                                              .insuranceInfoGender ==
-                                                          'ชาย'
-                                                      ? 'MALE'
-                                                      : 'FEMALE',
+                                                  gender: () {
+                                                    if ((FFAppState()
+                                                                .insuranceInfoGender ==
+                                                            'ชาย') ||
+                                                        (FFAppState()
+                                                                .insuranceInfoGender ==
+                                                            'MALE')) {
+                                                      return 'MALE';
+                                                    } else if ((FFAppState()
+                                                                .insuranceInfoGender ==
+                                                            'หญิง') ||
+                                                        (FFAppState()
+                                                                .insuranceInfoGender ==
+                                                            'FEMALE')) {
+                                                      return 'FEMALE';
+                                                    } else {
+                                                      return '';
+                                                    }
+                                                  }(),
                                                   titleThId: '',
                                                   titleTh: FFAppState()
                                                       .insuranceInfoTitle,
@@ -8878,14 +8857,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                   builder: (context) {
                                                     return WebViewAware(
                                                       child: GestureDetector(
-                                                        onTap: () => _model
-                                                                .unfocusNode
-                                                                .canRequestFocus
-                                                            ? FocusScope.of(
-                                                                    context)
-                                                                .requestFocus(_model
-                                                                    .unfocusNode)
-                                                            : FocusScope.of(
+                                                        onTap: () =>
+                                                            FocusScope.of(
                                                                     context)
                                                                 .unfocus(),
                                                         child: Padding(
@@ -8947,7 +8920,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                     if (_model.datePicked !=
                                                         null) {
                                                       return dateTimeFormat(
-                                                        'y-MM-dd',
+                                                        "y-MM-dd",
                                                         _model.datePicked,
                                                         locale:
                                                             FFLocalizations.of(
@@ -9028,13 +9001,19 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                               FFAppState()
                                                                   .insuranceInfoIdCard),
                                                   gender: () {
-                                                    if (FFAppState()
-                                                            .insuranceInfoGender ==
-                                                        'ชาย') {
+                                                    if ((FFAppState()
+                                                                .insuranceInfoGender ==
+                                                            'ชาย') ||
+                                                        (FFAppState()
+                                                                .insuranceInfoGender ==
+                                                            'MALE')) {
                                                       return 'MALE';
-                                                    } else if (FFAppState()
-                                                            .insuranceInfoGender ==
-                                                        'หญิง') {
+                                                    } else if ((FFAppState()
+                                                                .insuranceInfoGender ==
+                                                            'หญิง') ||
+                                                        (FFAppState()
+                                                                .insuranceInfoGender ==
+                                                            'FEMALE')) {
                                                       return 'FEMALE';
                                                     } else {
                                                       return '';

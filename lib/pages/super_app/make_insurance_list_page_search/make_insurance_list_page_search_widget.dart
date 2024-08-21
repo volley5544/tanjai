@@ -75,9 +75,7 @@ class _MakeInsuranceListPageSearchWidgetState
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => _model.unfocusNode.canRequestFocus
-                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                  : FocusScope.of(context).unfocus(),
+              onTap: () => FocusScope.of(context).unfocus(),
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: Container(
@@ -140,15 +138,13 @@ class _MakeInsuranceListPageSearchWidgetState
         List<UrlLinkStorageRecord>
             makeInsuranceListPageSearchUrlLinkStorageRecordList =
             snapshot.data!;
-
         final makeInsuranceListPageSearchUrlLinkStorageRecord =
             makeInsuranceListPageSearchUrlLinkStorageRecordList.isNotEmpty
                 ? makeInsuranceListPageSearchUrlLinkStorageRecordList.first
                 : null;
+
         return GestureDetector(
-          onTap: () => _model.unfocusNode.canRequestFocus
-              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-              : FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).unfocus(),
           child: WillPopScope(
             onWillPop: () async => false,
             child: Scaffold(
@@ -213,11 +209,7 @@ class _MakeInsuranceListPageSearchWidgetState
                             builder: (context) {
                               return WebViewAware(
                                 child: GestureDetector(
-                                  onTap: () =>
-                                      _model.unfocusNode.canRequestFocus
-                                          ? FocusScope.of(context)
-                                              .requestFocus(_model.unfocusNode)
-                                          : FocusScope.of(context).unfocus(),
+                                  onTap: () => FocusScope.of(context).unfocus(),
                                   child: Padding(
                                     padding: MediaQuery.viewInsetsOf(context),
                                     child: Container(
@@ -296,11 +288,11 @@ class _MakeInsuranceListPageSearchWidgetState
                           }
                           List<HideInAppContentRecord>
                               columnHideInAppContentRecordList = snapshot.data!;
-
                           final columnHideInAppContentRecord =
                               columnHideInAppContentRecordList.isNotEmpty
                                   ? columnHideInAppContentRecordList.first
                                   : null;
+
                           return Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -705,10 +697,10 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                                       widget!.list![leadListItemIndex],
                                                                                       r'''$.quotation_status''',
                                                                                     ).toString()
-                                                                                  : functions.checkNullValueAndReturn(getJsonField(
+                                                                                  : (functions.checkNullValueAndReturn(getJsonField(
                                                                                       widget!.list?[leadListItemIndex],
                                                                                       r'''$.insurer_status''',
-                                                                                    ).toString()),
+                                                                                    ).toString())),
                                                                               textAlign: TextAlign.end,
                                                                               maxLines: 2,
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -731,13 +723,13 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                     if (widget!.checkPayment ==
                                                                             '1'
                                                                         ? true
-                                                                        : ('${getJsonField(
+                                                                        : (('${getJsonField(
                                                                                   widget!.list?[leadListItemIndex],
                                                                                   r'''$.quotation_status''',
                                                                                 ).toString()}' ==
                                                                                 'ขอคืนเงิน'
                                                                             ? true
-                                                                            : false))
+                                                                            : false)))
                                                                       Row(
                                                                         mainAxisSize:
                                                                             MainAxisSize.max,
@@ -815,11 +807,11 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                                   widget!.list?[leadListItemIndex],
                                                                                   r'''$.quotation_type''',
                                                                                 ).toString()
-                                                                            ? ('ปฏิเสธ' !=
+                                                                            ? (('ปฏิเสธ' !=
                                                                                 functions.checkNullValueAndReturn(getJsonField(
                                                                                   widget!.list?[leadListItemIndex],
                                                                                   r'''$.insurer_status''',
-                                                                                ).toString()))
+                                                                                ).toString())))
                                                                             : true))
                                                                       Row(
                                                                         mainAxisSize:
@@ -1087,7 +1079,7 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                                   builder: (context) {
                                                                                     return WebViewAware(
                                                                                       child: GestureDetector(
-                                                                                        onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                        onTap: () => FocusScope.of(context).unfocus(),
                                                                                         child: Padding(
                                                                                           padding: MediaQuery.viewInsetsOf(context),
                                                                                           child: Container(

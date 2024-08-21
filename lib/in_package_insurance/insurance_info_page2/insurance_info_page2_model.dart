@@ -26,7 +26,6 @@ class InsuranceInfoPage2Model
     extends FlutterFlowModel<InsuranceInfoPage2Widget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (teleGetProvinceAPI)] action in insuranceInfoPage2 widget.
   ApiCallResponse? getProvince;
   // Stores action output result for [Backend Call - API (insuranceRequestGetVehicleAPI)] action in insuranceInfoPage2 widget.
@@ -109,7 +108,6 @@ class InsuranceInfoPage2Model
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     infomationCustomerModel.dispose();
     infomationCustomerActModel.dispose();
     oldVmiTextFieldFocusNode?.dispose();

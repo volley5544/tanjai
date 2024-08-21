@@ -9,15 +9,9 @@ import 'package:provider/provider.dart';
 
 class InsuranceInfoPage4InstallmentsModel
     extends FlutterFlowModel<InsuranceInfoPage4InstallmentsWidget> {
-  ///  State fields for stateful widgets in this page.
-
-  final unfocusNode = FocusNode();
-
   @override
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

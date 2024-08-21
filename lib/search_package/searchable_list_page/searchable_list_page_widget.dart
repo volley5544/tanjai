@@ -79,9 +79,7 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -750,15 +748,16 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                               true)];
                                                   setState(() {});
                                                   FFAppState()
-                                                      .insuranceInfoRegisYear = (int.parse(widget!
-                                                                  .dataList![
-                                                              functions.getIndexOfBoolList(
-                                                                  FFAppState()
-                                                                      .searchableListComponentSelectedList
-                                                                      .toList(),
-                                                                  true)]) -
-                                                          543)
-                                                      .toString();
+                                                          .insuranceInfoRegisYear =
+                                                      (int.parse((widget!
+                                                                      .dataList![
+                                                                  functions.getIndexOfBoolList(
+                                                                      FFAppState()
+                                                                          .searchableListComponentSelectedList
+                                                                          .toList(),
+                                                                      true)])) -
+                                                              543)
+                                                          .toString();
                                                   setState(() {});
                                                   context.safePop();
                                                   return;
@@ -1786,6 +1785,23 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                                     .toList(),
                                                                 true)],
                                                 );
+                                                setState(() {});
+                                                context.safePop();
+                                                return;
+                                              }
+                                              if (widget!.titleText ==
+                                                  'ค้นหาชื่อบริษัทประกัน') {
+                                                FFAppState().filterInsurerList =
+                                                    functions
+                                                        .returnMappedListFromBoolList(
+                                                            widget!.dataList
+                                                                ?.toList(),
+                                                            FFAppState()
+                                                                .searchableListComponentSelectedList
+                                                                .toList(),
+                                                            true)
+                                                        .toList()
+                                                        .cast<String>();
                                                 setState(() {});
                                                 context.safePop();
                                                 return;

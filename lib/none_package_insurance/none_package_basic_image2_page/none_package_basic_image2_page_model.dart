@@ -15,7 +15,6 @@ class NonePackageBasicImage2PageModel
     extends FlutterFlowModel<NonePackageBasicImage2PageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   bool isDataUploading1 = false;
   FFUploadedFile uploadedLocalFile1 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
@@ -64,7 +63,5 @@ class NonePackageBasicImage2PageModel
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

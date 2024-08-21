@@ -29,7 +29,6 @@ class InsuranceInfoPage5Model
     extends FlutterFlowModel<InsuranceInfoPage5Widget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (getDateTimeAPI)] action in insuranceInfoPage5 widget.
   ApiCallResponse? getDateTimeOutput;
   // Stores action output result for [Backend Call - API (ibsApplicationsDetail)] action in insuranceInfoPage5 widget.
@@ -59,7 +58,6 @@ class InsuranceInfoPage5Model
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     infomationCustomerActModel.dispose();
   }
 }
