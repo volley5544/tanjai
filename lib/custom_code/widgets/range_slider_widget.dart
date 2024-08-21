@@ -24,6 +24,8 @@ class RangeSliderWidget extends StatefulWidget {
     this.overlayColor,
     this.startValue,
     this.endValue,
+    this.step,
+    this.typeName,
   });
 
   final double? width;
@@ -35,6 +37,8 @@ class RangeSliderWidget extends StatefulWidget {
   final Color? overlayColor;
   final String? startValue;
   final String? endValue;
+  final String? step;
+  final String? typeName;
 
   @override
   State<RangeSliderWidget> createState() => _RangeSliderWidgetState();
@@ -57,6 +61,13 @@ class _RangeSliderWidgetState extends State<RangeSliderWidget> {
             _sliderValue = newValue;
             _startValue = newValue.start.toStringAsFixed(2);
             _endValue = newValue.end.toStringAsFixed(2);
+            if (widget.typeName! == 'ราคาเบี้ย') {
+              FFAppState().sliderMinGrossTotal = '${_startValue}';
+              FFAppState().sliderMaxGrossTotal = '${_endValue}';
+            } else {
+              FFAppState().sliderMinSumInsured = '${_startValue}';
+              FFAppState().sliderMaxSumInsured = '${_endValue}';
+            }
           });
         },
         activeColor: Color.fromRGBO(widget.activeColor!.red,
@@ -68,12 +79,13 @@ class _RangeSliderWidgetState extends State<RangeSliderWidget> {
             widget.overlayColor!.green,
             widget.overlayColor!.blue,
             1.0)),
-        min: double.parse(widget.minRange!),
-        max: double.parse(widget.maxRange!),
+        min: double.parse(widget.minRange!), // Convert minRange to double
+        max: double.parse(widget.maxRange!), // Convert maxRange to double
         values: _sliderValue ??
-            RangeValues(
-                double.parse(widget.minRange!), double.parse(widget.maxRange!)),
-        divisions: 40,
+            RangeValues(double.parse(widget.minRange!),
+                double.parse(widget.maxRange!)), // Convert to double
+        divisions: (double.parse(widget.maxRange!) / double.parse(widget.step!))
+            .toInt(), // Convert to double and then to int for divisions
         labels: RangeLabels('${_startValue}', '${_endValue}'),
       ),
       Padding(
@@ -119,7 +131,7 @@ class _RangeSliderWidgetState extends State<RangeSliderWidget> {
                     child: SizedBox(
                       height: MediaQuery.sizeOf(context).height * 0.4,
                       child: TextFieldComponentWidget(
-                        title: 'ราคาเบี้ย',
+                        title: '${widget.typeName!}',
                         minValue: '${_startValue!}',
                         maxValue: '${_endValue!}',
                       ),
@@ -131,7 +143,17 @@ class _RangeSliderWidgetState extends State<RangeSliderWidget> {
                   print('before');
                   _startValue = double.parse(value['start']).toStringAsFixed(2);
                   _endValue = double.parse(value['end']).toStringAsFixed(2);
-                  _sliderValue = RangeValues(_startValue!, _endValue!);
+                  print('start value : ${_startValue}');
+                  print('end value : ${_endValue}');
+                  _sliderValue = RangeValues(
+                      double.parse(_startValue), double.parse(_endValue));
+                  if (widget.typeName! == 'ราคาเบี้ย') {
+                    FFAppState().sliderMinGrossTotal = '${_startValue}';
+                    FFAppState().sliderMaxGrossTotal = '${_endValue}';
+                  } else {
+                    FFAppState().sliderMinSumInsured = '${_startValue}';
+                    FFAppState().sliderMaxSumInsured = '${_endValue}';
+                  }
                   print('after');
                 }));
 

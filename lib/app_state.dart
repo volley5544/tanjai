@@ -13701,6 +13701,30 @@ class FFAppState extends ChangeNotifier {
   void insertAtIndexInSearchDriverbehavior(int index, String value) {
     searchDriverbehavior.insert(index, value);
   }
+
+  String _sliderMinGrossTotal = '4000';
+  String get sliderMinGrossTotal => _sliderMinGrossTotal;
+  set sliderMinGrossTotal(String value) {
+    _sliderMinGrossTotal = value;
+  }
+
+  String _sliderMaxGrossTotal = '15000';
+  String get sliderMaxGrossTotal => _sliderMaxGrossTotal;
+  set sliderMaxGrossTotal(String value) {
+    _sliderMaxGrossTotal = value;
+  }
+
+  String _sliderMinSumInsured = '0';
+  String get sliderMinSumInsured => _sliderMinSumInsured;
+  set sliderMinSumInsured(String value) {
+    _sliderMinSumInsured = value;
+  }
+
+  String _sliderMaxSumInsured = '200000';
+  String get sliderMaxSumInsured => _sliderMaxSumInsured;
+  set sliderMaxSumInsured(String value) {
+    _sliderMaxSumInsured = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {
