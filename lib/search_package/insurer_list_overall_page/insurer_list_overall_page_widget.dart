@@ -147,16 +147,34 @@ class _InsurerListOverallPageWidgetState
         );
         return;
       }
-      if (!((TelePackageSearchAPICall.insurershortnameall(
-                (_model.packageAPIOutput?.jsonBody ?? ''),
-              )!
-                  .length >
-              0) &&
-          (TelePackageSearchAPICall.insurershortnameall(
-                (_model.packageAPIOutput?.jsonBody ?? ''),
-              )!
-                  .length >
-              0))) {
+      if (!(TelePackageSearchAPICall.data(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          ) !=
+          null)) {
+        await showDialog(
+          context: context,
+          builder: (alertDialogContext) {
+            return WebViewAware(
+              child: AlertDialog(
+                content: Text('ไม่พบข้อมูลบริษัทประกัน'),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(alertDialogContext),
+                    child: Text('Ok'),
+                  ),
+                ],
+              ),
+            );
+          },
+        );
+        Navigator.pop(context);
+        return;
+      }
+      if (TelePackageSearchAPICall.insurershortnameall(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .length <=
+          0) {
         await showDialog(
           context: context,
           builder: (alertDialogContext) {
@@ -854,22 +872,13 @@ class _InsurerListOverallPageWidgetState
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
-                                                if (((TelePackageSearchAPICall
-                                                                    .insurershortnameall(
-                                                              (_model.packageAPIOutput
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )!
-                                                                .length >
-                                                            0) &&
-                                                        (TelePackageSearchAPICall
-                                                                    .insurershortnameall(
-                                                              (_model.packageAPIOutput
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )!
-                                                                .length >
-                                                            0)) &&
+                                                if ((TelePackageSearchAPICall
+                                                            .data(
+                                                          (_model.packageAPIOutput
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        ) !=
+                                                        null) &&
                                                     (TelePackageSearchAPICall
                                                             .statusLayer1(
                                                           (_model.packageAPIOutput
