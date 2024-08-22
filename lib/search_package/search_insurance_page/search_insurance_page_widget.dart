@@ -82,10 +82,10 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
       ).then((s) => s.firstOrNull);
       FFAppState().searchPackageEvFlag = 'N';
       setState(() {});
-      FFAppState().sliderMinGrossTotal = '4000';
-      FFAppState().sliderMaxGrossTotal = '15000';
+      FFAppState().sliderMinGrossTotal = '1000';
+      FFAppState().sliderMaxGrossTotal = '50000';
       FFAppState().sliderMinSumInsured = '0';
-      FFAppState().sliderMaxSumInsured = '200000';
+      FFAppState().sliderMaxSumInsured = '1000000';
       setState(() {});
       _model.adminVersionQuery = await queryAuthorizationRecordOnce(
         queryBuilder: (authorizationRecord) => authorizationRecord.where(
@@ -2642,11 +2642,12 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                                     .override(
                                                       fontFamily:
                                                           'Noto Sans Thai',
-                                                      color: functions
-                                                              .containWordinStringUrl(
-                                                                  'เลือก',
-                                                                  FFAppState()
-                                                                      .insuranceInfoProductYear)!
+                                                      color: FFAppState()
+                                                                      .insuranceInfoRegistrationProvinceSelect ==
+                                                                  null ||
+                                                              FFAppState()
+                                                                      .insuranceInfoRegistrationProvinceSelect ==
+                                                                  ''
                                                           ? Color(0xFF9F9F9F)
                                                           : Colors.black,
                                                       fontSize: 15.0,
@@ -2853,7 +2854,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                     width: double.infinity,
                                     height: 120.0,
                                     minRange: '0',
-                                    maxRange: '20000',
+                                    maxRange: '300000',
                                     activeColor: Color(0xFFDB771B),
                                     inactiveColors: FlutterFlowTheme.of(context)
                                         .secondaryText,
@@ -2861,7 +2862,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                     startValue:
                                         FFAppState().sliderMinGrossTotal,
                                     endValue: FFAppState().sliderMaxGrossTotal,
-                                    step: '500',
+                                    step: '1000',
                                     typeName: 'ราคาเบี้ย',
                                   ),
                                 ),
@@ -2904,7 +2905,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                     width: double.infinity,
                                     height: 120.0,
                                     minRange: '0',
-                                    maxRange: '10000000',
+                                    maxRange: '20000000',
                                     activeColor: Color(0xFFDB771B),
                                     inactiveColors: FlutterFlowTheme.of(context)
                                         .secondaryText,
@@ -2912,7 +2913,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                     startValue:
                                         FFAppState().sliderMinSumInsured,
                                     endValue: FFAppState().sliderMaxSumInsured,
-                                    step: '100000',
+                                    step: '200000',
                                     typeName: 'ทุนประกัน',
                                   ),
                                 ),
