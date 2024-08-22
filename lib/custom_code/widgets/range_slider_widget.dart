@@ -114,70 +114,82 @@ class _RangeSliderWidgetState extends State<RangeSliderWidget> {
       Padding(
         padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
         child: InkWell(
-          splashColor: Colors.transparent,
-          focusColor: Colors.transparent,
-          hoverColor: Colors.transparent,
-          highlightColor: Colors.transparent,
-          onTap: () async {
-            await showModalBottomSheet(
-              isScrollControlled: true,
-              backgroundColor: Colors.transparent,
-              context: context,
-              builder: (context) {
-                return GestureDetector(
-                  onTap: () => FocusScope.of(context).unfocus(),
-                  child: Padding(
-                    padding: MediaQuery.viewInsetsOf(context),
-                    child: SizedBox(
-                      height: MediaQuery.sizeOf(context).height * 0.4,
-                      child: TextFieldComponentWidget(
-                        title: '${widget.typeName!}',
-                        minValue: '${_startValue!}',
-                        maxValue: '${_endValue!}',
+            splashColor: Colors.transparent,
+            focusColor: Colors.transparent,
+            hoverColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            onTap: () async {
+              await showModalBottomSheet(
+                isScrollControlled: true,
+                backgroundColor: Colors.transparent,
+                context: context,
+                builder: (context) {
+                  return GestureDetector(
+                    onTap: () => FocusScope.of(context).unfocus(),
+                    child: Padding(
+                      padding: MediaQuery.viewInsetsOf(context),
+                      child: SizedBox(
+                        height: MediaQuery.sizeOf(context).height * 0.4,
+                        child: TextFieldComponentWidget(
+                          title: '${widget.typeName!}',
+                          minValue: '${_startValue!}',
+                          maxValue: '${_endValue!}',
+                        ),
                       ),
                     ),
-                  ),
-                );
-              },
-            ).then((value) => safeSetState(() {
-                  print('before');
-                  _startValue = double.parse(value['start']).toStringAsFixed(2);
-                  _endValue = double.parse(value['end']).toStringAsFixed(2);
-                  print('start value : ${_startValue}');
-                  print('end value : ${_endValue}');
-                  _sliderValue = RangeValues(
-                      double.parse(_startValue), double.parse(_endValue));
-                  if (widget.typeName! == 'ราคาเบี้ย') {
-                    FFAppState().sliderMinGrossTotal = '${_startValue}';
-                    FFAppState().sliderMaxGrossTotal = '${_endValue}';
-                  } else {
-                    FFAppState().sliderMinSumInsured = '${_startValue}';
-                    FFAppState().sliderMaxSumInsured = '${_endValue}';
-                  }
-                  print('after');
-                }));
+                  );
+                },
+              ).then((value) => safeSetState(() {
+                    print('before');
+                    _startValue =
+                        double.parse(value['start']).toStringAsFixed(2);
+                    _endValue = double.parse(value['end']).toStringAsFixed(2);
+                    print('start value : ${_startValue}');
+                    print('end value : ${_endValue}');
+                    _sliderValue = RangeValues(
+                        double.parse(_startValue), double.parse(_endValue));
+                    if (widget.typeName! == 'ราคาเบี้ย') {
+                      FFAppState().sliderMinGrossTotal = '${_startValue}';
+                      FFAppState().sliderMaxGrossTotal = '${_endValue}';
+                    } else {
+                      FFAppState().sliderMinSumInsured = '${_startValue}';
+                      FFAppState().sliderMaxSumInsured = '${_endValue}';
+                    }
+                    print('after');
+                  }));
 
-            setState(() {});
+              setState(() {});
 
-            setState(() {});
-          },
-          child: Text(
-            '${widget.typeName!}ต่ำสุด : ${showNumberWithComma('${_startValue}') ?? '${showNumberWithComma(widget.minRange!)}'}',
-            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                  fontFamily: 'Readex Pro',
-                  fontSize: 16.0,
-                  letterSpacing: 0.0,
+              setState(() {});
+            },
+            child: Padding(
+              padding: EdgeInsetsDirectional.only(start: 12, end: 12),
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      '${widget.typeName!}ต่ำสุด : ${showNumberWithComma('${_startValue}') ?? '${showNumberWithComma(widget.minRange!)}'} บาท',
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Readex Pro',
+                            fontSize: 16.0,
+                            letterSpacing: 0.0,
+                          ),
+                    ),
+                    Text(
+                      '${widget.typeName!}สูงสุด : ${showNumberWithComma('${_endValue}') ?? '${showNumberWithComma(widget.maxRange!)}'} บาท',
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Readex Pro',
+                            fontSize: 16.0,
+                            letterSpacing: 0.0,
+                          ),
+                    ),
+                  ],
                 ),
-          ),
-          child: Text(
-            '${widget.typeName!}สูงสุด : ${showNumberWithComma('${_endValue}') ?? '${showNumberWithComma(widget.maxRange!)}'}',
-            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                  fontFamily: 'Readex Pro',
-                  fontSize: 16.0,
-                  letterSpacing: 0.0,
-                ),
-          ),
-        ),
+              ),
+            )),
       )
     ]);
   }

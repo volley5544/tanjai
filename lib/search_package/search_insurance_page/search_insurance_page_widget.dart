@@ -2848,10 +2848,10 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                 ),
                                 Container(
                                   width: double.infinity,
-                                  height: 100.0,
+                                  height: 120.0,
                                   child: custom_widgets.RangeSliderWidget(
                                     width: double.infinity,
-                                    height: 100.0,
+                                    height: 120.0,
                                     minRange: '0',
                                     maxRange: '20000',
                                     activeColor: Color(0xFFDB771B),
@@ -2899,10 +2899,10 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                 ),
                                 Container(
                                   width: double.infinity,
-                                  height: 100.0,
+                                  height: 120.0,
                                   child: custom_widgets.RangeSliderWidget(
                                     width: double.infinity,
-                                    height: 100.0,
+                                    height: 120.0,
                                     minRange: '0',
                                     maxRange: '10000000',
                                     activeColor: Color(0xFFDB771B),
