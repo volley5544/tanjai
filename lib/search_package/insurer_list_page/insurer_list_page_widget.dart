@@ -1855,23 +1855,10 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                             ),
                                           ),
                                         ),
-                                        if ((((TelePackageSearchAPICall.total(
-                                                          (_model.packageAPIOutput
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        )?.length !=
-                                                        0) &&
-                                                    (TelePackageSearchAPICall
-                                                            .statusLayer1(
-                                                          (_model.packageAPIOutput
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        ) ==
-                                                        200) &&
-                                                    ((_model.packageAPIOutput
-                                                                ?.statusCode ??
-                                                            200) ==
-                                                        200)) ||
+                                        if (((FFAppState()
+                                                        .searchInsurerInsurershortname
+                                                        .length >
+                                                    0) ||
                                                 ((TelePackageSearchMCAPICall
                                                             .total(
                                                           (_model.packageAPIMCOutput
