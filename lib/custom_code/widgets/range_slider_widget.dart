@@ -95,14 +95,14 @@ class _RangeSliderWidgetState extends State<RangeSliderWidget> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              '${double.parse(widget.minRange!).toStringAsFixed(2)}',
+              '${showNumberWithComma(widget.minRange!)}',
               style: FlutterFlowTheme.of(context).bodyMedium.override(
                     fontFamily: 'Readex Pro',
                     letterSpacing: 0.0,
                   ),
             ),
             Text(
-              '${double.parse(widget.maxRange!).toStringAsFixed(2)}',
+              '${showNumberWithComma(widget.maxRange!)}',
               style: FlutterFlowTheme.of(context).bodyMedium.override(
                     fontFamily: 'Readex Pro',
                     letterSpacing: 0.0,
@@ -162,7 +162,15 @@ class _RangeSliderWidgetState extends State<RangeSliderWidget> {
             setState(() {});
           },
           child: Text(
-            'ค่าต่ำสุด : ${_startValue ?? '${double.parse(widget.minRange!).toStringAsFixed(2)}'} , ค่าสูงสุด ${_endValue ?? '${double.parse(widget.maxRange!).toStringAsFixed(2)}'}',
+            '${widget.typeName!}ต่ำสุด : ${showNumberWithComma('${_startValue}') ?? '${showNumberWithComma(widget.minRange!)}'}',
+            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                  fontFamily: 'Readex Pro',
+                  fontSize: 16.0,
+                  letterSpacing: 0.0,
+                ),
+          ),
+          child: Text(
+            '${widget.typeName!}สูงสุด : ${showNumberWithComma('${_endValue}') ?? '${showNumberWithComma(widget.maxRange!)}'}',
             style: FlutterFlowTheme.of(context).bodyMedium.override(
                   fontFamily: 'Readex Pro',
                   fontSize: 16.0,

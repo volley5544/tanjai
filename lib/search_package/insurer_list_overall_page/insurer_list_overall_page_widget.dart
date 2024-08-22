@@ -97,10 +97,10 @@ class _InsurerListOverallPageWidgetState
         insuranceUrl: FFAppState().apiUrlInsuranceAppState,
         garageTypeList: widget!.garageType,
         province: widget!.province,
-        maxGrossTotal: int.parse(FFAppState().sliderMaxGrossTotal!),
-        minGrossTotal: int.parse(FFAppState().sliderMinGrossTotal!),
-        maxSumInsured: int.parse(FFAppState().sliderMaxSumInsured!),
-        minSumInsured: int.parse(FFAppState().sliderMinSumInsured!),
+        maxGrossTotal: double.parse(FFAppState().sliderMaxGrossTotal!).toInt(),
+        minGrossTotal: double.parse(FFAppState().sliderMinGrossTotal!).toInt(),
+        maxSumInsured: double.parse(FFAppState().sliderMaxSumInsured!).toInt(),
+        minSumInsured: double.parse(FFAppState().sliderMinSumInsured!).toInt(),
       );
 
       if ((_model.packageAPIOutput?.statusCode ?? 200) != 200) {

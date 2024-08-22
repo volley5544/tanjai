@@ -82,6 +82,11 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
       ).then((s) => s.firstOrNull);
       FFAppState().searchPackageEvFlag = 'N';
       setState(() {});
+      FFAppState().sliderMinGrossTotal = '4000';
+      FFAppState().sliderMaxGrossTotal = '15000';
+      FFAppState().sliderMinSumInsured = '0';
+      FFAppState().sliderMaxSumInsured = '200000';
+      setState(() {});
       _model.adminVersionQuery = await queryAuthorizationRecordOnce(
         queryBuilder: (authorizationRecord) => authorizationRecord.where(
           'content_name',
@@ -2814,82 +2819,104 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                           ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                24.0, 0.0, 24.0, 4.0),
-                            child: Row(
+                                0.0, 12.0, 0.0, 0.0),
+                            child: Column(
                               mainAxisSize: MainAxisSize.max,
-                              crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Text(
-                                  'เลือกราคาเบี้ยประกันต่ำสุด - สูงสุด',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Noto Sans Thai',
-                                        color: Color(0xFF424242),
-                                        fontSize: 15.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      24.0, 0.0, 24.0, 4.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        'เลือกราคาเบี้ยประกันต่ำสุด - สูงสุด',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Noto Sans Thai',
+                                              color: Color(0xFF424242),
+                                              fontSize: 15.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w500,
+                                            ),
                                       ),
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  width: double.infinity,
+                                  height: 100.0,
+                                  child: custom_widgets.RangeSliderWidget(
+                                    width: double.infinity,
+                                    height: 100.0,
+                                    minRange: '0',
+                                    maxRange: '20000',
+                                    activeColor: Color(0xFFDB771B),
+                                    inactiveColors: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                    overlayColor: Color(0xFFFFBB7C),
+                                    startValue:
+                                        FFAppState().sliderMinGrossTotal,
+                                    endValue: FFAppState().sliderMaxGrossTotal,
+                                    step: '500',
+                                    typeName: 'ราคาเบี้ย',
+                                  ),
                                 ),
                               ],
-                            ),
-                          ),
-                          Container(
-                            width: double.infinity,
-                            height: 100.0,
-                            child: custom_widgets.RangeSliderWidget(
-                              width: double.infinity,
-                              height: 100.0,
-                              minRange: '0',
-                              maxRange: '20000',
-                              activeColor: Color(0xFFDB771B),
-                              inactiveColors:
-                                  FlutterFlowTheme.of(context).secondaryText,
-                              overlayColor: Color(0xFFFFBB7C),
-                              startValue: FFAppState().sliderMinGrossTotal,
-                              endValue: FFAppState().sliderMaxGrossTotal,
-                              step: '500',
-                              typeName: 'ราคาเบี้ย',
                             ),
                           ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                24.0, 0.0, 24.0, 4.0),
-                            child: Row(
+                                0.0, 12.0, 0.0, 0.0),
+                            child: Column(
                               mainAxisSize: MainAxisSize.max,
-                              crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Text(
-                                  'เลือกราคาทุนประกันต่ำสุด - สูงสุด',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Noto Sans Thai',
-                                        color: Color(0xFF424242),
-                                        fontSize: 15.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      24.0, 0.0, 24.0, 4.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        'เลือกราคาทุนประกันต่ำสุด - สูงสุด',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Noto Sans Thai',
+                                              color: Color(0xFF424242),
+                                              fontSize: 15.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w500,
+                                            ),
                                       ),
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  width: double.infinity,
+                                  height: 100.0,
+                                  child: custom_widgets.RangeSliderWidget(
+                                    width: double.infinity,
+                                    height: 100.0,
+                                    minRange: '0',
+                                    maxRange: '10000000',
+                                    activeColor: Color(0xFFDB771B),
+                                    inactiveColors: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                    overlayColor: Color(0xFFFFBB7C),
+                                    startValue:
+                                        FFAppState().sliderMinSumInsured,
+                                    endValue: FFAppState().sliderMaxSumInsured,
+                                    step: '100000',
+                                    typeName: 'ทุนประกัน',
+                                  ),
                                 ),
                               ],
-                            ),
-                          ),
-                          Container(
-                            width: double.infinity,
-                            height: 100.0,
-                            child: custom_widgets.RangeSliderWidget(
-                              width: double.infinity,
-                              height: 100.0,
-                              minRange: '0',
-                              maxRange: '10000000',
-                              activeColor: Color(0xFFDB771B),
-                              inactiveColors:
-                                  FlutterFlowTheme.of(context).secondaryText,
-                              overlayColor: Color(0xFFFFBB7C),
-                              startValue: FFAppState().sliderMinSumInsured,
-                              endValue: FFAppState().sliderMaxSumInsured,
-                              step: '100000',
-                              typeName: 'ทุนประกัน',
                             ),
                           ),
                         ]
@@ -2981,7 +3008,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                     child: AlertDialog(
                                       title: Text('max insu'),
                                       content: Text(
-                                          FFAppState().sliderMinSumInsured),
+                                          FFAppState().sliderMaxSumInsured),
                                       actions: [
                                         TextButton(
                                           onPressed: () =>
