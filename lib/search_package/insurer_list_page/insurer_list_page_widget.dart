@@ -367,7 +367,9 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
         setState(() {});
         Navigator.pop(context);
       } else {
-        if (!true) {
+        if (true) {
+          Navigator.pop(context);
+        } else {
           _model.packageAPIOutput = await TelePackageSearchAPICall.call(
             brandCode: widget!.brandCode,
             modelCode: widget!.modelCode,
@@ -1041,24 +1043,10 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
-                                                if (((TelePackageSearchAPICall
-                                                                .total(
-                                                              (_model.packageAPIOutput
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )?.length !=
-                                                            0) &&
-                                                        (TelePackageSearchAPICall
-                                                                .statusLayer1(
-                                                              (_model.packageAPIOutput
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            ) ==
-                                                            200) &&
-                                                        ((_model.packageAPIOutput
-                                                                    ?.statusCode ??
-                                                                200) ==
-                                                            200)) ||
+                                                if ((FFAppState()
+                                                            .searchInsurerInsurershortname
+                                                            .length >
+                                                        0) ||
                                                     ((TelePackageSearchMCAPICall
                                                                 .total(
                                                               (_model.packageAPIMCOutput
@@ -1776,13 +1764,28 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                       },
                                                     ),
                                                   ),
-                                                if (TelePackageSearchAPICall
-                                                        .total(
-                                                      (_model.packageAPIOutput
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    )?.length ==
-                                                    0)
+                                                if (!((FFAppState()
+                                                            .searchInsurerInsurershortname
+                                                            .length >
+                                                        0) ||
+                                                    ((TelePackageSearchMCAPICall
+                                                                .total(
+                                                              (_model.packageAPIMCOutput
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                            ) !=
+                                                            0) &&
+                                                        (TelePackageSearchMCAPICall
+                                                                .statusLayer1(
+                                                              (_model.packageAPIMCOutput
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                            ) ==
+                                                            200) &&
+                                                        ((_model.packageAPIMCOutput
+                                                                    ?.statusCode ??
+                                                                200) ==
+                                                            200))))
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
