@@ -147,10 +147,11 @@ class _InsurerListOverallPageWidgetState
         );
         return;
       }
-      if (!(TelePackageSearchAPICall.data(
+      if (TelePackageSearchAPICall.data(
             (_model.packageAPIOutput?.jsonBody ?? ''),
-          ) !=
-          null)) {
+          )!
+              .length <=
+          0) {
         await showDialog(
           context: context,
           builder: (alertDialogContext) {
@@ -873,12 +874,13 @@ class _InsurerListOverallPageWidgetState
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 if ((TelePackageSearchAPICall
-                                                            .data(
+                                                                .data(
                                                           (_model.packageAPIOutput
                                                                   ?.jsonBody ??
                                                               ''),
-                                                        ) !=
-                                                        null) &&
+                                                        )!
+                                                            .length >
+                                                        0) &&
                                                     (TelePackageSearchAPICall
                                                             .statusLayer1(
                                                           (_model.packageAPIOutput
