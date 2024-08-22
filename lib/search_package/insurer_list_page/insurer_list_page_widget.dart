@@ -367,283 +367,285 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
         setState(() {});
         Navigator.pop(context);
       } else {
-        _model.packageAPIOutput = await TelePackageSearchAPICall.call(
-          brandCode: widget!.brandCode,
-          modelCode: widget!.modelCode,
-          year: widget!.year,
-          vehicleUsage: widget!.vehicleUsage,
-          coverTypeList: widget!.coverType,
-          insuranceUrl: FFAppState().apiUrlInsuranceAppState,
-          garageTypeList: widget!.garageType,
-          province: widget!.province,
-        );
+        if (!true) {
+          _model.packageAPIOutput = await TelePackageSearchAPICall.call(
+            brandCode: widget!.brandCode,
+            modelCode: widget!.modelCode,
+            year: widget!.year,
+            vehicleUsage: widget!.vehicleUsage,
+            coverTypeList: widget!.coverType,
+            insuranceUrl: FFAppState().apiUrlInsuranceAppState,
+            garageTypeList: widget!.garageType,
+            province: widget!.province,
+          );
 
-        if ((_model.packageAPIOutput?.statusCode ?? 200) != 200) {
-          await showDialog(
-            context: context,
-            builder: (alertDialogContext) {
-              return WebViewAware(
-                child: AlertDialog(
-                  content: Text(
-                      'พบข้อผิดพลาด (${(_model.packageAPIOutput?.statusCode ?? 200).toString()})'),
-                  actions: [
-                    TextButton(
-                      onPressed: () => Navigator.pop(alertDialogContext),
-                      child: Text('Ok'),
-                    ),
-                  ],
-                ),
-              );
-            },
-          );
-          return;
-        }
-        if (TelePackageSearchAPICall.statusLayer1(
-              (_model.packageAPIOutput?.jsonBody ?? ''),
-            ) !=
-            200) {
-          await showDialog(
-            context: context,
-            builder: (alertDialogContext) {
-              return WebViewAware(
-                child: AlertDialog(
-                  content: Text(TelePackageSearchAPICall.messageLayer1(
-                    (_model.packageAPIOutput?.jsonBody ?? ''),
-                  )!),
-                  actions: [
-                    TextButton(
-                      onPressed: () => Navigator.pop(alertDialogContext),
-                      child: Text('Ok'),
-                    ),
-                  ],
-                ),
-              );
-            },
-          );
-          return;
-        }
-        if (TelePackageSearchAPICall.total(
-              (_model.packageAPIOutput?.jsonBody ?? ''),
-            )?.length ==
-            0) {
-          await showDialog(
-            context: context,
-            builder: (alertDialogContext) {
-              return WebViewAware(
-                child: AlertDialog(
-                  content: Text('ไม่พบข้อมูลประกัน'),
-                  actions: [
-                    TextButton(
-                      onPressed: () => Navigator.pop(alertDialogContext),
-                      child: Text('Ok'),
-                    ),
-                  ],
-                ),
-              );
-            },
-          );
+          if ((_model.packageAPIOutput?.statusCode ?? 200) != 200) {
+            await showDialog(
+              context: context,
+              builder: (alertDialogContext) {
+                return WebViewAware(
+                  child: AlertDialog(
+                    content: Text(
+                        'พบข้อผิดพลาด (${(_model.packageAPIOutput?.statusCode ?? 200).toString()})'),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(alertDialogContext),
+                        child: Text('Ok'),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
+            return;
+          }
+          if (TelePackageSearchAPICall.statusLayer1(
+                (_model.packageAPIOutput?.jsonBody ?? ''),
+              ) !=
+              200) {
+            await showDialog(
+              context: context,
+              builder: (alertDialogContext) {
+                return WebViewAware(
+                  child: AlertDialog(
+                    content: Text(TelePackageSearchAPICall.messageLayer1(
+                      (_model.packageAPIOutput?.jsonBody ?? ''),
+                    )!),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(alertDialogContext),
+                        child: Text('Ok'),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
+            return;
+          }
+          if (TelePackageSearchAPICall.total(
+                (_model.packageAPIOutput?.jsonBody ?? ''),
+              )?.length ==
+              0) {
+            await showDialog(
+              context: context,
+              builder: (alertDialogContext) {
+                return WebViewAware(
+                  child: AlertDialog(
+                    content: Text('ไม่พบข้อมูลประกัน'),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(alertDialogContext),
+                        child: Text('Ok'),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
+            Navigator.pop(context);
+            return;
+          }
+          FFAppState().searchSerialName = TelePackageSearchAPICall.serialName(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchSumInsured = TelePackageSearchAPICall.sumInsured(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchCoverType = TelePackageSearchAPICall.coverType(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchGrossTotal = TelePackageSearchAPICall.grossTotal(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchExpDate = TelePackageSearchAPICall.expiryDate(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().tpbiAccident = TelePackageSearchAPICall.tpbiAccident(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().tpbiPerson = TelePackageSearchAPICall.tpbiPerson(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().teleModelName = TelePackageSearchAPICall.modelName(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().teleBrandName = TelePackageSearchAPICall.brandName(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchGarageType = TelePackageSearchAPICall.garageType(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchRegisYearList =
+              TelePackageSearchAPICall.registrationYear(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          FFAppState().searchFullName = TelePackageSearchAPICall.fullName(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchTppd = TelePackageSearchAPICall.tppd(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchPa = TelePackageSearchAPICall.pa(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().companyId = TelePackageSearchAPICall.companyId(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().teleBrandID = TelePackageSearchAPICall.brandCode(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().teleModelCode = TelePackageSearchAPICall.modelCode(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchActAmount = TelePackageSearchAPICall.actAmount(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchShortName = TelePackageSearchAPICall.shortName(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchLogo = TelePackageSearchAPICall.logo(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchAccessoryList = TelePackageSearchAPICall.accessory(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchInsurerCondition =
+              TelePackageSearchAPICall.insurerCondition(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          setState(() {});
+          FFAppState().effectiveDate = TelePackageSearchAPICall.effectiveDate(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchId = TelePackageSearchAPICall.id(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<int>();
+          FFAppState().searchPackageId = TelePackageSearchAPICall.packageId(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().serachPackageName = TelePackageSearchAPICall.packageName(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchStamp = TelePackageSearchAPICall.stamp(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchVat = TelePackageSearchAPICall.vat(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchNetPremium = TelePackageSearchAPICall.netPremium(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchSeat = TelePackageSearchAPICall.seat(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchRoadsideAssistance =
+              TelePackageSearchAPICall.roadsideAssistance(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          FFAppState().searchbb = TelePackageSearchAPICall.bb(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchme = TelePackageSearchAPICall.me(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchFlood = TelePackageSearchAPICall.flood(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchDeductible = TelePackageSearchAPICall.deductible(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchContractProcessstate =
+              TelePackageSearchAPICall.contractProcessstate(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          FFAppState().searchcc = TelePackageSearchAPICall.cc(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          setState(() {});
+          FFAppState().selectInsurerList = functions
+              .createFalseListByItemNumber(
+                  false, FFAppState().searchSerialName.length)!
+              .toList()
+              .cast<bool>();
+          FFAppState().addCustomerQuotationSaveSuccess = false;
+          setState(() {});
           Navigator.pop(context);
-          return;
         }
-        FFAppState().searchSerialName = TelePackageSearchAPICall.serialName(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().searchSumInsured = TelePackageSearchAPICall.sumInsured(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().searchCoverType = TelePackageSearchAPICall.coverType(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().searchGrossTotal = TelePackageSearchAPICall.grossTotal(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().searchExpDate = TelePackageSearchAPICall.expiryDate(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().tpbiAccident = TelePackageSearchAPICall.tpbiAccident(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().tpbiPerson = TelePackageSearchAPICall.tpbiPerson(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().teleModelName = TelePackageSearchAPICall.modelName(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().teleBrandName = TelePackageSearchAPICall.brandName(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().searchGarageType = TelePackageSearchAPICall.garageType(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().searchRegisYearList =
-            TelePackageSearchAPICall.registrationYear(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        )!
-                .toList()
-                .cast<String>();
-        FFAppState().searchFullName = TelePackageSearchAPICall.fullName(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().searchTppd = TelePackageSearchAPICall.tppd(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().searchPa = TelePackageSearchAPICall.pa(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().companyId = TelePackageSearchAPICall.companyId(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().teleBrandID = TelePackageSearchAPICall.brandCode(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().teleModelCode = TelePackageSearchAPICall.modelCode(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().searchActAmount = TelePackageSearchAPICall.actAmount(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().searchShortName = TelePackageSearchAPICall.shortName(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().searchLogo = TelePackageSearchAPICall.logo(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().searchAccessoryList = TelePackageSearchAPICall.accessory(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().searchInsurerCondition =
-            TelePackageSearchAPICall.insurerCondition(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        )!
-                .toList()
-                .cast<String>();
-        setState(() {});
-        FFAppState().effectiveDate = TelePackageSearchAPICall.effectiveDate(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().searchId = TelePackageSearchAPICall.id(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<int>();
-        FFAppState().searchPackageId = TelePackageSearchAPICall.packageId(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().serachPackageName = TelePackageSearchAPICall.packageName(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().searchStamp = TelePackageSearchAPICall.stamp(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().searchVat = TelePackageSearchAPICall.vat(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().searchNetPremium = TelePackageSearchAPICall.netPremium(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().searchSeat = TelePackageSearchAPICall.seat(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().searchRoadsideAssistance =
-            TelePackageSearchAPICall.roadsideAssistance(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        )!
-                .toList()
-                .cast<String>();
-        FFAppState().searchbb = TelePackageSearchAPICall.bb(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().searchme = TelePackageSearchAPICall.me(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().searchFlood = TelePackageSearchAPICall.flood(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().searchDeductible = TelePackageSearchAPICall.deductible(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().searchContractProcessstate =
-            TelePackageSearchAPICall.contractProcessstate(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        )!
-                .toList()
-                .cast<String>();
-        FFAppState().searchcc = TelePackageSearchAPICall.cc(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        setState(() {});
-        FFAppState().selectInsurerList = functions
-            .createFalseListByItemNumber(
-                false, FFAppState().searchSerialName.length)!
-            .toList()
-            .cast<bool>();
-        FFAppState().addCustomerQuotationSaveSuccess = false;
-        setState(() {});
-        Navigator.pop(context);
       }
     });
   }

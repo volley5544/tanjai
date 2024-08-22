@@ -147,11 +147,16 @@ class _InsurerListOverallPageWidgetState
         );
         return;
       }
-      if (TelePackageSearchAPICall.insurershortnameall(
-            (_model.packageAPIOutput?.jsonBody ?? ''),
-          )!
-              .length <=
-          0) {
+      if (!((TelePackageSearchAPICall.insurershortnameall(
+                (_model.packageAPIOutput?.jsonBody ?? ''),
+              )!
+                  .length >
+              0) &&
+          (TelePackageSearchAPICall.insurershortnameall(
+                (_model.packageAPIOutput?.jsonBody ?? ''),
+              )!
+                  .length >
+              0))) {
         await showDialog(
           context: context,
           builder: (alertDialogContext) {
@@ -849,14 +854,22 @@ class _InsurerListOverallPageWidgetState
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
-                                                if ((TelePackageSearchAPICall
-                                                                .insurershortnameall(
-                                                          (_model.packageAPIOutput
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        )!
-                                                            .length >
-                                                        0) &&
+                                                if (((TelePackageSearchAPICall
+                                                                    .insurershortnameall(
+                                                              (_model.packageAPIOutput
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                            )!
+                                                                .length >
+                                                            0) &&
+                                                        (TelePackageSearchAPICall
+                                                                    .insurershortnameall(
+                                                              (_model.packageAPIOutput
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                            )!
+                                                                .length >
+                                                            0)) &&
                                                     (TelePackageSearchAPICall
                                                             .statusLayer1(
                                                           (_model.packageAPIOutput

@@ -5036,6 +5036,10 @@ class TelePackageSearchAPICall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
+  static dynamic? data(dynamic response) => getJsonField(
+        response,
+        r'''$.results.data''',
+      );
 }
 
 class TelePackageSearchMCAPICall {

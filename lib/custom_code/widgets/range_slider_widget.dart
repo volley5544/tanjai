@@ -165,30 +165,65 @@ class _RangeSliderWidgetState extends State<RangeSliderWidget> {
             child: Padding(
               padding: EdgeInsetsDirectional.only(start: 12, end: 12),
               child: Container(
-                width: MediaQuery.of(context).size.width,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      '${widget.typeName!}ต่ำสุด : ${showNumberWithComma('${_startValue}') ?? '${showNumberWithComma(widget.minRange!)}'} บาท',
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Readex Pro',
-                            fontSize: 16.0,
-                            letterSpacing: 0.0,
+                  width: MediaQuery.of(context).size.width,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            '${widget.typeName!}ต่ำสุด : ${showNumberWithComma('${_startValue}') ?? '${showNumberWithComma(widget.minRange!)}'} บาท',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  fontSize: 16.0,
+                                  letterSpacing: 0.0,
+                                ),
                           ),
-                    ),
-                    Text(
-                      '${widget.typeName!}สูงสุด : ${showNumberWithComma('${_endValue}') ?? '${showNumberWithComma(widget.maxRange!)}'} บาท',
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Readex Pro',
-                            fontSize: 16.0,
-                            letterSpacing: 0.0,
+                          Text(
+                            '${widget.typeName!}สูงสุด : ${showNumberWithComma('${_endValue}') ?? '${showNumberWithComma(widget.maxRange!)}'} บาท',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  fontSize: 16.0,
+                                  letterSpacing: 0.0,
+                                ),
                           ),
-                    ),
-                  ],
-                ),
-              ),
+                        ],
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.only(start: 12),
+                        child: Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                width: 1,
+                                color: Color.fromRGBO(
+                                    widget.activeColor!.red,
+                                    widget.activeColor!.green,
+                                    widget.activeColor!.blue,
+                                    1.0),
+                              ),
+                              borderRadius: BorderRadiusDirectional.all(
+                                  Radius.circular(8)),
+                            ),
+                            child: Center(
+                              child: Icon(
+                                Icons.edit,
+                                color: Color.fromRGBO(
+                                    widget.activeColor!.red,
+                                    widget.activeColor!.green,
+                                    widget.activeColor!.blue,
+                                    1.0),
+                                size: 30,
+                              ),
+                            )),
+                      ),
+                    ],
+                  )),
             )),
       )
     ]);
