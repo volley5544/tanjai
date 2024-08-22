@@ -612,209 +612,241 @@ class _InsurerListOverallPageWidgetState
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  20.0, 0.0, 0.0, 0.0),
-                                          child: Container(
-                                            width: double.infinity,
-                                            decoration: BoxDecoration(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                            ),
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.start,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
-                                                  children: [
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  5.0,
-                                                                  0.0,
-                                                                  4.0),
-                                                      child: Text(
-                                                        'ค้นหาชื่อบริษัทประกัน ',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .grayIcon,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 20.0, 8.0),
-                                                  child: InkWell(
-                                                    splashColor:
-                                                        Colors.transparent,
-                                                    focusColor:
-                                                        Colors.transparent,
-                                                    hoverColor:
-                                                        Colors.transparent,
-                                                    highlightColor:
-                                                        Colors.transparent,
-                                                    onTap: () async {
-                                                      context.pushNamed(
-                                                        'SearchableListPage',
-                                                        queryParameters: {
-                                                          'titleText':
-                                                              serializeParam(
-                                                            'ค้นหาชื่อบริษัทประกัน',
-                                                            ParamType.String,
-                                                          ),
-                                                          'searchLabel':
-                                                              serializeParam(
-                                                            'ระบุชื่อบริษัทประกัน',
-                                                            ParamType.String,
-                                                          ),
-                                                          'dataList':
-                                                              serializeParam(
-                                                            functions.removeDupeInList(
-                                                                FFAppState()
-                                                                    .searchInsurerInsurercode
-                                                                    .toList()),
-                                                            ParamType.String,
-                                                            isList: true,
-                                                          ),
-                                                          'multiSelect':
-                                                              serializeParam(
-                                                            false,
-                                                            ParamType.bool,
-                                                          ),
-                                                          'maxSelected':
-                                                              serializeParam(
-                                                            0,
-                                                            ParamType.int,
-                                                          ),
-                                                          'fromPage':
-                                                              serializeParam(
-                                                            'searchPackage',
-                                                            ParamType.String,
-                                                          ),
-                                                        }.withoutNulls,
-                                                      );
-                                                    },
-                                                    child: Container(
-                                                      width: double.infinity,
-                                                      height: 40.0,
-                                                      decoration: BoxDecoration(
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .secondaryBackground,
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(10.0),
-                                                        border: Border.all(
-                                                          color: FlutterFlowTheme
+                                        if (TelePackageSearchAPICall.data(
+                                              (_model.packageAPIOutput
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )!
+                                                .length >
+                                            0)
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    20.0, 0.0, 0.0, 0.0),
+                                            child: Container(
+                                              width: double.infinity,
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                              ),
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.start,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    5.0,
+                                                                    0.0,
+                                                                    4.0),
+                                                        child: Text(
+                                                          'ค้นหาชื่อบริษัทประกัน ',
+                                                          style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .grayIcon,
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Noto Sans Thai',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .grayIcon,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                         ),
                                                       ),
-                                                      child: Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceBetween,
-                                                        children: [
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        10.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: Text(
-                                                              FFAppState()
-                                                                          .filterInsurerList
-                                                                          .length >
-                                                                      0
-                                                                  ? FFAppState()
-                                                                      .filterInsurerList
-                                                                      .first
-                                                                  : 'ค้นหาบริษัทประกัน',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Noto Sans Thai',
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .secondaryText,
-                                                                    fontSize:
-                                                                        14.0,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                  ),
+                                                    ],
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                20.0, 8.0),
+                                                    child: InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        context.pushNamed(
+                                                          'SearchableListPage',
+                                                          queryParameters: {
+                                                            'titleText':
+                                                                serializeParam(
+                                                              'ค้นหาชื่อบริษัทประกัน',
+                                                              ParamType.String,
                                                             ),
+                                                            'searchLabel':
+                                                                serializeParam(
+                                                              'ระบุชื่อบริษัทประกัน',
+                                                              ParamType.String,
+                                                            ),
+                                                            'dataList':
+                                                                serializeParam(
+                                                              functions.removeDupeInList(
+                                                                  FFAppState()
+                                                                      .searchInsurerInsurercode
+                                                                      .toList()),
+                                                              ParamType.String,
+                                                              isList: true,
+                                                            ),
+                                                            'multiSelect':
+                                                                serializeParam(
+                                                              false,
+                                                              ParamType.bool,
+                                                            ),
+                                                            'maxSelected':
+                                                                serializeParam(
+                                                              0,
+                                                              ParamType.int,
+                                                            ),
+                                                            'fromPage':
+                                                                serializeParam(
+                                                              'searchPackage',
+                                                              ParamType.String,
+                                                            ),
+                                                          }.withoutNulls,
+                                                        );
+                                                      },
+                                                      child: Container(
+                                                        width: double.infinity,
+                                                        height: 40.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryBackground,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      10.0),
+                                                          border: Border.all(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .grayIcon,
                                                           ),
-                                                          Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            children: [
-                                                              if (FFAppState()
-                                                                      .filterInsurerList
-                                                                      .length >
-                                                                  0)
-                                                                Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                        ),
+                                                        child: Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .spaceBetween,
+                                                          children: [
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
                                                                           10.0,
+                                                                          0.0,
+                                                                          0.0,
                                                                           0.0),
-                                                                  child:
-                                                                      InkWell(
-                                                                    splashColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    focusColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    hoverColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    highlightColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    onTap:
-                                                                        () async {
-                                                                      FFAppState()
-                                                                          .filterInsurerList = [];
-                                                                      setState(
-                                                                          () {});
-                                                                    },
+                                                              child: Text(
+                                                                FFAppState()
+                                                                            .filterInsurerList
+                                                                            .length >
+                                                                        0
+                                                                    ? FFAppState()
+                                                                        .filterInsurerList
+                                                                        .first
+                                                                    : 'ค้นหาบริษัทประกัน',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Noto Sans Thai',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondaryText,
+                                                                      fontSize:
+                                                                          14.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                            Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              children: [
+                                                                if (FFAppState()
+                                                                        .filterInsurerList
+                                                                        .length >
+                                                                    0)
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            10.0,
+                                                                            0.0),
+                                                                    child:
+                                                                        InkWell(
+                                                                      splashColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      focusColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      hoverColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      highlightColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      onTap:
+                                                                          () async {
+                                                                        FFAppState().filterInsurerList =
+                                                                            [];
+                                                                        setState(
+                                                                            () {});
+                                                                      },
+                                                                      child:
+                                                                          Icon(
+                                                                        Icons
+                                                                            .cancel_outlined,
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .secondaryText,
+                                                                        size:
+                                                                            18.0,
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                if (FFAppState()
+                                                                        .filterInsurerList
+                                                                        .length ==
+                                                                    0)
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            10.0,
+                                                                            0.0),
                                                                     child: Icon(
                                                                       Icons
-                                                                          .cancel_outlined,
+                                                                          .arrow_forward_ios,
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .secondaryText,
@@ -822,38 +854,17 @@ class _InsurerListOverallPageWidgetState
                                                                           18.0,
                                                                     ),
                                                                   ),
-                                                                ),
-                                                              if (FFAppState()
-                                                                      .filterInsurerList
-                                                                      .length ==
-                                                                  0)
-                                                                Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          10.0,
-                                                                          0.0),
-                                                                  child: Icon(
-                                                                    Icons
-                                                                        .arrow_forward_ios,
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .secondaryText,
-                                                                    size: 18.0,
-                                                                  ),
-                                                                ),
-                                                            ],
-                                                          ),
-                                                        ],
+                                                              ],
+                                                            ),
+                                                          ],
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
-                                                ),
-                                              ],
+                                                ],
+                                              ),
                                             ),
                                           ),
-                                        ),
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -1297,7 +1308,7 @@ class _InsurerListOverallPageWidgetState
                                                     ),
                                                   ),
                                                 if (TelePackageSearchAPICall
-                                                        .total(
+                                                        .data(
                                                       (_model.packageAPIOutput
                                                               ?.jsonBody ??
                                                           ''),
