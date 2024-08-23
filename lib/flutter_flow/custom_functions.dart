@@ -5199,14 +5199,14 @@ String? getMinMaxValueFromList(
 
   if (type == 'min') {
     if (inputList!.length == 1) {
-      return inputList![0];
+      return removeCommaFromNumText(inputList![0]);
     } else {
       for (int i = 0; i < inputList!.length; i++) {
         if (i == 1) {
-          minValue = double.parse(inputList![i]);
+          minValue = double.parse(removeCommaFromNumText(inputList![i]));
         } else {
-          if (double.parse(inputList![i]) < minValue) {
-            minValue = double.parse(inputList![i]);
+          if (double.parse(removeCommaFromNumText(inputList![i])) < minValue) {
+            minValue = double.parse(removeCommaFromNumText(inputList![i]));
           }
         }
       }
@@ -5214,18 +5214,38 @@ String? getMinMaxValueFromList(
     return '${minValue}';
   } else {
     if (inputList!.length == 1) {
-      return inputList![0];
+      return removeCommaFromNumText(inputList![0]);
     } else {
       for (int i = 0; i < inputList!.length; i++) {
         if (i == 1) {
-          maxValue = double.parse(inputList![i]);
+          maxValue = double.parse(removeCommaFromNumText(inputList![i]));
         } else {
-          if (double.parse(inputList![i]) > maxValue) {
-            maxValue = double.parse(inputList![i]);
+          if (double.parse(removeCommaFromNumText(inputList![i])) > maxValue) {
+            maxValue = double.parse(removeCommaFromNumText(inputList![i]));
           }
         }
       }
     }
     return '${maxValue}';
   }
+}
+
+bool? checkPackageInRangePage2(
+  List<String>? insurerShortNameList,
+  List<String>? priceList,
+  String? selectedInsurerShortName,
+  String? minValue,
+  String? maxValue,
+) {
+  for (int i = 0; i < insurerShortNameList!.length; i++) {
+    if (selectedInsurerShortName! == insurerShortNameList![i]) {
+      if (double.parse(removeCommaFromNumText(minValue!)) <
+              double.parse(removeCommaFromNumText(priceList![i])) &&
+          double.parse(removeCommaFromNumText(maxValue!)) >
+              double.parse(removeCommaFromNumText(priceList![i]))) {
+        return true;
+      }
+    }
+  }
+  return false;
 }

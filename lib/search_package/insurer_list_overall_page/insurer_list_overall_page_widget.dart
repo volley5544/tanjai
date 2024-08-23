@@ -468,13 +468,6 @@ class _InsurerListOverallPageWidgetState
               .toList()
               .cast<String>();
       setState(() {});
-      FFAppState().selectInsurerList = functions
-          .createFalseListByItemNumber(
-              false, FFAppState().searchSerialName.length)!
-          .toList()
-          .cast<bool>();
-      FFAppState().addCustomerQuotationSaveSuccess = false;
-      setState(() {});
       FFAppState().sliderMinGrossTotal = functions.getMinMaxValueFromList(
           FFAppState().searchInsurerMinnetpremium.toList(), 'min')!;
       FFAppState().sliderMaxGrossTotal = functions.getMinMaxValueFromList(
@@ -923,34 +916,30 @@ class _InsurerListOverallPageWidgetState
                                                 ],
                                               ),
                                             ),
-                                            if (false)
-                                              Container(
+                                            Container(
+                                              width: double.infinity,
+                                              height: 120.0,
+                                              child: custom_widgets
+                                                  .RangeSliderWidget(
                                                 width: double.infinity,
                                                 height: 120.0,
-                                                child: custom_widgets
-                                                    .RangeSliderWidget(
-                                                  width: double.infinity,
-                                                  height: 120.0,
-                                                  minRange: FFAppState()
-                                                      .sliderMinGrossTotal,
-                                                  maxRange: FFAppState()
-                                                      .sliderMaxGrossTotal,
-                                                  activeColor:
-                                                      Color(0xFFDB771B),
-                                                  inactiveColors:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .secondaryText,
-                                                  overlayColor:
-                                                      Color(0xFFFFBB7C),
-                                                  startValue: FFAppState()
-                                                      .sliderMinGrossTotal,
-                                                  endValue: FFAppState()
-                                                      .sliderMaxGrossTotal,
-                                                  step: '500',
-                                                  typeName: 'ราคาเบี้ย',
-                                                ),
+                                                minRange: FFAppState()
+                                                    .sliderMinGrossTotal,
+                                                maxRange: FFAppState()
+                                                    .sliderMaxGrossTotal,
+                                                activeColor: Color(0xFFDB771B),
+                                                inactiveColors:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText,
+                                                overlayColor: Color(0xFFFFBB7C),
+                                                startValue: FFAppState()
+                                                    .sliderMinGrossTotal,
+                                                endValue: FFAppState()
+                                                    .sliderMaxGrossTotal,
+                                                step: '500',
+                                                typeName: 'ราคาเบี้ย',
                                               ),
+                                            ),
                                           ],
                                         ),
                                         Padding(
@@ -1019,18 +1008,28 @@ class _InsurerListOverallPageWidgetState
                                                                 listinsurance[
                                                                     listinsuranceIndex];
                                                             return Visibility(
-                                                              visible: (FFAppState()
-                                                                              .filterInsurerList
-                                                                              .length >
+                                                              visible: (FFAppState().filterInsurerList.length >
                                                                           0
                                                                       ? (FFAppState().filterInsurerList.length >
                                                                               0
-                                                                          ? FFAppState()
-                                                                              .filterInsurerList
-                                                                              .contains(FFAppState().searchInsurerInsurercode[listinsuranceIndex])
+                                                                          ? FFAppState().filterInsurerList.contains(FFAppState().searchInsurerInsurercode[
+                                                                              listinsuranceIndex])
                                                                           : true)
                                                                       : true) &&
-                                                                  true,
+                                                                  (functions.checkPackageInRangePage2(
+                                                                          FFAppState()
+                                                                              .searchShortName
+                                                                              .toList(),
+                                                                          FFAppState()
+                                                                              .searchNetPremium
+                                                                              .toList(),
+                                                                          FFAppState().searchInsurerInsurershortname[
+                                                                              listinsuranceIndex],
+                                                                          FFAppState()
+                                                                              .sliderMinGrossTotal,
+                                                                          FFAppState()
+                                                                              .sliderMaxGrossTotal)! &&
+                                                                      true),
                                                               child: Padding(
                                                                 padding: EdgeInsetsDirectional
                                                                     .fromSTEB(

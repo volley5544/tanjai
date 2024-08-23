@@ -372,6 +372,13 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
       } else {
         if (true) {
           Navigator.pop(context);
+          FFAppState().selectInsurerList = functions
+              .createFalseListByItemNumber(
+                  false, FFAppState().searchSerialName.length)!
+              .toList()
+              .cast<bool>();
+          FFAppState().addCustomerQuotationSaveSuccess = false;
+          setState(() {});
         } else {
           _model.packageAPIOutput = await TelePackageSearchAPICall.call(
             brandCode: widget!.brandCode,
