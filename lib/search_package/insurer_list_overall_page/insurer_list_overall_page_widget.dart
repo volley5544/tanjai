@@ -1029,7 +1029,8 @@ class _InsurerListOverallPageWidgetState
                                                                               .sliderMinGrossTotal,
                                                                           FFAppState()
                                                                               .sliderMaxGrossTotal)! &&
-                                                                      true),
+                                                                      FFAppState()
+                                                                          .inShowPackageCard),
                                                               child: Padding(
                                                                 padding: EdgeInsetsDirectional
                                                                     .fromSTEB(

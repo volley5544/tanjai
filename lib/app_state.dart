@@ -13725,6 +13725,12 @@ class FFAppState extends ChangeNotifier {
   set sliderMaxSumInsured(String value) {
     _sliderMaxSumInsured = value;
   }
+
+  bool _inShowPackageCard = false;
+  bool get inShowPackageCard => _inShowPackageCard;
+  set inShowPackageCard(bool value) {
+    _inShowPackageCard = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {
