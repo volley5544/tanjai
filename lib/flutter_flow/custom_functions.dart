@@ -5189,3 +5189,43 @@ String? addCoverType(String? input) {
 
   return modifiedString;
 }
+
+String? getMinMaxValueFromList(
+  List<String>? inputList,
+  String? type,
+) {
+  double minValue = 0;
+  double maxValue = 0;
+
+  if (type == 'min') {
+    if (inputList!.length == 1) {
+      return inputList![0];
+    } else {
+      for (int i = 0; i < inputList!.length; i++) {
+        if (i == 1) {
+          minValue = double.parse(inputList![i]);
+        } else {
+          if (double.parse(inputList![i]) < minValue) {
+            minValue = double.parse(inputList![i]);
+          }
+        }
+      }
+    }
+    return '${minValue}';
+  } else {
+    if (inputList!.length == 1) {
+      return inputList![0];
+    } else {
+      for (int i = 0; i < inputList!.length; i++) {
+        if (i == 1) {
+          maxValue = double.parse(inputList![i]);
+        } else {
+          if (double.parse(inputList![i]) > maxValue) {
+            maxValue = double.parse(inputList![i]);
+          }
+        }
+      }
+    }
+    return '${maxValue}';
+  }
+}

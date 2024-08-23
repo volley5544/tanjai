@@ -88,6 +88,9 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
         },
       ).then((value) => safeSetState(() {}));
 
+      FFAppState().filterCoverTypeList = [];
+      FFAppState().filterGarageTypeList = [];
+      setState(() {});
       if (FFAppState().searchPackageSubProduct == 'MC') {
         _model.packageAPIMCOutput = await TelePackageSearchMCAPICall.call(
           brandCode: widget!.brandCode,
