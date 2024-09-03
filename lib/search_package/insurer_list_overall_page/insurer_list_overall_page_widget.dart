@@ -1,6 +1,7 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
+import '/components/slider_bar_component_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -9,7 +10,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
 import 'dart:convert';
 import 'dart:math';
-import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -895,62 +895,11 @@ class _InsurerListOverallPageWidgetState
                                             ),
                                           ),
                                         ),
-                                        Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      24.0, 0.0, 24.0, 4.0),
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.center,
-                                                children: [
-                                                  Text(
-                                                    'เลือกราคาเบี้ยประกันต่ำสุด - สูงสุด',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Noto Sans Thai',
-                                                          color:
-                                                              Color(0xFF424242),
-                                                          fontSize: 15.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                            Container(
-                                              width: double.infinity,
-                                              height: 120.0,
-                                              child: custom_widgets
-                                                  .RangeSliderWidget(
-                                                width: double.infinity,
-                                                height: 120.0,
-                                                minRange: FFAppState()
-                                                    .sliderMinGrossTotal,
-                                                maxRange: FFAppState()
-                                                    .sliderMaxGrossTotal,
-                                                activeColor: Color(0xFFDB771B),
-                                                inactiveColors:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryText,
-                                                overlayColor: Color(0xFFFFBB7C),
-                                                startValue: FFAppState()
-                                                    .sliderMinGrossTotal,
-                                                endValue: FFAppState()
-                                                    .sliderMaxGrossTotal,
-                                                step: '500',
-                                                typeName: 'ราคาเบี้ย',
-                                              ),
-                                            ),
-                                          ],
+                                        wrapWithModel(
+                                          model: _model.sliderBarComponentModel,
+                                          updateCallback: () => setState(() {}),
+                                          updateOnChange: true,
+                                          child: SliderBarComponentWidget(),
                                         ),
                                         Padding(
                                           padding:

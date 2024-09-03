@@ -1,6 +1,7 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
+import '/components/slider_bar_component_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -9,7 +10,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
 import 'dart:convert';
 import 'dart:math';
-import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'insurer_list_overall_page_widget.dart'
     show InsurerListOverallPageWidget;
@@ -28,10 +28,17 @@ class InsurerListOverallPageModel
   final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (telePackageSearchAPI)] action in insurerListOverallPage widget.
   ApiCallResponse? packageAPIOutput;
+  // Model for SliderBarComponent component.
+  late SliderBarComponentModel sliderBarComponentModel;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    sliderBarComponentModel =
+        createModel(context, () => SliderBarComponentModel());
+  }
 
   @override
-  void dispose() {}
+  void dispose() {
+    sliderBarComponentModel.dispose();
+  }
 }
