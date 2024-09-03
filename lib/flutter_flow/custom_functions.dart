@@ -5230,22 +5230,32 @@ String? getMinMaxValueFromList(
   }
 }
 
-bool? checkPackageInRangePage2(
+List<bool>? checkPackageInRangePage2(
   List<String>? insurerShortNameList,
   List<String>? priceList,
-  String? selectedInsurerShortName,
+  List<String>? selectedInsurerShortName,
   String? minValue,
   String? maxValue,
 ) {
-  for (int i = 0; i < insurerShortNameList!.length; i++) {
-    if (selectedInsurerShortName! == insurerShortNameList![i]) {
-      if (double.parse(removeCommaFromNumText(minValue!)) <
-              double.parse(removeCommaFromNumText(priceList![i])) &&
-          double.parse(removeCommaFromNumText(maxValue!)) >
-              double.parse(removeCommaFromNumText(priceList![i]))) {
-        return true;
+  print('in check range function');
+  List<bool> outputList = List.filled(selectedInsurerShortName!.length, false);
+
+  //loop for all insurer card
+  for (int j = 0; j < selectedInsurerShortName!.length; j++) {
+    //loop for all package
+    for (int i = 0; i < insurerShortNameList!.length; i++) {
+      //check price is between max min
+      if (selectedInsurerShortName![j] == insurerShortNameList![i] &&
+          selectedInsurerShortName![j].contains(insurerShortNameList![i])) {
+        if (double.parse(removeCommaFromNumText(minValue!)) <
+                double.parse(removeCommaFromNumText(priceList![i])) &&
+            double.parse(removeCommaFromNumText(maxValue!)) >
+                double.parse(removeCommaFromNumText(priceList![i]))) {
+          print(true);
+          outputList[j] = true;
+        }
       }
     }
   }
-  return false;
+  return outputList;
 }

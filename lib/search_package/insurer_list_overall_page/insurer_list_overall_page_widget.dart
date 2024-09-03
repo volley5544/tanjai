@@ -473,6 +473,16 @@ class _InsurerListOverallPageWidgetState
       FFAppState().sliderMaxGrossTotal = functions.getMinMaxValueFromList(
           FFAppState().searchInsurerMaxnetpremium.toList(), 'max')!;
       setState(() {});
+      FFAppState().isShowPackageCardList1 = functions
+          .checkPackageInRangePage2(
+              FFAppState().searchShortName.toList(),
+              FFAppState().searchNetPremium.toList(),
+              FFAppState().searchInsurerInsurershortname.toList(),
+              FFAppState().sliderMinGrossTotal,
+              FFAppState().sliderMaxGrossTotal)!
+          .toList()
+          .cast<bool>();
+      setState(() {});
       Navigator.pop(context);
     });
   }
@@ -1008,29 +1018,19 @@ class _InsurerListOverallPageWidgetState
                                                                 listinsurance[
                                                                     listinsuranceIndex];
                                                             return Visibility(
-                                                              visible: (FFAppState().filterInsurerList.length > 0
+                                                              visible: (FFAppState()
+                                                                              .filterInsurerList
+                                                                              .length >
+                                                                          0
                                                                       ? (FFAppState().filterInsurerList.length >
                                                                               0
-                                                                          ? FFAppState()
-                                                                              .filterInsurerList
-                                                                              .contains(FFAppState().searchInsurerInsurercode[
-                                                                                  listinsuranceIndex])
+                                                                          ? FFAppState().filterInsurerList.contains(FFAppState().searchInsurerInsurercode[
+                                                                              listinsuranceIndex])
                                                                           : true)
                                                                       : true) &&
-                                                                  functions.checkPackageInRangePage2(
-                                                                      FFAppState()
-                                                                          .searchShortName
-                                                                          .toList(),
-                                                                      FFAppState()
-                                                                          .searchNetPremium
-                                                                          .toList(),
-                                                                      FFAppState()
-                                                                              .searchInsurerInsurershortname[
-                                                                          listinsuranceIndex],
-                                                                      FFAppState()
-                                                                          .sliderMinGrossTotal,
-                                                                      FFAppState()
-                                                                          .sliderMaxGrossTotal)!,
+                                                                  FFAppState()
+                                                                          .isShowPackageCardList1[
+                                                                      listinsuranceIndex],
                                                               child: Padding(
                                                                 padding: EdgeInsetsDirectional
                                                                     .fromSTEB(

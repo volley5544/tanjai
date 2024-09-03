@@ -13789,6 +13789,35 @@ class FFAppState extends ChangeNotifier {
   void insertAtIndexInListType1(int index, String value) {
     listType1.insert(index, value);
   }
+
+  List<bool> _isShowPackageCardList1 = [];
+  List<bool> get isShowPackageCardList1 => _isShowPackageCardList1;
+  set isShowPackageCardList1(List<bool> value) {
+    _isShowPackageCardList1 = value;
+  }
+
+  void addToIsShowPackageCardList1(bool value) {
+    isShowPackageCardList1.add(value);
+  }
+
+  void removeFromIsShowPackageCardList1(bool value) {
+    isShowPackageCardList1.remove(value);
+  }
+
+  void removeAtIndexFromIsShowPackageCardList1(int index) {
+    isShowPackageCardList1.removeAt(index);
+  }
+
+  void updateIsShowPackageCardList1AtIndex(
+    int index,
+    bool Function(bool) updateFn,
+  ) {
+    isShowPackageCardList1[index] = updateFn(_isShowPackageCardList1[index]);
+  }
+
+  void insertAtIndexInIsShowPackageCardList1(int index, bool value) {
+    isShowPackageCardList1.insert(index, value);
+  }
 }
 
 void _safeInit(Function() initializeField) {
