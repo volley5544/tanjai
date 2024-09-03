@@ -13,6 +13,10 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 
 class InsuranceWorkSelectPageModel
     extends FlutterFlowModel<InsuranceWorkSelectPageWidget> {
+  ///  State fields for stateful widgets in this page.
+
+  final unfocusNode = FocusNode();
+
   @override
   void initState(BuildContext context) {}
 

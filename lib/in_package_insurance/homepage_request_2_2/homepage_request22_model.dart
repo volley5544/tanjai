@@ -15,6 +15,7 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class HomepageRequest22Model extends FlutterFlowModel<HomepageRequest22Widget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // State field(s) for noSum widget.
   bool? noSumValue;
   // State field(s) for sum widget.

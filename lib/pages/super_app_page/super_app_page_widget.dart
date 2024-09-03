@@ -2759,10 +2759,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                           Colors
                                                                               .transparent,
                                                                       onTap:
-                                                                          () async {
-                                                                        context.pushNamed(
-                                                                            'GeminiPage');
-                                                                      },
+                                                                          () async {},
                                                                       child:
                                                                           Container(
                                                                         width: MediaQuery.sizeOf(context).width *

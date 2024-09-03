@@ -15,6 +15,7 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class MyAccountPageModel extends FlutterFlowModel<MyAccountPageWidget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // Stores action output result for [Custom Action - getBuildVersion1] action in MyAccountPage widget.
   String? getBuildVersion;
   // Stores action output result for [Custom Action - deleteAccFirebase] action in Button widget.

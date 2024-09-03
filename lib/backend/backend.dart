@@ -32,6 +32,7 @@ import 'schema/text_content_record.dart';
 import 'schema/insurer_config_record.dart';
 import 'schema/insurer_config2_record.dart';
 import 'schema/effective_day_config_record.dart';
+import 'schema/vehicle_type_dropdown_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart' hide Order;
@@ -67,6 +68,7 @@ export 'schema/text_content_record.dart';
 export 'schema/insurer_config_record.dart';
 export 'schema/insurer_config2_record.dart';
 export 'schema/effective_day_config_record.dart';
+export 'schema/vehicle_type_dropdown_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -1070,6 +1072,43 @@ Future<List<EffectiveDayConfigRecord>> queryEffectiveDayConfigRecordOnce({
     queryCollectionOnce(
       EffectiveDayConfigRecord.collection,
       EffectiveDayConfigRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query VehicleTypeDropdownRecords (as a Stream and as a Future).
+Future<int> queryVehicleTypeDropdownRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      VehicleTypeDropdownRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<VehicleTypeDropdownRecord>> queryVehicleTypeDropdownRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      VehicleTypeDropdownRecord.collection,
+      VehicleTypeDropdownRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<VehicleTypeDropdownRecord>> queryVehicleTypeDropdownRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      VehicleTypeDropdownRecord.collection,
+      VehicleTypeDropdownRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,

@@ -11,6 +11,7 @@ import 'package:provider/provider.dart';
 class SearchAddressPageModel extends FlutterFlowModel<SearchAddressPageWidget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;

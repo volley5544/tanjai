@@ -2044,133 +2044,185 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                           Container(
                             width: double.infinity,
                             decoration: BoxDecoration(),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      24.0, 0.0, 24.0, 4.0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        'ลักษณะการใช้รถ',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Noto Sans Thai',
-                                              color: Color(0xFF404040),
-                                              fontSize: 15.0,
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.w500,
+                            child:
+                                FutureBuilder<List<VehicleTypeDropdownRecord>>(
+                              future: queryVehicleTypeDropdownRecordOnce(
+                                singleRecord: true,
+                              ),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 50.0,
+                                      height: 50.0,
+                                      child: CircularProgressIndicator(
+                                        valueColor:
+                                            AlwaysStoppedAnimation<Color>(
+                                          FlutterFlowTheme.of(context).primary,
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                }
+                                List<VehicleTypeDropdownRecord>
+                                    columnVehicleTypeDropdownRecordList =
+                                    snapshot.data!;
+                                // Return an empty Container when the item does not exist.
+                                if (snapshot.data!.isEmpty) {
+                                  return Container();
+                                }
+                                final columnVehicleTypeDropdownRecord =
+                                    columnVehicleTypeDropdownRecordList
+                                            .isNotEmpty
+                                        ? columnVehicleTypeDropdownRecordList
+                                            .first
+                                        : null;
+
+                                return Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          24.0, 0.0, 24.0, 4.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            'ลักษณะการใช้รถ',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Noto Sans Thai',
+                                                  color: Color(0xFF404040),
+                                                  fontSize: 15.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    10.0, 0.0, 0.0, 0.0),
+                                            child: Text(
+                                              '(บังคับเลือก)',
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily:
+                                                        'Noto Sans Thai',
+                                                    color: Color(0xFFF40606),
+                                                    fontSize: 12.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w600,
+                                                  ),
                                             ),
+                                          ),
+                                        ],
                                       ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 0.0, 0.0),
-                                        child: Text(
-                                          '(บังคับเลือก)',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Noto Sans Thai',
-                                                color: Color(0xFFF40606),
-                                                fontSize: 12.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w600,
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          16.0, 0.0, 16.0, 0.0),
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          context.pushNamed(
+                                            'SearchableListPage',
+                                            queryParameters: {
+                                              'titleText': serializeParam(
+                                                'เลือกลักษณะการใช้รถ',
+                                                ParamType.String,
                                               ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 0.0, 16.0, 0.0),
-                                  child: InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      context.pushNamed(
-                                        'SearchableListPage',
-                                        queryParameters: {
-                                          'titleText': serializeParam(
-                                            'เลือกลักษณะการใช้รถ',
-                                            ParamType.String,
+                                              'searchLabel': serializeParam(
+                                                'ระบุลักษณะการใช้รถ',
+                                                ParamType.String,
+                                              ),
+                                              'dataList': serializeParam(
+                                                FFAppState().insuranceBasicCarTypeDoors !=
+                                                        '2 Doors'
+                                                    ? functions.generateInsuranceVehicleTypeDropdown(
+                                                        FFAppState()
+                                                            .insuranceBasicVehicleUsedTypeCodeList
+                                                            .toList(),
+                                                        FFAppState()
+                                                            .insuranceBasicVehicleUsedTypeTypeList
+                                                            .toList(),
+                                                        FFAppState()
+                                                            .insuranceBasicVehicleUsedTypeNameList
+                                                            .toList())
+                                                    : functions.generateInsuranceVehicleTypeDropdown(
+                                                        columnVehicleTypeDropdownRecord
+                                                            ?.pickUp2Doors
+                                                            ?.vehicleCode
+                                                            ?.toList(),
+                                                        columnVehicleTypeDropdownRecord
+                                                            ?.pickUp2Doors
+                                                            ?.vehicleType
+                                                            ?.toList(),
+                                                        columnVehicleTypeDropdownRecord
+                                                            ?.pickUp2Doors
+                                                            ?.vehicleName
+                                                            ?.toList()),
+                                                ParamType.String,
+                                                isList: true,
+                                              ),
+                                              'multiSelect': serializeParam(
+                                                false,
+                                                ParamType.bool,
+                                              ),
+                                            }.withoutNulls,
+                                          );
+                                        },
+                                        child: Container(
+                                          width: double.infinity,
+                                          height: 60.0,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
+                                            borderRadius:
+                                                BorderRadius.circular(10.0),
+                                            border: Border.all(
+                                              width: 0.5,
+                                            ),
                                           ),
-                                          'searchLabel': serializeParam(
-                                            'ระบุลักษณะการใช้รถ',
-                                            ParamType.String,
-                                          ),
-                                          'dataList': serializeParam(
-                                            functions.generateInsuranceVehicleTypeDropdown(
-                                                FFAppState()
-                                                    .insuranceBasicVehicleUsedTypeCodeList
-                                                    .toList(),
-                                                FFAppState()
-                                                    .insuranceBasicVehicleUsedTypeTypeList
-                                                    .toList(),
-                                                FFAppState()
-                                                    .insuranceBasicVehicleUsedTypeNameList
-                                                    .toList()),
-                                            ParamType.String,
-                                            isList: true,
-                                          ),
-                                          'multiSelect': serializeParam(
-                                            false,
-                                            ParamType.bool,
-                                          ),
-                                        }.withoutNulls,
-                                      );
-                                    },
-                                    child: Container(
-                                      width: double.infinity,
-                                      height: 60.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
-                                        border: Border.all(
-                                          width: 0.5,
-                                        ),
-                                      ),
-                                      child: Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  4.0, 0.0, 0.0, 0.0),
-                                          child: ListTile(
-                                            title: Text(
-                                              FFAppState().insuranceBasicVehicleUsedTypeName ==
-                                                      'เลือกการใช้งาน'
-                                                  ? 'เลือกการใช้งาน'
-                                                  : (functions.generateInsuranceVehicleTypeDropdown(
-                                                      FFAppState()
-                                                          .insuranceBasicVehicleUsedTypeCodeList
-                                                          .toList(),
-                                                      FFAppState()
-                                                          .insuranceBasicVehicleUsedTypeTypeList
-                                                          .toList(),
-                                                      FFAppState()
-                                                          .insuranceBasicVehicleUsedTypeNameList
-                                                          .toList())![functions
-                                                      .getIndexOfSomethingList(
+                                          child: Align(
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                              child: ListTile(
+                                                title: Text(
+                                                  FFAppState().insuranceBasicVehicleUsedTypeName ==
+                                                          'เลือกการใช้งาน'
+                                                      ? 'เลือกการใช้งาน'
+                                                      : (functions.generateInsuranceVehicleTypeDropdown(
                                                           FFAppState()
                                                               .insuranceBasicVehicleUsedTypeCodeList
                                                               .toList(),
                                                           FFAppState()
-                                                              .insuranceBasicVehicleUsedTypeCode)]),
-                                              textAlign: TextAlign.start,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
+                                                              .insuranceBasicVehicleUsedTypeTypeList
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .insuranceBasicVehicleUsedTypeNameList
+                                                              .toList())![functions
+                                                          .getIndexOfSomethingList(
+                                                              FFAppState()
+                                                                  .insuranceBasicVehicleUsedTypeCodeList
+                                                                  .toList(),
+                                                              FFAppState()
+                                                                  .insuranceBasicVehicleUsedTypeCode)]),
+                                                  textAlign: TextAlign.start,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
                                                       .titleLarge
                                                       .override(
                                                         fontFamily:
@@ -2187,27 +2239,30 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                                         fontWeight:
                                                             FontWeight.w600,
                                                       ),
-                                            ),
-                                            trailing: Icon(
-                                              Icons.arrow_forward_ios,
-                                              color: Color(0xFF474747),
-                                              size: 20.0,
-                                            ),
-                                            tileColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .secondaryBackground,
-                                            dense: false,
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(10.0),
+                                                ),
+                                                trailing: Icon(
+                                                  Icons.arrow_forward_ios,
+                                                  color: Color(0xFF474747),
+                                                  size: 20.0,
+                                                ),
+                                                tileColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                                dense: false,
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          10.0),
+                                                ),
+                                              ),
                                             ),
                                           ),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                ),
-                              ],
+                                  ],
+                                );
+                              },
                             ),
                           ),
                           Container(

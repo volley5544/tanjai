@@ -26,6 +26,7 @@ class InformationCustomer2Model
     extends FlutterFlowModel<InformationCustomer2Widget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // Stores action output result for [Custom Action - getBuildVersion1] action in informationCustomer2 widget.
   String? getBuildVersion;
   // Stores action output result for [Custom Action - getBuildNumber] action in informationCustomer2 widget.

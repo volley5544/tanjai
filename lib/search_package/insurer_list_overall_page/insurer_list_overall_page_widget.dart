@@ -1297,6 +1297,13 @@ class _InsurerListOverallPageWidgetState
                                                                                             setState(() {});
                                                                                             FFAppState().addToFilterInsurerList(FFAppState().searchInsurerInsurercode[listinsuranceIndex]);
                                                                                             setState(() {});
+                                                                                            if (functions.containWordinStringUrl('1', FFAppState().searchInsurerCovertypelist[listinsuranceIndex])!) {
+                                                                                              FFAppState().filterCoverTypeList = FFAppState().listType1.toList().cast<String>();
+                                                                                              setState(() {});
+                                                                                            } else {
+                                                                                              FFAppState().filterCoverTypeList = FFAppState().listNonType1.toList().cast<String>();
+                                                                                              setState(() {});
+                                                                                            }
 
                                                                                             context.pushNamed(
                                                                                               'insurerListPage',

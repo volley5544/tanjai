@@ -30,6 +30,7 @@ class MakeInsuranceListPageModel
     extends FlutterFlowModel<MakeInsuranceListPageWidget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // Stores action output result for [Custom Action - getBuildVersion1] action in MakeInsuranceListPage widget.
   String? getBuildVersion;
   // Stores action output result for [Custom Action - getBuildNumber] action in MakeInsuranceListPage widget.

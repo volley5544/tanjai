@@ -12,6 +12,7 @@ import 'package:provider/provider.dart';
 class GeminiPageModel extends FlutterFlowModel<GeminiPageWidget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;

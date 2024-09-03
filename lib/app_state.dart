@@ -13731,6 +13731,64 @@ class FFAppState extends ChangeNotifier {
   set inShowPackageCard(bool value) {
     _inShowPackageCard = value;
   }
+
+  List<String> _listNonType1 = [];
+  List<String> get listNonType1 => _listNonType1;
+  set listNonType1(List<String> value) {
+    _listNonType1 = value;
+  }
+
+  void addToListNonType1(String value) {
+    listNonType1.add(value);
+  }
+
+  void removeFromListNonType1(String value) {
+    listNonType1.remove(value);
+  }
+
+  void removeAtIndexFromListNonType1(int index) {
+    listNonType1.removeAt(index);
+  }
+
+  void updateListNonType1AtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    listNonType1[index] = updateFn(_listNonType1[index]);
+  }
+
+  void insertAtIndexInListNonType1(int index, String value) {
+    listNonType1.insert(index, value);
+  }
+
+  List<String> _listType1 = [];
+  List<String> get listType1 => _listType1;
+  set listType1(List<String> value) {
+    _listType1 = value;
+  }
+
+  void addToListType1(String value) {
+    listType1.add(value);
+  }
+
+  void removeFromListType1(String value) {
+    listType1.remove(value);
+  }
+
+  void removeAtIndexFromListType1(int index) {
+    listType1.removeAt(index);
+  }
+
+  void updateListType1AtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    listType1[index] = updateFn(_listType1[index]);
+  }
+
+  void insertAtIndexInListType1(int index, String value) {
+    listType1.insert(index, value);
+  }
 }
 
 void _safeInit(Function() initializeField) {

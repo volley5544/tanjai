@@ -18,6 +18,7 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class RenewDetailPageModel extends FlutterFlowModel<RenewDetailPageWidget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (getDataRenew)] action in renewDetailPage widget.
   ApiCallResponse? getDataRenewAPIOutput;
   // State field(s) for addressCheck widget.

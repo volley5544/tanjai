@@ -17,6 +17,7 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class QuotationCopyModel extends FlutterFlowModel<QuotationCopyWidget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // State field(s) for PageView widget.
   PageController? pageViewController;
 

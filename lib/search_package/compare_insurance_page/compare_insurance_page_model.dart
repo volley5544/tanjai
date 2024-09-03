@@ -20,6 +20,7 @@ class CompareInsurancePageModel
 
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (getDateTimeAPI)] action in Button widget.
   ApiCallResponse? getServerDateTime;
 

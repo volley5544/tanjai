@@ -32,6 +32,7 @@ class RenewSearchAllPoolPageModel
     extends FlutterFlowModel<RenewSearchAllPoolPageWidget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // Stores action output result for [Custom Action - getBuildVersion1] action in renewSearchAllPoolPage widget.
   String? getBuildVersion;
   // Stores action output result for [Custom Action - getBuildNumber] action in renewSearchAllPoolPage widget.

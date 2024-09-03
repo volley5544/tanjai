@@ -26,6 +26,7 @@ class NonePackageBasicPageModel
     extends FlutterFlowModel<NonePackageBasicPageWidget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (teleGetProvinceAPI)] action in NonePackageBasicPage widget.
   ApiCallResponse? getProvince;
   // Stores action output result for [Backend Call - API (insuranceRequestGetVehicleAPI)] action in NonePackageBasicPage widget.

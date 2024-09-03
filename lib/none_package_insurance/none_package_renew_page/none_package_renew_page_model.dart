@@ -18,6 +18,7 @@ class NonePackageRenewPageModel
     extends FlutterFlowModel<NonePackageRenewPageWidget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // Stores action output result for [Custom Action - getBuildVersion1] action in NonePackageRenewPage widget.
   String? getBuildVersion;
   // Stores action output result for [Custom Action - getBuildNumber] action in NonePackageRenewPage widget.

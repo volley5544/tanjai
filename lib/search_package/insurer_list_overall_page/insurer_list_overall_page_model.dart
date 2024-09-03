@@ -25,6 +25,7 @@ class InsurerListOverallPageModel
     extends FlutterFlowModel<InsurerListOverallPageWidget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (telePackageSearchAPI)] action in insurerListOverallPage widget.
   ApiCallResponse? packageAPIOutput;
 

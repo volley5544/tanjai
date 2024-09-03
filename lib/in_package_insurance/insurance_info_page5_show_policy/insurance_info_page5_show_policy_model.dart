@@ -13,6 +13,10 @@ import 'package:provider/provider.dart';
 
 class InsuranceInfoPage5ShowPolicyModel
     extends FlutterFlowModel<InsuranceInfoPage5ShowPolicyWidget> {
+  ///  State fields for stateful widgets in this page.
+
+  final unfocusNode = FocusNode();
+
   @override
   void initState(BuildContext context) {}
 

@@ -32,6 +32,7 @@ class HomepageRequest541Model
 
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (timerApi)] action in Homepage_Request_5_4_1 widget.
   ApiCallResponse? timerApiOutput;
 

@@ -14,6 +14,7 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class LoginScreen1Model extends FlutterFlowModel<LoginScreen1Widget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   // State field(s) for email widget.
   FocusNode? emailFocusNode;
