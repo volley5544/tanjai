@@ -86,6 +86,10 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
       FFAppState().sliderMaxGrossTotal = '50000';
       FFAppState().sliderMinSumInsured = '0';
       FFAppState().sliderMaxSumInsured = '1000000';
+      FFAppState().sliderCurrentMinValueGross = '1000';
+      FFAppState().sliderCurrentMaxValueGross = '50000';
+      FFAppState().sliderCurrentMinSumInsured = '0';
+      FFAppState().sliderCurrentMaxSumInsured = '1000000';
       safeSetState(() {});
       _model.adminVersionQuery = await queryAuthorizationRecordOnce(
         queryBuilder: (authorizationRecord) => authorizationRecord.where(
@@ -2904,10 +2908,10 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                 ),
                                 Container(
                                   width: double.infinity,
-                                  height: 120.0,
+                                  height: 150.0,
                                   child: custom_widgets.RangeSliderWidget(
                                     width: double.infinity,
-                                    height: 120.0,
+                                    height: 150.0,
                                     minRange: '0',
                                     maxRange: '300000',
                                     activeColor: Color(0xFFDB771B),
@@ -2955,10 +2959,10 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                 ),
                                 Container(
                                   width: double.infinity,
-                                  height: 120.0,
+                                  height: 150.0,
                                   child: custom_widgets.RangeSliderWidget(
                                     width: double.infinity,
-                                    height: 120.0,
+                                    height: 150.0,
                                     minRange: '0',
                                     maxRange: '20000000',
                                     activeColor: Color(0xFFDB771B),

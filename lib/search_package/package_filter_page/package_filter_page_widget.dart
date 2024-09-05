@@ -672,8 +672,67 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                     startValue:
                                         FFAppState().sliderMinGrossTotal,
                                     endValue: FFAppState().sliderMaxGrossTotal,
-                                    step: '500',
+                                    step: '100',
                                     typeName: 'ราคาเบี้ย',
+                                    currentMinValue:
+                                        FFAppState().sliderCurrentMinValueGross,
+                                    currentMaxValue:
+                                        FFAppState().sliderCurrentMaxValueGross,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 12.0, 0.0, 0.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      24.0, 0.0, 24.0, 4.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        'เลือกราคาทุนประกันต่ำสุด - สูงสุด',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Noto Sans Thai',
+                                              color: Color(0xFF424242),
+                                              fontSize: 15.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  width: double.infinity,
+                                  height: 150.0,
+                                  child: custom_widgets.RangeSliderWidget(
+                                    width: double.infinity,
+                                    height: 150.0,
+                                    minRange: FFAppState().sliderMinSumInsured,
+                                    maxRange: FFAppState().sliderMaxSumInsured,
+                                    activeColor: Color(0xFFDB771B),
+                                    inactiveColors: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                    overlayColor: Color(0xFFFFBB7C),
+                                    startValue:
+                                        FFAppState().sliderMinSumInsured,
+                                    endValue: FFAppState().sliderMaxSumInsured,
+                                    step: '100',
+                                    typeName: 'ทุนประกัน',
+                                    currentMinValue:
+                                        FFAppState().sliderCurrentMinSumInsured,
+                                    currentMaxValue:
+                                        FFAppState().sliderCurrentMaxSumInsured,
                                   ),
                                 ),
                               ],
