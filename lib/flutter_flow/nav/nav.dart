@@ -1122,7 +1122,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'PackageFilterPage',
               path: 'PackageFilterPage',
-              builder: (context, params) => PackageFilterPageWidget(),
+              builder: (context, params) => PackageFilterPageWidget(
+                fromPage: params.getParam(
+                  'fromPage',
+                  ParamType.String,
+                ),
+              ),
             ),
             FFRoute(
               name: 'InsuranceWorkSelectPage',

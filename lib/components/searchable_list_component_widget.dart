@@ -58,16 +58,16 @@ class _SearchableListComponentWidgetState
         color: FlutterFlowTheme.of(context).secondaryBackground,
       ),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+        padding: EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
             Container(
               width: double.infinity,
-              height: 50.0,
+              height: 50,
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).secondaryBackground,
-                borderRadius: BorderRadius.circular(10.0),
+                borderRadius: BorderRadius.circular(10),
                 border: Border.all(
                   width: 0.5,
                 ),
@@ -77,8 +77,7 @@ class _SearchableListComponentWidgetState
                 children: [
                   Expanded(
                     child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
                       child: TextFormField(
                         controller: _model.textController,
                         focusNode: _model.textFieldFocusNode,
@@ -130,7 +129,7 @@ class _SearchableListComponentWidgetState
                       final dataListItem = dataList[dataListIndex];
                       return Container(
                         width: double.infinity,
-                        height: 60.0,
+                        height: 60,
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
@@ -143,7 +142,7 @@ class _SearchableListComponentWidgetState
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      12.0, 0.0, 0.0, 0.0),
+                                      12, 0, 0, 0),
                                   child: Text(
                                     'Hello World',
                                     style: FlutterFlowTheme.of(context)
@@ -157,7 +156,7 @@ class _SearchableListComponentWidgetState
                               ],
                             ),
                             Divider(
-                              thickness: 1.0,
+                              thickness: 1,
                               color: FlutterFlowTheme.of(context).accent4,
                             ),
                           ],
@@ -169,9 +168,9 @@ class _SearchableListComponentWidgetState
               ),
             ),
           ]
-              .divide(SizedBox(height: 16.0))
-              .addToStart(SizedBox(height: 12.0))
-              .addToEnd(SizedBox(height: 24.0)),
+              .divide(SizedBox(height: 16))
+              .addToStart(SizedBox(height: 12))
+              .addToEnd(SizedBox(height: 24)),
         ),
       ),
     );

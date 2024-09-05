@@ -45,7 +45,7 @@ class _SliderBarComponentWidgetState extends State<SliderBarComponentWidget> {
       mainAxisSize: MainAxisSize.max,
       children: [
         Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 4.0),
+          padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 4),
           child: Row(
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -55,7 +55,7 @@ class _SliderBarComponentWidgetState extends State<SliderBarComponentWidget> {
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Noto Sans Thai',
                       color: Color(0xFF424242),
-                      fontSize: 15.0,
+                      fontSize: 15,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.w500,
                     ),
@@ -65,10 +65,10 @@ class _SliderBarComponentWidgetState extends State<SliderBarComponentWidget> {
         ),
         Container(
           width: double.infinity,
-          height: 120.0,
+          height: 120,
           child: custom_widgets.RangeSliderWidget(
             width: double.infinity,
-            height: 120.0,
+            height: 120,
             minRange: FFAppState().sliderMinGrossTotal,
             maxRange: FFAppState().sliderMaxGrossTotal,
             activeColor: Color(0xFFDB771B),

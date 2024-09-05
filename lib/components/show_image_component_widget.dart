@@ -53,13 +53,13 @@ class _ShowImageComponentWidgetState extends State<ShowImageComponentWidget> {
           decoration: BoxDecoration(),
         ),
         Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
+          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
           child: Container(
             width: double.infinity,
-            height: 40.0,
+            height: 40,
             decoration: BoxDecoration(),
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -74,7 +74,7 @@ class _ShowImageComponentWidgetState extends State<ShowImageComponentWidget> {
                     child: Icon(
                       Icons.close_outlined,
                       color: Colors.white,
-                      size: 40.0,
+                      size: 40,
                     ),
                   ),
                 ],
@@ -90,7 +90,7 @@ class _ShowImageComponentWidgetState extends State<ShowImageComponentWidget> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ClipRRect(
-                borderRadius: BorderRadius.circular(8.0),
+                borderRadius: BorderRadius.circular(8),
                 child: Image.network(
                   widget!.imageUrl!,
                   width: double.infinity,

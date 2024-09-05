@@ -191,13 +191,13 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
             automaticallyImplyLeading: false,
             leading: FlutterFlowIconButton(
               borderColor: Colors.transparent,
-              borderRadius: 30.0,
-              borderWidth: 1.0,
-              buttonSize: 60.0,
+              borderRadius: 30,
+              borderWidth: 1,
+              buttonSize: 60,
               icon: Icon(
                 Icons.arrow_back,
                 color: Color(0xFFDB771A),
-                size: 30.0,
+                size: 30,
               ),
               onPressed: () async {
                 context.pop();
@@ -208,18 +208,18 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF204A77),
-                    fontSize: 18.0,
+                    fontSize: 18,
                     letterSpacing: 0.0,
                   ),
             ),
             actions: [],
             centerTitle: true,
-            elevation: 2.0,
+            elevation: 2,
           ),
           body: SafeArea(
             top: true,
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
@@ -229,17 +229,16 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 5.0, 0.0, 0.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                           child: Container(
-                            width: MediaQuery.sizeOf(context).width * 1.0,
+                            width: MediaQuery.sizeOf(context).width,
                             decoration: BoxDecoration(),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      12.0, 0.0, 12.0, 0.0),
+                                      12, 0, 12, 0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
@@ -250,14 +249,14 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF404040),
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 0.0, 0.0),
+                                            10, 0, 0, 0),
                                         child: Text(
                                           '(บังคับกรอก)',
                                           style: FlutterFlowTheme.of(context)
@@ -265,7 +264,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Color(0xFFF40606),
-                                                fontSize: 12.0,
+                                                fontSize: 12,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
@@ -276,15 +275,14 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 5.0, 0.0, 0.0),
+                                      0, 5, 0, 0),
                                   child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 1.0,
-                                    height: 60.0,
+                                    width: MediaQuery.sizeOf(context).width,
+                                    height: 60,
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
-                                      borderRadius: BorderRadius.circular(10.0),
+                                      borderRadius: BorderRadius.circular(10),
                                       border: Border.all(
                                         color: Colors.black,
                                         width: 0.5,
@@ -298,11 +296,10 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                         Expanded(
                                           child: Align(
                                             alignment:
-                                                AlignmentDirectional(0.0, 0.0),
+                                                AlignmentDirectional(0, 0),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      10.0, 0.0, 10.0, 0.0),
+                                                  .fromSTEB(10, 0, 10, 0),
                                               child: TextFormField(
                                                 controller: _model
                                                     .firstnameTextController,
@@ -321,7 +318,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primaryText,
-                                                        fontSize: 15.0,
+                                                        fontSize: 15,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -335,7 +332,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                                             'Noto Sans Thai',
                                                         color:
                                                             Color(0xFFAAAAAA),
-                                                        fontSize: 15.0,
+                                                        fontSize: 15,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -344,21 +341,21 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                                       UnderlineInputBorder(
                                                     borderSide: BorderSide(
                                                       color: Color(0x00000000),
-                                                      width: 2.0,
+                                                      width: 2,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            8),
                                                   ),
                                                   focusedBorder:
                                                       UnderlineInputBorder(
                                                     borderSide: BorderSide(
                                                       color: Color(0x00000000),
-                                                      width: 2.0,
+                                                      width: 2,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            8),
                                                   ),
                                                   errorBorder:
                                                       UnderlineInputBorder(
@@ -367,11 +364,11 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .error,
-                                                      width: 2.0,
+                                                      width: 2,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            8),
                                                   ),
                                                   focusedErrorBorder:
                                                       UnderlineInputBorder(
@@ -380,11 +377,11 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .error,
-                                                      width: 2.0,
+                                                      width: 2,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            8),
                                                   ),
                                                 ),
                                                 style:
@@ -396,7 +393,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryText,
-                                                          fontSize: 15.0,
+                                                          fontSize: 15,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
@@ -417,17 +414,16 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 5.0, 0.0, 0.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                           child: Container(
-                            width: MediaQuery.sizeOf(context).width * 1.0,
+                            width: MediaQuery.sizeOf(context).width,
                             decoration: BoxDecoration(),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      12.0, 0.0, 12.0, 0.0),
+                                      12, 0, 12, 0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
@@ -438,7 +434,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF404040),
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
@@ -447,7 +443,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  10.0, 0.0, 0.0, 0.0),
+                                                  10, 0, 0, 0),
                                           child: Text(
                                             '(บังคับกรอก)',
                                             style: FlutterFlowTheme.of(context)
@@ -455,7 +451,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFFF40606),
-                                                  fontSize: 12.0,
+                                                  fontSize: 12,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
@@ -466,15 +462,14 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 5.0, 0.0, 0.0),
+                                      0, 5, 0, 0),
                                   child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 1.0,
-                                    height: 60.0,
+                                    width: MediaQuery.sizeOf(context).width,
+                                    height: 60,
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
-                                      borderRadius: BorderRadius.circular(10.0),
+                                      borderRadius: BorderRadius.circular(10),
                                       border: Border.all(
                                         color: Colors.black,
                                         width: 0.5,
@@ -488,11 +483,10 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                         Expanded(
                                           child: Align(
                                             alignment:
-                                                AlignmentDirectional(0.0, 0.0),
+                                                AlignmentDirectional(0, 0),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      10.0, 0.0, 10.0, 0.0),
+                                                  .fromSTEB(10, 0, 10, 0),
                                               child: TextFormField(
                                                 controller: _model
                                                     .lastnameTextController,
@@ -511,7 +505,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primaryText,
-                                                        fontSize: 15.0,
+                                                        fontSize: 15,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -525,7 +519,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                                             'Noto Sans Thai',
                                                         color:
                                                             Color(0xFFAAAAAA),
-                                                        fontSize: 15.0,
+                                                        fontSize: 15,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -534,21 +528,21 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                                       UnderlineInputBorder(
                                                     borderSide: BorderSide(
                                                       color: Color(0x00000000),
-                                                      width: 2.0,
+                                                      width: 2,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            8),
                                                   ),
                                                   focusedBorder:
                                                       UnderlineInputBorder(
                                                     borderSide: BorderSide(
                                                       color: Color(0x00000000),
-                                                      width: 2.0,
+                                                      width: 2,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            8),
                                                   ),
                                                   errorBorder:
                                                       UnderlineInputBorder(
@@ -557,11 +551,11 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .error,
-                                                      width: 2.0,
+                                                      width: 2,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            8),
                                                   ),
                                                   focusedErrorBorder:
                                                       UnderlineInputBorder(
@@ -570,11 +564,11 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .error,
-                                                      width: 2.0,
+                                                      width: 2,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            8),
                                                   ),
                                                 ),
                                                 style:
@@ -586,7 +580,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryText,
-                                                          fontSize: 15.0,
+                                                          fontSize: 15,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
@@ -607,14 +601,14 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                           ),
                         ),
                         Container(
-                          width: MediaQuery.sizeOf(context).width * 1.0,
+                          width: MediaQuery.sizeOf(context).width,
                           decoration: BoxDecoration(),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    12.0, 0.0, 12.0, 0.0),
+                                    12, 0, 12, 0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -625,14 +619,14 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF404040),
-                                            fontSize: 15.0,
+                                            fontSize: 15,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
                                           ),
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 0.0, 0.0, 0.0),
+                                          10, 0, 0, 0),
                                       child: Text(
                                         '(บังคับกรอก)',
                                         style: FlutterFlowTheme.of(context)
@@ -640,7 +634,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFFF40606),
-                                              fontSize: 12.0,
+                                              fontSize: 12,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -650,15 +644,15 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 5.0, 0.0, 0.0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                                 child: Container(
-                                  width: MediaQuery.sizeOf(context).width * 1.0,
-                                  height: 60.0,
+                                  width: MediaQuery.sizeOf(context).width,
+                                  height: 60,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(10.0),
+                                    borderRadius: BorderRadius.circular(10),
                                     border: Border.all(
                                       color: Colors.black,
                                       width: 0.5,
@@ -671,12 +665,11 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                     children: [
                                       Expanded(
                                         child: Align(
-                                          alignment:
-                                              AlignmentDirectional(0.0, 0.0),
+                                          alignment: AlignmentDirectional(0, 0),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 0.0, 10.0, 0.0),
+                                                    10, 0, 10, 0),
                                             child: TextFormField(
                                               controller: _model
                                                   .phonenumberTextController,
@@ -694,7 +687,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryText,
-                                                          fontSize: 15.0,
+                                                          fontSize: 15,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -708,7 +701,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFFAAAAAA),
-                                                          fontSize: 15.0,
+                                                          fontSize: 15,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -717,21 +710,19 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                                     UnderlineInputBorder(
                                                   borderSide: BorderSide(
                                                     color: Color(0x00000000),
-                                                    width: 2.0,
+                                                    width: 2,
                                                   ),
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
+                                                      BorderRadius.circular(8),
                                                 ),
                                                 focusedBorder:
                                                     UnderlineInputBorder(
                                                   borderSide: BorderSide(
                                                     color: Color(0x00000000),
-                                                    width: 2.0,
+                                                    width: 2,
                                                   ),
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
+                                                      BorderRadius.circular(8),
                                                 ),
                                                 errorBorder:
                                                     UnderlineInputBorder(
@@ -739,11 +730,10 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .error,
-                                                    width: 2.0,
+                                                    width: 2,
                                                   ),
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
+                                                      BorderRadius.circular(8),
                                                 ),
                                                 focusedErrorBorder:
                                                     UnderlineInputBorder(
@@ -751,11 +741,10 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .error,
-                                                    width: 2.0,
+                                                    width: 2,
                                                   ),
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
+                                                      BorderRadius.circular(8),
                                                 ),
                                               ),
                                               style: FlutterFlowTheme.of(
@@ -767,7 +756,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primaryText,
-                                                    fontSize: 15.0,
+                                                    fontSize: 15,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
@@ -791,14 +780,14 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                           ),
                         ),
                         Container(
-                          width: MediaQuery.sizeOf(context).width * 1.0,
+                          width: MediaQuery.sizeOf(context).width,
                           decoration: BoxDecoration(),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    12.0, 0.0, 12.0, 0.0),
+                                    12, 0, 12, 0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -809,14 +798,14 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF404040),
-                                            fontSize: 15.0,
+                                            fontSize: 15,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
                                           ),
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 0.0, 0.0, 0.0),
+                                          10, 0, 0, 0),
                                       child: Text(
                                         '(ไม่ต้องมีขีด - ) ',
                                         style: FlutterFlowTheme.of(context)
@@ -824,7 +813,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Colors.black,
-                                              fontSize: 12.0,
+                                              fontSize: 12,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -834,15 +823,15 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 5.0, 0.0, 0.0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                                 child: Container(
-                                  width: MediaQuery.sizeOf(context).width * 1.0,
-                                  height: 60.0,
+                                  width: MediaQuery.sizeOf(context).width,
+                                  height: 60,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(10.0),
+                                    borderRadius: BorderRadius.circular(10),
                                     border: Border.all(
                                       color: Colors.black,
                                       width: 0.5,
@@ -850,7 +839,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                   ),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 0.0, 10.0, 0.0),
+                                        10, 0, 10, 0),
                                     child: TextFormField(
                                       controller:
                                           _model.textFieldTextController,
@@ -865,7 +854,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryText,
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
@@ -875,7 +864,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFFAAAAAA),
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
@@ -890,7 +879,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                             fontFamily: 'Noto Sans Thai',
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryText,
-                                            fontSize: 15.0,
+                                            fontSize: 15,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
@@ -907,10 +896,10 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                       ],
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.0, 0.75),
+                      alignment: AlignmentDirectional(0, 0.75),
                       child: Container(
                         width: double.infinity,
-                        height: 100.0,
+                        height: 100,
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
@@ -943,7 +932,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                       );
                                     },
                                   );
-                                  if (_shouldSetState) setState(() {});
+                                  if (_shouldSetState) safeSetState(() {});
                                   return;
                                 }
                                 if (_model.phonenumberTextController.text !=
@@ -968,7 +957,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                         backgroundColor: Color(0xB2000000),
                                       ),
                                     );
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
                                   if (!((String var1) {
@@ -988,7 +977,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                         backgroundColor: Color(0xB2000000),
                                       ),
                                     );
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
                                 } else {
@@ -1010,7 +999,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                       );
                                     },
                                   );
-                                  if (_shouldSetState) setState(() {});
+                                  if (_shouldSetState) safeSetState(() {});
                                   return;
                                 }
 
@@ -1034,7 +1023,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                         backgroundColor: Color(0xB2000000),
                                       ),
                                     );
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
                                 }
@@ -1058,7 +1047,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                       );
                                     },
                                   );
-                                  if (_shouldSetState) setState(() {});
+                                  if (_shouldSetState) safeSetState(() {});
                                   return;
                                 }
                                 if (functions.checkNumberInString(
@@ -1081,7 +1070,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                       );
                                     },
                                   );
-                                  if (_shouldSetState) setState(() {});
+                                  if (_shouldSetState) safeSetState(() {});
                                   return;
                                 }
                                 var confirmDialogResponse =
@@ -1114,7 +1103,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                         ) ??
                                         false;
                                 if (!confirmDialogResponse) {
-                                  if (_shouldSetState) setState(() {});
+                                  if (_shouldSetState) safeSetState(() {});
                                   return;
                                 }
                                 showModalBottomSheet(
@@ -1246,7 +1235,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                     },
                                   );
                                   Navigator.pop(context);
-                                  if (_shouldSetState) setState(() {});
+                                  if (_shouldSetState) safeSetState(() {});
                                   return;
                                 }
                                 if (IbsQuotationsSaveCall.statuslayer1(
@@ -1278,7 +1267,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                     },
                                   );
                                   Navigator.pop(context);
-                                  if (_shouldSetState) setState(() {});
+                                  if (_shouldSetState) safeSetState(() {});
                                   return;
                                 }
                                 FFAppState().AddCustomerPageFirstname =
@@ -1298,13 +1287,13 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                 )!
                                         .toList()
                                         .cast<String>();
-                                setState(() {});
+                                safeSetState(() {});
                                 FFAppState().addToInsurarerQuotationPdf(
                                     '${IbsQuotationsSaveCall.urlCompare(
                                   (_model.aPIQuotationSaveOutput?.jsonBody ??
                                       ''),
                                 )}');
-                                setState(() {});
+                                safeSetState(() {});
                                 _model.isShowVideoFirebaseBool =
                                     await queryHideInAppContentRecordOnce(
                                   queryBuilder: (hideInAppContentRecord) =>
@@ -1392,38 +1381,38 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                   }
                                 }
 
-                                if (_shouldSetState) setState(() {});
+                                if (_shouldSetState) safeSetState(() {});
                               },
                               text: 'บันทึก',
                               options: FFButtonOptions(
                                 width: double.infinity,
-                                height: 60.0,
+                                height: 60,
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    24.0, 0.0, 24.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
+                                    24, 0, 24, 0),
+                                iconPadding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                                 color: Color(0xFFDB771B),
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       color: Colors.white,
-                                      fontSize: 15.0,
+                                      fontSize: 15,
                                       letterSpacing: 0.0,
                                     ),
-                                elevation: 3.0,
+                                elevation: 3,
                                 borderSide: BorderSide(
                                   color: Colors.transparent,
-                                  width: 1.0,
+                                  width: 1,
                                 ),
-                                borderRadius: BorderRadius.circular(16.0),
+                                borderRadius: BorderRadius.circular(16),
                               ),
                             ),
-                          ].addToStart(SizedBox(height: 16.0)),
+                          ].addToStart(SizedBox(height: 16)),
                         ),
                       ),
                     ),
-                  ].addToEnd(SizedBox(height: 50.0)),
+                  ].addToEnd(SizedBox(height: 50)),
                 ),
               ),
             ),

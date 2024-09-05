@@ -173,7 +173,7 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
               child: Icon(
                 Icons.arrow_back,
                 color: Color(0xFFDB7619),
-                size: 30.0,
+                size: 30,
               ),
             ),
             title: Text(
@@ -181,7 +181,7 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF123063),
-                    fontSize: 16.0,
+                    fontSize: 16,
                     letterSpacing: 0.0,
                   ),
             ),
@@ -191,7 +191,7 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
           body: SafeArea(
             top: true,
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -202,7 +202,7 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
                       children: [
                         Container(
                           width: double.infinity,
-                          height: 50.0,
+                          height: 50,
                           decoration: BoxDecoration(
                             color: Color(0x00FFFFFF),
                           ),
@@ -212,11 +212,11 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
                               Expanded(
                                 child: Container(
                                   width: double.infinity,
-                                  height: 50.0,
+                                  height: 50,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(10.0),
+                                    borderRadius: BorderRadius.circular(10),
                                     border: Border.all(
                                       width: 0.5,
                                     ),
@@ -228,7 +228,7 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  8.0, 0.0, 8.0, 0.0),
+                                                  8, 0, 8, 0),
                                           child: TextFormField(
                                             controller: _model.textController,
                                             focusNode:
@@ -237,7 +237,7 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
                                                 EasyDebounce.debounce(
                                               '_model.textController',
                                               Duration(milliseconds: 100),
-                                              () => setState(() {}),
+                                              () => safeSetState(() {}),
                                             ),
                                             autofocus: false,
                                             obscureText: false,
@@ -311,7 +311,7 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
                                           );
                                         },
                                       );
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                     showModalBottomSheet(
@@ -368,7 +368,7 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
                                                   )?.length)!
                                               .toList()
                                               .cast<bool>();
-                                      setState(() {});
+                                      safeSetState(() {});
                                     } else {
                                       if ((_model.getBranchSearched2
                                                   ?.statusCode ??
@@ -448,16 +448,16 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
                                     }
 
                                     Navigator.pop(context);
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                   },
                                   text: 'ค้นหา',
                                   options: FFButtonOptions(
-                                    width: 110.0,
-                                    height: 40.0,
+                                    width: 110,
+                                    height: 40,
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        24.0, 0.0, 24.0, 0.0),
+                                        24, 0, 24, 0),
                                     iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
+                                        0, 0, 0, 0),
                                     color: Color(0xFFDB771B),
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
@@ -466,15 +466,15 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
                                           color: Colors.white,
                                           letterSpacing: 0.0,
                                         ),
-                                    elevation: 3.0,
+                                    elevation: 3,
                                     borderSide: BorderSide(
                                       color: Colors.transparent,
-                                      width: 1.0,
+                                      width: 1,
                                     ),
-                                    borderRadius: BorderRadius.circular(8.0),
+                                    borderRadius: BorderRadius.circular(8),
                                   ),
                                 ),
-                            ].divide(SizedBox(width: 12.0)),
+                            ].divide(SizedBox(width: 12)),
                           ),
                         ),
                         Expanded(
@@ -559,7 +559,7 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
                                                         ?.jsonBody ??
                                                     ''),
                                               )![branchListItemIndex];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -581,7 +581,7 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
                                                         ?.jsonBody ??
                                                     ''),
                                               )![branchListItemIndex];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -600,12 +600,12 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
                                                       ?.jsonBody ??
                                                   ''),
                                             )![branchListItemIndex];
-                                            setState(() {});
+                                            safeSetState(() {});
                                             context.safePop();
                                           },
                                           child: Container(
                                             width: double.infinity,
-                                            height: 60.0,
+                                            height: 60,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -616,7 +616,7 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
                                               children: [
                                                 Container(
                                                   width: double.infinity,
-                                                  height: 50.0,
+                                                  height: 50,
                                                   decoration: BoxDecoration(),
                                                   child: Row(
                                                     mainAxisSize:
@@ -628,11 +628,8 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    12.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                                .fromSTEB(12, 0,
+                                                                    0, 0),
                                                         child: Text(
                                                           '(${GetlocationAPICall.branchCode(
                                                             (_model.getBranchSearched
@@ -658,7 +655,7 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
                                                   ),
                                                 ),
                                                 Divider(
-                                                  thickness: 1.0,
+                                                  thickness: 1,
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .accent4,
@@ -676,9 +673,9 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
                           ),
                         ),
                       ]
-                          .divide(SizedBox(height: 12.0))
-                          .addToStart(SizedBox(height: 12.0))
-                          .addToEnd(SizedBox(height: 24.0)),
+                          .divide(SizedBox(height: 12))
+                          .addToStart(SizedBox(height: 12))
+                          .addToEnd(SizedBox(height: 24)),
                     ),
                   ),
                 ],

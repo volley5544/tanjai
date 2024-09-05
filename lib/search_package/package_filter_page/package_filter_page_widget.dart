@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
 import 'dart:math';
+import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -15,7 +16,12 @@ import 'package_filter_page_model.dart';
 export 'package_filter_page_model.dart';
 
 class PackageFilterPageWidget extends StatefulWidget {
-  const PackageFilterPageWidget({super.key});
+  const PackageFilterPageWidget({
+    super.key,
+    required this.fromPage,
+  });
+
+  final String? fromPage;
 
   @override
   State<PackageFilterPageWidget> createState() =>
@@ -63,7 +69,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
       FFAppState().filterInsurerList = [];
       FFAppState().filterCoverTypeList = [];
       FFAppState().filterGarageTypeList = [];
-      setState(() {});
+      safeSetState(() {});
       Navigator.pop(context);
     });
 
@@ -122,21 +128,23 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                         false, FFAppState().searchSerialName.length)!
                     .toList()
                     .cast<bool>();
-                setState(() {});
+                safeSetState(() {});
                 context.safePop();
               },
               child: Icon(
                 Icons.arrow_back,
                 color: Color(0xFFDB7619),
-                size: 30.0,
+                size: 30,
               ),
             ),
             title: Text(
-              'ค้นหาประกันรถ',
+              widget!.fromPage == 'SearchPackage2'
+                  ? 'ค้นหาบริษัทประกัน'
+                  : 'ค้นหาประกันรถ',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF123063),
-                    fontSize: 18.0,
+                    fontSize: 18,
                     letterSpacing: 0.0,
                   ),
             ),
@@ -163,7 +171,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                               decoration: BoxDecoration(),
                             ).animateOnPageLoad(
                                 animationsMap['containerOnPageLoadAnimation']!),
-                          if (FFAppState().searchPackageSubProduct == 'MC')
+                          if (widget!.fromPage == 'SearchPackage2')
                             Container(
                               width: double.infinity,
                               decoration: BoxDecoration(),
@@ -173,7 +181,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        24.0, 0.0, 24.0, 4.0),
+                                        24, 0, 24, 4),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       crossAxisAlignment:
@@ -186,7 +194,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Color(0xFF404040),
-                                                fontSize: 15.0,
+                                                fontSize: 15,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
                                               ),
@@ -194,7 +202,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  10.0, 0.0, 0.0, 0.0),
+                                                  10, 0, 0, 0),
                                           child: Text(
                                             '(บังคับเลือก)',
                                             style: FlutterFlowTheme.of(context)
@@ -202,7 +210,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFFF40606),
-                                                  fontSize: 12.0,
+                                                  fontSize: 12,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
@@ -213,7 +221,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 0.0, 16.0, 0.0),
+                                        16, 0, 16, 0),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
                                       focusColor: Colors.transparent,
@@ -256,12 +264,12 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                       },
                                       child: Container(
                                         width: double.infinity,
-                                        height: 50.0,
+                                        height: 50,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                           borderRadius:
-                                              BorderRadius.circular(10.0),
+                                              BorderRadius.circular(10),
                                           border: Border.all(
                                             width: 0.5,
                                           ),
@@ -269,7 +277,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  4.0, 0.0, 0.0, 0.0),
+                                                  4, 0, 0, 0),
                                           child: ListTile(
                                             title: Text(
                                               FFAppState()
@@ -290,7 +298,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                                     fontFamily:
                                                         'Noto Sans Thai',
                                                     color: Color(0xFF9F9F9F),
-                                                    fontSize: 15.0,
+                                                    fontSize: 15,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
@@ -298,7 +306,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                             trailing: Icon(
                                               Icons.arrow_forward_ios,
                                               color: Color(0xFF474747),
-                                              size: 20.0,
+                                              size: 20,
                                             ),
                                             tileColor:
                                                 FlutterFlowTheme.of(context)
@@ -306,7 +314,309 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                             dense: false,
                                             shape: RoundedRectangleBorder(
                                               borderRadius:
-                                                  BorderRadius.circular(10.0),
+                                                  BorderRadius.circular(10),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          if (widget!.fromPage == 'SearchPackage3')
+                            Container(
+                              width: double.infinity,
+                              decoration: BoxDecoration(),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        24, 0, 24, 4),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          'ประเภทชั้นประกัน',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Noto Sans Thai',
+                                                color: Color(0xFF404040),
+                                                fontSize: 15,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  10, 0, 0, 0),
+                                          child: Text(
+                                            '(บังคับเลือก) สามารถเลือกได้มากกว่า 1)',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Noto Sans Thai',
+                                                  color: Color(0xFFF40606),
+                                                  fontSize: 12,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w600,
+                                                ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        16, 0, 16, 0),
+                                    child: InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        context.pushNamed(
+                                          'SearchableListPage',
+                                          queryParameters: {
+                                            'titleText': serializeParam(
+                                              'ค้นหาเปรียบเทียบชั้นประกัน',
+                                              ParamType.String,
+                                            ),
+                                            'searchLabel': serializeParam(
+                                              'ระบุประเภทชั้นประกัน',
+                                              ParamType.String,
+                                            ),
+                                            'dataList': serializeParam(
+                                              functions.removeDupeInList(
+                                                  FFAppState()
+                                                      .searchCoverType
+                                                      .toList()),
+                                              ParamType.String,
+                                              isList: true,
+                                            ),
+                                            'multiSelect': serializeParam(
+                                              true,
+                                              ParamType.bool,
+                                            ),
+                                            'maxSelected': serializeParam(
+                                              0,
+                                              ParamType.int,
+                                            ),
+                                            'fromPage': serializeParam(
+                                              'searchPackage',
+                                              ParamType.String,
+                                            ),
+                                          }.withoutNulls,
+                                        );
+                                      },
+                                      child: Container(
+                                        width: double.infinity,
+                                        height: 50,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          border: Border.all(
+                                            width: 0.5,
+                                          ),
+                                        ),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  4, 0, 0, 0),
+                                          child: ListTile(
+                                            title: Text(
+                                              FFAppState()
+                                                          .filterCoverTypeList
+                                                          .length >
+                                                      0
+                                                  ? functions
+                                                      .combineStringFromList(
+                                                          FFAppState()
+                                                              .filterCoverTypeList
+                                                              .toList())!
+                                                  : 'กรุณาเลือกประเภทชั้นประกัน',
+                                              textAlign: TextAlign.start,
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .titleLarge
+                                                  .override(
+                                                    fontFamily:
+                                                        'Noto Sans Thai',
+                                                    color: Color(0xFF9F9F9F),
+                                                    fontSize: 15,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w600,
+                                                  ),
+                                            ),
+                                            trailing: Icon(
+                                              Icons.arrow_forward_ios,
+                                              color: Color(0xFF474747),
+                                              size: 20,
+                                            ),
+                                            tileColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .secondaryBackground,
+                                            dense: false,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          if (widget!.fromPage == 'SearchPackage3')
+                            Container(
+                              width: double.infinity,
+                              decoration: BoxDecoration(),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        24, 0, 24, 4),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          'ประเภทการซ่อม',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Noto Sans Thai',
+                                                color: Color(0xFF424242),
+                                                fontSize: 15,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  10, 0, 0, 0),
+                                          child: Text(
+                                            '(บังคับเลือก สามารถเลือกได้มากกว่า 1)',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Noto Sans Thai',
+                                                  color: Color(0xFFF40606),
+                                                  fontSize: 12,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w600,
+                                                ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        16, 0, 16, 0),
+                                    child: InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        context.pushNamed(
+                                          'SearchableListPage',
+                                          queryParameters: {
+                                            'titleText': serializeParam(
+                                              'ค้นหาเปรียบเทียบประเภทการซ่อม',
+                                              ParamType.String,
+                                            ),
+                                            'searchLabel': serializeParam(
+                                              'ระบุประเภทการซ่อม',
+                                              ParamType.String,
+                                            ),
+                                            'dataList': serializeParam(
+                                              functions.removeDupeInList(
+                                                  FFAppState()
+                                                      .searchGarageType
+                                                      .toList()),
+                                              ParamType.String,
+                                              isList: true,
+                                            ),
+                                            'multiSelect': serializeParam(
+                                              true,
+                                              ParamType.bool,
+                                            ),
+                                            'maxSelected': serializeParam(
+                                              0,
+                                              ParamType.int,
+                                            ),
+                                          }.withoutNulls,
+                                        );
+                                      },
+                                      child: Container(
+                                        width: double.infinity,
+                                        height: 50,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          border: Border.all(
+                                            width: 0.5,
+                                          ),
+                                        ),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  4, 0, 0, 0),
+                                          child: ListTile(
+                                            title: Text(
+                                              FFAppState()
+                                                          .filterGarageTypeList
+                                                          .length >
+                                                      0
+                                                  ? functions
+                                                      .combineStringFromList(
+                                                          FFAppState()
+                                                              .filterGarageTypeList
+                                                              .toList())!
+                                                  : 'กรุณาเลือกประเภทการซ่อม',
+                                              textAlign: TextAlign.start,
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .titleLarge
+                                                  .override(
+                                                    fontFamily:
+                                                        'Noto Sans Thai',
+                                                    color: Color(0xFF9F9F9F),
+                                                    fontSize: 15,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w600,
+                                                  ),
+                                            ),
+                                            trailing: Icon(
+                                              Icons.arrow_forward_ios,
+                                              color: Color(0xFF143678),
+                                              size: 20,
+                                            ),
+                                            tileColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .secondaryBackground,
+                                            dense: false,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
                                             ),
                                           ),
                                         ),
@@ -317,301 +627,62 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                               ),
                             ),
                           Container(
-                            width: double.infinity,
-                            decoration: BoxDecoration(),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      24.0, 0.0, 24.0, 4.0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        'ประเภทชั้นประกัน',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Noto Sans Thai',
-                                              color: Color(0xFF404040),
-                                              fontSize: 15.0,
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 0.0, 0.0),
-                                        child: Text(
-                                          '(บังคับเลือก) สามารถเลือกได้มากกว่า 1)',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Noto Sans Thai',
-                                                color: Color(0xFFF40606),
-                                                fontSize: 12.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w600,
-                                              ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 0.0, 16.0, 0.0),
-                                  child: InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      context.pushNamed(
-                                        'SearchableListPage',
-                                        queryParameters: {
-                                          'titleText': serializeParam(
-                                            'ค้นหาเปรียบเทียบชั้นประกัน',
-                                            ParamType.String,
-                                          ),
-                                          'searchLabel': serializeParam(
-                                            'ระบุประเภทชั้นประกัน',
-                                            ParamType.String,
-                                          ),
-                                          'dataList': serializeParam(
-                                            functions.removeDupeInList(
-                                                FFAppState()
-                                                    .searchCoverType
-                                                    .toList()),
-                                            ParamType.String,
-                                            isList: true,
-                                          ),
-                                          'multiSelect': serializeParam(
-                                            true,
-                                            ParamType.bool,
-                                          ),
-                                          'maxSelected': serializeParam(
-                                            0,
-                                            ParamType.int,
-                                          ),
-                                          'fromPage': serializeParam(
-                                            'searchPackage',
-                                            ParamType.String,
-                                          ),
-                                        }.withoutNulls,
-                                      );
-                                    },
-                                    child: Container(
-                                      width: double.infinity,
-                                      height: 50.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
-                                        border: Border.all(
-                                          width: 0.5,
-                                        ),
-                                      ),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            4.0, 0.0, 0.0, 0.0),
-                                        child: ListTile(
-                                          title: Text(
-                                            FFAppState()
-                                                        .filterCoverTypeList
-                                                        .length >
-                                                    0
-                                                ? functions
-                                                    .combineStringFromList(
-                                                        FFAppState()
-                                                            .filterCoverTypeList
-                                                            .toList())!
-                                                : 'กรุณาเลือกประเภทชั้นประกัน',
-                                            textAlign: TextAlign.start,
-                                            style: FlutterFlowTheme.of(context)
-                                                .titleLarge
-                                                .override(
-                                                  fontFamily: 'Noto Sans Thai',
-                                                  color: Color(0xFF9F9F9F),
-                                                  fontSize: 15.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w600,
-                                                ),
-                                          ),
-                                          trailing: Icon(
-                                            Icons.arrow_forward_ios,
-                                            color: Color(0xFF474747),
-                                            size: 20.0,
-                                          ),
-                                          tileColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .secondaryBackground,
-                                          dense: false,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(10.0),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
                             ),
-                          ),
-                          Container(
-                            width: double.infinity,
-                            decoration: BoxDecoration(),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
-                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      24.0, 0.0, 24.0, 4.0),
+                                      24, 0, 24, 4),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
                                     children: [
                                       Text(
-                                        'ประเภทการซ่อม',
+                                        'เลือกราคาเบี้ยประกันต่ำสุด - สูงสุด',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF424242),
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 0.0, 0.0),
-                                        child: Text(
-                                          '(บังคับเลือก สามารถเลือกได้มากกว่า 1)',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Noto Sans Thai',
-                                                color: Color(0xFFF40606),
-                                                fontSize: 12.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w600,
-                                              ),
-                                        ),
-                                      ),
                                     ],
                                   ),
                                 ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 0.0, 16.0, 0.0),
-                                  child: InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      context.pushNamed(
-                                        'SearchableListPage',
-                                        queryParameters: {
-                                          'titleText': serializeParam(
-                                            'ค้นหาเปรียบเทียบประเภทการซ่อม',
-                                            ParamType.String,
-                                          ),
-                                          'searchLabel': serializeParam(
-                                            'ระบุประเภทการซ่อม',
-                                            ParamType.String,
-                                          ),
-                                          'dataList': serializeParam(
-                                            functions.removeDupeInList(
-                                                FFAppState()
-                                                    .searchGarageType
-                                                    .toList()),
-                                            ParamType.String,
-                                            isList: true,
-                                          ),
-                                          'multiSelect': serializeParam(
-                                            true,
-                                            ParamType.bool,
-                                          ),
-                                          'maxSelected': serializeParam(
-                                            0,
-                                            ParamType.int,
-                                          ),
-                                        }.withoutNulls,
-                                      );
-                                    },
-                                    child: Container(
-                                      width: double.infinity,
-                                      height: 50.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
-                                        border: Border.all(
-                                          width: 0.5,
-                                        ),
-                                      ),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            4.0, 0.0, 0.0, 0.0),
-                                        child: ListTile(
-                                          title: Text(
-                                            FFAppState()
-                                                        .filterGarageTypeList
-                                                        .length >
-                                                    0
-                                                ? functions
-                                                    .combineStringFromList(
-                                                        FFAppState()
-                                                            .filterGarageTypeList
-                                                            .toList())!
-                                                : 'กรุณาเลือกประเภทการซ่อม',
-                                            textAlign: TextAlign.start,
-                                            style: FlutterFlowTheme.of(context)
-                                                .titleLarge
-                                                .override(
-                                                  fontFamily: 'Noto Sans Thai',
-                                                  color: Color(0xFF9F9F9F),
-                                                  fontSize: 15.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w600,
-                                                ),
-                                          ),
-                                          trailing: Icon(
-                                            Icons.arrow_forward_ios,
-                                            color: Color(0xFF143678),
-                                            size: 20.0,
-                                          ),
-                                          tileColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .secondaryBackground,
-                                          dense: false,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(10.0),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
+                                Container(
+                                  width: double.infinity,
+                                  height: 150,
+                                  child: custom_widgets.RangeSliderWidget(
+                                    width: double.infinity,
+                                    height: 150,
+                                    minRange: FFAppState().sliderMinGrossTotal,
+                                    maxRange: FFAppState().sliderMaxGrossTotal,
+                                    activeColor: Color(0xFFDB771B),
+                                    inactiveColors: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                    overlayColor: Color(0xFFFFBB7C),
+                                    startValue:
+                                        FFAppState().sliderMinGrossTotal,
+                                    endValue: FFAppState().sliderMaxGrossTotal,
+                                    step: '500',
+                                    typeName: 'ราคาเบี้ย',
                                   ),
                                 ),
                               ],
                             ),
                           ),
                         ]
-                            .divide(SizedBox(height: 8.0))
-                            .addToStart(SizedBox(height: 20.0))
-                            .addToEnd(SizedBox(height: 36.0)),
+                            .divide(SizedBox(height: 8))
+                            .addToStart(SizedBox(height: 20))
+                            .addToEnd(SizedBox(height: 36)),
                       ),
                     ),
                   ),
@@ -620,7 +691,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                   flex: 2,
                   child: Container(
                     width: double.infinity,
-                    height: 100.0,
+                    height: 100,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                     ),
@@ -629,8 +700,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              20.0, 0.0, 20.0, 0.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
                           child: FFButtonWidget(
                             onPressed: () async {
                               FFAppState().selectInsurerList = functions
@@ -638,36 +708,36 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                       FFAppState().searchSerialName.length)!
                                   .toList()
                                   .cast<bool>();
-                              setState(() {});
+                              safeSetState(() {});
                               context.safePop();
                             },
                             text: 'ค้นหา',
                             options: FFButtonOptions(
                               width: double.infinity,
-                              height: 60.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 0.0, 24.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
+                              height: 60,
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                              iconPadding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                               color: Color(0xFFDB771B),
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
                                     fontFamily: 'Noto Sans Thai',
                                     color: Colors.white,
-                                    fontSize: 15.0,
+                                    fontSize: 15,
                                     letterSpacing: 0.0,
                                   ),
-                              elevation: 3.0,
+                              elevation: 3,
                               borderSide: BorderSide(
                                 color: Colors.transparent,
-                                width: 1.0,
+                                width: 1,
                               ),
-                              borderRadius: BorderRadius.circular(16.0),
+                              borderRadius: BorderRadius.circular(16),
                             ),
                           ),
                         ),
-                      ].addToStart(SizedBox(height: 16.0)),
+                      ].addToStart(SizedBox(height: 16)),
                     ),
                   ),
                 ),

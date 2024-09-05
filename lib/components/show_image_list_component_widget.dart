@@ -59,13 +59,13 @@ class _ShowImageListComponentWidgetState
           decoration: BoxDecoration(),
         ),
         Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
+          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
           child: Container(
             width: double.infinity,
-            height: 40.0,
+            height: 40,
             decoration: BoxDecoration(),
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -80,7 +80,7 @@ class _ShowImageListComponentWidgetState
                     child: Icon(
                       Icons.close_outlined,
                       color: Colors.white,
-                      size: 40.0,
+                      size: 40,
                     ),
                   ),
                 ],
@@ -102,12 +102,12 @@ class _ShowImageListComponentWidgetState
 
                     return Container(
                       width: double.infinity,
-                      height: 500.0,
+                      height: 500,
                       child: Stack(
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 40.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 0, 40),
                             child: PageView.builder(
                               controller: _model.pageViewController ??=
                                   PageController(
@@ -148,7 +148,7 @@ class _ShowImageListComponentWidgetState
                                         widget!.imageUrl?[imageListItemIndex])!,
                                     transitionOnUserGestures: true,
                                     child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(8.0),
+                                      borderRadius: BorderRadius.circular(8),
                                       child: Image.network(
                                         functions.stringToImgPath(widget!
                                             .imageUrl?[imageListItemIndex])!,
@@ -162,10 +162,10 @@ class _ShowImageListComponentWidgetState
                             ),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(0.0, 1.0),
+                            alignment: AlignmentDirectional(0, 1),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 0.0, 0.0, 16.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(16, 0, 0, 16),
                               child: smooth_page_indicator.SmoothPageIndicator(
                                 controller: _model.pageViewController ??=
                                     PageController(
@@ -180,15 +180,15 @@ class _ShowImageListComponentWidgetState
                                     duration: Duration(milliseconds: 500),
                                     curve: Curves.ease,
                                   );
-                                  setState(() {});
+                                  safeSetState(() {});
                                 },
                                 effect:
                                     smooth_page_indicator.ExpandingDotsEffect(
-                                  expansionFactor: 2.0,
-                                  spacing: 8.0,
-                                  radius: 16.0,
-                                  dotWidth: 16.0,
-                                  dotHeight: 8.0,
+                                  expansionFactor: 2,
+                                  spacing: 8,
+                                  radius: 16,
+                                  dotWidth: 16,
+                                  dotHeight: 8,
                                   dotColor:
                                       FlutterFlowTheme.of(context).accent1,
                                   activeDotColor:

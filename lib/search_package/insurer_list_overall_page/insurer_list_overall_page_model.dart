@@ -1,7 +1,6 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
-import '/components/slider_bar_component_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -25,20 +24,12 @@ class InsurerListOverallPageModel
     extends FlutterFlowModel<InsurerListOverallPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (telePackageSearchAPI)] action in insurerListOverallPage widget.
   ApiCallResponse? packageAPIOutput;
-  // Model for SliderBarComponent component.
-  late SliderBarComponentModel sliderBarComponentModel;
 
   @override
-  void initState(BuildContext context) {
-    sliderBarComponentModel =
-        createModel(context, () => SliderBarComponentModel());
-  }
+  void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    sliderBarComponentModel.dispose();
-  }
+  void dispose() {}
 }

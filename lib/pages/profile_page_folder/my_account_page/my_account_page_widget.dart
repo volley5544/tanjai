@@ -89,41 +89,41 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Container(
-                        width: MediaQuery.sizeOf(context).width * 1.0,
-                        height: 180.0,
+                        width: MediaQuery.sizeOf(context).width,
+                        height: 180,
                         decoration: BoxDecoration(
                           color: Color(0xFFFAE4D1),
                           boxShadow: [
                             BoxShadow(
-                              blurRadius: 1.0,
+                              blurRadius: 1,
                               color: Color(0xFFF1F4F8),
                               offset: Offset(
                                 0.0,
-                                0.0,
+                                0,
                               ),
                             )
                           ],
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              24.0, 60.0, 24.0, 12.0),
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(24, 60, 24, 12),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Align(
-                                alignment: AlignmentDirectional(0.0, -1.0),
+                                alignment: AlignmentDirectional(0, -1),
                                 child: Container(
-                                  width: 80.0,
-                                  height: 80.0,
+                                  width: 80,
+                                  height: 80,
                                   decoration: BoxDecoration(
                                     color: Color(0xFFDB771A),
-                                    borderRadius: BorderRadius.circular(50.0),
+                                    borderRadius: BorderRadius.circular(50),
                                     shape: BoxShape.rectangle,
                                   ),
                                   child: Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0, 0),
                                     child: Padding(
-                                      padding: EdgeInsets.all(2.0),
+                                      padding: EdgeInsets.all(2),
                                       child: StreamBuilder<UserCustomRecord>(
                                         stream: UserCustomRecord.getDocument(
                                             FFAppState().userRef!),
@@ -132,8 +132,8 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                           if (!snapshot.hasData) {
                                             return Center(
                                               child: SizedBox(
-                                                width: 50.0,
-                                                height: 50.0,
+                                                width: 50,
+                                                height: 50,
                                                 child:
                                                     CircularProgressIndicator(
                                                   valueColor:
@@ -152,11 +152,11 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
 
                                           return ClipRRect(
                                             borderRadius:
-                                                BorderRadius.circular(50.0),
+                                                BorderRadius.circular(50),
                                             child: Image.network(
                                               imageUserCustomRecord.imgProfile,
-                                              width: 100.0,
-                                              height: 120.0,
+                                              width: 100,
+                                              height: 120,
                                               fit: BoxFit.cover,
                                             ),
                                           );
@@ -169,7 +169,7 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                               Expanded(
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 0.0, 0.0, 0.0),
+                                      16, 0, 0, 0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     crossAxisAlignment:
@@ -182,14 +182,14 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF003063),
-                                              fontSize: 20.0,
+                                              fontSize: 20,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 4.0, 0.0, 0.0),
+                                            0, 4, 0, 0),
                                         child: Text(
                                           FFAppState().ProfilePhoneNumber,
                                           style: FlutterFlowTheme.of(context)
@@ -197,7 +197,7 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Color(0xFF003063),
-                                                fontSize: 16.0,
+                                                fontSize: 16,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
                                               ),
@@ -205,7 +205,7 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 6.0, 0.0, 0.0),
+                                            0, 6, 0, 0),
                                         child: InkWell(
                                           splashColor: Colors.transparent,
                                           focusColor: Colors.transparent,
@@ -237,7 +237,7 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                                             'Noto Sans Thai',
                                                         color:
                                                             Color(0xFFDB771A),
-                                                        fontSize: 14.0,
+                                                        fontSize: 14,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
@@ -251,16 +251,16 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                                 child: Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          1.0, 0.0),
+                                                          1, 0),
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 2.0,
-                                                                15.0, 0.0),
+                                                            .fromSTEB(
+                                                                0, 2, 15, 0),
                                                     child: Icon(
                                                       Icons.arrow_forward_ios,
                                                       color: Color(0xFFDB771A),
-                                                      size: 18.0,
+                                                      size: 18,
                                                     ),
                                                   ),
                                                 ),
@@ -283,21 +283,20 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(24, 0, 0, 0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             SizedBox(
-                              height: 18.0,
+                              height: 18,
                               child: VerticalDivider(
-                                thickness: 3.0,
+                                thickness: 3,
                                 color: Color(0xFFDB771A),
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  4.0, 12.0, 0.0, 12.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(4, 12, 0, 12),
                               child: Text(
                                 'เมนูอื่น ๆ',
                                 style: FlutterFlowTheme.of(context)
@@ -305,7 +304,7 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       color: Color(0xFF003063),
-                                      fontSize: 16.0,
+                                      fontSize: 16,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
                                     ),
@@ -317,13 +316,12 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                     ],
                   ),
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
                     child: Container(
-                      width: MediaQuery.sizeOf(context).width * 1.0,
+                      width: MediaQuery.sizeOf(context).width,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
-                        borderRadius: BorderRadius.circular(24.0),
+                        borderRadius: BorderRadius.circular(24),
                       ),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -334,7 +332,7 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 25.0, 0.0, 15.0),
+                                      0, 25, 0, 15),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
                                     focusColor: Colors.transparent,
@@ -351,22 +349,22 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                       children: [
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.9, 0.0),
+                                              AlignmentDirectional(0.9, 0),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 0.0, 0.0, 0.0),
+                                                    10, 0, 0, 0),
                                             child: Icon(
                                               Icons.vpn_key_sharp,
                                               color: Color(0xFF57636C),
-                                              size: 18.0,
+                                              size: 18,
                                             ),
                                           ),
                                         ),
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 0.0, 0.0, 0.0),
+                                                  12, 0, 0, 0),
                                           child: Text(
                                             'เปลี่ยรหัสผ่าน',
                                             style: FlutterFlowTheme.of(context)
@@ -374,7 +372,7 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF003063),
-                                                  fontSize: 16.0,
+                                                  fontSize: 16,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
@@ -383,14 +381,14 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                         Flexible(
                                           child: Align(
                                             alignment:
-                                                AlignmentDirectional(0.92, 0.0),
+                                                AlignmentDirectional(0.92, 0),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 2.0, 0.0),
+                                                  .fromSTEB(0, 0, 2, 0),
                                               child: Icon(
                                                 Icons.arrow_forward_ios,
                                                 color: Color(0xFF57636C),
-                                                size: 18.0,
+                                                size: 18,
                                               ),
                                             ),
                                           ),
@@ -401,7 +399,7 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 15.0, 0.0, 15.0),
+                                      0, 15, 0, 15),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
                                     focusColor: Colors.transparent,
@@ -418,22 +416,22 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                       children: [
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.9, 0.0),
+                                              AlignmentDirectional(0.9, 0),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 0.0, 0.0, 0.0),
+                                                    10, 0, 0, 0),
                                             child: Icon(
                                               Icons.phone_iphone,
                                               color: Color(0xFF57636C),
-                                              size: 19.0,
+                                              size: 19,
                                             ),
                                           ),
                                         ),
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  11.0, 0.0, 0.0, 0.0),
+                                                  11, 0, 0, 0),
                                           child: Text(
                                             'วิธีการใช้งานแอปพลิเคชัน',
                                             style: FlutterFlowTheme.of(context)
@@ -441,7 +439,7 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF003063),
-                                                  fontSize: 16.0,
+                                                  fontSize: 16,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
@@ -450,14 +448,14 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                         Expanded(
                                           child: Align(
                                             alignment:
-                                                AlignmentDirectional(0.92, 0.0),
+                                                AlignmentDirectional(0.92, 0),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                  .fromSTEB(0, 0, 5, 0),
                                               child: Icon(
                                                 Icons.arrow_forward_ios,
                                                 color: Color(0xFF57636C),
-                                                size: 18.0,
+                                                size: 18,
                                               ),
                                             ),
                                           ),
@@ -468,7 +466,7 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 15.0, 0.0, 15.0),
+                                      0, 15, 0, 15),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
                                     focusColor: Colors.transparent,
@@ -484,22 +482,22 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                       children: [
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.9, 0.0),
+                                              AlignmentDirectional(0.9, 0),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 0.0, 0.0, 0.0),
+                                                    10, 0, 0, 0),
                                             child: Icon(
                                               Icons.info_outline,
                                               color: Color(0xFF57636C),
-                                              size: 18.0,
+                                              size: 18,
                                             ),
                                           ),
                                         ),
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 0.0, 0.0, 0.0),
+                                                  12, 0, 0, 0),
                                           child: Text(
                                             'เกี่ยวกับเรา',
                                             style: FlutterFlowTheme.of(context)
@@ -507,7 +505,7 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF003063),
-                                                  fontSize: 16.0,
+                                                  fontSize: 16,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
@@ -516,11 +514,11 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                         Expanded(
                                           child: Align(
                                             alignment:
-                                                AlignmentDirectional(0.92, 0.0),
+                                                AlignmentDirectional(0.92, 0),
                                             child: Icon(
                                               Icons.arrow_forward_ios,
                                               color: Color(0xFF57636C),
-                                              size: 18.0,
+                                              size: 18,
                                             ),
                                           ),
                                         ),
@@ -530,7 +528,7 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 15.0, 0.0, 15.0),
+                                      0, 15, 0, 15),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
                                     focusColor: Colors.transparent,
@@ -573,22 +571,22 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                       children: [
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.9, 0.0),
+                                              AlignmentDirectional(0.9, 0),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 0.0, 0.0, 0.0),
+                                                    10, 0, 0, 0),
                                             child: Icon(
                                               Icons.chat_sharp,
                                               color: Color(0xFF57636C),
-                                              size: 18.0,
+                                              size: 18,
                                             ),
                                           ),
                                         ),
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 0.0, 0.0, 0.0),
+                                                  12, 0, 0, 0),
                                           child: Text(
                                             'ตามงานกลุ่มประกัน',
                                             style: FlutterFlowTheme.of(context)
@@ -596,7 +594,7 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF003063),
-                                                  fontSize: 16.0,
+                                                  fontSize: 16,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
@@ -605,11 +603,11 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                         Expanded(
                                           child: Align(
                                             alignment:
-                                                AlignmentDirectional(0.9, 0.0),
+                                                AlignmentDirectional(0.9, 0),
                                             child: Icon(
                                               Icons.arrow_forward_ios,
                                               color: Color(0xFF57636C),
-                                              size: 18.0,
+                                              size: 18,
                                             ),
                                           ),
                                         ),
@@ -619,7 +617,7 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 15.0, 0.0, 15.0),
+                                      0, 15, 0, 15),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
                                     focusColor: Colors.transparent,
@@ -635,22 +633,22 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                       children: [
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.9, 0.0),
+                                              AlignmentDirectional(0.9, 0),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 0.0, 0.0, 0.0),
+                                                    10, 0, 0, 0),
                                             child: Icon(
                                               Icons.wifi_calling_3_sharp,
                                               color: Color(0xFF57636C),
-                                              size: 18.0,
+                                              size: 18,
                                             ),
                                           ),
                                         ),
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 0.0, 0.0, 0.0),
+                                                  12, 0, 0, 0),
                                           child: Text(
                                             'ติดต่อเรา',
                                             style: FlutterFlowTheme.of(context)
@@ -658,7 +656,7 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF003063),
-                                                  fontSize: 16.0,
+                                                  fontSize: 16,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
@@ -667,11 +665,11 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                         Expanded(
                                           child: Align(
                                             alignment:
-                                                AlignmentDirectional(0.92, 0.0),
+                                                AlignmentDirectional(0.92, 0),
                                             child: Icon(
                                               Icons.arrow_forward_ios,
                                               color: Color(0xFF57636C),
-                                              size: 18.0,
+                                              size: 18,
                                             ),
                                           ),
                                         ),
@@ -681,7 +679,7 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 15.0, 0.0, 15.0),
+                                      0, 15, 0, 15),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
                                     focusColor: Colors.transparent,
@@ -698,22 +696,22 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                       children: [
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.9, 0.0),
+                                              AlignmentDirectional(0.9, 0),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 0.0, 0.0, 0.0),
+                                                    10, 0, 0, 0),
                                             child: Icon(
                                               Icons.policy_sharp,
                                               color: Color(0xFF57636C),
-                                              size: 18.0,
+                                              size: 18,
                                             ),
                                           ),
                                         ),
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 0.0, 0.0, 0.0),
+                                                  12, 0, 0, 0),
                                           child: Text(
                                             'นโยบายความเป็นส่วนตัว',
                                             style: FlutterFlowTheme.of(context)
@@ -721,7 +719,7 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF003063),
-                                                  fontSize: 16.0,
+                                                  fontSize: 16,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
@@ -730,11 +728,11 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                         Expanded(
                                           child: Align(
                                             alignment:
-                                                AlignmentDirectional(0.87, 0.0),
+                                                AlignmentDirectional(0.87, 0),
                                             child: Icon(
                                               Icons.arrow_forward_ios,
                                               color: Color(0xFF57636C),
-                                              size: 18.0,
+                                              size: 18,
                                             ),
                                           ),
                                         ),
@@ -746,10 +744,10 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                             ),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(0, 0),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 15.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
                               child: FFButtonWidget(
                                 onPressed: () async {
                                   var confirmDialogResponse =
@@ -813,7 +811,7 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                   FFAppState().deleteEmployeeID();
                                   FFAppState().employeeID = 'employee_id';
 
-                                  setState(() {});
+                                  safeSetState(() {});
                                   FFAppState().deleteBranchCode();
                                   FFAppState().branchCode = 'branch_code';
 
@@ -826,12 +824,12 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                   FFAppState().profileParentUnit =
                                       '[parent_unit]';
                                   FFAppState().profileRegion = '[region]';
-                                  setState(() {});
+                                  safeSetState(() {});
                                   FFAppState().profileHiredDate =
                                       '[hired_date]';
                                   FFAppState().profileServiceDuration =
                                       '[service_duration]';
-                                  setState(() {});
+                                  safeSetState(() {});
                                   FFAppState().profilePositionAge =
                                       '[position_age]';
                                   FFAppState().profilePositionAgeCheck =
@@ -844,12 +842,12 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                   FFAppState().insurancePlanNumber = '';
                                   FFAppState().profileLevel = '';
                                   FFAppState().profileBranch = '';
-                                  setState(() {});
+                                  safeSetState(() {});
                                   FFAppState().profileFirstName =
                                       '[first_name]';
                                   FFAppState().profileLastName = '[last_name]';
                                   FFAppState().departmentProfile = '';
-                                  setState(() {});
+                                  safeSetState(() {});
                                   await actions.a22();
                                   Navigator.pop(context);
 
@@ -858,38 +856,38 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                 text: 'ออกจากระบบ',
                                 icon: Icon(
                                   Icons.exit_to_app_rounded,
-                                  size: 15.0,
+                                  size: 15,
                                 ),
                                 options: FFButtonOptions(
-                                  width: 330.0,
-                                  height: 44.0,
+                                  width: 330,
+                                  height: 44,
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
+                                      0, 0, 0, 0),
                                   iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
+                                      0, 0, 0, 0),
                                   color: Color(0xFFF0F0F0),
                                   textStyle: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
-                                        fontSize: 16.0,
+                                        fontSize: 16,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
-                                  elevation: 1.0,
+                                  elevation: 1,
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
-                                    width: 1.0,
+                                    width: 1,
                                   ),
                                 ),
                               ),
                             ),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(0, 0),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 15.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
                               child: FFButtonWidget(
                                 onPressed: () async {
                                   var _shouldSetState = false;
@@ -923,7 +921,7 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                           ) ??
                                           false;
                                   if (!confirmDialogResponse) {
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
                                   _model.deleteAccOutput =
@@ -966,27 +964,27 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                         );
                                       },
                                     );
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
 
                                   context.goNamed('LoginPage');
 
-                                  if (_shouldSetState) setState(() {});
+                                  if (_shouldSetState) safeSetState(() {});
                                 },
                                 text: 'Delete Account',
                                 icon: Icon(
                                   Icons.cancel_outlined,
                                   color: FlutterFlowTheme.of(context).error,
-                                  size: 15.0,
+                                  size: 15,
                                 ),
                                 options: FFButtonOptions(
-                                  width: 330.0,
-                                  height: 44.0,
+                                  width: 330,
+                                  height: 44,
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
+                                      0, 0, 0, 0),
                                   iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
+                                      0, 0, 0, 0),
                                   color: Color(0xFFF0F0F0),
                                   textStyle: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -994,34 +992,34 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                         fontFamily: 'Noto Sans Thai',
                                         color:
                                             FlutterFlowTheme.of(context).error,
-                                        fontSize: 16.0,
+                                        fontSize: 16,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
-                                  elevation: 1.0,
+                                  elevation: 1,
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
-                                    width: 1.0,
+                                    width: 1,
                                   ),
                                 ),
                               ),
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 12.0, 0.0, 0.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
                             child: Text(
                               'เวอร์ชั่น ${_model.getBuildVersion}',
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Plus Jakarta Sans',
-                                    fontSize: 12.0,
+                                    fontSize: 12,
                                     letterSpacing: 0.0,
                                   ),
                             ),
                           ),
-                        ].addToEnd(SizedBox(height: 60.0)),
+                        ].addToEnd(SizedBox(height: 60)),
                       ),
                     ),
                   ),

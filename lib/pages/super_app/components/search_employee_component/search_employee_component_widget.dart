@@ -62,30 +62,30 @@ class _SearchEmployeeComponentWidgetState
     context.watch<FFAppState>();
 
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(0.0, 44.0, 0.0, 0.0),
+      padding: EdgeInsetsDirectional.fromSTEB(0, 44, 0, 0),
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondaryBackground,
           boxShadow: [
             BoxShadow(
-              blurRadius: 4.0,
+              blurRadius: 4,
               color: Color(0x25090F13),
               offset: Offset(
                 0.0,
-                2.0,
+                2,
               ),
             )
           ],
           borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(0.0),
-            bottomRight: Radius.circular(0.0),
-            topLeft: Radius.circular(12.0),
-            topRight: Radius.circular(12.0),
+            bottomLeft: Radius.circular(0),
+            bottomRight: Radius.circular(0),
+            topLeft: Radius.circular(12),
+            topRight: Radius.circular(12),
           ),
         ),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 16.0),
+          padding: EdgeInsetsDirectional.fromSTEB(16, 4, 16, 16),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -95,32 +95,31 @@ class _SearchEmployeeComponentWidgetState
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    width: 60.0,
-                    height: 4.0,
+                    width: 60,
+                    height: 4,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).primaryBackground,
-                      borderRadius: BorderRadius.circular(2.0),
+                      borderRadius: BorderRadius.circular(2),
                     ),
                   ),
                 ],
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 12, 0),
                       child: FlutterFlowIconButton(
                         borderColor: Colors.transparent,
-                        borderRadius: 30.0,
-                        borderWidth: 1.0,
-                        buttonSize: 44.0,
+                        borderRadius: 30,
+                        borderWidth: 1,
+                        buttonSize: 44,
                         icon: Icon(
                           Icons.arrow_back_rounded,
                           color: FlutterFlowTheme.of(context).secondaryText,
-                          size: 24.0,
+                          size: 24,
                         ),
                         onPressed: () async {
                           Navigator.pop(context);
@@ -142,8 +141,7 @@ class _SearchEmployeeComponentWidgetState
                                 ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 4.0, 0.0, 0.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
                             child: Text(
                               valueOrDefault<String>(
                                 'กรุณากรอกข้อมูลเพื่อเลือกพนักงานที่ต้องการจะดูข้อมูล',
@@ -164,8 +162,8 @@ class _SearchEmployeeComponentWidgetState
                 ),
               ),
               Divider(
-                height: 24.0,
-                thickness: 2.0,
+                height: 24,
+                thickness: 2,
                 color: FlutterFlowTheme.of(context).primaryBackground,
               ),
               Column(
@@ -175,8 +173,7 @@ class _SearchEmployeeComponentWidgetState
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            10.0, 0.0, 10.0, 0.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -186,7 +183,7 @@ class _SearchEmployeeComponentWidgetState
                               child: Icon(
                                 Icons.person_search_sharp,
                                 color: Colors.black,
-                                size: 29.0,
+                                size: 29,
                               ),
                             ),
                             Expanded(
@@ -197,7 +194,7 @@ class _SearchEmployeeComponentWidgetState
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
-                                      fontSize: 15.0,
+                                      fontSize: 15,
                                       letterSpacing: 0.0,
                                     ),
                               ),
@@ -281,14 +278,14 @@ class _SearchEmployeeComponentWidgetState
                               flex: 2,
                               child: FlutterFlowIconButton(
                                 borderColor: Colors.black,
-                                borderRadius: 30.0,
-                                borderWidth: 1.0,
-                                buttonSize: 35.0,
+                                borderRadius: 30,
+                                borderWidth: 1,
+                                buttonSize: 35,
                                 fillColor: Color(0xFF213BFF),
                                 icon: Icon(
                                   Icons.search_rounded,
                                   color: Colors.white,
-                                  size: 25.0,
+                                  size: 25,
                                 ),
                                 onPressed: () async {
                                   var _shouldSetState = false;
@@ -317,7 +314,7 @@ class _SearchEmployeeComponentWidgetState
                                         );
                                       },
                                     );
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
                                   showModalBottomSheet(
@@ -447,7 +444,7 @@ class _SearchEmployeeComponentWidgetState
                                     }
                                   }
                                   Navigator.pop(context);
-                                  if (_shouldSetState) setState(() {});
+                                  if (_shouldSetState) safeSetState(() {});
                                 },
                               ),
                             ),
@@ -461,8 +458,7 @@ class _SearchEmployeeComponentWidgetState
                               ) ==
                               200))
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              10.0, 0.0, 10.0, 0.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             crossAxisAlignment: CrossAxisAlignment.center,
@@ -472,7 +468,7 @@ class _SearchEmployeeComponentWidgetState
                                 child: Icon(
                                   Icons.check_circle_outline,
                                   color: Colors.black,
-                                  size: 29.0,
+                                  size: 29,
                                 ),
                               ),
                               Expanded(
@@ -483,7 +479,7 @@ class _SearchEmployeeComponentWidgetState
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
-                                        fontSize: 15.0,
+                                        fontSize: 15,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -515,10 +511,10 @@ class _SearchEmployeeComponentWidgetState
                                                     ?.jsonBody ??
                                                 ''),
                                           )?.toList()),
-                                  onChanged: (val) => setState(
+                                  onChanged: (val) => safeSetState(
                                       () => _model.dropDownValue = val),
-                                  width: 180.0,
-                                  height: 50.0,
+                                  width: 180,
+                                  height: 50,
                                   textStyle: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -528,12 +524,12 @@ class _SearchEmployeeComponentWidgetState
                                       ),
                                   hintText: 'พนักงาน...',
                                   fillColor: Colors.white,
-                                  elevation: 2.0,
+                                  elevation: 2,
                                   borderColor: Colors.transparent,
-                                  borderWidth: 0.0,
-                                  borderRadius: 0.0,
+                                  borderWidth: 0,
+                                  borderRadius: 0,
                                   margin: EdgeInsetsDirectional.fromSTEB(
-                                      12.0, 4.0, 12.0, 4.0),
+                                      12, 4, 12, 4),
                                   hidesUnderline: true,
                                   isSearchable: false,
                                   isMultiSelect: false,
@@ -547,8 +543,7 @@ class _SearchEmployeeComponentWidgetState
                   if (_model.dropDownValue != null &&
                       _model.dropDownValue != '')
                     Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
                       child: FFButtonWidget(
                         onPressed: () async {
                           if (!(_model.dropDownValue != null &&
@@ -581,26 +576,25 @@ class _SearchEmployeeComponentWidgetState
                         },
                         text: 'ดูยอดประกัน',
                         options: FFButtonOptions(
-                          width: 270.0,
-                          height: 50.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
+                          width: 270,
+                          height: 50,
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                          iconPadding:
+                              EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                           color: Color(0xFF24D200),
                           textStyle:
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Outfit',
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    fontSize: 16.0,
+                                    fontSize: 16,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
                                   ),
-                          elevation: 2.0,
+                          elevation: 2,
                           borderSide: BorderSide(
                             color: Colors.transparent,
-                            width: 1.0,
+                            width: 1,
                           ),
                         ),
                       ),

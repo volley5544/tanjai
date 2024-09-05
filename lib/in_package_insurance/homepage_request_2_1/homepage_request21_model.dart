@@ -11,7 +11,6 @@ import 'package:provider/provider.dart';
 class HomepageRequest21Model extends FlutterFlowModel<HomepageRequest21Widget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for nonProtect widget.
   bool? nonProtectValue;
   // State field(s) for Protect widget.

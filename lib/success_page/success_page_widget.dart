@@ -49,17 +49,17 @@ class _SuccessPageWidgetState extends State<SuccessPageWidget> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 24),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Lottie.network(
                       'https://assets10.lottiefiles.com/packages/lf20_xlkxtmul.json',
-                      width: 200.0,
-                      height: 200.0,
+                      width: 200,
+                      height: 200,
                       fit: BoxFit.cover,
-                      frameRate: FrameRate(60.0),
+                      frameRate: FrameRate(60),
                       repeat: false,
                       animate: true,
                     ),
@@ -71,44 +71,43 @@ class _SuccessPageWidgetState extends State<SuccessPageWidget> {
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
                       fontFamily: 'Noto Sans Thai',
                       color: FlutterFlowTheme.of(context).primaryBtnText,
-                      fontSize: 32.0,
+                      fontSize: 32,
                       letterSpacing: 0.0,
                     ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
                 child: Text(
                   'Thanks for taking the quiz.',
                   style: FlutterFlowTheme.of(context).titleSmall.override(
                         fontFamily: 'Noto Sans Thai',
                         color: FlutterFlowTheme.of(context).primaryBtnText,
-                        fontSize: 20.0,
+                        fontSize: 20,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w300,
                       ),
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 44.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0, 44, 0, 0),
                 child: FFButtonWidget(
                   onPressed: () {
                     print('Button pressed ...');
                   },
                   text: 'Go Home',
                   options: FFButtonOptions(
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    iconPadding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                    iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                     color: FlutterFlowTheme.of(context).primaryBtnText,
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Noto Sans Thai',
                           color: FlutterFlowTheme.of(context).secondary,
                           letterSpacing: 0.0,
                         ),
-                    elevation: 3.0,
+                    elevation: 3,
                     borderSide: BorderSide(
                       color: Colors.transparent,
-                      width: 1.0,
+                      width: 1,
                     ),
                   ),
                 ),

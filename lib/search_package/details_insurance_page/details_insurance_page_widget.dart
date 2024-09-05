@@ -190,7 +190,7 @@ class _DetailsInsurancePageWidgetState
               child: Icon(
                 Icons.arrow_back,
                 color: Color(0xFFDB771A),
-                size: 30.0,
+                size: 30,
               ),
             ),
             title: Text(
@@ -200,13 +200,13 @@ class _DetailsInsurancePageWidgetState
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF002D5E),
-                    fontSize: 19.0,
+                    fontSize: 19,
                     letterSpacing: 0.0,
                   ),
             ),
             actions: [],
             centerTitle: true,
-            elevation: 0.0,
+            elevation: 0,
           ),
           body: SafeArea(
             top: true,
@@ -224,8 +224,8 @@ class _DetailsInsurancePageWidgetState
                 if (!snapshot.hasData) {
                   return Center(
                     child: SizedBox(
-                      width: 50.0,
-                      height: 50.0,
+                      width: 50,
+                      height: 50,
                       child: CircularProgressIndicator(
                         valueColor: AlwaysStoppedAnimation<Color>(
                           FlutterFlowTheme.of(context).primary,
@@ -251,33 +251,32 @@ class _DetailsInsurancePageWidgetState
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            0.0, 17.0, 0.0, 10.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 17, 0, 10),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  20.0, 0.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
                               child: ClipRRect(
-                                borderRadius: BorderRadius.circular(0.0),
+                                borderRadius: BorderRadius.circular(0),
                                 child: Image.network(
                                   valueOrDefault<String>(
                                     functions.stringToImgPath(widget!.logoUrl),
                                     'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                   ),
-                                  width: 59.0,
-                                  height: 60.0,
+                                  width: 59,
+                                  height: 60,
                                   fit: BoxFit.cover,
                                 ),
                               ),
                             ),
                             Expanded(
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 24.0, 0.0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 0, 24, 0),
                                 child: Container(
                                   decoration: BoxDecoration(),
                                   child: Column(
@@ -293,7 +292,7 @@ class _DetailsInsurancePageWidgetState
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF002D5E),
-                                                  fontSize: 15.0,
+                                                  fontSize: 15,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.bold,
                                                 ),
@@ -319,7 +318,7 @@ class _DetailsInsurancePageWidgetState
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .alternate,
-                                                    fontSize: 14.0,
+                                                    fontSize: 14,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.bold,
                                                   ),
@@ -339,7 +338,7 @@ class _DetailsInsurancePageWidgetState
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF646464),
-                                                  fontSize: 13.0,
+                                                  fontSize: 13,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
@@ -352,7 +351,7 @@ class _DetailsInsurancePageWidgetState
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF646464),
-                                                  fontSize: 13.0,
+                                                  fontSize: 13,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
@@ -371,7 +370,7 @@ class _DetailsInsurancePageWidgetState
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF646464),
-                                                  fontSize: 13.0,
+                                                  fontSize: 13,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
@@ -385,7 +384,7 @@ class _DetailsInsurancePageWidgetState
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF646464),
-                                                  fontSize: 13.0,
+                                                  fontSize: 13,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
@@ -401,7 +400,7 @@ class _DetailsInsurancePageWidgetState
                         ),
                       ),
                       Divider(
-                        thickness: 1.0,
+                        thickness: 1,
                         color: Color(0xFFCBD8D8),
                       ),
                       Column(
@@ -410,8 +409,8 @@ class _DetailsInsurancePageWidgetState
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                20.0, 10.0, 20.0, 10.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -448,7 +447,7 @@ class _DetailsInsurancePageWidgetState
                       ),
                       if (widget!.insurerCondition != '')
                         Divider(
-                          thickness: 1.0,
+                          thickness: 1,
                           color: Color(0xFFCBD8D8),
                         ),
                       if (widget!.insurerCondition != '')
@@ -458,21 +457,21 @@ class _DetailsInsurancePageWidgetState
                           children: [
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  20.0, 10.0, 20.0, 10.0),
+                                  20, 10, 20, 10),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   SizedBox(
-                                    height: 18.0,
+                                    height: 18,
                                     child: VerticalDivider(
-                                      thickness: 3.0,
+                                      thickness: 3,
                                       color: Color(0xFFEDBB8D),
                                     ),
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        4.0, 0.0, 0.0, 0.0),
+                                        4, 0, 0, 0),
                                     child: Text(
                                       'เงื่อนไขบริษัทประกัน',
                                       style: FlutterFlowTheme.of(context)
@@ -480,7 +479,7 @@ class _DetailsInsurancePageWidgetState
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF002D5E),
-                                            fontSize: 15.0,
+                                            fontSize: 15,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.bold,
                                           ),
@@ -490,8 +489,8 @@ class _DetailsInsurancePageWidgetState
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  30.0, 0.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(30, 0, 0, 0),
                               child: Text(
                                 valueOrDefault<String>(
                                   widget!.insurerCondition,
@@ -508,29 +507,29 @@ class _DetailsInsurancePageWidgetState
                           ],
                         ),
                       Divider(
-                        thickness: 1.0,
+                        thickness: 1,
                         color: Color(0xFFCBD8D8),
                       ),
                       Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                20.0, 10.0, 20.0, 10.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 SizedBox(
-                                  height: 18.0,
+                                  height: 18,
                                   child: VerticalDivider(
-                                    thickness: 3.0,
+                                    thickness: 3,
                                     color: Color(0xFFEDBB8D),
                                   ),
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      4.0, 0.0, 0.0, 0.0),
+                                      4, 0, 0, 0),
                                   child: Text(
                                     'รายละเอียด',
                                     style: FlutterFlowTheme.of(context)
@@ -538,7 +537,7 @@ class _DetailsInsurancePageWidgetState
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFF002D5E),
-                                          fontSize: 15.0,
+                                          fontSize: 15,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
                                         ),
@@ -553,8 +552,8 @@ class _DetailsInsurancePageWidgetState
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                20.0, 10.0, 20.0, 10.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -587,15 +586,15 @@ class _DetailsInsurancePageWidgetState
                         ],
                       ),
                       Divider(
-                        thickness: 1.0,
+                        thickness: 1,
                         color: Color(0xFFCBD8D8),
                       ),
                       Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                20.0, 10.0, 20.0, 10.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -628,15 +627,15 @@ class _DetailsInsurancePageWidgetState
                         ],
                       ),
                       Divider(
-                        thickness: 1.0,
+                        thickness: 1,
                         color: Color(0xFFCBD8D8),
                       ),
                       Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                20.0, 10.0, 20.0, 10.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -672,15 +671,15 @@ class _DetailsInsurancePageWidgetState
                         ],
                       ),
                       Divider(
-                        thickness: 1.0,
+                        thickness: 1,
                         color: Color(0xFFCBD8D8),
                       ),
                       Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                20.0, 10.0, 20.0, 10.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -713,15 +712,15 @@ class _DetailsInsurancePageWidgetState
                         ],
                       ),
                       Divider(
-                        thickness: 1.0,
+                        thickness: 1,
                         color: Color(0xFFCBD8D8),
                       ),
                       Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                20.0, 10.0, 20.0, 10.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -756,15 +755,15 @@ class _DetailsInsurancePageWidgetState
                         ],
                       ),
                       Divider(
-                        thickness: 1.0,
+                        thickness: 1,
                         color: Color(0xFFCBD8D8),
                       ),
                       Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                20.0, 10.0, 20.0, 10.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -799,15 +798,15 @@ class _DetailsInsurancePageWidgetState
                         ],
                       ),
                       Divider(
-                        thickness: 1.0,
+                        thickness: 1,
                         color: Color(0xFFCBD8D8),
                       ),
                       Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                20.0, 10.0, 20.0, 10.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -843,15 +842,15 @@ class _DetailsInsurancePageWidgetState
                         ],
                       ),
                       Divider(
-                        thickness: 1.0,
+                        thickness: 1,
                         color: Color(0xFFCBD8D8),
                       ),
                       Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                20.0, 10.0, 20.0, 10.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -886,15 +885,15 @@ class _DetailsInsurancePageWidgetState
                         ],
                       ),
                       Divider(
-                        thickness: 1.0,
+                        thickness: 1,
                         color: Color(0xFFCBD8D8),
                       ),
                       Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                20.0, 10.0, 20.0, 10.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -929,15 +928,15 @@ class _DetailsInsurancePageWidgetState
                         ],
                       ),
                       Divider(
-                        thickness: 1.0,
+                        thickness: 1,
                         color: Color(0xFFCBD8D8),
                       ),
                       Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                20.0, 10.0, 20.0, 10.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -972,15 +971,15 @@ class _DetailsInsurancePageWidgetState
                         ],
                       ),
                       Divider(
-                        thickness: 1.0,
+                        thickness: 1,
                         color: Color(0xFFCBD8D8),
                       ),
                       Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                20.0, 10.0, 20.0, 10.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -1018,7 +1017,7 @@ class _DetailsInsurancePageWidgetState
                         ],
                       ),
                       Divider(
-                        thickness: 1.0,
+                        thickness: 1,
                         color: Color(0xFFCBD8D8),
                       ),
                       if (false)
@@ -1027,7 +1026,7 @@ class _DetailsInsurancePageWidgetState
                           children: [
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  20.0, 10.0, 20.0, 10.0),
+                                  20, 10, 20, 10),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment:
@@ -1068,14 +1067,14 @@ class _DetailsInsurancePageWidgetState
                         ),
                       if (false)
                         Divider(
-                          thickness: 1.0,
+                          thickness: 1,
                           color: Color(0xFFCBD8D8),
                         ),
                       Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding: EdgeInsets.all(20.0),
+                            padding: EdgeInsets.all(20),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -1083,7 +1082,7 @@ class _DetailsInsurancePageWidgetState
                                 Expanded(
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 10.0, 0.0),
+                                        0, 0, 10, 0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
                                         context.pushNamed(
@@ -1383,30 +1382,29 @@ class _DetailsInsurancePageWidgetState
                                       },
                                       text: 'ออกใบเสนอราคา',
                                       options: FFButtonOptions(
-                                        width: 145.0,
-                                        height: 50.0,
+                                        width: 145,
+                                        height: 50,
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            24.0, 0.0, 24.0, 0.0),
+                                            24, 0, 24, 0),
                                         iconPadding:
                                             EdgeInsetsDirectional.fromSTEB(
-                                                0.0, 0.0, 0.0, 0.0),
+                                                0, 0, 0, 0),
                                         color: Color(0xFFFCEFE4),
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFFDB771A),
-                                              fontSize: 14.0,
+                                              fontSize: 14,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
-                                        elevation: 3.0,
+                                        elevation: 3,
                                         borderSide: BorderSide(
                                           color: Colors.transparent,
-                                          width: 1.0,
+                                          width: 1,
                                         ),
-                                        borderRadius:
-                                            BorderRadius.circular(14.0),
+                                        borderRadius: BorderRadius.circular(14),
                                       ),
                                     ),
                                   ),
@@ -1414,7 +1412,7 @@ class _DetailsInsurancePageWidgetState
                                 Expanded(
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 0.0, 0.0, 0.0),
+                                        10, 0, 0, 0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
                                         var _shouldSetState = false;
@@ -1469,7 +1467,7 @@ class _DetailsInsurancePageWidgetState
                                                   },
                                                 );
                                                 if (_shouldSetState)
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                 return;
                                               }
                                             }
@@ -1795,34 +1793,34 @@ class _DetailsInsurancePageWidgetState
                                           }.withoutNulls,
                                         );
 
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                       },
                                       text: 'ตกลงทำประกัน',
                                       options: FFButtonOptions(
-                                        width: 145.0,
-                                        height: 50.0,
+                                        width: 145,
+                                        height: 50,
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            24.0, 0.0, 24.0, 0.0),
+                                            24, 0, 24, 0),
                                         iconPadding:
                                             EdgeInsetsDirectional.fromSTEB(
-                                                0.0, 0.0, 0.0, 0.0),
+                                                0, 0, 0, 0),
                                         color: Color(0xFFD37319),
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Colors.white,
-                                              fontSize: 14.0,
+                                              fontSize: 14,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
-                                        elevation: 3.0,
+                                        elevation: 3,
                                         borderSide: BorderSide(
                                           color: Colors.transparent,
-                                          width: 1.0,
+                                          width: 1,
                                         ),
-                                        borderRadius:
-                                            BorderRadius.circular(14.0),
+                                        borderRadius: BorderRadius.circular(14),
                                       ),
                                     ),
                                   ),
@@ -1832,7 +1830,7 @@ class _DetailsInsurancePageWidgetState
                           ),
                         ],
                       ),
-                    ].addToEnd(SizedBox(height: 50.0)),
+                    ].addToEnd(SizedBox(height: 50)),
                   ),
                 );
               },

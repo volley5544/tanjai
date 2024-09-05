@@ -52,16 +52,16 @@ class _InputCopyWidgetState extends State<InputCopyWidget> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Align(
-          alignment: AlignmentDirectional(0.0, 0.0),
+          alignment: AlignmentDirectional(0, 0),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(50.0, 20.0, 50.0, 20.0),
+            padding: EdgeInsetsDirectional.fromSTEB(50, 20, 50, 20),
             child: TextFormField(
               controller: _model.textController,
               focusNode: _model.textFieldFocusNode,
               onChanged: (_) => EasyDebounce.debounce(
                 '_model.textController',
                 Duration(milliseconds: 2000),
-                () => setState(() {}),
+                () => safeSetState(() {}),
               ),
               autofocus: true,
               obscureText: false,
@@ -116,12 +116,12 @@ class _InputCopyWidgetState extends State<InputCopyWidget> {
                     ? InkWell(
                         onTap: () async {
                           _model.textController?.clear();
-                          setState(() {});
+                          safeSetState(() {});
                         },
                         child: Icon(
                           Icons.clear,
                           color: Color(0xFF757575),
-                          size: 22.0,
+                          size: 22,
                         ),
                       )
                     : null,
@@ -136,29 +136,29 @@ class _InputCopyWidgetState extends State<InputCopyWidget> {
           ),
         ),
         Padding(
-          padding: EdgeInsets.all(20.0),
+          padding: EdgeInsets.all(20),
           child: FFButtonWidget(
             onPressed: () {
               print('Button pressed ...');
             },
             text: 'ตกลง',
             options: FFButtonOptions(
-              width: 130.0,
-              height: 40.0,
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+              width: 130,
+              height: 40,
+              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+              iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
               color: Color(0xFF00CB10),
               textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Colors.white,
                     letterSpacing: 0.0,
                   ),
-              elevation: 2.0,
+              elevation: 2,
               borderSide: BorderSide(
                 color: Colors.transparent,
-                width: 1.0,
+                width: 1,
               ),
-              borderRadius: BorderRadius.circular(8.0),
+              borderRadius: BorderRadius.circular(8),
             ),
           ),
         ),

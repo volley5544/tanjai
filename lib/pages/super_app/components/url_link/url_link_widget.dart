@@ -43,7 +43,7 @@ class _UrlLinkWidgetState extends State<UrlLinkWidget>
       vsync: this,
       length: 1,
       initialIndex: 0,
-    )..addListener(() => setState(() {}));
+    )..addListener(() => safeSetState(() {}));
   }
 
   @override
@@ -56,47 +56,46 @@ class _UrlLinkWidgetState extends State<UrlLinkWidget>
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(16.0),
+      padding: EdgeInsets.all(16),
       child: Container(
-        width: 430.0,
-        height: 461.0,
+        width: 430,
+        height: 461,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondaryBackground,
           boxShadow: [
             BoxShadow(
-              blurRadius: 4.0,
+              blurRadius: 4,
               color: Color(0x33000000),
               offset: Offset(
-                0.0,
-                2.0,
+                0,
+                2,
               ),
             )
           ],
-          borderRadius: BorderRadius.circular(12.0),
+          borderRadius: BorderRadius.circular(12),
         ),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+          padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
                       child: FlutterFlowIconButton(
-                        borderRadius: 12.0,
-                        borderWidth: 1.0,
-                        buttonSize: 44.0,
+                        borderRadius: 12,
+                        borderWidth: 1,
+                        buttonSize: 44,
                         icon: Icon(
                           Icons.close_rounded,
                           color: FlutterFlowTheme.of(context).error,
-                          size: 20.0,
+                          size: 20,
                         ),
                         onPressed: () async {
                           Navigator.pop(context);
@@ -110,7 +109,7 @@ class _UrlLinkWidgetState extends State<UrlLinkWidget>
                 child: Column(
                   children: [
                     Align(
-                      alignment: Alignment(-1.0, 0),
+                      alignment: Alignment(-1, 0),
                       child: FlutterFlowButtonTabBar(
                         useToggleButtonStyle: false,
                         isScrollable: true,
@@ -119,7 +118,7 @@ class _UrlLinkWidgetState extends State<UrlLinkWidget>
                             .override(
                               fontFamily:
                                   FlutterFlowTheme.of(context).bodyLargeFamily,
-                              fontSize: 18.0,
+                              fontSize: 18,
                               letterSpacing: 0.0,
                             ),
                         unselectedLabelStyle: TextStyle(),
@@ -134,13 +133,13 @@ class _UrlLinkWidgetState extends State<UrlLinkWidget>
                             FlutterFlowTheme.of(context).primaryBtnText,
                         unselectedBorderColor:
                             FlutterFlowTheme.of(context).alternate,
-                        borderWidth: 2.0,
-                        borderRadius: 12.0,
-                        elevation: 0.0,
-                        labelPadding: EdgeInsetsDirectional.fromSTEB(
-                            24.0, 0.0, 24.0, 0.0),
+                        borderWidth: 2,
+                        borderRadius: 12,
+                        elevation: 0,
+                        labelPadding:
+                            EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
                         buttonMargin:
-                            EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 0.0, 8.0),
+                            EdgeInsetsDirectional.fromSTEB(16, 8, 0, 8),
                         tabs: [
                           Tab(
                             text: 'รายละเอียดไฟล์แนบ',
@@ -158,22 +157,22 @@ class _UrlLinkWidgetState extends State<UrlLinkWidget>
                         children: [
                           ClipRRect(
                             borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(12.0),
-                              bottomRight: Radius.circular(12.0),
-                              topLeft: Radius.circular(0.0),
-                              topRight: Radius.circular(0.0),
+                              bottomLeft: Radius.circular(12),
+                              bottomRight: Radius.circular(12),
+                              topLeft: Radius.circular(0),
+                              topRight: Radius.circular(0),
                             ),
                             child: Container(
-                              width: 100.0,
-                              height: 100.0,
+                              width: 100,
+                              height: 100,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
                                 borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(12.0),
-                                  bottomRight: Radius.circular(12.0),
-                                  topLeft: Radius.circular(0.0),
-                                  topRight: Radius.circular(0.0),
+                                  bottomLeft: Radius.circular(12),
+                                  bottomRight: Radius.circular(12),
+                                  topLeft: Radius.circular(0),
+                                  topRight: Radius.circular(0),
                                 ),
                               ),
                               child: Builder(
@@ -189,7 +188,7 @@ class _UrlLinkWidgetState extends State<UrlLinkWidget>
                                           leavedoc[leavedocIndex];
                                       return Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 0.0, 1.0),
+                                            0, 0, 0, 1),
                                         child: InkWell(
                                           splashColor: Colors.transparent,
                                           focusColor: Colors.transparent,
@@ -269,30 +268,29 @@ class _UrlLinkWidgetState extends State<UrlLinkWidget>
                                           },
                                           child: Container(
                                             width: double.infinity,
-                                            height: 60.0,
+                                            height: 60,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
                                               boxShadow: [
                                                 BoxShadow(
-                                                  blurRadius: 4.0,
+                                                  blurRadius: 4,
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primaryText,
                                                   offset: Offset(
-                                                    2.0,
-                                                    1.0,
+                                                    2,
+                                                    1,
                                                   ),
                                                 )
                                               ],
                                               borderRadius:
-                                                  BorderRadius.circular(8.0),
+                                                  BorderRadius.circular(8),
                                             ),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      16.0, 8.0, 16.0, 8.0),
+                                                  .fromSTEB(16, 8, 16, 8),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
@@ -304,22 +302,22 @@ class _UrlLinkWidgetState extends State<UrlLinkWidget>
                                                         .override(
                                                           fontFamily:
                                                               'Noto Sans Thai',
-                                                          fontSize: 14.0,
+                                                          fontSize: 14,
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                0.0, 0.0),
+                                                            .fromSTEB(
+                                                                10, 0, 0, 0),
                                                     child: Icon(
                                                       Icons.attach_file,
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .secondaryText,
-                                                      size: 20.0,
+                                                      size: 20,
                                                     ),
                                                   ),
                                                 ],

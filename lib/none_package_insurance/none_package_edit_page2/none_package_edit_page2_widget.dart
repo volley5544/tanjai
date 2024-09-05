@@ -63,8 +63,8 @@ class _NonePackageEditPage2WidgetState
             backgroundColor: Colors.white,
             body: Center(
               child: SizedBox(
-                width: 50.0,
-                height: 50.0,
+                width: 50,
+                height: 50,
                 child: CircularProgressIndicator(
                   valueColor: AlwaysStoppedAnimation<Color>(
                     FlutterFlowTheme.of(context).primary,
@@ -93,13 +93,13 @@ class _NonePackageEditPage2WidgetState
                 automaticallyImplyLeading: false,
                 leading: FlutterFlowIconButton(
                   borderColor: Colors.transparent,
-                  borderRadius: 30.0,
-                  borderWidth: 1.0,
-                  buttonSize: 60.0,
+                  borderRadius: 30,
+                  borderWidth: 1,
+                  buttonSize: 60,
                   icon: Icon(
                     Icons.arrow_back_rounded,
                     color: Color(0xFFDB771A),
-                    size: 30.0,
+                    size: 30,
                   ),
                   onPressed: () async {
                     context.pop();
@@ -110,14 +110,14 @@ class _NonePackageEditPage2WidgetState
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
                         fontFamily: 'Noto Sans Thai',
                         color: Color(0xFF003063),
-                        fontSize: 18.0,
+                        fontSize: 18,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w600,
                       ),
                 ),
                 actions: [],
                 centerTitle: true,
-                elevation: 2.0,
+                elevation: 2,
               ),
               body: SafeArea(
                 top: true,
@@ -142,7 +142,7 @@ class _NonePackageEditPage2WidgetState
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          24.0, 12.0, 24.0, 0.0),
+                                          24, 12, 24, 0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
@@ -153,7 +153,7 @@ class _NonePackageEditPage2WidgetState
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF002D5E),
-                                                  fontSize: 16.0,
+                                                  fontSize: 16,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
@@ -167,19 +167,19 @@ class _NonePackageEditPage2WidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 12.0, 12.0, 0.0),
+                                                  12, 12, 12, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Expanded(
                                                 child: Container(
-                                                  width: 100.0,
-                                                  height: 60.0,
+                                                  width: 100,
+                                                  height: 60,
                                                   decoration: BoxDecoration(
                                                     color: Color(0xFFF0F0F0),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            8),
                                                     border: Border.all(
                                                       color: Color(0xFF737373),
                                                     ),
@@ -187,8 +187,8 @@ class _NonePackageEditPage2WidgetState
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                10.0, 0.0),
+                                                            .fromSTEB(
+                                                                10, 0, 10, 0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -204,7 +204,7 @@ class _NonePackageEditPage2WidgetState
                                                                     'Noto Sans Thai',
                                                                 color: Color(
                                                                     0xFF565656),
-                                                                fontSize: 15.0,
+                                                                fontSize: 15,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -228,7 +228,7 @@ class _NonePackageEditPage2WidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 15.0, 12.0, 0.0),
+                                                  12, 15, 12, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -240,7 +240,7 @@ class _NonePackageEditPage2WidgetState
                                                         .override(
                                                           fontFamily:
                                                               'Noto Sans Thai',
-                                                          fontSize: 20.0,
+                                                          fontSize: 20,
                                                           letterSpacing: 0.0,
                                                         ),
                                               ),
@@ -255,7 +255,7 @@ class _NonePackageEditPage2WidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 0.0, 12.0, 0.0),
+                                                  12, 0, 12, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -279,14 +279,14 @@ class _NonePackageEditPage2WidgetState
                                     ),
                                     Container(
                                       width: double.infinity,
-                                      height: 315.0,
+                                      height: 315,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
                                       ),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 12.0, 0.0, 0.0),
+                                            0, 12, 0, 0),
                                         child: Container(
                                           width: double.infinity,
                                           child: Stack(
@@ -377,7 +377,7 @@ class _NonePackageEditPage2WidgetState
                                                             validateFileFormat(
                                                                 m.storagePath,
                                                                 context))) {
-                                                      setState(() => _model
+                                                      safeSetState(() => _model
                                                               .isDataUploading1 =
                                                           true);
                                                       var selectedUploadedFiles =
@@ -432,7 +432,7 @@ class _NonePackageEditPage2WidgetState
                                                           downloadUrls.length ==
                                                               selectedMedia
                                                                   .length) {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.uploadedLocalFile1 =
                                                               selectedUploadedFiles
                                                                   .first;
@@ -441,7 +441,7 @@ class _NonePackageEditPage2WidgetState
                                                                   .first;
                                                         });
                                                       } else {
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                         return;
                                                       }
                                                     }
@@ -454,7 +454,7 @@ class _NonePackageEditPage2WidgetState
                                                               .nonePackageImageFrontUploaded =
                                                           _model
                                                               .uploadedFileUrl1;
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                       ScaffoldMessenger.of(
                                                               context)
                                                           .clearSnackBars();
@@ -499,8 +499,8 @@ class _NonePackageEditPage2WidgetState
                                                     }
                                                   },
                                                   child: Container(
-                                                    width: 100.0,
-                                                    height: 70.0,
+                                                    width: 100,
+                                                    height: 70,
                                                     decoration: BoxDecoration(
                                                       color: Color(0x00FFFFFF),
                                                     ),
@@ -565,7 +565,7 @@ class _NonePackageEditPage2WidgetState
                                                             validateFileFormat(
                                                                 m.storagePath,
                                                                 context))) {
-                                                      setState(() => _model
+                                                      safeSetState(() => _model
                                                               .isDataUploading2 =
                                                           true);
                                                       var selectedUploadedFiles =
@@ -620,7 +620,7 @@ class _NonePackageEditPage2WidgetState
                                                           downloadUrls.length ==
                                                               selectedMedia
                                                                   .length) {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.uploadedLocalFile2 =
                                                               selectedUploadedFiles
                                                                   .first;
@@ -629,7 +629,7 @@ class _NonePackageEditPage2WidgetState
                                                                   .first;
                                                         });
                                                       } else {
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                         return;
                                                       }
                                                     }
@@ -642,7 +642,7 @@ class _NonePackageEditPage2WidgetState
                                                               .nonePackageImageRightFrontUploaded =
                                                           _model
                                                               .uploadedFileUrl2;
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                       ScaffoldMessenger.of(
                                                               context)
                                                           .clearSnackBars();
@@ -687,8 +687,8 @@ class _NonePackageEditPage2WidgetState
                                                     }
                                                   },
                                                   child: Container(
-                                                    width: 110.0,
-                                                    height: 80.0,
+                                                    width: 110,
+                                                    height: 80,
                                                     decoration: BoxDecoration(
                                                       color: Color(0x00FFFFFF),
                                                     ),
@@ -697,7 +697,7 @@ class _NonePackageEditPage2WidgetState
                                               ),
                                               Align(
                                                 alignment: AlignmentDirectional(
-                                                    0.0, -0.8),
+                                                    0, -0.8),
                                                 child: InkWell(
                                                   splashColor:
                                                       Colors.transparent,
@@ -753,7 +753,7 @@ class _NonePackageEditPage2WidgetState
                                                             validateFileFormat(
                                                                 m.storagePath,
                                                                 context))) {
-                                                      setState(() => _model
+                                                      safeSetState(() => _model
                                                               .isDataUploading3 =
                                                           true);
                                                       var selectedUploadedFiles =
@@ -808,7 +808,7 @@ class _NonePackageEditPage2WidgetState
                                                           downloadUrls.length ==
                                                               selectedMedia
                                                                   .length) {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.uploadedLocalFile3 =
                                                               selectedUploadedFiles
                                                                   .first;
@@ -817,7 +817,7 @@ class _NonePackageEditPage2WidgetState
                                                                   .first;
                                                         });
                                                       } else {
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                         return;
                                                       }
                                                     }
@@ -830,7 +830,7 @@ class _NonePackageEditPage2WidgetState
                                                               .nonePackageImageRightUploaded =
                                                           _model
                                                               .uploadedFileUrl3;
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                       ScaffoldMessenger.of(
                                                               context)
                                                           .clearSnackBars();
@@ -875,8 +875,8 @@ class _NonePackageEditPage2WidgetState
                                                     }
                                                   },
                                                   child: Container(
-                                                    width: 110.0,
-                                                    height: 80.0,
+                                                    width: 110,
+                                                    height: 80,
                                                     decoration: BoxDecoration(
                                                       color: Color(0x00FFFFFF),
                                                     ),
@@ -941,7 +941,7 @@ class _NonePackageEditPage2WidgetState
                                                             validateFileFormat(
                                                                 m.storagePath,
                                                                 context))) {
-                                                      setState(() => _model
+                                                      safeSetState(() => _model
                                                               .isDataUploading4 =
                                                           true);
                                                       var selectedUploadedFiles =
@@ -996,7 +996,7 @@ class _NonePackageEditPage2WidgetState
                                                           downloadUrls.length ==
                                                               selectedMedia
                                                                   .length) {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.uploadedLocalFile4 =
                                                               selectedUploadedFiles
                                                                   .first;
@@ -1005,7 +1005,7 @@ class _NonePackageEditPage2WidgetState
                                                                   .first;
                                                         });
                                                       } else {
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                         return;
                                                       }
                                                     }
@@ -1018,7 +1018,7 @@ class _NonePackageEditPage2WidgetState
                                                               .nonePackageImageRightRearUploaded =
                                                           _model
                                                               .uploadedFileUrl4;
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                       ScaffoldMessenger.of(
                                                               context)
                                                           .clearSnackBars();
@@ -1063,8 +1063,8 @@ class _NonePackageEditPage2WidgetState
                                                     }
                                                   },
                                                   child: Container(
-                                                    width: 110.0,
-                                                    height: 80.0,
+                                                    width: 110,
+                                                    height: 80,
                                                     decoration: BoxDecoration(
                                                       color: Color(0x00FFFFFF),
                                                     ),
@@ -1129,7 +1129,7 @@ class _NonePackageEditPage2WidgetState
                                                             validateFileFormat(
                                                                 m.storagePath,
                                                                 context))) {
-                                                      setState(() => _model
+                                                      safeSetState(() => _model
                                                               .isDataUploading5 =
                                                           true);
                                                       var selectedUploadedFiles =
@@ -1184,7 +1184,7 @@ class _NonePackageEditPage2WidgetState
                                                           downloadUrls.length ==
                                                               selectedMedia
                                                                   .length) {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.uploadedLocalFile5 =
                                                               selectedUploadedFiles
                                                                   .first;
@@ -1193,7 +1193,7 @@ class _NonePackageEditPage2WidgetState
                                                                   .first;
                                                         });
                                                       } else {
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                         return;
                                                       }
                                                     }
@@ -1206,7 +1206,7 @@ class _NonePackageEditPage2WidgetState
                                                               .nonePackageImageRearUploaded =
                                                           _model
                                                               .uploadedFileUrl5;
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                       ScaffoldMessenger.of(
                                                               context)
                                                           .clearSnackBars();
@@ -1251,8 +1251,8 @@ class _NonePackageEditPage2WidgetState
                                                     }
                                                   },
                                                   child: Container(
-                                                    width: 110.0,
-                                                    height: 70.0,
+                                                    width: 110,
+                                                    height: 70,
                                                     decoration: BoxDecoration(
                                                       color: Color(0x00FFFFFF),
                                                     ),
@@ -1317,7 +1317,7 @@ class _NonePackageEditPage2WidgetState
                                                             validateFileFormat(
                                                                 m.storagePath,
                                                                 context))) {
-                                                      setState(() => _model
+                                                      safeSetState(() => _model
                                                               .isDataUploading6 =
                                                           true);
                                                       var selectedUploadedFiles =
@@ -1372,7 +1372,7 @@ class _NonePackageEditPage2WidgetState
                                                           downloadUrls.length ==
                                                               selectedMedia
                                                                   .length) {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.uploadedLocalFile6 =
                                                               selectedUploadedFiles
                                                                   .first;
@@ -1381,7 +1381,7 @@ class _NonePackageEditPage2WidgetState
                                                                   .first;
                                                         });
                                                       } else {
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                         return;
                                                       }
                                                     }
@@ -1394,7 +1394,7 @@ class _NonePackageEditPage2WidgetState
                                                               .nonePackageImageLeftRearUploaded =
                                                           _model
                                                               .uploadedFileUrl6;
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                       ScaffoldMessenger.of(
                                                               context)
                                                           .clearSnackBars();
@@ -1439,8 +1439,8 @@ class _NonePackageEditPage2WidgetState
                                                     }
                                                   },
                                                   child: Container(
-                                                    width: 100.0,
-                                                    height: 80.0,
+                                                    width: 100,
+                                                    height: 80,
                                                     decoration: BoxDecoration(
                                                       color: Color(0x00FFFFFF),
                                                     ),
@@ -1505,7 +1505,7 @@ class _NonePackageEditPage2WidgetState
                                                             validateFileFormat(
                                                                 m.storagePath,
                                                                 context))) {
-                                                      setState(() => _model
+                                                      safeSetState(() => _model
                                                               .isDataUploading7 =
                                                           true);
                                                       var selectedUploadedFiles =
@@ -1560,7 +1560,7 @@ class _NonePackageEditPage2WidgetState
                                                           downloadUrls.length ==
                                                               selectedMedia
                                                                   .length) {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.uploadedLocalFile7 =
                                                               selectedUploadedFiles
                                                                   .first;
@@ -1569,7 +1569,7 @@ class _NonePackageEditPage2WidgetState
                                                                   .first;
                                                         });
                                                       } else {
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                         return;
                                                       }
                                                     }
@@ -1582,7 +1582,7 @@ class _NonePackageEditPage2WidgetState
                                                               .nonePackageImageLeftUploaded =
                                                           _model
                                                               .uploadedFileUrl7;
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                       ScaffoldMessenger.of(
                                                               context)
                                                           .clearSnackBars();
@@ -1627,8 +1627,8 @@ class _NonePackageEditPage2WidgetState
                                                     }
                                                   },
                                                   child: Container(
-                                                    width: 100.0,
-                                                    height: 80.0,
+                                                    width: 100,
+                                                    height: 80,
                                                     decoration: BoxDecoration(
                                                       color: Color(0x00FFFFFF),
                                                     ),
@@ -1693,7 +1693,7 @@ class _NonePackageEditPage2WidgetState
                                                             validateFileFormat(
                                                                 m.storagePath,
                                                                 context))) {
-                                                      setState(() => _model
+                                                      safeSetState(() => _model
                                                               .isDataUploading8 =
                                                           true);
                                                       var selectedUploadedFiles =
@@ -1748,7 +1748,7 @@ class _NonePackageEditPage2WidgetState
                                                           downloadUrls.length ==
                                                               selectedMedia
                                                                   .length) {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.uploadedLocalFile8 =
                                                               selectedUploadedFiles
                                                                   .first;
@@ -1757,7 +1757,7 @@ class _NonePackageEditPage2WidgetState
                                                                   .first;
                                                         });
                                                       } else {
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                         return;
                                                       }
                                                     }
@@ -1770,7 +1770,7 @@ class _NonePackageEditPage2WidgetState
                                                               .nonePackageImageLeftFrontUploaded =
                                                           _model
                                                               .uploadedFileUrl8;
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                       ScaffoldMessenger.of(
                                                               context)
                                                           .clearSnackBars();
@@ -1815,8 +1815,8 @@ class _NonePackageEditPage2WidgetState
                                                     }
                                                   },
                                                   child: Container(
-                                                    width: 100.0,
-                                                    height: 80.0,
+                                                    width: 100,
+                                                    height: 80,
                                                     decoration: BoxDecoration(
                                                       color: Color(0x00FFFFFF),
                                                     ),
@@ -1829,7 +1829,7 @@ class _NonePackageEditPage2WidgetState
                                                 Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0.0, 0.0),
+                                                          0, 0),
                                                   child: InkWell(
                                                     splashColor:
                                                         Colors.transparent,
@@ -1888,7 +1888,7 @@ class _NonePackageEditPage2WidgetState
                                                               validateFileFormat(
                                                                   m.storagePath,
                                                                   context))) {
-                                                        setState(() => _model
+                                                        safeSetState(() => _model
                                                                 .isDataUploading9 =
                                                             true);
                                                         var selectedUploadedFiles =
@@ -1945,7 +1945,7 @@ class _NonePackageEditPage2WidgetState
                                                                     .length ==
                                                                 selectedMedia
                                                                     .length) {
-                                                          setState(() {
+                                                          safeSetState(() {
                                                             _model.uploadedLocalFile9 =
                                                                 selectedUploadedFiles
                                                                     .first;
@@ -1954,7 +1954,7 @@ class _NonePackageEditPage2WidgetState
                                                                     .first;
                                                           });
                                                         } else {
-                                                          setState(() {});
+                                                          safeSetState(() {});
                                                           return;
                                                         }
                                                       }
@@ -1967,7 +1967,7 @@ class _NonePackageEditPage2WidgetState
                                                                 .nonePackageImageRoofUploaded =
                                                             _model
                                                                 .uploadedFileUrl9;
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                         ScaffoldMessenger.of(
                                                                 context)
                                                             .clearSnackBars();
@@ -2014,8 +2014,8 @@ class _NonePackageEditPage2WidgetState
                                                       }
                                                     },
                                                     child: Container(
-                                                      width: 160.0,
-                                                      height: 70.0,
+                                                      width: 160,
+                                                      height: 70,
                                                       decoration: BoxDecoration(
                                                         color:
                                                             Color(0x00FFFFFF),
@@ -2033,8 +2033,8 @@ class _NonePackageEditPage2WidgetState
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 8.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
                               child: Container(
                                 width: double.infinity,
                                 decoration: BoxDecoration(
@@ -2043,7 +2043,7 @@ class _NonePackageEditPage2WidgetState
                                 ),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      14.0, 0.0, 0.0, 0.0),
+                                      14, 0, 0, 0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     crossAxisAlignment:
@@ -2051,7 +2051,7 @@ class _NonePackageEditPage2WidgetState
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            12.0, 15.0, 12.0, 0.0),
+                                            12, 15, 12, 0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -2067,15 +2067,14 @@ class _NonePackageEditPage2WidgetState
                                                             'Noto Sans Thai',
                                                         color:
                                                             Color(0xFF002D5E),
-                                                        fontSize: 18.0,
+                                                        fontSize: 18,
                                                         letterSpacing: 0.0,
                                                       ),
                                             ),
                                             if (false)
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 0.0, 0.0),
+                                                    .fromSTEB(10, 0, 0, 0),
                                                 child: Text(
                                                   'กรุณาถ่ายรูปให้ครบ 9 รูป',
                                                   style: FlutterFlowTheme.of(
@@ -2099,10 +2098,10 @@ class _NonePackageEditPage2WidgetState
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 12.0, 0.0, 0.0),
+                                            0, 12, 0, 0),
                                         child: Container(
                                           width: double.infinity,
-                                          height: 20.0,
+                                          height: 20,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
@@ -2110,7 +2109,7 @@ class _NonePackageEditPage2WidgetState
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 5.0, 0.0),
+                                                    0, 0, 5, 0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               crossAxisAlignment:
@@ -2125,11 +2124,8 @@ class _NonePackageEditPage2WidgetState
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    12.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                                .fromSTEB(12, 0,
+                                                                    0, 0),
                                                         child: Text(
                                                           FFAppState().nonePackageImageFrontUploaded !=
                                                                       null &&
@@ -2144,7 +2140,7 @@ class _NonePackageEditPage2WidgetState
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                fontSize: 12.0,
+                                                                fontSize: 12,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -2216,7 +2212,7 @@ class _NonePackageEditPage2WidgetState
                                                             .content_paste_search_rounded,
                                                         color:
                                                             Color(0xFF354052),
-                                                        size: 18.0,
+                                                        size: 18,
                                                       ),
                                                     ),
                                                   ),
@@ -2231,12 +2227,12 @@ class _NonePackageEditPage2WidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.0, 0.0),
+                                                              0, 0),
                                                       child: Icon(
                                                         Icons.check,
                                                         color:
                                                             Color(0xFF2EDD78),
-                                                        size: 18.0,
+                                                        size: 18,
                                                       ),
                                                     ),
                                                   ),
@@ -2251,12 +2247,12 @@ class _NonePackageEditPage2WidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.0, 0.0),
+                                                              0, 0),
                                                       child: Icon(
                                                         Icons.close,
                                                         color:
                                                             Color(0xFFFF2B2B),
-                                                        size: 18.0,
+                                                        size: 18,
                                                       ),
                                                     ),
                                                   ),
@@ -2267,10 +2263,10 @@ class _NonePackageEditPage2WidgetState
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 4.0, 0.0, 0.0),
+                                            0, 4, 0, 0),
                                         child: Container(
                                           width: double.infinity,
-                                          height: 20.0,
+                                          height: 20,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
@@ -2278,7 +2274,7 @@ class _NonePackageEditPage2WidgetState
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 5.0, 0.0),
+                                                    0, 0, 5, 0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               crossAxisAlignment:
@@ -2293,11 +2289,8 @@ class _NonePackageEditPage2WidgetState
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    12.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                                .fromSTEB(12, 0,
+                                                                    0, 0),
                                                         child: Text(
                                                           FFAppState().nonePackageImageRightFrontUploaded !=
                                                                       null &&
@@ -2312,7 +2305,7 @@ class _NonePackageEditPage2WidgetState
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                fontSize: 12.0,
+                                                                fontSize: 12,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -2384,7 +2377,7 @@ class _NonePackageEditPage2WidgetState
                                                             .content_paste_search_rounded,
                                                         color:
                                                             Color(0xFF354052),
-                                                        size: 18.0,
+                                                        size: 18,
                                                       ),
                                                     ),
                                                   ),
@@ -2399,12 +2392,12 @@ class _NonePackageEditPage2WidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.0, 0.0),
+                                                              0, 0),
                                                       child: Icon(
                                                         Icons.check,
                                                         color:
                                                             Color(0xFF2EDD78),
-                                                        size: 18.0,
+                                                        size: 18,
                                                       ),
                                                     ),
                                                   ),
@@ -2419,12 +2412,12 @@ class _NonePackageEditPage2WidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.0, 0.0),
+                                                              0, 0),
                                                       child: Icon(
                                                         Icons.close,
                                                         color:
                                                             Color(0xFFFF2B2B),
-                                                        size: 18.0,
+                                                        size: 18,
                                                       ),
                                                     ),
                                                   ),
@@ -2435,10 +2428,10 @@ class _NonePackageEditPage2WidgetState
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 4.0, 0.0, 0.0),
+                                            0, 4, 0, 0),
                                         child: Container(
                                           width: double.infinity,
-                                          height: 20.0,
+                                          height: 20,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
@@ -2446,7 +2439,7 @@ class _NonePackageEditPage2WidgetState
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 5.0, 0.0),
+                                                    0, 0, 5, 0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               crossAxisAlignment:
@@ -2461,11 +2454,8 @@ class _NonePackageEditPage2WidgetState
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    12.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                                .fromSTEB(12, 0,
+                                                                    0, 0),
                                                         child: Text(
                                                           FFAppState().nonePackageImageRightUploaded !=
                                                                       null &&
@@ -2480,7 +2470,7 @@ class _NonePackageEditPage2WidgetState
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                fontSize: 12.0,
+                                                                fontSize: 12,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -2552,7 +2542,7 @@ class _NonePackageEditPage2WidgetState
                                                             .content_paste_search_rounded,
                                                         color:
                                                             Color(0xFF354052),
-                                                        size: 18.0,
+                                                        size: 18,
                                                       ),
                                                     ),
                                                   ),
@@ -2567,12 +2557,12 @@ class _NonePackageEditPage2WidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.0, 0.0),
+                                                              0, 0),
                                                       child: Icon(
                                                         Icons.check,
                                                         color:
                                                             Color(0xFF2EDD78),
-                                                        size: 18.0,
+                                                        size: 18,
                                                       ),
                                                     ),
                                                   ),
@@ -2587,12 +2577,12 @@ class _NonePackageEditPage2WidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.0, 0.0),
+                                                              0, 0),
                                                       child: Icon(
                                                         Icons.close,
                                                         color:
                                                             Color(0xFFFF2B2B),
-                                                        size: 18.0,
+                                                        size: 18,
                                                       ),
                                                     ),
                                                   ),
@@ -2603,10 +2593,10 @@ class _NonePackageEditPage2WidgetState
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 4.0, 0.0, 0.0),
+                                            0, 4, 0, 0),
                                         child: Container(
                                           width: double.infinity,
-                                          height: 20.0,
+                                          height: 20,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
@@ -2614,7 +2604,7 @@ class _NonePackageEditPage2WidgetState
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 5.0, 0.0),
+                                                    0, 0, 5, 0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               crossAxisAlignment:
@@ -2629,11 +2619,8 @@ class _NonePackageEditPage2WidgetState
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    12.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                                .fromSTEB(12, 0,
+                                                                    0, 0),
                                                         child: Text(
                                                           FFAppState().nonePackageImageRightRearUploaded !=
                                                                       null &&
@@ -2648,7 +2635,7 @@ class _NonePackageEditPage2WidgetState
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                fontSize: 12.0,
+                                                                fontSize: 12,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -2720,7 +2707,7 @@ class _NonePackageEditPage2WidgetState
                                                             .content_paste_search_rounded,
                                                         color:
                                                             Color(0xFF354052),
-                                                        size: 18.0,
+                                                        size: 18,
                                                       ),
                                                     ),
                                                   ),
@@ -2735,12 +2722,12 @@ class _NonePackageEditPage2WidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.0, 0.0),
+                                                              0, 0),
                                                       child: Icon(
                                                         Icons.check,
                                                         color:
                                                             Color(0xFF2EDD78),
-                                                        size: 18.0,
+                                                        size: 18,
                                                       ),
                                                     ),
                                                   ),
@@ -2755,12 +2742,12 @@ class _NonePackageEditPage2WidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.0, 0.0),
+                                                              0, 0),
                                                       child: Icon(
                                                         Icons.close,
                                                         color:
                                                             Color(0xFFFF2B2B),
-                                                        size: 18.0,
+                                                        size: 18,
                                                       ),
                                                     ),
                                                   ),
@@ -2771,10 +2758,10 @@ class _NonePackageEditPage2WidgetState
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 4.0, 0.0, 0.0),
+                                            0, 4, 0, 0),
                                         child: Container(
                                           width: double.infinity,
-                                          height: 20.0,
+                                          height: 20,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
@@ -2782,7 +2769,7 @@ class _NonePackageEditPage2WidgetState
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 5.0, 0.0),
+                                                    0, 0, 5, 0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               crossAxisAlignment:
@@ -2797,11 +2784,8 @@ class _NonePackageEditPage2WidgetState
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    12.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                                .fromSTEB(12, 0,
+                                                                    0, 0),
                                                         child: Text(
                                                           FFAppState().nonePackageImageRearUploaded !=
                                                                       null &&
@@ -2816,7 +2800,7 @@ class _NonePackageEditPage2WidgetState
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                fontSize: 12.0,
+                                                                fontSize: 12,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -2888,7 +2872,7 @@ class _NonePackageEditPage2WidgetState
                                                             .content_paste_search_rounded,
                                                         color:
                                                             Color(0xFF354052),
-                                                        size: 18.0,
+                                                        size: 18,
                                                       ),
                                                     ),
                                                   ),
@@ -2903,12 +2887,12 @@ class _NonePackageEditPage2WidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.0, 0.0),
+                                                              0, 0),
                                                       child: Icon(
                                                         Icons.check,
                                                         color:
                                                             Color(0xFF2EDD78),
-                                                        size: 18.0,
+                                                        size: 18,
                                                       ),
                                                     ),
                                                   ),
@@ -2923,12 +2907,12 @@ class _NonePackageEditPage2WidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.0, 0.0),
+                                                              0, 0),
                                                       child: Icon(
                                                         Icons.close,
                                                         color:
                                                             Color(0xFFFF2B2B),
-                                                        size: 18.0,
+                                                        size: 18,
                                                       ),
                                                     ),
                                                   ),
@@ -2939,10 +2923,10 @@ class _NonePackageEditPage2WidgetState
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 4.0, 0.0, 0.0),
+                                            0, 4, 0, 0),
                                         child: Container(
                                           width: double.infinity,
-                                          height: 20.0,
+                                          height: 20,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
@@ -2950,7 +2934,7 @@ class _NonePackageEditPage2WidgetState
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 5.0, 0.0),
+                                                    0, 0, 5, 0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               crossAxisAlignment:
@@ -2965,11 +2949,8 @@ class _NonePackageEditPage2WidgetState
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    12.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                                .fromSTEB(12, 0,
+                                                                    0, 0),
                                                         child: Text(
                                                           FFAppState().nonePackageImageLeftRearUploaded !=
                                                                       null &&
@@ -2984,7 +2965,7 @@ class _NonePackageEditPage2WidgetState
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                fontSize: 12.0,
+                                                                fontSize: 12,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -3056,7 +3037,7 @@ class _NonePackageEditPage2WidgetState
                                                             .content_paste_search_rounded,
                                                         color:
                                                             Color(0xFF354052),
-                                                        size: 18.0,
+                                                        size: 18,
                                                       ),
                                                     ),
                                                   ),
@@ -3071,12 +3052,12 @@ class _NonePackageEditPage2WidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.0, 0.0),
+                                                              0, 0),
                                                       child: Icon(
                                                         Icons.check,
                                                         color:
                                                             Color(0xFF2EDD78),
-                                                        size: 18.0,
+                                                        size: 18,
                                                       ),
                                                     ),
                                                   ),
@@ -3091,12 +3072,12 @@ class _NonePackageEditPage2WidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.0, 0.0),
+                                                              0, 0),
                                                       child: Icon(
                                                         Icons.close,
                                                         color:
                                                             Color(0xFFFF2B2B),
-                                                        size: 18.0,
+                                                        size: 18,
                                                       ),
                                                     ),
                                                   ),
@@ -3107,10 +3088,10 @@ class _NonePackageEditPage2WidgetState
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 4.0, 0.0, 0.0),
+                                            0, 4, 0, 0),
                                         child: Container(
                                           width: double.infinity,
-                                          height: 20.0,
+                                          height: 20,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
@@ -3118,7 +3099,7 @@ class _NonePackageEditPage2WidgetState
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 5.0, 0.0),
+                                                    0, 0, 5, 0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               crossAxisAlignment:
@@ -3133,11 +3114,8 @@ class _NonePackageEditPage2WidgetState
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    12.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                                .fromSTEB(12, 0,
+                                                                    0, 0),
                                                         child: Text(
                                                           FFAppState().nonePackageImageLeftUploaded !=
                                                                       null &&
@@ -3152,7 +3130,7 @@ class _NonePackageEditPage2WidgetState
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                fontSize: 12.0,
+                                                                fontSize: 12,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -3224,7 +3202,7 @@ class _NonePackageEditPage2WidgetState
                                                             .content_paste_search_rounded,
                                                         color:
                                                             Color(0xFF354052),
-                                                        size: 18.0,
+                                                        size: 18,
                                                       ),
                                                     ),
                                                   ),
@@ -3239,12 +3217,12 @@ class _NonePackageEditPage2WidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.0, 0.0),
+                                                              0, 0),
                                                       child: Icon(
                                                         Icons.check,
                                                         color:
                                                             Color(0xFF2EDD78),
-                                                        size: 18.0,
+                                                        size: 18,
                                                       ),
                                                     ),
                                                   ),
@@ -3259,12 +3237,12 @@ class _NonePackageEditPage2WidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.0, 0.0),
+                                                              0, 0),
                                                       child: Icon(
                                                         Icons.close,
                                                         color:
                                                             Color(0xFFFF2B2B),
-                                                        size: 18.0,
+                                                        size: 18,
                                                       ),
                                                     ),
                                                   ),
@@ -3275,10 +3253,10 @@ class _NonePackageEditPage2WidgetState
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 4.0, 0.0, 0.0),
+                                            0, 4, 0, 0),
                                         child: Container(
                                           width: double.infinity,
-                                          height: 20.0,
+                                          height: 20,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
@@ -3286,7 +3264,7 @@ class _NonePackageEditPage2WidgetState
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 5.0, 0.0),
+                                                    0, 0, 5, 0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               crossAxisAlignment:
@@ -3301,11 +3279,8 @@ class _NonePackageEditPage2WidgetState
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    12.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                                .fromSTEB(12, 0,
+                                                                    0, 0),
                                                         child: Text(
                                                           FFAppState().nonePackageImageLeftFrontUploaded !=
                                                                       null &&
@@ -3320,7 +3295,7 @@ class _NonePackageEditPage2WidgetState
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                fontSize: 12.0,
+                                                                fontSize: 12,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -3392,7 +3367,7 @@ class _NonePackageEditPage2WidgetState
                                                             .content_paste_search_rounded,
                                                         color:
                                                             Color(0xFF354052),
-                                                        size: 18.0,
+                                                        size: 18,
                                                       ),
                                                     ),
                                                   ),
@@ -3407,12 +3382,12 @@ class _NonePackageEditPage2WidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.0, 0.0),
+                                                              0, 0),
                                                       child: Icon(
                                                         Icons.check,
                                                         color:
                                                             Color(0xFF2EDD78),
-                                                        size: 18.0,
+                                                        size: 18,
                                                       ),
                                                     ),
                                                   ),
@@ -3427,12 +3402,12 @@ class _NonePackageEditPage2WidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.0, 0.0),
+                                                              0, 0),
                                                       child: Icon(
                                                         Icons.close,
                                                         color:
                                                             Color(0xFFFF2B2B),
-                                                        size: 18.0,
+                                                        size: 18,
                                                       ),
                                                     ),
                                                   ),
@@ -3446,10 +3421,10 @@ class _NonePackageEditPage2WidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 4.0, 0.0, 0.0),
+                                                  0, 4, 0, 0),
                                           child: Container(
                                             width: double.infinity,
-                                            height: 20.0,
+                                            height: 20,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -3457,7 +3432,7 @@ class _NonePackageEditPage2WidgetState
                                             ),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                  .fromSTEB(0, 0, 5, 0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -3472,11 +3447,8 @@ class _NonePackageEditPage2WidgetState
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      12.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                                  .fromSTEB(12,
+                                                                      0, 0, 0),
                                                           child: Text(
                                                             FFAppState().nonePackageImageRoofUploaded !=
                                                                         null &&
@@ -3491,8 +3463,7 @@ class _NonePackageEditPage2WidgetState
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      12.0,
+                                                                  fontSize: 12,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -3565,7 +3536,7 @@ class _NonePackageEditPage2WidgetState
                                                               .content_paste_search_rounded,
                                                           color:
                                                               Color(0xFF354052),
-                                                          size: 18.0,
+                                                          size: 18,
                                                         ),
                                                       ),
                                                     ),
@@ -3580,12 +3551,12 @@ class _NonePackageEditPage2WidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.0, 0.0),
+                                                                0, 0),
                                                         child: Icon(
                                                           Icons.check,
                                                           color:
                                                               Color(0xFF2EDD78),
-                                                          size: 18.0,
+                                                          size: 18,
                                                         ),
                                                       ),
                                                     ),
@@ -3600,12 +3571,12 @@ class _NonePackageEditPage2WidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.0, 0.0),
+                                                                0, 0),
                                                         child: Icon(
                                                           Icons.close,
                                                           color:
                                                               Color(0xFFFF2B2B),
-                                                          size: 18.0,
+                                                          size: 18,
                                                         ),
                                                       ),
                                                     ),
@@ -3624,14 +3595,14 @@ class _NonePackageEditPage2WidgetState
                                 (FFAppState().nonePackageTruckPart == '1'))
                               Container(
                                 width: double.infinity,
-                                height: 315.0,
+                                height: 315,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
                                 ),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 12.0, 0.0, 0.0),
+                                      0, 12, 0, 0),
                                   child: Container(
                                     width: double.infinity,
                                     child: Stack(
@@ -3702,7 +3673,7 @@ class _NonePackageEditPage2WidgetState
                                                       validateFileFormat(
                                                           m.storagePath,
                                                           context))) {
-                                                setState(() => _model
+                                                safeSetState(() => _model
                                                     .isDataUploading10 = true);
                                                 var selectedUploadedFiles =
                                                     <FFUploadedFile>[];
@@ -3751,7 +3722,7 @@ class _NonePackageEditPage2WidgetState
                                                         selectedMedia.length &&
                                                     downloadUrls.length ==
                                                         selectedMedia.length) {
-                                                  setState(() {
+                                                  safeSetState(() {
                                                     _model.uploadedLocalFile10 =
                                                         selectedUploadedFiles
                                                             .first;
@@ -3759,7 +3730,7 @@ class _NonePackageEditPage2WidgetState
                                                         downloadUrls.first;
                                                   });
                                                 } else {
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                   return;
                                                 }
                                               }
@@ -3771,7 +3742,7 @@ class _NonePackageEditPage2WidgetState
                                                 FFAppState()
                                                         .nonePackageTrailerImageFrontUploaded =
                                                     _model.uploadedFileUrl10;
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 ScaffoldMessenger.of(context)
                                                     .clearSnackBars();
                                                 ScaffoldMessenger.of(context)
@@ -3809,8 +3780,8 @@ class _NonePackageEditPage2WidgetState
                                               }
                                             },
                                             child: Container(
-                                              width: 100.0,
-                                              height: 70.0,
+                                              width: 100,
+                                              height: 70,
                                               decoration: BoxDecoration(
                                                 color: Color(0x00FFFFFF),
                                               ),
@@ -3872,7 +3843,7 @@ class _NonePackageEditPage2WidgetState
                                                       validateFileFormat(
                                                           m.storagePath,
                                                           context))) {
-                                                setState(() => _model
+                                                safeSetState(() => _model
                                                     .isDataUploading11 = true);
                                                 var selectedUploadedFiles =
                                                     <FFUploadedFile>[];
@@ -3921,7 +3892,7 @@ class _NonePackageEditPage2WidgetState
                                                         selectedMedia.length &&
                                                     downloadUrls.length ==
                                                         selectedMedia.length) {
-                                                  setState(() {
+                                                  safeSetState(() {
                                                     _model.uploadedLocalFile11 =
                                                         selectedUploadedFiles
                                                             .first;
@@ -3929,7 +3900,7 @@ class _NonePackageEditPage2WidgetState
                                                         downloadUrls.first;
                                                   });
                                                 } else {
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                   return;
                                                 }
                                               }
@@ -3941,7 +3912,7 @@ class _NonePackageEditPage2WidgetState
                                                 FFAppState()
                                                         .nonePackageTrailerImageRightFrontUploaded =
                                                     _model.uploadedFileUrl11;
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 ScaffoldMessenger.of(context)
                                                     .clearSnackBars();
                                                 ScaffoldMessenger.of(context)
@@ -3979,8 +3950,8 @@ class _NonePackageEditPage2WidgetState
                                               }
                                             },
                                             child: Container(
-                                              width: 110.0,
-                                              height: 80.0,
+                                              width: 110,
+                                              height: 80,
                                               decoration: BoxDecoration(
                                                 color: Color(0x00FFFFFF),
                                               ),
@@ -3989,7 +3960,7 @@ class _NonePackageEditPage2WidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.0, -0.8),
+                                              AlignmentDirectional(0, -0.8),
                                           child: InkWell(
                                             splashColor: Colors.transparent,
                                             focusColor: Colors.transparent,
@@ -4042,7 +4013,7 @@ class _NonePackageEditPage2WidgetState
                                                       validateFileFormat(
                                                           m.storagePath,
                                                           context))) {
-                                                setState(() => _model
+                                                safeSetState(() => _model
                                                     .isDataUploading12 = true);
                                                 var selectedUploadedFiles =
                                                     <FFUploadedFile>[];
@@ -4091,7 +4062,7 @@ class _NonePackageEditPage2WidgetState
                                                         selectedMedia.length &&
                                                     downloadUrls.length ==
                                                         selectedMedia.length) {
-                                                  setState(() {
+                                                  safeSetState(() {
                                                     _model.uploadedLocalFile12 =
                                                         selectedUploadedFiles
                                                             .first;
@@ -4099,7 +4070,7 @@ class _NonePackageEditPage2WidgetState
                                                         downloadUrls.first;
                                                   });
                                                 } else {
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                   return;
                                                 }
                                               }
@@ -4111,7 +4082,7 @@ class _NonePackageEditPage2WidgetState
                                                 FFAppState()
                                                         .nonePackageTrailerImageRightUploaded =
                                                     _model.uploadedFileUrl12;
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 ScaffoldMessenger.of(context)
                                                     .clearSnackBars();
                                                 ScaffoldMessenger.of(context)
@@ -4149,8 +4120,8 @@ class _NonePackageEditPage2WidgetState
                                               }
                                             },
                                             child: Container(
-                                              width: 110.0,
-                                              height: 80.0,
+                                              width: 110,
+                                              height: 80,
                                               decoration: BoxDecoration(
                                                 color: Color(0x00FFFFFF),
                                               ),
@@ -4212,7 +4183,7 @@ class _NonePackageEditPage2WidgetState
                                                       validateFileFormat(
                                                           m.storagePath,
                                                           context))) {
-                                                setState(() => _model
+                                                safeSetState(() => _model
                                                     .isDataUploading13 = true);
                                                 var selectedUploadedFiles =
                                                     <FFUploadedFile>[];
@@ -4261,7 +4232,7 @@ class _NonePackageEditPage2WidgetState
                                                         selectedMedia.length &&
                                                     downloadUrls.length ==
                                                         selectedMedia.length) {
-                                                  setState(() {
+                                                  safeSetState(() {
                                                     _model.uploadedLocalFile13 =
                                                         selectedUploadedFiles
                                                             .first;
@@ -4269,7 +4240,7 @@ class _NonePackageEditPage2WidgetState
                                                         downloadUrls.first;
                                                   });
                                                 } else {
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                   return;
                                                 }
                                               }
@@ -4281,7 +4252,7 @@ class _NonePackageEditPage2WidgetState
                                                 FFAppState()
                                                         .nonePackageTrailerImageRightRearUploaded =
                                                     _model.uploadedFileUrl13;
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 ScaffoldMessenger.of(context)
                                                     .clearSnackBars();
                                                 ScaffoldMessenger.of(context)
@@ -4319,8 +4290,8 @@ class _NonePackageEditPage2WidgetState
                                               }
                                             },
                                             child: Container(
-                                              width: 110.0,
-                                              height: 60.0,
+                                              width: 110,
+                                              height: 60,
                                               decoration: BoxDecoration(
                                                 color: Color(0x00FFFFFF),
                                               ),
@@ -4329,7 +4300,7 @@ class _NonePackageEditPage2WidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(1.0, 0.06),
+                                              AlignmentDirectional(1, 0.06),
                                           child: InkWell(
                                             splashColor: Colors.transparent,
                                             focusColor: Colors.transparent,
@@ -4382,7 +4353,7 @@ class _NonePackageEditPage2WidgetState
                                                       validateFileFormat(
                                                           m.storagePath,
                                                           context))) {
-                                                setState(() => _model
+                                                safeSetState(() => _model
                                                     .isDataUploading14 = true);
                                                 var selectedUploadedFiles =
                                                     <FFUploadedFile>[];
@@ -4431,7 +4402,7 @@ class _NonePackageEditPage2WidgetState
                                                         selectedMedia.length &&
                                                     downloadUrls.length ==
                                                         selectedMedia.length) {
-                                                  setState(() {
+                                                  safeSetState(() {
                                                     _model.uploadedLocalFile14 =
                                                         selectedUploadedFiles
                                                             .first;
@@ -4439,7 +4410,7 @@ class _NonePackageEditPage2WidgetState
                                                         downloadUrls.first;
                                                   });
                                                 } else {
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                   return;
                                                 }
                                               }
@@ -4451,7 +4422,7 @@ class _NonePackageEditPage2WidgetState
                                                 FFAppState()
                                                         .nonePackageTrailerImageRearUploaded =
                                                     _model.uploadedFileUrl14;
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 ScaffoldMessenger.of(context)
                                                     .clearSnackBars();
                                                 ScaffoldMessenger.of(context)
@@ -4489,8 +4460,8 @@ class _NonePackageEditPage2WidgetState
                                               }
                                             },
                                             child: Container(
-                                              width: 110.0,
-                                              height: 60.0,
+                                              width: 110,
+                                              height: 60,
                                               decoration: BoxDecoration(
                                                 color: Color(0x00FFFFFF),
                                               ),
@@ -4552,7 +4523,7 @@ class _NonePackageEditPage2WidgetState
                                                       validateFileFormat(
                                                           m.storagePath,
                                                           context))) {
-                                                setState(() => _model
+                                                safeSetState(() => _model
                                                     .isDataUploading15 = true);
                                                 var selectedUploadedFiles =
                                                     <FFUploadedFile>[];
@@ -4601,7 +4572,7 @@ class _NonePackageEditPage2WidgetState
                                                         selectedMedia.length &&
                                                     downloadUrls.length ==
                                                         selectedMedia.length) {
-                                                  setState(() {
+                                                  safeSetState(() {
                                                     _model.uploadedLocalFile15 =
                                                         selectedUploadedFiles
                                                             .first;
@@ -4609,7 +4580,7 @@ class _NonePackageEditPage2WidgetState
                                                         downloadUrls.first;
                                                   });
                                                 } else {
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                   return;
                                                 }
                                               }
@@ -4621,7 +4592,7 @@ class _NonePackageEditPage2WidgetState
                                                 FFAppState()
                                                         .nonePackageTrailerImageLeftRearUploaded =
                                                     _model.uploadedFileUrl15;
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 ScaffoldMessenger.of(context)
                                                     .clearSnackBars();
                                                 ScaffoldMessenger.of(context)
@@ -4659,8 +4630,8 @@ class _NonePackageEditPage2WidgetState
                                               }
                                             },
                                             child: Container(
-                                              width: 100.0,
-                                              height: 80.0,
+                                              width: 100,
+                                              height: 80,
                                               decoration: BoxDecoration(
                                                 color: Color(0x00FFFFFF),
                                               ),
@@ -4722,7 +4693,7 @@ class _NonePackageEditPage2WidgetState
                                                       validateFileFormat(
                                                           m.storagePath,
                                                           context))) {
-                                                setState(() => _model
+                                                safeSetState(() => _model
                                                     .isDataUploading16 = true);
                                                 var selectedUploadedFiles =
                                                     <FFUploadedFile>[];
@@ -4771,7 +4742,7 @@ class _NonePackageEditPage2WidgetState
                                                         selectedMedia.length &&
                                                     downloadUrls.length ==
                                                         selectedMedia.length) {
-                                                  setState(() {
+                                                  safeSetState(() {
                                                     _model.uploadedLocalFile16 =
                                                         selectedUploadedFiles
                                                             .first;
@@ -4779,7 +4750,7 @@ class _NonePackageEditPage2WidgetState
                                                         downloadUrls.first;
                                                   });
                                                 } else {
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                   return;
                                                 }
                                               }
@@ -4791,7 +4762,7 @@ class _NonePackageEditPage2WidgetState
                                                 FFAppState()
                                                         .nonePackageTrailerImageLeftUploaded =
                                                     _model.uploadedFileUrl16;
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 ScaffoldMessenger.of(context)
                                                     .clearSnackBars();
                                                 ScaffoldMessenger.of(context)
@@ -4829,8 +4800,8 @@ class _NonePackageEditPage2WidgetState
                                               }
                                             },
                                             child: Container(
-                                              width: 100.0,
-                                              height: 80.0,
+                                              width: 100,
+                                              height: 80,
                                               decoration: BoxDecoration(
                                                 color: Color(0x00FFFFFF),
                                               ),
@@ -4892,7 +4863,7 @@ class _NonePackageEditPage2WidgetState
                                                       validateFileFormat(
                                                           m.storagePath,
                                                           context))) {
-                                                setState(() => _model
+                                                safeSetState(() => _model
                                                     .isDataUploading17 = true);
                                                 var selectedUploadedFiles =
                                                     <FFUploadedFile>[];
@@ -4941,7 +4912,7 @@ class _NonePackageEditPage2WidgetState
                                                         selectedMedia.length &&
                                                     downloadUrls.length ==
                                                         selectedMedia.length) {
-                                                  setState(() {
+                                                  safeSetState(() {
                                                     _model.uploadedLocalFile17 =
                                                         selectedUploadedFiles
                                                             .first;
@@ -4949,7 +4920,7 @@ class _NonePackageEditPage2WidgetState
                                                         downloadUrls.first;
                                                   });
                                                 } else {
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                   return;
                                                 }
                                               }
@@ -4961,7 +4932,7 @@ class _NonePackageEditPage2WidgetState
                                                 FFAppState()
                                                         .nonePackageTrailerImageLeftFrontUploaded =
                                                     _model.uploadedFileUrl17;
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 ScaffoldMessenger.of(context)
                                                     .clearSnackBars();
                                                 ScaffoldMessenger.of(context)
@@ -4999,8 +4970,8 @@ class _NonePackageEditPage2WidgetState
                                               }
                                             },
                                             child: Container(
-                                              width: 100.0,
-                                              height: 80.0,
+                                              width: 100,
+                                              height: 80,
                                               decoration: BoxDecoration(
                                                 color: Color(0x00FFFFFF),
                                               ),
@@ -5016,8 +4987,8 @@ class _NonePackageEditPage2WidgetState
                                     'รถบรรทุก หัวลาก หางพ่วง') &&
                                 (FFAppState().nonePackageTruckPart == '1'))
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 8.0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
                                 child: Container(
                                   width: double.infinity,
                                   decoration: BoxDecoration(
@@ -5026,7 +4997,7 @@ class _NonePackageEditPage2WidgetState
                                   ),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        14.0, 0.0, 0.0, 0.0),
+                                        14, 0, 0, 0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       crossAxisAlignment:
@@ -5035,7 +5006,7 @@ class _NonePackageEditPage2WidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 15.0, 12.0, 0.0),
+                                                  12, 15, 12, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -5051,15 +5022,14 @@ class _NonePackageEditPage2WidgetState
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFF002D5E),
-                                                          fontSize: 18.0,
+                                                          fontSize: 18,
                                                           letterSpacing: 0.0,
                                                         ),
                                               ),
                                               if (false)
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          10.0, 0.0, 0.0, 0.0),
+                                                      .fromSTEB(10, 0, 0, 0),
                                                   child: Text(
                                                     'กรุณาถ่ายรูปให้ครบ 8 รูป',
                                                     style: FlutterFlowTheme.of(
@@ -5083,10 +5053,10 @@ class _NonePackageEditPage2WidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 12.0, 0.0, 0.0),
+                                                  0, 12, 0, 0),
                                           child: Container(
                                             width: double.infinity,
-                                            height: 20.0,
+                                            height: 20,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -5094,7 +5064,7 @@ class _NonePackageEditPage2WidgetState
                                             ),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                  .fromSTEB(0, 0, 5, 0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -5109,11 +5079,8 @@ class _NonePackageEditPage2WidgetState
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      12.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                                  .fromSTEB(12,
+                                                                      0, 0, 0),
                                                           child: Text(
                                                             FFAppState().nonePackageTrailerImageFrontUploaded !=
                                                                         null &&
@@ -5128,8 +5095,7 @@ class _NonePackageEditPage2WidgetState
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      12.0,
+                                                                  fontSize: 12,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -5202,7 +5168,7 @@ class _NonePackageEditPage2WidgetState
                                                               .content_paste_search_rounded,
                                                           color:
                                                               Color(0xFF354052),
-                                                          size: 18.0,
+                                                          size: 18,
                                                         ),
                                                       ),
                                                     ),
@@ -5217,12 +5183,12 @@ class _NonePackageEditPage2WidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.0, 0.0),
+                                                                0, 0),
                                                         child: Icon(
                                                           Icons.check,
                                                           color:
                                                               Color(0xFF2EDD78),
-                                                          size: 18.0,
+                                                          size: 18,
                                                         ),
                                                       ),
                                                     ),
@@ -5237,12 +5203,12 @@ class _NonePackageEditPage2WidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.0, 0.0),
+                                                                0, 0),
                                                         child: Icon(
                                                           Icons.close,
                                                           color:
                                                               Color(0xFFFF2B2B),
-                                                          size: 18.0,
+                                                          size: 18,
                                                         ),
                                                       ),
                                                     ),
@@ -5254,10 +5220,10 @@ class _NonePackageEditPage2WidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 4.0, 0.0, 0.0),
+                                                  0, 4, 0, 0),
                                           child: Container(
                                             width: double.infinity,
-                                            height: 20.0,
+                                            height: 20,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -5265,7 +5231,7 @@ class _NonePackageEditPage2WidgetState
                                             ),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                  .fromSTEB(0, 0, 5, 0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -5280,11 +5246,8 @@ class _NonePackageEditPage2WidgetState
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      12.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                                  .fromSTEB(12,
+                                                                      0, 0, 0),
                                                           child: Text(
                                                             FFAppState().nonePackageTrailerImageRightFrontUploaded !=
                                                                         null &&
@@ -5299,8 +5262,7 @@ class _NonePackageEditPage2WidgetState
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      12.0,
+                                                                  fontSize: 12,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -5373,7 +5335,7 @@ class _NonePackageEditPage2WidgetState
                                                               .content_paste_search_rounded,
                                                           color:
                                                               Color(0xFF354052),
-                                                          size: 18.0,
+                                                          size: 18,
                                                         ),
                                                       ),
                                                     ),
@@ -5388,12 +5350,12 @@ class _NonePackageEditPage2WidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.0, 0.0),
+                                                                0, 0),
                                                         child: Icon(
                                                           Icons.check,
                                                           color:
                                                               Color(0xFF2EDD78),
-                                                          size: 18.0,
+                                                          size: 18,
                                                         ),
                                                       ),
                                                     ),
@@ -5408,12 +5370,12 @@ class _NonePackageEditPage2WidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.0, 0.0),
+                                                                0, 0),
                                                         child: Icon(
                                                           Icons.close,
                                                           color:
                                                               Color(0xFFFF2B2B),
-                                                          size: 18.0,
+                                                          size: 18,
                                                         ),
                                                       ),
                                                     ),
@@ -5425,10 +5387,10 @@ class _NonePackageEditPage2WidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 4.0, 0.0, 0.0),
+                                                  0, 4, 0, 0),
                                           child: Container(
                                             width: double.infinity,
-                                            height: 20.0,
+                                            height: 20,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -5436,7 +5398,7 @@ class _NonePackageEditPage2WidgetState
                                             ),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                  .fromSTEB(0, 0, 5, 0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -5451,11 +5413,8 @@ class _NonePackageEditPage2WidgetState
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      12.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                                  .fromSTEB(12,
+                                                                      0, 0, 0),
                                                           child: Text(
                                                             FFAppState().nonePackageTrailerImageRightUploaded !=
                                                                         null &&
@@ -5470,8 +5429,7 @@ class _NonePackageEditPage2WidgetState
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      12.0,
+                                                                  fontSize: 12,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -5544,7 +5502,7 @@ class _NonePackageEditPage2WidgetState
                                                               .content_paste_search_rounded,
                                                           color:
                                                               Color(0xFF354052),
-                                                          size: 18.0,
+                                                          size: 18,
                                                         ),
                                                       ),
                                                     ),
@@ -5559,12 +5517,12 @@ class _NonePackageEditPage2WidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.0, 0.0),
+                                                                0, 0),
                                                         child: Icon(
                                                           Icons.check,
                                                           color:
                                                               Color(0xFF2EDD78),
-                                                          size: 18.0,
+                                                          size: 18,
                                                         ),
                                                       ),
                                                     ),
@@ -5579,12 +5537,12 @@ class _NonePackageEditPage2WidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.0, 0.0),
+                                                                0, 0),
                                                         child: Icon(
                                                           Icons.close,
                                                           color:
                                                               Color(0xFFFF2B2B),
-                                                          size: 18.0,
+                                                          size: 18,
                                                         ),
                                                       ),
                                                     ),
@@ -5596,10 +5554,10 @@ class _NonePackageEditPage2WidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 4.0, 0.0, 0.0),
+                                                  0, 4, 0, 0),
                                           child: Container(
                                             width: double.infinity,
-                                            height: 20.0,
+                                            height: 20,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -5607,7 +5565,7 @@ class _NonePackageEditPage2WidgetState
                                             ),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                  .fromSTEB(0, 0, 5, 0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -5622,11 +5580,8 @@ class _NonePackageEditPage2WidgetState
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      12.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                                  .fromSTEB(12,
+                                                                      0, 0, 0),
                                                           child: Text(
                                                             FFAppState().nonePackageTrailerImageRightRearUploaded !=
                                                                         null &&
@@ -5641,8 +5596,7 @@ class _NonePackageEditPage2WidgetState
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      12.0,
+                                                                  fontSize: 12,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -5715,7 +5669,7 @@ class _NonePackageEditPage2WidgetState
                                                               .content_paste_search_rounded,
                                                           color:
                                                               Color(0xFF354052),
-                                                          size: 18.0,
+                                                          size: 18,
                                                         ),
                                                       ),
                                                     ),
@@ -5730,12 +5684,12 @@ class _NonePackageEditPage2WidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.0, 0.0),
+                                                                0, 0),
                                                         child: Icon(
                                                           Icons.check,
                                                           color:
                                                               Color(0xFF2EDD78),
-                                                          size: 18.0,
+                                                          size: 18,
                                                         ),
                                                       ),
                                                     ),
@@ -5750,12 +5704,12 @@ class _NonePackageEditPage2WidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.0, 0.0),
+                                                                0, 0),
                                                         child: Icon(
                                                           Icons.close,
                                                           color:
                                                               Color(0xFFFF2B2B),
-                                                          size: 18.0,
+                                                          size: 18,
                                                         ),
                                                       ),
                                                     ),
@@ -5767,10 +5721,10 @@ class _NonePackageEditPage2WidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 4.0, 0.0, 0.0),
+                                                  0, 4, 0, 0),
                                           child: Container(
                                             width: double.infinity,
-                                            height: 20.0,
+                                            height: 20,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -5778,7 +5732,7 @@ class _NonePackageEditPage2WidgetState
                                             ),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                  .fromSTEB(0, 0, 5, 0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -5793,11 +5747,8 @@ class _NonePackageEditPage2WidgetState
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      12.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                                  .fromSTEB(12,
+                                                                      0, 0, 0),
                                                           child: Text(
                                                             FFAppState().nonePackageTrailerImageRearUploaded !=
                                                                         null &&
@@ -5812,8 +5763,7 @@ class _NonePackageEditPage2WidgetState
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      12.0,
+                                                                  fontSize: 12,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -5886,7 +5836,7 @@ class _NonePackageEditPage2WidgetState
                                                               .content_paste_search_rounded,
                                                           color:
                                                               Color(0xFF354052),
-                                                          size: 18.0,
+                                                          size: 18,
                                                         ),
                                                       ),
                                                     ),
@@ -5901,12 +5851,12 @@ class _NonePackageEditPage2WidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.0, 0.0),
+                                                                0, 0),
                                                         child: Icon(
                                                           Icons.check,
                                                           color:
                                                               Color(0xFF2EDD78),
-                                                          size: 18.0,
+                                                          size: 18,
                                                         ),
                                                       ),
                                                     ),
@@ -5921,12 +5871,12 @@ class _NonePackageEditPage2WidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.0, 0.0),
+                                                                0, 0),
                                                         child: Icon(
                                                           Icons.close,
                                                           color:
                                                               Color(0xFFFF2B2B),
-                                                          size: 18.0,
+                                                          size: 18,
                                                         ),
                                                       ),
                                                     ),
@@ -5938,10 +5888,10 @@ class _NonePackageEditPage2WidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 4.0, 0.0, 0.0),
+                                                  0, 4, 0, 0),
                                           child: Container(
                                             width: double.infinity,
-                                            height: 20.0,
+                                            height: 20,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -5949,7 +5899,7 @@ class _NonePackageEditPage2WidgetState
                                             ),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                  .fromSTEB(0, 0, 5, 0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -5964,11 +5914,8 @@ class _NonePackageEditPage2WidgetState
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      12.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                                  .fromSTEB(12,
+                                                                      0, 0, 0),
                                                           child: Text(
                                                             FFAppState().nonePackageTrailerImageLeftRearUploaded !=
                                                                         null &&
@@ -5983,8 +5930,7 @@ class _NonePackageEditPage2WidgetState
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      12.0,
+                                                                  fontSize: 12,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -6057,7 +6003,7 @@ class _NonePackageEditPage2WidgetState
                                                               .content_paste_search_rounded,
                                                           color:
                                                               Color(0xFF354052),
-                                                          size: 18.0,
+                                                          size: 18,
                                                         ),
                                                       ),
                                                     ),
@@ -6072,12 +6018,12 @@ class _NonePackageEditPage2WidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.0, 0.0),
+                                                                0, 0),
                                                         child: Icon(
                                                           Icons.check,
                                                           color:
                                                               Color(0xFF2EDD78),
-                                                          size: 18.0,
+                                                          size: 18,
                                                         ),
                                                       ),
                                                     ),
@@ -6092,12 +6038,12 @@ class _NonePackageEditPage2WidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.0, 0.0),
+                                                                0, 0),
                                                         child: Icon(
                                                           Icons.close,
                                                           color:
                                                               Color(0xFFFF2B2B),
-                                                          size: 18.0,
+                                                          size: 18,
                                                         ),
                                                       ),
                                                     ),
@@ -6109,10 +6055,10 @@ class _NonePackageEditPage2WidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 4.0, 0.0, 0.0),
+                                                  0, 4, 0, 0),
                                           child: Container(
                                             width: double.infinity,
-                                            height: 20.0,
+                                            height: 20,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -6120,7 +6066,7 @@ class _NonePackageEditPage2WidgetState
                                             ),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                  .fromSTEB(0, 0, 5, 0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -6135,11 +6081,8 @@ class _NonePackageEditPage2WidgetState
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      12.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                                  .fromSTEB(12,
+                                                                      0, 0, 0),
                                                           child: Text(
                                                             FFAppState().nonePackageTrailerImageLeftUploaded !=
                                                                         null &&
@@ -6154,8 +6097,7 @@ class _NonePackageEditPage2WidgetState
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      12.0,
+                                                                  fontSize: 12,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -6228,7 +6170,7 @@ class _NonePackageEditPage2WidgetState
                                                               .content_paste_search_rounded,
                                                           color:
                                                               Color(0xFF354052),
-                                                          size: 18.0,
+                                                          size: 18,
                                                         ),
                                                       ),
                                                     ),
@@ -6243,12 +6185,12 @@ class _NonePackageEditPage2WidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.0, 0.0),
+                                                                0, 0),
                                                         child: Icon(
                                                           Icons.check,
                                                           color:
                                                               Color(0xFF2EDD78),
-                                                          size: 18.0,
+                                                          size: 18,
                                                         ),
                                                       ),
                                                     ),
@@ -6263,12 +6205,12 @@ class _NonePackageEditPage2WidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.0, 0.0),
+                                                                0, 0),
                                                         child: Icon(
                                                           Icons.close,
                                                           color:
                                                               Color(0xFFFF2B2B),
-                                                          size: 18.0,
+                                                          size: 18,
                                                         ),
                                                       ),
                                                     ),
@@ -6280,10 +6222,10 @@ class _NonePackageEditPage2WidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 4.0, 0.0, 0.0),
+                                                  0, 4, 0, 0),
                                           child: Container(
                                             width: double.infinity,
-                                            height: 20.0,
+                                            height: 20,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -6291,7 +6233,7 @@ class _NonePackageEditPage2WidgetState
                                             ),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                  .fromSTEB(0, 0, 5, 0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -6306,11 +6248,8 @@ class _NonePackageEditPage2WidgetState
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      12.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                                  .fromSTEB(12,
+                                                                      0, 0, 0),
                                                           child: Text(
                                                             FFAppState().nonePackageTrailerImageLeftFrontUploaded !=
                                                                         null &&
@@ -6325,8 +6264,7 @@ class _NonePackageEditPage2WidgetState
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      12.0,
+                                                                  fontSize: 12,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -6399,7 +6337,7 @@ class _NonePackageEditPage2WidgetState
                                                               .content_paste_search_rounded,
                                                           color:
                                                               Color(0xFF354052),
-                                                          size: 18.0,
+                                                          size: 18,
                                                         ),
                                                       ),
                                                     ),
@@ -6414,12 +6352,12 @@ class _NonePackageEditPage2WidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.0, 0.0),
+                                                                0, 0),
                                                         child: Icon(
                                                           Icons.check,
                                                           color:
                                                               Color(0xFF2EDD78),
-                                                          size: 18.0,
+                                                          size: 18,
                                                         ),
                                                       ),
                                                     ),
@@ -6434,12 +6372,12 @@ class _NonePackageEditPage2WidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.0, 0.0),
+                                                                0, 0),
                                                         child: Icon(
                                                           Icons.close,
                                                           color:
                                                               Color(0xFFFF2B2B),
-                                                          size: 18.0,
+                                                          size: 18,
                                                         ),
                                                       ),
                                                     ),
@@ -6461,15 +6399,15 @@ class _NonePackageEditPage2WidgetState
                       flex: 2,
                       child: Container(
                         width: double.infinity,
-                        height: 69.0,
+                        height: 69,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.0),
+                          borderRadius: BorderRadius.circular(10),
                         ),
                         child: Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
+                          alignment: AlignmentDirectional(0, 0),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 0.0, 12.0, 0.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
                             child: FFButtonWidget(
                               onPressed: () async {
                                 context.pushNamed('NonePackageEditPage3');
@@ -6477,11 +6415,11 @@ class _NonePackageEditPage2WidgetState
                               text: 'ถัดไป',
                               options: FFButtonOptions(
                                 width: double.infinity,
-                                height: 60.0,
+                                height: 60,
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    24.0, 0.0, 24.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
+                                    24, 0, 24, 0),
+                                iconPadding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                                 color: Color(0xFFDB771A),
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
@@ -6491,12 +6429,12 @@ class _NonePackageEditPage2WidgetState
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
                                     ),
-                                elevation: 3.0,
+                                elevation: 3,
                                 borderSide: BorderSide(
                                   color: Colors.transparent,
-                                  width: 1.0,
+                                  width: 1,
                                 ),
-                                borderRadius: BorderRadius.circular(16.0),
+                                borderRadius: BorderRadius.circular(16),
                               ),
                             ),
                           ),

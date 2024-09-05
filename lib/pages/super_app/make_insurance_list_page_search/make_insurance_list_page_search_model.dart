@@ -29,7 +29,6 @@ class MakeInsuranceListPageSearchModel
     extends FlutterFlowModel<MakeInsuranceListPageSearchWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Custom Action - getBuildVersion1] action in MakeInsuranceListPageSearch widget.
   String? getBuildVersion;
   // Stores action output result for [Firestore Query - Query a collection] action in MakeInsuranceListPageSearch widget.

@@ -59,13 +59,13 @@ class _QuotationWidgetState extends State<QuotationWidget> {
             automaticallyImplyLeading: false,
             leading: FlutterFlowIconButton(
               borderColor: Colors.transparent,
-              borderRadius: 30.0,
-              borderWidth: 1.0,
-              buttonSize: 60.0,
+              borderRadius: 30,
+              borderWidth: 1,
+              buttonSize: 60,
               icon: Icon(
                 Icons.arrow_back_rounded,
                 color: Color(0xFFDB771A),
-                size: 30.0,
+                size: 30,
               ),
               onPressed: () async {
                 context.safePop();
@@ -76,14 +76,14 @@ class _QuotationWidgetState extends State<QuotationWidget> {
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF003063),
-                    fontSize: 18.0,
+                    fontSize: 18,
                     letterSpacing: 0.0,
                     fontWeight: FontWeight.w600,
                   ),
             ),
             actions: [],
             centerTitle: true,
-            elevation: 2.0,
+            elevation: 2,
           ),
           body: SafeArea(
             top: true,
@@ -116,8 +116,8 @@ class _QuotationWidgetState extends State<QuotationWidget> {
                                   .insurarerQuotationPdf[pdfListItemIndex]);
                             },
                             child: Container(
-                              width: 100.0,
-                              height: 100.0,
+                              width: 100,
+                              height: 100,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
@@ -136,8 +136,7 @@ class _QuotationWidgetState extends State<QuotationWidget> {
                       Align(
                         alignment: AlignmentDirectional(0.9, -0.95),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 0.0, 0.0, 16.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(16, 0, 0, 16),
                           child: smooth_page_indicator.SmoothPageIndicator(
                             controller: _model.pageViewController ??=
                                 PageController(
@@ -151,14 +150,14 @@ class _QuotationWidgetState extends State<QuotationWidget> {
                                 duration: Duration(milliseconds: 500),
                                 curve: Curves.ease,
                               );
-                              setState(() {});
+                              safeSetState(() {});
                             },
                             effect: smooth_page_indicator.ExpandingDotsEffect(
-                              expansionFactor: 2.0,
-                              spacing: 8.0,
-                              radius: 16.0,
-                              dotWidth: 16.0,
-                              dotHeight: 8.0,
+                              expansionFactor: 2,
+                              spacing: 8,
+                              radius: 16,
+                              dotWidth: 16,
+                              dotHeight: 8,
                               dotColor: FlutterFlowTheme.of(context).lineColor,
                               activeDotColor:
                                   FlutterFlowTheme.of(context).tertiary,

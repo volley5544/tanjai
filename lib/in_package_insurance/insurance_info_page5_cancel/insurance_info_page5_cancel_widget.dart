@@ -66,13 +66,13 @@ class _InsuranceInfoPage5CancelWidgetState
             automaticallyImplyLeading: false,
             leading: FlutterFlowIconButton(
               borderColor: Colors.transparent,
-              borderRadius: 30.0,
-              borderWidth: 1.0,
-              buttonSize: 60.0,
+              borderRadius: 30,
+              borderWidth: 1,
+              buttonSize: 60,
               icon: Icon(
                 Icons.arrow_back,
                 color: Color(0xFFDB771A),
-                size: 30.0,
+                size: 30,
               ),
               onPressed: () async {
                 context.pop();
@@ -83,13 +83,13 @@ class _InsuranceInfoPage5CancelWidgetState
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF204A77),
-                    fontSize: 18.0,
+                    fontSize: 18,
                     letterSpacing: 0.0,
                   ),
             ),
             actions: [],
             centerTitle: true,
-            elevation: 2.0,
+            elevation: 2,
           ),
           body: SafeArea(
             top: true,
@@ -99,26 +99,24 @@ class _InsuranceInfoPage5CancelWidgetState
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
                     child: Text(
                       'กรอกเหตุผลการยกเลิกทำประกันและขอคืนเงิน',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Noto Sans Thai',
-                            fontSize: 15.0,
+                            fontSize: 15,
                             letterSpacing: 0.0,
                           ),
                     ),
                   ),
                   Container(
                     width: double.infinity,
-                    height: 120.0,
+                    height: 120,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                     ),
                     child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
                       child: TextFormField(
                         controller: _model.textController,
                         focusNode: _model.textFieldFocusNode,
@@ -137,7 +135,7 @@ class _InsuranceInfoPage5CancelWidgetState
                                 fontFamily: 'Noto Sans Thai',
                                 color:
                                     FlutterFlowTheme.of(context).secondaryText,
-                                fontSize: 15.0,
+                                fontSize: 15,
                                 letterSpacing: 0.0,
                               ),
                           enabledBorder: InputBorder.none,
@@ -147,7 +145,7 @@ class _InsuranceInfoPage5CancelWidgetState
                         ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Noto Sans Thai',
-                              fontSize: 15.0,
+                              fontSize: 15,
                               letterSpacing: 0.0,
                             ),
                         validator:
@@ -160,8 +158,7 @@ class _InsuranceInfoPage5CancelWidgetState
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -185,11 +182,11 @@ class _InsuranceInfoPage5CancelWidgetState
                               text: 'ยกเลิก',
                               options: FFButtonOptions(
                                 width: MediaQuery.sizeOf(context).width * 0.4,
-                                height: 60.0,
+                                height: 60,
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 10.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
+                                    10, 0, 10, 0),
+                                iconPadding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                                 color: FlutterFlowTheme.of(context)
                                     .primaryBackground,
                                 textStyle: FlutterFlowTheme.of(context)
@@ -200,17 +197,17 @@ class _InsuranceInfoPage5CancelWidgetState
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
                                     ),
-                                elevation: 3.0,
+                                elevation: 3,
                                 borderSide: BorderSide(
                                   color: Color(0xFF204A77),
-                                  width: 1.0,
+                                  width: 1,
                                 ),
-                                borderRadius: BorderRadius.circular(16.0),
+                                borderRadius: BorderRadius.circular(16),
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  15.0, 0.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
                               child: FFButtonWidget(
                                 onPressed: () async {
                                   var _shouldSetState = false;
@@ -233,7 +230,7 @@ class _InsuranceInfoPage5CancelWidgetState
                                         );
                                       },
                                     );
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
                                   _model.cancelPolicyApi =
@@ -269,7 +266,7 @@ class _InsuranceInfoPage5CancelWidgetState
                                         );
                                       },
                                     );
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
                                   if (CancelInsurancePolicyApiCall.statuslayer1(
@@ -299,7 +296,7 @@ class _InsuranceInfoPage5CancelWidgetState
                                         );
                                       },
                                     );
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
                                   await showDialog(
@@ -335,16 +332,16 @@ class _InsuranceInfoPage5CancelWidgetState
                                     }.withoutNulls,
                                   );
 
-                                  if (_shouldSetState) setState(() {});
+                                  if (_shouldSetState) safeSetState(() {});
                                 },
                                 text: 'ตกลง',
                                 options: FFButtonOptions(
                                   width: MediaQuery.sizeOf(context).width * 0.4,
-                                  height: 60.0,
+                                  height: 60,
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      24.0, 0.0, 24.0, 0.0),
+                                      24, 0, 24, 0),
                                   iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
+                                      0, 0, 0, 0),
                                   color: Color(0xFFD9761A),
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
@@ -355,12 +352,12 @@ class _InsuranceInfoPage5CancelWidgetState
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
-                                  elevation: 3.0,
+                                  elevation: 3,
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
-                                    width: 1.0,
+                                    width: 1,
                                   ),
-                                  borderRadius: BorderRadius.circular(16.0),
+                                  borderRadius: BorderRadius.circular(16),
                                 ),
                               ),
                             ),
@@ -369,9 +366,7 @@ class _InsuranceInfoPage5CancelWidgetState
                       ),
                     ],
                   ),
-                ]
-                    .divide(SizedBox(height: 12.0))
-                    .addToStart(SizedBox(height: 12.0)),
+                ].divide(SizedBox(height: 12)).addToStart(SizedBox(height: 12)),
               ),
             ),
           ),

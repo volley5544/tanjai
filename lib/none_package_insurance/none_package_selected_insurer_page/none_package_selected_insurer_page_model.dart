@@ -29,7 +29,6 @@ class NonePackageSelectedInsurerPageModel
 
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for netPremium widget.
   FocusNode? netPremiumFocusNode;
   TextEditingController? netPremiumTextController;

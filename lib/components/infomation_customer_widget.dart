@@ -48,15 +48,15 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
 
     return Material(
       color: Colors.transparent,
-      elevation: 1.0,
+      elevation: 1,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8.0),
+        borderRadius: BorderRadius.circular(8),
       ),
       child: Container(
-        width: MediaQuery.sizeOf(context).width * 1.0,
+        width: MediaQuery.sizeOf(context).width,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondaryBackground,
-          borderRadius: BorderRadius.circular(8.0),
+          borderRadius: BorderRadius.circular(8),
           border: Border.all(
             color: Color(0xFFE6E6E6),
           ),
@@ -68,9 +68,9 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
           scrollDirection: Axis.vertical,
           children: [
             Align(
-              alignment: AlignmentDirectional(0.0, 0.0),
+              alignment: AlignmentDirectional(0, 0),
               child: Padding(
-                padding: EdgeInsets.all(15.0),
+                padding: EdgeInsets.all(15),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -100,13 +100,13 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
-                                        fontSize: 15.0,
+                                        fontSize: 15,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
                               Container(
-                                width: 10.0,
+                                width: 10,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -132,7 +132,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
-                                        fontSize: 15.0,
+                                        fontSize: 15,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -154,13 +154,13 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
-                                        fontSize: 15.0,
+                                        fontSize: 15,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
                               Container(
-                                width: 10.0,
+                                width: 10,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -186,7 +186,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
-                                        fontSize: 15.0,
+                                        fontSize: 15,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -208,13 +208,13 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
-                                        fontSize: 15.0,
+                                        fontSize: 15,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
                               Container(
-                                width: 10.0,
+                                width: 10,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -240,7 +240,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
-                                        fontSize: 15.0,
+                                        fontSize: 15,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -262,13 +262,13 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
-                                        fontSize: 15.0,
+                                        fontSize: 15,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
                               Container(
-                                width: 10.0,
+                                width: 10,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -294,7 +294,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
-                                        fontSize: 15.0,
+                                        fontSize: 15,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -316,13 +316,13 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
-                                        fontSize: 15.0,
+                                        fontSize: 15,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
                               Container(
-                                width: 10.0,
+                                width: 10,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -348,7 +348,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
-                                        fontSize: 15.0,
+                                        fontSize: 15,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -370,13 +370,13 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
-                                        fontSize: 15.0,
+                                        fontSize: 15,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
                               Container(
-                                width: 10.0,
+                                width: 10,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -407,7 +407,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                         fontFamily: 'Noto Sans Thai',
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
-                                        fontSize: 15.0,
+                                        fontSize: 15,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
@@ -431,13 +431,13 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
-                                          fontSize: 15.0,
+                                          fontSize: 15,
                                           letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
                                 Container(
-                                  width: 10.0,
+                                  width: 10,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
@@ -465,7 +465,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                           fontFamily: 'Noto Sans Thai',
                                           color: FlutterFlowTheme.of(context)
                                               .primaryText,
-                                          fontSize: 15.0,
+                                          fontSize: 15,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
                                         ),
@@ -489,13 +489,13 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
-                                          fontSize: 15.0,
+                                          fontSize: 15,
                                           letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
                                 Container(
-                                  width: 10.0,
+                                  width: 10,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
@@ -523,7 +523,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                           fontFamily: 'Noto Sans Thai',
                                           color: FlutterFlowTheme.of(context)
                                               .primaryText,
-                                          fontSize: 15.0,
+                                          fontSize: 15,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
                                         ),
@@ -546,13 +546,13 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
-                                        fontSize: 15.0,
+                                        fontSize: 15,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
                               Container(
-                                width: 10.0,
+                                width: 10,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -584,7 +584,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                             fontFamily: 'Noto Sans Thai',
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryText,
-                                            fontSize: 15.0,
+                                            fontSize: 15,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
@@ -608,7 +608,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryText,
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -629,7 +629,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryText,
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -654,13 +654,13 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
-                                        fontSize: 15.0,
+                                        fontSize: 15,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
                               Container(
-                                width: 10.0,
+                                width: 10,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -692,7 +692,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                             fontFamily: 'Noto Sans Thai',
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryText,
-                                            fontSize: 15.0,
+                                            fontSize: 15,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
@@ -716,7 +716,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryText,
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -737,7 +737,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryText,
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -762,13 +762,13 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
-                                        fontSize: 15.0,
+                                        fontSize: 15,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
                               Container(
-                                width: 10.0,
+                                width: 10,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -799,7 +799,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                             fontFamily: 'Noto Sans Thai',
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryText,
-                                            fontSize: 15.0,
+                                            fontSize: 15,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
@@ -823,7 +823,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryText,
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -844,7 +844,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryText,
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -859,19 +859,19 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                     ),
                     Flexible(
                       child: Align(
-                        alignment: AlignmentDirectional(1.0, 0.0),
+                        alignment: AlignmentDirectional(1, 0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Container(
-                              height: 75.0,
+                              height: 75,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
-                                borderRadius: BorderRadius.circular(0.0),
+                                borderRadius: BorderRadius.circular(0),
                               ),
                               child: ClipRRect(
-                                borderRadius: BorderRadius.circular(0.0),
+                                borderRadius: BorderRadius.circular(0),
                                 child: Image.network(
                                   valueOrDefault<String>(
                                     functions.stringToImgPath(FFAppState()
@@ -882,14 +882,14 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                         : 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37'),
                                     'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37',
                                   ),
-                                  width: 300.0,
-                                  height: 200.0,
+                                  width: 300,
+                                  height: 200,
                                   fit: BoxFit.cover,
                                   errorBuilder: (context, error, stackTrace) =>
                                       Image.asset(
                                     'assets/images/error_image.png',
-                                    width: 300.0,
-                                    height: 200.0,
+                                    width: 300,
+                                    height: 200,
                                     fit: BoxFit.cover,
                                   ),
                                 ),

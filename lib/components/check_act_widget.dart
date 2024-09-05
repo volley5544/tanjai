@@ -48,19 +48,19 @@ class _CheckActWidgetState extends State<CheckActWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+      padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(0.0),
-            bottomRight: Radius.circular(0.0),
-            topLeft: Radius.circular(12.0),
-            topRight: Radius.circular(12.0),
+            bottomLeft: Radius.circular(0),
+            bottomRight: Radius.circular(0),
+            topLeft: Radius.circular(12),
+            topRight: Radius.circular(12),
           ),
         ),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
+          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
           child: Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -70,24 +70,23 @@ class _CheckActWidgetState extends State<CheckActWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 4.0, 20.0, 12.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 4, 20, 12),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           SizedBox(
-                            height: 18.0,
+                            height: 18,
                             child: VerticalDivider(
-                              thickness: 3.0,
+                              thickness: 3,
                               color: Color(0xFFE8903E),
                             ),
                           ),
                           Expanded(
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  4.0, 0.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(4, 0, 0, 0),
                               child: Text(
                                 'ตรวจสอบ พรบ.',
                                 style: FlutterFlowTheme.of(context)
@@ -95,7 +94,7 @@ class _CheckActWidgetState extends State<CheckActWidget> {
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       color: Color(0xFF003063),
-                                      fontSize: 16.0,
+                                      fontSize: 16,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -106,15 +105,14 @@ class _CheckActWidgetState extends State<CheckActWidget> {
                       ),
                     ),
                     Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
                       child: Container(
                         width: MediaQuery.sizeOf(context).width * 0.9,
-                        height: 50.0,
+                        height: 50,
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
-                          borderRadius: BorderRadius.circular(8.0),
+                          borderRadius: BorderRadius.circular(8),
                           border: Border.all(
                             color: Colors.black,
                             width: 0.1,
@@ -127,10 +125,10 @@ class _CheckActWidgetState extends State<CheckActWidget> {
                           children: [
                             Expanded(
                               child: Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: AlignmentDirectional(0, 0),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      8.0, 0.5, 8.0, 0.5),
+                                      8, 0.5, 8, 0.5),
                                   child: TextFormField(
                                     controller:
                                         _model.searchFirstnameTextController1,
@@ -138,7 +136,7 @@ class _CheckActWidgetState extends State<CheckActWidget> {
                                     onChanged: (_) => EasyDebounce.debounce(
                                       '_model.searchFirstnameTextController1',
                                       Duration(milliseconds: 100),
-                                      () => setState(() {}),
+                                      () => safeSetState(() {}),
                                     ),
                                     autofocus: false,
                                     obscureText: false,
@@ -147,7 +145,7 @@ class _CheckActWidgetState extends State<CheckActWidget> {
                                           .labelMedium
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
-                                            fontSize: 14.0,
+                                            fontSize: 14,
                                             letterSpacing: 0.0,
                                           ),
                                       hintText: 'กรอกทะเบียนรถลูกค้า',
@@ -155,7 +153,7 @@ class _CheckActWidgetState extends State<CheckActWidget> {
                                           .labelMedium
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
-                                            fontSize: 14.0,
+                                            fontSize: 14,
                                             letterSpacing: 0.0,
                                           ),
                                       enabledBorder: InputBorder.none,
@@ -167,7 +165,7 @@ class _CheckActWidgetState extends State<CheckActWidget> {
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
-                                          fontSize: 15.0,
+                                          fontSize: 15,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
                                         ),
@@ -183,15 +181,14 @@ class _CheckActWidgetState extends State<CheckActWidget> {
                       ),
                     ),
                     Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
                       child: Container(
                         width: MediaQuery.sizeOf(context).width * 0.9,
-                        height: 50.0,
+                        height: 50,
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
-                          borderRadius: BorderRadius.circular(8.0),
+                          borderRadius: BorderRadius.circular(8),
                           border: Border.all(
                             color: Colors.black,
                             width: 0.1,
@@ -204,10 +201,10 @@ class _CheckActWidgetState extends State<CheckActWidget> {
                           children: [
                             Expanded(
                               child: Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: AlignmentDirectional(0, 0),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      8.0, 0.5, 8.0, 0.5),
+                                      8, 0.5, 8, 0.5),
                                   child: TextFormField(
                                     controller:
                                         _model.searchFirstnameTextController2,
@@ -215,7 +212,7 @@ class _CheckActWidgetState extends State<CheckActWidget> {
                                     onChanged: (_) => EasyDebounce.debounce(
                                       '_model.searchFirstnameTextController2',
                                       Duration(milliseconds: 100),
-                                      () => setState(() {}),
+                                      () => safeSetState(() {}),
                                     ),
                                     autofocus: false,
                                     obscureText: false,
@@ -224,7 +221,7 @@ class _CheckActWidgetState extends State<CheckActWidget> {
                                           .labelMedium
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
-                                            fontSize: 14.0,
+                                            fontSize: 14,
                                             letterSpacing: 0.0,
                                           ),
                                       hintText: 'กรอกบัตรประชาชนลูกค้า',
@@ -232,7 +229,7 @@ class _CheckActWidgetState extends State<CheckActWidget> {
                                           .labelMedium
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
-                                            fontSize: 14.0,
+                                            fontSize: 14,
                                             letterSpacing: 0.0,
                                           ),
                                       enabledBorder: InputBorder.none,
@@ -244,7 +241,7 @@ class _CheckActWidgetState extends State<CheckActWidget> {
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
-                                          fontSize: 15.0,
+                                          fontSize: 15,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
                                         ),
@@ -260,8 +257,7 @@ class _CheckActWidgetState extends State<CheckActWidget> {
                       ),
                     ),
                     Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 12.0, 0.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 10, 12, 0),
                       child: FFButtonWidget(
                         onPressed: () async {
                           if (!(_model.searchFirstnameTextController1.text !=
@@ -329,11 +325,10 @@ class _CheckActWidgetState extends State<CheckActWidget> {
                         },
                         text: 'ตรวจสอบ',
                         options: FFButtonOptions(
-                          height: 40.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              24.0, 0.0, 24.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
+                          height: 40,
+                          padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                          iconPadding:
+                              EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                           color: Color(0xFFD9761A),
                           textStyle:
                               FlutterFlowTheme.of(context).titleSmall.override(
@@ -341,16 +336,16 @@ class _CheckActWidgetState extends State<CheckActWidget> {
                                     color: Colors.white,
                                     letterSpacing: 0.0,
                                   ),
-                          elevation: 3.0,
+                          elevation: 3,
                           borderSide: BorderSide(
                             color: Colors.transparent,
-                            width: 1.0,
+                            width: 1,
                           ),
-                          borderRadius: BorderRadius.circular(8.0),
+                          borderRadius: BorderRadius.circular(8),
                         ),
                       ),
                     ),
-                  ].addToStart(SizedBox(height: 24.0)),
+                  ].addToStart(SizedBox(height: 24)),
                 ),
               ),
             ],

@@ -55,7 +55,7 @@ class _PdfPageViewComponentWidgetState
         Expanded(
           flex: 1,
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 0.0, 15.0),
+            padding: EdgeInsetsDirectional.fromSTEB(15, 15, 0, 15),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               children: [
@@ -63,8 +63,7 @@ class _PdfPageViewComponentWidgetState
                   child: Align(
                     alignment: AlignmentDirectional(-0.9, -0.85),
                     child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -76,7 +75,7 @@ class _PdfPageViewComponentWidgetState
                         child: FaIcon(
                           FontAwesomeIcons.times,
                           color: Color(0xFFFF0000),
-                          size: 30.0,
+                          size: 30,
                         ),
                       ),
                     ),
@@ -101,12 +100,12 @@ class _PdfPageViewComponentWidgetState
 
                     return Container(
                       width: double.infinity,
-                      height: 500.0,
+                      height: 500,
                       child: Stack(
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 40.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 0, 40),
                             child: PageView.builder(
                               controller: _model.pageViewController ??=
                                   PageController(
@@ -118,13 +117,13 @@ class _PdfPageViewComponentWidgetState
                                 final pdfListItemItem =
                                     pdfListItem[pdfListItemIndex];
                                 return Container(
-                                  width: 100.0,
-                                  height: 100.0,
+                                  width: 100,
+                                  height: 100,
                                   decoration: BoxDecoration(),
                                   child: FlutterFlowPdfViewer(
                                     networkPath: widget!
                                         .pdfUrlList!.pdfUrl[pdfListItemIndex],
-                                    height: 300.0,
+                                    height: 300,
                                     horizontalScroll: false,
                                   ),
                                 );
@@ -132,10 +131,10 @@ class _PdfPageViewComponentWidgetState
                             ),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(0.0, 1.0),
+                            alignment: AlignmentDirectional(0, 1),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 0.0, 0.0, 16.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(16, 0, 0, 16),
                               child: smooth_page_indicator.SmoothPageIndicator(
                                 controller: _model.pageViewController ??=
                                     PageController(
@@ -150,15 +149,15 @@ class _PdfPageViewComponentWidgetState
                                     duration: Duration(milliseconds: 500),
                                     curve: Curves.ease,
                                   );
-                                  setState(() {});
+                                  safeSetState(() {});
                                 },
                                 effect:
                                     smooth_page_indicator.ExpandingDotsEffect(
-                                  expansionFactor: 2.0,
-                                  spacing: 8.0,
-                                  radius: 16.0,
-                                  dotWidth: 16.0,
-                                  dotHeight: 8.0,
+                                  expansionFactor: 2,
+                                  spacing: 8,
+                                  radius: 16,
+                                  dotWidth: 16,
+                                  dotHeight: 8,
                                   dotColor:
                                       FlutterFlowTheme.of(context).accent1,
                                   activeDotColor: Color(0xFFDB771B),

@@ -52,18 +52,18 @@ class _PDFViewerCopyWidgetState extends State<PDFViewerCopyWidget> {
                 assetPath:
                     'assets/pdfs/_CRD_008-2565__Refinance__M_eff_14102565-v1_signed.pdf',
                 width: double.infinity,
-                height: 600.0,
+                height: 600,
                 horizontalScroll: false,
               ),
               FlutterFlowIconButton(
                 borderColor: Colors.transparent,
-                borderRadius: 30.0,
-                borderWidth: 1.0,
-                buttonSize: 50.0,
+                borderRadius: 30,
+                borderWidth: 1,
+                buttonSize: 50,
                 icon: FaIcon(
                   FontAwesomeIcons.times,
                   color: Color(0xFFFF0000),
-                  size: 30.0,
+                  size: 30,
                 ),
                 onPressed: () async {
                   Navigator.pop(context);

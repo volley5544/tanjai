@@ -55,7 +55,7 @@ class _DriverInfomationFormComponentWidgetState
 
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      setState(() {
+      safeSetState(() {
         _model.firstnameTextfieldTextController?.text =
             FFAppState().DriverList[widget!.index!].firstNameTh != ''
                 ? FFAppState().DriverList[widget!.index!].firstNameTh
@@ -115,7 +115,7 @@ class _DriverInfomationFormComponentWidgetState
       mainAxisSize: MainAxisSize.max,
       children: [
         Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+          padding: EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
           child: Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -125,7 +125,7 @@ class _DriverInfomationFormComponentWidgetState
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Noto Sans Thai',
                       color: Color(0xFF1D4774),
-                      fontSize: 18.0,
+                      fontSize: 18,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.w600,
                     ),
@@ -145,29 +145,28 @@ class _DriverInfomationFormComponentWidgetState
                     children: [
                       FlutterFlowIconButton(
                         borderColor: Color(0xFFEF3939),
-                        borderRadius: 20.0,
-                        borderWidth: 2.0,
-                        buttonSize: 32.0,
+                        borderRadius: 20,
+                        borderWidth: 2,
+                        buttonSize: 32,
                         fillColor: Color(0x00616161),
                         icon: FaIcon(
                           FontAwesomeIcons.userMinus,
                           color: Color(0xFFFF0000),
-                          size: 15.0,
+                          size: 15,
                         ),
                         onPressed: () {
                           print('IconButton pressed ...');
                         },
                       ),
                       Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(4, 0, 0, 0),
                         child: Text(
                           'ลบผู้ขับขี่',
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Noto Sans Thai',
                                     color: Color(0xFFFF0000),
-                                    fontSize: 16.0,
+                                    fontSize: 16,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                   ),
@@ -180,19 +179,18 @@ class _DriverInfomationFormComponentWidgetState
           ),
         ),
         Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+          padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
               Container(
-                width: MediaQuery.sizeOf(context).width * 1.0,
+                width: MediaQuery.sizeOf(context).width,
                 decoration: BoxDecoration(),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 4.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 4),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -203,14 +201,14 @@ class _DriverInfomationFormComponentWidgetState
                                 .override(
                                   fontFamily: 'Noto Sans Thai',
                                   color: Color(0xFF1D4774),
-                                  fontSize: 15.0,
+                                  fontSize: 15,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
                                 ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                10.0, 0.0, 0.0, 0.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
                             child: Text(
                               'บังคับเลือก',
                               style: FlutterFlowTheme.of(context)
@@ -218,7 +216,7 @@ class _DriverInfomationFormComponentWidgetState
                                   .override(
                                     fontFamily: 'Noto Sans Thai',
                                     color: Color(0xFFFB0606),
-                                    fontSize: 12.0,
+                                    fontSize: 12,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                   ),
@@ -228,8 +226,7 @@ class _DriverInfomationFormComponentWidgetState
                       ),
                     ),
                     Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -276,12 +273,12 @@ class _DriverInfomationFormComponentWidgetState
                           );
                         },
                         child: Container(
-                          width: MediaQuery.sizeOf(context).width * 1.0,
-                          height: 60.0,
+                          width: MediaQuery.sizeOf(context).width,
+                          height: 60,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
-                            borderRadius: BorderRadius.circular(8.0),
+                            borderRadius: BorderRadius.circular(8),
                             border: Border.all(
                               color: Color(0xFFB3B3B3),
                             ),
@@ -291,8 +288,8 @@ class _DriverInfomationFormComponentWidgetState
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 0.0, 0.0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
                                 child: AutoSizeText(
                                   valueOrDefault<String>(
                                     FFAppState()
@@ -320,19 +317,19 @@ class _DriverInfomationFormComponentWidgetState
                                                 .primaryText
                                             : FlutterFlowTheme.of(context)
                                                 .secondaryText,
-                                        fontSize: 15.0,
+                                        fontSize: 15,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 10.0, 0.0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
                                 child: Icon(
                                   Icons.navigate_next,
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryText,
-                                  size: 24.0,
+                                  size: 24,
                                 ),
                               ),
                             ],
@@ -345,16 +342,15 @@ class _DriverInfomationFormComponentWidgetState
               ),
               if (FFAppState().DriverList[widget!.index!].gender != '')
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                   child: Container(
-                    width: MediaQuery.sizeOf(context).width * 1.0,
+                    width: MediaQuery.sizeOf(context).width,
                     decoration: BoxDecoration(),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              24.0, 0.0, 24.0, 4.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 4),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -365,14 +361,14 @@ class _DriverInfomationFormComponentWidgetState
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       color: Color(0xFF1D4774),
-                                      fontSize: 15.0,
+                                      fontSize: 15,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
                                     ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 0.0, 0.0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
                                 child: Text(
                                   'บังคับเลือก',
                                   style: FlutterFlowTheme.of(context)
@@ -380,7 +376,7 @@ class _DriverInfomationFormComponentWidgetState
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFFB0606),
-                                        fontSize: 12.0,
+                                        fontSize: 12,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
@@ -390,8 +386,7 @@ class _DriverInfomationFormComponentWidgetState
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 0.0, 16.0, 0.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                           child: InkWell(
                             splashColor: Colors.transparent,
                             focusColor: Colors.transparent,
@@ -448,12 +443,12 @@ class _DriverInfomationFormComponentWidgetState
                               );
                             },
                             child: Container(
-                              width: MediaQuery.sizeOf(context).width * 1.0,
-                              height: 60.0,
+                              width: MediaQuery.sizeOf(context).width,
+                              height: 60,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
-                                borderRadius: BorderRadius.circular(8.0),
+                                borderRadius: BorderRadius.circular(8),
                                 border: Border.all(
                                   color: Color(0xFFB3B3B3),
                                 ),
@@ -465,7 +460,7 @@ class _DriverInfomationFormComponentWidgetState
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 0.0, 0.0, 0.0),
+                                        10, 0, 0, 0),
                                     child: AutoSizeText(
                                       valueOrDefault<String>(
                                         FFAppState()
@@ -491,19 +486,19 @@ class _DriverInfomationFormComponentWidgetState
                                                     .primaryText
                                                 : FlutterFlowTheme.of(context)
                                                     .secondaryText,
-                                            fontSize: 15.0,
+                                            fontSize: 15,
                                             letterSpacing: 0.0,
                                           ),
                                     ),
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 10.0, 0.0),
+                                        0, 0, 10, 0),
                                     child: Icon(
                                       Icons.navigate_next,
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryText,
-                                      size: 24.0,
+                                      size: 24,
                                     ),
                                   ),
                                 ],
@@ -516,16 +511,15 @@ class _DriverInfomationFormComponentWidgetState
                   ),
                 ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                 child: Container(
-                  width: MediaQuery.sizeOf(context).width * 1.0,
+                  width: MediaQuery.sizeOf(context).width,
                   decoration: BoxDecoration(),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            24.0, 0.0, 24.0, 4.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 4),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -536,14 +530,14 @@ class _DriverInfomationFormComponentWidgetState
                                   .override(
                                     fontFamily: 'Noto Sans Thai',
                                     color: Color(0xFF1D4774),
-                                    fontSize: 15.0,
+                                    fontSize: 15,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                   ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  10.0, 0.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
                               child: Text(
                                 'บังคับกรอก',
                                 style: FlutterFlowTheme.of(context)
@@ -551,7 +545,7 @@ class _DriverInfomationFormComponentWidgetState
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       color: Color(0xFFFB0606),
-                                      fontSize: 12.0,
+                                      fontSize: 12,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
                                     ),
@@ -561,15 +555,14 @@ class _DriverInfomationFormComponentWidgetState
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            16.0, 0.0, 16.0, 0.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                         child: Container(
-                          width: MediaQuery.sizeOf(context).width * 1.0,
-                          height: 60.0,
+                          width: MediaQuery.sizeOf(context).width,
+                          height: 60,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
-                            borderRadius: BorderRadius.circular(8.0),
+                            borderRadius: BorderRadius.circular(8),
                             border: Border.all(
                               color: Color(0xFFB3B3B3),
                             ),
@@ -580,10 +573,10 @@ class _DriverInfomationFormComponentWidgetState
                             children: [
                               Expanded(
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: AlignmentDirectional(0, 0),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 0.0, 10.0, 0.0),
+                                        10, 0, 10, 0),
                                     child: TextFormField(
                                       controller: _model
                                           .firstnameTextfieldTextController,
@@ -599,7 +592,7 @@ class _DriverInfomationFormComponentWidgetState
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryText,
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
@@ -611,7 +604,7 @@ class _DriverInfomationFormComponentWidgetState
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryText,
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -626,7 +619,7 @@ class _DriverInfomationFormComponentWidgetState
                                             fontFamily: 'Noto Sans Thai',
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryText,
-                                            fontSize: 15.0,
+                                            fontSize: 15,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
@@ -646,16 +639,15 @@ class _DriverInfomationFormComponentWidgetState
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                 child: Container(
-                  width: MediaQuery.sizeOf(context).width * 1.0,
+                  width: MediaQuery.sizeOf(context).width,
                   decoration: BoxDecoration(),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            24.0, 0.0, 24.0, 4.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 4),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -666,14 +658,14 @@ class _DriverInfomationFormComponentWidgetState
                                   .override(
                                     fontFamily: 'Noto Sans Thai',
                                     color: Color(0xFF1D4774),
-                                    fontSize: 15.0,
+                                    fontSize: 15,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                   ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  10.0, 0.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
                               child: Text(
                                 'บังคับกรอก',
                                 style: FlutterFlowTheme.of(context)
@@ -681,7 +673,7 @@ class _DriverInfomationFormComponentWidgetState
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       color: Color(0xFFFB0606),
-                                      fontSize: 12.0,
+                                      fontSize: 12,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
                                     ),
@@ -691,15 +683,14 @@ class _DriverInfomationFormComponentWidgetState
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            16.0, 0.0, 16.0, 0.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                         child: Container(
-                          width: MediaQuery.sizeOf(context).width * 1.0,
-                          height: 60.0,
+                          width: MediaQuery.sizeOf(context).width,
+                          height: 60,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
-                            borderRadius: BorderRadius.circular(8.0),
+                            borderRadius: BorderRadius.circular(8),
                             border: Border.all(
                               color: Color(0xFFB3B3B3),
                             ),
@@ -710,10 +701,10 @@ class _DriverInfomationFormComponentWidgetState
                             children: [
                               Expanded(
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: AlignmentDirectional(0, 0),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 0.0, 10.0, 0.0),
+                                        10, 0, 10, 0),
                                     child: TextFormField(
                                       controller: _model
                                           .address4LastnameTextfieldTextController,
@@ -729,7 +720,7 @@ class _DriverInfomationFormComponentWidgetState
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryText,
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
@@ -741,7 +732,7 @@ class _DriverInfomationFormComponentWidgetState
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryText,
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -756,7 +747,7 @@ class _DriverInfomationFormComponentWidgetState
                                             fontFamily: 'Noto Sans Thai',
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryText,
-                                            fontSize: 15.0,
+                                            fontSize: 15,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
@@ -776,16 +767,15 @@ class _DriverInfomationFormComponentWidgetState
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                 child: Container(
-                  width: MediaQuery.sizeOf(context).width * 1.0,
+                  width: MediaQuery.sizeOf(context).width,
                   decoration: BoxDecoration(),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            24.0, 0.0, 24.0, 4.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 4),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -796,14 +786,14 @@ class _DriverInfomationFormComponentWidgetState
                                   .override(
                                     fontFamily: 'Noto Sans Thai',
                                     color: Color(0xFF1D4774),
-                                    fontSize: 15.0,
+                                    fontSize: 15,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                   ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  10.0, 0.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
                               child: Text(
                                 'บังคับเลือก',
                                 style: FlutterFlowTheme.of(context)
@@ -811,7 +801,7 @@ class _DriverInfomationFormComponentWidgetState
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       color: Color(0xFFFB0606),
-                                      fontSize: 12.0,
+                                      fontSize: 12,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
                                     ),
@@ -821,8 +811,7 @@ class _DriverInfomationFormComponentWidgetState
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            16.0, 0.0, 16.0, 0.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -856,18 +845,18 @@ class _DriverInfomationFormComponentWidgetState
                                 ..birthDay =
                                     functions.getDateFormat(_model.datePicked),
                             );
-                            setState(() {});
+                            safeSetState(() {});
                             await actions.hideKeyboardAction(
                               context,
                             );
                           },
                           child: Container(
-                            width: MediaQuery.sizeOf(context).width * 1.0,
-                            height: 60.0,
+                            width: MediaQuery.sizeOf(context).width,
+                            height: 60,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(8),
                               border: Border.all(
                                 color: Color(0xFFB3B3B3),
                               ),
@@ -878,7 +867,7 @@ class _DriverInfomationFormComponentWidgetState
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 0.0, 0.0, 0.0),
+                                      10, 0, 0, 0),
                                   child: AutoSizeText(
                                     valueOrDefault<String>(
                                       FFAppState()
@@ -908,19 +897,19 @@ class _DriverInfomationFormComponentWidgetState
                                                   .primaryText
                                               : FlutterFlowTheme.of(context)
                                                   .secondaryText,
-                                          fontSize: 15.0,
+                                          fontSize: 15,
                                           letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 10.0, 0.0),
+                                      0, 0, 10, 0),
                                   child: Icon(
                                     Icons.navigate_next,
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryText,
-                                    size: 24.0,
+                                    size: 24,
                                   ),
                                 ),
                               ],
@@ -933,16 +922,15 @@ class _DriverInfomationFormComponentWidgetState
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                 child: Container(
-                  width: MediaQuery.sizeOf(context).width * 1.0,
+                  width: MediaQuery.sizeOf(context).width,
                   decoration: BoxDecoration(),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            24.0, 0.0, 24.0, 4.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 4),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -953,14 +941,14 @@ class _DriverInfomationFormComponentWidgetState
                                   .override(
                                     fontFamily: 'Noto Sans Thai',
                                     color: Color(0xFF1D4774),
-                                    fontSize: 15.0,
+                                    fontSize: 15,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                   ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  10.0, 0.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
                               child: Text(
                                 '(บังคับเลือก)',
                                 style: FlutterFlowTheme.of(context)
@@ -968,7 +956,7 @@ class _DriverInfomationFormComponentWidgetState
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       color: Color(0xFFFB0606),
-                                      fontSize: 12.0,
+                                      fontSize: 12,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
                                     ),
@@ -978,8 +966,7 @@ class _DriverInfomationFormComponentWidgetState
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            16.0, 0.0, 16.0, 0.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -1026,12 +1013,12 @@ class _DriverInfomationFormComponentWidgetState
                             );
                           },
                           child: Container(
-                            width: MediaQuery.sizeOf(context).width * 1.0,
-                            height: 60.0,
+                            width: MediaQuery.sizeOf(context).width,
+                            height: 60,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(8),
                               border: Border.all(
                                 color: Color(0xFFB3B3B3),
                               ),
@@ -1042,7 +1029,7 @@ class _DriverInfomationFormComponentWidgetState
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 0.0, 0.0, 0.0),
+                                      10, 0, 0, 0),
                                   child: AutoSizeText(
                                     valueOrDefault<String>(
                                       FFAppState()
@@ -1068,19 +1055,19 @@ class _DriverInfomationFormComponentWidgetState
                                                   .primaryText
                                               : FlutterFlowTheme.of(context)
                                                   .secondaryText,
-                                          fontSize: 15.0,
+                                          fontSize: 15,
                                           letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 10.0, 0.0),
+                                      0, 0, 10, 0),
                                   child: Icon(
                                     Icons.navigate_next,
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryText,
-                                    size: 24.0,
+                                    size: 24,
                                   ),
                                 ),
                               ],
@@ -1093,16 +1080,15 @@ class _DriverInfomationFormComponentWidgetState
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                 child: Container(
-                  width: MediaQuery.sizeOf(context).width * 1.0,
+                  width: MediaQuery.sizeOf(context).width,
                   decoration: BoxDecoration(),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            24.0, 0.0, 24.0, 4.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 4),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -1113,14 +1099,14 @@ class _DriverInfomationFormComponentWidgetState
                                   .override(
                                     fontFamily: 'Noto Sans Thai',
                                     color: Color(0xFF1D4774),
-                                    fontSize: 15.0,
+                                    fontSize: 15,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                   ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  10.0, 0.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
                               child: Text(
                                 'บังคับกรอก',
                                 style: FlutterFlowTheme.of(context)
@@ -1128,7 +1114,7 @@ class _DriverInfomationFormComponentWidgetState
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       color: Color(0xFFFB0606),
-                                      fontSize: 12.0,
+                                      fontSize: 12,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
                                     ),
@@ -1138,8 +1124,7 @@ class _DriverInfomationFormComponentWidgetState
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            16.0, 0.0, 16.0, 0.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -1178,12 +1163,12 @@ class _DriverInfomationFormComponentWidgetState
                             );
                           },
                           child: Container(
-                            width: MediaQuery.sizeOf(context).width * 1.0,
-                            height: 60.0,
+                            width: MediaQuery.sizeOf(context).width,
+                            height: 60,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(8),
                               border: Border.all(
                                 color: Color(0xFFB3B3B3),
                               ),
@@ -1194,10 +1179,10 @@ class _DriverInfomationFormComponentWidgetState
                               children: [
                                 Expanded(
                                   child: Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0, 0),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 0.0, 10.0, 0.0),
+                                          10, 0, 10, 0),
                                       child: TextFormField(
                                         controller: _model
                                             .thaiIdTextfieldTextController,
@@ -1214,7 +1199,7 @@ class _DriverInfomationFormComponentWidgetState
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryText,
-                                                fontSize: 15.0,
+                                                fontSize: 15,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
                                               ),
@@ -1228,7 +1213,7 @@ class _DriverInfomationFormComponentWidgetState
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryText,
-                                                fontSize: 15.0,
+                                                fontSize: 15,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
@@ -1244,7 +1229,7 @@ class _DriverInfomationFormComponentWidgetState
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryText,
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -1269,16 +1254,15 @@ class _DriverInfomationFormComponentWidgetState
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 10.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 10),
                 child: Container(
-                  width: MediaQuery.sizeOf(context).width * 1.0,
+                  width: MediaQuery.sizeOf(context).width,
                   decoration: BoxDecoration(),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            24.0, 0.0, 24.0, 4.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 4),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -1289,14 +1273,14 @@ class _DriverInfomationFormComponentWidgetState
                                   .override(
                                     fontFamily: 'Noto Sans Thai',
                                     color: Color(0xFF1D4774),
-                                    fontSize: 15.0,
+                                    fontSize: 15,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                   ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  10.0, 0.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
                               child: Text(
                                 'บังคับกรอก',
                                 style: FlutterFlowTheme.of(context)
@@ -1304,7 +1288,7 @@ class _DriverInfomationFormComponentWidgetState
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       color: Color(0xFFFB0606),
-                                      fontSize: 12.0,
+                                      fontSize: 12,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
                                     ),
@@ -1314,8 +1298,7 @@ class _DriverInfomationFormComponentWidgetState
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            16.0, 0.0, 16.0, 0.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -1323,21 +1306,21 @@ class _DriverInfomationFormComponentWidgetState
                           highlightColor: Colors.transparent,
                           onTap: () async {},
                           child: Container(
-                            width: MediaQuery.sizeOf(context).width * 1.0,
-                            height: 60.0,
+                            width: MediaQuery.sizeOf(context).width,
+                            height: 60,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(8),
                               border: Border.all(
                                 color: Color(0xFFB3B3B3),
                               ),
                             ),
                             child: Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0, 0),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 10.0, 0.0),
+                                    10, 0, 10, 0),
                                 child: TextFormField(
                                   controller: _model
                                       .driverLicenseTextfieldTextController,
@@ -1352,7 +1335,7 @@ class _DriverInfomationFormComponentWidgetState
                                           fontFamily: 'Noto Sans Thai',
                                           color: FlutterFlowTheme.of(context)
                                               .primaryText,
-                                          fontSize: 15.0,
+                                          fontSize: 15,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
                                         ),
@@ -1363,7 +1346,7 @@ class _DriverInfomationFormComponentWidgetState
                                           fontFamily: 'Noto Sans Thai',
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryText,
-                                          fontSize: 15.0,
+                                          fontSize: 15,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
                                         ),
@@ -1378,7 +1361,7 @@ class _DriverInfomationFormComponentWidgetState
                                         fontFamily: 'Noto Sans Thai',
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
-                                        fontSize: 15.0,
+                                        fontSize: 15,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
@@ -1402,8 +1385,7 @@ class _DriverInfomationFormComponentWidgetState
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            12.0, 16.0, 12.0, 0.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(12, 16, 12, 0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -1417,8 +1399,8 @@ class _DriverInfomationFormComponentWidgetState
                                   ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  5.0, 0.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(5, 0, 0, 0),
                               child: Text(
                                 'บังคับถ่ายรูป',
                                 style: FlutterFlowTheme.of(context)
@@ -1426,7 +1408,7 @@ class _DriverInfomationFormComponentWidgetState
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       color: Color(0xFFFC0D0D),
-                                      fontSize: 13.0,
+                                      fontSize: 13,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
@@ -1439,8 +1421,8 @@ class _DriverInfomationFormComponentWidgetState
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 12.0, 12.0, 0.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(12, 12, 12, 0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -1457,7 +1439,7 @@ class _DriverInfomationFormComponentWidgetState
                                         selectedMedia.every((m) =>
                                             validateFileFormat(
                                                 m.storagePath, context))) {
-                                      setState(
+                                      safeSetState(
                                           () => _model.isDataUploading1 = true);
                                       var selectedUploadedFiles =
                                           <FFUploadedFile>[];
@@ -1492,14 +1474,14 @@ class _DriverInfomationFormComponentWidgetState
                                               selectedMedia.length &&
                                           downloadUrls.length ==
                                               selectedMedia.length) {
-                                        setState(() {
+                                        safeSetState(() {
                                           _model.uploadedLocalFile1 =
                                               selectedUploadedFiles.first;
                                           _model.uploadedFileUrl1 =
                                               downloadUrls.first;
                                         });
                                       } else {
-                                        setState(() {});
+                                        safeSetState(() {});
                                         return;
                                       }
                                     }
@@ -1527,7 +1509,7 @@ class _DriverInfomationFormComponentWidgetState
                                       (e) => e
                                         ..imageIdcard = _model.uploadedFileUrl1,
                                     );
-                                    setState(() {});
+                                    safeSetState(() {});
                                     ScaffoldMessenger.of(context)
                                         .clearSnackBars();
                                     ScaffoldMessenger.of(context).showSnackBar(
@@ -1545,27 +1527,27 @@ class _DriverInfomationFormComponentWidgetState
                                   },
                                   text: 'ถ่ายรูป',
                                   options: FFButtonOptions(
-                                    width: 125.0,
-                                    height: 45.0,
+                                    width: 125,
+                                    height: 45,
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        24.0, 0.0, 24.0, 0.0),
+                                        24, 0, 24, 0),
                                     iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
+                                        0, 0, 0, 0),
                                     color: Color(0xFFFCEFE4),
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFFDB771A),
-                                          fontSize: 15.0,
+                                          fontSize: 15,
                                           letterSpacing: 0.0,
                                         ),
-                                    elevation: 3.0,
+                                    elevation: 3,
                                     borderSide: BorderSide(
                                       color: Colors.transparent,
-                                      width: 1.0,
+                                      width: 1,
                                     ),
-                                    borderRadius: BorderRadius.circular(8.0),
+                                    borderRadius: BorderRadius.circular(8),
                                   ),
                                 ),
                                 Row(
@@ -1573,7 +1555,7 @@ class _DriverInfomationFormComponentWidgetState
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          12.0, 0.0, 0.0, 0.0),
+                                          12, 0, 0, 0),
                                       child: Text(
                                         FFAppState()
                                                         .DriverList[
@@ -1605,7 +1587,7 @@ class _DriverInfomationFormComponentWidgetState
                                             '')
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            4.0, 0.0, 0.0, 0.0),
+                                            4, 0, 0, 0),
                                         child: InkWell(
                                           splashColor: Colors.transparent,
                                           focusColor: Colors.transparent,
@@ -1645,7 +1627,7 @@ class _DriverInfomationFormComponentWidgetState
                                             Icons.image_search,
                                             color: FlutterFlowTheme.of(context)
                                                 .tertiary,
-                                            size: 24.0,
+                                            size: 24,
                                           ),
                                         ),
                                       ),
@@ -1662,7 +1644,7 @@ class _DriverInfomationFormComponentWidgetState
                                   Icon(
                                     Icons.check,
                                     color: Color(0xFF2EDD78),
-                                    size: 24.0,
+                                    size: 24,
                                   ),
                                 if (FFAppState()
                                             .DriverList[widget!.index!]
@@ -1675,7 +1657,7 @@ class _DriverInfomationFormComponentWidgetState
                                   Icon(
                                     Icons.close,
                                     color: Color(0xFFFC0A0A),
-                                    size: 24.0,
+                                    size: 24,
                                   ),
                               ],
                             ),
@@ -1693,8 +1675,7 @@ class _DriverInfomationFormComponentWidgetState
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            12.0, 16.0, 12.0, 0.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(12, 16, 12, 0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -1708,8 +1689,8 @@ class _DriverInfomationFormComponentWidgetState
                                   ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  5.0, 0.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(5, 0, 0, 0),
                               child: Text(
                                 'บังคับถ่ายรูป',
                                 style: FlutterFlowTheme.of(context)
@@ -1717,7 +1698,7 @@ class _DriverInfomationFormComponentWidgetState
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       color: Color(0xFFFC0D0D),
-                                      fontSize: 13.0,
+                                      fontSize: 13,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
@@ -1730,8 +1711,8 @@ class _DriverInfomationFormComponentWidgetState
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 12.0, 12.0, 0.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(12, 12, 12, 0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -1748,7 +1729,7 @@ class _DriverInfomationFormComponentWidgetState
                                         selectedMedia.every((m) =>
                                             validateFileFormat(
                                                 m.storagePath, context))) {
-                                      setState(
+                                      safeSetState(
                                           () => _model.isDataUploading2 = true);
                                       var selectedUploadedFiles =
                                           <FFUploadedFile>[];
@@ -1783,14 +1764,14 @@ class _DriverInfomationFormComponentWidgetState
                                               selectedMedia.length &&
                                           downloadUrls.length ==
                                               selectedMedia.length) {
-                                        setState(() {
+                                        safeSetState(() {
                                           _model.uploadedLocalFile2 =
                                               selectedUploadedFiles.first;
                                           _model.uploadedFileUrl2 =
                                               downloadUrls.first;
                                         });
                                       } else {
-                                        setState(() {});
+                                        safeSetState(() {});
                                         return;
                                       }
                                     }
@@ -1819,7 +1800,7 @@ class _DriverInfomationFormComponentWidgetState
                                         ..imageLicenseNo =
                                             _model.uploadedFileUrl2,
                                     );
-                                    setState(() {});
+                                    safeSetState(() {});
                                     ScaffoldMessenger.of(context)
                                         .clearSnackBars();
                                     ScaffoldMessenger.of(context).showSnackBar(
@@ -1837,27 +1818,27 @@ class _DriverInfomationFormComponentWidgetState
                                   },
                                   text: 'ถ่ายรูป',
                                   options: FFButtonOptions(
-                                    width: 125.0,
-                                    height: 45.0,
+                                    width: 125,
+                                    height: 45,
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        24.0, 0.0, 24.0, 0.0),
+                                        24, 0, 24, 0),
                                     iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
+                                        0, 0, 0, 0),
                                     color: Color(0xFFFCEFE4),
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFFDB771A),
-                                          fontSize: 15.0,
+                                          fontSize: 15,
                                           letterSpacing: 0.0,
                                         ),
-                                    elevation: 3.0,
+                                    elevation: 3,
                                     borderSide: BorderSide(
                                       color: Colors.transparent,
-                                      width: 1.0,
+                                      width: 1,
                                     ),
-                                    borderRadius: BorderRadius.circular(8.0),
+                                    borderRadius: BorderRadius.circular(8),
                                   ),
                                 ),
                                 Row(
@@ -1865,7 +1846,7 @@ class _DriverInfomationFormComponentWidgetState
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          12.0, 0.0, 0.0, 0.0),
+                                          12, 0, 0, 0),
                                       child: Text(
                                         FFAppState()
                                                         .DriverList[
@@ -1897,7 +1878,7 @@ class _DriverInfomationFormComponentWidgetState
                                             '')
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            4.0, 0.0, 0.0, 0.0),
+                                            4, 0, 0, 0),
                                         child: InkWell(
                                           splashColor: Colors.transparent,
                                           focusColor: Colors.transparent,
@@ -1937,7 +1918,7 @@ class _DriverInfomationFormComponentWidgetState
                                             Icons.image_search,
                                             color: FlutterFlowTheme.of(context)
                                                 .tertiary,
-                                            size: 24.0,
+                                            size: 24,
                                           ),
                                         ),
                                       ),
@@ -1954,7 +1935,7 @@ class _DriverInfomationFormComponentWidgetState
                                   Icon(
                                     Icons.check,
                                     color: Color(0xFF2EDD78),
-                                    size: 24.0,
+                                    size: 24,
                                   ),
                                 if (FFAppState()
                                             .DriverList[widget!.index!]
@@ -1967,7 +1948,7 @@ class _DriverInfomationFormComponentWidgetState
                                   Icon(
                                     Icons.close,
                                     color: Color(0xFFFC0A0A),
-                                    size: 24.0,
+                                    size: 24,
                                   ),
                               ],
                             ),
@@ -1979,8 +1960,8 @@ class _DriverInfomationFormComponentWidgetState
                 ],
               ),
               Divider(
-                height: 40.0,
-                thickness: 1.0,
+                height: 40,
+                thickness: 1,
                 color: FlutterFlowTheme.of(context).accent4,
               ),
             ],

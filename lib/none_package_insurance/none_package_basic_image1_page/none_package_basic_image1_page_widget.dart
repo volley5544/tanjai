@@ -66,8 +66,8 @@ class _NonePackageBasicImage1PageWidgetState
             backgroundColor: Colors.white,
             body: Center(
               child: SizedBox(
-                width: 50.0,
-                height: 50.0,
+                width: 50,
+                height: 50,
                 child: CircularProgressIndicator(
                   valueColor: AlwaysStoppedAnimation<Color>(
                     FlutterFlowTheme.of(context).primary,
@@ -96,13 +96,13 @@ class _NonePackageBasicImage1PageWidgetState
                 automaticallyImplyLeading: false,
                 leading: FlutterFlowIconButton(
                   borderColor: Colors.transparent,
-                  borderRadius: 30.0,
-                  borderWidth: 1.0,
-                  buttonSize: 60.0,
+                  borderRadius: 30,
+                  borderWidth: 1,
+                  buttonSize: 60,
                   icon: Icon(
                     Icons.arrow_back_rounded,
                     color: Color(0xFFDB771A),
-                    size: 30.0,
+                    size: 30,
                   ),
                   onPressed: () async {
                     context.pop();
@@ -121,14 +121,14 @@ class _NonePackageBasicImage1PageWidgetState
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
                         fontFamily: 'Noto Sans Thai',
                         color: Color(0xFF003063),
-                        fontSize: 18.0,
+                        fontSize: 18,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w600,
                       ),
                 ),
                 actions: [],
                 centerTitle: true,
-                elevation: 2.0,
+                elevation: 2,
               ),
               body: SafeArea(
                 top: true,
@@ -157,7 +157,7 @@ class _NonePackageBasicImage1PageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 15.0, 12.0, 0.0),
+                                                  12, 15, 12, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -169,7 +169,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                         .override(
                                                           fontFamily:
                                                               'Noto Sans Thai',
-                                                          fontSize: 20.0,
+                                                          fontSize: 20,
                                                           letterSpacing: 0.0,
                                                         ),
                                               ),
@@ -184,7 +184,7 @@ class _NonePackageBasicImage1PageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 0.0, 12.0, 0.0),
+                                                  12, 0, 12, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -208,14 +208,14 @@ class _NonePackageBasicImage1PageWidgetState
                                     ),
                                     Container(
                                       width: double.infinity,
-                                      height: 315.0,
+                                      height: 315,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
                                       ),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 12.0, 0.0, 0.0),
+                                            0, 12, 0, 0),
                                         child: Container(
                                           width: double.infinity,
                                           child: Stack(
@@ -306,7 +306,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                             validateFileFormat(
                                                                 m.storagePath,
                                                                 context))) {
-                                                      setState(() => _model
+                                                      safeSetState(() => _model
                                                               .isDataUploading1 =
                                                           true);
                                                       var selectedUploadedFiles =
@@ -361,7 +361,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                           downloadUrls.length ==
                                                               selectedMedia
                                                                   .length) {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.uploadedLocalFile1 =
                                                               selectedUploadedFiles
                                                                   .first;
@@ -370,7 +370,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                                   .first;
                                                         });
                                                       } else {
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                         return;
                                                       }
                                                     }
@@ -383,7 +383,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                               .nonePackageImageFrontUploaded =
                                                           _model
                                                               .uploadedFileUrl1;
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                       ScaffoldMessenger.of(
                                                               context)
                                                           .clearSnackBars();
@@ -428,8 +428,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                     }
                                                   },
                                                   child: Container(
-                                                    width: 100.0,
-                                                    height: 70.0,
+                                                    width: 100,
+                                                    height: 70,
                                                     decoration: BoxDecoration(
                                                       color: Color(0x00FFFFFF),
                                                     ),
@@ -494,7 +494,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                             validateFileFormat(
                                                                 m.storagePath,
                                                                 context))) {
-                                                      setState(() => _model
+                                                      safeSetState(() => _model
                                                               .isDataUploading2 =
                                                           true);
                                                       var selectedUploadedFiles =
@@ -549,7 +549,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                           downloadUrls.length ==
                                                               selectedMedia
                                                                   .length) {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.uploadedLocalFile2 =
                                                               selectedUploadedFiles
                                                                   .first;
@@ -558,7 +558,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                                   .first;
                                                         });
                                                       } else {
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                         return;
                                                       }
                                                     }
@@ -571,7 +571,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                               .nonePackageImageRightFrontUploaded =
                                                           _model
                                                               .uploadedFileUrl2;
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                       ScaffoldMessenger.of(
                                                               context)
                                                           .clearSnackBars();
@@ -616,8 +616,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                     }
                                                   },
                                                   child: Container(
-                                                    width: 110.0,
-                                                    height: 80.0,
+                                                    width: 110,
+                                                    height: 80,
                                                     decoration: BoxDecoration(
                                                       color: Color(0x00FFFFFF),
                                                     ),
@@ -626,7 +626,7 @@ class _NonePackageBasicImage1PageWidgetState
                                               ),
                                               Align(
                                                 alignment: AlignmentDirectional(
-                                                    0.0, -0.8),
+                                                    0, -0.8),
                                                 child: InkWell(
                                                   splashColor:
                                                       Colors.transparent,
@@ -682,7 +682,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                             validateFileFormat(
                                                                 m.storagePath,
                                                                 context))) {
-                                                      setState(() => _model
+                                                      safeSetState(() => _model
                                                               .isDataUploading3 =
                                                           true);
                                                       var selectedUploadedFiles =
@@ -737,7 +737,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                           downloadUrls.length ==
                                                               selectedMedia
                                                                   .length) {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.uploadedLocalFile3 =
                                                               selectedUploadedFiles
                                                                   .first;
@@ -746,7 +746,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                                   .first;
                                                         });
                                                       } else {
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                         return;
                                                       }
                                                     }
@@ -759,7 +759,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                               .nonePackageImageRightUploaded =
                                                           _model
                                                               .uploadedFileUrl3;
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                       ScaffoldMessenger.of(
                                                               context)
                                                           .clearSnackBars();
@@ -804,8 +804,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                     }
                                                   },
                                                   child: Container(
-                                                    width: 110.0,
-                                                    height: 80.0,
+                                                    width: 110,
+                                                    height: 80,
                                                     decoration: BoxDecoration(
                                                       color: Color(0x00FFFFFF),
                                                     ),
@@ -870,7 +870,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                             validateFileFormat(
                                                                 m.storagePath,
                                                                 context))) {
-                                                      setState(() => _model
+                                                      safeSetState(() => _model
                                                               .isDataUploading4 =
                                                           true);
                                                       var selectedUploadedFiles =
@@ -925,7 +925,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                           downloadUrls.length ==
                                                               selectedMedia
                                                                   .length) {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.uploadedLocalFile4 =
                                                               selectedUploadedFiles
                                                                   .first;
@@ -934,7 +934,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                                   .first;
                                                         });
                                                       } else {
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                         return;
                                                       }
                                                     }
@@ -947,7 +947,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                               .nonePackageImageRightRearUploaded =
                                                           _model
                                                               .uploadedFileUrl4;
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                       ScaffoldMessenger.of(
                                                               context)
                                                           .clearSnackBars();
@@ -992,8 +992,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                     }
                                                   },
                                                   child: Container(
-                                                    width: 110.0,
-                                                    height: 80.0,
+                                                    width: 110,
+                                                    height: 80,
                                                     decoration: BoxDecoration(
                                                       color: Color(0x00FFFFFF),
                                                     ),
@@ -1058,7 +1058,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                             validateFileFormat(
                                                                 m.storagePath,
                                                                 context))) {
-                                                      setState(() => _model
+                                                      safeSetState(() => _model
                                                               .isDataUploading5 =
                                                           true);
                                                       var selectedUploadedFiles =
@@ -1113,7 +1113,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                           downloadUrls.length ==
                                                               selectedMedia
                                                                   .length) {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.uploadedLocalFile5 =
                                                               selectedUploadedFiles
                                                                   .first;
@@ -1122,7 +1122,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                                   .first;
                                                         });
                                                       } else {
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                         return;
                                                       }
                                                     }
@@ -1135,7 +1135,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                               .nonePackageImageRearUploaded =
                                                           _model
                                                               .uploadedFileUrl5;
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                       ScaffoldMessenger.of(
                                                               context)
                                                           .clearSnackBars();
@@ -1180,8 +1180,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                     }
                                                   },
                                                   child: Container(
-                                                    width: 110.0,
-                                                    height: 70.0,
+                                                    width: 110,
+                                                    height: 70,
                                                     decoration: BoxDecoration(
                                                       color: Color(0x00FFFFFF),
                                                     ),
@@ -1190,7 +1190,7 @@ class _NonePackageBasicImage1PageWidgetState
                                               ),
                                               Align(
                                                 alignment: AlignmentDirectional(
-                                                    0.87, 1.0),
+                                                    0.87, 1),
                                                 child: InkWell(
                                                   splashColor:
                                                       Colors.transparent,
@@ -1246,7 +1246,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                             validateFileFormat(
                                                                 m.storagePath,
                                                                 context))) {
-                                                      setState(() => _model
+                                                      safeSetState(() => _model
                                                               .isDataUploading6 =
                                                           true);
                                                       var selectedUploadedFiles =
@@ -1301,7 +1301,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                           downloadUrls.length ==
                                                               selectedMedia
                                                                   .length) {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.uploadedLocalFile6 =
                                                               selectedUploadedFiles
                                                                   .first;
@@ -1310,7 +1310,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                                   .first;
                                                         });
                                                       } else {
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                         return;
                                                       }
                                                     }
@@ -1323,7 +1323,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                               .nonePackageImageLeftRearUploaded =
                                                           _model
                                                               .uploadedFileUrl6;
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                       ScaffoldMessenger.of(
                                                               context)
                                                           .clearSnackBars();
@@ -1368,8 +1368,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                     }
                                                   },
                                                   child: Container(
-                                                    width: 100.0,
-                                                    height: 80.0,
+                                                    width: 100,
+                                                    height: 80,
                                                     decoration: BoxDecoration(
                                                       color: Color(0x00FFFFFF),
                                                     ),
@@ -1434,7 +1434,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                             validateFileFormat(
                                                                 m.storagePath,
                                                                 context))) {
-                                                      setState(() => _model
+                                                      safeSetState(() => _model
                                                               .isDataUploading7 =
                                                           true);
                                                       var selectedUploadedFiles =
@@ -1489,7 +1489,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                           downloadUrls.length ==
                                                               selectedMedia
                                                                   .length) {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.uploadedLocalFile7 =
                                                               selectedUploadedFiles
                                                                   .first;
@@ -1498,7 +1498,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                                   .first;
                                                         });
                                                       } else {
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                         return;
                                                       }
                                                     }
@@ -1511,7 +1511,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                               .nonePackageImageLeftUploaded =
                                                           _model
                                                               .uploadedFileUrl7;
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                       ScaffoldMessenger.of(
                                                               context)
                                                           .clearSnackBars();
@@ -1556,8 +1556,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                     }
                                                   },
                                                   child: Container(
-                                                    width: 100.0,
-                                                    height: 80.0,
+                                                    width: 100,
+                                                    height: 80,
                                                     decoration: BoxDecoration(
                                                       color: Color(0x00FFFFFF),
                                                     ),
@@ -1622,7 +1622,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                             validateFileFormat(
                                                                 m.storagePath,
                                                                 context))) {
-                                                      setState(() => _model
+                                                      safeSetState(() => _model
                                                               .isDataUploading8 =
                                                           true);
                                                       var selectedUploadedFiles =
@@ -1677,7 +1677,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                           downloadUrls.length ==
                                                               selectedMedia
                                                                   .length) {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.uploadedLocalFile8 =
                                                               selectedUploadedFiles
                                                                   .first;
@@ -1686,7 +1686,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                                   .first;
                                                         });
                                                       } else {
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                         return;
                                                       }
                                                     }
@@ -1699,7 +1699,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                               .nonePackageImageLeftFrontUploaded =
                                                           _model
                                                               .uploadedFileUrl8;
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                       ScaffoldMessenger.of(
                                                               context)
                                                           .clearSnackBars();
@@ -1744,8 +1744,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                     }
                                                   },
                                                   child: Container(
-                                                    width: 100.0,
-                                                    height: 80.0,
+                                                    width: 100,
+                                                    height: 80,
                                                     decoration: BoxDecoration(
                                                       color: Color(0x00FFFFFF),
                                                     ),
@@ -1758,7 +1758,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                 Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0.0, 0.0),
+                                                          0, 0),
                                                   child: InkWell(
                                                     splashColor:
                                                         Colors.transparent,
@@ -1817,7 +1817,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                               validateFileFormat(
                                                                   m.storagePath,
                                                                   context))) {
-                                                        setState(() => _model
+                                                        safeSetState(() => _model
                                                                 .isDataUploading9 =
                                                             true);
                                                         var selectedUploadedFiles =
@@ -1874,7 +1874,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                                     .length ==
                                                                 selectedMedia
                                                                     .length) {
-                                                          setState(() {
+                                                          safeSetState(() {
                                                             _model.uploadedLocalFile9 =
                                                                 selectedUploadedFiles
                                                                     .first;
@@ -1883,7 +1883,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                                     .first;
                                                           });
                                                         } else {
-                                                          setState(() {});
+                                                          safeSetState(() {});
                                                           return;
                                                         }
                                                       }
@@ -1896,7 +1896,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                                 .nonePackageImageRoofUploaded =
                                                             _model
                                                                 .uploadedFileUrl9;
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                         ScaffoldMessenger.of(
                                                                 context)
                                                             .clearSnackBars();
@@ -1943,8 +1943,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                       }
                                                     },
                                                     child: Container(
-                                                      width: 160.0,
-                                                      height: 70.0,
+                                                      width: 160,
+                                                      height: 70,
                                                       decoration: BoxDecoration(
                                                         color:
                                                             Color(0x00FFFFFF),
@@ -1962,8 +1962,8 @@ class _NonePackageBasicImage1PageWidgetState
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 8.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
                               child: Container(
                                 width: double.infinity,
                                 decoration: BoxDecoration(
@@ -1972,7 +1972,7 @@ class _NonePackageBasicImage1PageWidgetState
                                 ),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      14.0, 0.0, 0.0, 0.0),
+                                      14, 0, 0, 0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     crossAxisAlignment:
@@ -1980,7 +1980,7 @@ class _NonePackageBasicImage1PageWidgetState
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            12.0, 15.0, 12.0, 0.0),
+                                            12, 15, 12, 0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -1996,14 +1996,13 @@ class _NonePackageBasicImage1PageWidgetState
                                                             'Noto Sans Thai',
                                                         color:
                                                             Color(0xFF002D5E),
-                                                        fontSize: 18.0,
+                                                        fontSize: 18,
                                                         letterSpacing: 0.0,
                                                       ),
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      10.0, 0.0, 0.0, 0.0),
+                                                  .fromSTEB(10, 0, 0, 0),
                                               child: Text(
                                                 FFAppState().nonePackageVehicleType ==
                                                         'รถบรรทุก หัวลาก หางพ่วง'
@@ -2029,10 +2028,10 @@ class _NonePackageBasicImage1PageWidgetState
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 12.0, 0.0, 0.0),
+                                            0, 12, 0, 0),
                                         child: Container(
                                           width: double.infinity,
-                                          height: 20.0,
+                                          height: 20,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
@@ -2040,7 +2039,7 @@ class _NonePackageBasicImage1PageWidgetState
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 5.0, 0.0),
+                                                    0, 0, 5, 0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               crossAxisAlignment:
@@ -2055,11 +2054,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    12.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                                .fromSTEB(12, 0,
+                                                                    0, 0),
                                                         child: Text(
                                                           FFAppState().nonePackageImageFrontUploaded !=
                                                                       null &&
@@ -2074,7 +2070,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                fontSize: 12.0,
+                                                                fontSize: 12,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -2094,12 +2090,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.0, 0.0),
+                                                              0, 0),
                                                       child: Icon(
                                                         Icons.check,
                                                         color:
                                                             Color(0xFF2EDD78),
-                                                        size: 18.0,
+                                                        size: 18,
                                                       ),
                                                     ),
                                                   ),
@@ -2114,12 +2110,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.0, 0.0),
+                                                              0, 0),
                                                       child: Icon(
                                                         Icons.close,
                                                         color:
                                                             Color(0xFFFF2B2B),
-                                                        size: 18.0,
+                                                        size: 18,
                                                       ),
                                                     ),
                                                   ),
@@ -2130,10 +2126,10 @@ class _NonePackageBasicImage1PageWidgetState
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 4.0, 0.0, 0.0),
+                                            0, 4, 0, 0),
                                         child: Container(
                                           width: double.infinity,
-                                          height: 20.0,
+                                          height: 20,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
@@ -2141,7 +2137,7 @@ class _NonePackageBasicImage1PageWidgetState
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 5.0, 0.0),
+                                                    0, 0, 5, 0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               crossAxisAlignment:
@@ -2156,11 +2152,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    12.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                                .fromSTEB(12, 0,
+                                                                    0, 0),
                                                         child: Text(
                                                           FFAppState().nonePackageImageRightFrontUploaded !=
                                                                       null &&
@@ -2175,7 +2168,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                fontSize: 12.0,
+                                                                fontSize: 12,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -2195,12 +2188,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.0, 0.0),
+                                                              0, 0),
                                                       child: Icon(
                                                         Icons.check,
                                                         color:
                                                             Color(0xFF2EDD78),
-                                                        size: 18.0,
+                                                        size: 18,
                                                       ),
                                                     ),
                                                   ),
@@ -2215,12 +2208,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.0, 0.0),
+                                                              0, 0),
                                                       child: Icon(
                                                         Icons.close,
                                                         color:
                                                             Color(0xFFFF2B2B),
-                                                        size: 18.0,
+                                                        size: 18,
                                                       ),
                                                     ),
                                                   ),
@@ -2231,10 +2224,10 @@ class _NonePackageBasicImage1PageWidgetState
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 4.0, 0.0, 0.0),
+                                            0, 4, 0, 0),
                                         child: Container(
                                           width: double.infinity,
-                                          height: 20.0,
+                                          height: 20,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
@@ -2242,7 +2235,7 @@ class _NonePackageBasicImage1PageWidgetState
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 5.0, 0.0),
+                                                    0, 0, 5, 0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               crossAxisAlignment:
@@ -2257,11 +2250,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    12.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                                .fromSTEB(12, 0,
+                                                                    0, 0),
                                                         child: Text(
                                                           FFAppState().nonePackageImageRightUploaded !=
                                                                       null &&
@@ -2276,7 +2266,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                fontSize: 12.0,
+                                                                fontSize: 12,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -2296,12 +2286,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.0, 0.0),
+                                                              0, 0),
                                                       child: Icon(
                                                         Icons.check,
                                                         color:
                                                             Color(0xFF2EDD78),
-                                                        size: 18.0,
+                                                        size: 18,
                                                       ),
                                                     ),
                                                   ),
@@ -2316,12 +2306,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.0, 0.0),
+                                                              0, 0),
                                                       child: Icon(
                                                         Icons.close,
                                                         color:
                                                             Color(0xFFFF2B2B),
-                                                        size: 18.0,
+                                                        size: 18,
                                                       ),
                                                     ),
                                                   ),
@@ -2332,10 +2322,10 @@ class _NonePackageBasicImage1PageWidgetState
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 4.0, 0.0, 0.0),
+                                            0, 4, 0, 0),
                                         child: Container(
                                           width: double.infinity,
-                                          height: 20.0,
+                                          height: 20,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
@@ -2343,7 +2333,7 @@ class _NonePackageBasicImage1PageWidgetState
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 5.0, 0.0),
+                                                    0, 0, 5, 0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               crossAxisAlignment:
@@ -2358,11 +2348,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    12.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                                .fromSTEB(12, 0,
+                                                                    0, 0),
                                                         child: Text(
                                                           FFAppState().nonePackageImageRightRearUploaded !=
                                                                       null &&
@@ -2377,7 +2364,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                fontSize: 12.0,
+                                                                fontSize: 12,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -2397,12 +2384,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.0, 0.0),
+                                                              0, 0),
                                                       child: Icon(
                                                         Icons.check,
                                                         color:
                                                             Color(0xFF2EDD78),
-                                                        size: 18.0,
+                                                        size: 18,
                                                       ),
                                                     ),
                                                   ),
@@ -2417,12 +2404,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.0, 0.0),
+                                                              0, 0),
                                                       child: Icon(
                                                         Icons.close,
                                                         color:
                                                             Color(0xFFFF2B2B),
-                                                        size: 18.0,
+                                                        size: 18,
                                                       ),
                                                     ),
                                                   ),
@@ -2433,10 +2420,10 @@ class _NonePackageBasicImage1PageWidgetState
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 4.0, 0.0, 0.0),
+                                            0, 4, 0, 0),
                                         child: Container(
                                           width: double.infinity,
-                                          height: 20.0,
+                                          height: 20,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
@@ -2444,7 +2431,7 @@ class _NonePackageBasicImage1PageWidgetState
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 5.0, 0.0),
+                                                    0, 0, 5, 0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               crossAxisAlignment:
@@ -2459,11 +2446,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    12.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                                .fromSTEB(12, 0,
+                                                                    0, 0),
                                                         child: Text(
                                                           FFAppState().nonePackageImageRearUploaded !=
                                                                       null &&
@@ -2478,7 +2462,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                fontSize: 12.0,
+                                                                fontSize: 12,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -2498,12 +2482,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.0, 0.0),
+                                                              0, 0),
                                                       child: Icon(
                                                         Icons.check,
                                                         color:
                                                             Color(0xFF2EDD78),
-                                                        size: 18.0,
+                                                        size: 18,
                                                       ),
                                                     ),
                                                   ),
@@ -2518,12 +2502,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.0, 0.0),
+                                                              0, 0),
                                                       child: Icon(
                                                         Icons.close,
                                                         color:
                                                             Color(0xFFFF2B2B),
-                                                        size: 18.0,
+                                                        size: 18,
                                                       ),
                                                     ),
                                                   ),
@@ -2534,10 +2518,10 @@ class _NonePackageBasicImage1PageWidgetState
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 4.0, 0.0, 0.0),
+                                            0, 4, 0, 0),
                                         child: Container(
                                           width: double.infinity,
-                                          height: 20.0,
+                                          height: 20,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
@@ -2545,7 +2529,7 @@ class _NonePackageBasicImage1PageWidgetState
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 5.0, 0.0),
+                                                    0, 0, 5, 0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               crossAxisAlignment:
@@ -2560,11 +2544,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    12.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                                .fromSTEB(12, 0,
+                                                                    0, 0),
                                                         child: Text(
                                                           FFAppState().nonePackageImageLeftRearUploaded !=
                                                                       null &&
@@ -2579,7 +2560,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                fontSize: 12.0,
+                                                                fontSize: 12,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -2599,12 +2580,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.0, 0.0),
+                                                              0, 0),
                                                       child: Icon(
                                                         Icons.check,
                                                         color:
                                                             Color(0xFF2EDD78),
-                                                        size: 18.0,
+                                                        size: 18,
                                                       ),
                                                     ),
                                                   ),
@@ -2619,12 +2600,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.0, 0.0),
+                                                              0, 0),
                                                       child: Icon(
                                                         Icons.close,
                                                         color:
                                                             Color(0xFFFF2B2B),
-                                                        size: 18.0,
+                                                        size: 18,
                                                       ),
                                                     ),
                                                   ),
@@ -2635,10 +2616,10 @@ class _NonePackageBasicImage1PageWidgetState
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 4.0, 0.0, 0.0),
+                                            0, 4, 0, 0),
                                         child: Container(
                                           width: double.infinity,
-                                          height: 20.0,
+                                          height: 20,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
@@ -2646,7 +2627,7 @@ class _NonePackageBasicImage1PageWidgetState
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 5.0, 0.0),
+                                                    0, 0, 5, 0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               crossAxisAlignment:
@@ -2661,11 +2642,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    12.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                                .fromSTEB(12, 0,
+                                                                    0, 0),
                                                         child: Text(
                                                           FFAppState().nonePackageImageLeftUploaded !=
                                                                       null &&
@@ -2680,7 +2658,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                fontSize: 12.0,
+                                                                fontSize: 12,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -2700,12 +2678,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.0, 0.0),
+                                                              0, 0),
                                                       child: Icon(
                                                         Icons.check,
                                                         color:
                                                             Color(0xFF2EDD78),
-                                                        size: 18.0,
+                                                        size: 18,
                                                       ),
                                                     ),
                                                   ),
@@ -2720,12 +2698,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.0, 0.0),
+                                                              0, 0),
                                                       child: Icon(
                                                         Icons.close,
                                                         color:
                                                             Color(0xFFFF2B2B),
-                                                        size: 18.0,
+                                                        size: 18,
                                                       ),
                                                     ),
                                                   ),
@@ -2736,10 +2714,10 @@ class _NonePackageBasicImage1PageWidgetState
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 4.0, 0.0, 0.0),
+                                            0, 4, 0, 0),
                                         child: Container(
                                           width: double.infinity,
-                                          height: 20.0,
+                                          height: 20,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
@@ -2747,7 +2725,7 @@ class _NonePackageBasicImage1PageWidgetState
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 5.0, 0.0),
+                                                    0, 0, 5, 0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               crossAxisAlignment:
@@ -2762,11 +2740,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    12.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                                .fromSTEB(12, 0,
+                                                                    0, 0),
                                                         child: Text(
                                                           FFAppState().nonePackageImageLeftFrontUploaded !=
                                                                       null &&
@@ -2781,7 +2756,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                fontSize: 12.0,
+                                                                fontSize: 12,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -2801,12 +2776,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.0, 0.0),
+                                                              0, 0),
                                                       child: Icon(
                                                         Icons.check,
                                                         color:
                                                             Color(0xFF2EDD78),
-                                                        size: 18.0,
+                                                        size: 18,
                                                       ),
                                                     ),
                                                   ),
@@ -2821,12 +2796,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.0, 0.0),
+                                                              0, 0),
                                                       child: Icon(
                                                         Icons.close,
                                                         color:
                                                             Color(0xFFFF2B2B),
-                                                        size: 18.0,
+                                                        size: 18,
                                                       ),
                                                     ),
                                                   ),
@@ -2840,10 +2815,10 @@ class _NonePackageBasicImage1PageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 4.0, 0.0, 0.0),
+                                                  0, 4, 0, 0),
                                           child: Container(
                                             width: double.infinity,
-                                            height: 20.0,
+                                            height: 20,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -2851,7 +2826,7 @@ class _NonePackageBasicImage1PageWidgetState
                                             ),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                  .fromSTEB(0, 0, 5, 0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -2866,11 +2841,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      12.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                                  .fromSTEB(12,
+                                                                      0, 0, 0),
                                                           child: Text(
                                                             FFAppState().nonePackageImageRoofUploaded !=
                                                                         null &&
@@ -2885,8 +2857,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      12.0,
+                                                                  fontSize: 12,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -2906,12 +2877,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.0, 0.0),
+                                                                0, 0),
                                                         child: Icon(
                                                           Icons.check,
                                                           color:
                                                               Color(0xFF2EDD78),
-                                                          size: 18.0,
+                                                          size: 18,
                                                         ),
                                                       ),
                                                     ),
@@ -2926,12 +2897,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.0, 0.0),
+                                                                0, 0),
                                                         child: Icon(
                                                           Icons.close,
                                                           color:
                                                               Color(0xFFFF2B2B),
-                                                          size: 18.0,
+                                                          size: 18,
                                                         ),
                                                       ),
                                                     ),
@@ -2951,14 +2922,14 @@ class _NonePackageBasicImage1PageWidgetState
                                     'หัวลาก + หางพ่วง'))
                               Container(
                                 width: double.infinity,
-                                height: 315.0,
+                                height: 315,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
                                 ),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 12.0, 0.0, 0.0),
+                                      0, 12, 0, 0),
                                   child: Container(
                                     width: double.infinity,
                                     child: Stack(
@@ -3029,7 +3000,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                       validateFileFormat(
                                                           m.storagePath,
                                                           context))) {
-                                                setState(() => _model
+                                                safeSetState(() => _model
                                                     .isDataUploading10 = true);
                                                 var selectedUploadedFiles =
                                                     <FFUploadedFile>[];
@@ -3078,7 +3049,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                         selectedMedia.length &&
                                                     downloadUrls.length ==
                                                         selectedMedia.length) {
-                                                  setState(() {
+                                                  safeSetState(() {
                                                     _model.uploadedLocalFile10 =
                                                         selectedUploadedFiles
                                                             .first;
@@ -3086,7 +3057,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                         downloadUrls.first;
                                                   });
                                                 } else {
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                   return;
                                                 }
                                               }
@@ -3098,7 +3069,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                 FFAppState()
                                                         .nonePackageTrailerImageFrontUploaded =
                                                     _model.uploadedFileUrl10;
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 ScaffoldMessenger.of(context)
                                                     .clearSnackBars();
                                                 ScaffoldMessenger.of(context)
@@ -3136,8 +3107,8 @@ class _NonePackageBasicImage1PageWidgetState
                                               }
                                             },
                                             child: Container(
-                                              width: 100.0,
-                                              height: 70.0,
+                                              width: 100,
+                                              height: 70,
                                               decoration: BoxDecoration(
                                                 color: Color(0x00FFFFFF),
                                               ),
@@ -3199,7 +3170,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                       validateFileFormat(
                                                           m.storagePath,
                                                           context))) {
-                                                setState(() => _model
+                                                safeSetState(() => _model
                                                     .isDataUploading11 = true);
                                                 var selectedUploadedFiles =
                                                     <FFUploadedFile>[];
@@ -3248,7 +3219,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                         selectedMedia.length &&
                                                     downloadUrls.length ==
                                                         selectedMedia.length) {
-                                                  setState(() {
+                                                  safeSetState(() {
                                                     _model.uploadedLocalFile11 =
                                                         selectedUploadedFiles
                                                             .first;
@@ -3256,7 +3227,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                         downloadUrls.first;
                                                   });
                                                 } else {
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                   return;
                                                 }
                                               }
@@ -3268,7 +3239,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                 FFAppState()
                                                         .nonePackageTrailerImageRightFrontUploaded =
                                                     _model.uploadedFileUrl11;
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 ScaffoldMessenger.of(context)
                                                     .clearSnackBars();
                                                 ScaffoldMessenger.of(context)
@@ -3306,8 +3277,8 @@ class _NonePackageBasicImage1PageWidgetState
                                               }
                                             },
                                             child: Container(
-                                              width: 110.0,
-                                              height: 80.0,
+                                              width: 110,
+                                              height: 80,
                                               decoration: BoxDecoration(
                                                 color: Color(0x00FFFFFF),
                                               ),
@@ -3316,7 +3287,7 @@ class _NonePackageBasicImage1PageWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.0, -0.8),
+                                              AlignmentDirectional(0, -0.8),
                                           child: InkWell(
                                             splashColor: Colors.transparent,
                                             focusColor: Colors.transparent,
@@ -3369,7 +3340,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                       validateFileFormat(
                                                           m.storagePath,
                                                           context))) {
-                                                setState(() => _model
+                                                safeSetState(() => _model
                                                     .isDataUploading12 = true);
                                                 var selectedUploadedFiles =
                                                     <FFUploadedFile>[];
@@ -3418,7 +3389,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                         selectedMedia.length &&
                                                     downloadUrls.length ==
                                                         selectedMedia.length) {
-                                                  setState(() {
+                                                  safeSetState(() {
                                                     _model.uploadedLocalFile12 =
                                                         selectedUploadedFiles
                                                             .first;
@@ -3426,7 +3397,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                         downloadUrls.first;
                                                   });
                                                 } else {
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                   return;
                                                 }
                                               }
@@ -3438,7 +3409,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                 FFAppState()
                                                         .nonePackageTrailerImageRightUploaded =
                                                     _model.uploadedFileUrl12;
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 ScaffoldMessenger.of(context)
                                                     .clearSnackBars();
                                                 ScaffoldMessenger.of(context)
@@ -3476,8 +3447,8 @@ class _NonePackageBasicImage1PageWidgetState
                                               }
                                             },
                                             child: Container(
-                                              width: 110.0,
-                                              height: 80.0,
+                                              width: 110,
+                                              height: 80,
                                               decoration: BoxDecoration(
                                                 color: Color(0x00FFFFFF),
                                               ),
@@ -3539,7 +3510,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                       validateFileFormat(
                                                           m.storagePath,
                                                           context))) {
-                                                setState(() => _model
+                                                safeSetState(() => _model
                                                     .isDataUploading13 = true);
                                                 var selectedUploadedFiles =
                                                     <FFUploadedFile>[];
@@ -3588,7 +3559,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                         selectedMedia.length &&
                                                     downloadUrls.length ==
                                                         selectedMedia.length) {
-                                                  setState(() {
+                                                  safeSetState(() {
                                                     _model.uploadedLocalFile13 =
                                                         selectedUploadedFiles
                                                             .first;
@@ -3596,7 +3567,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                         downloadUrls.first;
                                                   });
                                                 } else {
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                   return;
                                                 }
                                               }
@@ -3608,7 +3579,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                 FFAppState()
                                                         .nonePackageTrailerImageRightRearUploaded =
                                                     _model.uploadedFileUrl13;
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 ScaffoldMessenger.of(context)
                                                     .clearSnackBars();
                                                 ScaffoldMessenger.of(context)
@@ -3646,8 +3617,8 @@ class _NonePackageBasicImage1PageWidgetState
                                               }
                                             },
                                             child: Container(
-                                              width: 110.0,
-                                              height: 60.0,
+                                              width: 110,
+                                              height: 60,
                                               decoration: BoxDecoration(
                                                 color: Color(0x00FFFFFF),
                                               ),
@@ -3656,7 +3627,7 @@ class _NonePackageBasicImage1PageWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(1.0, 0.06),
+                                              AlignmentDirectional(1, 0.06),
                                           child: InkWell(
                                             splashColor: Colors.transparent,
                                             focusColor: Colors.transparent,
@@ -3709,7 +3680,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                       validateFileFormat(
                                                           m.storagePath,
                                                           context))) {
-                                                setState(() => _model
+                                                safeSetState(() => _model
                                                     .isDataUploading14 = true);
                                                 var selectedUploadedFiles =
                                                     <FFUploadedFile>[];
@@ -3758,7 +3729,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                         selectedMedia.length &&
                                                     downloadUrls.length ==
                                                         selectedMedia.length) {
-                                                  setState(() {
+                                                  safeSetState(() {
                                                     _model.uploadedLocalFile14 =
                                                         selectedUploadedFiles
                                                             .first;
@@ -3766,7 +3737,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                         downloadUrls.first;
                                                   });
                                                 } else {
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                   return;
                                                 }
                                               }
@@ -3778,7 +3749,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                 FFAppState()
                                                         .nonePackageTrailerImageRearUploaded =
                                                     _model.uploadedFileUrl14;
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 ScaffoldMessenger.of(context)
                                                     .clearSnackBars();
                                                 ScaffoldMessenger.of(context)
@@ -3816,8 +3787,8 @@ class _NonePackageBasicImage1PageWidgetState
                                               }
                                             },
                                             child: Container(
-                                              width: 110.0,
-                                              height: 60.0,
+                                              width: 110,
+                                              height: 60,
                                               decoration: BoxDecoration(
                                                 color: Color(0x00FFFFFF),
                                               ),
@@ -3879,7 +3850,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                       validateFileFormat(
                                                           m.storagePath,
                                                           context))) {
-                                                setState(() => _model
+                                                safeSetState(() => _model
                                                     .isDataUploading15 = true);
                                                 var selectedUploadedFiles =
                                                     <FFUploadedFile>[];
@@ -3928,7 +3899,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                         selectedMedia.length &&
                                                     downloadUrls.length ==
                                                         selectedMedia.length) {
-                                                  setState(() {
+                                                  safeSetState(() {
                                                     _model.uploadedLocalFile15 =
                                                         selectedUploadedFiles
                                                             .first;
@@ -3936,7 +3907,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                         downloadUrls.first;
                                                   });
                                                 } else {
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                   return;
                                                 }
                                               }
@@ -3948,7 +3919,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                 FFAppState()
                                                         .nonePackageTrailerImageLeftRearUploaded =
                                                     _model.uploadedFileUrl15;
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 ScaffoldMessenger.of(context)
                                                     .clearSnackBars();
                                                 ScaffoldMessenger.of(context)
@@ -3986,8 +3957,8 @@ class _NonePackageBasicImage1PageWidgetState
                                               }
                                             },
                                             child: Container(
-                                              width: 100.0,
-                                              height: 80.0,
+                                              width: 100,
+                                              height: 80,
                                               decoration: BoxDecoration(
                                                 color: Color(0x00FFFFFF),
                                               ),
@@ -3996,7 +3967,7 @@ class _NonePackageBasicImage1PageWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.0, 1.03),
+                                              AlignmentDirectional(0, 1.03),
                                           child: InkWell(
                                             splashColor: Colors.transparent,
                                             focusColor: Colors.transparent,
@@ -4049,7 +4020,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                       validateFileFormat(
                                                           m.storagePath,
                                                           context))) {
-                                                setState(() => _model
+                                                safeSetState(() => _model
                                                     .isDataUploading16 = true);
                                                 var selectedUploadedFiles =
                                                     <FFUploadedFile>[];
@@ -4098,7 +4069,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                         selectedMedia.length &&
                                                     downloadUrls.length ==
                                                         selectedMedia.length) {
-                                                  setState(() {
+                                                  safeSetState(() {
                                                     _model.uploadedLocalFile16 =
                                                         selectedUploadedFiles
                                                             .first;
@@ -4106,7 +4077,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                         downloadUrls.first;
                                                   });
                                                 } else {
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                   return;
                                                 }
                                               }
@@ -4118,7 +4089,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                 FFAppState()
                                                         .nonePackageTrailerImageLeftUploaded =
                                                     _model.uploadedFileUrl16;
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 ScaffoldMessenger.of(context)
                                                     .clearSnackBars();
                                                 ScaffoldMessenger.of(context)
@@ -4156,8 +4127,8 @@ class _NonePackageBasicImage1PageWidgetState
                                               }
                                             },
                                             child: Container(
-                                              width: 100.0,
-                                              height: 80.0,
+                                              width: 100,
+                                              height: 80,
                                               decoration: BoxDecoration(
                                                 color: Color(0x00FFFFFF),
                                               ),
@@ -4219,7 +4190,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                       validateFileFormat(
                                                           m.storagePath,
                                                           context))) {
-                                                setState(() => _model
+                                                safeSetState(() => _model
                                                     .isDataUploading17 = true);
                                                 var selectedUploadedFiles =
                                                     <FFUploadedFile>[];
@@ -4268,7 +4239,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                         selectedMedia.length &&
                                                     downloadUrls.length ==
                                                         selectedMedia.length) {
-                                                  setState(() {
+                                                  safeSetState(() {
                                                     _model.uploadedLocalFile17 =
                                                         selectedUploadedFiles
                                                             .first;
@@ -4276,7 +4247,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                         downloadUrls.first;
                                                   });
                                                 } else {
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                   return;
                                                 }
                                               }
@@ -4288,7 +4259,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                 FFAppState()
                                                         .nonePackageTrailerImageLeftFrontUploaded =
                                                     _model.uploadedFileUrl17;
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 ScaffoldMessenger.of(context)
                                                     .clearSnackBars();
                                                 ScaffoldMessenger.of(context)
@@ -4326,8 +4297,8 @@ class _NonePackageBasicImage1PageWidgetState
                                               }
                                             },
                                             child: Container(
-                                              width: 100.0,
-                                              height: 80.0,
+                                              width: 100,
+                                              height: 80,
                                               decoration: BoxDecoration(
                                                 color: Color(0x00FFFFFF),
                                               ),
@@ -4344,8 +4315,8 @@ class _NonePackageBasicImage1PageWidgetState
                                 (FFAppState().nonePackageTruckPart ==
                                     'หัวลาก + หางพ่วง'))
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 8.0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
                                 child: Container(
                                   width: double.infinity,
                                   decoration: BoxDecoration(
@@ -4354,7 +4325,7 @@ class _NonePackageBasicImage1PageWidgetState
                                   ),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        14.0, 0.0, 0.0, 0.0),
+                                        14, 0, 0, 0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       crossAxisAlignment:
@@ -4363,7 +4334,7 @@ class _NonePackageBasicImage1PageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 15.0, 12.0, 0.0),
+                                                  12, 15, 12, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -4379,15 +4350,14 @@ class _NonePackageBasicImage1PageWidgetState
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFF002D5E),
-                                                          fontSize: 18.0,
+                                                          fontSize: 18,
                                                           letterSpacing: 0.0,
                                                         ),
                                               ),
                                               if (false)
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          10.0, 0.0, 0.0, 0.0),
+                                                      .fromSTEB(10, 0, 0, 0),
                                                   child: Text(
                                                     'บังคับถ่ายรูปให้ครบ 8 รูป',
                                                     style: FlutterFlowTheme.of(
@@ -4411,10 +4381,10 @@ class _NonePackageBasicImage1PageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 12.0, 0.0, 0.0),
+                                                  0, 12, 0, 0),
                                           child: Container(
                                             width: double.infinity,
-                                            height: 20.0,
+                                            height: 20,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -4422,7 +4392,7 @@ class _NonePackageBasicImage1PageWidgetState
                                             ),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                  .fromSTEB(0, 0, 5, 0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -4437,11 +4407,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      12.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                                  .fromSTEB(12,
+                                                                      0, 0, 0),
                                                           child: Text(
                                                             FFAppState().nonePackageTrailerImageFrontUploaded !=
                                                                         null &&
@@ -4456,8 +4423,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      12.0,
+                                                                  fontSize: 12,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -4477,12 +4443,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.0, 0.0),
+                                                                0, 0),
                                                         child: Icon(
                                                           Icons.check,
                                                           color:
                                                               Color(0xFF2EDD78),
-                                                          size: 18.0,
+                                                          size: 18,
                                                         ),
                                                       ),
                                                     ),
@@ -4497,12 +4463,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.0, 0.0),
+                                                                0, 0),
                                                         child: Icon(
                                                           Icons.close,
                                                           color:
                                                               Color(0xFFFF2B2B),
-                                                          size: 18.0,
+                                                          size: 18,
                                                         ),
                                                       ),
                                                     ),
@@ -4514,10 +4480,10 @@ class _NonePackageBasicImage1PageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 4.0, 0.0, 0.0),
+                                                  0, 4, 0, 0),
                                           child: Container(
                                             width: double.infinity,
-                                            height: 20.0,
+                                            height: 20,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -4525,7 +4491,7 @@ class _NonePackageBasicImage1PageWidgetState
                                             ),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                  .fromSTEB(0, 0, 5, 0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -4540,11 +4506,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      12.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                                  .fromSTEB(12,
+                                                                      0, 0, 0),
                                                           child: Text(
                                                             FFAppState().nonePackageTrailerImageRightFrontUploaded !=
                                                                         null &&
@@ -4559,8 +4522,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      12.0,
+                                                                  fontSize: 12,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -4580,12 +4542,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.0, 0.0),
+                                                                0, 0),
                                                         child: Icon(
                                                           Icons.check,
                                                           color:
                                                               Color(0xFF2EDD78),
-                                                          size: 18.0,
+                                                          size: 18,
                                                         ),
                                                       ),
                                                     ),
@@ -4600,12 +4562,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.0, 0.0),
+                                                                0, 0),
                                                         child: Icon(
                                                           Icons.close,
                                                           color:
                                                               Color(0xFFFF2B2B),
-                                                          size: 18.0,
+                                                          size: 18,
                                                         ),
                                                       ),
                                                     ),
@@ -4617,10 +4579,10 @@ class _NonePackageBasicImage1PageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 4.0, 0.0, 0.0),
+                                                  0, 4, 0, 0),
                                           child: Container(
                                             width: double.infinity,
-                                            height: 20.0,
+                                            height: 20,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -4628,7 +4590,7 @@ class _NonePackageBasicImage1PageWidgetState
                                             ),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                  .fromSTEB(0, 0, 5, 0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -4643,11 +4605,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      12.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                                  .fromSTEB(12,
+                                                                      0, 0, 0),
                                                           child: Text(
                                                             FFAppState().nonePackageTrailerImageRightUploaded !=
                                                                         null &&
@@ -4662,8 +4621,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      12.0,
+                                                                  fontSize: 12,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -4683,12 +4641,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.0, 0.0),
+                                                                0, 0),
                                                         child: Icon(
                                                           Icons.check,
                                                           color:
                                                               Color(0xFF2EDD78),
-                                                          size: 18.0,
+                                                          size: 18,
                                                         ),
                                                       ),
                                                     ),
@@ -4703,12 +4661,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.0, 0.0),
+                                                                0, 0),
                                                         child: Icon(
                                                           Icons.close,
                                                           color:
                                                               Color(0xFFFF2B2B),
-                                                          size: 18.0,
+                                                          size: 18,
                                                         ),
                                                       ),
                                                     ),
@@ -4720,10 +4678,10 @@ class _NonePackageBasicImage1PageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 4.0, 0.0, 0.0),
+                                                  0, 4, 0, 0),
                                           child: Container(
                                             width: double.infinity,
-                                            height: 20.0,
+                                            height: 20,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -4731,7 +4689,7 @@ class _NonePackageBasicImage1PageWidgetState
                                             ),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                  .fromSTEB(0, 0, 5, 0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -4746,11 +4704,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      12.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                                  .fromSTEB(12,
+                                                                      0, 0, 0),
                                                           child: Text(
                                                             FFAppState().nonePackageTrailerImageRightRearUploaded !=
                                                                         null &&
@@ -4765,8 +4720,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      12.0,
+                                                                  fontSize: 12,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -4786,12 +4740,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.0, 0.0),
+                                                                0, 0),
                                                         child: Icon(
                                                           Icons.check,
                                                           color:
                                                               Color(0xFF2EDD78),
-                                                          size: 18.0,
+                                                          size: 18,
                                                         ),
                                                       ),
                                                     ),
@@ -4806,12 +4760,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.0, 0.0),
+                                                                0, 0),
                                                         child: Icon(
                                                           Icons.close,
                                                           color:
                                                               Color(0xFFFF2B2B),
-                                                          size: 18.0,
+                                                          size: 18,
                                                         ),
                                                       ),
                                                     ),
@@ -4823,10 +4777,10 @@ class _NonePackageBasicImage1PageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 4.0, 0.0, 0.0),
+                                                  0, 4, 0, 0),
                                           child: Container(
                                             width: double.infinity,
-                                            height: 20.0,
+                                            height: 20,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -4834,7 +4788,7 @@ class _NonePackageBasicImage1PageWidgetState
                                             ),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                  .fromSTEB(0, 0, 5, 0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -4849,11 +4803,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      12.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                                  .fromSTEB(12,
+                                                                      0, 0, 0),
                                                           child: Text(
                                                             FFAppState().nonePackageTrailerImageRearUploaded !=
                                                                         null &&
@@ -4868,8 +4819,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      12.0,
+                                                                  fontSize: 12,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -4889,12 +4839,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.0, 0.0),
+                                                                0, 0),
                                                         child: Icon(
                                                           Icons.check,
                                                           color:
                                                               Color(0xFF2EDD78),
-                                                          size: 18.0,
+                                                          size: 18,
                                                         ),
                                                       ),
                                                     ),
@@ -4909,12 +4859,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.0, 0.0),
+                                                                0, 0),
                                                         child: Icon(
                                                           Icons.close,
                                                           color:
                                                               Color(0xFFFF2B2B),
-                                                          size: 18.0,
+                                                          size: 18,
                                                         ),
                                                       ),
                                                     ),
@@ -4926,10 +4876,10 @@ class _NonePackageBasicImage1PageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 4.0, 0.0, 0.0),
+                                                  0, 4, 0, 0),
                                           child: Container(
                                             width: double.infinity,
-                                            height: 20.0,
+                                            height: 20,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -4937,7 +4887,7 @@ class _NonePackageBasicImage1PageWidgetState
                                             ),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                  .fromSTEB(0, 0, 5, 0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -4952,11 +4902,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      12.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                                  .fromSTEB(12,
+                                                                      0, 0, 0),
                                                           child: Text(
                                                             FFAppState().nonePackageTrailerImageLeftRearUploaded !=
                                                                         null &&
@@ -4971,8 +4918,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      12.0,
+                                                                  fontSize: 12,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -4992,12 +4938,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.0, 0.0),
+                                                                0, 0),
                                                         child: Icon(
                                                           Icons.check,
                                                           color:
                                                               Color(0xFF2EDD78),
-                                                          size: 18.0,
+                                                          size: 18,
                                                         ),
                                                       ),
                                                     ),
@@ -5012,12 +4958,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.0, 0.0),
+                                                                0, 0),
                                                         child: Icon(
                                                           Icons.close,
                                                           color:
                                                               Color(0xFFFF2B2B),
-                                                          size: 18.0,
+                                                          size: 18,
                                                         ),
                                                       ),
                                                     ),
@@ -5029,10 +4975,10 @@ class _NonePackageBasicImage1PageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 4.0, 0.0, 0.0),
+                                                  0, 4, 0, 0),
                                           child: Container(
                                             width: double.infinity,
-                                            height: 20.0,
+                                            height: 20,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -5040,7 +4986,7 @@ class _NonePackageBasicImage1PageWidgetState
                                             ),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                  .fromSTEB(0, 0, 5, 0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -5055,11 +5001,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      12.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                                  .fromSTEB(12,
+                                                                      0, 0, 0),
                                                           child: Text(
                                                             FFAppState().nonePackageTrailerImageLeftUploaded !=
                                                                         null &&
@@ -5074,8 +5017,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      12.0,
+                                                                  fontSize: 12,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -5095,12 +5037,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.0, 0.0),
+                                                                0, 0),
                                                         child: Icon(
                                                           Icons.check,
                                                           color:
                                                               Color(0xFF2EDD78),
-                                                          size: 18.0,
+                                                          size: 18,
                                                         ),
                                                       ),
                                                     ),
@@ -5115,12 +5057,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.0, 0.0),
+                                                                0, 0),
                                                         child: Icon(
                                                           Icons.close,
                                                           color:
                                                               Color(0xFFFF2B2B),
-                                                          size: 18.0,
+                                                          size: 18,
                                                         ),
                                                       ),
                                                     ),
@@ -5132,10 +5074,10 @@ class _NonePackageBasicImage1PageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 4.0, 0.0, 0.0),
+                                                  0, 4, 0, 0),
                                           child: Container(
                                             width: double.infinity,
-                                            height: 20.0,
+                                            height: 20,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -5143,7 +5085,7 @@ class _NonePackageBasicImage1PageWidgetState
                                             ),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                  .fromSTEB(0, 0, 5, 0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -5158,11 +5100,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      12.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                                  .fromSTEB(12,
+                                                                      0, 0, 0),
                                                           child: Text(
                                                             FFAppState().nonePackageTrailerImageLeftFrontUploaded !=
                                                                         null &&
@@ -5177,8 +5116,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      12.0,
+                                                                  fontSize: 12,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -5198,12 +5136,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.0, 0.0),
+                                                                0, 0),
                                                         child: Icon(
                                                           Icons.check,
                                                           color:
                                                               Color(0xFF2EDD78),
-                                                          size: 18.0,
+                                                          size: 18,
                                                         ),
                                                       ),
                                                     ),
@@ -5218,12 +5156,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.0, 0.0),
+                                                                0, 0),
                                                         child: Icon(
                                                           Icons.close,
                                                           color:
                                                               Color(0xFFFF2B2B),
-                                                          size: 18.0,
+                                                          size: 18,
                                                         ),
                                                       ),
                                                     ),
@@ -5245,15 +5183,15 @@ class _NonePackageBasicImage1PageWidgetState
                       flex: 2,
                       child: Container(
                         width: double.infinity,
-                        height: 69.0,
+                        height: 69,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.0),
+                          borderRadius: BorderRadius.circular(10),
                         ),
                         child: Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
+                          alignment: AlignmentDirectional(0, 0),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 0.0, 12.0, 0.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
                             child: FFButtonWidget(
                               onPressed: () async {
                                 if (!((FFAppState()
@@ -5413,11 +5351,11 @@ class _NonePackageBasicImage1PageWidgetState
                               text: 'ถัดไป',
                               options: FFButtonOptions(
                                 width: double.infinity,
-                                height: 60.0,
+                                height: 60,
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    24.0, 0.0, 24.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
+                                    24, 0, 24, 0),
+                                iconPadding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                                 color: Color(0xFFDB771A),
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
@@ -5427,12 +5365,12 @@ class _NonePackageBasicImage1PageWidgetState
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
                                     ),
-                                elevation: 3.0,
+                                elevation: 3,
                                 borderSide: BorderSide(
                                   color: Colors.transparent,
-                                  width: 1.0,
+                                  width: 1,
                                 ),
-                                borderRadius: BorderRadius.circular(16.0),
+                                borderRadius: BorderRadius.circular(16),
                               ),
                             ),
                           ),

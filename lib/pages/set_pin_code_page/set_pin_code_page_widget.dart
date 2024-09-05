@@ -67,12 +67,12 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 100.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 100, 0, 0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Container(
-                        width: MediaQuery.sizeOf(context).width * 1.0,
+                        width: MediaQuery.sizeOf(context).width,
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
@@ -81,8 +81,8 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 8.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                               child: Text(
                                 'ตั้ง PIN ของคุณ',
                                 style: FlutterFlowTheme.of(context)
@@ -95,8 +95,8 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  44.0, 8.0, 44.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(44, 8, 44, 0),
                               child: Text(
                                 'รหัสพินนี้จะใช้ในการเข้าสู่ระบบในครั้งถัดไป',
                                 textAlign: TextAlign.center,
@@ -105,14 +105,14 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       color: Color(0xFF1D4774),
-                                      fontSize: 15.0,
+                                      fontSize: 15,
                                       letterSpacing: 0.0,
                                     ),
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  40.0, 0.0, 40.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(40, 0, 40, 0),
                               child: Container(
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
@@ -120,7 +120,7 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                                 ),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 32.0, 0.0, 0.0),
+                                      0, 32, 0, 0),
                                   child: FutureBuilder<
                                       List<InsuranceLicenseDataRecord>>(
                                     future: queryInsuranceLicenseDataRecordOnce(
@@ -131,8 +131,8 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                                       if (!snapshot.hasData) {
                                         return Center(
                                           child: SizedBox(
-                                            width: 50.0,
-                                            height: 50.0,
+                                            width: 50,
+                                            height: 50,
                                             child: CircularProgressIndicator(
                                               valueColor:
                                                   AlwaysStoppedAnimation<Color>(
@@ -171,7 +171,7 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                                         enableActiveFill: true,
                                         autoFocus: true,
                                         enablePinAutofill: true,
-                                        errorTextSpace: 16.0,
+                                        errorTextSpace: 16,
                                         showCursor: false,
                                         cursorColor:
                                             FlutterFlowTheme.of(context)
@@ -181,14 +181,14 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                                         hintCharacter: '*',
                                         keyboardType: TextInputType.number,
                                         pinTheme: PinTheme(
-                                          fieldHeight: 55.0,
-                                          fieldWidth: 50.0,
-                                          borderWidth: 2.0,
+                                          fieldHeight: 55,
+                                          fieldWidth: 50,
+                                          borderWidth: 2,
                                           borderRadius: BorderRadius.only(
-                                            bottomLeft: Radius.circular(12.0),
-                                            bottomRight: Radius.circular(12.0),
-                                            topLeft: Radius.circular(12.0),
-                                            topRight: Radius.circular(12.0),
+                                            bottomLeft: Radius.circular(12),
+                                            bottomRight: Radius.circular(12),
+                                            topLeft: Radius.circular(12),
+                                            topRight: Radius.circular(12),
                                           ),
                                           shape: PinCodeFieldShape.box,
                                           activeColor: Colors.white,
@@ -215,8 +215,7 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                   ),
                 ),
                 Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(16.0, 24.0, 16.0, 44.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(16, 24, 16, 44),
                   child: FutureBuilder<List<UserCustomRecord>>(
                     future: queryUserCustomRecordOnce(
                       queryBuilder: (userCustomRecord) =>
@@ -233,8 +232,8 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                       if (!snapshot.hasData) {
                         return Center(
                           child: SizedBox(
-                            width: 50.0,
-                            height: 50.0,
+                            width: 50,
+                            height: 50,
                             child: CircularProgressIndicator(
                               valueColor: AlwaysStoppedAnimation<Color>(
                                 FlutterFlowTheme.of(context).primary,
@@ -271,7 +270,7 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                                 backgroundColor: Color(0xCC000000),
                               ),
                             );
-                            if (_shouldSetState) setState(() {});
+                            if (_shouldSetState) safeSetState(() {});
                             return;
                           }
                           if (!functions.checkPinCodeInput(
@@ -294,7 +293,7 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                                 );
                               },
                             );
-                            if (_shouldSetState) setState(() {});
+                            if (_shouldSetState) safeSetState(() {});
                             return;
                           }
                           FFAppState().pinCodeAuthen =
@@ -305,7 +304,7 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                               buttonUserCustomRecord?.reference;
                           FFAppState().profileImage =
                               buttonUserCustomRecord!.imgProfile;
-                          setState(() {});
+                          safeSetState(() {});
 
                           var userLogRecordReference =
                               UserLogRecord.collection.doc();
@@ -368,7 +367,7 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                                   );
                                 },
                               );
-                              if (_shouldSetState) setState(() {});
+                              if (_shouldSetState) safeSetState(() {});
                               return;
                             }
 
@@ -397,16 +396,15 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
 
                           context.goNamed('SuperAppPage');
 
-                          if (_shouldSetState) setState(() {});
+                          if (_shouldSetState) safeSetState(() {});
                         },
                         text: 'ยืนยัน',
                         options: FFButtonOptions(
                           width: MediaQuery.sizeOf(context).width * 0.9,
-                          height: 50.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
+                          height: 50,
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                          iconPadding:
+                              EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                           color: Color(0xFFDF8633),
                           textStyle:
                               FlutterFlowTheme.of(context).titleSmall.override(
@@ -415,11 +413,11 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                                         .primaryBackground,
                                     letterSpacing: 0.0,
                                   ),
-                          elevation: 2.0,
+                          elevation: 2,
                           borderSide: BorderSide(
-                            width: 0.0,
+                            width: 0,
                           ),
-                          borderRadius: BorderRadius.circular(12.0),
+                          borderRadius: BorderRadius.circular(12),
                         ),
                       );
                     },

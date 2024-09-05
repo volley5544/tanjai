@@ -53,11 +53,11 @@ class _ShowCheckinImageWidgetState extends State<ShowCheckinImageWidget> {
 
         return Container(
           width: double.infinity,
-          height: 500.0,
+          height: 500,
           child: Stack(
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 50.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 50),
                 child: PageView.builder(
                   controller: _model.pageViewController ??= PageController(
                       initialPage: max(0, min(0, leaveimagelist.length - 1))),
@@ -96,20 +96,20 @@ class _ShowCheckinImageWidgetState extends State<ShowCheckinImageWidget> {
                             child: Image.network(
                               widget!.leaveImage![leaveimagelistIndex],
                               width: double.infinity,
-                              height: 600.0,
+                              height: 600,
                               fit: BoxFit.contain,
                             ),
                           ),
                         ),
                         FlutterFlowIconButton(
                           borderColor: Colors.transparent,
-                          borderRadius: 30.0,
-                          borderWidth: 1.0,
-                          buttonSize: 75.0,
+                          borderRadius: 30,
+                          borderWidth: 1,
+                          buttonSize: 75,
                           icon: Icon(
                             Icons.cancel_outlined,
                             color: Color(0xFFFF0000),
-                            size: 35.0,
+                            size: 35,
                           ),
                           onPressed: () async {
                             Navigator.pop(context);
@@ -121,9 +121,9 @@ class _ShowCheckinImageWidgetState extends State<ShowCheckinImageWidget> {
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(0.0, 1.0),
+                alignment: AlignmentDirectional(0, 1),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
                   child: smooth_page_indicator.SmoothPageIndicator(
                     controller: _model.pageViewController ??= PageController(
                         initialPage: max(0, min(0, leaveimagelist.length - 1))),
@@ -135,14 +135,14 @@ class _ShowCheckinImageWidgetState extends State<ShowCheckinImageWidget> {
                         duration: Duration(milliseconds: 500),
                         curve: Curves.ease,
                       );
-                      setState(() {});
+                      safeSetState(() {});
                     },
                     effect: smooth_page_indicator.ExpandingDotsEffect(
-                      expansionFactor: 2.0,
-                      spacing: 8.0,
-                      radius: 16.0,
-                      dotWidth: 16.0,
-                      dotHeight: 16.0,
+                      expansionFactor: 2,
+                      spacing: 8,
+                      radius: 16,
+                      dotWidth: 16,
+                      dotHeight: 16,
                       dotColor: Color(0xFF9E9E9E),
                       activeDotColor: Color(0xFF3F51B5),
                       paintStyle: PaintingStyle.fill,

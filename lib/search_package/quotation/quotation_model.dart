@@ -13,7 +13,6 @@ import 'package:provider/provider.dart';
 class QuotationModel extends FlutterFlowModel<QuotationWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for PageView widget.
   PageController? pageViewController;
 

@@ -47,13 +47,13 @@ class _CheckinStatusWidgetState extends State<CheckinStatusWidget> {
       child: Stack(
         children: [
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 24.0),
+            padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 24),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
                   child: Text(
                     'สถานะทั้งหมด',
                     style: FlutterFlowTheme.of(context).headlineSmall.override(
@@ -63,7 +63,7 @@ class _CheckinStatusWidgetState extends State<CheckinStatusWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 0.0, 8.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(16, 4, 0, 8),
                   child: Text(
                     'เช็คอินเข้า-ออกงาน จะมีแถบสีและสถานะดังนี้',
                     style: FlutterFlowTheme.of(context).bodySmall.override(
@@ -74,17 +74,16 @@ class _CheckinStatusWidgetState extends State<CheckinStatusWidget> {
                 ),
                 Container(
                   width: double.infinity,
-                  height: 60.0,
+                  height: 60,
                   decoration: BoxDecoration(),
                   child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 12.0, 8.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(12, 8, 12, 8),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Container(
-                          width: 30.0,
-                          height: 30.0,
+                          width: 30,
+                          height: 30,
                           decoration: BoxDecoration(
                             color: Color(0xFF00ADFF),
                             shape: BoxShape.circle,
@@ -92,8 +91,8 @@ class _CheckinStatusWidgetState extends State<CheckinStatusWidget> {
                         ),
                         Expanded(
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 0.0, 0.0, 0.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -105,7 +104,7 @@ class _CheckinStatusWidgetState extends State<CheckinStatusWidget> {
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Colors.black,
-                                        fontSize: 14.0,
+                                        fontSize: 14,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -119,17 +118,16 @@ class _CheckinStatusWidgetState extends State<CheckinStatusWidget> {
                 ),
                 Container(
                   width: double.infinity,
-                  height: 60.0,
+                  height: 60,
                   decoration: BoxDecoration(),
                   child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 12.0, 8.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(12, 8, 12, 8),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Container(
-                          width: 30.0,
-                          height: 30.0,
+                          width: 30,
+                          height: 30,
                           decoration: BoxDecoration(
                             color: Color(0xFF95A1AC),
                             shape: BoxShape.circle,
@@ -137,8 +135,8 @@ class _CheckinStatusWidgetState extends State<CheckinStatusWidget> {
                         ),
                         Expanded(
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 0.0, 0.0, 0.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -150,7 +148,7 @@ class _CheckinStatusWidgetState extends State<CheckinStatusWidget> {
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Colors.black,
-                                        fontSize: 14.0,
+                                        fontSize: 14,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -164,17 +162,16 @@ class _CheckinStatusWidgetState extends State<CheckinStatusWidget> {
                 ),
                 Container(
                   width: double.infinity,
-                  height: 60.0,
+                  height: 60,
                   decoration: BoxDecoration(),
                   child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 12.0, 8.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(12, 8, 12, 8),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Container(
-                          width: 30.0,
-                          height: 30.0,
+                          width: 30,
+                          height: 30,
                           decoration: BoxDecoration(
                             color: Colors.black,
                             shape: BoxShape.circle,
@@ -182,8 +179,8 @@ class _CheckinStatusWidgetState extends State<CheckinStatusWidget> {
                         ),
                         Expanded(
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 0.0, 0.0, 0.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -195,7 +192,7 @@ class _CheckinStatusWidgetState extends State<CheckinStatusWidget> {
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Colors.black,
-                                        fontSize: 14.0,
+                                        fontSize: 14,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -209,17 +206,16 @@ class _CheckinStatusWidgetState extends State<CheckinStatusWidget> {
                 ),
                 Container(
                   width: double.infinity,
-                  height: 60.0,
+                  height: 60,
                   decoration: BoxDecoration(),
                   child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 12.0, 8.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(12, 8, 12, 8),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Container(
-                          width: 30.0,
-                          height: 30.0,
+                          width: 30,
+                          height: 30,
                           decoration: BoxDecoration(
                             color: Color(0xFFFF7100),
                             shape: BoxShape.circle,
@@ -227,8 +223,8 @@ class _CheckinStatusWidgetState extends State<CheckinStatusWidget> {
                         ),
                         Expanded(
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 0.0, 0.0, 0.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -240,7 +236,7 @@ class _CheckinStatusWidgetState extends State<CheckinStatusWidget> {
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Colors.black,
-                                        fontSize: 14.0,
+                                        fontSize: 14,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -254,17 +250,16 @@ class _CheckinStatusWidgetState extends State<CheckinStatusWidget> {
                 ),
                 Container(
                   width: double.infinity,
-                  height: 60.0,
+                  height: 60,
                   decoration: BoxDecoration(),
                   child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 12.0, 8.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(12, 8, 12, 8),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Container(
-                          width: 30.0,
-                          height: 30.0,
+                          width: 30,
+                          height: 30,
                           decoration: BoxDecoration(
                             color: Color(0xFFFF0000),
                             shape: BoxShape.circle,
@@ -272,8 +267,8 @@ class _CheckinStatusWidgetState extends State<CheckinStatusWidget> {
                         ),
                         Expanded(
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 0.0, 0.0, 0.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -285,7 +280,7 @@ class _CheckinStatusWidgetState extends State<CheckinStatusWidget> {
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Colors.black,
-                                        fontSize: 14.0,
+                                        fontSize: 14,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -299,17 +294,16 @@ class _CheckinStatusWidgetState extends State<CheckinStatusWidget> {
                 ),
                 Container(
                   width: double.infinity,
-                  height: 60.0,
+                  height: 60,
                   decoration: BoxDecoration(),
                   child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 12.0, 8.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(12, 8, 12, 8),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Container(
-                          width: 30.0,
-                          height: 30.0,
+                          width: 30,
+                          height: 30,
                           decoration: BoxDecoration(
                             color: Color(0xFFFFF40A),
                             shape: BoxShape.circle,
@@ -317,8 +311,8 @@ class _CheckinStatusWidgetState extends State<CheckinStatusWidget> {
                         ),
                         Expanded(
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 0.0, 0.0, 0.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -330,7 +324,7 @@ class _CheckinStatusWidgetState extends State<CheckinStatusWidget> {
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Colors.black,
-                                        fontSize: 14.0,
+                                        fontSize: 14,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -344,17 +338,16 @@ class _CheckinStatusWidgetState extends State<CheckinStatusWidget> {
                 ),
                 Container(
                   width: double.infinity,
-                  height: 60.0,
+                  height: 60,
                   decoration: BoxDecoration(),
                   child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 12.0, 8.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(12, 8, 12, 8),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Container(
-                          width: 30.0,
-                          height: 30.0,
+                          width: 30,
+                          height: 30,
                           decoration: BoxDecoration(
                             color: Color(0xFF2EFF00),
                             shape: BoxShape.circle,
@@ -362,8 +355,8 @@ class _CheckinStatusWidgetState extends State<CheckinStatusWidget> {
                         ),
                         Expanded(
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 0.0, 0.0, 0.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -375,7 +368,7 @@ class _CheckinStatusWidgetState extends State<CheckinStatusWidget> {
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Colors.black,
-                                        fontSize: 14.0,
+                                        fontSize: 14,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -391,16 +384,16 @@ class _CheckinStatusWidgetState extends State<CheckinStatusWidget> {
             ),
           ),
           Align(
-            alignment: AlignmentDirectional(1.0, -1.0),
+            alignment: AlignmentDirectional(1, -1),
             child: FlutterFlowIconButton(
               borderColor: Colors.transparent,
-              borderRadius: 30.0,
-              borderWidth: 1.0,
-              buttonSize: 60.0,
+              borderRadius: 30,
+              borderWidth: 1,
+              buttonSize: 60,
               icon: FaIcon(
                 FontAwesomeIcons.times,
                 color: Color(0xFFFF0000),
-                size: 40.0,
+                size: 40,
               ),
               onPressed: () async {
                 Navigator.pop(context);

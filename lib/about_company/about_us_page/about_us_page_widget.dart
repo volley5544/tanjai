@@ -53,8 +53,8 @@ class _AboutUsPageWidgetState extends State<AboutUsPageWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Container(
-                          width: MediaQuery.sizeOf(context).width * 1.0,
-                          height: 338.0,
+                          width: MediaQuery.sizeOf(context).width,
+                          height: 338,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
@@ -64,8 +64,8 @@ class _AboutUsPageWidgetState extends State<AboutUsPageWidget> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Container(
-                                width: MediaQuery.sizeOf(context).width * 1.0,
-                                height: 334.0,
+                                width: MediaQuery.sizeOf(context).width,
+                                height: 334,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -78,11 +78,10 @@ class _AboutUsPageWidgetState extends State<AboutUsPageWidget> {
                                         Image.asset(
                                           'assets/images/header-background2.png',
                                           width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  1.0,
+                                              MediaQuery.sizeOf(context).width,
                                           height: MediaQuery.sizeOf(context)
                                                   .height *
-                                              1.0,
+                                              1,
                                           fit: BoxFit.cover,
                                         ),
                                       ],
@@ -97,14 +96,14 @@ class _AboutUsPageWidgetState extends State<AboutUsPageWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 70.0),
+                                                  0, 0, 0, 70),
                                           child: ClipRRect(
                                             borderRadius:
-                                                BorderRadius.circular(8.0),
+                                                BorderRadius.circular(8),
                                             child: Image.asset(
                                               'assets/images/srisawad-home-logo.png',
-                                              width: 200.0,
-                                              height: 150.0,
+                                              width: 200,
+                                              height: 150,
                                               fit: BoxFit.contain,
                                             ),
                                           ),
@@ -123,15 +122,14 @@ class _AboutUsPageWidgetState extends State<AboutUsPageWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              20.0, 0.0, 0.0, 0.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 10.0, 0.0, 0.0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,
@@ -143,7 +141,7 @@ class _AboutUsPageWidgetState extends State<AboutUsPageWidget> {
                                   child: Icon(
                                     Icons.arrow_back,
                                     color: Color(0xFFDB771A),
-                                    size: 27.0,
+                                    size: 27,
                                   ),
                                 ),
                               ),
@@ -158,8 +156,7 @@ class _AboutUsPageWidgetState extends State<AboutUsPageWidget> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 10.0, 0.0, 0.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                           child: Text(
                             'เกี่ยวกับเรา',
                             style: FlutterFlowTheme.of(context)
@@ -167,7 +164,7 @@ class _AboutUsPageWidgetState extends State<AboutUsPageWidget> {
                                 .override(
                                   fontFamily: 'Noto Sans Thai',
                                   color: Color(0xFF002D5E),
-                                  fontSize: 18.0,
+                                  fontSize: 18,
                                   letterSpacing: 0.0,
                                 ),
                           ),
@@ -175,23 +172,22 @@ class _AboutUsPageWidgetState extends State<AboutUsPageWidget> {
                       ],
                     ),
                     Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 250.0, 0.0, 0.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 250, 0, 0),
                       child: Container(
-                        width: MediaQuery.sizeOf(context).width * 1.0,
-                        height: 550.0,
+                        width: MediaQuery.sizeOf(context).width,
+                        height: 550,
                         decoration: BoxDecoration(
                           color: FlutterFlowTheme.of(context).primaryBackground,
                           borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(0.0),
-                            bottomRight: Radius.circular(0.0),
-                            topLeft: Radius.circular(30.0),
-                            topRight: Radius.circular(30.0),
+                            bottomLeft: Radius.circular(0),
+                            bottomRight: Radius.circular(0),
+                            topLeft: Radius.circular(30),
+                            topRight: Radius.circular(30),
                           ),
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              20.0, 30.0, 20.0, 0.0),
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(20, 30, 20, 0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -216,7 +212,7 @@ class _AboutUsPageWidgetState extends State<AboutUsPageWidget> {
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Color(0xFF002D5E),
-                                                fontSize: 18.0,
+                                                fontSize: 18,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
@@ -231,7 +227,7 @@ class _AboutUsPageWidgetState extends State<AboutUsPageWidget> {
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 9.0, 0.0, 0.0),
+                                        0, 9, 0, 0),
                                     child: Text(
                                       'ให้บริการสินเชื่อหลากหลายรูปแบบ อาทิ',
                                       style: FlutterFlowTheme.of(context)
@@ -239,7 +235,7 @@ class _AboutUsPageWidgetState extends State<AboutUsPageWidget> {
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF002D5E),
-                                            fontSize: 15.0,
+                                            fontSize: 15,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
                                           ),
@@ -252,18 +248,18 @@ class _AboutUsPageWidgetState extends State<AboutUsPageWidget> {
                                 decoration: BoxDecoration(),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      15.0, 2.0, 0.0, 0.0),
+                                      15, 2, 0, 0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Icon(
                                         Icons.lens,
                                         color: Color(0xFF002D5E),
-                                        size: 6.0,
+                                        size: 6,
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            9.0, 0.0, 0.0, 0.0),
+                                            9, 0, 0, 0),
                                         child: Text(
                                           'สินเชื่อทะเบียนรถมอเตอร์ไซค์',
                                           style: FlutterFlowTheme.of(context)
@@ -271,7 +267,7 @@ class _AboutUsPageWidgetState extends State<AboutUsPageWidget> {
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Color(0xFF002D5E),
-                                                fontSize: 15.0,
+                                                fontSize: 15,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
                                               ),
@@ -286,18 +282,18 @@ class _AboutUsPageWidgetState extends State<AboutUsPageWidget> {
                                 decoration: BoxDecoration(),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      15.0, 2.0, 0.0, 0.0),
+                                      15, 2, 0, 0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Icon(
                                         Icons.lens,
                                         color: Color(0xFF002D5E),
-                                        size: 6.0,
+                                        size: 6,
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            9.0, 0.0, 0.0, 0.0),
+                                            9, 0, 0, 0),
                                         child: Text(
                                           'สินเชื่อทะเบียนรถยนต์',
                                           style: FlutterFlowTheme.of(context)
@@ -305,7 +301,7 @@ class _AboutUsPageWidgetState extends State<AboutUsPageWidget> {
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Color(0xFF002D5E),
-                                                fontSize: 15.0,
+                                                fontSize: 15,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
                                               ),
@@ -320,18 +316,18 @@ class _AboutUsPageWidgetState extends State<AboutUsPageWidget> {
                                 decoration: BoxDecoration(),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      15.0, 2.0, 0.0, 0.0),
+                                      15, 2, 0, 0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Icon(
                                         Icons.lens,
                                         color: Color(0xFF002D5E),
-                                        size: 6.0,
+                                        size: 6,
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            9.0, 0.0, 0.0, 0.0),
+                                            9, 0, 0, 0),
                                         child: Text(
                                           'สินเชื่อทะเบียนรถบรรทุก',
                                           style: FlutterFlowTheme.of(context)
@@ -339,7 +335,7 @@ class _AboutUsPageWidgetState extends State<AboutUsPageWidget> {
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Color(0xFF002D5E),
-                                                fontSize: 15.0,
+                                                fontSize: 15,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
                                               ),
@@ -354,18 +350,18 @@ class _AboutUsPageWidgetState extends State<AboutUsPageWidget> {
                                 decoration: BoxDecoration(),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      15.0, 2.0, 0.0, 0.0),
+                                      15, 2, 0, 0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Icon(
                                         Icons.lens,
                                         color: Color(0xFF002D5E),
-                                        size: 6.0,
+                                        size: 6,
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            9.0, 0.0, 0.0, 0.0),
+                                            9, 0, 0, 0),
                                         child: Text(
                                           'สินเชื่อทะเบียนรถเพื่อการเกษตร',
                                           style: FlutterFlowTheme.of(context)
@@ -373,7 +369,7 @@ class _AboutUsPageWidgetState extends State<AboutUsPageWidget> {
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Color(0xFF002D5E),
-                                                fontSize: 15.0,
+                                                fontSize: 15,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
                                               ),
@@ -388,18 +384,18 @@ class _AboutUsPageWidgetState extends State<AboutUsPageWidget> {
                                 decoration: BoxDecoration(),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      15.0, 2.0, 0.0, 0.0),
+                                      15, 2, 0, 0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Icon(
                                         Icons.lens,
                                         color: Color(0xFF002D5E),
-                                        size: 6.0,
+                                        size: 6,
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            9.0, 0.0, 0.0, 0.0),
+                                            9, 0, 0, 0),
                                         child: Text(
                                           'สินเชื่อบ้าน/ที่ดิน',
                                           style: FlutterFlowTheme.of(context)
@@ -407,7 +403,7 @@ class _AboutUsPageWidgetState extends State<AboutUsPageWidget> {
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Color(0xFF002D5E),
-                                                fontSize: 15.0,
+                                                fontSize: 15,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
                                               ),
@@ -422,7 +418,7 @@ class _AboutUsPageWidgetState extends State<AboutUsPageWidget> {
                                 decoration: BoxDecoration(),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 10.0, 0.0, 0.0),
+                                      0, 10, 0, 0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
@@ -430,7 +426,7 @@ class _AboutUsPageWidgetState extends State<AboutUsPageWidget> {
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 5.0, 20.0, 0.0),
+                                                  0, 5, 20, 0),
                                           child: Text(
                                             'นอกจากนี้ให้บริการตัวแทนนายหน้าทั้งประกันชีวิตและประกันภัยประเภทอื่นๆ ปัจจุบันบริษัทมีสาขาให้บริการมากกว่า 5,500 สาขาทั่วประเทศไทย',
                                             style: FlutterFlowTheme.of(context)
@@ -438,7 +434,7 @@ class _AboutUsPageWidgetState extends State<AboutUsPageWidget> {
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF002D5E),
-                                                  fontSize: 15.0,
+                                                  fontSize: 15,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),

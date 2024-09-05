@@ -187,7 +187,7 @@ class _NonePackageBasicPageWidgetState
           )!
                   .toList()
                   .cast<String>();
-          setState(() {});
+          safeSetState(() {});
         } else {
           await showDialog(
             context: context,
@@ -287,7 +287,7 @@ class _NonePackageBasicPageWidgetState
         }
 
         FFAppState().nonePackageIsLoadedData = true;
-        setState(() {});
+        safeSetState(() {});
       }
       if (FFAppState().insuranceRequestIsLoadedData &&
           (FFAppState().insuranceBasicBrandNameListOriginal.length > 0)) {
@@ -349,7 +349,7 @@ class _NonePackageBasicPageWidgetState
           )!
                   .toList()
                   .cast<String>();
-          setState(() {});
+          safeSetState(() {});
         } else {
           await showDialog(
             context: context,
@@ -528,7 +528,7 @@ class _NonePackageBasicPageWidgetState
         }
 
         FFAppState().insuranceRequestIsLoadedData = true;
-        setState(() {});
+        safeSetState(() {});
       }
 
       Navigator.pop(context);
@@ -547,7 +547,7 @@ class _NonePackageBasicPageWidgetState
           if (_model.carrierPriceTextFieldTextController.text == '') {
             return;
           }
-          setState(() {
+          safeSetState(() {
             _model.currentPriceTextFieldTextController?.text =
                 functions.removeCommaFromNumText(
                     _model.currentPriceTextFieldTextController.text);
@@ -560,7 +560,7 @@ class _NonePackageBasicPageWidgetState
           if (_model.currentPriceTextFieldTextController.text == '') {
             return;
           }
-          setState(() {
+          safeSetState(() {
             _model.currentPriceTextFieldTextController?.text =
                 functions.showNumberWithCommaWithoutDot(
                     _model.currentPriceTextFieldTextController.text)!;
@@ -581,7 +581,7 @@ class _NonePackageBasicPageWidgetState
           if (_model.carrierPriceTextFieldTextController.text == '') {
             return;
           }
-          setState(() {
+          safeSetState(() {
             _model.carrierPriceTextFieldTextController?.text =
                 functions.removeCommaFromNumText(
                     _model.carrierPriceTextFieldTextController.text);
@@ -594,7 +594,7 @@ class _NonePackageBasicPageWidgetState
           if (_model.carrierPriceTextFieldTextController.text == '') {
             return;
           }
-          setState(() {
+          safeSetState(() {
             _model.carrierPriceTextFieldTextController?.text =
                 functions.showNumberWithCommaWithoutDot(
                     _model.carrierPriceTextFieldTextController.text)!;
@@ -651,7 +651,7 @@ class _NonePackageBasicPageWidgetState
           if (_model.sumInsuredTextFieldTextController.text == '') {
             return;
           }
-          setState(() {
+          safeSetState(() {
             _model.sumInsuredTextFieldTextController?.text =
                 functions.removeCommaFromNumText(
                     _model.sumInsuredTextFieldTextController.text);
@@ -664,7 +664,7 @@ class _NonePackageBasicPageWidgetState
           if (_model.sumInsuredTextFieldTextController.text == '') {
             return;
           }
-          setState(() {
+          safeSetState(() {
             _model.sumInsuredTextFieldTextController?.text =
                 functions.showNumberWithCommaWithoutDot(
                     _model.sumInsuredTextFieldTextController.text)!;
@@ -685,7 +685,7 @@ class _NonePackageBasicPageWidgetState
           if (_model.trailerSumInsuredTextFieldTextController.text == '') {
             return;
           }
-          setState(() {
+          safeSetState(() {
             _model.trailerSumInsuredTextFieldTextController?.text =
                 functions.removeCommaFromNumText(
                     _model.trailerSumInsuredTextFieldTextController.text);
@@ -698,7 +698,7 @@ class _NonePackageBasicPageWidgetState
           if (_model.trailerSumInsuredTextFieldTextController.text == '') {
             return;
           }
-          setState(() {
+          safeSetState(() {
             _model.trailerSumInsuredTextFieldTextController?.text =
                 functions.showNumberWithCommaWithoutDot(
                     _model.trailerSumInsuredTextFieldTextController.text)!;
@@ -738,13 +738,13 @@ class _NonePackageBasicPageWidgetState
             automaticallyImplyLeading: false,
             leading: FlutterFlowIconButton(
               borderColor: Colors.transparent,
-              borderRadius: 30.0,
-              borderWidth: 1.0,
-              buttonSize: 60.0,
+              borderRadius: 30,
+              borderWidth: 1,
+              buttonSize: 60,
               icon: Icon(
                 Icons.arrow_back_rounded,
                 color: Color(0xFFDB771A),
-                size: 30.0,
+                size: 30,
               ),
               onPressed: () async {
                 context.pop();
@@ -763,14 +763,14 @@ class _NonePackageBasicPageWidgetState
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF003063),
-                    fontSize: 18.0,
+                    fontSize: 18,
                     letterSpacing: 0.0,
                     fontWeight: FontWeight.w600,
                   ),
             ),
             actions: [],
             centerTitle: true,
-            elevation: 2.0,
+            elevation: 2,
           ),
           body: SafeArea(
             top: true,
@@ -782,17 +782,16 @@ class _NonePackageBasicPageWidgetState
                   if (!functions.checkIsStringLengthInLength(
                       FFAppState().branchCode, 2)!)
                     Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 5, 20, 0),
                       child: Container(
-                        width: MediaQuery.sizeOf(context).width * 1.0,
+                        width: MediaQuery.sizeOf(context).width,
                         decoration: BoxDecoration(),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 12.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 12, 0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
@@ -802,14 +801,14 @@ class _NonePackageBasicPageWidgetState
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
-                                          fontSize: 15.0,
+                                          fontSize: 15,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
                                         ),
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 0.0, 0.0, 0.0),
+                                        10, 0, 0, 0),
                                     child: Text(
                                       '(บังคับเลือก)',
                                       style: FlutterFlowTheme.of(context)
@@ -817,7 +816,7 @@ class _NonePackageBasicPageWidgetState
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFFFB0606),
-                                            fontSize: 12.0,
+                                            fontSize: 12,
                                             letterSpacing: 0.0,
                                           ),
                                     ),
@@ -826,8 +825,8 @@ class _NonePackageBasicPageWidgetState
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 5.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                               child: InkWell(
                                 splashColor: Colors.transparent,
                                 focusColor: Colors.transparent,
@@ -849,18 +848,18 @@ class _NonePackageBasicPageWidgetState
                                   );
                                 },
                                 child: Container(
-                                  width: MediaQuery.sizeOf(context).width * 1.0,
-                                  height: 60.0,
+                                  width: MediaQuery.sizeOf(context).width,
+                                  height: 60,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(8.0),
+                                    borderRadius: BorderRadius.circular(8),
                                     border: Border.all(
                                       color: Color(0xFFB3B3B3),
                                     ),
                                   ),
                                   child: Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0, 0),
                                     child: ListTile(
                                       title: Text(
                                         (FFAppState().nonePackageBranchCode !=
@@ -883,7 +882,7 @@ class _NonePackageBasicPageWidgetState
                                                           '')
                                                   ? Colors.black
                                                   : Color(0xFF9F9F9F),
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -891,14 +890,13 @@ class _NonePackageBasicPageWidgetState
                                       trailing: Icon(
                                         Icons.arrow_forward_ios,
                                         color: Color(0xFF474747),
-                                        size: 20.0,
+                                        size: 20,
                                       ),
                                       tileColor: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
                                       dense: false,
                                       shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
+                                        borderRadius: BorderRadius.circular(10),
                                       ),
                                     ),
                                   ),
@@ -910,10 +908,9 @@ class _NonePackageBasicPageWidgetState
                       ),
                     ),
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 5.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(20, 5, 20, 5),
                     child: Container(
-                      width: MediaQuery.sizeOf(context).width * 1.0,
+                      width: MediaQuery.sizeOf(context).width,
                       decoration: BoxDecoration(),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -927,14 +924,14 @@ class _NonePackageBasicPageWidgetState
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
-                                      fontSize: 15.0,
+                                      fontSize: 15,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 0.0, 0.0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
                                 child: Text(
                                   '(บังคับเลือก)',
                                   style: FlutterFlowTheme.of(context)
@@ -942,7 +939,7 @@ class _NonePackageBasicPageWidgetState
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFFB0606),
-                                        fontSize: 12.0,
+                                        fontSize: 12,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -950,8 +947,7 @@ class _NonePackageBasicPageWidgetState
                             ],
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 5.0, 0.0, 0.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
@@ -993,12 +989,12 @@ class _NonePackageBasicPageWidgetState
                                 );
                               },
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width * 1.0,
-                                height: 60.0,
+                                width: MediaQuery.sizeOf(context).width,
+                                height: 60,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(8),
                                   border: Border.all(
                                     color: Color(0xFFB3B3B3),
                                   ),
@@ -1010,7 +1006,7 @@ class _NonePackageBasicPageWidgetState
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 0.0, 0.0, 0.0),
+                                          10, 0, 0, 0),
                                       child: Text(
                                         FFAppState().nonePackageVehicleType,
                                         style: FlutterFlowTheme.of(context)
@@ -1029,7 +1025,7 @@ class _NonePackageBasicPageWidgetState
                                                   ? FlutterFlowTheme.of(context)
                                                       .secondaryText
                                                   : Colors.black,
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -1037,12 +1033,12 @@ class _NonePackageBasicPageWidgetState
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 10.0, 0.0),
+                                          0, 0, 10, 0),
                                       child: Icon(
                                         Icons.navigate_next,
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
-                                        size: 24.0,
+                                        size: 24,
                                       ),
                                     ),
                                   ],
@@ -1057,10 +1053,9 @@ class _NonePackageBasicPageWidgetState
                   if (FFAppState().nonePackageVehicleType ==
                       'รถบรรทุก หัวลาก หางพ่วง')
                     Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 5.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 5, 20, 5),
                       child: Container(
-                        width: MediaQuery.sizeOf(context).width * 1.0,
+                        width: MediaQuery.sizeOf(context).width,
                         decoration: BoxDecoration(),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -1074,14 +1069,14 @@ class _NonePackageBasicPageWidgetState
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
-                                        fontSize: 15.0,
+                                        fontSize: 15,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
                                       ),
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 0.0, 0.0, 0.0),
+                                      10, 0, 0, 0),
                                   child: Text(
                                     '(บังคับเลือก)',
                                     style: FlutterFlowTheme.of(context)
@@ -1089,7 +1084,7 @@ class _NonePackageBasicPageWidgetState
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFFFB0606),
-                                          fontSize: 12.0,
+                                          fontSize: 12,
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -1097,8 +1092,8 @@ class _NonePackageBasicPageWidgetState
                               ],
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 5.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                               child: InkWell(
                                 splashColor: Colors.transparent,
                                 focusColor: Colors.transparent,
@@ -1137,12 +1132,12 @@ class _NonePackageBasicPageWidgetState
                                   );
                                 },
                                 child: Container(
-                                  width: MediaQuery.sizeOf(context).width * 1.0,
-                                  height: 60.0,
+                                  width: MediaQuery.sizeOf(context).width,
+                                  height: 60,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(8.0),
+                                    borderRadius: BorderRadius.circular(8),
                                     border: Border.all(
                                       color: Color(0xFFB3B3B3),
                                     ),
@@ -1154,7 +1149,7 @@ class _NonePackageBasicPageWidgetState
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 0.0, 0.0),
+                                            10, 0, 0, 0),
                                         child: Text(
                                           FFAppState().nonePackageTruckPart,
                                           style: FlutterFlowTheme.of(context)
@@ -1170,7 +1165,7 @@ class _NonePackageBasicPageWidgetState
                                                             context)
                                                         .secondaryText
                                                     : Colors.black,
-                                                fontSize: 15.0,
+                                                fontSize: 15,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
@@ -1178,12 +1173,12 @@ class _NonePackageBasicPageWidgetState
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 10.0, 0.0),
+                                            0, 0, 10, 0),
                                         child: Icon(
                                           Icons.navigate_next,
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryText,
-                                          size: 24.0,
+                                          size: 24,
                                         ),
                                       ),
                                     ],
@@ -1198,10 +1193,9 @@ class _NonePackageBasicPageWidgetState
                   if (FFAppState().nonePackageVehicleType ==
                       'รถบรรทุก หัวลาก หางพ่วง')
                     Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 5.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 5, 20, 5),
                       child: Container(
-                        width: MediaQuery.sizeOf(context).width * 1.0,
+                        width: MediaQuery.sizeOf(context).width,
                         decoration: BoxDecoration(),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -1215,14 +1209,14 @@ class _NonePackageBasicPageWidgetState
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
-                                        fontSize: 15.0,
+                                        fontSize: 15,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
                                       ),
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 0.0, 0.0, 0.0),
+                                      10, 0, 0, 0),
                                   child: Text(
                                     '(บังคับเลือก)',
                                     style: FlutterFlowTheme.of(context)
@@ -1230,7 +1224,7 @@ class _NonePackageBasicPageWidgetState
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFFFB0606),
-                                          fontSize: 12.0,
+                                          fontSize: 12,
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -1238,8 +1232,8 @@ class _NonePackageBasicPageWidgetState
                               ],
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 5.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                               child: InkWell(
                                 splashColor: Colors.transparent,
                                 focusColor: Colors.transparent,
@@ -1279,12 +1273,12 @@ class _NonePackageBasicPageWidgetState
                                   );
                                 },
                                 child: Container(
-                                  width: MediaQuery.sizeOf(context).width * 1.0,
-                                  height: 60.0,
+                                  width: MediaQuery.sizeOf(context).width,
+                                  height: 60,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(8.0),
+                                    borderRadius: BorderRadius.circular(8),
                                     border: Border.all(
                                       color: Color(0xFFB3B3B3),
                                     ),
@@ -1296,7 +1290,7 @@ class _NonePackageBasicPageWidgetState
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 0.0, 0.0),
+                                            10, 0, 0, 0),
                                         child: Text(
                                           FFAppState().nonePackageCusMembership,
                                           style: FlutterFlowTheme.of(context)
@@ -1312,7 +1306,7 @@ class _NonePackageBasicPageWidgetState
                                                             context)
                                                         .secondaryText
                                                     : Colors.black,
-                                                fontSize: 15.0,
+                                                fontSize: 15,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
@@ -1320,12 +1314,12 @@ class _NonePackageBasicPageWidgetState
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 10.0, 0.0),
+                                            0, 0, 10, 0),
                                         child: Icon(
                                           Icons.navigate_next,
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryText,
-                                          size: 24.0,
+                                          size: 24,
                                         ),
                                       ),
                                     ],
@@ -1340,10 +1334,9 @@ class _NonePackageBasicPageWidgetState
                   if (FFAppState().nonePackageVehicleType ==
                       'รถบรรทุก หัวลาก หางพ่วง')
                     Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 5, 20, 0),
                       child: Container(
-                        width: MediaQuery.sizeOf(context).width * 1.0,
+                        width: MediaQuery.sizeOf(context).width,
                         decoration: BoxDecoration(),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -1357,14 +1350,14 @@ class _NonePackageBasicPageWidgetState
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
-                                        fontSize: 15.0,
+                                        fontSize: 15,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
                                       ),
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 0.0, 0.0, 0.0),
+                                      10, 0, 0, 0),
                                   child: Text(
                                     '(บังคับกรอก)',
                                     style: FlutterFlowTheme.of(context)
@@ -1372,7 +1365,7 @@ class _NonePackageBasicPageWidgetState
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFFFB0606),
-                                          fontSize: 12.0,
+                                          fontSize: 12,
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -1380,24 +1373,24 @@ class _NonePackageBasicPageWidgetState
                               ],
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 5.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width * 1.0,
-                                height: 60.0,
+                                width: MediaQuery.sizeOf(context).width,
+                                height: 60,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(8),
                                   border: Border.all(
                                     color: Color(0xFFB3B3B3),
                                   ),
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: AlignmentDirectional(0, 0),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 0.0, 10.0, 0.0),
+                                        10, 0, 10, 0),
                                     child: TextFormField(
                                       controller: _model
                                           .carryPurposeTextFieldTextController,
@@ -1410,7 +1403,7 @@ class _NonePackageBasicPageWidgetState
                                             .labelMedium
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                             ),
                                         hintText: 'กรุณากรอกรถใช้บรรทุกอะไร',
@@ -1419,7 +1412,7 @@ class _NonePackageBasicPageWidgetState
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFFB3B3B3),
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                             ),
                                         enabledBorder: InputBorder.none,
@@ -1432,7 +1425,7 @@ class _NonePackageBasicPageWidgetState
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Colors.black,
-                                            fontSize: 15.0,
+                                            fontSize: 15,
                                             letterSpacing: 0.0,
                                           ),
                                       validator: _model
@@ -1450,10 +1443,9 @@ class _NonePackageBasicPageWidgetState
                   if (FFAppState().nonePackageVehicleType ==
                       'รถบรรทุก หัวลาก หางพ่วง')
                     Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 5, 20, 0),
                       child: Container(
-                        width: MediaQuery.sizeOf(context).width * 1.0,
+                        width: MediaQuery.sizeOf(context).width,
                         decoration: BoxDecoration(),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -1467,7 +1459,7 @@ class _NonePackageBasicPageWidgetState
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
-                                        fontSize: 15.0,
+                                        fontSize: 15,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -1475,22 +1467,22 @@ class _NonePackageBasicPageWidgetState
                               ],
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 5.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width * 1.0,
-                                height: 60.0,
+                                width: MediaQuery.sizeOf(context).width,
+                                height: 60,
                                 decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(8),
                                   border: Border.all(
                                     color: Color(0xFFB3B3B3),
                                   ),
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: AlignmentDirectional(0, 0),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 0.0, 10.0, 0.0),
+                                        10, 0, 10, 0),
                                     child: TextFormField(
                                       controller: _model
                                           .currentPriceTextFieldTextController,
@@ -1499,7 +1491,7 @@ class _NonePackageBasicPageWidgetState
                                       onChanged: (_) => EasyDebounce.debounce(
                                         '_model.currentPriceTextFieldTextController',
                                         Duration(milliseconds: 100),
-                                        () => setState(() {}),
+                                        () => safeSetState(() {}),
                                       ),
                                       autofocus: false,
                                       obscureText: false,
@@ -1508,7 +1500,7 @@ class _NonePackageBasicPageWidgetState
                                             .labelMedium
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                             ),
                                         hintText:
@@ -1520,7 +1512,7 @@ class _NonePackageBasicPageWidgetState
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryText,
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                             ),
                                         enabledBorder: InputBorder.none,
@@ -1534,7 +1526,7 @@ class _NonePackageBasicPageWidgetState
                                             fontFamily: 'Noto Sans Thai',
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryText,
-                                            fontSize: 15.0,
+                                            fontSize: 15,
                                             letterSpacing: 0.0,
                                           ),
                                       keyboardType: TextInputType.number,
@@ -1552,17 +1544,16 @@ class _NonePackageBasicPageWidgetState
                     ),
                   if (FFAppState().nonePackageVehicleType == 'รถกระบะ')
                     Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 5, 20, 0),
                       child: Container(
-                        width: MediaQuery.sizeOf(context).width * 1.0,
+                        width: MediaQuery.sizeOf(context).width,
                         decoration: BoxDecoration(),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 5.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                               child: InkWell(
                                 splashColor: Colors.transparent,
                                 focusColor: Colors.transparent,
@@ -1571,10 +1562,10 @@ class _NonePackageBasicPageWidgetState
                                 onTap: () async {
                                   if (FFAppState().nonePackageFlagCarrier) {
                                     FFAppState().nonePackageFlagCarrier = false;
-                                    setState(() {});
+                                    safeSetState(() {});
                                   } else {
                                     FFAppState().nonePackageFlagCarrier = true;
-                                    setState(() {});
+                                    safeSetState(() {});
                                   }
 
                                   await actions.hideKeyboardAction(
@@ -1582,12 +1573,12 @@ class _NonePackageBasicPageWidgetState
                                   );
                                 },
                                 child: Container(
-                                  width: MediaQuery.sizeOf(context).width * 1.0,
-                                  height: 60.0,
+                                  width: MediaQuery.sizeOf(context).width,
+                                  height: 60,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(8.0),
+                                    borderRadius: BorderRadius.circular(8),
                                     border: Border.all(
                                       color: Color(0xFFB3B3B3),
                                     ),
@@ -1599,7 +1590,7 @@ class _NonePackageBasicPageWidgetState
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 0.0, 0.0),
+                                            10, 0, 0, 0),
                                         child: Text(
                                           'ติดตู้เหล็กหรือไม่',
                                           style: FlutterFlowTheme.of(context)
@@ -1612,7 +1603,7 @@ class _NonePackageBasicPageWidgetState
                                                             context)
                                                         .secondaryText
                                                     : Colors.black,
-                                                fontSize: 15.0,
+                                                fontSize: 15,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
@@ -1622,10 +1613,10 @@ class _NonePackageBasicPageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 10.0, 0.0),
+                                                  0, 0, 10, 0),
                                           child: Container(
-                                            width: 25.0,
-                                            height: 25.0,
+                                            width: 25,
+                                            height: 25,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -1633,7 +1624,7 @@ class _NonePackageBasicPageWidgetState
                                               shape: BoxShape.circle,
                                               border: Border.all(
                                                 color: Color(0xFF9F9F9F),
-                                                width: 1.0,
+                                                width: 1,
                                               ),
                                             ),
                                           ),
@@ -1642,10 +1633,10 @@ class _NonePackageBasicPageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 10.0, 0.0),
+                                                  0, 0, 10, 0),
                                           child: Container(
-                                            width: 25.0,
-                                            height: 25.0,
+                                            width: 25,
+                                            height: 25,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -1653,12 +1644,12 @@ class _NonePackageBasicPageWidgetState
                                               shape: BoxShape.circle,
                                             ),
                                             child: Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
+                                              alignment:
+                                                  AlignmentDirectional(0, 0),
                                               child: Icon(
                                                 Icons.check,
                                                 color: Colors.white,
-                                                size: 18.0,
+                                                size: 18,
                                               ),
                                             ),
                                           ),
@@ -1675,17 +1666,16 @@ class _NonePackageBasicPageWidgetState
                   if ((FFAppState().nonePackageVehicleType == 'รถกระบะ') &&
                       FFAppState().nonePackageFlagCarrier)
                     Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 5, 20, 0),
                       child: Container(
-                        width: MediaQuery.sizeOf(context).width * 1.0,
+                        width: MediaQuery.sizeOf(context).width,
                         decoration: BoxDecoration(),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 5.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                               child: InkWell(
                                 splashColor: Colors.transparent,
                                 focusColor: Colors.transparent,
@@ -1694,10 +1684,10 @@ class _NonePackageBasicPageWidgetState
                                 onTap: () async {
                                   if (FFAppState().nonePackageFlagCoop) {
                                     FFAppState().nonePackageFlagCoop = false;
-                                    setState(() {});
+                                    safeSetState(() {});
                                   } else {
                                     FFAppState().nonePackageFlagCoop = true;
-                                    setState(() {});
+                                    safeSetState(() {});
                                   }
 
                                   await actions.hideKeyboardAction(
@@ -1705,12 +1695,12 @@ class _NonePackageBasicPageWidgetState
                                   );
                                 },
                                 child: Container(
-                                  width: MediaQuery.sizeOf(context).width * 1.0,
-                                  height: 60.0,
+                                  width: MediaQuery.sizeOf(context).width,
+                                  height: 60,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(8.0),
+                                    borderRadius: BorderRadius.circular(8),
                                     border: Border.all(
                                       color: Color(0xFFB3B3B3),
                                     ),
@@ -1722,7 +1712,7 @@ class _NonePackageBasicPageWidgetState
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 0.0, 0.0),
+                                            10, 0, 0, 0),
                                         child: Text(
                                           'ใช้วิ่งร่วมกับบริษัทขนส่งเอกชนหรือไม่',
                                           style: FlutterFlowTheme.of(context)
@@ -1735,7 +1725,7 @@ class _NonePackageBasicPageWidgetState
                                                             context)
                                                         .secondaryText
                                                     : Colors.black,
-                                                fontSize: 15.0,
+                                                fontSize: 15,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
@@ -1745,10 +1735,10 @@ class _NonePackageBasicPageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 10.0, 0.0),
+                                                  0, 0, 10, 0),
                                           child: Container(
-                                            width: 25.0,
-                                            height: 25.0,
+                                            width: 25,
+                                            height: 25,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -1756,7 +1746,7 @@ class _NonePackageBasicPageWidgetState
                                               shape: BoxShape.circle,
                                               border: Border.all(
                                                 color: Color(0xFF9F9F9F),
-                                                width: 1.0,
+                                                width: 1,
                                               ),
                                             ),
                                           ),
@@ -1765,10 +1755,10 @@ class _NonePackageBasicPageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 10.0, 0.0),
+                                                  0, 0, 10, 0),
                                           child: Container(
-                                            width: 25.0,
-                                            height: 25.0,
+                                            width: 25,
+                                            height: 25,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -1776,12 +1766,12 @@ class _NonePackageBasicPageWidgetState
                                               shape: BoxShape.circle,
                                             ),
                                             child: Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
+                                              alignment:
+                                                  AlignmentDirectional(0, 0),
                                               child: Icon(
                                                 Icons.check,
                                                 color: Colors.white,
-                                                size: 18.0,
+                                                size: 18,
                                               ),
                                             ),
                                           ),
@@ -1798,10 +1788,9 @@ class _NonePackageBasicPageWidgetState
                   if ((FFAppState().nonePackageVehicleType == 'รถกระบะ') &&
                       FFAppState().nonePackageFlagCarrier)
                     Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 5, 20, 0),
                       child: Container(
-                        width: MediaQuery.sizeOf(context).width * 1.0,
+                        width: MediaQuery.sizeOf(context).width,
                         decoration: BoxDecoration(),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -1815,14 +1804,14 @@ class _NonePackageBasicPageWidgetState
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
-                                        fontSize: 15.0,
+                                        fontSize: 15,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
                                       ),
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 0.0, 0.0, 0.0),
+                                      10, 0, 0, 0),
                                   child: Text(
                                     '(บังคับเลือก)',
                                     style: FlutterFlowTheme.of(context)
@@ -1830,7 +1819,7 @@ class _NonePackageBasicPageWidgetState
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFFFB0606),
-                                          fontSize: 12.0,
+                                          fontSize: 12,
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -1838,8 +1827,8 @@ class _NonePackageBasicPageWidgetState
                               ],
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 5.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                               child: InkWell(
                                 splashColor: Colors.transparent,
                                 focusColor: Colors.transparent,
@@ -1882,12 +1871,12 @@ class _NonePackageBasicPageWidgetState
                                   );
                                 },
                                 child: Container(
-                                  width: MediaQuery.sizeOf(context).width * 1.0,
-                                  height: 60.0,
+                                  width: MediaQuery.sizeOf(context).width,
+                                  height: 60,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(8.0),
+                                    borderRadius: BorderRadius.circular(8),
                                     border: Border.all(
                                       color: Color(0xFFB3B3B3),
                                     ),
@@ -1899,7 +1888,7 @@ class _NonePackageBasicPageWidgetState
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 0.0, 0.0),
+                                            10, 0, 0, 0),
                                         child: Text(
                                           FFAppState().nonePackageCarrierType,
                                           style: FlutterFlowTheme.of(context)
@@ -1915,7 +1904,7 @@ class _NonePackageBasicPageWidgetState
                                                             context)
                                                         .secondaryText
                                                     : Colors.black,
-                                                fontSize: 15.0,
+                                                fontSize: 15,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
@@ -1923,12 +1912,12 @@ class _NonePackageBasicPageWidgetState
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 10.0, 0.0),
+                                            0, 0, 10, 0),
                                         child: Icon(
                                           Icons.navigate_next,
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryText,
-                                          size: 24.0,
+                                          size: 24,
                                         ),
                                       ),
                                     ],
@@ -1944,10 +1933,9 @@ class _NonePackageBasicPageWidgetState
                       FFAppState().nonePackageFlagCarrier &&
                       (FFAppState().nonePackageCarrierType == 'ตู้เย็น'))
                     Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 5, 20, 0),
                       child: Container(
-                        width: MediaQuery.sizeOf(context).width * 1.0,
+                        width: MediaQuery.sizeOf(context).width,
                         decoration: BoxDecoration(),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -1961,14 +1949,14 @@ class _NonePackageBasicPageWidgetState
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
-                                        fontSize: 15.0,
+                                        fontSize: 15,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
                                       ),
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 0.0, 0.0, 0.0),
+                                      10, 0, 0, 0),
                                   child: Text(
                                     '(บังคับกรอก เป็นตัวเลขเท่านั้น)',
                                     style: FlutterFlowTheme.of(context)
@@ -1976,7 +1964,7 @@ class _NonePackageBasicPageWidgetState
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFFFB0606),
-                                          fontSize: 12.0,
+                                          fontSize: 12,
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -1984,15 +1972,15 @@ class _NonePackageBasicPageWidgetState
                               ],
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 5.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width * 1.0,
-                                height: 60.0,
+                                width: MediaQuery.sizeOf(context).width,
+                                height: 60,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(8),
                                   border: Border.all(
                                     color: Color(0xFFB3B3B3),
                                   ),
@@ -2000,10 +1988,10 @@ class _NonePackageBasicPageWidgetState
                                 child: Stack(
                                   children: [
                                     Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      alignment: AlignmentDirectional(0, 0),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 10.0, 0.0),
+                                            10, 0, 10, 0),
                                         child: TextFormField(
                                           controller: _model
                                               .carrierPriceTextFieldTextController,
@@ -2013,7 +2001,7 @@ class _NonePackageBasicPageWidgetState
                                               EasyDebounce.debounce(
                                             '_model.carrierPriceTextFieldTextController',
                                             Duration(milliseconds: 100),
-                                            () => setState(() {}),
+                                            () => safeSetState(() {}),
                                           ),
                                           autofocus: false,
                                           obscureText: false,
@@ -2024,7 +2012,7 @@ class _NonePackageBasicPageWidgetState
                                                     .override(
                                                       fontFamily:
                                                           'Noto Sans Thai',
-                                                      fontSize: 15.0,
+                                                      fontSize: 15,
                                                       letterSpacing: 0.0,
                                                     ),
                                             hintText: 'กรุณากรอกราคา',
@@ -2035,7 +2023,7 @@ class _NonePackageBasicPageWidgetState
                                                       fontFamily:
                                                           'Noto Sans Thai',
                                                       color: Color(0xFFB3B3B3),
-                                                      fontSize: 15.0,
+                                                      fontSize: 15,
                                                       letterSpacing: 0.0,
                                                     ),
                                             enabledBorder: InputBorder.none,
@@ -2051,7 +2039,7 @@ class _NonePackageBasicPageWidgetState
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryText,
-                                                fontSize: 15.0,
+                                                fontSize: 15,
                                                 letterSpacing: 0.0,
                                               ),
                                           keyboardType: TextInputType.number,
@@ -2070,10 +2058,9 @@ class _NonePackageBasicPageWidgetState
                       ),
                     ),
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(20, 5, 20, 0),
                     child: Container(
-                      width: MediaQuery.sizeOf(context).width * 1.0,
+                      width: MediaQuery.sizeOf(context).width,
                       decoration: BoxDecoration(),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -2087,14 +2074,14 @@ class _NonePackageBasicPageWidgetState
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
-                                      fontSize: 15.0,
+                                      fontSize: 15,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 0.0, 0.0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
                                 child: Text(
                                   '(บังคับเลือก)',
                                   style: FlutterFlowTheme.of(context)
@@ -2102,7 +2089,7 @@ class _NonePackageBasicPageWidgetState
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFFB0606),
-                                        fontSize: 12.0,
+                                        fontSize: 12,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -2110,15 +2097,14 @@ class _NonePackageBasicPageWidgetState
                             ],
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 5.0, 0.0, 0.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                             child: Container(
-                              width: MediaQuery.sizeOf(context).width * 1.0,
-                              height: 60.0,
+                              width: MediaQuery.sizeOf(context).width,
+                              height: 60,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
-                                borderRadius: BorderRadius.circular(8.0),
+                                borderRadius: BorderRadius.circular(8),
                                 border: Border.all(
                                   color: Color(0xFFB3B3B3),
                                 ),
@@ -2130,10 +2116,10 @@ class _NonePackageBasicPageWidgetState
                                 children: [
                                   Expanded(
                                     child: Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      alignment: AlignmentDirectional(0, 0),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 10.0, 0.0),
+                                            10, 0, 10, 0),
                                         child: Autocomplete<String>(
                                           initialValue: TextEditingValue(
                                               text: functions.containWordinStringUrl(
@@ -2181,18 +2167,18 @@ class _NonePackageBasicPageWidgetState
                                                         letterSpacing: 0.0,
                                                       ),
                                               textHighlightStyle: TextStyle(),
-                                              elevation: 4.0,
+                                              elevation: 4,
                                               optionBackgroundColor:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryBackground,
                                               optionHighlightColor:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
-                                              maxHeight: 200.0,
+                                              maxHeight: 200,
                                             );
                                           },
                                           onSelected: (String selection) {
-                                            setState(() => _model
+                                            safeSetState(() => _model
                                                     .brandNameTextFieldSelectedOption =
                                                 selection);
                                             FocusScope.of(context).unfocus();
@@ -2294,7 +2280,7 @@ class _NonePackageBasicPageWidgetState
                                                                 .insuranceBasicCarTypeDoors)
                                                         .toList()
                                                         .cast<String>();
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                   } else {
                                                     FFAppState().nonePackageSearchModelList = functions
                                                         .returnMappedListFrom3ListOther(
@@ -2348,7 +2334,7 @@ class _NonePackageBasicPageWidgetState
                                                                 .insuranceBasicVehicleGroup)
                                                         .toList()
                                                         .cast<String>();
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                   }
 
                                                   FFAppState().nonePackageSearchModelList = functions
@@ -2423,7 +2409,7 @@ class _NonePackageBasicPageWidgetState
                                                               .insuranceBasicCarTypeDoors)
                                                       .toList()
                                                       .cast<String>();
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                 },
                                               ),
                                               onFieldSubmitted: (_) async {
@@ -2441,7 +2427,7 @@ class _NonePackageBasicPageWidgetState
                                                         .override(
                                                           fontFamily:
                                                               'Noto Sans Thai',
-                                                          fontSize: 15.0,
+                                                          fontSize: 15,
                                                           letterSpacing: 0.0,
                                                         ),
                                                 hintText: 'กรุณากรอกรุ่นรถ',
@@ -2453,7 +2439,7 @@ class _NonePackageBasicPageWidgetState
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFFB3B3B3),
-                                                          fontSize: 15.0,
+                                                          fontSize: 15,
                                                           letterSpacing: 0.0,
                                                         ),
                                                 enabledBorder: InputBorder.none,
@@ -2469,7 +2455,7 @@ class _NonePackageBasicPageWidgetState
                                                         fontFamily:
                                                             'Noto Sans Thai',
                                                         color: Colors.black,
-                                                        fontSize: 15.0,
+                                                        fontSize: 15,
                                                         letterSpacing: 0.0,
                                                       ),
                                               validator: _model
@@ -2490,10 +2476,9 @@ class _NonePackageBasicPageWidgetState
                     ),
                   ),
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(20, 5, 20, 0),
                     child: Container(
-                      width: MediaQuery.sizeOf(context).width * 1.0,
+                      width: MediaQuery.sizeOf(context).width,
                       decoration: BoxDecoration(),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -2507,14 +2492,14 @@ class _NonePackageBasicPageWidgetState
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
-                                      fontSize: 15.0,
+                                      fontSize: 15,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 0.0, 0.0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
                                 child: Text(
                                   '(บังคับกรอก)',
                                   style: FlutterFlowTheme.of(context)
@@ -2522,7 +2507,7 @@ class _NonePackageBasicPageWidgetState
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFFB0606),
-                                        fontSize: 12.0,
+                                        fontSize: 12,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -2530,24 +2515,23 @@ class _NonePackageBasicPageWidgetState
                             ],
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 5.0, 0.0, 0.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                             child: Container(
-                              width: MediaQuery.sizeOf(context).width * 1.0,
-                              height: 60.0,
+                              width: MediaQuery.sizeOf(context).width,
+                              height: 60,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
-                                borderRadius: BorderRadius.circular(8.0),
+                                borderRadius: BorderRadius.circular(8),
                                 border: Border.all(
                                   color: Color(0xFFB3B3B3),
                                 ),
                               ),
                               child: Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: AlignmentDirectional(0, 0),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 0.0, 10.0, 0.0),
+                                      10, 0, 10, 0),
                                   child: Autocomplete<String>(
                                     initialValue: TextEditingValue(
                                         text: functions.containWordinStringUrl(
@@ -2590,18 +2574,18 @@ class _NonePackageBasicPageWidgetState
                                               letterSpacing: 0.0,
                                             ),
                                         textHighlightStyle: TextStyle(),
-                                        elevation: 4.0,
+                                        elevation: 4,
                                         optionBackgroundColor:
                                             FlutterFlowTheme.of(context)
                                                 .primaryBackground,
                                         optionHighlightColor:
                                             FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
-                                        maxHeight: 200.0,
+                                        maxHeight: 200,
                                       );
                                     },
                                     onSelected: (String selection) {
-                                      setState(() => _model
+                                      safeSetState(() => _model
                                           .modelNameSelectedOption = selection);
                                       FocusScope.of(context).unfocus();
                                     },
@@ -2634,7 +2618,7 @@ class _NonePackageBasicPageWidgetState
                                                   .override(
                                                     fontFamily:
                                                         'Noto Sans Thai',
-                                                    fontSize: 15.0,
+                                                    fontSize: 15,
                                                     letterSpacing: 0.0,
                                                   ),
                                           hintText: 'กรุณากรอกรุ่นรถ',
@@ -2645,7 +2629,7 @@ class _NonePackageBasicPageWidgetState
                                                     fontFamily:
                                                         'Noto Sans Thai',
                                                     color: Color(0xFFB3B3B3),
-                                                    fontSize: 15.0,
+                                                    fontSize: 15,
                                                     letterSpacing: 0.0,
                                                   ),
                                           enabledBorder: InputBorder.none,
@@ -2658,7 +2642,7 @@ class _NonePackageBasicPageWidgetState
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Colors.black,
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                             ),
                                         validator: _model
@@ -2676,10 +2660,9 @@ class _NonePackageBasicPageWidgetState
                     ),
                   ),
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(20, 5, 20, 0),
                     child: Container(
-                      width: MediaQuery.sizeOf(context).width * 1.0,
+                      width: MediaQuery.sizeOf(context).width,
                       decoration: BoxDecoration(),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -2693,14 +2676,14 @@ class _NonePackageBasicPageWidgetState
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
-                                      fontSize: 15.0,
+                                      fontSize: 15,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 0.0, 0.0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
                                 child: Text(
                                   '(บังคับเลือก)',
                                   style: FlutterFlowTheme.of(context)
@@ -2708,7 +2691,7 @@ class _NonePackageBasicPageWidgetState
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFFB0606),
-                                        fontSize: 12.0,
+                                        fontSize: 12,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -2716,8 +2699,7 @@ class _NonePackageBasicPageWidgetState
                             ],
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 5.0, 0.0, 0.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
@@ -2758,12 +2740,12 @@ class _NonePackageBasicPageWidgetState
                                 );
                               },
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width * 1.0,
-                                height: 60.0,
+                                width: MediaQuery.sizeOf(context).width,
+                                height: 60,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(8),
                                   border: Border.all(
                                     color: Color(0xFFB3B3B3),
                                   ),
@@ -2775,7 +2757,7 @@ class _NonePackageBasicPageWidgetState
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 0.0, 0.0, 0.0),
+                                          10, 0, 0, 0),
                                       child: Text(
                                         FFAppState().nonePackageYear,
                                         style: FlutterFlowTheme.of(context)
@@ -2794,7 +2776,7 @@ class _NonePackageBasicPageWidgetState
                                                   ? FlutterFlowTheme.of(context)
                                                       .secondaryText
                                                   : Colors.black,
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -2802,12 +2784,12 @@ class _NonePackageBasicPageWidgetState
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 10.0, 0.0),
+                                          0, 0, 10, 0),
                                       child: Icon(
                                         Icons.navigate_next,
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
-                                        size: 24.0,
+                                        size: 24,
                                       ),
                                     ),
                                   ],
@@ -2821,10 +2803,9 @@ class _NonePackageBasicPageWidgetState
                   ),
                   if (FFAppState().nonePackageFlagRenew)
                     Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 5, 20, 0),
                       child: Container(
-                        width: MediaQuery.sizeOf(context).width * 1.0,
+                        width: MediaQuery.sizeOf(context).width,
                         decoration: BoxDecoration(),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -2838,7 +2819,7 @@ class _NonePackageBasicPageWidgetState
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
-                                        fontSize: 15.0,
+                                        fontSize: 15,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -2849,7 +2830,7 @@ class _NonePackageBasicPageWidgetState
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
-                                        fontSize: 15.0,
+                                        fontSize: 15,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w800,
                                         decoration: TextDecoration.underline,
@@ -2857,7 +2838,7 @@ class _NonePackageBasicPageWidgetState
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 0.0, 0.0, 0.0),
+                                      10, 0, 0, 0),
                                   child: Text(
                                     '(บังคับกรอก)',
                                     style: FlutterFlowTheme.of(context)
@@ -2865,7 +2846,7 @@ class _NonePackageBasicPageWidgetState
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFFFB0606),
-                                          fontSize: 12.0,
+                                          fontSize: 12,
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -2873,24 +2854,24 @@ class _NonePackageBasicPageWidgetState
                               ],
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 5.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width * 1.0,
-                                height: 60.0,
+                                width: MediaQuery.sizeOf(context).width,
+                                height: 60,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(8),
                                   border: Border.all(
                                     color: Color(0xFFB3B3B3),
                                   ),
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: AlignmentDirectional(0, 0),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 0.0, 10.0, 0.0),
+                                        10, 0, 10, 0),
                                     child: TextFormField(
                                       controller:
                                           _model.oldVmiTextFieldTextController,
@@ -2903,7 +2884,7 @@ class _NonePackageBasicPageWidgetState
                                             .labelMedium
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                             ),
                                         hintText: 'กรุณากรอกเลขกรมธรรม์เดิม',
@@ -2912,7 +2893,7 @@ class _NonePackageBasicPageWidgetState
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFFB3B3B3),
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                             ),
                                         enabledBorder: InputBorder.none,
@@ -2925,7 +2906,7 @@ class _NonePackageBasicPageWidgetState
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Colors.black,
-                                            fontSize: 15.0,
+                                            fontSize: 15,
                                             letterSpacing: 0.0,
                                           ),
                                       validator: _model
@@ -2941,10 +2922,9 @@ class _NonePackageBasicPageWidgetState
                       ),
                     ),
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(20, 5, 20, 0),
                     child: Container(
-                      width: MediaQuery.sizeOf(context).width * 1.0,
+                      width: MediaQuery.sizeOf(context).width,
                       decoration: BoxDecoration(),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -2958,7 +2938,7 @@ class _NonePackageBasicPageWidgetState
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
-                                      fontSize: 15.0,
+                                      fontSize: 15,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
@@ -2969,7 +2949,7 @@ class _NonePackageBasicPageWidgetState
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
-                                      fontSize: 15.0,
+                                      fontSize: 15,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w800,
                                       decoration: TextDecoration.underline,
@@ -2978,7 +2958,7 @@ class _NonePackageBasicPageWidgetState
                               if (FFAppState().nonePackageFlagRenew)
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 0.0, 0.0, 0.0),
+                                      10, 0, 0, 0),
                                   child: Text(
                                     '(บังคับเลือก)',
                                     style: FlutterFlowTheme.of(context)
@@ -2986,7 +2966,7 @@ class _NonePackageBasicPageWidgetState
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFFFB0606),
-                                          fontSize: 12.0,
+                                          fontSize: 12,
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -2994,8 +2974,7 @@ class _NonePackageBasicPageWidgetState
                             ],
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 5.0, 0.0, 0.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
@@ -3026,12 +3005,12 @@ class _NonePackageBasicPageWidgetState
                                 );
                               },
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width * 1.0,
-                                height: 60.0,
+                                width: MediaQuery.sizeOf(context).width,
+                                height: 60,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(8),
                                   border: Border.all(
                                     color: Color(0xFFB3B3B3),
                                   ),
@@ -3043,7 +3022,7 @@ class _NonePackageBasicPageWidgetState
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 0.0, 0.0, 0.0),
+                                          10, 0, 0, 0),
                                       child: Text(
                                         valueOrDefault<String>(
                                           () {
@@ -3095,7 +3074,7 @@ class _NonePackageBasicPageWidgetState
                                                       .secondaryText;
                                                 }
                                               }(),
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -3103,12 +3082,12 @@ class _NonePackageBasicPageWidgetState
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 10.0, 0.0),
+                                          0, 0, 10, 0),
                                       child: Icon(
                                         Icons.edit_calendar_outlined,
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
-                                        size: 24.0,
+                                        size: 24,
                                       ),
                                     ),
                                   ],
@@ -3121,10 +3100,9 @@ class _NonePackageBasicPageWidgetState
                     ),
                   ),
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(20, 5, 20, 0),
                     child: Container(
-                      width: MediaQuery.sizeOf(context).width * 1.0,
+                      width: MediaQuery.sizeOf(context).width,
                       decoration: BoxDecoration(),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -3138,14 +3116,14 @@ class _NonePackageBasicPageWidgetState
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
-                                      fontSize: 15.0,
+                                      fontSize: 15,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 0.0, 0.0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
                                 child: Text(
                                   '(บังคับเลือก)',
                                   style: FlutterFlowTheme.of(context)
@@ -3153,7 +3131,7 @@ class _NonePackageBasicPageWidgetState
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFFB0606),
-                                        fontSize: 12.0,
+                                        fontSize: 12,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -3161,8 +3139,7 @@ class _NonePackageBasicPageWidgetState
                             ],
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 5.0, 0.0, 0.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
@@ -3211,12 +3188,12 @@ class _NonePackageBasicPageWidgetState
                                 );
                               },
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width * 1.0,
-                                height: 60.0,
+                                width: MediaQuery.sizeOf(context).width,
+                                height: 60,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(8),
                                   border: Border.all(
                                     color: Color(0xFFB3B3B3),
                                   ),
@@ -3228,7 +3205,7 @@ class _NonePackageBasicPageWidgetState
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 0.0, 0.0, 0.0),
+                                          10, 0, 0, 0),
                                       child: Text(
                                         valueOrDefault<String>(
                                           functions.containWordinStringUrl(
@@ -3270,7 +3247,7 @@ class _NonePackageBasicPageWidgetState
                                                   ? FlutterFlowTheme.of(context)
                                                       .secondaryText
                                                   : Colors.black,
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -3278,12 +3255,12 @@ class _NonePackageBasicPageWidgetState
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 10.0, 0.0),
+                                          0, 0, 10, 0),
                                       child: Icon(
                                         Icons.navigate_next,
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
-                                        size: 24.0,
+                                        size: 24,
                                       ),
                                     ),
                                   ],
@@ -3296,10 +3273,9 @@ class _NonePackageBasicPageWidgetState
                     ),
                   ),
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(20, 5, 20, 0),
                     child: Container(
-                      width: MediaQuery.sizeOf(context).width * 1.0,
+                      width: MediaQuery.sizeOf(context).width,
                       decoration: BoxDecoration(),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -3313,7 +3289,7 @@ class _NonePackageBasicPageWidgetState
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
-                                      fontSize: 15.0,
+                                      fontSize: 15,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
@@ -3325,15 +3301,15 @@ class _NonePackageBasicPageWidgetState
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
-                                        fontSize: 15.0,
+                                        fontSize: 15,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w800,
                                         decoration: TextDecoration.underline,
                                       ),
                                 ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 0.0, 0.0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
                                 child: Text(
                                   '(บังคับเลือก)',
                                   style: FlutterFlowTheme.of(context)
@@ -3341,7 +3317,7 @@ class _NonePackageBasicPageWidgetState
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFFB0606),
-                                        fontSize: 12.0,
+                                        fontSize: 12,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -3349,8 +3325,7 @@ class _NonePackageBasicPageWidgetState
                             ],
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 5.0, 0.0, 0.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
@@ -3394,12 +3369,12 @@ class _NonePackageBasicPageWidgetState
                                 );
                               },
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width * 1.0,
-                                height: 60.0,
+                                width: MediaQuery.sizeOf(context).width,
+                                height: 60,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(8),
                                   border: Border.all(
                                     color: Color(0xFFB3B3B3),
                                   ),
@@ -3411,7 +3386,7 @@ class _NonePackageBasicPageWidgetState
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 0.0, 0.0, 0.0),
+                                          10, 0, 0, 0),
                                       child: Text(
                                         FFAppState().nonePackageCoverTypeName,
                                         style: FlutterFlowTheme.of(context)
@@ -3426,7 +3401,7 @@ class _NonePackageBasicPageWidgetState
                                                   ? FlutterFlowTheme.of(context)
                                                       .secondaryText
                                                   : Colors.black,
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -3434,12 +3409,12 @@ class _NonePackageBasicPageWidgetState
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 10.0, 0.0),
+                                          0, 0, 10, 0),
                                       child: Icon(
                                         Icons.navigate_next,
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
-                                        size: 24.0,
+                                        size: 24,
                                       ),
                                     ),
                                   ],
@@ -3452,10 +3427,9 @@ class _NonePackageBasicPageWidgetState
                     ),
                   ),
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(20, 5, 20, 0),
                     child: Container(
-                      width: MediaQuery.sizeOf(context).width * 1.0,
+                      width: MediaQuery.sizeOf(context).width,
                       decoration: BoxDecoration(),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -3469,7 +3443,7 @@ class _NonePackageBasicPageWidgetState
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
-                                      fontSize: 15.0,
+                                      fontSize: 15,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
@@ -3481,15 +3455,15 @@ class _NonePackageBasicPageWidgetState
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
-                                        fontSize: 15.0,
+                                        fontSize: 15,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w800,
                                         decoration: TextDecoration.underline,
                                       ),
                                 ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 0.0, 0.0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
                                 child: Text(
                                   '(บังคับเลือก)',
                                   style: FlutterFlowTheme.of(context)
@@ -3497,7 +3471,7 @@ class _NonePackageBasicPageWidgetState
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFFB0606),
-                                        fontSize: 12.0,
+                                        fontSize: 12,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -3505,8 +3479,7 @@ class _NonePackageBasicPageWidgetState
                             ],
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 5.0, 0.0, 0.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
@@ -3550,12 +3523,12 @@ class _NonePackageBasicPageWidgetState
                                 );
                               },
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width * 1.0,
-                                height: 60.0,
+                                width: MediaQuery.sizeOf(context).width,
+                                height: 60,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(8),
                                   border: Border.all(
                                     color: Color(0xFFB3B3B3),
                                   ),
@@ -3567,7 +3540,7 @@ class _NonePackageBasicPageWidgetState
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 0.0, 0.0, 0.0),
+                                          10, 0, 0, 0),
                                       child: Text(
                                         FFAppState().nonePackageGarageTypeName,
                                         style: FlutterFlowTheme.of(context)
@@ -3582,7 +3555,7 @@ class _NonePackageBasicPageWidgetState
                                                   ? FlutterFlowTheme.of(context)
                                                       .secondaryText
                                                   : Colors.black,
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -3590,12 +3563,12 @@ class _NonePackageBasicPageWidgetState
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 10.0, 0.0),
+                                          0, 0, 10, 0),
                                       child: Icon(
                                         Icons.navigate_next,
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
-                                        size: 24.0,
+                                        size: 24,
                                       ),
                                     ),
                                   ],
@@ -3608,10 +3581,9 @@ class _NonePackageBasicPageWidgetState
                     ),
                   ),
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(20, 5, 20, 0),
                     child: Container(
-                      width: MediaQuery.sizeOf(context).width * 1.0,
+                      width: MediaQuery.sizeOf(context).width,
                       decoration: BoxDecoration(),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -3627,14 +3599,14 @@ class _NonePackageBasicPageWidgetState
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
-                                      fontSize: 15.0,
+                                      fontSize: 15,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 0.0, 0.0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
                                 child: Text(
                                   '(บังคับกรอก)',
                                   style: FlutterFlowTheme.of(context)
@@ -3642,7 +3614,7 @@ class _NonePackageBasicPageWidgetState
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFFB0606),
-                                        fontSize: 12.0,
+                                        fontSize: 12,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -3650,15 +3622,14 @@ class _NonePackageBasicPageWidgetState
                             ],
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 5.0, 0.0, 0.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                             child: Container(
-                              width: MediaQuery.sizeOf(context).width * 1.0,
-                              height: 60.0,
+                              width: MediaQuery.sizeOf(context).width,
+                              height: 60,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
-                                borderRadius: BorderRadius.circular(8.0),
+                                borderRadius: BorderRadius.circular(8),
                                 border: Border.all(
                                   color: Color(0xFFB3B3B3),
                                 ),
@@ -3670,10 +3641,10 @@ class _NonePackageBasicPageWidgetState
                                 children: [
                                   Expanded(
                                     child: Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      alignment: AlignmentDirectional(0, 0),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 10.0, 0.0),
+                                            10, 0, 10, 0),
                                         child: TextFormField(
                                           controller: _model
                                               .cusNameTextFieldTextController,
@@ -3689,7 +3660,7 @@ class _NonePackageBasicPageWidgetState
                                                     .override(
                                                       fontFamily:
                                                           'Noto Sans Thai',
-                                                      fontSize: 15.0,
+                                                      fontSize: 15,
                                                       letterSpacing: 0.0,
                                                     ),
                                             hintText: 'กรุณากรอกชื่อ',
@@ -3700,7 +3671,7 @@ class _NonePackageBasicPageWidgetState
                                                       fontFamily:
                                                           'Noto Sans Thai',
                                                       color: Color(0xFFB3B3B3),
-                                                      fontSize: 15.0,
+                                                      fontSize: 15,
                                                       letterSpacing: 0.0,
                                                     ),
                                             enabledBorder: InputBorder.none,
@@ -3714,7 +3685,7 @@ class _NonePackageBasicPageWidgetState
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Colors.black,
-                                                fontSize: 15.0,
+                                                fontSize: 15,
                                                 letterSpacing: 0.0,
                                               ),
                                           validator: _model
@@ -3733,10 +3704,9 @@ class _NonePackageBasicPageWidgetState
                     ),
                   ),
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(20, 5, 20, 0),
                     child: Container(
-                      width: MediaQuery.sizeOf(context).width * 1.0,
+                      width: MediaQuery.sizeOf(context).width,
                       decoration: BoxDecoration(),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -3750,7 +3720,7 @@ class _NonePackageBasicPageWidgetState
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
-                                      fontSize: 15.0,
+                                      fontSize: 15,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
@@ -3758,7 +3728,7 @@ class _NonePackageBasicPageWidgetState
                               if (FFAppState().nonePackageFlagRenew)
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 0.0, 0.0, 0.0),
+                                      10, 0, 0, 0),
                                   child: Text(
                                     '(บังคับกรอก)',
                                     style: FlutterFlowTheme.of(context)
@@ -3766,7 +3736,7 @@ class _NonePackageBasicPageWidgetState
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFFFB0606),
-                                          fontSize: 12.0,
+                                          fontSize: 12,
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -3774,15 +3744,14 @@ class _NonePackageBasicPageWidgetState
                             ],
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 5.0, 0.0, 0.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                             child: Container(
-                              width: MediaQuery.sizeOf(context).width * 1.0,
-                              height: 60.0,
+                              width: MediaQuery.sizeOf(context).width,
+                              height: 60,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
-                                borderRadius: BorderRadius.circular(8.0),
+                                borderRadius: BorderRadius.circular(8),
                                 border: Border.all(
                                   color: Color(0xFFB3B3B3),
                                 ),
@@ -3794,10 +3763,10 @@ class _NonePackageBasicPageWidgetState
                                 children: [
                                   Expanded(
                                     child: Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      alignment: AlignmentDirectional(0, 0),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 10.0, 0.0),
+                                            10, 0, 10, 0),
                                         child: TextFormField(
                                           controller: _model
                                               .cusPhoneTextFieldTextController,
@@ -3813,7 +3782,7 @@ class _NonePackageBasicPageWidgetState
                                                     .override(
                                                       fontFamily:
                                                           'Noto Sans Thai',
-                                                      fontSize: 15.0,
+                                                      fontSize: 15,
                                                       letterSpacing: 0.0,
                                                     ),
                                             hintText: 'กรุณากรอกเบอร์โทรศัพท์',
@@ -3824,7 +3793,7 @@ class _NonePackageBasicPageWidgetState
                                                       fontFamily:
                                                           'Noto Sans Thai',
                                                       color: Color(0xFFB3B3B3),
-                                                      fontSize: 15.0,
+                                                      fontSize: 15,
                                                       letterSpacing: 0.0,
                                                     ),
                                             enabledBorder: InputBorder.none,
@@ -3838,7 +3807,7 @@ class _NonePackageBasicPageWidgetState
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Colors.black,
-                                                fontSize: 15.0,
+                                                fontSize: 15,
                                                 letterSpacing: 0.0,
                                               ),
                                           keyboardType: TextInputType.phone,
@@ -3861,10 +3830,9 @@ class _NonePackageBasicPageWidgetState
                     ),
                   ),
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(20, 5, 20, 0),
                     child: Container(
-                      width: MediaQuery.sizeOf(context).width * 1.0,
+                      width: MediaQuery.sizeOf(context).width,
                       decoration: BoxDecoration(),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -3878,14 +3846,14 @@ class _NonePackageBasicPageWidgetState
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
-                                      fontSize: 15.0,
+                                      fontSize: 15,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 0.0, 0.0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
                                 child: Text(
                                   '(บังคับกรอก ไม่ต้องมีขีด - )',
                                   style: FlutterFlowTheme.of(context)
@@ -3893,7 +3861,7 @@ class _NonePackageBasicPageWidgetState
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFFB0606),
-                                        fontSize: 12.0,
+                                        fontSize: 12,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -3901,15 +3869,14 @@ class _NonePackageBasicPageWidgetState
                             ],
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 5.0, 0.0, 0.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                             child: Container(
-                              width: MediaQuery.sizeOf(context).width * 1.0,
-                              height: 60.0,
+                              width: MediaQuery.sizeOf(context).width,
+                              height: 60,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
-                                borderRadius: BorderRadius.circular(8.0),
+                                borderRadius: BorderRadius.circular(8),
                                 border: Border.all(
                                   color: Color(0xFFB3B3B3),
                                 ),
@@ -3921,10 +3888,10 @@ class _NonePackageBasicPageWidgetState
                                 children: [
                                   Expanded(
                                     child: Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      alignment: AlignmentDirectional(0, 0),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 10.0, 0.0),
+                                            10, 0, 10, 0),
                                         child: TextFormField(
                                           controller: _model
                                               .plateTextFieldTextController,
@@ -3939,7 +3906,7 @@ class _NonePackageBasicPageWidgetState
                                                     .override(
                                                       fontFamily:
                                                           'Noto Sans Thai',
-                                                      fontSize: 15.0,
+                                                      fontSize: 15,
                                                       letterSpacing: 0.0,
                                                     ),
                                             hintText: 'กรุณากรอกทะเบียนรถ',
@@ -3950,7 +3917,7 @@ class _NonePackageBasicPageWidgetState
                                                       fontFamily:
                                                           'Noto Sans Thai',
                                                       color: Color(0xFFB3B3B3),
-                                                      fontSize: 15.0,
+                                                      fontSize: 15,
                                                       letterSpacing: 0.0,
                                                     ),
                                             enabledBorder: InputBorder.none,
@@ -3964,7 +3931,7 @@ class _NonePackageBasicPageWidgetState
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Colors.black,
-                                                fontSize: 15.0,
+                                                fontSize: 15,
                                                 letterSpacing: 0.0,
                                               ),
                                           validator: _model
@@ -3986,10 +3953,9 @@ class _NonePackageBasicPageWidgetState
                           'รถบรรทุก หัวลาก หางพ่วง') &&
                       (FFAppState().nonePackageTruckPart == 'หัวลาก + หางพ่วง'))
                     Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 5, 20, 0),
                       child: Container(
-                        width: MediaQuery.sizeOf(context).width * 1.0,
+                        width: MediaQuery.sizeOf(context).width,
                         decoration: BoxDecoration(),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -4003,14 +3969,14 @@ class _NonePackageBasicPageWidgetState
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
-                                        fontSize: 15.0,
+                                        fontSize: 15,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
                                       ),
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 0.0, 0.0, 0.0),
+                                      10, 0, 0, 0),
                                   child: Text(
                                     '(กรุณาระบุเป็นตัวเลขเช่น 123456)',
                                     style: FlutterFlowTheme.of(context)
@@ -4018,7 +3984,7 @@ class _NonePackageBasicPageWidgetState
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFFFB0606),
-                                          fontSize: 12.0,
+                                          fontSize: 12,
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -4026,15 +3992,15 @@ class _NonePackageBasicPageWidgetState
                               ],
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 5.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width * 1.0,
-                                height: 60.0,
+                                width: MediaQuery.sizeOf(context).width,
+                                height: 60,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(8),
                                   border: Border.all(
                                     color: Color(0xFFB3B3B3),
                                   ),
@@ -4046,12 +4012,11 @@ class _NonePackageBasicPageWidgetState
                                   children: [
                                     Expanded(
                                       child: Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                        alignment: AlignmentDirectional(0, 0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  10.0, 0.0, 10.0, 0.0),
+                                                  10, 0, 10, 0),
                                           child: TextFormField(
                                             controller: _model
                                                 .plateAdditionalTextFieldTextController,
@@ -4066,7 +4031,7 @@ class _NonePackageBasicPageWidgetState
                                                       .override(
                                                         fontFamily:
                                                             'Noto Sans Thai',
-                                                        fontSize: 15.0,
+                                                        fontSize: 15,
                                                         letterSpacing: 0.0,
                                                       ),
                                               hintText: 'กรุณากรอกทะเบียนรถ',
@@ -4078,7 +4043,7 @@ class _NonePackageBasicPageWidgetState
                                                             'Noto Sans Thai',
                                                         color:
                                                             Color(0xFFB3B3B3),
-                                                        fontSize: 15.0,
+                                                        fontSize: 15,
                                                         letterSpacing: 0.0,
                                                       ),
                                               enabledBorder: InputBorder.none,
@@ -4092,7 +4057,7 @@ class _NonePackageBasicPageWidgetState
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Colors.black,
-                                                  fontSize: 15.0,
+                                                  fontSize: 15,
                                                   letterSpacing: 0.0,
                                                 ),
                                             validator: _model
@@ -4115,10 +4080,9 @@ class _NonePackageBasicPageWidgetState
                       ),
                     ),
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(20, 5, 20, 0),
                     child: Container(
-                      width: MediaQuery.sizeOf(context).width * 1.0,
+                      width: MediaQuery.sizeOf(context).width,
                       decoration: BoxDecoration(),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -4132,14 +4096,14 @@ class _NonePackageBasicPageWidgetState
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
-                                      fontSize: 15.0,
+                                      fontSize: 15,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 0.0, 0.0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
                                 child: Text(
                                   '(บังคับเลือก)',
                                   style: FlutterFlowTheme.of(context)
@@ -4147,7 +4111,7 @@ class _NonePackageBasicPageWidgetState
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFFB0606),
-                                        fontSize: 12.0,
+                                        fontSize: 12,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -4155,8 +4119,7 @@ class _NonePackageBasicPageWidgetState
                             ],
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 5.0, 0.0, 0.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
@@ -4196,12 +4159,12 @@ class _NonePackageBasicPageWidgetState
                                 );
                               },
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width * 1.0,
-                                height: 60.0,
+                                width: MediaQuery.sizeOf(context).width,
+                                height: 60,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(8),
                                   border: Border.all(
                                     color: Color(0xFFB3B3B3),
                                   ),
@@ -4213,7 +4176,7 @@ class _NonePackageBasicPageWidgetState
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 0.0, 0.0, 0.0),
+                                          10, 0, 0, 0),
                                       child: Text(
                                         FFAppState().nonePackageProvince,
                                         style: FlutterFlowTheme.of(context)
@@ -4228,7 +4191,7 @@ class _NonePackageBasicPageWidgetState
                                                   ? FlutterFlowTheme.of(context)
                                                       .secondaryText
                                                   : Colors.black,
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -4236,12 +4199,12 @@ class _NonePackageBasicPageWidgetState
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 10.0, 0.0),
+                                          0, 0, 10, 0),
                                       child: Icon(
                                         Icons.navigate_next,
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
-                                        size: 24.0,
+                                        size: 24,
                                       ),
                                     ),
                                   ],
@@ -4254,10 +4217,9 @@ class _NonePackageBasicPageWidgetState
                     ),
                   ),
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 5.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(20, 5, 20, 5),
                     child: Container(
-                      width: MediaQuery.sizeOf(context).width * 1.0,
+                      width: MediaQuery.sizeOf(context).width,
                       decoration: BoxDecoration(),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -4271,14 +4233,14 @@ class _NonePackageBasicPageWidgetState
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
-                                      fontSize: 15.0,
+                                      fontSize: 15,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 0.0, 0.0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
                                 child: Text(
                                   '(กรอกตัวเลขเท่านั้น)',
                                   style: FlutterFlowTheme.of(context)
@@ -4287,7 +4249,7 @@ class _NonePackageBasicPageWidgetState
                                         fontFamily: 'Noto Sans Thai',
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
-                                        fontSize: 12.0,
+                                        fontSize: 12,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -4295,13 +4257,12 @@ class _NonePackageBasicPageWidgetState
                             ],
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 5.0, 0.0, 0.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                             child: Container(
-                              width: MediaQuery.sizeOf(context).width * 1.0,
-                              height: 60.0,
+                              width: MediaQuery.sizeOf(context).width,
+                              height: 60,
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(8.0),
+                                borderRadius: BorderRadius.circular(8),
                                 border: Border.all(
                                   color: Color(0xFFB3B3B3),
                                 ),
@@ -4310,7 +4271,7 @@ class _NonePackageBasicPageWidgetState
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 0.0, 10.0, 0.0),
+                                        10, 0, 10, 0),
                                     child: TextFormField(
                                       controller: _model
                                           .sumInsuredTextFieldTextController,
@@ -4319,7 +4280,7 @@ class _NonePackageBasicPageWidgetState
                                       onChanged: (_) => EasyDebounce.debounce(
                                         '_model.sumInsuredTextFieldTextController',
                                         Duration(milliseconds: 100),
-                                        () => setState(() {}),
+                                        () => safeSetState(() {}),
                                       ),
                                       autofocus: false,
                                       obscureText: false,
@@ -4331,7 +4292,7 @@ class _NonePackageBasicPageWidgetState
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryText,
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                             ),
                                         hintText: 'กรุณากรอกทุนประกัน',
@@ -4342,7 +4303,7 @@ class _NonePackageBasicPageWidgetState
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryText,
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                             ),
                                         enabledBorder: InputBorder.none,
@@ -4356,7 +4317,7 @@ class _NonePackageBasicPageWidgetState
                                             fontFamily: 'Noto Sans Thai',
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryText,
-                                            fontSize: 15.0,
+                                            fontSize: 15,
                                             letterSpacing: 0.0,
                                           ),
                                       keyboardType: TextInputType.number,
@@ -4377,10 +4338,9 @@ class _NonePackageBasicPageWidgetState
                           'รถบรรทุก หัวลาก หางพ่วง') &&
                       (FFAppState().nonePackageTruckPart == 'หัวลาก + หางพ่วง'))
                     Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 5.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 5, 20, 5),
                       child: Container(
-                        width: MediaQuery.sizeOf(context).width * 1.0,
+                        width: MediaQuery.sizeOf(context).width,
                         decoration: BoxDecoration(),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -4394,14 +4354,14 @@ class _NonePackageBasicPageWidgetState
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
-                                        fontSize: 15.0,
+                                        fontSize: 15,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
                                       ),
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 0.0, 0.0, 0.0),
+                                      10, 0, 0, 0),
                                   child: Text(
                                     '(กรอกตัวเลขเท่านั้น)',
                                     style: FlutterFlowTheme.of(context)
@@ -4410,7 +4370,7 @@ class _NonePackageBasicPageWidgetState
                                           fontFamily: 'Noto Sans Thai',
                                           color: FlutterFlowTheme.of(context)
                                               .primaryText,
-                                          fontSize: 12.0,
+                                          fontSize: 12,
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -4418,15 +4378,15 @@ class _NonePackageBasicPageWidgetState
                               ],
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 5.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width * 1.0,
-                                height: 60.0,
+                                width: MediaQuery.sizeOf(context).width,
+                                height: 60,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(8),
                                   border: Border.all(
                                     color: Color(0xFFB3B3B3),
                                   ),
@@ -4435,7 +4395,7 @@ class _NonePackageBasicPageWidgetState
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 0.0, 10.0, 0.0),
+                                          10, 0, 10, 0),
                                       child: TextFormField(
                                         controller: _model
                                             .trailerSumInsuredTextFieldTextController,
@@ -4444,7 +4404,7 @@ class _NonePackageBasicPageWidgetState
                                         onChanged: (_) => EasyDebounce.debounce(
                                           '_model.trailerSumInsuredTextFieldTextController',
                                           Duration(milliseconds: 100),
-                                          () => setState(() {}),
+                                          () => safeSetState(() {}),
                                         ),
                                         autofocus: false,
                                         textCapitalization:
@@ -4459,7 +4419,7 @@ class _NonePackageBasicPageWidgetState
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryText,
-                                                fontSize: 15.0,
+                                                fontSize: 15,
                                                 letterSpacing: 0.0,
                                               ),
                                           hintText: 'กรุณากรอกทุนประกันหางพ่วง',
@@ -4471,7 +4431,7 @@ class _NonePackageBasicPageWidgetState
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryText,
-                                                fontSize: 15.0,
+                                                fontSize: 15,
                                                 letterSpacing: 0.0,
                                               ),
                                           enabledBorder: InputBorder.none,
@@ -4486,7 +4446,7 @@ class _NonePackageBasicPageWidgetState
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryText,
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                             ),
                                         keyboardType: TextInputType.number,
@@ -4508,10 +4468,9 @@ class _NonePackageBasicPageWidgetState
                       ),
                     ),
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 5.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(20, 5, 20, 5),
                     child: Container(
-                      width: MediaQuery.sizeOf(context).width * 1.0,
+                      width: MediaQuery.sizeOf(context).width,
                       decoration: BoxDecoration(),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -4525,7 +4484,7 @@ class _NonePackageBasicPageWidgetState
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
-                                      fontSize: 15.0,
+                                      fontSize: 15,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
@@ -4533,22 +4492,21 @@ class _NonePackageBasicPageWidgetState
                             ],
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 5.0, 0.0, 0.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                             child: Container(
-                              width: MediaQuery.sizeOf(context).width * 1.0,
-                              height: 60.0,
+                              width: MediaQuery.sizeOf(context).width,
+                              height: 60,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
-                                borderRadius: BorderRadius.circular(8.0),
+                                borderRadius: BorderRadius.circular(8),
                                 border: Border.all(
                                   color: Color(0xFFB3B3B3),
                                 ),
                               ),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 10.0, 0.0),
+                                    10, 0, 10, 0),
                                 child: TextFormField(
                                   controller:
                                       _model.remarkTextFieldTextController,
@@ -4562,7 +4520,7 @@ class _NonePackageBasicPageWidgetState
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFFB3B3B3),
-                                          fontSize: 15.0,
+                                          fontSize: 15,
                                           letterSpacing: 0.0,
                                         ),
                                     hintText: 'กรุณากรอกหมายเหตุ',
@@ -4571,7 +4529,7 @@ class _NonePackageBasicPageWidgetState
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFFB3B3B3),
-                                          fontSize: 15.0,
+                                          fontSize: 15,
                                           letterSpacing: 0.0,
                                         ),
                                     enabledBorder: InputBorder.none,
@@ -4584,7 +4542,7 @@ class _NonePackageBasicPageWidgetState
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Colors.black,
-                                        fontSize: 15.0,
+                                        fontSize: 15,
                                         letterSpacing: 0.0,
                                       ),
                                   validator: _model
@@ -4599,17 +4557,15 @@ class _NonePackageBasicPageWidgetState
                     ),
                   ),
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(20, 5, 20, 0),
                     child: Container(
-                      width: MediaQuery.sizeOf(context).width * 1.0,
+                      width: MediaQuery.sizeOf(context).width,
                       decoration: BoxDecoration(),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 5.0, 0.0, 5.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 5),
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
@@ -4618,10 +4574,10 @@ class _NonePackageBasicPageWidgetState
                               onTap: () async {
                                 if (FFAppState().nonePackageFlagAct) {
                                   FFAppState().nonePackageFlagAct = false;
-                                  setState(() {});
+                                  safeSetState(() {});
                                 } else {
                                   FFAppState().nonePackageFlagAct = true;
-                                  setState(() {});
+                                  safeSetState(() {});
                                 }
 
                                 await actions.hideKeyboardAction(
@@ -4629,12 +4585,12 @@ class _NonePackageBasicPageWidgetState
                                 );
                               },
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width * 1.0,
-                                height: 60.0,
+                                width: MediaQuery.sizeOf(context).width,
+                                height: 60,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(8),
                                   border: Border.all(
                                     color: Color(0xFFB3B3B3),
                                   ),
@@ -4646,7 +4602,7 @@ class _NonePackageBasicPageWidgetState
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 0.0, 0.0, 0.0),
+                                          10, 0, 0, 0),
                                       child: Text(
                                         'ขอเบี้ย พ.ร.บ. หรือไม่',
                                         style: FlutterFlowTheme.of(context)
@@ -4658,7 +4614,7 @@ class _NonePackageBasicPageWidgetState
                                                   ? FlutterFlowTheme.of(context)
                                                       .secondaryText
                                                   : Colors.black,
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -4667,17 +4623,17 @@ class _NonePackageBasicPageWidgetState
                                     if (!FFAppState().nonePackageFlagAct)
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 10.0, 0.0),
+                                            0, 0, 10, 0),
                                         child: Container(
-                                          width: 25.0,
-                                          height: 25.0,
+                                          width: 25,
+                                          height: 25,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             shape: BoxShape.circle,
                                             border: Border.all(
                                               color: Color(0xFF9F9F9F),
-                                              width: 1.0,
+                                              width: 1,
                                             ),
                                           ),
                                         ),
@@ -4685,10 +4641,10 @@ class _NonePackageBasicPageWidgetState
                                     if (FFAppState().nonePackageFlagAct)
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 10.0, 0.0),
+                                            0, 0, 10, 0),
                                         child: Container(
-                                          width: 25.0,
-                                          height: 25.0,
+                                          width: 25,
+                                          height: 25,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .success,
@@ -4696,11 +4652,11 @@ class _NonePackageBasicPageWidgetState
                                           ),
                                           child: Align(
                                             alignment:
-                                                AlignmentDirectional(0.0, 0.0),
+                                                AlignmentDirectional(0, 0),
                                             child: Icon(
                                               Icons.check,
                                               color: Colors.white,
-                                              size: 18.0,
+                                              size: 18,
                                             ),
                                           ),
                                         ),
@@ -4716,8 +4672,7 @@ class _NonePackageBasicPageWidgetState
                   ),
                   if (widget!.workType == 'transfer')
                     Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
                       child: Container(
                         width: double.infinity,
                         decoration: BoxDecoration(
@@ -4728,11 +4683,11 @@ class _NonePackageBasicPageWidgetState
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  20.0, 10.0, 20.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width * 1.0,
-                                height: 33.0,
+                                width: MediaQuery.sizeOf(context).width,
+                                height: 33,
                                 decoration: BoxDecoration(),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -4744,14 +4699,14 @@ class _NonePackageBasicPageWidgetState
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF003063),
-                                            fontSize: 15.0,
+                                            fontSize: 15,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 0.0, 0.0, 0.0),
+                                          10, 0, 0, 0),
                                       child: Text(
                                         '(งานโอนโค้ด)',
                                         style: FlutterFlowTheme.of(context)
@@ -4759,7 +4714,7 @@ class _NonePackageBasicPageWidgetState
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFFFB0606),
-                                              fontSize: 12.0,
+                                              fontSize: 12,
                                               letterSpacing: 0.0,
                                             ),
                                       ),
@@ -4769,11 +4724,11 @@ class _NonePackageBasicPageWidgetState
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  20.0, 10.0, 20.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width * 1.0,
-                                height: 80.0,
+                                width: MediaQuery.sizeOf(context).width,
+                                height: 80,
                                 decoration: BoxDecoration(
                                   color: Color(0xFFFAFAFA),
                                 ),
@@ -4789,7 +4744,7 @@ class _NonePackageBasicPageWidgetState
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
-                                                fontSize: 15.0,
+                                                fontSize: 15,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
                                               ),
@@ -4797,7 +4752,7 @@ class _NonePackageBasicPageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  10.0, 0.0, 0.0, 0.0),
+                                                  10, 0, 0, 0),
                                           child: Text(
                                             '(บังคับอัพโหลดรูป)',
                                             style: FlutterFlowTheme.of(context)
@@ -4805,7 +4760,7 @@ class _NonePackageBasicPageWidgetState
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFFFB0606),
-                                                  fontSize: 12.0,
+                                                  fontSize: 12,
                                                   letterSpacing: 0.0,
                                                 ),
                                           ),
@@ -4814,15 +4769,13 @@ class _NonePackageBasicPageWidgetState
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 5.0, 0.0, 0.0),
+                                          0, 5, 0, 0),
                                       child: Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                1.0,
-                                        height: 45.0,
+                                        width: MediaQuery.sizeOf(context).width,
+                                        height: 45,
                                         decoration: BoxDecoration(
                                           borderRadius:
-                                              BorderRadius.circular(8.0),
+                                              BorderRadius.circular(8),
                                         ),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -4830,17 +4783,17 @@ class _NonePackageBasicPageWidgetState
                                               MainAxisAlignment.spaceBetween,
                                           children: [
                                             Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
+                                              alignment:
+                                                  AlignmentDirectional(0, 0),
                                               child: Container(
                                                 width:
                                                     MediaQuery.sizeOf(context)
                                                             .width *
                                                         0.74,
-                                                height: 100.0,
+                                                height: 100,
                                                 decoration: BoxDecoration(),
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
+                                                alignment:
+                                                    AlignmentDirectional(0, 0),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -4859,9 +4812,9 @@ class _NonePackageBasicPageWidgetState
                                                                 validateFileFormat(
                                                                     m.storagePath,
                                                                     context))) {
-                                                          setState(() => _model
-                                                                  .isDataUploading1 =
-                                                              true);
+                                                          safeSetState(() =>
+                                                              _model.isDataUploading1 =
+                                                                  true);
                                                           var selectedUploadedFiles =
                                                               <FFUploadedFile>[];
 
@@ -4917,7 +4870,7 @@ class _NonePackageBasicPageWidgetState
                                                                       .length ==
                                                                   selectedMedia
                                                                       .length) {
-                                                            setState(() {
+                                                            safeSetState(() {
                                                               _model.uploadedLocalFile1 =
                                                                   selectedUploadedFiles
                                                                       .first;
@@ -4926,7 +4879,7 @@ class _NonePackageBasicPageWidgetState
                                                                       .first;
                                                             });
                                                           } else {
-                                                            setState(() {});
+                                                            safeSetState(() {});
                                                             return;
                                                           }
                                                         }
@@ -4991,16 +4944,13 @@ class _NonePackageBasicPageWidgetState
                                                                         context)
                                                                     .width *
                                                                 0.35,
-                                                        height: 40.0,
+                                                        height: 40,
                                                         padding:
-                                                            EdgeInsets.all(0.0),
+                                                            EdgeInsets.all(0),
                                                         iconPadding:
                                                             EdgeInsetsDirectional
                                                                 .fromSTEB(
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                                    0, 0, 0, 0),
                                                         color:
                                                             Color(0xFFFCEFE4),
                                                         textStyle:
@@ -5018,37 +4968,35 @@ class _NonePackageBasicPageWidgetState
                                                                       FontWeight
                                                                           .w600,
                                                                 ),
-                                                        elevation: 3.0,
+                                                        elevation: 3,
                                                         borderSide: BorderSide(
                                                           color: Colors
                                                               .transparent,
-                                                          width: 1.0,
+                                                          width: 1,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8.0),
+                                                                .circular(8),
                                                       ),
                                                     ),
                                                     Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  5.0,
-                                                                  0.0),
+                                                                  10, 0, 5, 0),
                                                       child: Text(
                                                         'สถานะ :',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Noto Sans Thai',
-                                                              fontSize: 14.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                            ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Noto Sans Thai',
+                                                                  fontSize: 14,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                       ),
                                                     ),
                                                     Text(
@@ -5064,7 +5012,7 @@ class _NonePackageBasicPageWidgetState
                                                           .override(
                                                             fontFamily:
                                                                 'Noto Sans Thai',
-                                                            fontSize: 14.0,
+                                                            fontSize: 14,
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
@@ -5073,7 +5021,7 @@ class _NonePackageBasicPageWidgetState
                                               ),
                                             ),
                                             Container(
-                                              height: 100.0,
+                                              height: 100,
                                               decoration: BoxDecoration(),
                                             ),
                                             if (_model.uploadedFileUrl1 !=
@@ -5082,13 +5030,13 @@ class _NonePackageBasicPageWidgetState
                                               Icon(
                                                 Icons.check,
                                                 color: Color(0xFF2EDD78),
-                                                size: 24.0,
+                                                size: 24,
                                               ),
                                             if (_model.uploadedFileUrl1 ==
                                                     null ||
                                                 _model.uploadedFileUrl1 == '')
                                               Container(
-                                                height: 100.0,
+                                                height: 100,
                                                 decoration: BoxDecoration(),
                                                 child: Visibility(
                                                   visible: _model
@@ -5099,7 +5047,7 @@ class _NonePackageBasicPageWidgetState
                                                   child: Icon(
                                                     Icons.close,
                                                     color: Color(0xFFFC0A0A),
-                                                    size: 24.0,
+                                                    size: 24,
                                                   ),
                                                 ),
                                               ),
@@ -5112,11 +5060,11 @@ class _NonePackageBasicPageWidgetState
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  20.0, 10.0, 20.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width * 1.0,
-                                height: 80.0,
+                                width: MediaQuery.sizeOf(context).width,
+                                height: 80,
                                 decoration: BoxDecoration(
                                   color: Color(0xFFFAFAFA),
                                 ),
@@ -5132,7 +5080,7 @@ class _NonePackageBasicPageWidgetState
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
-                                                fontSize: 15.0,
+                                                fontSize: 15,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
                                               ),
@@ -5140,7 +5088,7 @@ class _NonePackageBasicPageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  10.0, 0.0, 0.0, 0.0),
+                                                  10, 0, 0, 0),
                                           child: Text(
                                             '(บังคับอัพโหลดรูป)',
                                             style: FlutterFlowTheme.of(context)
@@ -5148,7 +5096,7 @@ class _NonePackageBasicPageWidgetState
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFFFB0606),
-                                                  fontSize: 12.0,
+                                                  fontSize: 12,
                                                   letterSpacing: 0.0,
                                                 ),
                                           ),
@@ -5156,17 +5104,17 @@ class _NonePackageBasicPageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  5.0, 0.0, 0.0, 0.0),
+                                                  5, 0, 0, 0),
                                           child: Icon(
                                             Icons.content_paste_search_rounded,
                                             color: Color(0xFF354052),
-                                            size: 24.0,
+                                            size: 24,
                                           ),
                                         ),
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  5.0, 0.0, 0.0, 0.0),
+                                                  5, 0, 0, 0),
                                           child: InkWell(
                                             splashColor: Colors.transparent,
                                             focusColor: Colors.transparent,
@@ -5183,7 +5131,7 @@ class _NonePackageBasicPageWidgetState
                                                   .override(
                                                     fontFamily:
                                                         'Noto Sans Thai',
-                                                    fontSize: 15.0,
+                                                    fontSize: 15,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
                                                     decoration: TextDecoration
@@ -5196,15 +5144,13 @@ class _NonePackageBasicPageWidgetState
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 5.0, 0.0, 0.0),
+                                          0, 5, 0, 0),
                                       child: Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                1.0,
-                                        height: 45.0,
+                                        width: MediaQuery.sizeOf(context).width,
+                                        height: 45,
                                         decoration: BoxDecoration(
                                           borderRadius:
-                                              BorderRadius.circular(8.0),
+                                              BorderRadius.circular(8),
                                         ),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -5212,17 +5158,17 @@ class _NonePackageBasicPageWidgetState
                                               MainAxisAlignment.spaceBetween,
                                           children: [
                                             Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
+                                              alignment:
+                                                  AlignmentDirectional(0, 0),
                                               child: Container(
                                                 width:
                                                     MediaQuery.sizeOf(context)
                                                             .width *
                                                         0.74,
-                                                height: 100.0,
+                                                height: 100,
                                                 decoration: BoxDecoration(),
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
+                                                alignment:
+                                                    AlignmentDirectional(0, 0),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -5241,9 +5187,9 @@ class _NonePackageBasicPageWidgetState
                                                                 validateFileFormat(
                                                                     m.storagePath,
                                                                     context))) {
-                                                          setState(() => _model
-                                                                  .isDataUploading2 =
-                                                              true);
+                                                          safeSetState(() =>
+                                                              _model.isDataUploading2 =
+                                                                  true);
                                                           var selectedUploadedFiles =
                                                               <FFUploadedFile>[];
 
@@ -5299,7 +5245,7 @@ class _NonePackageBasicPageWidgetState
                                                                       .length ==
                                                                   selectedMedia
                                                                       .length) {
-                                                            setState(() {
+                                                            safeSetState(() {
                                                               _model.uploadedLocalFile2 =
                                                                   selectedUploadedFiles
                                                                       .first;
@@ -5308,7 +5254,7 @@ class _NonePackageBasicPageWidgetState
                                                                       .first;
                                                             });
                                                           } else {
-                                                            setState(() {});
+                                                            safeSetState(() {});
                                                             return;
                                                           }
                                                         }
@@ -5373,16 +5319,13 @@ class _NonePackageBasicPageWidgetState
                                                                         context)
                                                                     .width *
                                                                 0.35,
-                                                        height: 40.0,
+                                                        height: 40,
                                                         padding:
-                                                            EdgeInsets.all(0.0),
+                                                            EdgeInsets.all(0),
                                                         iconPadding:
                                                             EdgeInsetsDirectional
                                                                 .fromSTEB(
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                                    0, 0, 0, 0),
                                                         color:
                                                             Color(0xFFFCEFE4),
                                                         textStyle:
@@ -5400,37 +5343,35 @@ class _NonePackageBasicPageWidgetState
                                                                       FontWeight
                                                                           .w600,
                                                                 ),
-                                                        elevation: 3.0,
+                                                        elevation: 3,
                                                         borderSide: BorderSide(
                                                           color: Colors
                                                               .transparent,
-                                                          width: 1.0,
+                                                          width: 1,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8.0),
+                                                                .circular(8),
                                                       ),
                                                     ),
                                                     Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  5.0,
-                                                                  0.0),
+                                                                  10, 0, 5, 0),
                                                       child: Text(
                                                         'สถานะ :',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Noto Sans Thai',
-                                                              fontSize: 14.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                            ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Noto Sans Thai',
+                                                                  fontSize: 14,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                       ),
                                                     ),
                                                     Text(
@@ -5446,7 +5387,7 @@ class _NonePackageBasicPageWidgetState
                                                           .override(
                                                             fontFamily:
                                                                 'Noto Sans Thai',
-                                                            fontSize: 14.0,
+                                                            fontSize: 14,
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
@@ -5455,7 +5396,7 @@ class _NonePackageBasicPageWidgetState
                                               ),
                                             ),
                                             Container(
-                                              height: 100.0,
+                                              height: 100,
                                               decoration: BoxDecoration(),
                                             ),
                                             if (_model.uploadedFileUrl2 !=
@@ -5464,14 +5405,14 @@ class _NonePackageBasicPageWidgetState
                                               Icon(
                                                 Icons.check,
                                                 color: Color(0xFF2EDD78),
-                                                size: 24.0,
+                                                size: 24,
                                               ),
                                             if (_model.uploadedFileUrl2 ==
                                                     null ||
                                                 _model.uploadedFileUrl2 == '')
                                               Flexible(
                                                 child: Container(
-                                                  height: 100.0,
+                                                  height: 100,
                                                   decoration: BoxDecoration(),
                                                   child: Visibility(
                                                     visible: _model
@@ -5482,7 +5423,7 @@ class _NonePackageBasicPageWidgetState
                                                     child: Icon(
                                                       Icons.close,
                                                       color: Color(0xFFFC0A0A),
-                                                      size: 24.0,
+                                                      size: 24,
                                                     ),
                                                   ),
                                                 ),
@@ -5498,10 +5439,10 @@ class _NonePackageBasicPageWidgetState
                             if (FFAppState().buttonCorporation)
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    20.0, 10.0, 20.0, 0.0),
+                                    20, 10, 20, 0),
                                 child: Container(
-                                  width: MediaQuery.sizeOf(context).width * 1.0,
-                                  height: 80.0,
+                                  width: MediaQuery.sizeOf(context).width,
+                                  height: 80,
                                   decoration: BoxDecoration(
                                     color: Color(0xFFFAFAFA),
                                   ),
@@ -5517,7 +5458,7 @@ class _NonePackageBasicPageWidgetState
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
-                                                  fontSize: 15.0,
+                                                  fontSize: 15,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
@@ -5525,7 +5466,7 @@ class _NonePackageBasicPageWidgetState
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 0.0, 0.0, 0.0),
+                                                    10, 0, 0, 0),
                                             child: Text(
                                               '(บังคับอัพโหลดรูป)',
                                               style:
@@ -5536,7 +5477,7 @@ class _NonePackageBasicPageWidgetState
                                                             'Noto Sans Thai',
                                                         color:
                                                             Color(0xFFFB0606),
-                                                        fontSize: 12.0,
+                                                        fontSize: 12,
                                                         letterSpacing: 0.0,
                                                       ),
                                             ),
@@ -5545,15 +5486,14 @@ class _NonePackageBasicPageWidgetState
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 5.0, 0.0, 0.0),
+                                            0, 5, 0, 0),
                                         child: Container(
                                           width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  1.0,
-                                          height: 45.0,
+                                              MediaQuery.sizeOf(context).width,
+                                          height: 45,
                                           decoration: BoxDecoration(
                                             borderRadius:
-                                                BorderRadius.circular(8.0),
+                                                BorderRadius.circular(8),
                                           ),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -5561,18 +5501,18 @@ class _NonePackageBasicPageWidgetState
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
                                               Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
+                                                alignment:
+                                                    AlignmentDirectional(0, 0),
                                                 child: Container(
                                                   width:
                                                       MediaQuery.sizeOf(context)
                                                               .width *
                                                           0.74,
-                                                  height: 100.0,
+                                                  height: 100,
                                                   decoration: BoxDecoration(),
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0.0, 0.0),
+                                                          0, 0),
                                                   child: Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -5591,9 +5531,9 @@ class _NonePackageBasicPageWidgetState
                                                                   validateFileFormat(
                                                                       m.storagePath,
                                                                       context))) {
-                                                            setState(() => _model
-                                                                    .isDataUploading3 =
-                                                                true);
+                                                            safeSetState(() =>
+                                                                _model.isDataUploading3 =
+                                                                    true);
                                                             var selectedUploadedFiles =
                                                                 <FFUploadedFile>[];
 
@@ -5646,7 +5586,7 @@ class _NonePackageBasicPageWidgetState
                                                                         .length ==
                                                                     selectedMedia
                                                                         .length) {
-                                                              setState(() {
+                                                              safeSetState(() {
                                                                 _model.uploadedLocalFile3 =
                                                                     selectedUploadedFiles
                                                                         .first;
@@ -5655,7 +5595,8 @@ class _NonePackageBasicPageWidgetState
                                                                         .first;
                                                               });
                                                             } else {
-                                                              setState(() {});
+                                                              safeSetState(
+                                                                  () {});
                                                               return;
                                                             }
                                                           }
@@ -5694,7 +5635,7 @@ class _NonePackageBasicPageWidgetState
                                                                   .nonePackageCompanyBookImageUrl =
                                                               _model
                                                                   .uploadedFileUrl3;
-                                                          setState(() {});
+                                                          safeSetState(() {});
                                                           ScaffoldMessenger.of(
                                                                   context)
                                                               .clearSnackBars();
@@ -5727,17 +5668,13 @@ class _NonePackageBasicPageWidgetState
                                                                           context)
                                                                       .width *
                                                                   0.35,
-                                                          height: 40.0,
+                                                          height: 40,
                                                           padding:
-                                                              EdgeInsets.all(
-                                                                  0.0),
+                                                              EdgeInsets.all(0),
                                                           iconPadding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                                  .fromSTEB(0,
+                                                                      0, 0, 0),
                                                           color:
                                                               Color(0xFFFCEFE4),
                                                           textStyle:
@@ -5755,27 +5692,23 @@ class _NonePackageBasicPageWidgetState
                                                                         FontWeight
                                                                             .w600,
                                                                   ),
-                                                          elevation: 3.0,
+                                                          elevation: 3,
                                                           borderSide:
                                                               BorderSide(
                                                             color: Colors
                                                                 .transparent,
-                                                            width: 1.0,
+                                                            width: 1,
                                                           ),
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(
-                                                                      8.0),
+                                                                  .circular(8),
                                                         ),
                                                       ),
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    10.0,
-                                                                    0.0,
-                                                                    5.0,
-                                                                    0.0),
+                                                                .fromSTEB(10, 0,
+                                                                    5, 0),
                                                         child: Text(
                                                           'สถานะ :',
                                                           style: FlutterFlowTheme
@@ -5784,7 +5717,7 @@ class _NonePackageBasicPageWidgetState
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                fontSize: 14.0,
+                                                                fontSize: 14,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -5797,23 +5730,24 @@ class _NonePackageBasicPageWidgetState
                                                                     ''
                                                             ? 'อัพโหลดแล้ว'
                                                             : 'ยังไม่อัพโหลด',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Noto Sans Thai',
-                                                              fontSize: 14.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                            ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Noto Sans Thai',
+                                                                  fontSize: 14,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                       ),
                                                     ],
                                                   ),
                                                 ),
                                               ),
                                               Container(
-                                                height: 100.0,
+                                                height: 100,
                                                 decoration: BoxDecoration(),
                                               ),
                                               if (_model.uploadedFileUrl3 !=
@@ -5822,13 +5756,13 @@ class _NonePackageBasicPageWidgetState
                                                 Icon(
                                                   Icons.check,
                                                   color: Color(0xFF2EDD78),
-                                                  size: 24.0,
+                                                  size: 24,
                                                 ),
                                               if (_model.uploadedFileUrl3 ==
                                                       null ||
                                                   _model.uploadedFileUrl3 == '')
                                                 Container(
-                                                  height: 100.0,
+                                                  height: 100,
                                                   decoration: BoxDecoration(),
                                                   child: Visibility(
                                                     visible: _model
@@ -5839,7 +5773,7 @@ class _NonePackageBasicPageWidgetState
                                                     child: Icon(
                                                       Icons.close,
                                                       color: Color(0xFFFC0A0A),
-                                                      size: 24.0,
+                                                      size: 24,
                                                     ),
                                                   ),
                                                 ),
@@ -5856,13 +5790,12 @@ class _NonePackageBasicPageWidgetState
                       ),
                     ),
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 20.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 20),
                     child: Container(
-                      width: MediaQuery.sizeOf(context).width * 1.0,
-                      height: 65.0,
+                      width: MediaQuery.sizeOf(context).width,
+                      height: 65,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8.0),
+                        borderRadius: BorderRadius.circular(8),
                       ),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -5870,8 +5803,8 @@ class _NonePackageBasicPageWidgetState
                         children: [
                           Expanded(
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 10.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                               child: FFButtonWidget(
                                 onPressed: () async {
                                   await actions.hideKeyboardAction(
@@ -6528,12 +6461,12 @@ class _NonePackageBasicPageWidgetState
                                               .brandNameTextFieldTextController
                                               .text))!
                                       : '';
-                                  setState(() {});
+                                  safeSetState(() {});
                                   FFAppState().nonePackageCarrierPrice =
                                       functions.removeCommaFromNumText(_model
                                           .carrierPriceTextFieldTextController
                                           .text);
-                                  setState(() {});
+                                  safeSetState(() {});
                                   FFAppState().nonePackageTruckPart =
                                       FFAppState().nonePackageTruckPart;
                                   FFAppState().nonePackageCusMembership =
@@ -6555,7 +6488,7 @@ class _NonePackageBasicPageWidgetState
                                           .text);
                                   FFAppState().nonePackageRemark =
                                       _model.remarkTextFieldTextController.text;
-                                  setState(() {});
+                                  safeSetState(() {});
                                   if (FFAppState().nonePackageFlagRenew) {
                                     FFAppState().nonePackageOldVmiExpDate =
                                         _model.datePicked != null
@@ -6564,7 +6497,7 @@ class _NonePackageBasicPageWidgetState
                                             : widget!.oldVmiExpireDate!;
                                     FFAppState().nonePackageOldVmi = _model
                                         .oldVmiTextFieldTextController.text;
-                                    setState(() {});
+                                    safeSetState(() {});
                                     FFAppState().nonePackageOldVmiImageUrl =
                                         _model.uploadedFileUrl1;
                                     FFAppState().nonePackageIdCardImageUrl =
@@ -6572,14 +6505,14 @@ class _NonePackageBasicPageWidgetState
                                     FFAppState()
                                             .nonePackageCompanyBookImageUrl =
                                         _model.uploadedFileUrl3;
-                                    setState(() {});
+                                    safeSetState(() {});
                                   } else {
                                     FFAppState().nonePackageOldVmiExpDate =
                                         _model.datePicked != null
                                             ? functions.getDateFormat(
                                                 _model.datePicked)!
                                             : '';
-                                    setState(() {});
+                                    safeSetState(() {});
                                   }
 
                                   if (FFAppState().nonePackageFlagRenew ||
@@ -6610,11 +6543,11 @@ class _NonePackageBasicPageWidgetState
                                 },
                                 text: 'ถัดไป',
                                 options: FFButtonOptions(
-                                  height: 60.0,
+                                  height: 60,
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      24.0, 0.0, 24.0, 0.0),
+                                      24, 0, 24, 0),
                                   iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
+                                      0, 0, 0, 0),
                                   color: Color(0xFFD9761A),
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
@@ -6625,12 +6558,12 @@ class _NonePackageBasicPageWidgetState
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
-                                  elevation: 3.0,
+                                  elevation: 3,
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
-                                    width: 1.0,
+                                    width: 1,
                                   ),
-                                  borderRadius: BorderRadius.circular(16.0),
+                                  borderRadius: BorderRadius.circular(16),
                                 ),
                               ),
                             ),
@@ -6640,8 +6573,8 @@ class _NonePackageBasicPageWidgetState
                     ),
                   ),
                 ]
-                    .addToStart(SizedBox(height: 12.0))
-                    .addToEnd(SizedBox(height: 50.0)),
+                    .addToStart(SizedBox(height: 12))
+                    .addToEnd(SizedBox(height: 50)),
               ),
             ),
           ),

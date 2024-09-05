@@ -152,7 +152,7 @@ class _MakeInsuranceListPageWidgetState
       }
 
       FFAppState().searchQuotationStatus = '0';
-      setState(() {});
+      safeSetState(() {});
       Navigator.pop(context);
     });
 
@@ -186,8 +186,8 @@ class _MakeInsuranceListPageWidgetState
             backgroundColor: Colors.white,
             body: Center(
               child: SizedBox(
-                width: 50.0,
-                height: 50.0,
+                width: 50,
+                height: 50,
                 child: CircularProgressIndicator(
                   valueColor: AlwaysStoppedAnimation<Color>(
                     FlutterFlowTheme.of(context).primary,
@@ -217,13 +217,13 @@ class _MakeInsuranceListPageWidgetState
                 automaticallyImplyLeading: false,
                 leading: FlutterFlowIconButton(
                   borderColor: Colors.transparent,
-                  borderRadius: 30.0,
-                  borderWidth: 1.0,
-                  buttonSize: 48.0,
+                  borderRadius: 30,
+                  borderWidth: 1,
+                  buttonSize: 48,
                   icon: Icon(
                     Icons.arrow_back_rounded,
                     color: Color(0xFFD9761A),
-                    size: 30.0,
+                    size: 30,
                   ),
                   onPressed: () async {
                     if (widget!.fromPage == 'FollowUpPage') {
@@ -241,7 +241,7 @@ class _MakeInsuranceListPageWidgetState
                   style: FlutterFlowTheme.of(context).headlineSmall.override(
                         fontFamily: 'Noto Sans Thai',
                         color: Color(0xFF003063),
-                        fontSize: 18.0,
+                        fontSize: 18,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w600,
                       ),
@@ -250,17 +250,16 @@ class _MakeInsuranceListPageWidgetState
                   Visibility(
                     visible: widget!.checkPayment == '1',
                     child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 12, 0),
                       child: FlutterFlowIconButton(
                         borderColor: Colors.transparent,
-                        borderRadius: 20.0,
-                        borderWidth: 1.0,
-                        buttonSize: 40.0,
+                        borderRadius: 20,
+                        borderWidth: 1,
+                        buttonSize: 40,
                         icon: Icon(
                           Icons.filter_alt_outlined,
                           color: Color(0xFFDB771A),
-                          size: 30.0,
+                          size: 30,
                         ),
                         onPressed: () async {
                           showModalBottomSheet(
@@ -292,7 +291,7 @@ class _MakeInsuranceListPageWidgetState
                   ),
                 ],
                 centerTitle: true,
-                elevation: 0.0,
+                elevation: 0,
               ),
               body: SafeArea(
                 top: true,
@@ -301,8 +300,7 @@ class _MakeInsuranceListPageWidgetState
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -313,14 +311,14 @@ class _MakeInsuranceListPageWidgetState
                             children: [
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    24.0, 0.0, 12.0, 5.0),
+                                    24, 0, 12, 5),
                                 child: Text(
                                   'ค้นหาชื่อลูกค้า',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
-                                        fontSize: 15.0,
+                                        fontSize: 15,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -328,16 +326,16 @@ class _MakeInsuranceListPageWidgetState
                               if (widget!.checkPayment == '1')
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 12.0, 0.0),
+                                      0, 0, 12, 0),
                                   child: FlutterFlowIconButton(
                                     borderColor: Colors.transparent,
-                                    borderRadius: 20.0,
-                                    borderWidth: 1.0,
-                                    buttonSize: 40.0,
+                                    borderRadius: 20,
+                                    borderWidth: 1,
+                                    buttonSize: 40,
                                     icon: Icon(
                                       Icons.calendar_month_sharp,
                                       color: Color(0xFFDB771A),
-                                      size: 30.0,
+                                      size: 30,
                                     ),
                                     onPressed: () async {
                                       showModalBottomSheet(
@@ -375,8 +373,8 @@ class _MakeInsuranceListPageWidgetState
                             ],
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 0.0, 12.0, 0.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -385,11 +383,11 @@ class _MakeInsuranceListPageWidgetState
                                   child: Container(
                                     width:
                                         MediaQuery.sizeOf(context).width * 0.9,
-                                    height: 50.0,
+                                    height: 50,
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
-                                      borderRadius: BorderRadius.circular(8.0),
+                                      borderRadius: BorderRadius.circular(8),
                                       border: Border.all(
                                         color: Colors.black,
                                         width: 0.1,
@@ -405,20 +403,20 @@ class _MakeInsuranceListPageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  10.0, 0.0, 0.0, 0.0),
+                                                  10, 0, 0, 0),
                                           child: Icon(
                                             Icons.search,
                                             color: Color(0xFF878787),
-                                            size: 24.0,
+                                            size: 24,
                                           ),
                                         ),
                                         Expanded(
                                           child: Align(
                                             alignment:
-                                                AlignmentDirectional(0.0, 0.0),
+                                                AlignmentDirectional(0, 0),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(8.0, 0.5, 8.0, 0.5),
+                                                  .fromSTEB(8, 0.5, 8, 0.5),
                                               child: TextFormField(
                                                 controller: _model
                                                     .searchFirstnameTextController,
@@ -428,7 +426,7 @@ class _MakeInsuranceListPageWidgetState
                                                     EasyDebounce.debounce(
                                                   '_model.searchFirstnameTextController',
                                                   Duration(milliseconds: 100),
-                                                  () => setState(() {}),
+                                                  () => safeSetState(() {}),
                                                 ),
                                                 autofocus: false,
                                                 obscureText: false,
@@ -440,7 +438,7 @@ class _MakeInsuranceListPageWidgetState
                                                           .override(
                                                             fontFamily:
                                                                 'Noto Sans Thai',
-                                                            fontSize: 14.0,
+                                                            fontSize: 14,
                                                             letterSpacing: 0.0,
                                                           ),
                                                   hintText: 'ค้นหาชื่อลูกค้า',
@@ -451,7 +449,7 @@ class _MakeInsuranceListPageWidgetState
                                                           .override(
                                                             fontFamily:
                                                                 'Noto Sans Thai',
-                                                            fontSize: 14.0,
+                                                            fontSize: 14,
                                                             letterSpacing: 0.0,
                                                           ),
                                                   enabledBorder:
@@ -468,7 +466,7 @@ class _MakeInsuranceListPageWidgetState
                                                         .override(
                                                           fontFamily:
                                                               'Noto Sans Thai',
-                                                          fontSize: 15.0,
+                                                          fontSize: 15,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
@@ -505,8 +503,8 @@ class _MakeInsuranceListPageWidgetState
                           if (!snapshot.hasData) {
                             return Center(
                               child: SizedBox(
-                                width: 50.0,
-                                height: 50.0,
+                                width: 50,
+                                height: 50,
                                 child: CircularProgressIndicator(
                                   valueColor: AlwaysStoppedAnimation<Color>(
                                     FlutterFlowTheme.of(context).primary,
@@ -529,15 +527,13 @@ class _MakeInsuranceListPageWidgetState
                                 Expanded(
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 12.0, 12.0, 0.0),
+                                        12, 12, 12, 0),
                                     child: Container(
-                                      width: MediaQuery.sizeOf(context).width *
-                                          1.0,
+                                      width: MediaQuery.sizeOf(context).width,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
+                                        borderRadius: BorderRadius.circular(8),
                                       ),
                                       child: Builder(
                                         builder: (context) {
@@ -549,7 +545,7 @@ class _MakeInsuranceListPageWidgetState
                                               0,
                                               0,
                                               0,
-                                              50.0,
+                                              50,
                                             ),
                                             shrinkWrap: true,
                                             scrollDirection: Axis.vertical,
@@ -587,12 +583,12 @@ class _MakeInsuranceListPageWidgetState
                                                 child: Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0.0, 0.0),
+                                                          0, 0),
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 16.0),
+                                                            .fromSTEB(
+                                                                0, 0, 0, 16),
                                                     child: Container(
                                                       width: double.infinity,
                                                       decoration: BoxDecoration(
@@ -623,7 +619,7 @@ class _MakeInsuranceListPageWidgetState
                                                         }(),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(20.0),
+                                                                .circular(20),
                                                         border: Border.all(
                                                           color: () {
                                                             if (getJsonField(
@@ -652,7 +648,7 @@ class _MakeInsuranceListPageWidgetState
                                                                   .primaryText;
                                                             }
                                                           }(),
-                                                          width: 1.0,
+                                                          width: 1,
                                                         ),
                                                       ),
                                                       child: Column(
@@ -662,7 +658,7 @@ class _MakeInsuranceListPageWidgetState
                                                           Padding(
                                                             padding:
                                                                 EdgeInsets.all(
-                                                                    20.0),
+                                                                    20),
                                                             child: Row(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -677,16 +673,15 @@ class _MakeInsuranceListPageWidgetState
                                                                 Align(
                                                                   alignment:
                                                                       AlignmentDirectional(
-                                                                          1.0,
-                                                                          0.0),
+                                                                          1, 0),
                                                                   child:
                                                                       Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            10.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            0,
+                                                                            10,
+                                                                            0),
                                                                     child:
                                                                         Column(
                                                                       mainAxisSize:
@@ -698,33 +693,33 @@ class _MakeInsuranceListPageWidgetState
                                                                       children: [
                                                                         Container(
                                                                           width:
-                                                                              50.0,
+                                                                              50,
                                                                           height:
-                                                                              50.0,
+                                                                              50,
                                                                           decoration:
                                                                               BoxDecoration(
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).secondaryBackground,
                                                                             borderRadius:
-                                                                                BorderRadius.circular(0.0),
+                                                                                BorderRadius.circular(0),
                                                                           ),
                                                                           child:
                                                                               ClipRRect(
                                                                             borderRadius:
-                                                                                BorderRadius.circular(0.0),
+                                                                                BorderRadius.circular(0),
                                                                             child:
                                                                                 Image.network(
                                                                               getJsonField(
                                                                                 widget!.list![leadListItemIndex],
                                                                                 r'''$.image''',
                                                                               ).toString(),
-                                                                              width: 300.0,
-                                                                              height: 200.0,
+                                                                              width: 300,
+                                                                              height: 200,
                                                                               fit: BoxFit.cover,
                                                                               errorBuilder: (context, error, stackTrace) => Image.asset(
                                                                                 'assets/images/error_image.png',
-                                                                                width: 300.0,
-                                                                                height: 200.0,
+                                                                                width: 300,
+                                                                                height: 200,
                                                                                 fit: BoxFit.cover,
                                                                               ),
                                                                             ),
@@ -754,7 +749,7 @@ class _MakeInsuranceListPageWidgetState
                                                                             .override(
                                                                               fontFamily: 'Noto Sans Thai',
                                                                               color: Color(0xFF1D4774),
-                                                                              fontSize: 13.0,
+                                                                              fontSize: 13,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.bold,
                                                                             ),
@@ -769,7 +764,7 @@ class _MakeInsuranceListPageWidgetState
                                                                             'ชื่อ',
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Noto Sans Thai',
-                                                                                  fontSize: 13.0,
+                                                                                  fontSize: 13,
                                                                                   letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.w600,
                                                                                 ),
@@ -786,7 +781,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                 2,
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Noto Sans Thai',
-                                                                                  fontSize: 13.0,
+                                                                                  fontSize: 13,
                                                                                   letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.w600,
                                                                                 ),
@@ -809,7 +804,7 @@ class _MakeInsuranceListPageWidgetState
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
-                                                                                    fontSize: 13.0,
+                                                                                    fontSize: 13,
                                                                                     letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.w600,
                                                                                   ),
@@ -822,7 +817,7 @@ class _MakeInsuranceListPageWidgetState
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
-                                                                                    fontSize: 13.0,
+                                                                                    fontSize: 13,
                                                                                     letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.w600,
                                                                                   ),
@@ -852,7 +847,7 @@ class _MakeInsuranceListPageWidgetState
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
-                                                                                    fontSize: 13.0,
+                                                                                    fontSize: 13,
                                                                                     letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.w600,
                                                                                   ),
@@ -871,7 +866,7 @@ class _MakeInsuranceListPageWidgetState
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
-                                                                                    fontSize: 13.0,
+                                                                                    fontSize: 13,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
@@ -893,7 +888,7 @@ class _MakeInsuranceListPageWidgetState
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
-                                                                                    fontSize: 13.0,
+                                                                                    fontSize: 13,
                                                                                     letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.w600,
                                                                                   ),
@@ -915,7 +910,7 @@ class _MakeInsuranceListPageWidgetState
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
-                                                                                    fontSize: 13.0,
+                                                                                    fontSize: 13,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
@@ -937,7 +932,7 @@ class _MakeInsuranceListPageWidgetState
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
-                                                                                    fontSize: 13.0,
+                                                                                    fontSize: 13,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
@@ -949,7 +944,7 @@ class _MakeInsuranceListPageWidgetState
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
-                                                                                    fontSize: 13.0,
+                                                                                    fontSize: 13,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
@@ -970,7 +965,7 @@ class _MakeInsuranceListPageWidgetState
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
-                                                                                    fontSize: 13.0,
+                                                                                    fontSize: 13,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
@@ -978,7 +973,7 @@ class _MakeInsuranceListPageWidgetState
                                                                           Expanded(
                                                                             child:
                                                                                 Align(
-                                                                              alignment: AlignmentDirectional(1.0, 0.0),
+                                                                              alignment: AlignmentDirectional(1, 0),
                                                                               child: Text(
                                                                                 'ปฏิเสธ' !=
                                                                                         functions.checkNullValueAndReturn(getJsonField(
@@ -1004,7 +999,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                               ).toString())
                                                                                           ? FlutterFlowTheme.of(context).primaryText
                                                                                           : FlutterFlowTheme.of(context).error,
-                                                                                      fontSize: 13.0,
+                                                                                      fontSize: 13,
                                                                                       letterSpacing: 0.0,
                                                                                     ),
                                                                               ),
@@ -1033,7 +1028,7 @@ class _MakeInsuranceListPageWidgetState
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
-                                                                                    fontSize: 13.0,
+                                                                                    fontSize: 13,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
@@ -1045,7 +1040,7 @@ class _MakeInsuranceListPageWidgetState
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
-                                                                                    fontSize: 13.0,
+                                                                                    fontSize: 13,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
@@ -1053,10 +1048,10 @@ class _MakeInsuranceListPageWidgetState
                                                                         ),
                                                                       Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            5.0),
+                                                                            0,
+                                                                            0,
+                                                                            0,
+                                                                            5),
                                                                         child:
                                                                             Row(
                                                                           mainAxisSize:
@@ -1069,7 +1064,7 @@ class _MakeInsuranceListPageWidgetState
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
-                                                                                    fontSize: 13.0,
+                                                                                    fontSize: 13,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
@@ -1081,7 +1076,7 @@ class _MakeInsuranceListPageWidgetState
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
-                                                                                    fontSize: 13.0,
+                                                                                    fontSize: 13,
                                                                                     letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.w600,
                                                                                   ),
@@ -1091,10 +1086,10 @@ class _MakeInsuranceListPageWidgetState
                                                                       ),
                                                                       Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            5.0),
+                                                                            0,
+                                                                            0,
+                                                                            0,
+                                                                            5),
                                                                         child:
                                                                             Row(
                                                                           mainAxisSize:
@@ -1107,7 +1102,7 @@ class _MakeInsuranceListPageWidgetState
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
-                                                                                    fontSize: 13.0,
+                                                                                    fontSize: 13,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
@@ -1119,7 +1114,7 @@ class _MakeInsuranceListPageWidgetState
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
-                                                                                    fontSize: 13.0,
+                                                                                    fontSize: 13,
                                                                                     letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.w600,
                                                                                   ),
@@ -1129,10 +1124,10 @@ class _MakeInsuranceListPageWidgetState
                                                                       ),
                                                                       Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            5.0),
+                                                                            0,
+                                                                            0,
+                                                                            0,
+                                                                            5),
                                                                         child:
                                                                             Row(
                                                                           mainAxisSize:
@@ -1145,7 +1140,7 @@ class _MakeInsuranceListPageWidgetState
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
-                                                                                    fontSize: 13.0,
+                                                                                    fontSize: 13,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
@@ -1157,7 +1152,7 @@ class _MakeInsuranceListPageWidgetState
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
-                                                                                    fontSize: 13.0,
+                                                                                    fontSize: 13,
                                                                                     letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.w600,
                                                                                   ),
@@ -1197,14 +1192,14 @@ class _MakeInsuranceListPageWidgetState
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
-                                                                                    fontSize: 13.0,
+                                                                                    fontSize: 13,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
                                                                             FFButtonWidget(
                                                                               onPressed: () async {
                                                                                 FFAppState().jsonTemp = widget!.list![leadListItemIndex];
-                                                                                setState(() {});
+                                                                                safeSetState(() {});
 
                                                                                 context.pushNamed(
                                                                                   'QuotationCopy',
@@ -1225,24 +1220,24 @@ class _MakeInsuranceListPageWidgetState
                                                                               },
                                                                               text: 'ดูใบเสนอราคา',
                                                                               options: FFButtonOptions(
-                                                                                width: 115.0,
-                                                                                height: 40.0,
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                                                                                iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                width: 115,
+                                                                                height: 40,
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                                                                                iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                                                                                 color: Color(0xFF5D78FF),
                                                                                 textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                       fontFamily: 'Noto Sans Thai',
                                                                                       color: Colors.white,
-                                                                                      fontSize: 13.0,
+                                                                                      fontSize: 13,
                                                                                       letterSpacing: 0.0,
                                                                                       fontWeight: FontWeight.w500,
                                                                                     ),
-                                                                                elevation: 3.0,
+                                                                                elevation: 3,
                                                                                 borderSide: BorderSide(
                                                                                   color: Colors.transparent,
-                                                                                  width: 1.0,
+                                                                                  width: 1,
                                                                                 ),
-                                                                                borderRadius: BorderRadius.circular(15.0),
+                                                                                borderRadius: BorderRadius.circular(15),
                                                                               ),
                                                                             ),
                                                                           ],
@@ -1259,10 +1254,10 @@ class _MakeInsuranceListPageWidgetState
                                                                               ).toString()))
                                                                         Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0.0,
-                                                                              8.0,
-                                                                              0.0,
-                                                                              0.0),
+                                                                              0,
+                                                                              8,
+                                                                              0,
+                                                                              0),
                                                                           child:
                                                                               Row(
                                                                             mainAxisSize:
@@ -1275,7 +1270,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                       fontFamily: 'Noto Sans Thai',
                                                                                       color: FlutterFlowTheme.of(context).primaryText,
-                                                                                      fontSize: 13.0,
+                                                                                      fontSize: 13,
                                                                                       letterSpacing: 0.0,
                                                                                     ),
                                                                               ),
@@ -1311,7 +1306,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                           );
                                                                                         },
                                                                                       );
-                                                                                      if (_shouldSetState) setState(() {});
+                                                                                      if (_shouldSetState) safeSetState(() {});
                                                                                       return;
                                                                                     }
                                                                                     if (GetFileVmiApiCall.statusLayer1(
@@ -1336,7 +1331,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                           );
                                                                                         },
                                                                                       );
-                                                                                      if (_shouldSetState) setState(() {});
+                                                                                      if (_shouldSetState) safeSetState(() {});
                                                                                       return;
                                                                                     }
                                                                                     if (('${getJsonField(
@@ -1362,7 +1357,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                               elevation: 0,
                                                                                               insetPadding: EdgeInsets.zero,
                                                                                               backgroundColor: Colors.transparent,
-                                                                                              alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                                              alignment: AlignmentDirectional(0, 0).resolve(Directionality.of(context)),
                                                                                               child: WebViewAware(
                                                                                                 child: GestureDetector(
                                                                                                   onTap: () => FocusScope.of(dialogContext).unfocus(),
@@ -1377,7 +1372,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                           },
                                                                                         );
 
-                                                                                        if (_shouldSetState) setState(() {});
+                                                                                        if (_shouldSetState) safeSetState(() {});
                                                                                         return;
                                                                                       }
                                                                                       await actions.urlLauncherAction(
@@ -1386,34 +1381,34 @@ class _MakeInsuranceListPageWidgetState
                                                                                         )}',
                                                                                         'android',
                                                                                       );
-                                                                                      if (_shouldSetState) setState(() {});
+                                                                                      if (_shouldSetState) safeSetState(() {});
                                                                                       return;
                                                                                     }
                                                                                     await launchURL('${GetFileVmiApiCall.vmiDocumentUrl(
                                                                                       (_model.getFileVmiButton?.jsonBody ?? ''),
                                                                                     )}');
-                                                                                    if (_shouldSetState) setState(() {});
+                                                                                    if (_shouldSetState) safeSetState(() {});
                                                                                   },
                                                                                   text: 'ดูกรมธรรม์',
                                                                                   options: FFButtonOptions(
-                                                                                    width: 115.0,
-                                                                                    height: 40.0,
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                                                                                    iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                    width: 115,
+                                                                                    height: 40,
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                                                                                    iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                                                                                     color: Color(0xFFA75194),
                                                                                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                           fontFamily: 'Noto Sans Thai',
                                                                                           color: Colors.white,
-                                                                                          fontSize: 13.0,
+                                                                                          fontSize: 13,
                                                                                           letterSpacing: 0.0,
                                                                                           fontWeight: FontWeight.w500,
                                                                                         ),
-                                                                                    elevation: 3.0,
+                                                                                    elevation: 3,
                                                                                     borderSide: BorderSide(
                                                                                       color: Colors.transparent,
-                                                                                      width: 1.0,
+                                                                                      width: 1,
                                                                                     ),
-                                                                                    borderRadius: BorderRadius.circular(15.0),
+                                                                                    borderRadius: BorderRadius.circular(15),
                                                                                   ),
                                                                                 ),
                                                                               ),
@@ -1432,10 +1427,10 @@ class _MakeInsuranceListPageWidgetState
                                                                               ).toString()))
                                                                         Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0.0,
-                                                                              8.0,
-                                                                              0.0,
-                                                                              0.0),
+                                                                              0,
+                                                                              8,
+                                                                              0,
+                                                                              0),
                                                                           child:
                                                                               Row(
                                                                             mainAxisSize:
@@ -1448,7 +1443,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                       fontFamily: 'Noto Sans Thai',
                                                                                       color: FlutterFlowTheme.of(context).primaryText,
-                                                                                      fontSize: 13.0,
+                                                                                      fontSize: 13,
                                                                                       letterSpacing: 0.0,
                                                                                     ),
                                                                               ),
@@ -1483,7 +1478,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                         );
                                                                                       },
                                                                                     );
-                                                                                    if (_shouldSetState) setState(() {});
+                                                                                    if (_shouldSetState) safeSetState(() {});
                                                                                     return;
                                                                                   }
                                                                                   if (GetFileCmiApiCall.statusLayer1(
@@ -1508,34 +1503,34 @@ class _MakeInsuranceListPageWidgetState
                                                                                         );
                                                                                       },
                                                                                     );
-                                                                                    if (_shouldSetState) setState(() {});
+                                                                                    if (_shouldSetState) safeSetState(() {});
                                                                                     return;
                                                                                   }
                                                                                   await launchURL(GetFileCmiApiCall.cMIdocumentUrl(
                                                                                     (_model.getFileCmiOutput?.jsonBody ?? ''),
                                                                                   )!);
-                                                                                  if (_shouldSetState) setState(() {});
+                                                                                  if (_shouldSetState) safeSetState(() {});
                                                                                 },
                                                                                 text: 'ดู พ.ร.บ',
                                                                                 options: FFButtonOptions(
-                                                                                  width: 115.0,
-                                                                                  height: 40.0,
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                                                                                  iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                  width: 115,
+                                                                                  height: 40,
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                                                                                  iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                                                                                   color: Color(0xFFA3933D),
                                                                                   textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                         fontFamily: 'Noto Sans Thai',
                                                                                         color: Colors.white,
-                                                                                        fontSize: 13.0,
+                                                                                        fontSize: 13,
                                                                                         letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.w500,
                                                                                       ),
-                                                                                  elevation: 3.0,
+                                                                                  elevation: 3,
                                                                                   borderSide: BorderSide(
                                                                                     color: Colors.transparent,
-                                                                                    width: 1.0,
+                                                                                    width: 1,
                                                                                   ),
-                                                                                  borderRadius: BorderRadius.circular(15.0),
+                                                                                  borderRadius: BorderRadius.circular(15),
                                                                                 ),
                                                                               ),
                                                                             ],
@@ -1548,10 +1543,10 @@ class _MakeInsuranceListPageWidgetState
                                                                           ).toString())
                                                                         Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0.0,
-                                                                              8.0,
-                                                                              0.0,
-                                                                              0.0),
+                                                                              0,
+                                                                              8,
+                                                                              0,
+                                                                              0),
                                                                           child:
                                                                               Row(
                                                                             mainAxisSize:
@@ -1589,7 +1584,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                         );
                                                                                       },
                                                                                     );
-                                                                                    if (_shouldSetState) setState(() {});
+                                                                                    if (_shouldSetState) safeSetState(() {});
                                                                                     return;
                                                                                   }
                                                                                   if (GetNonePackageHistoryAPICall.statusLayer1(
@@ -1614,7 +1609,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                         );
                                                                                       },
                                                                                     );
-                                                                                    if (_shouldSetState) setState(() {});
+                                                                                    if (_shouldSetState) safeSetState(() {});
                                                                                     return;
                                                                                   }
                                                                                   await showModalBottomSheet(
@@ -1651,28 +1646,28 @@ class _MakeInsuranceListPageWidgetState
                                                                                     },
                                                                                   ).then((value) => safeSetState(() {}));
 
-                                                                                  if (_shouldSetState) setState(() {});
+                                                                                  if (_shouldSetState) safeSetState(() {});
                                                                                 },
                                                                                 text: 'ติดตามงาน',
                                                                                 options: FFButtonOptions(
-                                                                                  width: 115.0,
-                                                                                  height: 40.0,
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                                                                                  iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                  width: 115,
+                                                                                  height: 40,
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                                                                                  iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                                                                                   color: FlutterFlowTheme.of(context).secondary,
                                                                                   textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                         fontFamily: 'Noto Sans Thai',
                                                                                         color: Colors.white,
-                                                                                        fontSize: 13.0,
+                                                                                        fontSize: 13,
                                                                                         letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.w500,
                                                                                       ),
-                                                                                  elevation: 3.0,
+                                                                                  elevation: 3,
                                                                                   borderSide: BorderSide(
                                                                                     color: Colors.transparent,
-                                                                                    width: 1.0,
+                                                                                    width: 1,
                                                                                   ),
-                                                                                  borderRadius: BorderRadius.circular(15.0),
+                                                                                  borderRadius: BorderRadius.circular(15),
                                                                                 ),
                                                                               ),
                                                                             ],
@@ -1695,10 +1690,10 @@ class _MakeInsuranceListPageWidgetState
                                                                                   ).toString()))))
                                                                         Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0.0,
-                                                                              8.0,
-                                                                              0.0,
-                                                                              0.0),
+                                                                              0,
+                                                                              8,
+                                                                              0,
+                                                                              0),
                                                                           child:
                                                                               Row(
                                                                             mainAxisSize:
@@ -1730,24 +1725,24 @@ class _MakeInsuranceListPageWidgetState
                                                                                 },
                                                                                 text: 'เงื่อนไข บ.ประกัน',
                                                                                 options: FFButtonOptions(
-                                                                                  width: 115.0,
-                                                                                  height: 40.0,
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
-                                                                                  iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                  width: 115,
+                                                                                  height: 40,
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
+                                                                                  iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                                                                                   color: Color(0xFFCC0000),
                                                                                   textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                         fontFamily: 'Noto Sans Thai',
                                                                                         color: Colors.white,
-                                                                                        fontSize: 15.0,
+                                                                                        fontSize: 15,
                                                                                         letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.w500,
                                                                                       ),
-                                                                                  elevation: 3.0,
+                                                                                  elevation: 3,
                                                                                   borderSide: BorderSide(
                                                                                     color: Colors.transparent,
-                                                                                    width: 1.0,
+                                                                                    width: 1,
                                                                                   ),
-                                                                                  borderRadius: BorderRadius.circular(15.0),
+                                                                                  borderRadius: BorderRadius.circular(15),
                                                                                 ),
                                                                               ),
                                                                             ],
@@ -1763,10 +1758,10 @@ class _MakeInsuranceListPageWidgetState
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        20.0,
-                                                                        0.0,
-                                                                        20.0,
-                                                                        20.0),
+                                                                        20,
+                                                                        0,
+                                                                        20,
+                                                                        20),
                                                             child: Row(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -1787,10 +1782,10 @@ class _MakeInsuranceListPageWidgetState
                                                                   Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            15.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            15,
+                                                                            0,
+                                                                            0,
+                                                                            0),
                                                                     child:
                                                                         Column(
                                                                       mainAxisSize:
@@ -1806,7 +1801,7 @@ class _MakeInsuranceListPageWidgetState
                                                                               .bodyMedium
                                                                               .override(
                                                                                 fontFamily: 'Noto Sans Thai',
-                                                                                fontSize: 13.0,
+                                                                                fontSize: 13,
                                                                                 letterSpacing: 0.0,
                                                                               ),
                                                                         ),
@@ -1826,7 +1821,7 @@ class _MakeInsuranceListPageWidgetState
                                                                               .override(
                                                                                 fontFamily: 'Noto Sans Thai',
                                                                                 color: FlutterFlowTheme.of(context).primaryText,
-                                                                                fontSize: 13.0,
+                                                                                fontSize: 13,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w600,
                                                                               ),
@@ -1841,10 +1836,8 @@ class _MakeInsuranceListPageWidgetState
                                                                       r'''$.sub_product''',
                                                                     ).toString())
                                                                   Container(
-                                                                    width:
-                                                                        100.0,
-                                                                    height:
-                                                                        40.0,
+                                                                    width: 100,
+                                                                    height: 40,
                                                                     decoration:
                                                                         BoxDecoration(),
                                                                   ),
@@ -2168,7 +2161,7 @@ class _MakeInsuranceListPageWidgetState
                                                                           .nonePackageFlagOldVmi = '';
                                                                       FFAppState()
                                                                           .nonePackageWorkType = '';
-                                                                      setState(
+                                                                      safeSetState(
                                                                           () {});
                                                                       if (widget!
                                                                               .checkVMI ==
@@ -2244,7 +2237,7 @@ class _MakeInsuranceListPageWidgetState
                                                                             );
 
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                             return;
                                                                           }
 
@@ -2271,7 +2264,7 @@ class _MakeInsuranceListPageWidgetState
                                                                           );
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         } else {
                                                                           if ('auto' ==
@@ -2300,7 +2293,7 @@ class _MakeInsuranceListPageWidgetState
                                                                             );
 
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                             return;
                                                                           } else {
                                                                             if ('รอตัดสินใจ' ==
@@ -2311,7 +2304,7 @@ class _MakeInsuranceListPageWidgetState
                                                                               FFAppState().insuranceInfoPage1SaveDataCheckBool = false;
                                                                               FFAppState().insuranceInfoPage2SaveDataCheckBool = false;
                                                                               FFAppState().insuranceInfoPage3SaveDataCheckBool = false;
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                             } else {
                                                                               context.pushNamed(
                                                                                 'insuranceInfoPage1',
@@ -2334,7 +2327,7 @@ class _MakeInsuranceListPageWidgetState
                                                                               );
 
                                                                               if (_shouldSetState)
-                                                                                setState(() {});
+                                                                                safeSetState(() {});
                                                                               return;
                                                                             }
 
@@ -2444,7 +2437,7 @@ class _MakeInsuranceListPageWidgetState
                                                                           );
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         } else {
                                                                           if ('' !=
@@ -2484,7 +2477,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                 },
                                                                               );
                                                                               if (_shouldSetState)
-                                                                                setState(() {});
+                                                                                safeSetState(() {});
                                                                               return;
                                                                             }
                                                                             if (GetFileVmiApiCall.statusLayer1(
@@ -2510,14 +2503,14 @@ class _MakeInsuranceListPageWidgetState
                                                                                 },
                                                                               );
                                                                               if (_shouldSetState)
-                                                                                setState(() {});
+                                                                                safeSetState(() {});
                                                                               return;
                                                                             }
                                                                             await launchURL(GetFileVmiApiCall.vmiDocumentUrl(
                                                                               (_model.getFileVmi?.jsonBody ?? ''),
                                                                             )!);
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                             return;
                                                                           } else {
                                                                             await showDialog(
@@ -2538,14 +2531,14 @@ class _MakeInsuranceListPageWidgetState
                                                                               },
                                                                             );
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                             return;
                                                                           }
                                                                         }
                                                                       }
 
                                                                       if (_shouldSetState)
-                                                                        setState(
+                                                                        safeSetState(
                                                                             () {});
                                                                     },
                                                                     text: () {
@@ -2587,19 +2580,21 @@ class _MakeInsuranceListPageWidgetState
                                                                     options:
                                                                         FFButtonOptions(
                                                                       width:
-                                                                          115.0,
+                                                                          115,
                                                                       height:
-                                                                          40.0,
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          24.0,
-                                                                          0.0,
-                                                                          24.0,
-                                                                          0.0),
-                                                                      iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                          40,
+                                                                      padding: EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              24,
+                                                                              0,
+                                                                              24,
+                                                                              0),
+                                                                      iconPadding:
+                                                                          EdgeInsetsDirectional.fromSTEB(
+                                                                              0,
+                                                                              0,
+                                                                              0,
+                                                                              0),
                                                                       color: Color(
                                                                           0xFFDB771A),
                                                                       textStyle: FlutterFlowTheme.of(
@@ -2611,24 +2606,24 @@ class _MakeInsuranceListPageWidgetState
                                                                             color:
                                                                                 Colors.white,
                                                                             fontSize:
-                                                                                13.0,
+                                                                                13,
                                                                             letterSpacing:
                                                                                 0.0,
                                                                             fontWeight:
                                                                                 FontWeight.w500,
                                                                           ),
                                                                       elevation:
-                                                                          3.0,
+                                                                          3,
                                                                       borderSide:
                                                                           BorderSide(
                                                                         color: Color(
                                                                             0xFFDB771A),
                                                                         width:
-                                                                            1.0,
+                                                                            1,
                                                                       ),
                                                                       borderRadius:
                                                                           BorderRadius.circular(
-                                                                              15.0),
+                                                                              15),
                                                                     ),
                                                                   ),
                                                               ],
@@ -2650,28 +2645,27 @@ class _MakeInsuranceListPageWidgetState
                               if (widget!.checkTotal == 0 ? true : false)
                                 Expanded(
                                   child: Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0, 0),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 20.0),
+                                          0, 0, 0, 20),
                                       child: Container(
                                         constraints: BoxConstraints(
                                           minWidth:
                                               MediaQuery.sizeOf(context).width *
                                                   0.9,
-                                          minHeight: 100.0,
+                                          minHeight: 100,
                                           maxWidth:
                                               MediaQuery.sizeOf(context).width *
                                                   0.95,
-                                          maxHeight: 100.0,
+                                          maxHeight: 100,
                                         ),
                                         decoration: BoxDecoration(
                                           borderRadius:
-                                              BorderRadius.circular(20.0),
+                                              BorderRadius.circular(20),
                                         ),
                                         child: Align(
-                                          alignment:
-                                              AlignmentDirectional(0.0, 0.0),
+                                          alignment: AlignmentDirectional(0, 0),
                                           child: Text(
                                             'ไม่พบข้อมูลในระบบ',
                                             style: FlutterFlowTheme.of(context)

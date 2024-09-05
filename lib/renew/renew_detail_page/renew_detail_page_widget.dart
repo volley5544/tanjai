@@ -61,9 +61,9 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
       ).then((value) => safeSetState(() {}));
 
       FFAppState().jsonDataRenew = null;
-      setState(() {});
+      safeSetState(() {});
       FFAppState().insurarerQuotationPdf = [];
-      setState(() {});
+      safeSetState(() {});
       _model.getDataRenewAPIOutput = await GetDataRenewCall.call(
         insuranceUrl: FFAppState().apiUrlInsuranceAppState,
         refRenewId: widget!.refRenewId,
@@ -119,7 +119,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
       FFAppState().jsonDataRenew = GetDataRenewCall.data(
         (_model.getDataRenewAPIOutput?.jsonBody ?? ''),
       );
-      setState(() {});
+      safeSetState(() {});
       Navigator.pop(context);
     });
   }
@@ -145,13 +145,13 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
           automaticallyImplyLeading: false,
           leading: FlutterFlowIconButton(
             borderColor: Colors.transparent,
-            borderRadius: 30.0,
-            borderWidth: 1.0,
-            buttonSize: 60.0,
+            borderRadius: 30,
+            borderWidth: 1,
+            buttonSize: 60,
             icon: Icon(
               Icons.arrow_back_rounded,
               color: Color(0xFFDB771A),
-              size: 30.0,
+              size: 30,
             ),
             onPressed: () async {
               context.safePop();
@@ -162,14 +162,14 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Noto Sans Thai',
                   color: Color(0xFF003063),
-                  fontSize: 18.0,
+                  fontSize: 18,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.w600,
                 ),
           ),
           actions: [],
           centerTitle: true,
-          elevation: 2.0,
+          elevation: 2,
         ),
         body: SafeArea(
           top: true,
@@ -179,17 +179,16 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 17.0, 0.0, 10.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 17, 0, 10),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
                         child: ClipRRect(
-                          borderRadius: BorderRadius.circular(0.0),
+                          borderRadius: BorderRadius.circular(0),
                           child: Image.network(
                             valueOrDefault<String>(
                               functions.stringToImgPath(GetDataRenewCall
@@ -206,18 +205,17 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                   : 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37'),
                               'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37',
                             ),
-                            width: 59.0,
-                            height: 60.0,
+                            width: 59,
+                            height: 60,
                             fit: BoxFit.cover,
                           ),
                         ),
                       ),
                       Container(
-                        width: 200.0,
+                        width: 200,
                         decoration: BoxDecoration(),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              12.0, 0.0, 0.0, 0.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -236,7 +234,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       color: Color(0xFF002D5E),
-                                      fontSize: 15.0,
+                                      fontSize: 15,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -249,7 +247,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       color: Color(0xFF646464),
-                                      fontSize: 13.0,
+                                      fontSize: 13,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
@@ -264,7 +262,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFF646464),
-                                          fontSize: 13.0,
+                                          fontSize: 13,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
                                         ),
@@ -277,8 +275,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                       ),
                       Expanded(
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 20.0, 20.0, 0.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 20, 20, 0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -299,7 +296,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       color: Color(0xFF646464),
-                                      fontSize: 13.0,
+                                      fontSize: 13,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
@@ -318,7 +315,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       color: Color(0xFF646464),
-                                      fontSize: 13.0,
+                                      fontSize: 13,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
@@ -331,7 +328,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                   ),
                 ),
                 Divider(
-                  thickness: 1.0,
+                  thickness: 1,
                   color: Color(0xFFCBD8D8),
                 ),
                 Column(
@@ -340,8 +337,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          20.0, 10.0, 20.0, 10.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -378,29 +374,27 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                   ],
                 ),
                 Divider(
-                  thickness: 1.0,
+                  thickness: 1,
                   color: Color(0xFFCBD8D8),
                 ),
                 Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          20.0, 10.0, 20.0, 10.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           SizedBox(
-                            height: 18.0,
+                            height: 18,
                             child: VerticalDivider(
-                              thickness: 3.0,
+                              thickness: 3,
                               color: Color(0xFFEDBB8D),
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                4.0, 0.0, 0.0, 0.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(4, 0, 0, 0),
                             child: Text(
                               'รายละเอียด',
                               style: FlutterFlowTheme.of(context)
@@ -408,7 +402,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                   .override(
                                     fontFamily: 'Noto Sans Thai',
                                     color: Color(0xFF002D5E),
-                                    fontSize: 15.0,
+                                    fontSize: 15,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -423,8 +417,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          20.0, 10.0, 20.0, 10.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -475,12 +468,11 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Divider(
-                      thickness: 1.0,
+                      thickness: 1,
                       color: Color(0xFFCBD8D8),
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          20.0, 10.0, 20.0, 10.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -518,15 +510,14 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                   ],
                 ),
                 Divider(
-                  thickness: 1.0,
+                  thickness: 1,
                   color: Color(0xFFCBD8D8),
                 ),
                 Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          20.0, 10.0, 20.0, 10.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -564,15 +555,14 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                   ],
                 ),
                 Divider(
-                  thickness: 1.0,
+                  thickness: 1,
                   color: Color(0xFFCBD8D8),
                 ),
                 Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          20.0, 10.0, 20.0, 10.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -610,7 +600,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                   ],
                 ),
                 Divider(
-                  thickness: 1.0,
+                  thickness: 1,
                   color: Color(0xFFCBD8D8),
                 ),
                 Column(
@@ -620,8 +610,8 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              20.0, 10.0, 20.0, 10.0),
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -652,14 +642,13 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                           ),
                         ),
                         Divider(
-                          thickness: 1.0,
+                          thickness: 1,
                           color: Color(0xFFCBD8D8),
                         ),
                       ],
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          20.0, 10.0, 20.0, 10.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -702,15 +691,14 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                   ],
                 ),
                 Divider(
-                  thickness: 1.0,
+                  thickness: 1,
                   color: Color(0xFFCBD8D8),
                 ),
                 Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          20.0, 10.0, 20.0, 10.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -753,15 +741,14 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                   ],
                 ),
                 Divider(
-                  thickness: 1.0,
+                  thickness: 1,
                   color: Color(0xFFCBD8D8),
                 ),
                 Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          20.0, 10.0, 20.0, 10.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -804,15 +791,14 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                   ],
                 ),
                 Divider(
-                  thickness: 1.0,
+                  thickness: 1,
                   color: Color(0xFFCBD8D8),
                 ),
                 Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          20.0, 10.0, 20.0, 10.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -855,15 +841,14 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                   ],
                 ),
                 Divider(
-                  thickness: 1.0,
+                  thickness: 1,
                   color: Color(0xFFCBD8D8),
                 ),
                 Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          20.0, 10.0, 20.0, 10.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -906,15 +891,14 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                   ],
                 ),
                 Divider(
-                  thickness: 1.0,
+                  thickness: 1,
                   color: Color(0xFFCBD8D8),
                 ),
                 Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          20.0, 10.0, 20.0, 10.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -957,15 +941,14 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                   ],
                 ),
                 Divider(
-                  thickness: 1.0,
+                  thickness: 1,
                   color: Color(0xFFCBD8D8),
                 ),
                 Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          20.0, 10.0, 20.0, 10.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -1008,15 +991,14 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                   ],
                 ),
                 Divider(
-                  thickness: 1.0,
+                  thickness: 1,
                   color: Color(0xFFCBD8D8),
                 ),
                 Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          20.0, 10.0, 20.0, 10.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -1059,12 +1041,12 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                   ],
                 ),
                 Divider(
-                  thickness: 1.0,
+                  thickness: 1,
                   color: Color(0xFFCBD8D8),
                 ),
                 if (false)
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -1075,7 +1057,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                               materialTapTargetSize:
                                   MaterialTapTargetSize.shrinkWrap,
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(4.0),
+                                borderRadius: BorderRadius.circular(4),
                               ),
                             ),
                             unselectedWidgetColor: Color(0xFF969696),
@@ -1083,7 +1065,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                           child: Checkbox(
                             value: _model.addressCheckValue ??= false,
                             onChanged: (newValue) async {
-                              setState(
+                              safeSetState(
                                   () => _model.addressCheckValue = newValue!);
                             },
                             side: BorderSide(
@@ -1103,13 +1085,13 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                   ),
                         ),
                       ]
-                          .addToStart(SizedBox(width: 12.0))
-                          .addToEnd(SizedBox(width: 12.0)),
+                          .addToStart(SizedBox(width: 12))
+                          .addToEnd(SizedBox(width: 12)),
                     ),
                   ),
                 if (false)
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -1120,7 +1102,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                               materialTapTargetSize:
                                   MaterialTapTargetSize.shrinkWrap,
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(4.0),
+                                borderRadius: BorderRadius.circular(4),
                               ),
                             ),
                             unselectedWidgetColor: Color(0xFF969696),
@@ -1128,7 +1110,8 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                           child: Checkbox(
                             value: _model.actCheckValue ??= false,
                             onChanged: (newValue) async {
-                              setState(() => _model.actCheckValue = newValue!);
+                              safeSetState(
+                                  () => _model.actCheckValue = newValue!);
                             },
                             side: BorderSide(
                               width: 2,
@@ -1147,8 +1130,8 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                   ),
                         ),
                       ]
-                          .addToStart(SizedBox(width: 12.0))
-                          .addToEnd(SizedBox(width: 12.0)),
+                          .addToStart(SizedBox(width: 12))
+                          .addToEnd(SizedBox(width: 12)),
                     ),
                   ),
                 if ((GetDataRenewCall.insurerstatus(
@@ -1163,15 +1146,15 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsets.all(20.0),
+                        padding: EdgeInsets.all(20),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Expanded(
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 10.0, 0.0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
                                     var _shouldSetState = false;
@@ -1205,7 +1188,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                             ) ??
                                             false;
                                     if (!confirmDialogResponse) {
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                     showModalBottomSheet(
@@ -1273,7 +1256,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                         },
                                       );
                                       Navigator.pop(context);
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                     if (RenewSaveCall.statuslayer1(
@@ -1306,7 +1289,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                         },
                                       );
                                       Navigator.pop(context);
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                     FFAppState().addToInsurarerQuotationPdf(
@@ -1315,7 +1298,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                               ?.jsonBody ??
                                           ''),
                                     )!);
-                                    setState(() {});
+                                    safeSetState(() {});
                                     if (Navigator.of(context).canPop()) {
                                       context.pop();
                                     }
@@ -1329,40 +1312,40 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                       }.withoutNulls,
                                     );
 
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                   },
                                   text: 'ออกใบเสนอราคา',
                                   options: FFButtonOptions(
-                                    width: 120.0,
-                                    height: 45.0,
+                                    width: 120,
+                                    height: 45,
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        24.0, 0.0, 24.0, 0.0),
+                                        24, 0, 24, 0),
                                     iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
+                                        0, 0, 0, 0),
                                     color: Color(0xFFFFAF39),
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Colors.white,
-                                          fontSize: 14.0,
+                                          fontSize: 14,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
                                         ),
-                                    elevation: 3.0,
+                                    elevation: 3,
                                     borderSide: BorderSide(
                                       color: Colors.transparent,
-                                      width: 1.0,
+                                      width: 1,
                                     ),
-                                    borderRadius: BorderRadius.circular(14.0),
+                                    borderRadius: BorderRadius.circular(14),
                                   ),
                                 ),
                               ),
                             ),
                             Expanded(
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 0.0, 0.0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
                                     var _shouldSetState = false;
@@ -1396,7 +1379,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                             ) ??
                                             false;
                                     if (!confirmDialogResponse) {
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                     showModalBottomSheet(
@@ -1464,7 +1447,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                         },
                                       );
                                       Navigator.pop(context);
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                     if (RenewSaveCall.statuslayer1(
@@ -1497,7 +1480,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                         },
                                       );
                                       Navigator.pop(context);
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
 
@@ -1523,32 +1506,32 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                       }.withoutNulls,
                                     );
 
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                   },
                                   text: 'ต่ออายุ',
                                   options: FFButtonOptions(
-                                    width: 145.0,
-                                    height: 48.0,
+                                    width: 145,
+                                    height: 48,
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        24.0, 0.0, 24.0, 0.0),
+                                        24, 0, 24, 0),
                                     iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
+                                        0, 0, 0, 0),
                                     color: Color(0xFF089B70),
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Colors.white,
-                                          fontSize: 14.0,
+                                          fontSize: 14,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
                                         ),
-                                    elevation: 3.0,
+                                    elevation: 3,
                                     borderSide: BorderSide(
                                       color: Colors.transparent,
-                                      width: 1.0,
+                                      width: 1,
                                     ),
-                                    borderRadius: BorderRadius.circular(14.0),
+                                    borderRadius: BorderRadius.circular(14),
                                   ),
                                 ),
                               ),
@@ -1557,7 +1540,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                               Expanded(
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 0.0, 0.0, 0.0),
+                                      10, 0, 0, 0),
                                   child: FFButtonWidget(
                                     onPressed: () async {
                                       context.pushNamed(
@@ -1656,29 +1639,29 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                     },
                                     text: 'บันทึกการโทร',
                                     options: FFButtonOptions(
-                                      width: 145.0,
-                                      height: 48.0,
+                                      width: 145,
+                                      height: 48,
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          24.0, 0.0, 24.0, 0.0),
+                                          24, 0, 24, 0),
                                       iconPadding:
                                           EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 0.0, 0.0, 0.0),
+                                              0, 0, 0, 0),
                                       color: Color(0xFF089B70),
                                       textStyle: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Colors.white,
-                                            fontSize: 14.0,
+                                            fontSize: 14,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
                                           ),
-                                      elevation: 3.0,
+                                      elevation: 3,
                                       borderSide: BorderSide(
                                         color: Colors.transparent,
-                                        width: 1.0,
+                                        width: 1,
                                       ),
-                                      borderRadius: BorderRadius.circular(14.0),
+                                      borderRadius: BorderRadius.circular(14),
                                     ),
                                   ),
                                 ),
@@ -1700,22 +1683,22 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsets.all(20.0),
+                        padding: EdgeInsets.all(20),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Expanded(
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 10.0, 0.0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
                                     FFAppState().insuranceRequestIsLoadDataMc =
                                         false;
                                     FFAppState().insuranceRequestisLoadDataEV =
                                         false;
-                                    setState(() {});
+                                    safeSetState(() {});
 
                                     context.goNamed(
                                       'SearchInsurancePage',
@@ -1729,12 +1712,12 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                   },
                                   text: 'ค้นหาประกันรถยนต์',
                                   options: FFButtonOptions(
-                                    width: 120.0,
-                                    height: 45.0,
+                                    width: 120,
+                                    height: 45,
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        24.0, 0.0, 24.0, 0.0),
+                                        24, 0, 24, 0),
                                     iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
+                                        0, 0, 0, 0),
                                     color:
                                         FlutterFlowTheme.of(context).secondary,
                                     textStyle: FlutterFlowTheme.of(context)
@@ -1742,16 +1725,16 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Colors.white,
-                                          fontSize: 14.0,
+                                          fontSize: 14,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
                                         ),
-                                    elevation: 3.0,
+                                    elevation: 3,
                                     borderSide: BorderSide(
                                       color: Colors.transparent,
-                                      width: 1.0,
+                                      width: 1,
                                     ),
-                                    borderRadius: BorderRadius.circular(14.0),
+                                    borderRadius: BorderRadius.circular(14),
                                   ),
                                 ),
                               ),

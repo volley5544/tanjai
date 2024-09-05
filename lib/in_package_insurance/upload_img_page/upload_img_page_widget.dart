@@ -44,7 +44,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       FFAppState().insuranceInfoCheckUploadImgBoolList = [];
-      setState(() {});
+      safeSetState(() {});
     });
   }
 
@@ -80,7 +80,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
               child: Icon(
                 Icons.arrow_back,
                 color: Color(0xFFDB7619),
-                size: 30.0,
+                size: 30,
               ),
             ),
             title: Text(
@@ -88,7 +88,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF123063),
-                    fontSize: 16.0,
+                    fontSize: 16,
                     letterSpacing: 0.0,
                   ),
             ),
@@ -98,7 +98,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
           body: SafeArea(
             top: true,
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -108,10 +108,9 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 10.0, 0.0, 0.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                           child: Container(
-                            width: MediaQuery.sizeOf(context).width * 1.0,
+                            width: MediaQuery.sizeOf(context).width,
                             decoration: BoxDecoration(),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
@@ -125,7 +124,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
-                                            fontSize: 15.0,
+                                            fontSize: 15,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
                                           ),
@@ -134,13 +133,12 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 5.0, 0.0, 0.0),
+                                      0, 5, 0, 0),
                                   child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 1.0,
-                                    height: 45.0,
+                                    width: MediaQuery.sizeOf(context).width,
+                                    height: 45,
                                     decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(8.0),
+                                      borderRadius: BorderRadius.circular(8),
                                     ),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -148,23 +146,22 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Align(
-                                          alignment:
-                                              AlignmentDirectional(0.0, 0.0),
+                                          alignment: AlignmentDirectional(0, 0),
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
                                                 0.74,
-                                            height: 100.0,
+                                            height: 100,
                                             decoration: BoxDecoration(),
                                             alignment:
-                                                AlignmentDirectional(0.0, 0.0),
+                                                AlignmentDirectional(0, 0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          -1.0, 0.0),
+                                                          -1, 0),
                                                   child: InkWell(
                                                     splashColor:
                                                         Colors.transparent,
@@ -187,7 +184,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                               validateFileFormat(
                                                                   m.storagePath,
                                                                   context))) {
-                                                        setState(() => _model
+                                                        safeSetState(() => _model
                                                                 .isDataUploading1 =
                                                             true);
                                                         var selectedUploadedFiles =
@@ -222,13 +219,13 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                 .length ==
                                                             selectedMedia
                                                                 .length) {
-                                                          setState(() {
+                                                          safeSetState(() {
                                                             _model.uploadedLocalFile1 =
                                                                 selectedUploadedFiles
                                                                     .first;
                                                           });
                                                         } else {
-                                                          setState(() {});
+                                                          safeSetState(() {});
                                                           return;
                                                         }
                                                       }
@@ -286,26 +283,23 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                   context)
                                                               .width *
                                                           0.35,
-                                                      height: 60.0,
+                                                      height: 60,
                                                       decoration: BoxDecoration(
                                                         color:
                                                             Color(0xFFFCEFE4),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(16.0),
+                                                                .circular(16),
                                                       ),
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                -1.0, 0.0),
+                                                                -1, 0),
                                                         child: Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      10.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                                  .fromSTEB(10,
+                                                                      0, 0, 0),
                                                           child: Row(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -317,16 +311,16 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryText,
-                                                                size: 24.0,
+                                                                size: 24,
                                                               ),
                                                               Padding(
                                                                 padding:
                                                                     EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            8.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            8,
+                                                                            0,
+                                                                            0,
+                                                                            0),
                                                                 child: Text(
                                                                   'ถ่ายรูป',
                                                                   textAlign:
@@ -341,7 +335,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                         color: Color(
                                                                             0xFFD9761A),
                                                                         fontSize:
-                                                                            16.0,
+                                                                            16,
                                                                         letterSpacing:
                                                                             0.0,
                                                                       ),
@@ -356,8 +350,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                 ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          10.0, 0.0, 5.0, 0.0),
+                                                      .fromSTEB(10, 0, 5, 0),
                                                   child: Text(
                                                     'สถานะ :',
                                                     style: FlutterFlowTheme.of(
@@ -410,18 +403,18 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                         ),
                                         if (false)
                                           Container(
-                                            height: 100.0,
+                                            height: 100,
                                             decoration: BoxDecoration(),
                                             child: Icon(
                                               Icons
                                                   .content_paste_search_rounded,
                                               color: Color(0xFF354052),
-                                              size: 24.0,
+                                              size: 24,
                                             ),
                                           ),
                                         Flexible(
                                           child: Container(
-                                            height: 100.0,
+                                            height: 100,
                                             decoration: BoxDecoration(),
                                             child: Visibility(
                                               visible:
@@ -433,14 +426,14 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                               child: Icon(
                                                 Icons.close,
                                                 color: Color(0xFFFC0A0A),
-                                                size: 24.0,
+                                                size: 24,
                                               ),
                                             ),
                                           ),
                                         ),
                                         Flexible(
                                           child: Container(
-                                            height: 100.0,
+                                            height: 100,
                                             decoration: BoxDecoration(),
                                             child: Visibility(
                                               visible: _model
@@ -452,7 +445,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                               child: Icon(
                                                 Icons.check_sharp,
                                                 color: Color(0xFF00FD76),
-                                                size: 24.0,
+                                                size: 24,
                                               ),
                                             ),
                                           ),
@@ -467,14 +460,12 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                         false))
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 5.0, 0.0, 0.0),
+                                        0, 5, 0, 0),
                                     child: Container(
-                                      width: MediaQuery.sizeOf(context).width *
-                                          1.0,
-                                      height: 45.0,
+                                      width: MediaQuery.sizeOf(context).width,
+                                      height: 45,
                                       decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
+                                        borderRadius: BorderRadius.circular(8),
                                       ),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -483,22 +474,22 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                         children: [
                                           Align(
                                             alignment:
-                                                AlignmentDirectional(0.0, 0.0),
+                                                AlignmentDirectional(0, 0),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
                                                   0.74,
-                                              height: 100.0,
+                                              height: 100,
                                               decoration: BoxDecoration(),
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
+                                              alignment:
+                                                  AlignmentDirectional(0, 0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            -1.0, 0.0),
+                                                            -1, 0),
                                                     child: InkWell(
                                                       splashColor:
                                                           Colors.transparent,
@@ -521,9 +512,9 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                 validateFileFormat(
                                                                     m.storagePath,
                                                                     context))) {
-                                                          setState(() => _model
-                                                                  .isDataUploading2 =
-                                                              true);
+                                                          safeSetState(() =>
+                                                              _model.isDataUploading2 =
+                                                                  true);
                                                           var selectedUploadedFiles =
                                                               <FFUploadedFile>[];
 
@@ -556,13 +547,13 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                   .length ==
                                                               selectedMedia
                                                                   .length) {
-                                                            setState(() {
+                                                            safeSetState(() {
                                                               _model.uploadedLocalFile2 =
                                                                   selectedUploadedFiles
                                                                       .first;
                                                             });
                                                           } else {
-                                                            setState(() {});
+                                                            safeSetState(() {});
                                                             return;
                                                           }
                                                         }
@@ -623,28 +614,27 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                         context)
                                                                     .width *
                                                                 0.35,
-                                                        height: 60.0,
+                                                        height: 60,
                                                         decoration:
                                                             BoxDecoration(
                                                           color:
                                                               Color(0xFFFCEFE4),
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(
-                                                                      16.0),
+                                                                  .circular(16),
                                                         ),
                                                         child: Align(
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  -1.0, 0.0),
+                                                                  -1, 0),
                                                           child: Padding(
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        10.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
+                                                                        10,
+                                                                        0,
+                                                                        0,
+                                                                        0),
                                                             child: Row(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -656,15 +646,15 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryText,
-                                                                  size: 24.0,
+                                                                  size: 24,
                                                                 ),
                                                                 Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          8.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                          8,
+                                                                          0,
+                                                                          0,
+                                                                          0),
                                                                   child: Text(
                                                                     'ถ่ายรูป',
                                                                     textAlign:
@@ -679,7 +669,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                           color:
                                                                               Color(0xFFD9761A),
                                                                           fontSize:
-                                                                              16.0,
+                                                                              16,
                                                                           letterSpacing:
                                                                               0.0,
                                                                         ),
@@ -695,8 +685,8 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                5.0, 0.0),
+                                                            .fromSTEB(
+                                                                10, 0, 5, 0),
                                                     child: Text(
                                                       'สถานะ :',
                                                       style: FlutterFlowTheme
@@ -748,18 +738,18 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                             ),
                                           ),
                                           Container(
-                                            height: 100.0,
+                                            height: 100,
                                             decoration: BoxDecoration(),
                                             child: Icon(
                                               Icons
                                                   .content_paste_search_rounded,
                                               color: Color(0xFF354052),
-                                              size: 24.0,
+                                              size: 24,
                                             ),
                                           ),
                                           Flexible(
                                             child: Container(
-                                              height: 100.0,
+                                              height: 100,
                                               decoration: BoxDecoration(),
                                               child: Visibility(
                                                 visible: _model
@@ -771,14 +761,14 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                 child: Icon(
                                                   Icons.close,
                                                   color: Color(0xFFFC0A0A),
-                                                  size: 24.0,
+                                                  size: 24,
                                                 ),
                                               ),
                                             ),
                                           ),
                                           Flexible(
                                             child: Container(
-                                              height: 100.0,
+                                              height: 100,
                                               decoration: BoxDecoration(),
                                               child: Visibility(
                                                 visible: _model
@@ -792,7 +782,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                 child: Icon(
                                                   Icons.check_sharp,
                                                   color: Color(0xFF00FD76),
-                                                  size: 24.0,
+                                                  size: 24,
                                                 ),
                                               ),
                                             ),
@@ -807,14 +797,12 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                         false))
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 5.0, 0.0, 0.0),
+                                        0, 5, 0, 0),
                                     child: Container(
-                                      width: MediaQuery.sizeOf(context).width *
-                                          1.0,
-                                      height: 45.0,
+                                      width: MediaQuery.sizeOf(context).width,
+                                      height: 45,
                                       decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
+                                        borderRadius: BorderRadius.circular(8),
                                       ),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -823,22 +811,22 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                         children: [
                                           Align(
                                             alignment:
-                                                AlignmentDirectional(0.0, 0.0),
+                                                AlignmentDirectional(0, 0),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
                                                   0.74,
-                                              height: 100.0,
+                                              height: 100,
                                               decoration: BoxDecoration(),
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
+                                              alignment:
+                                                  AlignmentDirectional(0, 0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            -1.0, 0.0),
+                                                            -1, 0),
                                                     child: InkWell(
                                                       splashColor:
                                                           Colors.transparent,
@@ -861,9 +849,9 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                 validateFileFormat(
                                                                     m.storagePath,
                                                                     context))) {
-                                                          setState(() => _model
-                                                                  .isDataUploading3 =
-                                                              true);
+                                                          safeSetState(() =>
+                                                              _model.isDataUploading3 =
+                                                                  true);
                                                           var selectedUploadedFiles =
                                                               <FFUploadedFile>[];
 
@@ -896,13 +884,13 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                   .length ==
                                                               selectedMedia
                                                                   .length) {
-                                                            setState(() {
+                                                            safeSetState(() {
                                                               _model.uploadedLocalFile3 =
                                                                   selectedUploadedFiles
                                                                       .first;
                                                             });
                                                           } else {
-                                                            setState(() {});
+                                                            safeSetState(() {});
                                                             return;
                                                           }
                                                         }
@@ -963,28 +951,27 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                         context)
                                                                     .width *
                                                                 0.35,
-                                                        height: 60.0,
+                                                        height: 60,
                                                         decoration:
                                                             BoxDecoration(
                                                           color:
                                                               Color(0xFFFCEFE4),
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(
-                                                                      16.0),
+                                                                  .circular(16),
                                                         ),
                                                         child: Align(
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  -1.0, 0.0),
+                                                                  -1, 0),
                                                           child: Padding(
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        10.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
+                                                                        10,
+                                                                        0,
+                                                                        0,
+                                                                        0),
                                                             child: Row(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -996,15 +983,15 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryText,
-                                                                  size: 24.0,
+                                                                  size: 24,
                                                                 ),
                                                                 Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          8.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                          8,
+                                                                          0,
+                                                                          0,
+                                                                          0),
                                                                   child: Text(
                                                                     'ถ่ายรูป',
                                                                     textAlign:
@@ -1019,7 +1006,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                           color:
                                                                               Color(0xFFD9761A),
                                                                           fontSize:
-                                                                              16.0,
+                                                                              16,
                                                                           letterSpacing:
                                                                               0.0,
                                                                         ),
@@ -1035,8 +1022,8 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                5.0, 0.0),
+                                                            .fromSTEB(
+                                                                10, 0, 5, 0),
                                                     child: Text(
                                                       'สถานะ :',
                                                       style: FlutterFlowTheme
@@ -1088,18 +1075,18 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                             ),
                                           ),
                                           Container(
-                                            height: 100.0,
+                                            height: 100,
                                             decoration: BoxDecoration(),
                                             child: Icon(
                                               Icons
                                                   .content_paste_search_rounded,
                                               color: Color(0xFF354052),
-                                              size: 24.0,
+                                              size: 24,
                                             ),
                                           ),
                                           Flexible(
                                             child: Container(
-                                              height: 100.0,
+                                              height: 100,
                                               decoration: BoxDecoration(),
                                               child: Visibility(
                                                 visible: _model
@@ -1111,14 +1098,14 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                 child: Icon(
                                                   Icons.close,
                                                   color: Color(0xFFFC0A0A),
-                                                  size: 24.0,
+                                                  size: 24,
                                                 ),
                                               ),
                                             ),
                                           ),
                                           Flexible(
                                             child: Container(
-                                              height: 100.0,
+                                              height: 100,
                                               decoration: BoxDecoration(),
                                               child: Visibility(
                                                 visible: _model
@@ -1132,7 +1119,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                 child: Icon(
                                                   Icons.check_sharp,
                                                   color: Color(0xFF00FD76),
-                                                  size: 24.0,
+                                                  size: 24,
                                                 ),
                                               ),
                                             ),
@@ -1147,14 +1134,12 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                         false))
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 5.0, 0.0, 0.0),
+                                        0, 5, 0, 0),
                                     child: Container(
-                                      width: MediaQuery.sizeOf(context).width *
-                                          1.0,
-                                      height: 45.0,
+                                      width: MediaQuery.sizeOf(context).width,
+                                      height: 45,
                                       decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
+                                        borderRadius: BorderRadius.circular(8),
                                       ),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -1163,22 +1148,22 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                         children: [
                                           Align(
                                             alignment:
-                                                AlignmentDirectional(0.0, 0.0),
+                                                AlignmentDirectional(0, 0),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
                                                   0.74,
-                                              height: 100.0,
+                                              height: 100,
                                               decoration: BoxDecoration(),
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
+                                              alignment:
+                                                  AlignmentDirectional(0, 0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            -1.0, 0.0),
+                                                            -1, 0),
                                                     child: InkWell(
                                                       splashColor:
                                                           Colors.transparent,
@@ -1201,9 +1186,9 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                 validateFileFormat(
                                                                     m.storagePath,
                                                                     context))) {
-                                                          setState(() => _model
-                                                                  .isDataUploading4 =
-                                                              true);
+                                                          safeSetState(() =>
+                                                              _model.isDataUploading4 =
+                                                                  true);
                                                           var selectedUploadedFiles =
                                                               <FFUploadedFile>[];
 
@@ -1236,13 +1221,13 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                   .length ==
                                                               selectedMedia
                                                                   .length) {
-                                                            setState(() {
+                                                            safeSetState(() {
                                                               _model.uploadedLocalFile4 =
                                                                   selectedUploadedFiles
                                                                       .first;
                                                             });
                                                           } else {
-                                                            setState(() {});
+                                                            safeSetState(() {});
                                                             return;
                                                           }
                                                         }
@@ -1303,28 +1288,27 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                         context)
                                                                     .width *
                                                                 0.35,
-                                                        height: 60.0,
+                                                        height: 60,
                                                         decoration:
                                                             BoxDecoration(
                                                           color:
                                                               Color(0xFFFCEFE4),
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(
-                                                                      16.0),
+                                                                  .circular(16),
                                                         ),
                                                         child: Align(
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  -1.0, 0.0),
+                                                                  -1, 0),
                                                           child: Padding(
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        10.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
+                                                                        10,
+                                                                        0,
+                                                                        0,
+                                                                        0),
                                                             child: Row(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -1336,15 +1320,15 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryText,
-                                                                  size: 24.0,
+                                                                  size: 24,
                                                                 ),
                                                                 Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          8.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                          8,
+                                                                          0,
+                                                                          0,
+                                                                          0),
                                                                   child: Text(
                                                                     'ถ่ายรูป',
                                                                     textAlign:
@@ -1359,7 +1343,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                           color:
                                                                               Color(0xFFD9761A),
                                                                           fontSize:
-                                                                              16.0,
+                                                                              16,
                                                                           letterSpacing:
                                                                               0.0,
                                                                         ),
@@ -1375,8 +1359,8 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                5.0, 0.0),
+                                                            .fromSTEB(
+                                                                10, 0, 5, 0),
                                                     child: Text(
                                                       'สถานะ :',
                                                       style: FlutterFlowTheme
@@ -1428,18 +1412,18 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                             ),
                                           ),
                                           Container(
-                                            height: 100.0,
+                                            height: 100,
                                             decoration: BoxDecoration(),
                                             child: Icon(
                                               Icons
                                                   .content_paste_search_rounded,
                                               color: Color(0xFF354052),
-                                              size: 24.0,
+                                              size: 24,
                                             ),
                                           ),
                                           Flexible(
                                             child: Container(
-                                              height: 100.0,
+                                              height: 100,
                                               decoration: BoxDecoration(),
                                               child: Visibility(
                                                 visible: _model
@@ -1451,14 +1435,14 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                 child: Icon(
                                                   Icons.close,
                                                   color: Color(0xFFFC0A0A),
-                                                  size: 24.0,
+                                                  size: 24,
                                                 ),
                                               ),
                                             ),
                                           ),
                                           Flexible(
                                             child: Container(
-                                              height: 100.0,
+                                              height: 100,
                                               decoration: BoxDecoration(),
                                               child: Visibility(
                                                 visible: _model
@@ -1472,7 +1456,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                 child: Icon(
                                                   Icons.check_sharp,
                                                   color: Color(0xFF00FD76),
-                                                  size: 24.0,
+                                                  size: 24,
                                                 ),
                                               ),
                                             ),
@@ -1487,14 +1471,12 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                         false))
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 5.0, 0.0, 0.0),
+                                        0, 5, 0, 0),
                                     child: Container(
-                                      width: MediaQuery.sizeOf(context).width *
-                                          1.0,
-                                      height: 45.0,
+                                      width: MediaQuery.sizeOf(context).width,
+                                      height: 45,
                                       decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
+                                        borderRadius: BorderRadius.circular(8),
                                       ),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -1503,22 +1485,22 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                         children: [
                                           Align(
                                             alignment:
-                                                AlignmentDirectional(0.0, 0.0),
+                                                AlignmentDirectional(0, 0),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
                                                   0.74,
-                                              height: 100.0,
+                                              height: 100,
                                               decoration: BoxDecoration(),
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
+                                              alignment:
+                                                  AlignmentDirectional(0, 0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            -1.0, 0.0),
+                                                            -1, 0),
                                                     child: InkWell(
                                                       splashColor:
                                                           Colors.transparent,
@@ -1541,9 +1523,9 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                 validateFileFormat(
                                                                     m.storagePath,
                                                                     context))) {
-                                                          setState(() => _model
-                                                                  .isDataUploading5 =
-                                                              true);
+                                                          safeSetState(() =>
+                                                              _model.isDataUploading5 =
+                                                                  true);
                                                           var selectedUploadedFiles =
                                                               <FFUploadedFile>[];
 
@@ -1576,13 +1558,13 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                   .length ==
                                                               selectedMedia
                                                                   .length) {
-                                                            setState(() {
+                                                            safeSetState(() {
                                                               _model.uploadedLocalFile5 =
                                                                   selectedUploadedFiles
                                                                       .first;
                                                             });
                                                           } else {
-                                                            setState(() {});
+                                                            safeSetState(() {});
                                                             return;
                                                           }
                                                         }
@@ -1643,28 +1625,27 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                         context)
                                                                     .width *
                                                                 0.35,
-                                                        height: 60.0,
+                                                        height: 60,
                                                         decoration:
                                                             BoxDecoration(
                                                           color:
                                                               Color(0xFFFCEFE4),
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(
-                                                                      16.0),
+                                                                  .circular(16),
                                                         ),
                                                         child: Align(
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  -1.0, 0.0),
+                                                                  -1, 0),
                                                           child: Padding(
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        10.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
+                                                                        10,
+                                                                        0,
+                                                                        0,
+                                                                        0),
                                                             child: Row(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -1676,15 +1657,15 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryText,
-                                                                  size: 24.0,
+                                                                  size: 24,
                                                                 ),
                                                                 Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          8.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                          8,
+                                                                          0,
+                                                                          0,
+                                                                          0),
                                                                   child: Text(
                                                                     'ถ่ายรูป',
                                                                     textAlign:
@@ -1699,7 +1680,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                           color:
                                                                               Color(0xFFD9761A),
                                                                           fontSize:
-                                                                              16.0,
+                                                                              16,
                                                                           letterSpacing:
                                                                               0.0,
                                                                         ),
@@ -1715,8 +1696,8 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                5.0, 0.0),
+                                                            .fromSTEB(
+                                                                10, 0, 5, 0),
                                                     child: Text(
                                                       'สถานะ :',
                                                       style: FlutterFlowTheme
@@ -1768,18 +1749,18 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                             ),
                                           ),
                                           Container(
-                                            height: 100.0,
+                                            height: 100,
                                             decoration: BoxDecoration(),
                                             child: Icon(
                                               Icons
                                                   .content_paste_search_rounded,
                                               color: Color(0xFF354052),
-                                              size: 24.0,
+                                              size: 24,
                                             ),
                                           ),
                                           Flexible(
                                             child: Container(
-                                              height: 100.0,
+                                              height: 100,
                                               decoration: BoxDecoration(),
                                               child: Visibility(
                                                 visible: _model
@@ -1791,14 +1772,14 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                 child: Icon(
                                                   Icons.close,
                                                   color: Color(0xFFFC0A0A),
-                                                  size: 24.0,
+                                                  size: 24,
                                                 ),
                                               ),
                                             ),
                                           ),
                                           Flexible(
                                             child: Container(
-                                              height: 100.0,
+                                              height: 100,
                                               decoration: BoxDecoration(),
                                               child: Visibility(
                                                 visible: _model
@@ -1812,7 +1793,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                 child: Icon(
                                                   Icons.check_sharp,
                                                   color: Color(0xFF00FD76),
-                                                  size: 24.0,
+                                                  size: 24,
                                                 ),
                                               ),
                                             ),
@@ -1828,14 +1809,12 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                     (widget!.titleText != 'รูปเอกสารอื่นๆ'))
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 5.0, 0.0, 0.0),
+                                        0, 5, 0, 0),
                                     child: Container(
-                                      width: MediaQuery.sizeOf(context).width *
-                                          1.0,
-                                      height: 45.0,
+                                      width: MediaQuery.sizeOf(context).width,
+                                      height: 45,
                                       decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
+                                        borderRadius: BorderRadius.circular(8),
                                       ),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -1844,22 +1823,22 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                         children: [
                                           Align(
                                             alignment:
-                                                AlignmentDirectional(0.0, 0.0),
+                                                AlignmentDirectional(0, 0),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
                                                   0.74,
-                                              height: 100.0,
+                                              height: 100,
                                               decoration: BoxDecoration(),
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
+                                              alignment:
+                                                  AlignmentDirectional(0, 0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            -1.0, 0.0),
+                                                            -1, 0),
                                                     child: InkWell(
                                                       splashColor:
                                                           Colors.transparent,
@@ -1882,9 +1861,9 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                 validateFileFormat(
                                                                     m.storagePath,
                                                                     context))) {
-                                                          setState(() => _model
-                                                                  .isDataUploading6 =
-                                                              true);
+                                                          safeSetState(() =>
+                                                              _model.isDataUploading6 =
+                                                                  true);
                                                           var selectedUploadedFiles =
                                                               <FFUploadedFile>[];
 
@@ -1917,13 +1896,13 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                   .length ==
                                                               selectedMedia
                                                                   .length) {
-                                                            setState(() {
+                                                            safeSetState(() {
                                                               _model.uploadedLocalFile6 =
                                                                   selectedUploadedFiles
                                                                       .first;
                                                             });
                                                           } else {
-                                                            setState(() {});
+                                                            safeSetState(() {});
                                                             return;
                                                           }
                                                         }
@@ -1984,28 +1963,27 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                         context)
                                                                     .width *
                                                                 0.35,
-                                                        height: 60.0,
+                                                        height: 60,
                                                         decoration:
                                                             BoxDecoration(
                                                           color:
                                                               Color(0xFFFCEFE4),
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(
-                                                                      16.0),
+                                                                  .circular(16),
                                                         ),
                                                         child: Align(
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  -1.0, 0.0),
+                                                                  -1, 0),
                                                           child: Padding(
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        10.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
+                                                                        10,
+                                                                        0,
+                                                                        0,
+                                                                        0),
                                                             child: Row(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -2017,15 +1995,15 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryText,
-                                                                  size: 24.0,
+                                                                  size: 24,
                                                                 ),
                                                                 Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          8.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                          8,
+                                                                          0,
+                                                                          0,
+                                                                          0),
                                                                   child: Text(
                                                                     'ถ่ายรูป',
                                                                     textAlign:
@@ -2040,7 +2018,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                           color:
                                                                               Color(0xFFD9761A),
                                                                           fontSize:
-                                                                              16.0,
+                                                                              16,
                                                                           letterSpacing:
                                                                               0.0,
                                                                         ),
@@ -2056,8 +2034,8 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                5.0, 0.0),
+                                                            .fromSTEB(
+                                                                10, 0, 5, 0),
                                                     child: Text(
                                                       'สถานะ :',
                                                       style: FlutterFlowTheme
@@ -2109,18 +2087,18 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                             ),
                                           ),
                                           Container(
-                                            height: 100.0,
+                                            height: 100,
                                             decoration: BoxDecoration(),
                                             child: Icon(
                                               Icons
                                                   .content_paste_search_rounded,
                                               color: Color(0xFF354052),
-                                              size: 24.0,
+                                              size: 24,
                                             ),
                                           ),
                                           Flexible(
                                             child: Container(
-                                              height: 100.0,
+                                              height: 100,
                                               decoration: BoxDecoration(),
                                               child: Visibility(
                                                 visible: _model
@@ -2132,14 +2110,14 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                 child: Icon(
                                                   Icons.close,
                                                   color: Color(0xFFFC0A0A),
-                                                  size: 24.0,
+                                                  size: 24,
                                                 ),
                                               ),
                                             ),
                                           ),
                                           Flexible(
                                             child: Container(
-                                              height: 100.0,
+                                              height: 100,
                                               decoration: BoxDecoration(),
                                               child: Visibility(
                                                 visible: _model
@@ -2153,7 +2131,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                 child: Icon(
                                                   Icons.check_sharp,
                                                   color: Color(0xFF00FD76),
-                                                  size: 24.0,
+                                                  size: 24,
                                                 ),
                                               ),
                                             ),
@@ -2167,16 +2145,16 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                           ),
                         ),
                       ]
-                          .divide(SizedBox(height: 12.0))
-                          .addToStart(SizedBox(height: 12.0))
-                          .addToEnd(SizedBox(height: 24.0)),
+                          .divide(SizedBox(height: 12))
+                          .addToStart(SizedBox(height: 12))
+                          .addToEnd(SizedBox(height: 24)),
                     ),
                   ),
                   Expanded(
                     flex: 1,
                     child: Container(
                       width: double.infinity,
-                      height: 100.0,
+                      height: 100,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                       ),
@@ -2185,8 +2163,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                8.0, 0.0, 8.0, 0.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
                             child: FFButtonWidget(
                               onPressed: () async {
                                 if (!(_model.uploadedLocalFile1 != null &&
@@ -2213,7 +2190,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                   return;
                                 }
                                 {
-                                  setState(
+                                  safeSetState(
                                       () => _model.isDataUploading7 = true);
                                   var selectedUploadedFiles =
                                       <FFUploadedFile>[];
@@ -2249,13 +2226,13 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                           selectedMedia.length &&
                                       downloadUrls.length ==
                                           selectedMedia.length) {
-                                    setState(() {
+                                    safeSetState(() {
                                       _model.uploadedLocalFiles7 =
                                           selectedUploadedFiles;
                                       _model.uploadedFileUrls7 = downloadUrls;
                                     });
                                   } else {
-                                    setState(() {});
+                                    safeSetState(() {});
                                     return;
                                   }
                                 }
@@ -2268,7 +2245,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                   FFAppState().insuranceInfoPage3ImageOther =
                                       functions.imgFirebaseListToString(
                                           _model.uploadedFileUrls7.toList())!;
-                                  setState(() {});
+                                  safeSetState(() {});
                                   context.safePop();
                                   return;
                                 }
@@ -2282,7 +2259,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                       _model.uploadedFileUrls7
                                           .toList()
                                           .cast<String>();
-                                  setState(() {});
+                                  safeSetState(() {});
                                   context.safePop();
                                   return;
                                 }
@@ -2295,7 +2272,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                       _model.uploadedFileUrls7
                                           .toList()
                                           .cast<String>();
-                                  setState(() {});
+                                  safeSetState(() {});
                                   context.safePop();
                                   return;
                                 }
@@ -2303,30 +2280,30 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                               text: 'ตกลง',
                               options: FFButtonOptions(
                                 width: double.infinity,
-                                height: 60.0,
+                                height: 60,
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    24.0, 0.0, 24.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
+                                    24, 0, 24, 0),
+                                iconPadding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                                 color: Color(0xFFDB771B),
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       color: Colors.white,
-                                      fontSize: 15.0,
+                                      fontSize: 15,
                                       letterSpacing: 0.0,
                                     ),
-                                elevation: 3.0,
+                                elevation: 3,
                                 borderSide: BorderSide(
                                   color: Colors.transparent,
-                                  width: 1.0,
+                                  width: 1,
                                 ),
-                                borderRadius: BorderRadius.circular(16.0),
+                                borderRadius: BorderRadius.circular(16),
                               ),
                             ),
                           ),
-                        ].addToStart(SizedBox(height: 16.0)),
+                        ].addToStart(SizedBox(height: 16)),
                       ),
                     ),
                   ),

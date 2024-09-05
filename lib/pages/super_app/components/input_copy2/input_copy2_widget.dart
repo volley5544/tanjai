@@ -70,8 +70,8 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
             if (!snapshot.hasData) {
               return Center(
                 child: SizedBox(
-                  width: 50.0,
-                  height: 50.0,
+                  width: 50,
+                  height: 50,
                   child: CircularProgressIndicator(
                     valueColor: AlwaysStoppedAnimation<Color>(
                       FlutterFlowTheme.of(context).primary,
@@ -89,13 +89,13 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
 
             return Container(
               width: double.infinity,
-              height: 270.0,
+              height: 270,
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).primaryBackground,
-                borderRadius: BorderRadius.circular(8.0),
+                borderRadius: BorderRadius.circular(8),
               ),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 10.0),
+                padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 10),
                 child: FutureBuilder<List<FCMTokenRecord>>(
                   future: queryFCMTokenRecordOnce(
                     queryBuilder: (fCMTokenRecord) => fCMTokenRecord
@@ -113,8 +113,8 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
                     if (!snapshot.hasData) {
                       return Center(
                         child: SizedBox(
-                          width: 50.0,
-                          height: 50.0,
+                          width: 50,
+                          height: 50,
                           child: CircularProgressIndicator(
                             valueColor: AlwaysStoppedAnimation<Color>(
                               FlutterFlowTheme.of(context).primary,
@@ -137,8 +137,8 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 10.0, 0.0, 0.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -150,7 +150,7 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
-                                        fontSize: 20.0,
+                                        fontSize: 20,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
                                       ),
@@ -159,15 +159,15 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 10.0, 0.0, 10.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Expanded(
                                   child: Padding(
-                                    padding: EdgeInsets.all(10.0),
+                                    padding: EdgeInsets.all(10),
                                     child: TextFormField(
                                       controller:
                                           _model.reasonCancelTextController,
@@ -185,48 +185,48 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
                                         enabledBorder: UnderlineInputBorder(
                                           borderSide: BorderSide(
                                             color: Color(0x00000000),
-                                            width: 2.0,
+                                            width: 2,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(8.0),
+                                              BorderRadius.circular(8),
                                         ),
                                         focusedBorder: UnderlineInputBorder(
                                           borderSide: BorderSide(
                                             color: Color(0x00000000),
-                                            width: 2.0,
+                                            width: 2,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(8.0),
+                                              BorderRadius.circular(8),
                                         ),
                                         errorBorder: UnderlineInputBorder(
                                           borderSide: BorderSide(
                                             color: Color(0x00000000),
-                                            width: 2.0,
+                                            width: 2,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(8.0),
+                                              BorderRadius.circular(8),
                                         ),
                                         focusedErrorBorder:
                                             UnderlineInputBorder(
                                           borderSide: BorderSide(
                                             color: Color(0x00000000),
-                                            width: 2.0,
+                                            width: 2,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(8.0),
+                                              BorderRadius.circular(8),
                                         ),
                                         filled: true,
                                         fillColor: FlutterFlowTheme.of(context)
                                             .primaryBtnText,
                                         contentPadding:
                                             EdgeInsetsDirectional.fromSTEB(
-                                                20.0, 40.0, 24.0, 0.0),
+                                                20, 40, 24, 0),
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
-                                            fontSize: 15.0,
+                                            fontSize: 15,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
                                           ),
@@ -253,30 +253,29 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
                                       },
                                       text: 'ยกเลิก',
                                       options: FFButtonOptions(
-                                        width: 130.0,
-                                        height: 40.0,
+                                        width: 130,
+                                        height: 40,
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 0.0, 0.0),
+                                            0, 0, 0, 0),
                                         iconPadding:
                                             EdgeInsetsDirectional.fromSTEB(
-                                                0.0, 0.0, 0.0, 0.0),
+                                                0, 0, 0, 0),
                                         color: Color(0xFFB32A33),
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Colors.white,
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
                                             ),
-                                        elevation: 2.0,
+                                        elevation: 2,
                                         borderSide: BorderSide(
                                           color: Colors.transparent,
-                                          width: 2.0,
+                                          width: 2,
                                         ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
+                                        borderRadius: BorderRadius.circular(8),
                                       ),
                                     ),
                                   ],
@@ -292,30 +291,29 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
                                       },
                                       text: 'ตกลง',
                                       options: FFButtonOptions(
-                                        width: 130.0,
-                                        height: 40.0,
+                                        width: 130,
+                                        height: 40,
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 0.0, 0.0),
+                                            0, 0, 0, 0),
                                         iconPadding:
                                             EdgeInsetsDirectional.fromSTEB(
-                                                0.0, 0.0, 0.0, 0.0),
+                                                0, 0, 0, 0),
                                         color: Color(0xFF00968A),
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Colors.white,
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
                                             ),
-                                        elevation: 2.0,
+                                        elevation: 2,
                                         borderSide: BorderSide(
                                           color: Colors.transparent,
-                                          width: 1.0,
+                                          width: 1,
                                         ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
+                                        borderRadius: BorderRadius.circular(8),
                                       ),
                                     ),
                                   ],

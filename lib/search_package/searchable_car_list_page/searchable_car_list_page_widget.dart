@@ -60,7 +60,7 @@ class _SearchableCarListPageWidgetState
               .createFalseListByItemNumber(true, widget!.dataList?.length)!
               .toList()
               .cast<bool>();
-          setState(() {});
+          safeSetState(() {});
           return;
         }
       }
@@ -70,7 +70,7 @@ class _SearchableCarListPageWidgetState
           .createFalseListByItemNumber(false, widget!.dataList?.length)!
           .toList()
           .cast<bool>();
-      setState(() {});
+      safeSetState(() {});
     });
 
     _model.textController ??= TextEditingController();
@@ -109,7 +109,7 @@ class _SearchableCarListPageWidgetState
               child: Icon(
                 Icons.arrow_back,
                 color: Color(0xFFDB7619),
-                size: 30.0,
+                size: 30,
               ),
             ),
             title: Text(
@@ -117,7 +117,7 @@ class _SearchableCarListPageWidgetState
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF123063),
-                    fontSize: 16.0,
+                    fontSize: 16,
                     letterSpacing: 0.0,
                   ),
             ),
@@ -127,7 +127,7 @@ class _SearchableCarListPageWidgetState
           body: SafeArea(
             top: true,
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -138,8 +138,8 @@ class _SearchableCarListPageWidgetState
                       children: [
                         if (false)
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 0.0, 12.0, 0.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -164,11 +164,11 @@ class _SearchableCarListPageWidgetState
                         if ((widget!.dataList!.length > 5) && false)
                           Container(
                             width: double.infinity,
-                            height: 50.0,
+                            height: 50,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
-                              borderRadius: BorderRadius.circular(10.0),
+                              borderRadius: BorderRadius.circular(10),
                               border: Border.all(
                                 width: 0.5,
                               ),
@@ -179,14 +179,14 @@ class _SearchableCarListPageWidgetState
                                 Expanded(
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        8.0, 0.0, 8.0, 0.0),
+                                        8, 0, 8, 0),
                                     child: TextFormField(
                                       controller: _model.textController,
                                       focusNode: _model.textFieldFocusNode,
                                       onChanged: (_) => EasyDebounce.debounce(
                                         '_model.textController',
                                         Duration(milliseconds: 100),
-                                        () => setState(() {}),
+                                        () => safeSetState(() {}),
                                       ),
                                       autofocus: false,
                                       obscureText: false,
@@ -247,7 +247,7 @@ class _SearchableCarListPageWidgetState
                                           'รถเก๋ง')!)
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 7.0),
+                                          0, 0, 0, 7),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
                                         focusColor: Colors.transparent,
@@ -303,7 +303,7 @@ class _SearchableCarListPageWidgetState
                                                 FFAppState()
                                                         .insuranceBasicCarTypeDoors =
                                                     '-';
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState().insuranceBasicBrandNameList = functions
                                                     .returnMappedListFrom2ListContain(
                                                         FFAppState()
@@ -328,7 +328,7 @@ class _SearchableCarListPageWidgetState
                                                             .insuranceBasicVehicleGroup)
                                                     .toList()
                                                     .cast<String>();
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState()
                                                         .insuranceBasicBrandName =
                                                     'เลือกยี่ห้อรถ';
@@ -339,7 +339,7 @@ class _SearchableCarListPageWidgetState
                                                     'เลือกรุ่นรถ';
                                                 FFAppState()
                                                     .insuranceBasicModelId = '';
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 if (FFAppState()
                                                         .insuranceBasicBrandNameList
                                                         .length <=
@@ -347,7 +347,7 @@ class _SearchableCarListPageWidgetState
                                                   FFAppState()
                                                           .insuranceVehicleTypeDropDown =
                                                       'เลือกประเภทรถ';
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                   await showDialog(
                                                     context: context,
                                                     builder:
@@ -388,7 +388,7 @@ class _SearchableCarListPageWidgetState
                                                   FFAppState()
                                                           .nonepackagevehicletypeDetail =
                                                       'รถเก๋ง';
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                   FFAppState()
                                                           .insuranceBasicVehicleGroup =
                                                       'OTHER';
@@ -422,7 +422,7 @@ class _SearchableCarListPageWidgetState
                                                               .insuranceBasicVehicleGroup)
                                                       .toList()
                                                       .cast<String>();
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                   context.safePop();
                                                   return;
                                                 } else {
@@ -437,7 +437,7 @@ class _SearchableCarListPageWidgetState
                                                     FFAppState()
                                                             .insuranceInfoVehicleType =
                                                         'รถเก๋ง';
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                     FFAppState()
                                                             .insuranceBasicVehicleGroup =
                                                         'OTHER';
@@ -447,7 +447,7 @@ class _SearchableCarListPageWidgetState
                                                     FFAppState()
                                                             .insuranceBasicCarTypeDoors =
                                                         '-';
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                     context.safePop();
                                                     return;
                                                   }
@@ -460,12 +460,12 @@ class _SearchableCarListPageWidgetState
                                         },
                                         child: Container(
                                           width: double.infinity,
-                                          height: 65.0,
+                                          height: 65,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             borderRadius:
-                                                BorderRadius.circular(10.0),
+                                                BorderRadius.circular(10),
                                             border: Border.all(
                                               width: 0.5,
                                             ),
@@ -475,7 +475,7 @@ class _SearchableCarListPageWidgetState
                                             children: [
                                               Container(
                                                 width: double.infinity,
-                                                height: 60.0,
+                                                height: 60,
                                                 decoration: BoxDecoration(),
                                                 child: Row(
                                                   mainAxisSize:
@@ -488,10 +488,7 @@ class _SearchableCarListPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  12.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                                  12, 0, 0, 0),
                                                       child: Text(
                                                         'รถเก๋ง',
                                                         style:
@@ -510,17 +507,14 @@ class _SearchableCarListPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  20.0,
-                                                                  0.0),
+                                                                  0, 0, 20, 0),
                                                       child: ClipRRect(
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8.0),
+                                                                .circular(8),
                                                         child: Image.asset(
                                                           'assets/images/0a22b_.png',
-                                                          width: 90.0,
+                                                          width: 90,
                                                           fit: BoxFit.cover,
                                                         ),
                                                       ),
@@ -529,7 +523,7 @@ class _SearchableCarListPageWidgetState
                                                 ),
                                               ),
                                               Divider(
-                                                thickness: 1.0,
+                                                thickness: 1,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .accent4,
@@ -547,7 +541,7 @@ class _SearchableCarListPageWidgetState
                                           'รถเก๋ง')!)
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 7.0),
+                                          0, 0, 0, 7),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
                                         focusColor: Colors.transparent,
@@ -603,7 +597,7 @@ class _SearchableCarListPageWidgetState
                                                 FFAppState()
                                                         .insuranceBasicCarTypeDoors =
                                                     '-';
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState().insuranceBasicBrandNameList = functions
                                                     .returnMappedListFrom2ListContain(
                                                         FFAppState()
@@ -628,7 +622,7 @@ class _SearchableCarListPageWidgetState
                                                             .insuranceBasicVehicleGroup)
                                                     .toList()
                                                     .cast<String>();
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState()
                                                         .insuranceBasicBrandName =
                                                     'เลือกยี่ห้อรถ';
@@ -639,7 +633,7 @@ class _SearchableCarListPageWidgetState
                                                     'เลือกรุ่นรถ';
                                                 FFAppState()
                                                     .insuranceBasicModelId = '';
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 if (FFAppState()
                                                         .insuranceBasicBrandNameList
                                                         .length <=
@@ -647,7 +641,7 @@ class _SearchableCarListPageWidgetState
                                                   FFAppState()
                                                           .insuranceVehicleTypeDropDown =
                                                       'เลือกประเภทรถ';
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                   await showDialog(
                                                     context: context,
                                                     builder:
@@ -691,7 +685,7 @@ class _SearchableCarListPageWidgetState
                                                   FFAppState()
                                                           .insuranceBasicVehicleGroup =
                                                       'VAN';
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                   FFAppState()
                                                           .insuranceBasicVehicleGroup =
                                                       'VAN';
@@ -725,7 +719,7 @@ class _SearchableCarListPageWidgetState
                                                               .insuranceBasicVehicleGroup)
                                                       .toList()
                                                       .cast<String>();
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                   context.safePop();
                                                   return;
                                                 } else {
@@ -743,7 +737,7 @@ class _SearchableCarListPageWidgetState
                                                     FFAppState()
                                                             .insuranceInfoVehicleType =
                                                         'รถตู้';
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                     FFAppState()
                                                             .insuranceBasicVehicleGroup =
                                                         'VAN';
@@ -753,7 +747,7 @@ class _SearchableCarListPageWidgetState
                                                     FFAppState()
                                                             .insuranceBasicCarTypeDoors =
                                                         '-';
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                     context.safePop();
                                                     return;
                                                   }
@@ -766,12 +760,12 @@ class _SearchableCarListPageWidgetState
                                         },
                                         child: Container(
                                           width: double.infinity,
-                                          height: 65.0,
+                                          height: 65,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             borderRadius:
-                                                BorderRadius.circular(10.0),
+                                                BorderRadius.circular(10),
                                             border: Border.all(
                                               width: 0.5,
                                             ),
@@ -781,7 +775,7 @@ class _SearchableCarListPageWidgetState
                                             children: [
                                               Container(
                                                 width: double.infinity,
-                                                height: 60.0,
+                                                height: 60,
                                                 decoration: BoxDecoration(),
                                                 child: Row(
                                                   mainAxisSize:
@@ -794,10 +788,7 @@ class _SearchableCarListPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  12.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                                  12, 0, 0, 0),
                                                       child: Text(
                                                         'รถตู้',
                                                         style:
@@ -816,17 +807,14 @@ class _SearchableCarListPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  20.0,
-                                                                  0.0),
+                                                                  0, 0, 20, 0),
                                                       child: ClipRRect(
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8.0),
+                                                                .circular(8),
                                                         child: Image.asset(
                                                           'assets/images/8h5d5_.png',
-                                                          width: 90.0,
+                                                          width: 90,
                                                           fit: BoxFit.cover,
                                                         ),
                                                       ),
@@ -835,7 +823,7 @@ class _SearchableCarListPageWidgetState
                                                 ),
                                               ),
                                               Divider(
-                                                thickness: 1.0,
+                                                thickness: 1,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .accent4,
@@ -853,7 +841,7 @@ class _SearchableCarListPageWidgetState
                                           'รถเก๋ง')!)
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 7.0),
+                                          0, 0, 0, 7),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
                                         focusColor: Colors.transparent,
@@ -903,7 +891,7 @@ class _SearchableCarListPageWidgetState
                                                 FFAppState()
                                                         .insuranceBasicVehicleGroup =
                                                     'PICKUP';
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState().insuranceBasicBrandNameList = functions
                                                     .returnMappedListFrom2ListContain(
                                                         FFAppState()
@@ -928,7 +916,7 @@ class _SearchableCarListPageWidgetState
                                                             .insuranceBasicVehicleGroup)
                                                     .toList()
                                                     .cast<String>();
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 if (FFAppState()
                                                         .insuranceBasicBrandNameList
                                                         .length <=
@@ -936,7 +924,7 @@ class _SearchableCarListPageWidgetState
                                                   FFAppState()
                                                           .insuranceVehicleTypeDropDown =
                                                       'เลือกประเภทรถ';
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                   await showDialog(
                                                     context: context,
                                                     builder:
@@ -1018,7 +1006,7 @@ class _SearchableCarListPageWidgetState
                                                   FFAppState()
                                                           .insuranceBasicVehicleGroup =
                                                       'PICKUP';
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                   FFAppState().insuranceBasicBrandNameList = functions
                                                       .returnMappedListFrom2ListContain(
                                                           FFAppState()
@@ -1043,7 +1031,7 @@ class _SearchableCarListPageWidgetState
                                                               .insuranceBasicVehicleGroup)
                                                       .toList()
                                                       .cast<String>();
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                   if (Navigator.of(context)
                                                       .canPop()) {
                                                     context.pop();
@@ -1102,7 +1090,7 @@ class _SearchableCarListPageWidgetState
                                                     FFAppState()
                                                             .insuranceInfoVehicleType =
                                                         'รถกระบะ';
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                     if (Navigator.of(context)
                                                         .canPop()) {
                                                       context.pop();
@@ -1175,7 +1163,7 @@ class _SearchableCarListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState().insuranceBasicModelNameList = functions
                                                     .returnMappedListFrom2List(
                                                         FFAppState()
@@ -1215,13 +1203,13 @@ class _SearchableCarListPageWidgetState
                                                     'เลือกรุ่นรถ';
                                                 FFAppState()
                                                     .insuranceBasicModelId = '';
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState()
                                                     .updateSearchPackageCheckFilledAtIndex(
                                                   1,
                                                   (_) => true,
                                                 );
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 if (FFAppState()
                                                         .insuranceBasicModelNameList
                                                         .length <=
@@ -1274,7 +1262,7 @@ class _SearchableCarListPageWidgetState
                                                 FFAppState()
                                                         .nonePackageIsBrandSelect =
                                                     true;
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState().nonePackageSearchModelList = functions
                                                     .returnMappedListFrom2List(
                                                         FFAppState()
@@ -1309,7 +1297,7 @@ class _SearchableCarListPageWidgetState
                                                                 true)])
                                                     .toList()
                                                     .cast<String>();
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -1326,13 +1314,13 @@ class _SearchableCarListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState()
                                                     .updateSearchPackageCheckFilledAtIndex(
                                                   3,
                                                   (_) => true,
                                                 );
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               } else {
@@ -1344,7 +1332,7 @@ class _SearchableCarListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -1419,13 +1407,13 @@ class _SearchableCarListPageWidgetState
                                                                     .searchableListComponentSelectedList
                                                                     .toList(),
                                                                 true)])];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState()
                                                     .updateSearchPackageCheckFilledAtIndex(
                                                   4,
                                                   (_) => true,
                                                 );
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               } else {
@@ -1495,7 +1483,7 @@ class _SearchableCarListPageWidgetState
                                                                     .searchableListComponentSelectedList
                                                                     .toList(),
                                                                 true)])];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -1542,7 +1530,7 @@ class _SearchableCarListPageWidgetState
                                                             true)
                                                         .toList()
                                                         .cast<String>();
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               } else {
@@ -1570,7 +1558,7 @@ class _SearchableCarListPageWidgetState
                                                                 .searchableListComponentSelectedList
                                                                 .toList(),
                                                             true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -1605,7 +1593,7 @@ class _SearchableCarListPageWidgetState
                                                             true)
                                                         .toList()
                                                         .cast<String>();
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               } else {
@@ -1633,7 +1621,7 @@ class _SearchableCarListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -1650,7 +1638,7 @@ class _SearchableCarListPageWidgetState
                                                       true)
                                                   .toList()
                                                   .cast<String>();
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -1667,7 +1655,7 @@ class _SearchableCarListPageWidgetState
                                                           true)
                                                       .toList()
                                                       .cast<String>();
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -1685,7 +1673,7 @@ class _SearchableCarListPageWidgetState
                                                           true)
                                                       .toList()
                                                       .cast<String>();
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -1699,7 +1687,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -1714,7 +1702,7 @@ class _SearchableCarListPageWidgetState
                                                       true)];
                                               FFAppState().insuranceInfoTitle =
                                                   'เลือกคำนำหน้าชื่อ';
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -1728,7 +1716,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -1742,7 +1730,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               FFAppState()
                                                       .insuranceInfoSelectOccupationCode =
                                                   functions.removeDupeInList(
@@ -1762,7 +1750,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               FFAppState()
                                                       .insuranceInfoSelectOccupationSubCode =
                                                   functions
@@ -1791,10 +1779,10 @@ class _SearchableCarListPageWidgetState
                                                               .insuranceInfoSelectOccupationName)
                                                       .toList()
                                                       .cast<String>();
-                                              setState(() {});
+                                              safeSetState(() {});
                                               FFAppState()
                                                   .insuranceInfoSelectOccupationSubNameChoose = '';
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -1821,7 +1809,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -1909,7 +1897,7 @@ class _SearchableCarListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               } else {
@@ -1993,7 +1981,7 @@ class _SearchableCarListPageWidgetState
                                                                     .searchableListComponentSelectedList
                                                                     .toList(),
                                                                 true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -2013,7 +2001,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -2032,7 +2020,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -2051,7 +2039,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -2065,7 +2053,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -2095,7 +2083,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -2111,7 +2099,7 @@ class _SearchableCarListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -2134,7 +2122,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -2158,13 +2146,13 @@ class _SearchableCarListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState()
                                                     .updateSearchPackageCheckFilledAtIndex(
                                                   2,
                                                   (_) => true,
                                                 );
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -2178,7 +2166,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -2186,12 +2174,12 @@ class _SearchableCarListPageWidgetState
                                         },
                                         child: Container(
                                           width: double.infinity,
-                                          height: 65.0,
+                                          height: 65,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             borderRadius:
-                                                BorderRadius.circular(10.0),
+                                                BorderRadius.circular(10),
                                             border: Border.all(
                                               width: 0.5,
                                             ),
@@ -2201,7 +2189,7 @@ class _SearchableCarListPageWidgetState
                                             children: [
                                               Container(
                                                 width: double.infinity,
-                                                height: 60.0,
+                                                height: 60,
                                                 decoration: BoxDecoration(),
                                                 child: Row(
                                                   mainAxisSize:
@@ -2214,10 +2202,7 @@ class _SearchableCarListPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  12.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                                  12, 0, 0, 0),
                                                       child: Text(
                                                         'รถกระบะ 2 ประตู',
                                                         style:
@@ -2236,17 +2221,14 @@ class _SearchableCarListPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  20.0,
-                                                                  0.0),
+                                                                  0, 0, 20, 0),
                                                       child: ClipRRect(
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8.0),
+                                                                .circular(8),
                                                         child: Image.asset(
                                                           'assets/images/__().png',
-                                                          width: 90.0,
+                                                          width: 90,
                                                           fit: BoxFit.cover,
                                                         ),
                                                       ),
@@ -2255,7 +2237,7 @@ class _SearchableCarListPageWidgetState
                                                 ),
                                               ),
                                               Divider(
-                                                thickness: 1.0,
+                                                thickness: 1,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .accent4,
@@ -2273,7 +2255,7 @@ class _SearchableCarListPageWidgetState
                                           'รถเก๋ง')!)
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 7.0),
+                                          0, 0, 0, 7),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
                                         focusColor: Colors.transparent,
@@ -2329,7 +2311,7 @@ class _SearchableCarListPageWidgetState
                                                 FFAppState()
                                                         .insuranceBasicCarTypeDoors =
                                                     '4 Doors';
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState().insuranceBasicBrandNameList = functions
                                                     .returnMappedListFrom2ListContain(
                                                         FFAppState()
@@ -2354,7 +2336,7 @@ class _SearchableCarListPageWidgetState
                                                             .insuranceBasicVehicleGroup)
                                                     .toList()
                                                     .cast<String>();
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState()
                                                         .insuranceBasicBrandName =
                                                     'เลือกยี่ห้อรถ';
@@ -2365,7 +2347,7 @@ class _SearchableCarListPageWidgetState
                                                     'เลือกรุ่นรถ';
                                                 FFAppState()
                                                     .insuranceBasicModelId = '';
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 if (FFAppState()
                                                         .insuranceBasicBrandNameList
                                                         .length <=
@@ -2373,7 +2355,7 @@ class _SearchableCarListPageWidgetState
                                                   FFAppState()
                                                           .insuranceVehicleTypeDropDown =
                                                       'เลือกประเภทรถ';
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                   await showDialog(
                                                     context: context,
                                                     builder:
@@ -2417,7 +2399,7 @@ class _SearchableCarListPageWidgetState
                                                   FFAppState()
                                                           .insuranceBasicVehicleGroup =
                                                       'PICKUP';
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                   FFAppState()
                                                           .insuranceBasicVehicleGroup =
                                                       'PICKUP';
@@ -2451,7 +2433,7 @@ class _SearchableCarListPageWidgetState
                                                               .insuranceBasicVehicleGroup)
                                                       .toList()
                                                       .cast<String>();
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                   context.safePop();
                                                   return;
                                                 } else {
@@ -2469,7 +2451,7 @@ class _SearchableCarListPageWidgetState
                                                     FFAppState()
                                                             .insuranceInfoVehicleType =
                                                         'รถกระบะ';
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                     FFAppState()
                                                             .insuranceBasicVehicleGroup =
                                                         'PICKUP';
@@ -2479,7 +2461,7 @@ class _SearchableCarListPageWidgetState
                                                     FFAppState()
                                                             .insuranceBasicCarTypeDoors =
                                                         '4 Doors';
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                     context.safePop();
                                                     return;
                                                   }
@@ -2492,12 +2474,12 @@ class _SearchableCarListPageWidgetState
                                         },
                                         child: Container(
                                           width: double.infinity,
-                                          height: 65.0,
+                                          height: 65,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             borderRadius:
-                                                BorderRadius.circular(10.0),
+                                                BorderRadius.circular(10),
                                             border: Border.all(
                                               width: 0.5,
                                             ),
@@ -2507,7 +2489,7 @@ class _SearchableCarListPageWidgetState
                                             children: [
                                               Container(
                                                 width: double.infinity,
-                                                height: 60.0,
+                                                height: 60,
                                                 decoration: BoxDecoration(),
                                                 child: Row(
                                                   mainAxisSize:
@@ -2520,10 +2502,7 @@ class _SearchableCarListPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  12.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                                  12, 0, 0, 0),
                                                       child: Text(
                                                         'รถกระบะ 4 ประตู',
                                                         style:
@@ -2542,17 +2521,14 @@ class _SearchableCarListPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  20.0,
-                                                                  0.0),
+                                                                  0, 0, 20, 0),
                                                       child: ClipRRect(
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8.0),
+                                                                .circular(8),
                                                         child: Image.asset(
                                                           'assets/images/_4_.png',
-                                                          width: 90.0,
+                                                          width: 90,
                                                           fit: BoxFit.cover,
                                                         ),
                                                       ),
@@ -2561,7 +2537,7 @@ class _SearchableCarListPageWidgetState
                                                 ),
                                               ),
                                               Divider(
-                                                thickness: 1.0,
+                                                thickness: 1,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .accent4,
@@ -2574,7 +2550,7 @@ class _SearchableCarListPageWidgetState
                                   if (widget!.fromPage != 'act')
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 7.0),
+                                          0, 0, 0, 7),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
                                         focusColor: Colors.transparent,
@@ -2636,7 +2612,7 @@ class _SearchableCarListPageWidgetState
                                                 FFAppState()
                                                         .insuranceBasicVehicleGroup =
                                                     'OTHERS';
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               } else {
@@ -2651,7 +2627,7 @@ class _SearchableCarListPageWidgetState
                                                   FFAppState()
                                                           .nonepackagevehicletypeDetail =
                                                       'รถบรรทุก หัวลาก หางพ่วง';
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                   FFAppState()
                                                           .insuranceBasicVehicleGroup =
                                                       'TRUCK';
@@ -2685,7 +2661,7 @@ class _SearchableCarListPageWidgetState
                                                               .insuranceBasicVehicleGroup)
                                                       .toList()
                                                       .cast<String>();
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                   context.safePop();
                                                   return;
                                                 } else {
@@ -2700,7 +2676,7 @@ class _SearchableCarListPageWidgetState
                                                     FFAppState()
                                                             .insuranceInfoVehicleType =
                                                         'รถบรรทุก หัวลาก หางพ่วง';
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                     FFAppState()
                                                             .insuranceBasicVehicleGroup =
                                                         'TRUCK';
@@ -2710,7 +2686,7 @@ class _SearchableCarListPageWidgetState
                                                     FFAppState()
                                                             .insuranceBasicCarTypeDoors =
                                                         '-';
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                     context.safePop();
                                                     return;
                                                   }
@@ -2742,7 +2718,7 @@ class _SearchableCarListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState().insuranceBasicModelNameList = functions
                                                     .returnMappedListFrom2List(
                                                         FFAppState()
@@ -2782,13 +2758,13 @@ class _SearchableCarListPageWidgetState
                                                     'เลือกรุ่นรถ';
                                                 FFAppState()
                                                     .insuranceBasicModelId = '';
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState()
                                                     .updateSearchPackageCheckFilledAtIndex(
                                                   1,
                                                   (_) => true,
                                                 );
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 if (FFAppState()
                                                         .insuranceBasicModelNameList
                                                         .length <=
@@ -2841,7 +2817,7 @@ class _SearchableCarListPageWidgetState
                                                 FFAppState()
                                                         .nonePackageIsBrandSelect =
                                                     true;
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState().nonePackageSearchModelList = functions
                                                     .returnMappedListFrom2List(
                                                         FFAppState()
@@ -2876,7 +2852,7 @@ class _SearchableCarListPageWidgetState
                                                                 true)])
                                                     .toList()
                                                     .cast<String>();
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -2893,13 +2869,13 @@ class _SearchableCarListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState()
                                                     .updateSearchPackageCheckFilledAtIndex(
                                                   3,
                                                   (_) => true,
                                                 );
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               } else {
@@ -2911,7 +2887,7 @@ class _SearchableCarListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -2986,13 +2962,13 @@ class _SearchableCarListPageWidgetState
                                                                     .searchableListComponentSelectedList
                                                                     .toList(),
                                                                 true)])];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState()
                                                     .updateSearchPackageCheckFilledAtIndex(
                                                   4,
                                                   (_) => true,
                                                 );
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               } else {
@@ -3062,7 +3038,7 @@ class _SearchableCarListPageWidgetState
                                                                     .searchableListComponentSelectedList
                                                                     .toList(),
                                                                 true)])];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -3109,7 +3085,7 @@ class _SearchableCarListPageWidgetState
                                                             true)
                                                         .toList()
                                                         .cast<String>();
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               } else {
@@ -3137,7 +3113,7 @@ class _SearchableCarListPageWidgetState
                                                                 .searchableListComponentSelectedList
                                                                 .toList(),
                                                             true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -3172,7 +3148,7 @@ class _SearchableCarListPageWidgetState
                                                             true)
                                                         .toList()
                                                         .cast<String>();
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               } else {
@@ -3200,7 +3176,7 @@ class _SearchableCarListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -3217,7 +3193,7 @@ class _SearchableCarListPageWidgetState
                                                       true)
                                                   .toList()
                                                   .cast<String>();
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -3234,7 +3210,7 @@ class _SearchableCarListPageWidgetState
                                                           true)
                                                       .toList()
                                                       .cast<String>();
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -3252,7 +3228,7 @@ class _SearchableCarListPageWidgetState
                                                           true)
                                                       .toList()
                                                       .cast<String>();
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -3266,7 +3242,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -3281,7 +3257,7 @@ class _SearchableCarListPageWidgetState
                                                       true)];
                                               FFAppState().insuranceInfoTitle =
                                                   'เลือกคำนำหน้าชื่อ';
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -3295,7 +3271,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -3309,7 +3285,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               FFAppState()
                                                       .insuranceInfoSelectOccupationCode =
                                                   functions.removeDupeInList(
@@ -3329,7 +3305,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               FFAppState()
                                                       .insuranceInfoSelectOccupationSubCode =
                                                   functions
@@ -3358,10 +3334,10 @@ class _SearchableCarListPageWidgetState
                                                               .insuranceInfoSelectOccupationName)
                                                       .toList()
                                                       .cast<String>();
-                                              setState(() {});
+                                              safeSetState(() {});
                                               FFAppState()
                                                   .insuranceInfoSelectOccupationSubNameChoose = '';
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -3388,7 +3364,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -3476,7 +3452,7 @@ class _SearchableCarListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               } else {
@@ -3560,7 +3536,7 @@ class _SearchableCarListPageWidgetState
                                                                     .searchableListComponentSelectedList
                                                                     .toList(),
                                                                 true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -3580,7 +3556,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -3599,7 +3575,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -3618,7 +3594,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -3632,7 +3608,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -3662,7 +3638,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -3678,7 +3654,7 @@ class _SearchableCarListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -3701,7 +3677,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -3725,13 +3701,13 @@ class _SearchableCarListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState()
                                                     .updateSearchPackageCheckFilledAtIndex(
                                                   2,
                                                   (_) => true,
                                                 );
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -3745,7 +3721,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -3753,12 +3729,12 @@ class _SearchableCarListPageWidgetState
                                         },
                                         child: Container(
                                           width: double.infinity,
-                                          height: 65.0,
+                                          height: 65,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             borderRadius:
-                                                BorderRadius.circular(10.0),
+                                                BorderRadius.circular(10),
                                             border: Border.all(
                                               width: 0.5,
                                             ),
@@ -3768,7 +3744,7 @@ class _SearchableCarListPageWidgetState
                                             children: [
                                               Container(
                                                 width: double.infinity,
-                                                height: 60.0,
+                                                height: 60,
                                                 decoration: BoxDecoration(),
                                                 child: Row(
                                                   mainAxisSize:
@@ -3781,10 +3757,7 @@ class _SearchableCarListPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  12.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                                  12, 0, 0, 0),
                                                       child: Text(
                                                         'รถบรรทุก หัวลาก หางพ่วง',
                                                         style:
@@ -3803,17 +3776,14 @@ class _SearchableCarListPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  20.0,
-                                                                  0.0),
+                                                                  0, 0, 20, 0),
                                                       child: ClipRRect(
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8.0),
+                                                                .circular(8),
                                                         child: Image.asset(
                                                           'assets/images/__.png',
-                                                          width: 140.0,
+                                                          width: 140,
                                                           fit: BoxFit.cover,
                                                         ),
                                                       ),
@@ -3822,7 +3792,7 @@ class _SearchableCarListPageWidgetState
                                                 ),
                                               ),
                                               Divider(
-                                                thickness: 1.0,
+                                                thickness: 1,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .accent4,
@@ -3835,7 +3805,7 @@ class _SearchableCarListPageWidgetState
                                   if (widget!.fromPage != 'act')
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 7.0),
+                                          0, 0, 0, 7),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
                                         focusColor: Colors.transparent,
@@ -3888,7 +3858,7 @@ class _SearchableCarListPageWidgetState
                                                   0,
                                                   (_) => true,
                                                 );
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               } else {
@@ -3903,7 +3873,7 @@ class _SearchableCarListPageWidgetState
                                                   FFAppState()
                                                           .nonepackagevehicletypeDetail =
                                                       'รถเเต่ง';
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                   context.safePop();
                                                   return;
                                                 } else {
@@ -3918,7 +3888,7 @@ class _SearchableCarListPageWidgetState
                                                     FFAppState()
                                                             .insuranceInfoVehicleType =
                                                         'รถเเต่ง';
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                     context.safePop();
                                                     return;
                                                   }
@@ -3950,7 +3920,7 @@ class _SearchableCarListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState().insuranceBasicModelNameList = functions
                                                     .returnMappedListFrom2List(
                                                         FFAppState()
@@ -3990,13 +3960,13 @@ class _SearchableCarListPageWidgetState
                                                     'เลือกรุ่นรถ';
                                                 FFAppState()
                                                     .insuranceBasicModelId = '';
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState()
                                                     .updateSearchPackageCheckFilledAtIndex(
                                                   1,
                                                   (_) => true,
                                                 );
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 if (FFAppState()
                                                         .insuranceBasicModelNameList
                                                         .length <=
@@ -4049,7 +4019,7 @@ class _SearchableCarListPageWidgetState
                                                 FFAppState()
                                                         .nonePackageIsBrandSelect =
                                                     true;
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState().nonePackageSearchModelList = functions
                                                     .returnMappedListFrom2List(
                                                         FFAppState()
@@ -4084,7 +4054,7 @@ class _SearchableCarListPageWidgetState
                                                                 true)])
                                                     .toList()
                                                     .cast<String>();
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -4101,13 +4071,13 @@ class _SearchableCarListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState()
                                                     .updateSearchPackageCheckFilledAtIndex(
                                                   3,
                                                   (_) => true,
                                                 );
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               } else {
@@ -4119,7 +4089,7 @@ class _SearchableCarListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -4194,13 +4164,13 @@ class _SearchableCarListPageWidgetState
                                                                     .searchableListComponentSelectedList
                                                                     .toList(),
                                                                 true)])];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState()
                                                     .updateSearchPackageCheckFilledAtIndex(
                                                   4,
                                                   (_) => true,
                                                 );
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               } else {
@@ -4270,7 +4240,7 @@ class _SearchableCarListPageWidgetState
                                                                     .searchableListComponentSelectedList
                                                                     .toList(),
                                                                 true)])];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -4317,7 +4287,7 @@ class _SearchableCarListPageWidgetState
                                                             true)
                                                         .toList()
                                                         .cast<String>();
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               } else {
@@ -4345,7 +4315,7 @@ class _SearchableCarListPageWidgetState
                                                                 .searchableListComponentSelectedList
                                                                 .toList(),
                                                             true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -4380,7 +4350,7 @@ class _SearchableCarListPageWidgetState
                                                             true)
                                                         .toList()
                                                         .cast<String>();
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               } else {
@@ -4408,7 +4378,7 @@ class _SearchableCarListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -4425,7 +4395,7 @@ class _SearchableCarListPageWidgetState
                                                       true)
                                                   .toList()
                                                   .cast<String>();
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -4442,7 +4412,7 @@ class _SearchableCarListPageWidgetState
                                                           true)
                                                       .toList()
                                                       .cast<String>();
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -4460,7 +4430,7 @@ class _SearchableCarListPageWidgetState
                                                           true)
                                                       .toList()
                                                       .cast<String>();
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -4474,7 +4444,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -4489,7 +4459,7 @@ class _SearchableCarListPageWidgetState
                                                       true)];
                                               FFAppState().insuranceInfoTitle =
                                                   'เลือกคำนำหน้าชื่อ';
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -4503,7 +4473,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -4517,7 +4487,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               FFAppState()
                                                       .insuranceInfoSelectOccupationCode =
                                                   functions.removeDupeInList(
@@ -4537,7 +4507,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               FFAppState()
                                                       .insuranceInfoSelectOccupationSubCode =
                                                   functions
@@ -4566,10 +4536,10 @@ class _SearchableCarListPageWidgetState
                                                               .insuranceInfoSelectOccupationName)
                                                       .toList()
                                                       .cast<String>();
-                                              setState(() {});
+                                              safeSetState(() {});
                                               FFAppState()
                                                   .insuranceInfoSelectOccupationSubNameChoose = '';
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -4596,7 +4566,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -4684,7 +4654,7 @@ class _SearchableCarListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               } else {
@@ -4768,7 +4738,7 @@ class _SearchableCarListPageWidgetState
                                                                     .searchableListComponentSelectedList
                                                                     .toList(),
                                                                 true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -4788,7 +4758,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -4807,7 +4777,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -4826,7 +4796,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -4840,7 +4810,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -4870,7 +4840,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -4886,7 +4856,7 @@ class _SearchableCarListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -4909,7 +4879,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -4933,13 +4903,13 @@ class _SearchableCarListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState()
                                                     .updateSearchPackageCheckFilledAtIndex(
                                                   2,
                                                   (_) => true,
                                                 );
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -4953,7 +4923,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -4961,12 +4931,12 @@ class _SearchableCarListPageWidgetState
                                         },
                                         child: Container(
                                           width: double.infinity,
-                                          height: 65.0,
+                                          height: 65,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             borderRadius:
-                                                BorderRadius.circular(10.0),
+                                                BorderRadius.circular(10),
                                             border: Border.all(
                                               width: 0.5,
                                             ),
@@ -4976,7 +4946,7 @@ class _SearchableCarListPageWidgetState
                                             children: [
                                               Container(
                                                 width: double.infinity,
-                                                height: 60.0,
+                                                height: 60,
                                                 decoration: BoxDecoration(),
                                                 child: Row(
                                                   mainAxisSize:
@@ -4989,10 +4959,7 @@ class _SearchableCarListPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  12.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                                  12, 0, 0, 0),
                                                       child: Text(
                                                         'รถเเต่ง',
                                                         style:
@@ -5011,17 +4978,14 @@ class _SearchableCarListPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  20.0,
-                                                                  0.0),
+                                                                  0, 0, 20, 0),
                                                       child: ClipRRect(
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8.0),
+                                                                .circular(8),
                                                         child: Image.asset(
                                                           'assets/images/hy5n2_.png',
-                                                          width: 90.0,
+                                                          width: 90,
                                                           fit: BoxFit.cover,
                                                         ),
                                                       ),
@@ -5030,7 +4994,7 @@ class _SearchableCarListPageWidgetState
                                                 ),
                                               ),
                                               Divider(
-                                                thickness: 1.0,
+                                                thickness: 1,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .accent4,
@@ -5043,7 +5007,7 @@ class _SearchableCarListPageWidgetState
                                   if (widget!.fromPage != 'act')
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 7.0),
+                                          0, 0, 0, 7),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
                                         focusColor: Colors.transparent,
@@ -5096,7 +5060,7 @@ class _SearchableCarListPageWidgetState
                                                   0,
                                                   (_) => true,
                                                 );
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               } else {
@@ -5111,7 +5075,7 @@ class _SearchableCarListPageWidgetState
                                                   FFAppState()
                                                           .nonepackagevehicletypeDetail =
                                                       'รถโดยสารประจำทาง';
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                   context.safePop();
                                                   return;
                                                 } else {
@@ -5126,7 +5090,7 @@ class _SearchableCarListPageWidgetState
                                                     FFAppState()
                                                             .insuranceInfoVehicleType =
                                                         'รถเเต่ง';
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                     context.safePop();
                                                     return;
                                                   }
@@ -5158,7 +5122,7 @@ class _SearchableCarListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState().insuranceBasicModelNameList = functions
                                                     .returnMappedListFrom2List(
                                                         FFAppState()
@@ -5198,13 +5162,13 @@ class _SearchableCarListPageWidgetState
                                                     'เลือกรุ่นรถ';
                                                 FFAppState()
                                                     .insuranceBasicModelId = '';
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState()
                                                     .updateSearchPackageCheckFilledAtIndex(
                                                   1,
                                                   (_) => true,
                                                 );
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 if (FFAppState()
                                                         .insuranceBasicModelNameList
                                                         .length <=
@@ -5257,7 +5221,7 @@ class _SearchableCarListPageWidgetState
                                                 FFAppState()
                                                         .nonePackageIsBrandSelect =
                                                     true;
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState().nonePackageSearchModelList = functions
                                                     .returnMappedListFrom2List(
                                                         FFAppState()
@@ -5292,7 +5256,7 @@ class _SearchableCarListPageWidgetState
                                                                 true)])
                                                     .toList()
                                                     .cast<String>();
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -5309,13 +5273,13 @@ class _SearchableCarListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState()
                                                     .updateSearchPackageCheckFilledAtIndex(
                                                   3,
                                                   (_) => true,
                                                 );
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               } else {
@@ -5327,7 +5291,7 @@ class _SearchableCarListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -5402,13 +5366,13 @@ class _SearchableCarListPageWidgetState
                                                                     .searchableListComponentSelectedList
                                                                     .toList(),
                                                                 true)])];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState()
                                                     .updateSearchPackageCheckFilledAtIndex(
                                                   4,
                                                   (_) => true,
                                                 );
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               } else {
@@ -5478,7 +5442,7 @@ class _SearchableCarListPageWidgetState
                                                                     .searchableListComponentSelectedList
                                                                     .toList(),
                                                                 true)])];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -5525,7 +5489,7 @@ class _SearchableCarListPageWidgetState
                                                             true)
                                                         .toList()
                                                         .cast<String>();
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               } else {
@@ -5553,7 +5517,7 @@ class _SearchableCarListPageWidgetState
                                                                 .searchableListComponentSelectedList
                                                                 .toList(),
                                                             true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -5588,7 +5552,7 @@ class _SearchableCarListPageWidgetState
                                                             true)
                                                         .toList()
                                                         .cast<String>();
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               } else {
@@ -5616,7 +5580,7 @@ class _SearchableCarListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -5633,7 +5597,7 @@ class _SearchableCarListPageWidgetState
                                                       true)
                                                   .toList()
                                                   .cast<String>();
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -5650,7 +5614,7 @@ class _SearchableCarListPageWidgetState
                                                           true)
                                                       .toList()
                                                       .cast<String>();
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -5668,7 +5632,7 @@ class _SearchableCarListPageWidgetState
                                                           true)
                                                       .toList()
                                                       .cast<String>();
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -5682,7 +5646,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -5697,7 +5661,7 @@ class _SearchableCarListPageWidgetState
                                                       true)];
                                               FFAppState().insuranceInfoTitle =
                                                   'เลือกคำนำหน้าชื่อ';
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -5711,7 +5675,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -5725,7 +5689,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               FFAppState()
                                                       .insuranceInfoSelectOccupationCode =
                                                   functions.removeDupeInList(
@@ -5745,7 +5709,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               FFAppState()
                                                       .insuranceInfoSelectOccupationSubCode =
                                                   functions
@@ -5774,10 +5738,10 @@ class _SearchableCarListPageWidgetState
                                                               .insuranceInfoSelectOccupationName)
                                                       .toList()
                                                       .cast<String>();
-                                              setState(() {});
+                                              safeSetState(() {});
                                               FFAppState()
                                                   .insuranceInfoSelectOccupationSubNameChoose = '';
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -5804,7 +5768,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -5892,7 +5856,7 @@ class _SearchableCarListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               } else {
@@ -5976,7 +5940,7 @@ class _SearchableCarListPageWidgetState
                                                                     .searchableListComponentSelectedList
                                                                     .toList(),
                                                                 true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -5996,7 +5960,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -6015,7 +5979,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -6034,7 +5998,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -6048,7 +6012,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -6078,7 +6042,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -6094,7 +6058,7 @@ class _SearchableCarListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -6117,7 +6081,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -6141,13 +6105,13 @@ class _SearchableCarListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState()
                                                     .updateSearchPackageCheckFilledAtIndex(
                                                   2,
                                                   (_) => true,
                                                 );
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -6161,7 +6125,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -6169,12 +6133,12 @@ class _SearchableCarListPageWidgetState
                                         },
                                         child: Container(
                                           width: double.infinity,
-                                          height: 65.0,
+                                          height: 65,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             borderRadius:
-                                                BorderRadius.circular(10.0),
+                                                BorderRadius.circular(10),
                                             border: Border.all(
                                               width: 0.5,
                                             ),
@@ -6184,7 +6148,7 @@ class _SearchableCarListPageWidgetState
                                             children: [
                                               Container(
                                                 width: double.infinity,
-                                                height: 60.0,
+                                                height: 60,
                                                 decoration: BoxDecoration(),
                                                 child: Row(
                                                   mainAxisSize:
@@ -6197,10 +6161,7 @@ class _SearchableCarListPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  12.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                                  12, 0, 0, 0),
                                                       child: Text(
                                                         'รถโดยสารประจำทาง',
                                                         style:
@@ -6218,10 +6179,10 @@ class _SearchableCarListPageWidgetState
                                                     ClipRRect(
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              8.0),
+                                                              8),
                                                       child: Image.asset(
                                                         'assets/images/Screenshot_2567-03-22_at_10.16.17-.png',
-                                                        width: 130.0,
+                                                        width: 130,
                                                         fit: BoxFit.cover,
                                                       ),
                                                     ),
@@ -6229,7 +6190,7 @@ class _SearchableCarListPageWidgetState
                                                 ),
                                               ),
                                               Divider(
-                                                thickness: 1.0,
+                                                thickness: 1,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .accent4,
@@ -6295,7 +6256,7 @@ class _SearchableCarListPageWidgetState
                                                 0,
                                                 (_) => true,
                                               );
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             } else {
@@ -6310,7 +6271,7 @@ class _SearchableCarListPageWidgetState
                                                 FFAppState()
                                                         .nonepackagevehicletypeDetail =
                                                     'รถซุปเปอร์คาร์';
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState()
                                                         .insuranceBasicVehicleGroup =
                                                     'SUPERCAR';
@@ -6344,7 +6305,7 @@ class _SearchableCarListPageWidgetState
                                                             .insuranceBasicVehicleGroup)
                                                     .toList()
                                                     .cast<String>();
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -6375,7 +6336,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               FFAppState().insuranceBasicModelNameList = functions
                                                   .returnMappedListFrom2List(
                                                       FFAppState()
@@ -6417,13 +6378,13 @@ class _SearchableCarListPageWidgetState
                                                   'เลือกรุ่นรถ';
                                               FFAppState()
                                                   .insuranceBasicModelId = '';
-                                              setState(() {});
+                                              safeSetState(() {});
                                               FFAppState()
                                                   .updateSearchPackageCheckFilledAtIndex(
                                                 1,
                                                 (_) => true,
                                               );
-                                              setState(() {});
+                                              safeSetState(() {});
                                               if (FFAppState()
                                                       .insuranceBasicModelNameList
                                                       .length <=
@@ -6476,7 +6437,7 @@ class _SearchableCarListPageWidgetState
                                               FFAppState()
                                                       .nonePackageIsBrandSelect =
                                                   true;
-                                              setState(() {});
+                                              safeSetState(() {});
                                               FFAppState().nonePackageSearchModelList = functions
                                                   .returnMappedListFrom2List(
                                                       FFAppState()
@@ -6513,7 +6474,7 @@ class _SearchableCarListPageWidgetState
                                                                   true)])
                                                   .toList()
                                                   .cast<String>();
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -6530,13 +6491,13 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               FFAppState()
                                                   .updateSearchPackageCheckFilledAtIndex(
                                                 3,
                                                 (_) => true,
                                               );
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             } else {
@@ -6548,7 +6509,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -6623,13 +6584,13 @@ class _SearchableCarListPageWidgetState
                                                                   .searchableListComponentSelectedList
                                                                   .toList(),
                                                               true)])];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               FFAppState()
                                                   .updateSearchPackageCheckFilledAtIndex(
                                                 4,
                                                 (_) => true,
                                               );
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             } else {
@@ -6699,7 +6660,7 @@ class _SearchableCarListPageWidgetState
                                                                   .searchableListComponentSelectedList
                                                                   .toList(),
                                                               true)])];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -6746,7 +6707,7 @@ class _SearchableCarListPageWidgetState
                                                           true)
                                                       .toList()
                                                       .cast<String>();
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             } else {
@@ -6774,7 +6735,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -6809,7 +6770,7 @@ class _SearchableCarListPageWidgetState
                                                           true)
                                                       .toList()
                                                       .cast<String>();
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             } else {
@@ -6837,7 +6798,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -6853,7 +6814,7 @@ class _SearchableCarListPageWidgetState
                                                     true)
                                                 .toList()
                                                 .cast<String>();
-                                            setState(() {});
+                                            safeSetState(() {});
                                             context.safePop();
                                             return;
                                           }
@@ -6870,7 +6831,7 @@ class _SearchableCarListPageWidgetState
                                                         true)
                                                     .toList()
                                                     .cast<String>();
-                                            setState(() {});
+                                            safeSetState(() {});
                                             context.safePop();
                                             return;
                                           }
@@ -6887,7 +6848,7 @@ class _SearchableCarListPageWidgetState
                                                         true)
                                                     .toList()
                                                     .cast<String>();
-                                            setState(() {});
+                                            safeSetState(() {});
                                             context.safePop();
                                             return;
                                           }
@@ -6901,7 +6862,7 @@ class _SearchableCarListPageWidgetState
                                                         .searchableListComponentSelectedList
                                                         .toList(),
                                                     true)];
-                                            setState(() {});
+                                            safeSetState(() {});
                                             context.safePop();
                                             return;
                                           }
@@ -6916,7 +6877,7 @@ class _SearchableCarListPageWidgetState
                                                     true)];
                                             FFAppState().insuranceInfoTitle =
                                                 'เลือกคำนำหน้าชื่อ';
-                                            setState(() {});
+                                            safeSetState(() {});
                                             context.safePop();
                                             return;
                                           }
@@ -6929,7 +6890,7 @@ class _SearchableCarListPageWidgetState
                                                         .searchableListComponentSelectedList
                                                         .toList(),
                                                     true)];
-                                            setState(() {});
+                                            safeSetState(() {});
                                             context.safePop();
                                             return;
                                           }
@@ -6943,7 +6904,7 @@ class _SearchableCarListPageWidgetState
                                                         .searchableListComponentSelectedList
                                                         .toList(),
                                                     true)];
-                                            setState(() {});
+                                            safeSetState(() {});
                                             FFAppState()
                                                     .insuranceInfoSelectOccupationCode =
                                                 functions.removeDupeInList(
@@ -6963,7 +6924,7 @@ class _SearchableCarListPageWidgetState
                                                         .searchableListComponentSelectedList
                                                         .toList(),
                                                     true)];
-                                            setState(() {});
+                                            safeSetState(() {});
                                             FFAppState()
                                                     .insuranceInfoSelectOccupationSubCode =
                                                 functions
@@ -6992,10 +6953,10 @@ class _SearchableCarListPageWidgetState
                                                             .insuranceInfoSelectOccupationName)
                                                     .toList()
                                                     .cast<String>();
-                                            setState(() {});
+                                            safeSetState(() {});
                                             FFAppState()
                                                 .insuranceInfoSelectOccupationSubNameChoose = '';
-                                            setState(() {});
+                                            safeSetState(() {});
                                             context.safePop();
                                             return;
                                           }
@@ -7022,7 +6983,7 @@ class _SearchableCarListPageWidgetState
                                                         .searchableListComponentSelectedList
                                                         .toList(),
                                                     true)];
-                                            setState(() {});
+                                            safeSetState(() {});
                                             context.safePop();
                                             return;
                                           }
@@ -7110,7 +7071,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             } else {
@@ -7194,7 +7155,7 @@ class _SearchableCarListPageWidgetState
                                                               .searchableListComponentSelectedList
                                                               .toList(),
                                                           true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -7214,7 +7175,7 @@ class _SearchableCarListPageWidgetState
                                                         .searchableListComponentSelectedList
                                                         .toList(),
                                                     true)];
-                                            setState(() {});
+                                            safeSetState(() {});
                                             context.safePop();
                                             return;
                                           }
@@ -7233,7 +7194,7 @@ class _SearchableCarListPageWidgetState
                                                         .searchableListComponentSelectedList
                                                         .toList(),
                                                     true)];
-                                            setState(() {});
+                                            safeSetState(() {});
                                             context.safePop();
                                             return;
                                           }
@@ -7252,7 +7213,7 @@ class _SearchableCarListPageWidgetState
                                                         .searchableListComponentSelectedList
                                                         .toList(),
                                                     true)];
-                                            setState(() {});
+                                            safeSetState(() {});
                                             context.safePop();
                                             return;
                                           }
@@ -7266,7 +7227,7 @@ class _SearchableCarListPageWidgetState
                                                         .searchableListComponentSelectedList
                                                         .toList(),
                                                     true)];
-                                            setState(() {});
+                                            safeSetState(() {});
                                             context.safePop();
                                             return;
                                           }
@@ -7296,7 +7257,7 @@ class _SearchableCarListPageWidgetState
                                                         .searchableListComponentSelectedList
                                                         .toList(),
                                                     true)];
-                                            setState(() {});
+                                            safeSetState(() {});
                                             context.safePop();
                                             return;
                                           }
@@ -7312,7 +7273,7 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -7335,7 +7296,7 @@ class _SearchableCarListPageWidgetState
                                                         .searchableListComponentSelectedList
                                                         .toList(),
                                                     true)];
-                                            setState(() {});
+                                            safeSetState(() {});
                                             context.safePop();
                                             return;
                                           }
@@ -7359,13 +7320,13 @@ class _SearchableCarListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               FFAppState()
                                                   .updateSearchPackageCheckFilledAtIndex(
                                                 2,
                                                 (_) => true,
                                               );
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -7379,7 +7340,7 @@ class _SearchableCarListPageWidgetState
                                                         .searchableListComponentSelectedList
                                                         .toList(),
                                                     true)];
-                                            setState(() {});
+                                            safeSetState(() {});
                                             context.safePop();
                                             return;
                                           }
@@ -7387,12 +7348,12 @@ class _SearchableCarListPageWidgetState
                                       },
                                       child: Container(
                                         width: double.infinity,
-                                        height: 65.0,
+                                        height: 65,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                           borderRadius:
-                                              BorderRadius.circular(10.0),
+                                              BorderRadius.circular(10),
                                           border: Border.all(
                                             width: 0.5,
                                           ),
@@ -7402,7 +7363,7 @@ class _SearchableCarListPageWidgetState
                                           children: [
                                             Container(
                                               width: double.infinity,
-                                              height: 60.0,
+                                              height: 60,
                                               decoration: BoxDecoration(),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
@@ -7413,8 +7374,8 @@ class _SearchableCarListPageWidgetState
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(12.0, 0.0,
-                                                                0.0, 0.0),
+                                                            .fromSTEB(
+                                                                12, 0, 0, 0),
                                                     child: Text(
                                                       'รถซุปเปอร์คาร์',
                                                       style: FlutterFlowTheme
@@ -7430,15 +7391,15 @@ class _SearchableCarListPageWidgetState
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                20.0, 0.0),
+                                                            .fromSTEB(
+                                                                0, 0, 20, 0),
                                                     child: ClipRRect(
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              8.0),
+                                                              8),
                                                       child: Image.asset(
                                                         'assets/images/Screenshot_2567-01-16_at_15.47(edit).png',
-                                                        width: 90.0,
+                                                        width: 90,
                                                         fit: BoxFit.cover,
                                                       ),
                                                     ),
@@ -7447,7 +7408,7 @@ class _SearchableCarListPageWidgetState
                                               ),
                                             ),
                                             Divider(
-                                              thickness: 1.0,
+                                              thickness: 1,
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .accent4,
@@ -7461,9 +7422,9 @@ class _SearchableCarListPageWidgetState
                             ),
                           ),
                       ]
-                          .divide(SizedBox(height: 12.0))
-                          .addToStart(SizedBox(height: 12.0))
-                          .addToEnd(SizedBox(height: 24.0)),
+                          .divide(SizedBox(height: 12))
+                          .addToStart(SizedBox(height: 12))
+                          .addToEnd(SizedBox(height: 24)),
                     ),
                   ),
                   if (widget!.multiSelect)
@@ -7471,7 +7432,7 @@ class _SearchableCarListPageWidgetState
                       flex: 1,
                       child: Container(
                         width: double.infinity,
-                        height: 100.0,
+                        height: 100,
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
@@ -7482,8 +7443,8 @@ class _SearchableCarListPageWidgetState
                           children: [
                             if (false)
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    8.0, 0.0, 8.0, 0.0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
                                     if (functions.countTrueInBoolList(FFAppState()
@@ -7559,7 +7520,7 @@ class _SearchableCarListPageWidgetState
                                           0,
                                           (_) => true,
                                         );
-                                        setState(() {});
+                                        safeSetState(() {});
                                         context.safePop();
                                         return;
                                       } else {
@@ -7572,7 +7533,7 @@ class _SearchableCarListPageWidgetState
                                                       .searchableListComponentSelectedList
                                                       .toList(),
                                                   true)];
-                                          setState(() {});
+                                          safeSetState(() {});
                                           context.safePop();
                                           return;
                                         }
@@ -7600,7 +7561,7 @@ class _SearchableCarListPageWidgetState
                                                     .searchableListComponentSelectedList
                                                     .toList(),
                                                 true)];
-                                        setState(() {});
+                                        safeSetState(() {});
                                         FFAppState().insuranceBasicModelNameList = functions
                                             .returnMappedListFrom2List(
                                                 FFAppState()
@@ -7635,13 +7596,13 @@ class _SearchableCarListPageWidgetState
                                                         true)])
                                             .toList()
                                             .cast<String>();
-                                        setState(() {});
+                                        safeSetState(() {});
                                         FFAppState()
                                             .updateSearchPackageCheckFilledAtIndex(
                                           1,
                                           (_) => true,
                                         );
-                                        setState(() {});
+                                        safeSetState(() {});
                                         context.safePop();
                                         return;
                                       } else {
@@ -7663,7 +7624,7 @@ class _SearchableCarListPageWidgetState
                                                 true)];
                                         FFAppState().nonePackageIsBrandSelect =
                                             true;
-                                        setState(() {});
+                                        safeSetState(() {});
                                         FFAppState().nonePackageSearchModelList = functions
                                             .returnMappedListFrom2List(
                                                 FFAppState()
@@ -7698,7 +7659,7 @@ class _SearchableCarListPageWidgetState
                                                         true)])
                                             .toList()
                                             .cast<String>();
-                                        setState(() {});
+                                        safeSetState(() {});
                                         context.safePop();
                                         return;
                                       }
@@ -7714,13 +7675,13 @@ class _SearchableCarListPageWidgetState
                                                     .searchableListComponentSelectedList
                                                     .toList(),
                                                 true)];
-                                        setState(() {});
+                                        safeSetState(() {});
                                         FFAppState()
                                             .updateSearchPackageCheckFilledAtIndex(
                                           3,
                                           (_) => true,
                                         );
-                                        setState(() {});
+                                        safeSetState(() {});
                                         context.safePop();
                                         return;
                                       } else {
@@ -7731,7 +7692,7 @@ class _SearchableCarListPageWidgetState
                                                     .searchableListComponentSelectedList
                                                     .toList(),
                                                 true)];
-                                        setState(() {});
+                                        safeSetState(() {});
                                         context.safePop();
                                         return;
                                       }
@@ -7805,13 +7766,13 @@ class _SearchableCarListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)])];
-                                        setState(() {});
+                                        safeSetState(() {});
                                         FFAppState()
                                             .updateSearchPackageCheckFilledAtIndex(
                                           4,
                                           (_) => true,
                                         );
-                                        setState(() {});
+                                        safeSetState(() {});
                                         context.safePop();
                                         return;
                                       } else {
@@ -7881,7 +7842,7 @@ class _SearchableCarListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)])];
-                                        setState(() {});
+                                        safeSetState(() {});
                                         context.safePop();
                                         return;
                                       }
@@ -7926,7 +7887,7 @@ class _SearchableCarListPageWidgetState
                                                     true)
                                                 .toList()
                                                 .cast<String>();
-                                        setState(() {});
+                                        safeSetState(() {});
                                         context.safePop();
                                         return;
                                       } else {
@@ -7954,7 +7915,7 @@ class _SearchableCarListPageWidgetState
                                                     .searchableListComponentSelectedList
                                                     .toList(),
                                                 true)];
-                                        setState(() {});
+                                        safeSetState(() {});
                                         context.safePop();
                                         return;
                                       }
@@ -7988,7 +7949,7 @@ class _SearchableCarListPageWidgetState
                                                     true)
                                                 .toList()
                                                 .cast<String>();
-                                        setState(() {});
+                                        safeSetState(() {});
                                         context.safePop();
                                         return;
                                       } else {
@@ -8016,7 +7977,7 @@ class _SearchableCarListPageWidgetState
                                                     .searchableListComponentSelectedList
                                                     .toList(),
                                                 true)];
-                                        setState(() {});
+                                        safeSetState(() {});
                                         context.safePop();
                                         return;
                                       }
@@ -8032,7 +7993,7 @@ class _SearchableCarListPageWidgetState
                                               true)
                                           .toList()
                                           .cast<String>();
-                                      setState(() {});
+                                      safeSetState(() {});
                                       context.safePop();
                                       return;
                                     }
@@ -8047,7 +8008,7 @@ class _SearchableCarListPageWidgetState
                                               true)
                                           .toList()
                                           .cast<String>();
-                                      setState(() {});
+                                      safeSetState(() {});
                                       context.safePop();
                                       return;
                                     }
@@ -8062,7 +8023,7 @@ class _SearchableCarListPageWidgetState
                                               true)
                                           .toList()
                                           .cast<String>();
-                                      setState(() {});
+                                      safeSetState(() {});
                                       context.safePop();
                                       return;
                                     }
@@ -8075,7 +8036,7 @@ class _SearchableCarListPageWidgetState
                                                   .searchableListComponentSelectedList
                                                   .toList(),
                                               true)];
-                                      setState(() {});
+                                      safeSetState(() {});
                                       context.safePop();
                                       return;
                                     }
@@ -8087,7 +8048,7 @@ class _SearchableCarListPageWidgetState
                                                   .searchableListComponentSelectedList
                                                   .toList(),
                                               true)];
-                                      setState(() {});
+                                      safeSetState(() {});
                                       context.safePop();
                                       return;
                                     }
@@ -8099,7 +8060,7 @@ class _SearchableCarListPageWidgetState
                                                   .searchableListComponentSelectedList
                                                   .toList(),
                                               true)];
-                                      setState(() {});
+                                      safeSetState(() {});
                                       context.safePop();
                                       return;
                                     }
@@ -8112,7 +8073,7 @@ class _SearchableCarListPageWidgetState
                                                   .searchableListComponentSelectedList
                                                   .toList(),
                                               true)];
-                                      setState(() {});
+                                      safeSetState(() {});
                                       context.safePop();
                                       return;
                                     }
@@ -8137,7 +8098,7 @@ class _SearchableCarListPageWidgetState
                                                   .searchableListComponentSelectedList
                                                   .toList(),
                                               true)];
-                                      setState(() {});
+                                      safeSetState(() {});
                                       context.safePop();
                                       return;
                                     }
@@ -8221,7 +8182,7 @@ class _SearchableCarListPageWidgetState
                                                     .searchableListComponentSelectedList
                                                     .toList(),
                                                 true)];
-                                        setState(() {});
+                                        safeSetState(() {});
                                         context.safePop();
                                         return;
                                       } else {
@@ -8302,7 +8263,7 @@ class _SearchableCarListPageWidgetState
                                                         .searchableListComponentSelectedList
                                                         .toList(),
                                                     true)];
-                                        setState(() {});
+                                        safeSetState(() {});
                                         context.safePop();
                                         return;
                                       }
@@ -8321,7 +8282,7 @@ class _SearchableCarListPageWidgetState
                                                   .searchableListComponentSelectedList
                                                   .toList(),
                                               true)];
-                                      setState(() {});
+                                      safeSetState(() {});
                                       context.safePop();
                                       return;
                                     }
@@ -8339,7 +8300,7 @@ class _SearchableCarListPageWidgetState
                                                   .searchableListComponentSelectedList
                                                   .toList(),
                                               true)];
-                                      setState(() {});
+                                      safeSetState(() {});
                                       context.safePop();
                                       return;
                                     }
@@ -8357,7 +8318,7 @@ class _SearchableCarListPageWidgetState
                                                   .searchableListComponentSelectedList
                                                   .toList(),
                                               true)];
-                                      setState(() {});
+                                      safeSetState(() {});
                                       context.safePop();
                                       return;
                                     }
@@ -8370,7 +8331,7 @@ class _SearchableCarListPageWidgetState
                                                   .searchableListComponentSelectedList
                                                   .toList(),
                                               true)];
-                                      setState(() {});
+                                      safeSetState(() {});
                                       context.safePop();
                                       return;
                                     }
@@ -8378,30 +8339,30 @@ class _SearchableCarListPageWidgetState
                                   text: 'ตกลง',
                                   options: FFButtonOptions(
                                     width: double.infinity,
-                                    height: 60.0,
+                                    height: 60,
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        24.0, 0.0, 24.0, 0.0),
+                                        24, 0, 24, 0),
                                     iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
+                                        0, 0, 0, 0),
                                     color: Color(0xFFDB771B),
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Colors.white,
-                                          fontSize: 15.0,
+                                          fontSize: 15,
                                           letterSpacing: 0.0,
                                         ),
-                                    elevation: 3.0,
+                                    elevation: 3,
                                     borderSide: BorderSide(
                                       color: Colors.transparent,
-                                      width: 1.0,
+                                      width: 1,
                                     ),
-                                    borderRadius: BorderRadius.circular(16.0),
+                                    borderRadius: BorderRadius.circular(16),
                                   ),
                                 ),
                               ),
-                          ].addToStart(SizedBox(height: 16.0)),
+                          ].addToStart(SizedBox(height: 16)),
                         ),
                       ),
                     ),

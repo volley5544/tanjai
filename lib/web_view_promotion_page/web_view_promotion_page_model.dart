@@ -12,10 +12,6 @@ import 'package:provider/provider.dart';
 
 class WebViewPromotionPageModel
     extends FlutterFlowModel<WebViewPromotionPageWidget> {
-  ///  State fields for stateful widgets in this page.
-
-  final unfocusNode = FocusNode();
-
   @override
   void initState(BuildContext context) {}
 

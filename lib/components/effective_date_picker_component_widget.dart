@@ -66,7 +66,7 @@ class _EffectiveDatePickerComponentWidgetState
       children: [
         Container(
           width: double.infinity,
-          height: 250.0,
+          height: 250,
           decoration: BoxDecoration(
             color: Colors.white,
           ),
@@ -79,8 +79,8 @@ class _EffectiveDatePickerComponentWidgetState
               if (!snapshot.hasData) {
                 return Center(
                   child: SizedBox(
-                    width: 50.0,
-                    height: 50.0,
+                    width: 50,
+                    height: 50,
                     child: CircularProgressIndicator(
                       valueColor: AlwaysStoppedAnimation<Color>(
                         FlutterFlowTheme.of(context).primary,
@@ -106,8 +106,7 @@ class _EffectiveDatePickerComponentWidgetState
                 children: [
                   if (!widget!.effectiveDateInsurerFlag!)
                     Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 24.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(12, 0, 12, 24),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -151,11 +150,11 @@ class _EffectiveDatePickerComponentWidgetState
                                       _model.datePicked1?.toString())!
                                   : 'เลือกวันคุ้มครอง',
                               options: FFButtonOptions(
-                                height: 40.0,
+                                height: 40,
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    24.0, 0.0, 24.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
+                                    24, 0, 24, 0),
+                                iconPadding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                                 color: FlutterFlowTheme.of(context).primary,
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
@@ -164,12 +163,12 @@ class _EffectiveDatePickerComponentWidgetState
                                       color: Colors.white,
                                       letterSpacing: 0.0,
                                     ),
-                                elevation: 3.0,
+                                elevation: 3,
                                 borderSide: BorderSide(
                                   color: Colors.transparent,
-                                  width: 1.0,
+                                  width: 1,
                                 ),
-                                borderRadius: BorderRadius.circular(8.0),
+                                borderRadius: BorderRadius.circular(8),
                               ),
                             ),
                           ),
@@ -178,8 +177,7 @@ class _EffectiveDatePickerComponentWidgetState
                     ),
                   if (widget!.actFlag! ? !widget!.effectiveDateActFlag! : false)
                     Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -223,11 +221,11 @@ class _EffectiveDatePickerComponentWidgetState
                                       _model.datePicked2?.toString())!
                                   : 'เลือกวันคุ้มครอง',
                               options: FFButtonOptions(
-                                height: 40.0,
+                                height: 40,
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    24.0, 0.0, 24.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
+                                    24, 0, 24, 0),
+                                iconPadding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                                 color: FlutterFlowTheme.of(context).primary,
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
@@ -236,12 +234,12 @@ class _EffectiveDatePickerComponentWidgetState
                                       color: Colors.white,
                                       letterSpacing: 0.0,
                                     ),
-                                elevation: 3.0,
+                                elevation: 3,
                                 borderSide: BorderSide(
                                   color: Colors.transparent,
-                                  width: 1.0,
+                                  width: 1,
                                 ),
-                                borderRadius: BorderRadius.circular(8.0),
+                                borderRadius: BorderRadius.circular(8),
                               ),
                             ),
                           ),
@@ -298,10 +296,9 @@ class _EffectiveDatePickerComponentWidgetState
                   }())
                     Expanded(
                       child: Align(
-                        alignment: AlignmentDirectional(0.0, 1.0),
+                        alignment: AlignmentDirectional(0, 1),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              12.0, 0.0, 12.0, 0.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -390,7 +387,7 @@ class _EffectiveDatePickerComponentWidgetState
                                               functions.parseStringToDatetime(
                                                   _model.datePicked1
                                                       ?.toString()))!;
-                                      setState(() {});
+                                      safeSetState(() {});
                                     } else if (widget!.actFlag!
                                         ? (widget!.effectiveDateInsurerFlag! &&
                                             !widget!.effectiveDateActFlag!)
@@ -474,7 +471,7 @@ class _EffectiveDatePickerComponentWidgetState
                                               functions.parseStringToDatetime(
                                                   _model.datePicked2
                                                       ?.toString()))!;
-                                      setState(() {});
+                                      safeSetState(() {});
                                     } else if (widget!.actFlag!
                                         ? (!widget!.effectiveDateInsurerFlag! &&
                                             widget!.effectiveDateActFlag!)
@@ -556,7 +553,7 @@ class _EffectiveDatePickerComponentWidgetState
                                               functions.parseStringToDatetime(
                                                   _model.datePicked1
                                                       ?.toString()))!;
-                                      setState(() {});
+                                      safeSetState(() {});
                                     } else {
                                       if (!(_model.datePicked1 != null)) {
                                         await showDialog(
@@ -716,18 +713,18 @@ class _EffectiveDatePickerComponentWidgetState
                                               functions.parseStringToDatetime(
                                                   _model.datePicked2
                                                       ?.toString()))!;
-                                      setState(() {});
+                                      safeSetState(() {});
                                     }
 
                                     Navigator.pop(context);
                                   },
                                   text: 'ตกลง',
                                   options: FFButtonOptions(
-                                    height: 50.0,
+                                    height: 50,
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        24.0, 0.0, 24.0, 0.0),
+                                        24, 0, 24, 0),
                                     iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
+                                        0, 0, 0, 0),
                                     color: Color(0xFFD9761A),
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
@@ -736,12 +733,12 @@ class _EffectiveDatePickerComponentWidgetState
                                           color: Colors.white,
                                           letterSpacing: 0.0,
                                         ),
-                                    elevation: 3.0,
+                                    elevation: 3,
                                     borderSide: BorderSide(
                                       color: Colors.transparent,
-                                      width: 1.0,
+                                      width: 1,
                                     ),
-                                    borderRadius: BorderRadius.circular(8.0),
+                                    borderRadius: BorderRadius.circular(8),
                                   ),
                                 ),
                               ),
@@ -751,8 +748,8 @@ class _EffectiveDatePickerComponentWidgetState
                       ),
                     ),
                 ]
-                    .addToStart(SizedBox(height: 24.0))
-                    .addToEnd(SizedBox(height: 24.0)),
+                    .addToStart(SizedBox(height: 24))
+                    .addToEnd(SizedBox(height: 24)),
               );
             },
           ),

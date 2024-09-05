@@ -26,7 +26,6 @@ class RenewBasicInfoPageModel
     extends FlutterFlowModel<RenewBasicInfoPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (insuranceRequestGetInsurerAPI)] action in RenewBasicInfoPage widget.
   ApiCallResponse? getInsurer;
   // Stores action output result for [Backend Call - API (ibsApplicationsDetail)] action in RenewBasicInfoPage widget.

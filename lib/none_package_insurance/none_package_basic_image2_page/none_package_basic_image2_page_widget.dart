@@ -61,13 +61,13 @@ class _NonePackageBasicImage2PageWidgetState
             automaticallyImplyLeading: false,
             leading: FlutterFlowIconButton(
               borderColor: Colors.transparent,
-              borderRadius: 30.0,
-              borderWidth: 1.0,
-              buttonSize: 60.0,
+              borderRadius: 30,
+              borderWidth: 1,
+              buttonSize: 60,
               icon: Icon(
                 Icons.arrow_back_rounded,
                 color: Color(0xFFDB771A),
-                size: 30.0,
+                size: 30,
               ),
               onPressed: () async {
                 context.pop();
@@ -86,14 +86,14 @@ class _NonePackageBasicImage2PageWidgetState
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF003063),
-                    fontSize: 18.0,
+                    fontSize: 18,
                     letterSpacing: 0.0,
                     fontWeight: FontWeight.w600,
                   ),
             ),
             actions: [],
             centerTitle: true,
-            elevation: 2.0,
+            elevation: 2,
           ),
           body: SafeArea(
             top: true,
@@ -107,7 +107,7 @@ class _NonePackageBasicImage2PageWidgetState
                     children: [
                       Expanded(
                         child: Container(
-                          width: MediaQuery.sizeOf(context).width * 1.0,
+                          width: MediaQuery.sizeOf(context).width,
                           decoration: BoxDecoration(
                             color: Color(0xFFFAFAFA),
                           ),
@@ -118,7 +118,7 @@ class _NonePackageBasicImage2PageWidgetState
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      12.0, 12.0, 12.0, 0.0),
+                                      12, 12, 12, 0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
@@ -129,7 +129,7 @@ class _NonePackageBasicImage2PageWidgetState
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF002D5E),
-                                              fontSize: 16.0,
+                                              fontSize: 16,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -146,7 +146,7 @@ class _NonePackageBasicImage2PageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 16.0, 12.0, 0.0),
+                                                  12, 16, 12, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -163,8 +163,7 @@ class _NonePackageBasicImage2PageWidgetState
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        5.0, 0.0, 0.0, 0.0),
+                                                    .fromSTEB(5, 0, 0, 0),
                                                 child: Text(
                                                   'บังคับถ่ายรูป',
                                                   style: FlutterFlowTheme.of(
@@ -175,7 +174,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                             'Noto Sans Thai',
                                                         color:
                                                             Color(0xFFFC0D0D),
-                                                        fontSize: 13.0,
+                                                        fontSize: 13,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -194,7 +193,7 @@ class _NonePackageBasicImage2PageWidgetState
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          12.0, 12.0, 12.0, 0.0),
+                                          12, 12, 12, 0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
@@ -217,7 +216,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                       validateFileFormat(
                                                           m.storagePath,
                                                           context))) {
-                                                setState(() => _model
+                                                safeSetState(() => _model
                                                     .isDataUploading1 = true);
                                                 var selectedUploadedFiles =
                                                     <FFUploadedFile>[];
@@ -266,7 +265,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                         selectedMedia.length &&
                                                     downloadUrls.length ==
                                                         selectedMedia.length) {
-                                                  setState(() {
+                                                  safeSetState(() {
                                                     _model.uploadedLocalFile1 =
                                                         selectedUploadedFiles
                                                             .first;
@@ -274,7 +273,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                         downloadUrls.first;
                                                   });
                                                 } else {
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                   return;
                                                 }
                                               }
@@ -303,7 +302,7 @@ class _NonePackageBasicImage2PageWidgetState
                                               FFAppState()
                                                       .nonePackageImageBlueBookUploaded =
                                                   _model.uploadedFileUrl1;
-                                              setState(() {});
+                                              safeSetState(() {});
                                               ScaffoldMessenger.of(context)
                                                   .clearSnackBars();
                                               ScaffoldMessenger.of(context)
@@ -323,12 +322,12 @@ class _NonePackageBasicImage2PageWidgetState
                                               );
                                             },
                                             child: Container(
-                                              width: 125.0,
-                                              height: 45.0,
+                                              width: 125,
+                                              height: 45,
                                               decoration: BoxDecoration(
                                                 color: Color(0xFFFCEFE4),
                                                 borderRadius:
-                                                    BorderRadius.circular(12.0),
+                                                    BorderRadius.circular(12),
                                               ),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
@@ -345,7 +344,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFFDB771A),
-                                                          fontSize: 15.0,
+                                                          fontSize: 15,
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -356,7 +355,7 @@ class _NonePackageBasicImage2PageWidgetState
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    12.0, 0.0, 0.0, 0.0),
+                                                    12, 0, 0, 0),
                                             child: Text(
                                               _model.uploadedFileUrl1 != null &&
                                                       _model.uploadedFileUrl1 !=
@@ -378,14 +377,14 @@ class _NonePackageBasicImage2PageWidgetState
                                             Icon(
                                               Icons.check,
                                               color: Color(0xFF2EDD78),
-                                              size: 24.0,
+                                              size: 24,
                                             ),
                                           if (_model.uploadedFileUrl1 == null ||
                                               _model.uploadedFileUrl1 == '')
                                             Icon(
                                               Icons.close,
                                               color: Color(0xFFFC0A0A),
-                                              size: 24.0,
+                                              size: 24,
                                             ),
                                         ],
                                       ),
@@ -396,7 +395,7 @@ class _NonePackageBasicImage2PageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 16.0, 12.0, 0.0),
+                                                  12, 16, 12, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -414,8 +413,7 @@ class _NonePackageBasicImage2PageWidgetState
                                               if (false)
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          5.0, 0.0, 0.0, 0.0),
+                                                      .fromSTEB(5, 0, 0, 0),
                                                   child: Text(
                                                     'บังคับถ่ายรูป',
                                                     style: FlutterFlowTheme.of(
@@ -426,7 +424,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFFFC0D0D),
-                                                          fontSize: 13.0,
+                                                          fontSize: 13,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -441,8 +439,7 @@ class _NonePackageBasicImage2PageWidgetState
                                           children: [
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      12.0, 12.0, 12.0, 0.0),
+                                                  .fromSTEB(12, 12, 12, 0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 mainAxisAlignment:
@@ -471,7 +468,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                               validateFileFormat(
                                                                   m.storagePath,
                                                                   context))) {
-                                                        setState(() => _model
+                                                        safeSetState(() => _model
                                                                 .isDataUploading2 =
                                                             true);
                                                         var selectedUploadedFiles =
@@ -528,7 +525,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                                     .length ==
                                                                 selectedMedia
                                                                     .length) {
-                                                          setState(() {
+                                                          safeSetState(() {
                                                             _model.uploadedLocalFile2 =
                                                                 selectedUploadedFiles
                                                                     .first;
@@ -537,7 +534,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                                     .first;
                                                           });
                                                         } else {
-                                                          setState(() {});
+                                                          safeSetState(() {});
                                                           return;
                                                         }
                                                       }
@@ -571,7 +568,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                               .nonePackageIdCardImageUrl =
                                                           _model
                                                               .uploadedFileUrl2;
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                       ScaffoldMessenger.of(
                                                               context)
                                                           .clearSnackBars();
@@ -595,14 +592,14 @@ class _NonePackageBasicImage2PageWidgetState
                                                       );
                                                     },
                                                     child: Container(
-                                                      width: 125.0,
-                                                      height: 45.0,
+                                                      width: 125,
+                                                      height: 45,
                                                       decoration: BoxDecoration(
                                                         color:
                                                             Color(0xFFFCEFE4),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(12.0),
+                                                                .circular(12),
                                                       ),
                                                       child: Row(
                                                         mainAxisSize:
@@ -621,8 +618,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                                       'Noto Sans Thai',
                                                                   color: Color(
                                                                       0xFFDB771A),
-                                                                  fontSize:
-                                                                      15.0,
+                                                                  fontSize: 15,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -634,8 +630,8 @@ class _NonePackageBasicImage2PageWidgetState
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(12.0, 0.0,
-                                                                0.0, 0.0),
+                                                            .fromSTEB(
+                                                                12, 0, 0, 0),
                                                     child: Text(
                                                       _model.uploadedFileUrl2 !=
                                                                   null &&
@@ -660,7 +656,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                     Icon(
                                                       Icons.check,
                                                       color: Color(0xFF2EDD78),
-                                                      size: 24.0,
+                                                      size: 24,
                                                     ),
                                                   if (_model.uploadedFileUrl2 ==
                                                           null ||
@@ -669,7 +665,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                     Icon(
                                                       Icons.close,
                                                       color: Color(0xFFFC0A0A),
-                                                      size: 24.0,
+                                                      size: 24,
                                                     ),
                                                 ],
                                               ),
@@ -686,7 +682,7 @@ class _NonePackageBasicImage2PageWidgetState
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          12.0, 16.0, 12.0, 0.0),
+                                          12, 16, 12, 0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
@@ -702,7 +698,7 @@ class _NonePackageBasicImage2PageWidgetState
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    5.0, 0.0, 0.0, 0.0),
+                                                    5, 0, 0, 0),
                                             child: Text(
                                               '(ถ่ายได้ไม่เกิน 5 รูป)',
                                               style: FlutterFlowTheme.of(
@@ -712,7 +708,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                     fontFamily:
                                                         'Noto Sans Thai',
                                                     color: Color(0xFF101213),
-                                                    fontSize: 14.0,
+                                                    fontSize: 14,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
@@ -728,7 +724,7 @@ class _NonePackageBasicImage2PageWidgetState
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          12.0, 12.0, 12.0, 0.0),
+                                          12, 12, 12, 0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
@@ -751,7 +747,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                       validateFileFormat(
                                                           m.storagePath,
                                                           context))) {
-                                                setState(() => _model
+                                                safeSetState(() => _model
                                                     .isDataUploading3 = true);
                                                 var selectedUploadedFiles =
                                                     <FFUploadedFile>[];
@@ -800,7 +796,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                         selectedMedia.length &&
                                                     downloadUrls.length ==
                                                         selectedMedia.length) {
-                                                  setState(() {
+                                                  safeSetState(() {
                                                     _model.uploadedLocalFile3 =
                                                         selectedUploadedFiles
                                                             .first;
@@ -808,7 +804,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                         downloadUrls.first;
                                                   });
                                                 } else {
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                   return;
                                                 }
                                               }
@@ -837,7 +833,7 @@ class _NonePackageBasicImage2PageWidgetState
                                               FFAppState()
                                                       .nonePackageImageOther1 =
                                                   _model.uploadedFileUrl3;
-                                              setState(() {});
+                                              safeSetState(() {});
                                               ScaffoldMessenger.of(context)
                                                   .clearSnackBars();
                                               ScaffoldMessenger.of(context)
@@ -857,12 +853,12 @@ class _NonePackageBasicImage2PageWidgetState
                                               );
                                             },
                                             child: Container(
-                                              width: 125.0,
-                                              height: 45.0,
+                                              width: 125,
+                                              height: 45,
                                               decoration: BoxDecoration(
                                                 color: Color(0xFFFCEFE4),
                                                 borderRadius:
-                                                    BorderRadius.circular(12.0),
+                                                    BorderRadius.circular(12),
                                               ),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
@@ -879,7 +875,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFFDB771A),
-                                                          fontSize: 15.0,
+                                                          fontSize: 15,
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -890,7 +886,7 @@ class _NonePackageBasicImage2PageWidgetState
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    12.0, 0.0, 0.0, 0.0),
+                                                    12, 0, 0, 0),
                                             child: Text(
                                               _model.uploadedFileUrl3 != null &&
                                                       _model.uploadedFileUrl3 !=
@@ -912,14 +908,14 @@ class _NonePackageBasicImage2PageWidgetState
                                             Icon(
                                               Icons.check,
                                               color: Color(0xFF2EDD78),
-                                              size: 24.0,
+                                              size: 24,
                                             ),
                                           if (_model.uploadedFileUrl3 == null ||
                                               _model.uploadedFileUrl3 == '')
                                             Icon(
                                               Icons.close,
                                               color: Color(0xFFFC0A0A),
-                                              size: 24.0,
+                                              size: 24,
                                             ),
                                         ],
                                       ),
@@ -928,7 +924,7 @@ class _NonePackageBasicImage2PageWidgetState
                                         _model.uploadedFileUrl3 != '')
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            12.0, 12.0, 12.0, 0.0),
+                                            12, 12, 12, 0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -952,7 +948,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                         validateFileFormat(
                                                             m.storagePath,
                                                             context))) {
-                                                  setState(() => _model
+                                                  safeSetState(() => _model
                                                       .isDataUploading4 = true);
                                                   var selectedUploadedFiles =
                                                       <FFUploadedFile>[];
@@ -1004,7 +1000,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                       downloadUrls.length ==
                                                           selectedMedia
                                                               .length) {
-                                                    setState(() {
+                                                    safeSetState(() {
                                                       _model.uploadedLocalFile4 =
                                                           selectedUploadedFiles
                                                               .first;
@@ -1012,7 +1008,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                           downloadUrls.first;
                                                     });
                                                   } else {
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                     return;
                                                   }
                                                 }
@@ -1041,7 +1037,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                 FFAppState()
                                                         .nonePackageImageOther2 =
                                                     _model.uploadedFileUrl4;
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 ScaffoldMessenger.of(context)
                                                     .clearSnackBars();
                                                 ScaffoldMessenger.of(context)
@@ -1061,13 +1057,12 @@ class _NonePackageBasicImage2PageWidgetState
                                                 );
                                               },
                                               child: Container(
-                                                width: 125.0,
-                                                height: 45.0,
+                                                width: 125,
+                                                height: 45,
                                                 decoration: BoxDecoration(
                                                   color: Color(0xFFFCEFE4),
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          12.0),
+                                                      BorderRadius.circular(12),
                                                 ),
                                                 child: Row(
                                                   mainAxisSize:
@@ -1085,7 +1080,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                                 'Noto Sans Thai',
                                                             color: Color(
                                                                 0xFFDB771A),
-                                                            fontSize: 15.0,
+                                                            fontSize: 15,
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
@@ -1095,8 +1090,7 @@ class _NonePackageBasicImage2PageWidgetState
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      12.0, 0.0, 0.0, 0.0),
+                                                  .fromSTEB(12, 0, 0, 0),
                                               child: Text(
                                                 _model.uploadedFileUrl4 !=
                                                             null &&
@@ -1120,7 +1114,7 @@ class _NonePackageBasicImage2PageWidgetState
                                               Icon(
                                                 Icons.check,
                                                 color: Color(0xFF2EDD78),
-                                                size: 24.0,
+                                                size: 24,
                                               ),
                                             if (_model.uploadedFileUrl4 ==
                                                     null ||
@@ -1128,7 +1122,7 @@ class _NonePackageBasicImage2PageWidgetState
                                               Icon(
                                                 Icons.close,
                                                 color: Color(0xFFFC0A0A),
-                                                size: 24.0,
+                                                size: 24,
                                               ),
                                           ],
                                         ),
@@ -1137,7 +1131,7 @@ class _NonePackageBasicImage2PageWidgetState
                                         _model.uploadedFileUrl4 != '')
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            12.0, 12.0, 12.0, 0.0),
+                                            12, 12, 12, 0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -1161,7 +1155,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                         validateFileFormat(
                                                             m.storagePath,
                                                             context))) {
-                                                  setState(() => _model
+                                                  safeSetState(() => _model
                                                       .isDataUploading5 = true);
                                                   var selectedUploadedFiles =
                                                       <FFUploadedFile>[];
@@ -1213,7 +1207,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                       downloadUrls.length ==
                                                           selectedMedia
                                                               .length) {
-                                                    setState(() {
+                                                    safeSetState(() {
                                                       _model.uploadedLocalFile5 =
                                                           selectedUploadedFiles
                                                               .first;
@@ -1221,7 +1215,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                           downloadUrls.first;
                                                     });
                                                   } else {
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                     return;
                                                   }
                                                 }
@@ -1250,7 +1244,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                 FFAppState()
                                                         .nonePackageImageOther3 =
                                                     _model.uploadedFileUrl5;
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 ScaffoldMessenger.of(context)
                                                     .clearSnackBars();
                                                 ScaffoldMessenger.of(context)
@@ -1270,13 +1264,12 @@ class _NonePackageBasicImage2PageWidgetState
                                                 );
                                               },
                                               child: Container(
-                                                width: 125.0,
-                                                height: 45.0,
+                                                width: 125,
+                                                height: 45,
                                                 decoration: BoxDecoration(
                                                   color: Color(0xFFFCEFE4),
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          12.0),
+                                                      BorderRadius.circular(12),
                                                 ),
                                                 child: Row(
                                                   mainAxisSize:
@@ -1294,7 +1287,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                                 'Noto Sans Thai',
                                                             color: Color(
                                                                 0xFFDB771A),
-                                                            fontSize: 15.0,
+                                                            fontSize: 15,
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
@@ -1304,8 +1297,7 @@ class _NonePackageBasicImage2PageWidgetState
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      12.0, 0.0, 0.0, 0.0),
+                                                  .fromSTEB(12, 0, 0, 0),
                                               child: Text(
                                                 _model.uploadedFileUrl5 !=
                                                             null &&
@@ -1329,7 +1321,7 @@ class _NonePackageBasicImage2PageWidgetState
                                               Icon(
                                                 Icons.check,
                                                 color: Color(0xFF2EDD78),
-                                                size: 24.0,
+                                                size: 24,
                                               ),
                                             if (_model.uploadedFileUrl5 ==
                                                     null ||
@@ -1337,7 +1329,7 @@ class _NonePackageBasicImage2PageWidgetState
                                               Icon(
                                                 Icons.close,
                                                 color: Color(0xFFFC0A0A),
-                                                size: 24.0,
+                                                size: 24,
                                               ),
                                           ],
                                         ),
@@ -1346,7 +1338,7 @@ class _NonePackageBasicImage2PageWidgetState
                                         _model.uploadedFileUrl5 != '')
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            12.0, 12.0, 12.0, 0.0),
+                                            12, 12, 12, 0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -1370,7 +1362,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                         validateFileFormat(
                                                             m.storagePath,
                                                             context))) {
-                                                  setState(() => _model
+                                                  safeSetState(() => _model
                                                       .isDataUploading6 = true);
                                                   var selectedUploadedFiles =
                                                       <FFUploadedFile>[];
@@ -1422,7 +1414,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                       downloadUrls.length ==
                                                           selectedMedia
                                                               .length) {
-                                                    setState(() {
+                                                    safeSetState(() {
                                                       _model.uploadedLocalFile6 =
                                                           selectedUploadedFiles
                                                               .first;
@@ -1430,7 +1422,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                           downloadUrls.first;
                                                     });
                                                   } else {
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                     return;
                                                   }
                                                 }
@@ -1459,7 +1451,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                 FFAppState()
                                                         .nonePackageImageOther4 =
                                                     _model.uploadedFileUrl6;
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 ScaffoldMessenger.of(context)
                                                     .clearSnackBars();
                                                 ScaffoldMessenger.of(context)
@@ -1479,13 +1471,12 @@ class _NonePackageBasicImage2PageWidgetState
                                                 );
                                               },
                                               child: Container(
-                                                width: 125.0,
-                                                height: 45.0,
+                                                width: 125,
+                                                height: 45,
                                                 decoration: BoxDecoration(
                                                   color: Color(0xFFFCEFE4),
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          12.0),
+                                                      BorderRadius.circular(12),
                                                 ),
                                                 child: Row(
                                                   mainAxisSize:
@@ -1503,7 +1494,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                                 'Noto Sans Thai',
                                                             color: Color(
                                                                 0xFFDB771A),
-                                                            fontSize: 15.0,
+                                                            fontSize: 15,
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
@@ -1513,8 +1504,7 @@ class _NonePackageBasicImage2PageWidgetState
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      12.0, 0.0, 0.0, 0.0),
+                                                  .fromSTEB(12, 0, 0, 0),
                                               child: Text(
                                                 _model.uploadedFileUrl6 !=
                                                             null &&
@@ -1538,7 +1528,7 @@ class _NonePackageBasicImage2PageWidgetState
                                               Icon(
                                                 Icons.check,
                                                 color: Color(0xFF2EDD78),
-                                                size: 24.0,
+                                                size: 24,
                                               ),
                                             if (_model.uploadedFileUrl6 ==
                                                     null ||
@@ -1546,7 +1536,7 @@ class _NonePackageBasicImage2PageWidgetState
                                               Icon(
                                                 Icons.close,
                                                 color: Color(0xFFFC0A0A),
-                                                size: 24.0,
+                                                size: 24,
                                               ),
                                           ],
                                         ),
@@ -1555,7 +1545,7 @@ class _NonePackageBasicImage2PageWidgetState
                                         _model.uploadedFileUrl6 != '')
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            12.0, 12.0, 12.0, 0.0),
+                                            12, 12, 12, 0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -1579,7 +1569,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                         validateFileFormat(
                                                             m.storagePath,
                                                             context))) {
-                                                  setState(() => _model
+                                                  safeSetState(() => _model
                                                       .isDataUploading7 = true);
                                                   var selectedUploadedFiles =
                                                       <FFUploadedFile>[];
@@ -1631,7 +1621,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                       downloadUrls.length ==
                                                           selectedMedia
                                                               .length) {
-                                                    setState(() {
+                                                    safeSetState(() {
                                                       _model.uploadedLocalFile7 =
                                                           selectedUploadedFiles
                                                               .first;
@@ -1639,7 +1629,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                           downloadUrls.first;
                                                     });
                                                   } else {
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                     return;
                                                   }
                                                 }
@@ -1668,7 +1658,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                 FFAppState()
                                                         .nonePackageImageOther5 =
                                                     _model.uploadedFileUrl7;
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 ScaffoldMessenger.of(context)
                                                     .clearSnackBars();
                                                 ScaffoldMessenger.of(context)
@@ -1688,13 +1678,12 @@ class _NonePackageBasicImage2PageWidgetState
                                                 );
                                               },
                                               child: Container(
-                                                width: 125.0,
-                                                height: 45.0,
+                                                width: 125,
+                                                height: 45,
                                                 decoration: BoxDecoration(
                                                   color: Color(0xFFFCEFE4),
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          12.0),
+                                                      BorderRadius.circular(12),
                                                 ),
                                                 child: Row(
                                                   mainAxisSize:
@@ -1712,7 +1701,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                                 'Noto Sans Thai',
                                                             color: Color(
                                                                 0xFFDB771A),
-                                                            fontSize: 15.0,
+                                                            fontSize: 15,
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
@@ -1722,8 +1711,7 @@ class _NonePackageBasicImage2PageWidgetState
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      12.0, 0.0, 0.0, 0.0),
+                                                  .fromSTEB(12, 0, 0, 0),
                                               child: Text(
                                                 _model.uploadedFileUrl7 !=
                                                             null &&
@@ -1747,7 +1735,7 @@ class _NonePackageBasicImage2PageWidgetState
                                               Icon(
                                                 Icons.check,
                                                 color: Color(0xFF2EDD78),
-                                                size: 24.0,
+                                                size: 24,
                                               ),
                                             if (_model.uploadedFileUrl7 ==
                                                     null ||
@@ -1755,7 +1743,7 @@ class _NonePackageBasicImage2PageWidgetState
                                               Icon(
                                                 Icons.close,
                                                 color: Color(0xFFFC0A0A),
-                                                size: 24.0,
+                                                size: 24,
                                               ),
                                           ],
                                         ),
@@ -1764,10 +1752,9 @@ class _NonePackageBasicImage2PageWidgetState
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      12.0, 20.0, 12.0, 0.0),
+                                      12, 20, 12, 0),
                                   child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 1.0,
+                                    width: MediaQuery.sizeOf(context).width,
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
@@ -1780,14 +1767,14 @@ class _NonePackageBasicImage2PageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 12.0),
+                                                  0, 0, 0, 12),
                                           child: Text(
                                             'รายละเอียดความยินยอม',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
-                                                  fontSize: 16.0,
+                                                  fontSize: 16,
                                                   letterSpacing: 0.0,
                                                 ),
                                           ),
@@ -1795,7 +1782,7 @@ class _NonePackageBasicImage2PageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 0.0, 12.0, 0.0),
+                                                  12, 0, 12, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -1811,7 +1798,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFFFF0000),
-                                                          fontSize: 16.0,
+                                                          fontSize: 16,
                                                           letterSpacing: 0.0,
                                                         ),
                                               ),
@@ -1830,13 +1817,13 @@ class _NonePackageBasicImage2PageWidgetState
                                               Expanded(
                                                 flex: 1,
                                                 child: Container(
-                                                  height: 250.0,
+                                                  height: 250,
                                                   decoration: BoxDecoration(),
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 10.0,
-                                                                0.0, 0.0),
+                                                            .fromSTEB(
+                                                                0, 10, 0, 0),
                                                     child: Column(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -1859,7 +1846,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
-                                                                            4.0),
+                                                                            4),
                                                               ),
                                                             ),
                                                             unselectedWidgetColor:
@@ -1873,7 +1860,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                                 false,
                                                             onChanged:
                                                                 (newValue) async {
-                                                              setState(() =>
+                                                              safeSetState(() =>
                                                                   _model.privacyConsent1Value =
                                                                       newValue!);
                                                             },
@@ -1894,11 +1881,8 @@ class _NonePackageBasicImage2PageWidgetState
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      40.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                                  .fromSTEB(0,
+                                                                      40, 0, 0),
                                                           child: Theme(
                                                             data: ThemeData(
                                                               checkboxTheme:
@@ -1914,7 +1898,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .circular(
-                                                                              4.0),
+                                                                              4),
                                                                 ),
                                                               ),
                                                               unselectedWidgetColor:
@@ -1928,7 +1912,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                                   false,
                                                               onChanged:
                                                                   (newValue) async {
-                                                                setState(() =>
+                                                                safeSetState(() =>
                                                                     _model.privacyConsent2Value =
                                                                         newValue!);
                                                               },
@@ -1950,11 +1934,8 @@ class _NonePackageBasicImage2PageWidgetState
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      40.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                                  .fromSTEB(0,
+                                                                      40, 0, 0),
                                                           child: Theme(
                                                             data: ThemeData(
                                                               checkboxTheme:
@@ -1970,7 +1951,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .circular(
-                                                                              4.0),
+                                                                              4),
                                                                 ),
                                                               ),
                                                               unselectedWidgetColor:
@@ -1984,7 +1965,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                                   false,
                                                               onChanged:
                                                                   (newValue) async {
-                                                                setState(() =>
+                                                                safeSetState(() =>
                                                                     _model.privacyConsent3Value =
                                                                         newValue!);
                                                               },
@@ -2037,7 +2018,7 @@ class _NonePackageBasicImage2PageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 12.0, 0.0, 0.0),
+                                                  0, 12, 0, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -2056,7 +2037,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                         RoundedRectangleBorder(
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              4.0),
+                                                              4),
                                                     ),
                                                   ),
                                                   unselectedWidgetColor:
@@ -2069,32 +2050,32 @@ class _NonePackageBasicImage2PageWidgetState
                                                           .privacyConsentValue ??=
                                                       false,
                                                   onChanged: (newValue) async {
-                                                    setState(() => _model
+                                                    safeSetState(() => _model
                                                             .privacyConsentValue =
                                                         newValue!);
                                                     if (newValue!) {
-                                                      setState(() {
+                                                      safeSetState(() {
                                                         _model.privacyConsent1Value =
                                                             true;
                                                       });
-                                                      setState(() {
+                                                      safeSetState(() {
                                                         _model.privacyConsent2Value =
                                                             true;
                                                       });
-                                                      setState(() {
+                                                      safeSetState(() {
                                                         _model.privacyConsent3Value =
                                                             true;
                                                       });
                                                     } else {
-                                                      setState(() {
+                                                      safeSetState(() {
                                                         _model.privacyConsent1Value =
                                                             false;
                                                       });
-                                                      setState(() {
+                                                      safeSetState(() {
                                                         _model.privacyConsent2Value =
                                                             false;
                                                       });
-                                                      setState(() {
+                                                      safeSetState(() {
                                                         _model.privacyConsent3Value =
                                                             false;
                                                       });
@@ -2132,7 +2113,7 @@ class _NonePackageBasicImage2PageWidgetState
                                   ),
                                 ),
                                 Divider(
-                                  thickness: 1.0,
+                                  thickness: 1,
                                   color: FlutterFlowTheme.of(context).accent4,
                                 ),
                               ],
@@ -2146,10 +2127,10 @@ class _NonePackageBasicImage2PageWidgetState
                 Expanded(
                   flex: 1,
                   child: Align(
-                    alignment: AlignmentDirectional(0.0, 0.75),
+                    alignment: AlignmentDirectional(0, 0.75),
                     child: Container(
                       width: double.infinity,
-                      height: 100.0,
+                      height: 100,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                       ),
@@ -2158,8 +2139,8 @@ class _NonePackageBasicImage2PageWidgetState
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 0.0, 12.0, 50.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(12, 0, 12, 50),
                             child: FFButtonWidget(
                               onPressed: () async {
                                 if (!(FFAppState()
@@ -2224,30 +2205,30 @@ class _NonePackageBasicImage2PageWidgetState
                               text: 'ถัดไป',
                               options: FFButtonOptions(
                                 width: double.infinity,
-                                height: 60.0,
+                                height: 60,
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    24.0, 0.0, 24.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
+                                    24, 0, 24, 0),
+                                iconPadding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                                 color: Color(0xFFDB771B),
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       color: Colors.white,
-                                      fontSize: 16.0,
+                                      fontSize: 16,
                                       letterSpacing: 0.0,
                                     ),
-                                elevation: 3.0,
+                                elevation: 3,
                                 borderSide: BorderSide(
                                   color: Colors.transparent,
-                                  width: 1.0,
+                                  width: 1,
                                 ),
-                                borderRadius: BorderRadius.circular(16.0),
+                                borderRadius: BorderRadius.circular(16),
                               ),
                             ),
                           ),
-                        ].addToStart(SizedBox(height: 16.0)),
+                        ].addToStart(SizedBox(height: 16)),
                       ),
                     ),
                   ),

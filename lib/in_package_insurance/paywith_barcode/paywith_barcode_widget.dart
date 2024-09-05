@@ -57,8 +57,8 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
             backgroundColor: Colors.white,
             body: Center(
               child: SizedBox(
-                width: 50.0,
-                height: 50.0,
+                width: 50,
+                height: 50,
                 child: CircularProgressIndicator(
                   valueColor: AlwaysStoppedAnimation<Color>(
                     FlutterFlowTheme.of(context).primary,
@@ -83,7 +83,7 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
               key: scaffoldKey,
               backgroundColor: Colors.white,
               appBar: PreferredSize(
-                preferredSize: Size.fromHeight(70.0),
+                preferredSize: Size.fromHeight(70),
                 child: AppBar(
                   backgroundColor: Colors.white,
                   automaticallyImplyLeading: false,
@@ -98,7 +98,7 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
                     child: Icon(
                       Icons.arrow_back,
                       color: Color(0xFFDB771A),
-                      size: 30.0,
+                      size: 30,
                     ),
                   ),
                   title: Text(
@@ -107,21 +107,21 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
                     style: FlutterFlowTheme.of(context).headlineMedium.override(
                           fontFamily: 'Noto Sans Thai',
                           color: Color(0xFF002D5E),
-                          fontSize: 18.0,
+                          fontSize: 18,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w600,
                         ),
                   ),
                   actions: [],
                   centerTitle: true,
-                  toolbarHeight: 70.0,
-                  elevation: 0.0,
+                  toolbarHeight: 70,
+                  elevation: 0,
                 ),
               ),
               body: SafeArea(
                 top: true,
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -130,8 +130,8 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Container(
-                              width: MediaQuery.sizeOf(context).width * 1.0,
-                              height: MediaQuery.sizeOf(context).height * 1.0,
+                              width: MediaQuery.sizeOf(context).width,
+                              height: MediaQuery.sizeOf(context).height * 1,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
@@ -141,10 +141,9 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
                                 children: [
                                   Expanded(
                                     child: Container(
-                                      width: 100.0,
+                                      width: 100,
                                       height:
-                                          MediaQuery.sizeOf(context).height *
-                                              1.0,
+                                          MediaQuery.sizeOf(context).height * 1,
                                       decoration: BoxDecoration(
                                         color: Color(0xFFFAFAFA),
                                       ),
@@ -158,8 +157,7 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
                                               children: [
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 15.0, 0.0, 0.0),
+                                                      .fromSTEB(0, 15, 0, 0),
                                                   child: Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -174,14 +172,13 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
                                                             Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      -1.0,
-                                                                      0.0),
+                                                                      -1, 0),
                                                               child: Container(
                                                                 width: MediaQuery.sizeOf(
                                                                             context)
                                                                         .width *
                                                                     0.5,
-                                                                height: 50.0,
+                                                                height: 50,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   color: Color(
@@ -191,23 +188,22 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
                                                                           .only(
                                                                     bottomLeft:
                                                                         Radius.circular(
-                                                                            35.0),
+                                                                            35),
                                                                     bottomRight:
                                                                         Radius.circular(
-                                                                            0.0),
+                                                                            0),
                                                                     topLeft: Radius
                                                                         .circular(
-                                                                            35.0),
+                                                                            35),
                                                                     topRight: Radius
                                                                         .circular(
-                                                                            0.0),
+                                                                            0),
                                                                   ),
                                                                 ),
                                                                 child: Align(
                                                                   alignment:
                                                                       AlignmentDirectional(
-                                                                          0.0,
-                                                                          0.0),
+                                                                          0, 0),
                                                                   child: Text(
                                                                     'คิวอาร์โค้ด',
                                                                     style: FlutterFlowTheme.of(
@@ -219,7 +215,7 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
                                                                           color:
                                                                               Color(0xFF1D4774),
                                                                           fontSize:
-                                                                              15.0,
+                                                                              15,
                                                                           letterSpacing:
                                                                               0.0,
                                                                           fontWeight:
@@ -232,13 +228,13 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
                                                             Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      1.0, 0.0),
+                                                                      1, 0),
                                                               child: Container(
                                                                 width: MediaQuery.sizeOf(
                                                                             context)
                                                                         .width *
                                                                     0.5,
-                                                                height: 50.0,
+                                                                height: 50,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   color: Color(
@@ -246,13 +242,12 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .circular(
-                                                                              35.0),
+                                                                              35),
                                                                 ),
                                                                 child: Align(
                                                                   alignment:
                                                                       AlignmentDirectional(
-                                                                          0.0,
-                                                                          0.0),
+                                                                          0, 0),
                                                                   child: Text(
                                                                     'บาร์โค้ด',
                                                                     style: FlutterFlowTheme.of(
@@ -264,7 +259,7 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
                                                                           color:
                                                                               FlutterFlowTheme.of(context).secondaryBackground,
                                                                           fontSize:
-                                                                              15.0,
+                                                                              15,
                                                                           letterSpacing:
                                                                               0.0,
                                                                         ),
@@ -282,8 +277,7 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 20.0, 0.0, 0.0),
+                                                  .fromSTEB(0, 20, 0, 0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 mainAxisAlignment:
@@ -294,13 +288,12 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.0, -1.0),
+                                                            0, -1),
                                                     child: Container(
                                                       width: MediaQuery.sizeOf(
-                                                                  context)
-                                                              .width *
-                                                          1.0,
-                                                      height: 100.0,
+                                                              context)
+                                                          .width,
+                                                      height: 100,
                                                       decoration: BoxDecoration(
                                                         color: FlutterFlowTheme
                                                                 .of(context)
@@ -310,8 +303,8 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
                                                         data: 'Barcode',
                                                         barcode:
                                                             Barcode.code128(),
-                                                        width: 300.0,
-                                                        height: 90.0,
+                                                        width: 300,
+                                                        height: 90,
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -321,8 +314,8 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
                                                         errorBuilder: (_context,
                                                                 _error) =>
                                                             SizedBox(
-                                                          width: 300.0,
-                                                          height: 90.0,
+                                                          width: 300,
+                                                          height: 90,
                                                         ),
                                                         drawText: false,
                                                       ),
@@ -331,15 +324,12 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.0, 0.0),
+                                                            0, 0),
                                                     child: Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0.0,
-                                                                  20.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                                  0, 20, 0, 0),
                                                       child: Text(
                                                         '฿ 5,901.26',
                                                         style:
@@ -352,8 +342,7 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .error,
-                                                                  fontSize:
-                                                                      16.0,
+                                                                  fontSize: 16,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -366,38 +355,36 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.0, 0.0),
+                                                            0, 0),
                                                     child: Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0.0,
-                                                                  10.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                                  0, 10, 0, 0),
                                                       child: Text(
                                                         'R1: 544077650401012787',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Noto Sans Thai',
-                                                              fontSize: 16.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .normal,
-                                                            ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Noto Sans Thai',
+                                                                  fontSize: 16,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .normal,
+                                                                ),
                                                       ),
                                                     ),
                                                   ),
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 10.0,
-                                                                0.0, 0.0),
+                                                            .fromSTEB(
+                                                                0, 10, 0, 0),
                                                     child: Text(
                                                       'R2: 06388069',
                                                       style: FlutterFlowTheme
@@ -406,7 +393,7 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
                                                           .override(
                                                             fontFamily:
                                                                 'Noto Sans Thai',
-                                                            fontSize: 16.0,
+                                                            fontSize: 16,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight
@@ -417,8 +404,8 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 10.0,
-                                                                0.0, 0.0),
+                                                            .fromSTEB(
+                                                                0, 10, 0, 0),
                                                     child: Text(
                                                       'คุณมมฑิรา ยอดแสง',
                                                       style: FlutterFlowTheme
@@ -427,7 +414,7 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
                                                           .override(
                                                             fontFamily:
                                                                 'Noto Sans Thai',
-                                                            fontSize: 16.0,
+                                                            fontSize: 16,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight
@@ -438,8 +425,8 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 10.0,
-                                                                0.0, 0.0),
+                                                            .fromSTEB(
+                                                                0, 10, 0, 0),
                                                     child: Text(
                                                       'คุณสามารถสแกนชำระค่างวดได้ที่ศรีสวัสดิ์ทุกสาขาหรือ',
                                                       style: FlutterFlowTheme
@@ -448,7 +435,7 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
                                                           .override(
                                                             fontFamily:
                                                                 'Noto Sans Thai',
-                                                            fontSize: 16.0,
+                                                            fontSize: 16,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight
@@ -459,16 +446,16 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 5.0,
-                                                                0.0, 0.0),
+                                                            .fromSTEB(
+                                                                0, 5, 0, 0),
                                                     child: ClipRRect(
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              8.0),
+                                                              8),
                                                       child: Image.asset(
                                                         'assets/images/blank.png',
-                                                        width: 300.0,
-                                                        height: 37.0,
+                                                        width: 300,
+                                                        height: 37,
                                                         fit: BoxFit.contain,
                                                       ),
                                                     ),
@@ -488,13 +475,12 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
                         ),
                       ),
                       Align(
-                        alignment: AlignmentDirectional(0.0, 1.0),
+                        alignment: AlignmentDirectional(0, 1),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 50.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 50),
                           child: Container(
                             width: double.infinity,
-                            height: 100.0,
+                            height: 100,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
@@ -505,7 +491,7 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      8.0, 0.0, 8.0, 0.0),
+                                      8, 0, 8, 0),
                                   child: FFButtonWidget(
                                     onPressed: () {
                                       print('Button pressed ...');
@@ -513,31 +499,31 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
                                     text: 'บันทึกรูปภาพ',
                                     options: FFButtonOptions(
                                       width: double.infinity,
-                                      height: 60.0,
+                                      height: 60,
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          24.0, 0.0, 24.0, 0.0),
+                                          24, 0, 24, 0),
                                       iconPadding:
                                           EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 0.0, 0.0, 0.0),
+                                              0, 0, 0, 0),
                                       color: Color(0xFFDB771B),
                                       textStyle: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Colors.white,
-                                            fontSize: 15.0,
+                                            fontSize: 15,
                                             letterSpacing: 0.0,
                                           ),
-                                      elevation: 3.0,
+                                      elevation: 3,
                                       borderSide: BorderSide(
                                         color: Colors.transparent,
-                                        width: 1.0,
+                                        width: 1,
                                       ),
-                                      borderRadius: BorderRadius.circular(16.0),
+                                      borderRadius: BorderRadius.circular(16),
                                     ),
                                   ),
                                 ),
-                              ].addToStart(SizedBox(height: 16.0)),
+                              ].addToStart(SizedBox(height: 16)),
                             ),
                           ),
                         ),

@@ -51,13 +51,13 @@ class _Step5DocumentDownloadWidgetState
       child: Stack(
         children: [
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 24.0),
+            padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 24),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
                   child: Text(
                     'ไฟล์เอกสาร',
                     style: FlutterFlowTheme.of(context).headlineSmall.override(
@@ -67,7 +67,7 @@ class _Step5DocumentDownloadWidgetState
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 0.0, 8.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(16, 4, 0, 8),
                   child: Text(
                     'เอกสารต่างๆที่บริษัทประกันจะขอหากไม่ได้แนบ',
                     style: FlutterFlowTheme.of(context).bodySmall.override(
@@ -90,23 +90,22 @@ class _Step5DocumentDownloadWidgetState
                     },
                     child: Container(
                       width: double.infinity,
-                      height: 60.0,
+                      height: 60,
                       decoration: BoxDecoration(),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            12.0, 8.0, 12.0, 8.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(12, 8, 12, 8),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Icon(
                               Icons.file_download_outlined,
                               color: FlutterFlowTheme.of(context).black600,
-                              size: 24.0,
+                              size: 24,
                             ),
                             Expanded(
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    12.0, 0.0, 0.0, 0.0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment:
@@ -119,7 +118,7 @@ class _Step5DocumentDownloadWidgetState
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF003063),
-                                            fontSize: 15.0,
+                                            fontSize: 15,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.bold,
                                           ),
@@ -146,23 +145,22 @@ class _Step5DocumentDownloadWidgetState
                     },
                     child: Container(
                       width: double.infinity,
-                      height: 60.0,
+                      height: 60,
                       decoration: BoxDecoration(),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            12.0, 8.0, 12.0, 8.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(12, 8, 12, 8),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Icon(
                               Icons.file_download_outlined,
                               color: FlutterFlowTheme.of(context).black600,
-                              size: 24.0,
+                              size: 24,
                             ),
                             Expanded(
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    12.0, 0.0, 0.0, 0.0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment:
@@ -175,7 +173,7 @@ class _Step5DocumentDownloadWidgetState
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF003063),
-                                            fontSize: 15.0,
+                                            fontSize: 15,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.bold,
                                           ),
@@ -200,23 +198,22 @@ class _Step5DocumentDownloadWidgetState
                   },
                   child: Container(
                     width: double.infinity,
-                    height: 60.0,
+                    height: 60,
                     decoration: BoxDecoration(),
                     child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 12.0, 8.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(12, 8, 12, 8),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Icon(
                             Icons.file_download_outlined,
                             color: FlutterFlowTheme.of(context).black600,
-                            size: 24.0,
+                            size: 24,
                           ),
                           Expanded(
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 0.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment:
@@ -229,7 +226,7 @@ class _Step5DocumentDownloadWidgetState
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFF003063),
-                                          fontSize: 15.0,
+                                          fontSize: 15,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
                                         ),
@@ -254,23 +251,22 @@ class _Step5DocumentDownloadWidgetState
                   },
                   child: Container(
                     width: double.infinity,
-                    height: 60.0,
+                    height: 60,
                     decoration: BoxDecoration(),
                     child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 12.0, 8.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(12, 8, 12, 8),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Icon(
                             Icons.file_download_outlined,
                             color: FlutterFlowTheme.of(context).black600,
-                            size: 24.0,
+                            size: 24,
                           ),
                           Expanded(
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 0.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment:
@@ -283,7 +279,7 @@ class _Step5DocumentDownloadWidgetState
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFF003063),
-                                          fontSize: 15.0,
+                                          fontSize: 15,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
                                         ),
@@ -301,16 +297,16 @@ class _Step5DocumentDownloadWidgetState
             ),
           ),
           Align(
-            alignment: AlignmentDirectional(1.0, -1.0),
+            alignment: AlignmentDirectional(1, -1),
             child: FlutterFlowIconButton(
               borderColor: Colors.transparent,
-              borderRadius: 30.0,
-              borderWidth: 1.0,
-              buttonSize: 60.0,
+              borderRadius: 30,
+              borderWidth: 1,
+              buttonSize: 60,
               icon: FaIcon(
                 FontAwesomeIcons.times,
                 color: Color(0xFFFF0000),
-                size: 40.0,
+                size: 40,
               ),
               onPressed: () async {
                 Navigator.pop(context);

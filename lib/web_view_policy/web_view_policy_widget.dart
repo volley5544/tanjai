@@ -67,15 +67,15 @@ class _WebViewPolicyWidgetState extends State<WebViewPolicyWidget> {
         body: SafeArea(
           top: true,
           child: Container(
-            width: MediaQuery.sizeOf(context).width * 1.0,
-            height: MediaQuery.sizeOf(context).height * 1.0,
+            width: MediaQuery.sizeOf(context).width,
+            height: MediaQuery.sizeOf(context).height * 1,
             decoration: BoxDecoration(
               color: FlutterFlowTheme.of(context).secondaryBackground,
             ),
             child: FlutterFlowWebView(
               content: 'https://www.sawad.co.th/pragantanjai-policy/',
               bypass: false,
-              height: MediaQuery.sizeOf(context).height * 1.0,
+              height: MediaQuery.sizeOf(context).height * 1,
               verticalScroll: false,
               horizontalScroll: false,
             ),

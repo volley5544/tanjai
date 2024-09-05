@@ -146,7 +146,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
       FFAppState().AddCustomerPageCarRegistration = '';
       FFAppState().addCustomerQuotationSaveSuccess = false;
       FFAppState().insurarerQuotationPdf = [];
-      setState(() {});
+      safeSetState(() {});
       if (!FFAppState().insuranceRequestIsLoadedData) {
         _model.getBrandAPI = await TeleGetBrandAPICall.call(
           apiUrl: FFAppState().apiUrlInsuranceAppState,
@@ -205,7 +205,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
           )!
                   .toList()
                   .cast<String>();
-          setState(() {});
+          safeSetState(() {});
         } else {
           await showDialog(
             context: context,
@@ -461,7 +461,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
         }
 
         FFAppState().insuranceRequestIsLoadedData = true;
-        setState(() {});
+        safeSetState(() {});
       }
       Navigator.pop(context);
     });
@@ -540,13 +540,13 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                 FFAppState().insuranceBasicCoverTypeNameOutputList = [];
                 FFAppState().insuranceBasicGarageTypeInPackage = [];
                 FFAppState().insuranceCarTypeDetailSelected = '';
-                setState(() {});
+                safeSetState(() {});
                 context.safePop();
               },
               child: Icon(
                 Icons.arrow_back,
                 color: Color(0xFFDB7619),
-                size: 30.0,
+                size: 30,
               ),
             ),
             title: Text(
@@ -554,7 +554,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF123063),
-                    fontSize: 18.0,
+                    fontSize: 18,
                     letterSpacing: 0.0,
                   ),
             ),
@@ -588,7 +588,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      24.0, 0.0, 24.0, 4.0),
+                                      24, 0, 24, 4),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     crossAxisAlignment:
@@ -601,7 +601,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF404040),
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
@@ -611,23 +611,23 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 0.0, 16.0, 0.0),
+                                      16, 0, 16, 0),
                                   child: Container(
                                     width: double.infinity,
-                                    height: 60.0,
+                                    height: 60,
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
-                                      borderRadius: BorderRadius.circular(10.0),
+                                      borderRadius: BorderRadius.circular(10),
                                       border: Border.all(
                                         width: 0.5,
                                       ),
                                     ),
                                     child: Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      alignment: AlignmentDirectional(0, 0),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            4.0, 0.0, 0.0, 0.0),
+                                            4, 0, 0, 0),
                                         child: ListTile(
                                           title: Text(
                                             functions.showDateBE(widget!
@@ -645,7 +645,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                                   .insuranceVehicleTypeDropDown)!
                                                       ? Color(0xFF9F9F9F)
                                                       : Colors.black,
-                                                  fontSize: 15.0,
+                                                  fontSize: 15,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
@@ -653,7 +653,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                           trailing: Icon(
                                             Icons.calendar_month,
                                             color: Color(0xFF474747),
-                                            size: 20.0,
+                                            size: 20,
                                           ),
                                           tileColor:
                                               FlutterFlowTheme.of(context)
@@ -661,7 +661,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                           dense: false,
                                           shape: RoundedRectangleBorder(
                                             borderRadius:
-                                                BorderRadius.circular(10.0),
+                                                BorderRadius.circular(10),
                                           ),
                                         ),
                                       ),
@@ -680,7 +680,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      24.0, 0.0, 24.0, 4.0),
+                                      24, 0, 24, 4),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     crossAxisAlignment:
@@ -693,14 +693,14 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF404040),
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 0.0, 0.0),
+                                            10, 0, 0, 0),
                                         child: Text(
                                           '(บังคับเลือก)',
                                           style: FlutterFlowTheme.of(context)
@@ -708,7 +708,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Color(0xFFF40606),
-                                                fontSize: 12.0,
+                                                fontSize: 12,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
@@ -719,7 +719,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 0.0, 16.0, 0.0),
+                                      16, 0, 16, 0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
                                     focusColor: Colors.transparent,
@@ -760,23 +760,21 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                     },
                                     child: Container(
                                       width: double.infinity,
-                                      height: 60.0,
+                                      height: 60,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
+                                        borderRadius: BorderRadius.circular(10),
                                         border: Border.all(
                                           width: 0.5,
                                         ),
                                       ),
                                       child: Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                        alignment: AlignmentDirectional(0, 0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  4.0, 0.0, 0.0, 0.0),
+                                                  4, 0, 0, 0),
                                           child: ListTile(
                                             title: Text(
                                               FFAppState()
@@ -795,7 +793,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                                         .insuranceVehicleTypeDropDown)!
                                                             ? Color(0xFF9F9F9F)
                                                             : Colors.black,
-                                                        fontSize: 15.0,
+                                                        fontSize: 15,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
@@ -804,7 +802,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                             trailing: Icon(
                                               Icons.arrow_forward_ios,
                                               color: Color(0xFF474747),
-                                              size: 20.0,
+                                              size: 20,
                                             ),
                                             tileColor:
                                                 FlutterFlowTheme.of(context)
@@ -812,7 +810,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                             dense: false,
                                             shape: RoundedRectangleBorder(
                                               borderRadius:
-                                                  BorderRadius.circular(10.0),
+                                                  BorderRadius.circular(10),
                                             ),
                                           ),
                                         ),
@@ -832,7 +830,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      24.0, 0.0, 24.0, 4.0),
+                                      24, 0, 24, 4),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     crossAxisAlignment:
@@ -845,14 +843,14 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF404040),
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 0.0, 0.0),
+                                            10, 0, 0, 0),
                                         child: Text(
                                           '(บังคับเลือก)',
                                           style: FlutterFlowTheme.of(context)
@@ -860,7 +858,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Color(0xFFF40606),
-                                                fontSize: 12.0,
+                                                fontSize: 12,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
@@ -871,7 +869,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 0.0, 16.0, 0.0),
+                                      16, 0, 16, 0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
                                     focusColor: Colors.transparent,
@@ -904,23 +902,21 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                     },
                                     child: Container(
                                       width: double.infinity,
-                                      height: 60.0,
+                                      height: 60,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
+                                        borderRadius: BorderRadius.circular(10),
                                         border: Border.all(
                                           width: 0.5,
                                         ),
                                       ),
                                       child: Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                        alignment: AlignmentDirectional(0, 0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  4.0, 0.0, 0.0, 0.0),
+                                                  4, 0, 0, 0),
                                           child: ListTile(
                                             title: Text(
                                               FFAppState()
@@ -939,7 +935,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                                         .insuranceBasicBrandName)!
                                                             ? Color(0xFF9F9F9F)
                                                             : Colors.black,
-                                                        fontSize: 15.0,
+                                                        fontSize: 15,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
@@ -948,7 +944,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                             trailing: Icon(
                                               Icons.arrow_forward_ios,
                                               color: Color(0xFF474747),
-                                              size: 20.0,
+                                              size: 20,
                                             ),
                                             tileColor:
                                                 FlutterFlowTheme.of(context)
@@ -956,7 +952,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                             dense: false,
                                             shape: RoundedRectangleBorder(
                                               borderRadius:
-                                                  BorderRadius.circular(10.0),
+                                                  BorderRadius.circular(10),
                                             ),
                                           ),
                                         ),
@@ -977,7 +973,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        24.0, 0.0, 24.0, 4.0),
+                                        24, 0, 24, 4),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       crossAxisAlignment:
@@ -1018,7 +1014,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF404040),
-                                                  fontSize: 15.0,
+                                                  fontSize: 15,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
@@ -1027,7 +1023,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  10.0, 0.0, 0.0, 0.0),
+                                                  10, 0, 0, 0),
                                           child: Text(
                                             '(บังคับเลือก)',
                                             style: FlutterFlowTheme.of(context)
@@ -1035,7 +1031,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFFF40606),
-                                                  fontSize: 12.0,
+                                                  fontSize: 12,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
@@ -1046,7 +1042,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 0.0, 16.0, 0.0),
+                                        16, 0, 16, 0),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
                                       focusColor: Colors.transparent,
@@ -1087,23 +1083,22 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                       },
                                       child: Container(
                                         width: double.infinity,
-                                        height: 60.0,
+                                        height: 60,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                           borderRadius:
-                                              BorderRadius.circular(10.0),
+                                              BorderRadius.circular(10),
                                           border: Border.all(
                                             width: 0.5,
                                           ),
                                         ),
                                         child: Align(
-                                          alignment:
-                                              AlignmentDirectional(0.0, 0.0),
+                                          alignment: AlignmentDirectional(0, 0),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    4.0, 0.0, 0.0, 0.0),
+                                                    4, 0, 0, 0),
                                             child: ListTile(
                                               title: Text(
                                                 FFAppState()
@@ -1122,7 +1117,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                                       .insuranceBasicModelName)!
                                                           ? Color(0xFF9F9F9F)
                                                           : Colors.black,
-                                                      fontSize: 15.0,
+                                                      fontSize: 15,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.w600,
@@ -1131,7 +1126,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                               trailing: Icon(
                                                 Icons.arrow_forward_ios,
                                                 color: Color(0xFF474747),
-                                                size: 20.0,
+                                                size: 20,
                                               ),
                                               tileColor:
                                                   FlutterFlowTheme.of(context)
@@ -1139,7 +1134,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                               dense: false,
                                               shape: RoundedRectangleBorder(
                                                 borderRadius:
-                                                    BorderRadius.circular(10.0),
+                                                    BorderRadius.circular(10),
                                               ),
                                             ),
                                           ),
@@ -1160,7 +1155,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      24.0, 0.0, 24.0, 4.0),
+                                      24, 0, 24, 4),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     crossAxisAlignment:
@@ -1173,14 +1168,14 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF404040),
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 0.0, 0.0),
+                                            10, 0, 0, 0),
                                         child: Text(
                                           '(บังคับเลือก)',
                                           style: FlutterFlowTheme.of(context)
@@ -1188,7 +1183,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Color(0xFFF40606),
-                                                fontSize: 12.0,
+                                                fontSize: 12,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
@@ -1199,7 +1194,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 0.0, 16.0, 0.0),
+                                      16, 0, 16, 0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
                                     focusColor: Colors.transparent,
@@ -1233,23 +1228,21 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                     },
                                     child: Container(
                                       width: double.infinity,
-                                      height: 60.0,
+                                      height: 60,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
+                                        borderRadius: BorderRadius.circular(10),
                                         border: Border.all(
                                           width: 0.5,
                                         ),
                                       ),
                                       child: Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                        alignment: AlignmentDirectional(0, 0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  4.0, 0.0, 0.0, 0.0),
+                                                  4, 0, 0, 0),
                                           child: ListTile(
                                             title: Text(
                                               FFAppState().insuranceBasicYear,
@@ -1267,7 +1260,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                                         .insuranceBasicYear)!
                                                             ? Color(0xFF9F9F9F)
                                                             : Colors.black,
-                                                        fontSize: 15.0,
+                                                        fontSize: 15,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
@@ -1276,7 +1269,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                             trailing: Icon(
                                               Icons.arrow_forward_ios,
                                               color: Color(0xFF474747),
-                                              size: 20.0,
+                                              size: 20,
                                             ),
                                             tileColor:
                                                 FlutterFlowTheme.of(context)
@@ -1284,7 +1277,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                             dense: false,
                                             shape: RoundedRectangleBorder(
                                               borderRadius:
-                                                  BorderRadius.circular(10.0),
+                                                  BorderRadius.circular(10),
                                             ),
                                           ),
                                         ),
@@ -1296,17 +1289,16 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                16.0, 0.0, 16.0, 0.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 5.0, 0.0, 0.0),
+                                      0, 5, 0, 0),
                                   child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 1.0,
+                                    width: MediaQuery.sizeOf(context).width,
                                     decoration: BoxDecoration(),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
@@ -1314,7 +1306,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 0.0, 12.0, 0.0),
+                                                  12, 0, 12, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -1330,7 +1322,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFF404040),
-                                                          fontSize: 15.0,
+                                                          fontSize: 15,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -1338,8 +1330,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 0.0, 0.0),
+                                                    .fromSTEB(10, 0, 0, 0),
                                                 child: Text(
                                                   '(บังคับกรอก)',
                                                   style: FlutterFlowTheme.of(
@@ -1350,7 +1341,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                             'Noto Sans Thai',
                                                         color:
                                                             Color(0xFFF40606),
-                                                        fontSize: 12.0,
+                                                        fontSize: 12,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
@@ -1363,18 +1354,17 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 5.0, 0.0, 0.0),
+                                                  0, 5, 0, 0),
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
-                                                    .width *
-                                                1.0,
-                                            height: 60.0,
+                                                .width,
+                                            height: 60,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
                                               borderRadius:
-                                                  BorderRadius.circular(10.0),
+                                                  BorderRadius.circular(10),
                                               border: Border.all(
                                                 color: Colors.black,
                                                 width: 0.5,
@@ -1390,15 +1380,12 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                   child: Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.0, 0.0),
+                                                            0, 0),
                                                     child: Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  10.0,
-                                                                  0.0),
+                                                                  10, 0, 10, 0),
                                                       child: TextFormField(
                                                         controller: _model
                                                             .firstnameTextController,
@@ -1419,7 +1406,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                                             context)
                                                                         .primaryText,
                                                                     fontSize:
-                                                                        15.0,
+                                                                        15,
                                                                     letterSpacing:
                                                                         0.0,
                                                                     fontWeight:
@@ -1437,7 +1424,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                                     color: Color(
                                                                         0xFFAAAAAA),
                                                                     fontSize:
-                                                                        15.0,
+                                                                        15,
                                                                     letterSpacing:
                                                                         0.0,
                                                                     fontWeight:
@@ -1450,12 +1437,12 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                                 BorderSide(
                                                               color: Color(
                                                                   0x00000000),
-                                                              width: 2.0,
+                                                              width: 2,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        8.0),
+                                                                        8),
                                                           ),
                                                           focusedBorder:
                                                               UnderlineInputBorder(
@@ -1463,12 +1450,12 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                                 BorderSide(
                                                               color: Color(
                                                                   0x00000000),
-                                                              width: 2.0,
+                                                              width: 2,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        8.0),
+                                                                        8),
                                                           ),
                                                           errorBorder:
                                                               UnderlineInputBorder(
@@ -1477,12 +1464,12 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .error,
-                                                              width: 2.0,
+                                                              width: 2,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        8.0),
+                                                                        8),
                                                           ),
                                                           focusedErrorBorder:
                                                               UnderlineInputBorder(
@@ -1491,12 +1478,12 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .error,
-                                                              width: 2.0,
+                                                              width: 2,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        8.0),
+                                                                        8),
                                                           ),
                                                         ),
                                                         style:
@@ -1509,8 +1496,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryText,
-                                                                  fontSize:
-                                                                      15.0,
+                                                                  fontSize: 15,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -1536,10 +1522,9 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                 if (!FFAppState().buttonCorporation)
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 5.0, 0.0, 0.0),
+                                        0, 5, 0, 0),
                                     child: Container(
-                                      width: MediaQuery.sizeOf(context).width *
-                                          1.0,
+                                      width: MediaQuery.sizeOf(context).width,
                                       decoration: BoxDecoration(),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
@@ -1547,7 +1532,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    12.0, 0.0, 12.0, 0.0),
+                                                    12, 0, 12, 0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
@@ -1561,7 +1546,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                             'Noto Sans Thai',
                                                         color:
                                                             Color(0xFF404040),
-                                                        fontSize: 15.0,
+                                                        fontSize: 15,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -1571,8 +1556,8 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                0.0, 0.0),
+                                                            .fromSTEB(
+                                                                10, 0, 0, 0),
                                                     child: Text(
                                                       '(บังคับกรอก)',
                                                       style: FlutterFlowTheme
@@ -1583,7 +1568,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                                 'Noto Sans Thai',
                                                             color: Color(
                                                                 0xFFF40606),
-                                                            fontSize: 12.0,
+                                                            fontSize: 12,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w600,
@@ -1596,18 +1581,17 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 5.0, 0.0, 0.0),
+                                                    0, 5, 0, 0),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
-                                                      .width *
-                                                  1.0,
-                                              height: 60.0,
+                                                  .width,
+                                              height: 60,
                                               decoration: BoxDecoration(
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
                                                 borderRadius:
-                                                    BorderRadius.circular(10.0),
+                                                    BorderRadius.circular(10),
                                                 border: Border.all(
                                                   color: Colors.black,
                                                   width: 0.5,
@@ -1623,15 +1607,12 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.0, 0.0),
+                                                              0, 0),
                                                       child: Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    10.0,
-                                                                    0.0,
-                                                                    10.0,
-                                                                    0.0),
+                                                                .fromSTEB(10, 0,
+                                                                    10, 0),
                                                         child: TextFormField(
                                                           controller: _model
                                                               .lastnameTextController,
@@ -1652,7 +1633,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                                               context)
                                                                           .primaryText,
                                                                       fontSize:
-                                                                          15.0,
+                                                                          15,
                                                                       letterSpacing:
                                                                           0.0,
                                                                       fontWeight:
@@ -1671,7 +1652,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                                       color: Color(
                                                                           0xFFAAAAAA),
                                                                       fontSize:
-                                                                          15.0,
+                                                                          15,
                                                                       letterSpacing:
                                                                           0.0,
                                                                       fontWeight:
@@ -1684,12 +1665,12 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                                   BorderSide(
                                                                 color: Color(
                                                                     0x00000000),
-                                                                width: 2.0,
+                                                                width: 2,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          8.0),
+                                                                          8),
                                                             ),
                                                             focusedBorder:
                                                                 UnderlineInputBorder(
@@ -1697,12 +1678,12 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                                   BorderSide(
                                                                 color: Color(
                                                                     0x00000000),
-                                                                width: 2.0,
+                                                                width: 2,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          8.0),
+                                                                          8),
                                                             ),
                                                             errorBorder:
                                                                 UnderlineInputBorder(
@@ -1711,12 +1692,12 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 2.0,
+                                                                width: 2,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          8.0),
+                                                                          8),
                                                             ),
                                                             focusedErrorBorder:
                                                                 UnderlineInputBorder(
@@ -1725,12 +1706,12 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 2.0,
+                                                                width: 2,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          8.0),
+                                                                          8),
                                                             ),
                                                           ),
                                                           style: FlutterFlowTheme
@@ -1742,7 +1723,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryText,
-                                                                fontSize: 15.0,
+                                                                fontSize: 15,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -1766,14 +1747,14 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                     ),
                                   ),
                                 Container(
-                                  width: MediaQuery.sizeOf(context).width * 1.0,
+                                  width: MediaQuery.sizeOf(context).width,
                                   decoration: BoxDecoration(),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            12.0, 0.0, 12.0, 0.0),
+                                            12, 0, 12, 0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
@@ -1786,15 +1767,14 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                     fontFamily:
                                                         'Noto Sans Thai',
                                                     color: Color(0xFF404040),
-                                                    fontSize: 15.0,
+                                                    fontSize: 15,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      10.0, 0.0, 0.0, 0.0),
+                                                  .fromSTEB(10, 0, 0, 0),
                                               child: Text(
                                                 '(บังคับกรอก)',
                                                 style:
@@ -1805,7 +1785,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFFF40606),
-                                                          fontSize: 12.0,
+                                                          fontSize: 12,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
@@ -1817,17 +1797,16 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 5.0, 0.0, 0.0),
+                                            0, 5, 0, 0),
                                         child: Container(
                                           width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  1.0,
-                                          height: 60.0,
+                                              MediaQuery.sizeOf(context).width,
+                                          height: 60,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             borderRadius:
-                                                BorderRadius.circular(10.0),
+                                                BorderRadius.circular(10),
                                             border: Border.all(
                                               color: Colors.black,
                                               width: 0.5,
@@ -1842,12 +1821,12 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                 child: Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0.0, 0.0),
+                                                          0, 0),
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                10.0, 0.0),
+                                                            .fromSTEB(
+                                                                10, 0, 10, 0),
                                                     child: TextFormField(
                                                       controller: _model
                                                           .phonenumberTextController,
@@ -1867,8 +1846,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryText,
-                                                                  fontSize:
-                                                                      15.0,
+                                                                  fontSize: 15,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -1885,8 +1863,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                                       'Noto Sans Thai',
                                                                   color: Color(
                                                                       0xFFAAAAAA),
-                                                                  fontSize:
-                                                                      15.0,
+                                                                  fontSize: 15,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -1899,12 +1876,11 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                               BorderSide(
                                                             color: Color(
                                                                 0x00000000),
-                                                            width: 2.0,
+                                                            width: 2,
                                                           ),
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(
-                                                                      8.0),
+                                                                  .circular(8),
                                                         ),
                                                         focusedBorder:
                                                             UnderlineInputBorder(
@@ -1912,12 +1888,11 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                               BorderSide(
                                                             color: Color(
                                                                 0x00000000),
-                                                            width: 2.0,
+                                                            width: 2,
                                                           ),
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(
-                                                                      8.0),
+                                                                  .circular(8),
                                                         ),
                                                         errorBorder:
                                                             UnderlineInputBorder(
@@ -1926,12 +1901,11 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .error,
-                                                            width: 2.0,
+                                                            width: 2,
                                                           ),
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(
-                                                                      8.0),
+                                                                  .circular(8),
                                                         ),
                                                         focusedErrorBorder:
                                                             UnderlineInputBorder(
@@ -1940,12 +1914,11 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .error,
-                                                            width: 2.0,
+                                                            width: 2,
                                                           ),
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(
-                                                                      8.0),
+                                                                  .circular(8),
                                                         ),
                                                       ),
                                                       style: FlutterFlowTheme
@@ -1957,7 +1930,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryText,
-                                                            fontSize: 15.0,
+                                                            fontSize: 15,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w600,
@@ -1982,14 +1955,14 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                   ),
                                 ),
                                 Container(
-                                  width: MediaQuery.sizeOf(context).width * 1.0,
+                                  width: MediaQuery.sizeOf(context).width,
                                   decoration: BoxDecoration(),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            12.0, 0.0, 12.0, 0.0),
+                                            12, 0, 12, 0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
@@ -2002,15 +1975,14 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                     fontFamily:
                                                         'Noto Sans Thai',
                                                     color: Color(0xFF404040),
-                                                    fontSize: 15.0,
+                                                    fontSize: 15,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      10.0, 0.0, 0.0, 0.0),
+                                                  .fromSTEB(10, 0, 0, 0),
                                               child: Text(
                                                 '(ไม่ต้องมีขีด - ) ',
                                                 style:
@@ -2020,7 +1992,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                           fontFamily:
                                                               'Noto Sans Thai',
                                                           color: Colors.black,
-                                                          fontSize: 12.0,
+                                                          fontSize: 12,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
@@ -2032,17 +2004,16 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 5.0, 0.0, 0.0),
+                                            0, 5, 0, 0),
                                         child: Container(
                                           width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  1.0,
-                                          height: 60.0,
+                                              MediaQuery.sizeOf(context).width,
+                                          height: 60,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             borderRadius:
-                                                BorderRadius.circular(10.0),
+                                                BorderRadius.circular(10),
                                             border: Border.all(
                                               color: Colors.black,
                                               width: 0.5,
@@ -2051,7 +2022,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 0.0, 10.0, 0.0),
+                                                    10, 0, 10, 0),
                                             child: TextFormField(
                                               controller: _model
                                                   .textFieldTextController,
@@ -2069,7 +2040,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryText,
-                                                          fontSize: 15.0,
+                                                          fontSize: 15,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -2083,7 +2054,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFFAAAAAA),
-                                                          fontSize: 15.0,
+                                                          fontSize: 15,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -2103,7 +2074,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primaryText,
-                                                    fontSize: 15.0,
+                                                    fontSize: 15,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
@@ -2121,9 +2092,9 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                             ),
                           ),
                         ]
-                            .divide(SizedBox(height: 8.0))
-                            .addToStart(SizedBox(height: 20.0))
-                            .addToEnd(SizedBox(height: 36.0)),
+                            .divide(SizedBox(height: 8))
+                            .addToStart(SizedBox(height: 20))
+                            .addToEnd(SizedBox(height: 36)),
                       ),
                     ),
                   ),
@@ -2132,7 +2103,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                   flex: 2,
                   child: Container(
                     width: double.infinity,
-                    height: 100.0,
+                    height: 100,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                     ),
@@ -2141,8 +2112,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 0.0, 16.0, 0.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                           child: FFButtonWidget(
                             onPressed: () async {
                               var _shouldSetState = false;
@@ -2173,7 +2143,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                     );
                                   },
                                 );
-                                if (_shouldSetState) setState(() {});
+                                if (_shouldSetState) safeSetState(() {});
                                 return;
                               }
                               if (!((FFAppState().insuranceBasicBrandName !=
@@ -2201,7 +2171,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                     );
                                   },
                                 );
-                                if (_shouldSetState) setState(() {});
+                                if (_shouldSetState) safeSetState(() {});
                                 return;
                               }
                               if (!((FFAppState().insuranceBasicModelName !=
@@ -2229,7 +2199,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                     );
                                   },
                                 );
-                                if (_shouldSetState) setState(() {});
+                                if (_shouldSetState) safeSetState(() {});
                                 return;
                               }
                               if (!((FFAppState().insuranceBasicYear != null &&
@@ -2254,7 +2224,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                     );
                                   },
                                 );
-                                if (_shouldSetState) setState(() {});
+                                if (_shouldSetState) safeSetState(() {});
                                 return;
                               }
                               if (!(_model.firstnameTextController.text !=
@@ -2277,7 +2247,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                     );
                                   },
                                 );
-                                if (_shouldSetState) setState(() {});
+                                if (_shouldSetState) safeSetState(() {});
                                 return;
                               }
                               if (_model.phonenumberTextController.text !=
@@ -2301,7 +2271,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                       backgroundColor: Color(0xB2000000),
                                     ),
                                   );
-                                  if (_shouldSetState) setState(() {});
+                                  if (_shouldSetState) safeSetState(() {});
                                   return;
                                 }
                                 if (!((String var1) {
@@ -2321,7 +2291,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                       backgroundColor: Color(0xB2000000),
                                     ),
                                   );
-                                  if (_shouldSetState) setState(() {});
+                                  if (_shouldSetState) safeSetState(() {});
                                   return;
                                 }
                               } else {
@@ -2343,7 +2313,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                     );
                                   },
                                 );
-                                if (_shouldSetState) setState(() {});
+                                if (_shouldSetState) safeSetState(() {});
                                 return;
                               }
 
@@ -2365,7 +2335,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                       backgroundColor: Color(0xB2000000),
                                     ),
                                   );
-                                  if (_shouldSetState) setState(() {});
+                                  if (_shouldSetState) safeSetState(() {});
                                   return;
                                 }
                               }
@@ -2399,7 +2369,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                       ) ??
                                       false;
                               if (!confirmDialogResponse) {
-                                if (_shouldSetState) setState(() {});
+                                if (_shouldSetState) safeSetState(() {});
                                 return;
                               }
                               showModalBottomSheet(
@@ -2505,7 +2475,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                   },
                                 );
                                 Navigator.pop(context);
-                                if (_shouldSetState) setState(() {});
+                                if (_shouldSetState) safeSetState(() {});
                                 return;
                               }
                               if (CmiSaveLeadsCall.statuslayer1(
@@ -2534,12 +2504,12 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                   },
                                 );
                                 Navigator.pop(context);
-                                if (_shouldSetState) setState(() {});
+                                if (_shouldSetState) safeSetState(() {});
                                 return;
                               }
                               FFAppState().buttonOrdinary = false;
                               FFAppState().buttonCorporation = false;
-                              setState(() {});
+                              safeSetState(() {});
 
                               context.pushNamed(
                                 'insuranceInfoPage1',
@@ -2560,35 +2530,35 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                               );
 
                               Navigator.pop(context);
-                              if (_shouldSetState) setState(() {});
+                              if (_shouldSetState) safeSetState(() {});
                             },
                             text: 'ตกลงทำ พ.ร.บ.',
                             options: FFButtonOptions(
                               width: double.infinity,
-                              height: 60.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 0.0, 24.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
+                              height: 60,
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                              iconPadding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                               color: Color(0xFFDB771B),
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
                                     fontFamily: 'Noto Sans Thai',
                                     color: Colors.white,
-                                    fontSize: 15.0,
+                                    fontSize: 15,
                                     letterSpacing: 0.0,
                                   ),
-                              elevation: 3.0,
+                              elevation: 3,
                               borderSide: BorderSide(
                                 color: Colors.transparent,
-                                width: 1.0,
+                                width: 1,
                               ),
-                              borderRadius: BorderRadius.circular(16.0),
+                              borderRadius: BorderRadius.circular(16),
                             ),
                           ),
                         ),
-                      ].addToStart(SizedBox(height: 16.0)),
+                      ].addToStart(SizedBox(height: 16)),
                     ),
                   ),
                 ),

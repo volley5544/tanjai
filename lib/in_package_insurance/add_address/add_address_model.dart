@@ -19,7 +19,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class AddAddressModel extends FlutterFlowModel<AddAddressWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (GetAddressMaster)] action in AddAddress widget.
   ApiCallResponse? getAddressMaster;
   // State field(s) for address2 widget.

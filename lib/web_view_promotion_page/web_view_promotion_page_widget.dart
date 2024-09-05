@@ -64,8 +64,8 @@ class _WebViewPromotionPageWidgetState
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
             body: Center(
               child: SizedBox(
-                width: 50.0,
-                height: 50.0,
+                width: 50,
+                height: 50,
                 child: CircularProgressIndicator(
                   valueColor: AlwaysStoppedAnimation<Color>(
                     FlutterFlowTheme.of(context).primary,
@@ -93,19 +93,19 @@ class _WebViewPromotionPageWidgetState
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 1.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 1, 0),
                     child: Container(
-                      width: 70.0,
+                      width: 70,
                       height: double.infinity,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                         boxShadow: [
                           BoxShadow(
-                            blurRadius: 4.0,
+                            blurRadius: 4,
                             color: Color(0x33000000),
                             offset: Offset(
-                              2.0,
-                              0.0,
+                              2,
+                              0,
                             ),
                           )
                         ],
@@ -114,8 +114,8 @@ class _WebViewPromotionPageWidgetState
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 16.0, 0.0, 0.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
@@ -125,8 +125,8 @@ class _WebViewPromotionPageWidgetState
                                 context.goNamed('MyProfilePage');
                               },
                               child: Container(
-                                width: 50.0,
-                                height: 50.0,
+                                width: 50,
+                                height: 50,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -144,7 +144,7 @@ class _WebViewPromotionPageWidgetState
                                   child: Icon(
                                     Icons.arrow_back,
                                     color: Color(0xFFDB771A),
-                                    size: 30.0,
+                                    size: 30,
                                   ),
                                 ),
                               ),
@@ -165,7 +165,7 @@ class _WebViewPromotionPageWidgetState
                               content:
                                   '${webViewPromotionPageUrlLinkStorageRecord?.urlLink}/${FFAppState().employeeID}',
                               bypass: true,
-                              height: 500.0,
+                              height: 500,
                               verticalScroll: true,
                               horizontalScroll: true,
                             ),

@@ -75,7 +75,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
       FFAppState().insuranceInfoHaveLicenseBool = false;
       FFAppState().insuranceInfoPage3ImageIdCard = '';
       FFAppState().renewPaymentType = '';
-      setState(() {});
+      safeSetState(() {});
       if (!true) {
         _model.getInsurer = await InsuranceRequestGetInsurerAPICall.call(
           apiUrl: FFAppState().apiUrlInsuranceAppState,
@@ -139,7 +139,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
         )!
                 .toList()
                 .cast<String>();
-        setState(() {});
+        safeSetState(() {});
       }
       _model.getAppDetailAPIOutput = await IbsApplicationsDetailCall.call(
         quotationId: widget!.quotationId,
@@ -246,7 +246,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
         (_model.getAppDetailAPIOutput?.jsonBody ?? ''),
       )!
               .first;
-      setState(() {});
+      safeSetState(() {});
       _model.getLicenseAPIOutoutCopy = await GetLicenseListCall.call(
         insuranceUrl: FFAppState().apiUrlInsuranceAppState,
       );
@@ -339,12 +339,12 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
       )!
           .toList()
           .cast<String>();
-      setState(() {});
+      safeSetState(() {});
       if (FFAppState()
           .addAddressLicenseEmployeeId
           .contains(FFAppState().employeeID)) {
         FFAppState().insuranceInfoHaveLicenseBool = true;
-        setState(() {});
+        safeSetState(() {});
         _model.profileImgOutputPage = await GetProfileImageCall.call(
           employeeCode: FFAppState().employeeID,
           insuranceUrl: FFAppState().apiUrlInsuranceAppState,
@@ -416,8 +416,8 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
         )}';
         FFAppState().insuranceInfoLicenseBranch =
             '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addaddresslicensenBranch.toList(), FFAppState().employeeID)}';
-        setState(() {});
-        setState(() {
+        safeSetState(() {});
+        safeSetState(() {
           _model.licenseCodeTextController?.text =
               FFAppState().insuranceInfoLicenseEmployeeId;
           _model.licenseCodeTextController?.selection = TextSelection.collapsed(
@@ -457,13 +457,13 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
             automaticallyImplyLeading: false,
             leading: FlutterFlowIconButton(
               borderColor: Colors.transparent,
-              borderRadius: 30.0,
-              borderWidth: 1.0,
-              buttonSize: 60.0,
+              borderRadius: 30,
+              borderWidth: 1,
+              buttonSize: 60,
               icon: Icon(
                 Icons.arrow_back_rounded,
                 color: Color(0xFFDB771A),
-                size: 30.0,
+                size: 30,
               ),
               onPressed: () async {
                 await Future.delayed(const Duration(milliseconds: 500));
@@ -476,19 +476,19 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF003063),
-                    fontSize: 18.0,
+                    fontSize: 18,
                     letterSpacing: 0.0,
                     fontWeight: FontWeight.w600,
                   ),
             ),
             actions: [],
             centerTitle: true,
-            elevation: 2.0,
+            elevation: 2,
           ),
           body: SafeArea(
             top: true,
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(12.0, 15.0, 12.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(12, 15, 12, 0),
               child: FutureBuilder<List<DataListRecord>>(
                 future: queryDataListRecordOnce(
                   singleRecord: true,
@@ -498,8 +498,8 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                   if (!snapshot.hasData) {
                     return Center(
                       child: SizedBox(
-                        width: 50.0,
-                        height: 50.0,
+                        width: 50,
+                        height: 50,
                         child: CircularProgressIndicator(
                           valueColor: AlwaysStoppedAnimation<Color>(
                             FlutterFlowTheme.of(context).primary,
@@ -525,16 +525,16 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                           children: [
                             Material(
                               color: Colors.transparent,
-                              elevation: 1.0,
+                              elevation: 1,
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8.0),
+                                borderRadius: BorderRadius.circular(8),
                               ),
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width * 1.0,
+                                width: MediaQuery.sizeOf(context).width,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(8),
                                   border: Border.all(
                                     color: Color(0xFFE6E6E6),
                                   ),
@@ -546,9 +546,9 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                   scrollDirection: Axis.vertical,
                                   children: [
                                     Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      alignment: AlignmentDirectional(0, 0),
                                       child: Padding(
-                                        padding: EdgeInsets.all(15.0),
+                                        padding: EdgeInsets.all(15),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -594,14 +594,14 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                fontSize: 15.0,
+                                                                fontSize: 15,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
                                                         ),
                                                       ),
                                                       Container(
-                                                        width: 10.0,
+                                                        width: 10,
                                                         decoration:
                                                             BoxDecoration(
                                                           color: FlutterFlowTheme
@@ -637,7 +637,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                fontSize: 15.0,
+                                                                fontSize: 15,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -669,14 +669,14 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                fontSize: 15.0,
+                                                                fontSize: 15,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
                                                         ),
                                                       ),
                                                       Container(
-                                                        width: 10.0,
+                                                        width: 10,
                                                         decoration:
                                                             BoxDecoration(
                                                           color: FlutterFlowTheme
@@ -711,7 +711,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                fontSize: 15.0,
+                                                                fontSize: 15,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -743,14 +743,14 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                fontSize: 15.0,
+                                                                fontSize: 15,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
                                                         ),
                                                       ),
                                                       Container(
-                                                        width: 10.0,
+                                                        width: 10,
                                                         decoration:
                                                             BoxDecoration(
                                                           color: FlutterFlowTheme
@@ -786,7 +786,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                fontSize: 15.0,
+                                                                fontSize: 15,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -818,14 +818,14 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                fontSize: 15.0,
+                                                                fontSize: 15,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
                                                         ),
                                                       ),
                                                       Container(
-                                                        width: 10.0,
+                                                        width: 10,
                                                         decoration:
                                                             BoxDecoration(
                                                           color: FlutterFlowTheme
@@ -861,7 +861,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                fontSize: 15.0,
+                                                                fontSize: 15,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -893,14 +893,14 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                fontSize: 15.0,
+                                                                fontSize: 15,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
                                                         ),
                                                       ),
                                                       Container(
-                                                        width: 10.0,
+                                                        width: 10,
                                                         decoration:
                                                             BoxDecoration(
                                                           color: FlutterFlowTheme
@@ -936,7 +936,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                fontSize: 15.0,
+                                                                fontSize: 15,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -968,14 +968,14 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                fontSize: 15.0,
+                                                                fontSize: 15,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
                                                         ),
                                                       ),
                                                       Container(
-                                                        width: 10.0,
+                                                        width: 10,
                                                         decoration:
                                                             BoxDecoration(
                                                           color: FlutterFlowTheme
@@ -1016,7 +1016,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryText,
-                                                                fontSize: 15.0,
+                                                                fontSize: 15,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -1054,15 +1054,14 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      15.0,
+                                                                  fontSize: 15,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
                                                           ),
                                                         ),
                                                         Container(
-                                                          width: 10.0,
+                                                          width: 10,
                                                           decoration:
                                                               BoxDecoration(
                                                             color: FlutterFlowTheme
@@ -1100,8 +1099,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryText,
-                                                                  fontSize:
-                                                                      15.0,
+                                                                  fontSize: 15,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -1139,15 +1137,14 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      15.0,
+                                                                  fontSize: 15,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
                                                           ),
                                                         ),
                                                         Container(
-                                                          width: 10.0,
+                                                          width: 10,
                                                           decoration:
                                                               BoxDecoration(
                                                             color: FlutterFlowTheme
@@ -1185,8 +1182,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryText,
-                                                                  fontSize:
-                                                                      15.0,
+                                                                  fontSize: 15,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -1221,14 +1217,14 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                fontSize: 15.0,
+                                                                fontSize: 15,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
                                                         ),
                                                       ),
                                                       Container(
-                                                        width: 10.0,
+                                                        width: 10,
                                                         decoration:
                                                             BoxDecoration(
                                                           color: FlutterFlowTheme
@@ -1274,7 +1270,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                                             context)
                                                                         .primaryText,
                                                                     fontSize:
-                                                                        15.0,
+                                                                        15,
                                                                     letterSpacing:
                                                                         0.0,
                                                                     fontWeight:
@@ -1305,7 +1301,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                                               context)
                                                                           .primaryText,
                                                                       fontSize:
-                                                                          15.0,
+                                                                          15,
                                                                       letterSpacing:
                                                                           0.0,
                                                                       fontWeight:
@@ -1323,26 +1319,26 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                             ),
                                             Flexible(
                                               child: Align(
-                                                alignment: AlignmentDirectional(
-                                                    1.0, 0.0),
+                                                alignment:
+                                                    AlignmentDirectional(1, 0),
                                                 child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
                                                   children: [
                                                     Container(
-                                                      height: 75.0,
+                                                      height: 75,
                                                       decoration: BoxDecoration(
                                                         color: FlutterFlowTheme
                                                                 .of(context)
                                                             .secondaryBackground,
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(0.0),
+                                                                .circular(0),
                                                       ),
                                                       child: ClipRRect(
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(0.0),
+                                                                .circular(0),
                                                         child: Image.network(
                                                           valueOrDefault<
                                                               String>(
@@ -1354,8 +1350,8 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                                 : 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37'),
                                                             'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37',
                                                           ),
-                                                          width: 300.0,
-                                                          height: 200.0,
+                                                          width: 300,
+                                                          height: 200,
                                                           fit: BoxFit.cover,
                                                         ),
                                                       ),
@@ -1373,11 +1369,11 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 10.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width * 1.0,
-                                height: 80.0,
+                                width: MediaQuery.sizeOf(context).width,
+                                height: 80,
                                 decoration: BoxDecoration(),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
@@ -1391,7 +1387,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
-                                                fontSize: 15.0,
+                                                fontSize: 15,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
                                               ),
@@ -1399,7 +1395,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  10.0, 0.0, 0.0, 0.0),
+                                                  10, 0, 0, 0),
                                           child: Text(
                                             'บังคับอัพโหลดรูป',
                                             style: FlutterFlowTheme.of(context)
@@ -1407,7 +1403,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFFFB0606),
-                                                  fontSize: 12.0,
+                                                  fontSize: 12,
                                                   letterSpacing: 0.0,
                                                 ),
                                           ),
@@ -1416,15 +1412,13 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 5.0, 0.0, 0.0),
+                                          0, 5, 0, 0),
                                       child: Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                1.0,
-                                        height: 45.0,
+                                        width: MediaQuery.sizeOf(context).width,
+                                        height: 45,
                                         decoration: BoxDecoration(
                                           borderRadius:
-                                              BorderRadius.circular(8.0),
+                                              BorderRadius.circular(8),
                                         ),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -1432,17 +1426,17 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                               MainAxisAlignment.spaceBetween,
                                           children: [
                                             Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
+                                              alignment:
+                                                  AlignmentDirectional(0, 0),
                                               child: Container(
                                                 width:
                                                     MediaQuery.sizeOf(context)
                                                             .width *
                                                         0.74,
-                                                height: 100.0,
+                                                height: 100,
                                                 decoration: BoxDecoration(),
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
+                                                alignment:
+                                                    AlignmentDirectional(0, 0),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -1450,7 +1444,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                     Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              -1.0, 0.0),
+                                                              -1, 0),
                                                       child: InkWell(
                                                         splashColor:
                                                             Colors.transparent,
@@ -1473,9 +1467,9 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                                   validateFileFormat(
                                                                       m.storagePath,
                                                                       context))) {
-                                                            setState(() => _model
-                                                                    .isDataUploading =
-                                                                true);
+                                                            safeSetState(() =>
+                                                                _model.isDataUploading =
+                                                                    true);
                                                             var selectedUploadedFiles =
                                                                 <FFUploadedFile>[];
 
@@ -1528,7 +1522,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                                         .length ==
                                                                     selectedMedia
                                                                         .length) {
-                                                              setState(() {
+                                                              safeSetState(() {
                                                                 _model.uploadedLocalFile =
                                                                     selectedUploadedFiles
                                                                         .first;
@@ -1537,7 +1531,8 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                                         .first;
                                                               });
                                                             } else {
-                                                              setState(() {});
+                                                              safeSetState(
+                                                                  () {});
                                                               return;
                                                             }
                                                           }
@@ -1546,7 +1541,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                                   .insuranceInfoPage3ImageIdCard =
                                                               _model
                                                                   .uploadedFileUrl;
-                                                          setState(() {});
+                                                          safeSetState(() {});
                                                           if (_model.uploadedFileUrl !=
                                                                   null &&
                                                               _model.uploadedFileUrl !=
@@ -1600,7 +1595,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                                           context)
                                                                       .width *
                                                                   0.35,
-                                                          height: 60.0,
+                                                          height: 60,
                                                           decoration:
                                                               BoxDecoration(
                                                             color: Color(
@@ -1608,20 +1603,20 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        16.0),
+                                                                        16),
                                                           ),
                                                           child: Align(
                                                             alignment:
                                                                 AlignmentDirectional(
-                                                                    -1.0, 0.0),
+                                                                    -1, 0),
                                                             child: Padding(
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          10.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                          10,
+                                                                          0,
+                                                                          0,
+                                                                          0),
                                                               child: Row(
                                                                 mainAxisSize:
                                                                     MainAxisSize
@@ -1633,15 +1628,15 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .primaryText,
-                                                                    size: 24.0,
+                                                                    size: 24,
                                                                   ),
                                                                   Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            8.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            8,
+                                                                            0,
+                                                                            0,
+                                                                            0),
                                                                     child: Text(
                                                                       'อัพโหลดรูป',
                                                                       textAlign:
@@ -1656,7 +1651,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                                             color:
                                                                                 Color(0xFFD9761A),
                                                                             fontSize:
-                                                                                16.0,
+                                                                                16,
                                                                             letterSpacing:
                                                                                 0.0,
                                                                           ),
@@ -1673,10 +1668,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  5.0,
-                                                                  0.0),
+                                                                  10, 0, 5, 0),
                                                       child: Text(
                                                         'สถานะ :',
                                                         style:
@@ -1799,13 +1791,13 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                       safeSetState(() {}));
                                                 },
                                                 child: Container(
-                                                  height: 100.0,
+                                                  height: 100,
                                                   decoration: BoxDecoration(),
                                                   child: Icon(
                                                     Icons
                                                         .content_paste_search_rounded,
                                                     color: Color(0xFF354052),
-                                                    size: 24.0,
+                                                    size: 24,
                                                   ),
                                                 ),
                                               ),
@@ -1823,12 +1815,12 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                         '')))
                                               Flexible(
                                                 child: Container(
-                                                  height: 100.0,
+                                                  height: 100,
                                                   decoration: BoxDecoration(),
                                                   child: Icon(
                                                     Icons.close,
                                                     color: Color(0xFFFC0A0A),
-                                                    size: 24.0,
+                                                    size: 24,
                                                   ),
                                                 ),
                                               ),
@@ -1844,12 +1836,12 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                         ''))
                                               Flexible(
                                                 child: Container(
-                                                  height: 100.0,
+                                                  height: 100,
                                                   decoration: BoxDecoration(),
                                                   child: Icon(
                                                     Icons.check_sharp,
                                                     color: Color(0xFF00FD76),
-                                                    size: 24.0,
+                                                    size: 24,
                                                   ),
                                                 ),
                                               ),
@@ -1862,17 +1854,17 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 5.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width * 1.0,
+                                width: MediaQuery.sizeOf(context).width,
                                 decoration: BoxDecoration(),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          12.0, 0.0, 12.0, 0.0),
+                                          12, 0, 12, 0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
@@ -1882,7 +1874,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
-                                                  fontSize: 15.0,
+                                                  fontSize: 15,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
@@ -1890,7 +1882,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 0.0, 0.0, 0.0),
+                                                    10, 0, 0, 0),
                                             child: Text(
                                               '(บังคับเลือก)',
                                               style:
@@ -1901,7 +1893,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                             'Noto Sans Thai',
                                                         color:
                                                             Color(0xFFFB0606),
-                                                        fontSize: 12.0,
+                                                        fontSize: 12,
                                                         letterSpacing: 0.0,
                                                       ),
                                             ),
@@ -1911,7 +1903,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 5.0, 0.0, 0.0),
+                                          0, 5, 0, 0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
                                         focusColor: Colors.transparent,
@@ -1934,24 +1926,23 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                         },
                                         child: Container(
                                           width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  1.0,
-                                          height: 60.0,
+                                              MediaQuery.sizeOf(context).width,
+                                          height: 60,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             borderRadius:
-                                                BorderRadius.circular(8.0),
+                                                BorderRadius.circular(8),
                                             border: Border.all(
                                               color: Color(0xFFB3B3B3),
                                             ),
                                           ),
                                           child: Align(
                                             alignment:
-                                                AlignmentDirectional(0.0, 0.0),
+                                                AlignmentDirectional(0, 0),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                                  .fromSTEB(4, 0, 0, 0),
                                               child: ListTile(
                                                 title: Text(
                                                   FFAppState().renewPaymentType !=
@@ -1974,7 +1965,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                                     '')
                                                             ? Colors.black
                                                             : Color(0xFF9F9F9F),
-                                                        fontSize: 15.0,
+                                                        fontSize: 15,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
@@ -1983,7 +1974,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                 trailing: Icon(
                                                   Icons.arrow_forward_ios,
                                                   color: Color(0xFF474747),
-                                                  size: 20.0,
+                                                  size: 20,
                                                 ),
                                                 tileColor:
                                                     FlutterFlowTheme.of(context)
@@ -1991,8 +1982,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                 dense: false,
                                                 shape: RoundedRectangleBorder(
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          10.0),
+                                                      BorderRadius.circular(10),
                                                 ),
                                               ),
                                             ),
@@ -2007,17 +1997,17 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                             if (!functions.checkIsStringLengthInLength(
                                 FFAppState().branchCode, 2)!)
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 5.0, 0.0, 0.0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                                 child: Container(
-                                  width: MediaQuery.sizeOf(context).width * 1.0,
+                                  width: MediaQuery.sizeOf(context).width,
                                   decoration: BoxDecoration(),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            12.0, 0.0, 12.0, 0.0),
+                                            12, 0, 12, 0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
@@ -2029,7 +2019,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                       .override(
                                                         fontFamily:
                                                             'Noto Sans Thai',
-                                                        fontSize: 15.0,
+                                                        fontSize: 15,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -2037,8 +2027,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      10.0, 0.0, 0.0, 0.0),
+                                                  .fromSTEB(10, 0, 0, 0),
                                               child: Text(
                                                 '(บังคับเลือก)',
                                                 style:
@@ -2049,7 +2038,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFFFB0606),
-                                                          fontSize: 12.0,
+                                                          fontSize: 12,
                                                           letterSpacing: 0.0,
                                                         ),
                                               ),
@@ -2059,7 +2048,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 5.0, 0.0, 0.0),
+                                            0, 5, 0, 0),
                                         child: InkWell(
                                           splashColor: Colors.transparent,
                                           focusColor: Colors.transparent,
@@ -2082,26 +2071,24 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                           },
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
-                                                    .width *
-                                                1.0,
-                                            height: 60.0,
+                                                .width,
+                                            height: 60,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
                                               borderRadius:
-                                                  BorderRadius.circular(8.0),
+                                                  BorderRadius.circular(8),
                                               border: Border.all(
                                                 color: Color(0xFFB3B3B3),
                                               ),
                                             ),
                                             child: Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
+                                              alignment:
+                                                  AlignmentDirectional(0, 0),
                                               child: Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        4.0, 0.0, 0.0, 0.0),
+                                                    .fromSTEB(4, 0, 0, 0),
                                                 child: ListTile(
                                                   title: Text(
                                                     (FFAppState().renewBranchCode !=
@@ -2127,7 +2114,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                               ? Colors.black
                                                               : Color(
                                                                   0xFF9F9F9F),
-                                                          fontSize: 15.0,
+                                                          fontSize: 15,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
@@ -2136,7 +2123,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                   trailing: Icon(
                                                     Icons.arrow_forward_ios,
                                                     color: Color(0xFF474747),
-                                                    size: 20.0,
+                                                    size: 20,
                                                   ),
                                                   tileColor:
                                                       FlutterFlowTheme.of(
@@ -2146,7 +2133,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                   shape: RoundedRectangleBorder(
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            10.0),
+                                                            10),
                                                   ),
                                                 ),
                                               ),
@@ -2163,10 +2150,9 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 15.0, 0.0, 0.0),
+                                      0, 15, 0, 0),
                                   child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 1.0,
+                                    width: MediaQuery.sizeOf(context).width,
                                     decoration: BoxDecoration(),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
@@ -2174,7 +2160,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 0.0, 12.0, 0.0),
+                                                  12, 0, 12, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -2186,7 +2172,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                         .override(
                                                           fontFamily:
                                                               'Noto Sans Thai',
-                                                          fontSize: 15.0,
+                                                          fontSize: 15,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -2194,8 +2180,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 0.0, 0.0),
+                                                    .fromSTEB(10, 0, 0, 0),
                                                 child: Text(
                                                   '(บังคับกรอก)',
                                                   style: FlutterFlowTheme.of(
@@ -2206,7 +2191,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                             'Noto Sans Thai',
                                                         color:
                                                             Color(0xFFFB0606),
-                                                        fontSize: 12.0,
+                                                        fontSize: 12,
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -2217,7 +2202,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 5.0, 0.0, 0.0),
+                                                  0, 5, 0, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -2228,14 +2213,13 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                     MediaQuery.sizeOf(context)
                                                             .width *
                                                         0.55,
-                                                height: 60.0,
+                                                height: 60,
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondaryBackground,
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
+                                                      BorderRadius.circular(8),
                                                   border: Border.all(
                                                     color: Color(0xFFB3B3B3),
                                                   ),
@@ -2250,15 +2234,12 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.0, 0.0),
+                                                                0, 0),
                                                         child: Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      10.0,
-                                                                      0.0,
-                                                                      8.0,
-                                                                      0.0),
+                                                                  .fromSTEB(10,
+                                                                      0, 8, 0),
                                                           child: TextFormField(
                                                             controller: _model
                                                                 .licenseCodeTextController,
@@ -2276,7 +2257,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                                         fontFamily:
                                                                             'Noto Sans Thai',
                                                                         fontSize:
-                                                                            15.0,
+                                                                            15,
                                                                         letterSpacing:
                                                                             0.0,
                                                                       ),
@@ -2292,7 +2273,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                                         color: Color(
                                                                             0xFFB3B3B3),
                                                                         fontSize:
-                                                                            15.0,
+                                                                            15,
                                                                         letterSpacing:
                                                                             0.0,
                                                                       ),
@@ -2318,8 +2299,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryText,
-                                                                  fontSize:
-                                                                      15.0,
+                                                                  fontSize: 15,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -2343,8 +2323,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                       FFAppState().employeeID))
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          5.0, 0.0, 0.0, 0.0),
+                                                      .fromSTEB(5, 0, 0, 0),
                                                   child: InkWell(
                                                     splashColor:
                                                         Colors.transparent,
@@ -2364,7 +2343,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                       FFAppState()
                                                               .insuranceInfoHaveLicenseBool =
                                                           false;
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                       showModalBottomSheet(
                                                         isScrollControlled:
                                                             true,
@@ -2423,7 +2402,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                         );
                                                         Navigator.pop(context);
                                                         if (_shouldSetState)
-                                                          setState(() {});
+                                                          safeSetState(() {});
                                                         return;
                                                       }
                                                       if (FFAppState()
@@ -2434,7 +2413,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                         FFAppState()
                                                                 .insuranceInfoHaveLicenseBool =
                                                             true;
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                       } else {
                                                         await showDialog(
                                                           context: context,
@@ -2461,7 +2440,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                         FFAppState()
                                                                 .insuranceInfoHaveLicenseBool =
                                                             false;
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                         FFAppState()
                                                             .insuranceInfoLicenseEmployeeId = '';
                                                         FFAppState()
@@ -2480,10 +2459,10 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                             .insuranceInfoLicenseImg = '';
                                                         FFAppState()
                                                             .insuranceInfoLicenseBranch = '';
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                         Navigator.pop(context);
                                                         if (_shouldSetState)
-                                                          setState(() {});
+                                                          safeSetState(() {});
                                                         return;
                                                       }
 
@@ -2526,7 +2505,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                         );
                                                         Navigator.pop(context);
                                                         if (_shouldSetState)
-                                                          setState(() {});
+                                                          safeSetState(() {});
                                                         return;
                                                       }
                                                       if (GetProfileImageCall
@@ -2565,7 +2544,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                         );
                                                         Navigator.pop(context);
                                                         if (_shouldSetState)
-                                                          setState(() {});
+                                                          safeSetState(() {});
                                                         return;
                                                       }
                                                       FFAppState()
@@ -2599,36 +2578,33 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                       FFAppState()
                                                               .insuranceInfoLicenseBranch =
                                                           '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addaddresslicensenBranch.toList(), _model.licenseCodeTextController.text)}';
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                       Navigator.pop(context);
                                                       if (_shouldSetState)
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                     },
                                                     child: Container(
                                                       width: MediaQuery.sizeOf(
                                                                   context)
                                                               .width *
                                                           0.37,
-                                                      height: 60.0,
+                                                      height: 60,
                                                       decoration: BoxDecoration(
                                                         color:
                                                             Color(0xFFFCEFE4),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(16.0),
+                                                                .circular(16),
                                                       ),
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                -1.0, 0.0),
+                                                                -1, 0),
                                                         child: Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      10.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                                  .fromSTEB(10,
+                                                                      0, 0, 0),
                                                           child: Row(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -2638,16 +2614,16 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                                 Icons.search,
                                                                 color: Color(
                                                                     0xFFD9761A),
-                                                                size: 20.0,
+                                                                size: 20,
                                                               ),
                                                               Padding(
                                                                 padding:
                                                                     EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            8.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            8,
+                                                                            0,
+                                                                            0,
+                                                                            0),
                                                                 child: Text(
                                                                   'ค้นหา',
                                                                   textAlign:
@@ -2662,7 +2638,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                                         color: Color(
                                                                             0xFFD9761A),
                                                                         fontSize:
-                                                                            14.0,
+                                                                            14,
                                                                         letterSpacing:
                                                                             0.0,
                                                                       ),
@@ -2693,23 +2669,20 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                             '')))
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 15.0, 0.0, 15.0),
+                                        0, 15, 0, 15),
                                     child: Material(
                                       color: Colors.transparent,
-                                      elevation: 1.0,
+                                      elevation: 1,
                                       shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
+                                        borderRadius: BorderRadius.circular(8),
                                       ),
                                       child: Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                1.0,
+                                        width: MediaQuery.sizeOf(context).width,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                           borderRadius:
-                                              BorderRadius.circular(8.0),
+                                              BorderRadius.circular(8),
                                           border: Border.all(
                                             color: Color(0xFFE6E6E6),
                                           ),
@@ -2717,7 +2690,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  20.0, 10.0, 20.0, 10.0),
+                                                  20, 10, 20, 10),
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
@@ -2727,13 +2700,13 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
                                               borderRadius:
-                                                  BorderRadius.circular(8.0),
+                                                  BorderRadius.circular(8),
                                             ),
                                             child: Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
+                                              alignment:
+                                                  AlignmentDirectional(0, 0),
                                               child: Padding(
-                                                padding: EdgeInsets.all(15.0),
+                                                padding: EdgeInsets.all(15),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -2769,8 +2742,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                                       'Noto Sans Thai',
                                                                   color: Color(
                                                                       0xFF1D4774),
-                                                                  fontSize:
-                                                                      15.0,
+                                                                  fontSize: 15,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -2788,8 +2760,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                                       'Noto Sans Thai',
                                                                   color: Color(
                                                                       0xFF1D4774),
-                                                                  fontSize:
-                                                                      15.0,
+                                                                  fontSize: 15,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -2807,8 +2778,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                                       'Noto Sans Thai',
                                                                   color: Color(
                                                                       0xFF1D4774),
-                                                                  fontSize:
-                                                                      15.0,
+                                                                  fontSize: 15,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -2827,8 +2797,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                                       'Noto Sans Thai',
                                                                   color: Color(
                                                                       0xFF1D4774),
-                                                                  fontSize:
-                                                                      15.0,
+                                                                  fontSize: 15,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -2863,7 +2832,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                                         color: Color(
                                                                             0xFF1D4774),
                                                                         fontSize:
-                                                                            15.0,
+                                                                            15,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
@@ -2890,7 +2859,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                                         color: Color(
                                                                             0xFF1D4774),
                                                                         fontSize:
-                                                                            15.0,
+                                                                            15,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
@@ -2952,7 +2921,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                                         color: Color(
                                                                             0xFF1D4774),
                                                                         fontSize:
-                                                                            15.0,
+                                                                            15,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
@@ -2969,13 +2938,13 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.0, -1.0),
+                                                                0, -1),
                                                         child: Column(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
                                                           children: [
                                                             Container(
-                                                              height: 60.0,
+                                                              height: 60,
                                                               decoration:
                                                                   BoxDecoration(
                                                                 color: FlutterFlowTheme.of(
@@ -2984,11 +2953,11 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
-                                                                            0.0),
+                                                                            0),
                                                               ),
                                                               child: Container(
-                                                                width: 120.0,
-                                                                height: 120.0,
+                                                                width: 120,
+                                                                height: 120,
                                                                 clipBehavior: Clip
                                                                     .antiAlias,
                                                                 decoration:
@@ -3026,10 +2995,10 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                               ],
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 15.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width * 1.0,
+                                width: MediaQuery.sizeOf(context).width,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -3046,8 +3015,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                           Expanded(
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      15.0, 0.0, 0.0, 0.0),
+                                                  .fromSTEB(15, 0, 0, 0),
                                               child: FFButtonWidget(
                                                 onPressed: () async {
                                                   if (!((FFAppState()
@@ -3214,14 +3182,12 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                       MediaQuery.sizeOf(context)
                                                               .width *
                                                           0.45,
-                                                  height: 60.0,
+                                                  height: 60,
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          24.0, 0.0, 24.0, 0.0),
+                                                      .fromSTEB(24, 0, 24, 0),
                                                   iconPadding:
                                                       EdgeInsetsDirectional
-                                                          .fromSTEB(0.0, 0.0,
-                                                              0.0, 0.0),
+                                                          .fromSTEB(0, 0, 0, 0),
                                                   color: Color(0xFFD9761A),
                                                   textStyle: FlutterFlowTheme
                                                           .of(context)
@@ -3237,14 +3203,13 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                         fontWeight:
                                                             FontWeight.w600,
                                                       ),
-                                                  elevation: 3.0,
+                                                  elevation: 3,
                                                   borderSide: BorderSide(
                                                     color: Colors.transparent,
-                                                    width: 1.0,
+                                                    width: 1,
                                                   ),
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          16.0),
+                                                      BorderRadius.circular(16),
                                                 ),
                                               ),
                                             ),
@@ -3258,7 +3223,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                             ),
                           ],
                         ),
-                      ].addToEnd(SizedBox(height: 50.0)),
+                      ].addToEnd(SizedBox(height: 50)),
                     ),
                   );
                 },

@@ -61,15 +61,15 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            width: 330.0,
-            height: 600.0,
+            width: 330,
+            height: 600,
             decoration: BoxDecoration(
               color: Colors.transparent,
               borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(8.0),
-                bottomRight: Radius.circular(8.0),
-                topLeft: Radius.circular(24.0),
-                topRight: Radius.circular(24.0),
+                bottomLeft: Radius.circular(8),
+                bottomRight: Radius.circular(8),
+                topLeft: Radius.circular(24),
+                topRight: Radius.circular(24),
               ),
             ),
             child: Column(
@@ -78,7 +78,7 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
                 Expanded(
                   child: Container(
                     width: double.infinity,
-                    height: 500.0,
+                    height: 500,
                     child: Stack(
                       children: [
                         PageView(
@@ -89,7 +89,7 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
                             Stack(
                               children: [
                                 ClipRRect(
-                                  borderRadius: BorderRadius.circular(12.0),
+                                  borderRadius: BorderRadius.circular(12),
                                   child: Image.network(
                                     'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/SplashPageImg%2FWednesday%2FSP-Page-Test-03.jpg?alt=media&token=955bb637-e74d-40a4-977c-f1481f676f2f',
                                     width: double.infinity,
@@ -98,10 +98,10 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, 0.5),
+                                  alignment: AlignmentDirectional(0, 0.5),
                                   child: Container(
-                                    width: 280.0,
-                                    height: 200.0,
+                                    width: 280,
+                                    height: 200,
                                     decoration: BoxDecoration(),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
@@ -109,7 +109,7 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
                                           MainAxisAlignment.center,
                                       children: [
                                         Padding(
-                                          padding: EdgeInsets.all(8.0),
+                                          padding: EdgeInsets.all(8),
                                           child: Text(
                                             FFAppState().dailyText,
                                             textAlign: TextAlign.center,
@@ -117,7 +117,7 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'FC Home Italic',
-                                                  fontSize: 22.0,
+                                                  fontSize: 22,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                   fontStyle: FontStyle.italic,
@@ -134,10 +134,10 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
                           ],
                         ),
                         Align(
-                          alignment: AlignmentDirectional(0.0, 1.0),
+                          alignment: AlignmentDirectional(0, 1),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 10.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
                             child: smooth_page_indicator.SmoothPageIndicator(
                               controller: _model.pageViewController ??=
                                   PageController(initialPage: 0),
@@ -149,13 +149,13 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
                                   duration: Duration(milliseconds: 500),
                                   curve: Curves.ease,
                                 );
-                                setState(() {});
+                                safeSetState(() {});
                               },
                               effect: smooth_page_indicator.SlideEffect(
-                                spacing: 8.0,
-                                radius: 5.0,
-                                dotWidth: 12.0,
-                                dotHeight: 12.0,
+                                spacing: 8,
+                                radius: 5,
+                                dotWidth: 12,
+                                dotHeight: 12,
                                 dotColor: Color(0xFF9E9E9E),
                                 activeDotColor: Color(0xFF3F51B5),
                                 paintStyle: PaintingStyle.fill,
@@ -168,7 +168,7 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -176,8 +176,8 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
                         flex: 1,
                         child: FlutterFlowCheckboxGroup(
                           options: ['ไม่แสดงอีกในวันนี้'],
-                          onChanged: (val) =>
-                              setState(() => _model.checkboxGroupValues = val),
+                          onChanged: (val) => safeSetState(
+                              () => _model.checkboxGroupValues = val),
                           controller: _model.checkboxGroupValueController ??=
                               FormFieldController<List<String>>(
                             [],
@@ -198,15 +198,14 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Expanded(
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 7.0, 0.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 7, 0),
                           child: FFButtonWidget(
                             onPressed: () async {
                               if (_model.checkboxGroupValues?.length == 1) {
@@ -218,12 +217,12 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
                             },
                             text: 'ปิด',
                             options: FFButtonOptions(
-                              width: 130.0,
-                              height: 40.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
+                              width: 130,
+                              height: 40,
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                              iconPadding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                               color: Colors.white,
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
@@ -232,32 +231,31 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
                                     color: Colors.black,
                                     letterSpacing: 0.0,
                                   ),
-                              elevation: 2.0,
+                              elevation: 2,
                               borderSide: BorderSide(
                                 color: Color(0xFFFF8D38),
-                                width: 2.0,
+                                width: 2,
                               ),
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(8),
                             ),
                           ),
                         ),
                       ),
                       Expanded(
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              7.0, 0.0, 0.0, 0.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(7, 0, 0, 0),
                           child: FFButtonWidget(
                             onPressed: () {
                               print('Button pressed ...');
                             },
                             text: 'บันทึกรูป',
                             options: FFButtonOptions(
-                              width: 130.0,
-                              height: 40.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
+                              width: 130,
+                              height: 40,
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                              iconPadding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                               color: Color(0xFFFFB71A),
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
@@ -266,12 +264,12 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
                                     color: Colors.black,
                                     letterSpacing: 0.0,
                                   ),
-                              elevation: 2.0,
+                              elevation: 2,
                               borderSide: BorderSide(
                                 color: Colors.white,
-                                width: 2.0,
+                                width: 2,
                               ),
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(8),
                             ),
                           ),
                         ),

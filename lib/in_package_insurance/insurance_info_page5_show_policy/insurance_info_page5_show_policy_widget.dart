@@ -68,13 +68,13 @@ class _InsuranceInfoPage5ShowPolicyWidgetState
             automaticallyImplyLeading: false,
             leading: FlutterFlowIconButton(
               borderColor: Colors.transparent,
-              borderRadius: 30.0,
-              borderWidth: 1.0,
-              buttonSize: 60.0,
+              borderRadius: 30,
+              borderWidth: 1,
+              buttonSize: 60,
               icon: Icon(
                 Icons.arrow_back,
                 color: Color(0xFFDB771A),
-                size: 30.0,
+                size: 30,
               ),
               onPressed: () async {
                 context.pop();
@@ -85,13 +85,13 @@ class _InsuranceInfoPage5ShowPolicyWidgetState
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF204A77),
-                    fontSize: 18.0,
+                    fontSize: 18,
                     letterSpacing: 0.0,
                   ),
             ),
             actions: [],
             centerTitle: true,
-            elevation: 2.0,
+            elevation: 2,
           ),
           body: SafeArea(
             top: true,
@@ -107,7 +107,7 @@ class _InsuranceInfoPage5ShowPolicyWidgetState
                     ),
                     child: FlutterFlowPdfViewer(
                       networkPath: widget!.vmiDocumentUrl!,
-                      height: 300.0,
+                      height: 300,
                       horizontalScroll: false,
                     ),
                   ),

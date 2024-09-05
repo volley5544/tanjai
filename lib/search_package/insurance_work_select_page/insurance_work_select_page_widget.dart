@@ -57,13 +57,13 @@ class _InsuranceWorkSelectPageWidgetState
             automaticallyImplyLeading: false,
             leading: FlutterFlowIconButton(
               borderColor: Colors.transparent,
-              borderRadius: 30.0,
-              borderWidth: 1.0,
-              buttonSize: 60.0,
+              borderRadius: 30,
+              borderWidth: 1,
+              buttonSize: 60,
               icon: Icon(
                 Icons.arrow_back_rounded,
                 color: Color(0xFFDB771A),
-                size: 30.0,
+                size: 30,
               ),
               onPressed: () async {
                 context.goNamed(
@@ -247,7 +247,7 @@ class _InsuranceWorkSelectPageWidgetState
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
                       fontFamily: 'Noto Sans Thai',
                       color: Color(0xFF003063),
-                      fontSize: 18.0,
+                      fontSize: 18,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.w600,
                     ),
@@ -255,7 +255,7 @@ class _InsuranceWorkSelectPageWidgetState
             ),
             actions: [],
             centerTitle: true,
-            elevation: 2.0,
+            elevation: 2,
           ),
           body: SafeArea(
             top: true,
@@ -273,8 +273,8 @@ class _InsuranceWorkSelectPageWidgetState
                 if (!snapshot.hasData) {
                   return Center(
                     child: SizedBox(
-                      width: 50.0,
-                      height: 50.0,
+                      width: 50,
+                      height: 50,
                       child: CircularProgressIndicator(
                         valueColor: AlwaysStoppedAnimation<Color>(
                           FlutterFlowTheme.of(context).primary,
@@ -295,25 +295,24 @@ class _InsuranceWorkSelectPageWidgetState
                   children: [
                     if (false)
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            20.0, 12.0, 20.0, 0.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(20, 12, 20, 0),
                         child: Container(
-                          width: MediaQuery.sizeOf(context).width * 1.0,
-                          height: 60.0,
+                          width: MediaQuery.sizeOf(context).width,
+                          height: 60,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
                             boxShadow: [
                               BoxShadow(
-                                blurRadius: 4.0,
+                                blurRadius: 4,
                                 color: Color(0x33000000),
                                 offset: Offset(
-                                  0.0,
-                                  2.0,
+                                  0,
+                                  2,
                                 ),
                               )
                             ],
-                            borderRadius: BorderRadius.circular(8.0),
+                            borderRadius: BorderRadius.circular(8),
                             border: Border.all(
                               color: FlutterFlowTheme.of(context).secondaryText,
                             ),
@@ -325,13 +324,13 @@ class _InsuranceWorkSelectPageWidgetState
                               Expanded(
                                 flex: 2,
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: AlignmentDirectional(0, 0),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 0.0, 0.0, 0.0),
+                                        12, 0, 0, 0),
                                     child: Container(
-                                      width: 50.0,
-                                      height: 50.0,
+                                      width: 50,
+                                      height: 50,
                                       decoration: BoxDecoration(
                                         shape: BoxShape.circle,
                                         border: Border.all(
@@ -340,12 +339,11 @@ class _InsuranceWorkSelectPageWidgetState
                                         ),
                                       ),
                                       child: Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                        alignment: AlignmentDirectional(0, 0),
                                         child: FaIcon(
                                           FontAwesomeIcons.carSide,
                                           color: Color(0xB0FF9936),
-                                          size: 24.0,
+                                          size: 24,
                                         ),
                                       ),
                                     ),
@@ -356,14 +354,14 @@ class _InsuranceWorkSelectPageWidgetState
                                 flex: 4,
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      45.0, 0.0, 0.0, 0.0),
+                                      45, 0, 0, 0),
                                   child: Text(
                                     'งานต่ออายุ',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
-                                          fontSize: 16.0,
+                                          fontSize: 16,
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -373,7 +371,7 @@ class _InsuranceWorkSelectPageWidgetState
                                 flex: 3,
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 12.0, 0.0),
+                                      0, 0, 12, 0),
                                   child: FFButtonWidget(
                                     onPressed: () async {
                                       if (columnHideInAppContentRecord!
@@ -589,7 +587,7 @@ class _InsuranceWorkSelectPageWidgetState
                                       FFAppState().nonePackageBranchName = '';
                                       FFAppState()
                                           .nonePackageInsurerShortNameDupList = [];
-                                      setState(() {});
+                                      safeSetState(() {});
                                       FFAppState().nonePackageFlagRenew = true;
                                       FFAppState()
                                               .nonePackageOldVmiImageUploadedCheck =
@@ -597,7 +595,7 @@ class _InsuranceWorkSelectPageWidgetState
                                       FFAppState()
                                               .nonePackageIdCardWatermarkUploadedCheck =
                                           false;
-                                      setState(() {});
+                                      safeSetState(() {});
                                       FFAppState()
                                           .nonePackageVehicleType = FFAppState()
                                               .searchPackageCheckFilled
@@ -672,11 +670,11 @@ class _InsuranceWorkSelectPageWidgetState
                                                   .nonePackageSearchModelIdList
                                                   .toList()
                                                   .cast<String>();
-                                      setState(() {});
+                                      safeSetState(() {});
                                       FFAppState().nonePackageOldVmiExpDate =
                                           FFAppState()
                                               .insuranceBasicOldVmiExpDate;
-                                      setState(() {});
+                                      safeSetState(() {});
                                       FFAppState()
                                           .nonePackageImageFrontUploaded = '';
                                       FFAppState()
@@ -724,7 +722,7 @@ class _InsuranceWorkSelectPageWidgetState
                                           '';
                                       FFAppState()
                                           .nonePackageCompanyBookImageUrl = '';
-                                      setState(() {});
+                                      safeSetState(() {});
 
                                       context.pushNamed(
                                         'NonePackageRenewPage',
@@ -738,12 +736,12 @@ class _InsuranceWorkSelectPageWidgetState
                                     },
                                     text: 'ต่ออายุ',
                                     options: FFButtonOptions(
-                                      height: 40.0,
+                                      height: 40,
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          24.0, 0.0, 24.0, 0.0),
+                                          24, 0, 24, 0),
                                       iconPadding:
                                           EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 0.0, 0.0, 0.0),
+                                              0, 0, 0, 0),
                                       color: Color(0xFFEFE2D8),
                                       textStyle: FlutterFlowTheme.of(context)
                                           .titleSmall
@@ -752,12 +750,12 @@ class _InsuranceWorkSelectPageWidgetState
                                             color: Color(0xFFDB771A),
                                             letterSpacing: 0.0,
                                           ),
-                                      elevation: 3.0,
+                                      elevation: 3,
                                       borderSide: BorderSide(
                                         color: Colors.transparent,
-                                        width: 1.0,
+                                        width: 1,
                                       ),
-                                      borderRadius: BorderRadius.circular(8.0),
+                                      borderRadius: BorderRadius.circular(8),
                                     ),
                                   ),
                                 ),
@@ -767,25 +765,24 @@ class _InsuranceWorkSelectPageWidgetState
                         ),
                       ),
                     Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 12.0, 20.0, 0.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 12, 20, 0),
                       child: Container(
-                        width: MediaQuery.sizeOf(context).width * 1.0,
-                        height: 60.0,
+                        width: MediaQuery.sizeOf(context).width,
+                        height: 60,
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
                           boxShadow: [
                             BoxShadow(
-                              blurRadius: 4.0,
+                              blurRadius: 4,
                               color: Color(0x33000000),
                               offset: Offset(
-                                0.0,
-                                2.0,
+                                0,
+                                2,
                               ),
                             )
                           ],
-                          borderRadius: BorderRadius.circular(8.0),
+                          borderRadius: BorderRadius.circular(8),
                           border: Border.all(
                             color: FlutterFlowTheme.of(context).secondaryText,
                           ),
@@ -797,13 +794,13 @@ class _InsuranceWorkSelectPageWidgetState
                             Expanded(
                               flex: 2,
                               child: Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: AlignmentDirectional(0, 0),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      12.0, 0.0, 0.0, 0.0),
+                                      12, 0, 0, 0),
                                   child: Container(
-                                    width: 50.0,
-                                    height: 50.0,
+                                    width: 50,
+                                    height: 50,
                                     decoration: BoxDecoration(
                                       shape: BoxShape.circle,
                                       border: Border.all(
@@ -812,11 +809,11 @@ class _InsuranceWorkSelectPageWidgetState
                                       ),
                                     ),
                                     child: Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      alignment: AlignmentDirectional(0, 0),
                                       child: FaIcon(
                                         FontAwesomeIcons.carSide,
                                         color: Color(0xFF7A848E),
-                                        size: 24.0,
+                                        size: 24,
                                       ),
                                     ),
                                   ),
@@ -826,15 +823,15 @@ class _InsuranceWorkSelectPageWidgetState
                             Expanded(
                               flex: 4,
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    45.0, 0.0, 0.0, 0.0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(45, 0, 0, 0),
                                 child: Text(
                                   'งานนอกเรท',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
-                                        fontSize: 16.0,
+                                        fontSize: 16,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -843,8 +840,8 @@ class _InsuranceWorkSelectPageWidgetState
                             Expanded(
                               flex: 3,
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 12.0, 0.0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 0, 12, 0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
                                     if (columnHideInAppContentRecord!
@@ -1047,9 +1044,9 @@ class _InsuranceWorkSelectPageWidgetState
                                     FFAppState().nonePackageBranchName = '';
                                     FFAppState()
                                         .nonePackageInsurerShortNameDupList = [];
-                                    setState(() {});
+                                    safeSetState(() {});
                                     FFAppState().nonePackageFlagRenew = false;
-                                    setState(() {});
+                                    safeSetState(() {});
                                     FFAppState()
                                         .nonePackageVehicleType = FFAppState()
                                             .searchPackageCheckFilled
@@ -1116,11 +1113,11 @@ class _InsuranceWorkSelectPageWidgetState
                                                 .nonePackageSearchModelIdList
                                                 .toList()
                                                 .cast<String>();
-                                    setState(() {});
+                                    safeSetState(() {});
                                     FFAppState().nonePackageOldVmiExpDate =
                                         FFAppState()
                                             .insuranceBasicOldVmiExpDate;
-                                    setState(() {});
+                                    safeSetState(() {});
                                     FFAppState().nonePackageImageFrontUploaded =
                                         '';
                                     FFAppState()
@@ -1166,17 +1163,17 @@ class _InsuranceWorkSelectPageWidgetState
                                     FFAppState().nonePackageOldVmiImageUrl = '';
                                     FFAppState()
                                         .nonePackageCompanyBookImageUrl = '';
-                                    setState(() {});
+                                    safeSetState(() {});
 
                                     context.pushNamed('SelectReasonPage');
                                   },
                                   text: 'นอกเรท',
                                   options: FFButtonOptions(
-                                    height: 40.0,
+                                    height: 40,
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        24.0, 0.0, 24.0, 0.0),
+                                        24, 0, 24, 0),
                                     iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
+                                        0, 0, 0, 0),
                                     color: Color(0xFFD9D9D9),
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
@@ -1186,12 +1183,12 @@ class _InsuranceWorkSelectPageWidgetState
                                               .black600,
                                           letterSpacing: 0.0,
                                         ),
-                                    elevation: 3.0,
+                                    elevation: 3,
                                     borderSide: BorderSide(
                                       color: Colors.transparent,
-                                      width: 1.0,
+                                      width: 1,
                                     ),
-                                    borderRadius: BorderRadius.circular(8.0),
+                                    borderRadius: BorderRadius.circular(8),
                                   ),
                                 ),
                               ),
@@ -1200,7 +1197,7 @@ class _InsuranceWorkSelectPageWidgetState
                         ),
                       ),
                     ),
-                  ].addToStart(SizedBox(height: 24.0)),
+                  ].addToStart(SizedBox(height: 24)),
                 );
               },
             ),

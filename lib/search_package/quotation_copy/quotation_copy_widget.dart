@@ -64,7 +64,7 @@ class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
 
       FFAppState().indexPdfQuotation = 0;
       FFAppState().lengthListPdfQuotation = widget!.quotation!.length;
-      setState(() {});
+      safeSetState(() {});
       Navigator.pop(context);
     });
   }
@@ -92,13 +92,13 @@ class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
             automaticallyImplyLeading: false,
             leading: FlutterFlowIconButton(
               borderColor: Colors.transparent,
-              borderRadius: 30.0,
-              borderWidth: 1.0,
-              buttonSize: 60.0,
+              borderRadius: 30,
+              borderWidth: 1,
+              buttonSize: 60,
               icon: Icon(
                 Icons.arrow_back_rounded,
                 color: Color(0xFFDB771A),
-                size: 30.0,
+                size: 30,
               ),
               onPressed: () async {
                 context.safePop();
@@ -109,14 +109,14 @@ class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF003063),
-                    fontSize: 18.0,
+                    fontSize: 18,
                     letterSpacing: 0.0,
                     fontWeight: FontWeight.w600,
                   ),
             ),
             actions: [],
             centerTitle: true,
-            elevation: 2.0,
+            elevation: 2,
           ),
           body: SafeArea(
             top: true,
@@ -124,10 +124,10 @@ class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
                   child: Container(
-                    width: MediaQuery.sizeOf(context).width * 1.0,
-                    height: 50.0,
+                    width: MediaQuery.sizeOf(context).width,
+                    height: 50,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                     ),
@@ -148,27 +148,27 @@ class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
                               );
                               FFAppState().indexPdfQuotation =
                                   FFAppState().indexPdfQuotation + -1;
-                              setState(() {});
+                              safeSetState(() {});
                             },
                             child: Container(
-                              width: 100.0,
-                              height: 100.0,
+                              width: 100,
+                              height: 100,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
                               ),
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0, 0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 5.0, 0.0),
+                                        0, 0, 5, 0),
                                     child: Icon(
                                       Icons.arrow_back,
                                       color:
                                           FlutterFlowTheme.of(context).black600,
-                                      size: 24.0,
+                                      size: 24,
                                     ),
                                   ),
                                   Text(
@@ -197,12 +197,12 @@ class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
                             },
                             text: 'ดาวน์โหลด PDF',
                             options: FFButtonOptions(
-                              width: 130.0,
-                              height: 40.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 0.0, 24.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
+                              width: 130,
+                              height: 40,
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                              iconPadding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                               color: FlutterFlowTheme.of(context).primary,
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
@@ -211,12 +211,12 @@ class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
                                     color: Colors.white,
                                     letterSpacing: 0.0,
                                   ),
-                              elevation: 3.0,
+                              elevation: 3,
                               borderSide: BorderSide(
                                 color: Colors.transparent,
-                                width: 1.0,
+                                width: 1,
                               ),
-                              borderRadius: BorderRadius.circular(15.0),
+                              borderRadius: BorderRadius.circular(15),
                             ),
                           ),
                         if (FFAppState().indexPdfQuotation ==
@@ -236,23 +236,23 @@ class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
                               );
                               FFAppState().indexPdfQuotation =
                                   FFAppState().indexPdfQuotation + 1;
-                              setState(() {});
+                              safeSetState(() {});
                             },
                             child: Container(
-                              width: 100.0,
-                              height: 100.0,
+                              width: 100,
+                              height: 100,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
                               ),
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0, 0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 5.0, 0.0),
+                                        0, 0, 5, 0),
                                     child: Text(
                                       'ถัดไป',
                                       style: FlutterFlowTheme.of(context)
@@ -267,7 +267,7 @@ class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
                                     Icons.arrow_forward,
                                     color:
                                         FlutterFlowTheme.of(context).black600,
-                                    size: 24.0,
+                                    size: 24,
                                   ),
                                 ],
                               ),
@@ -284,7 +284,7 @@ class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
 
                     return Container(
                       width: double.infinity,
-                      height: MediaQuery.sizeOf(context).height * 1.0,
+                      height: MediaQuery.sizeOf(context).height * 1,
                       child: Stack(
                         children: [
                           PageView.builder(
@@ -313,12 +313,10 @@ class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
                                       onTap: () async {},
                                       onLongPress: () async {},
                                       child: Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                1.0,
+                                        width: MediaQuery.sizeOf(context).width,
                                         height:
                                             MediaQuery.sizeOf(context).height *
-                                                1.0,
+                                                1,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
@@ -326,7 +324,7 @@ class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 300.0),
+                                                  0, 0, 0, 300),
                                           child: FlutterFlowPdfViewer(
                                             networkPath: widget!.quotation![
                                                 FFAppState().indexPdfQuotation],
@@ -343,28 +341,24 @@ class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
                                       widget!.quotation?[
                                           FFAppState().indexPdfQuotation])!)
                                     Container(
-                                      width: MediaQuery.sizeOf(context).width *
-                                          1.0,
+                                      width: MediaQuery.sizeOf(context).width,
                                       height:
-                                          MediaQuery.sizeOf(context).height *
-                                              1.0,
+                                          MediaQuery.sizeOf(context).height * 1,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
                                       ),
                                       child: ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
+                                        borderRadius: BorderRadius.circular(8),
                                         child: Image.network(
                                           functions.stringToImgPath(widget!
                                                   .quotation?[
                                               FFAppState().indexPdfQuotation])!,
                                           width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  1.0,
+                                              MediaQuery.sizeOf(context).width,
                                           height: MediaQuery.sizeOf(context)
                                                   .height *
-                                              1.0,
+                                              1,
                                           fit: BoxFit.contain,
                                         ),
                                       ),
@@ -376,8 +370,8 @@ class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
                           Align(
                             alignment: AlignmentDirectional(0.9, -0.3),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 0.0, 0.0, 16.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(16, 0, 0, 16),
                               child: smooth_page_indicator.SmoothPageIndicator(
                                 controller: _model.pageViewController ??=
                                     PageController(
@@ -392,15 +386,15 @@ class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
                                     duration: Duration(milliseconds: 500),
                                     curve: Curves.ease,
                                   );
-                                  setState(() {});
+                                  safeSetState(() {});
                                 },
                                 effect:
                                     smooth_page_indicator.ExpandingDotsEffect(
-                                  expansionFactor: 2.0,
-                                  spacing: 8.0,
-                                  radius: 16.0,
-                                  dotWidth: 16.0,
-                                  dotHeight: 8.0,
+                                  expansionFactor: 2,
+                                  spacing: 8,
+                                  radius: 16,
+                                  dotWidth: 16,
+                                  dotHeight: 8,
                                   dotColor:
                                       FlutterFlowTheme.of(context).lineColor,
                                   activeDotColor:

@@ -61,7 +61,7 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
               child: Icon(
                 Icons.arrow_back,
                 color: Color(0xFFDB7619),
-                size: 30.0,
+                size: 30,
               ),
             ),
             title: Text(
@@ -69,7 +69,7 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF123063),
-                    fontSize: 18.0,
+                    fontSize: 18,
                     letterSpacing: 0.0,
                   ),
             ),
@@ -99,7 +99,7 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      24.0, 0.0, 24.0, 4.0),
+                                      24, 0, 24, 4),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     crossAxisAlignment:
@@ -112,14 +112,14 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF404040),
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 0.0, 0.0),
+                                            10, 0, 0, 0),
                                         child: Text(
                                           '(บังคับเลือก)',
                                           style: FlutterFlowTheme.of(context)
@@ -127,7 +127,7 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Color(0xFFF40606),
-                                                fontSize: 12.0,
+                                                fontSize: 12,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
@@ -138,7 +138,7 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 0.0, 16.0, 0.0),
+                                      16, 0, 16, 0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
                                     focusColor: Colors.transparent,
@@ -166,23 +166,21 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                     },
                                     child: Container(
                                       width: double.infinity,
-                                      height: 60.0,
+                                      height: 60,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
+                                        borderRadius: BorderRadius.circular(10),
                                         border: Border.all(
                                           width: 0.5,
                                         ),
                                       ),
                                       child: Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                        alignment: AlignmentDirectional(0, 0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  4.0, 0.0, 0.0, 0.0),
+                                                  4, 0, 0, 0),
                                           child: ListTile(
                                             title: Text(
                                               'เลือกประเภทรถ',
@@ -200,7 +198,7 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                                                         .insuranceVehicleTypeDropDown)!
                                                             ? Color(0xFF9F9F9F)
                                                             : Colors.black,
-                                                        fontSize: 15.0,
+                                                        fontSize: 15,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
@@ -209,7 +207,7 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                             trailing: Icon(
                                               Icons.arrow_forward_ios,
                                               color: Color(0xFF474747),
-                                              size: 20.0,
+                                              size: 20,
                                             ),
                                             tileColor:
                                                 FlutterFlowTheme.of(context)
@@ -217,7 +215,7 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                             dense: false,
                                             shape: RoundedRectangleBorder(
                                               borderRadius:
-                                                  BorderRadius.circular(10.0),
+                                                  BorderRadius.circular(10),
                                             ),
                                           ),
                                         ),
@@ -237,7 +235,7 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      24.0, 0.0, 24.0, 4.0),
+                                      24, 0, 24, 4),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     crossAxisAlignment:
@@ -250,14 +248,14 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF404040),
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 0.0, 0.0),
+                                            10, 0, 0, 0),
                                         child: Text(
                                           '(บังคับเลือก)',
                                           style: FlutterFlowTheme.of(context)
@@ -265,7 +263,7 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Color(0xFFF40606),
-                                                fontSize: 12.0,
+                                                fontSize: 12,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
@@ -276,7 +274,7 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 0.0, 16.0, 0.0),
+                                      16, 0, 16, 0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
                                     focusColor: Colors.transparent,
@@ -304,23 +302,21 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                     },
                                     child: Container(
                                       width: double.infinity,
-                                      height: 60.0,
+                                      height: 60,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
+                                        borderRadius: BorderRadius.circular(10),
                                         border: Border.all(
                                           width: 0.5,
                                         ),
                                       ),
                                       child: Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                        alignment: AlignmentDirectional(0, 0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  4.0, 0.0, 0.0, 0.0),
+                                                  4, 0, 0, 0),
                                           child: ListTile(
                                             title: Text(
                                               'เลือกยี่ห้อรถ',
@@ -338,7 +334,7 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                                                         .insuranceBasicBrandName)!
                                                             ? Color(0xFF9F9F9F)
                                                             : Colors.black,
-                                                        fontSize: 15.0,
+                                                        fontSize: 15,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
@@ -347,7 +343,7 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                             trailing: Icon(
                                               Icons.arrow_forward_ios,
                                               color: Color(0xFF474747),
-                                              size: 20.0,
+                                              size: 20,
                                             ),
                                             tileColor:
                                                 FlutterFlowTheme.of(context)
@@ -355,7 +351,7 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                             dense: false,
                                             shape: RoundedRectangleBorder(
                                               borderRadius:
-                                                  BorderRadius.circular(10.0),
+                                                  BorderRadius.circular(10),
                                             ),
                                           ),
                                         ),
@@ -375,7 +371,7 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      24.0, 0.0, 24.0, 4.0),
+                                      24, 0, 24, 4),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     crossAxisAlignment:
@@ -388,14 +384,14 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF404040),
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 0.0, 0.0),
+                                            10, 0, 0, 0),
                                         child: Text(
                                           '(บังคับเลือก)',
                                           style: FlutterFlowTheme.of(context)
@@ -403,7 +399,7 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Color(0xFFF40606),
-                                                fontSize: 12.0,
+                                                fontSize: 12,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
@@ -414,7 +410,7 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 0.0, 16.0, 0.0),
+                                      16, 0, 16, 0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
                                     focusColor: Colors.transparent,
@@ -442,23 +438,21 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                     },
                                     child: Container(
                                       width: double.infinity,
-                                      height: 60.0,
+                                      height: 60,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
+                                        borderRadius: BorderRadius.circular(10),
                                         border: Border.all(
                                           width: 0.5,
                                         ),
                                       ),
                                       child: Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                        alignment: AlignmentDirectional(0, 0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  4.0, 0.0, 0.0, 0.0),
+                                                  4, 0, 0, 0),
                                           child: ListTile(
                                             title: Text(
                                               'เลือกยี่ห้อรถ',
@@ -476,7 +470,7 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                                                         .insuranceBasicModelName)!
                                                             ? Color(0xFF9F9F9F)
                                                             : Colors.black,
-                                                        fontSize: 15.0,
+                                                        fontSize: 15,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
@@ -485,7 +479,7 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                             trailing: Icon(
                                               Icons.arrow_forward_ios,
                                               color: Color(0xFF474747),
-                                              size: 20.0,
+                                              size: 20,
                                             ),
                                             tileColor:
                                                 FlutterFlowTheme.of(context)
@@ -493,7 +487,7 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                             dense: false,
                                             shape: RoundedRectangleBorder(
                                               borderRadius:
-                                                  BorderRadius.circular(10.0),
+                                                  BorderRadius.circular(10),
                                             ),
                                           ),
                                         ),
@@ -513,7 +507,7 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      24.0, 0.0, 24.0, 4.0),
+                                      24, 0, 24, 4),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     crossAxisAlignment:
@@ -526,14 +520,14 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF404040),
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 0.0, 0.0),
+                                            10, 0, 0, 0),
                                         child: Text(
                                           '(บังคับเลือก)',
                                           style: FlutterFlowTheme.of(context)
@@ -541,7 +535,7 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Color(0xFFF40606),
-                                                fontSize: 12.0,
+                                                fontSize: 12,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
@@ -552,7 +546,7 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 0.0, 16.0, 0.0),
+                                      16, 0, 16, 0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
                                     focusColor: Colors.transparent,
@@ -580,23 +574,21 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                     },
                                     child: Container(
                                       width: double.infinity,
-                                      height: 60.0,
+                                      height: 60,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
+                                        borderRadius: BorderRadius.circular(10),
                                         border: Border.all(
                                           width: 0.5,
                                         ),
                                       ),
                                       child: Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                        alignment: AlignmentDirectional(0, 0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  4.0, 0.0, 0.0, 0.0),
+                                                  4, 0, 0, 0),
                                           child: ListTile(
                                             title: Text(
                                               'เลือกปี',
@@ -614,7 +606,7 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                                                         .insuranceBasicYear)!
                                                             ? Color(0xFF9F9F9F)
                                                             : Colors.black,
-                                                        fontSize: 15.0,
+                                                        fontSize: 15,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
@@ -623,7 +615,7 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                             trailing: Icon(
                                               Icons.arrow_forward_ios,
                                               color: Color(0xFF474747),
-                                              size: 20.0,
+                                              size: 20,
                                             ),
                                             tileColor:
                                                 FlutterFlowTheme.of(context)
@@ -631,7 +623,7 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                             dense: false,
                                             shape: RoundedRectangleBorder(
                                               borderRadius:
-                                                  BorderRadius.circular(10.0),
+                                                  BorderRadius.circular(10),
                                             ),
                                           ),
                                         ),
@@ -651,7 +643,7 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      24.0, 0.0, 24.0, 4.0),
+                                      24, 0, 24, 4),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     crossAxisAlignment:
@@ -664,14 +656,14 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF404040),
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 0.0, 0.0),
+                                            10, 0, 0, 0),
                                         child: Text(
                                           '(บังคับเลือก)',
                                           style: FlutterFlowTheme.of(context)
@@ -679,7 +671,7 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Color(0xFFF40606),
-                                                fontSize: 12.0,
+                                                fontSize: 12,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
@@ -690,7 +682,7 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 0.0, 16.0, 0.0),
+                                      16, 0, 16, 0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
                                     focusColor: Colors.transparent,
@@ -718,23 +710,21 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                     },
                                     child: Container(
                                       width: double.infinity,
-                                      height: 60.0,
+                                      height: 60,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
+                                        borderRadius: BorderRadius.circular(10),
                                         border: Border.all(
                                           width: 0.5,
                                         ),
                                       ),
                                       child: Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                        alignment: AlignmentDirectional(0, 0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  4.0, 0.0, 0.0, 0.0),
+                                                  4, 0, 0, 0),
                                           child: ListTile(
                                             title: Text(
                                               'เลือกการใช้งาน',
@@ -752,7 +742,7 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                                                         .insuranceBasicVehicleUsedTypeName)!
                                                             ? Color(0xFF9F9F9F)
                                                             : Colors.black,
-                                                        fontSize: 15.0,
+                                                        fontSize: 15,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
@@ -761,7 +751,7 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                             trailing: Icon(
                                               Icons.arrow_forward_ios,
                                               color: Color(0xFF474747),
-                                              size: 20.0,
+                                              size: 20,
                                             ),
                                             tileColor:
                                                 FlutterFlowTheme.of(context)
@@ -769,7 +759,7 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                             dense: false,
                                             shape: RoundedRectangleBorder(
                                               borderRadius:
-                                                  BorderRadius.circular(10.0),
+                                                  BorderRadius.circular(10),
                                             ),
                                           ),
                                         ),
@@ -789,7 +779,7 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      24.0, 0.0, 24.0, 4.0),
+                                      24, 0, 24, 4),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     crossAxisAlignment:
@@ -802,14 +792,14 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF404040),
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 0.0, 0.0),
+                                            10, 0, 0, 0),
                                         child: Text(
                                           '(บังคับเลือก สามารถเลือกได้มากกว่า 1)',
                                           style: FlutterFlowTheme.of(context)
@@ -817,7 +807,7 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Color(0xFFF40606),
-                                                fontSize: 12.0,
+                                                fontSize: 12,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
@@ -828,7 +818,7 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 0.0, 16.0, 0.0),
+                                      16, 0, 16, 0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
                                     focusColor: Colors.transparent,
@@ -856,23 +846,21 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                     },
                                     child: Container(
                                       width: double.infinity,
-                                      height: 60.0,
+                                      height: 60,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
+                                        borderRadius: BorderRadius.circular(10),
                                         border: Border.all(
                                           width: 0.5,
                                         ),
                                       ),
                                       child: Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                        alignment: AlignmentDirectional(0, 0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  4.0, 0.0, 0.0, 0.0),
+                                                  4, 0, 0, 0),
                                           child: ListTile(
                                             title: Text(
                                               'เลือกชั้นประกัน',
@@ -889,7 +877,7 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                                                 0
                                                             ? Colors.black
                                                             : Color(0xFF9F9F9F),
-                                                        fontSize: 15.0,
+                                                        fontSize: 15,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
@@ -898,7 +886,7 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                             trailing: Icon(
                                               Icons.arrow_forward_ios,
                                               color: Color(0xFF474747),
-                                              size: 20.0,
+                                              size: 20,
                                             ),
                                             tileColor:
                                                 FlutterFlowTheme.of(context)
@@ -906,7 +894,7 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                             dense: false,
                                             shape: RoundedRectangleBorder(
                                               borderRadius:
-                                                  BorderRadius.circular(10.0),
+                                                  BorderRadius.circular(10),
                                             ),
                                           ),
                                         ),
@@ -926,7 +914,7 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      24.0, 0.0, 24.0, 4.0),
+                                      24, 0, 24, 4),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     crossAxisAlignment:
@@ -939,14 +927,14 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF424242),
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 0.0, 0.0),
+                                            10, 0, 0, 0),
                                         child: Text(
                                           '(บังคับเลือก สามารถเลือกได้มากกว่า 1)',
                                           style: FlutterFlowTheme.of(context)
@@ -954,7 +942,7 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Color(0xFFF40606),
-                                                fontSize: 12.0,
+                                                fontSize: 12,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
@@ -965,7 +953,7 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 0.0, 16.0, 0.0),
+                                      16, 0, 16, 0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
                                     focusColor: Colors.transparent,
@@ -993,23 +981,21 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                     },
                                     child: Container(
                                       width: double.infinity,
-                                      height: 60.0,
+                                      height: 60,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
+                                        borderRadius: BorderRadius.circular(10),
                                         border: Border.all(
                                           width: 0.5,
                                         ),
                                       ),
                                       child: Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                        alignment: AlignmentDirectional(0, 0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  4.0, 0.0, 0.0, 0.0),
+                                                  4, 0, 0, 0),
                                           child: ListTile(
                                             title: Text(
                                               'เลือกประเภทการซ่อม',
@@ -1026,7 +1012,7 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                                                 0
                                                             ? Colors.black
                                                             : Color(0xFF9F9F9F),
-                                                        fontSize: 15.0,
+                                                        fontSize: 15,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
@@ -1035,7 +1021,7 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                             trailing: Icon(
                                               Icons.arrow_forward_ios,
                                               color: Color(0xFF474747),
-                                              size: 20.0,
+                                              size: 20,
                                             ),
                                             tileColor:
                                                 FlutterFlowTheme.of(context)
@@ -1043,7 +1029,7 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                                             dense: false,
                                             shape: RoundedRectangleBorder(
                                               borderRadius:
-                                                  BorderRadius.circular(10.0),
+                                                  BorderRadius.circular(10),
                                             ),
                                           ),
                                         ),
@@ -1059,9 +1045,9 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                             decoration: BoxDecoration(),
                           ),
                         ]
-                            .divide(SizedBox(height: 8.0))
-                            .addToStart(SizedBox(height: 20.0))
-                            .addToEnd(SizedBox(height: 36.0)),
+                            .divide(SizedBox(height: 8))
+                            .addToStart(SizedBox(height: 20))
+                            .addToEnd(SizedBox(height: 36)),
                       ),
                     ),
                   ),
@@ -1070,7 +1056,7 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                   flex: 2,
                   child: Container(
                     width: double.infinity,
-                    height: 100.0,
+                    height: 100,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                     ),
@@ -1079,8 +1065,7 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 0.0, 16.0, 0.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                           child: FFButtonWidget(
                             onPressed: () async {
                               await showDialog(
@@ -1104,30 +1089,30 @@ class _ForDupeUiWidgetState extends State<ForDupeUiWidget> {
                             text: 'ค้นหา',
                             options: FFButtonOptions(
                               width: double.infinity,
-                              height: 60.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 0.0, 24.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
+                              height: 60,
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                              iconPadding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                               color: Color(0xFFDB771B),
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
                                     fontFamily: 'Noto Sans Thai',
                                     color: Colors.white,
-                                    fontSize: 15.0,
+                                    fontSize: 15,
                                     letterSpacing: 0.0,
                                   ),
-                              elevation: 3.0,
+                              elevation: 3,
                               borderSide: BorderSide(
                                 color: Colors.transparent,
-                                width: 1.0,
+                                width: 1,
                               ),
-                              borderRadius: BorderRadius.circular(16.0),
+                              borderRadius: BorderRadius.circular(16),
                             ),
                           ),
                         ),
-                      ].addToStart(SizedBox(height: 16.0)),
+                      ].addToStart(SizedBox(height: 16)),
                     ),
                   ),
                 ),

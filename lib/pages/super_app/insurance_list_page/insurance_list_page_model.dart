@@ -30,7 +30,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class InsuranceListPageModel extends FlutterFlowModel<InsuranceListPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Custom Action - getBuildVersion1] action in insuranceListPage widget.
   String? getBuildVersion;
   // Stores action output result for [Custom Action - getBuildNumber] action in insuranceListPage widget.

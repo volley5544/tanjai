@@ -50,13 +50,13 @@ class _SelectOrdinaryWidgetState extends State<SelectOrdinaryWidget> {
           automaticallyImplyLeading: false,
           leading: FlutterFlowIconButton(
             borderColor: Colors.transparent,
-            borderRadius: 30.0,
-            borderWidth: 1.0,
-            buttonSize: 60.0,
+            borderRadius: 30,
+            borderWidth: 1,
+            buttonSize: 60,
             icon: Icon(
               Icons.arrow_back_rounded,
               color: Color(0xCAFF6500),
-              size: 30.0,
+              size: 30,
             ),
             onPressed: () async {
               context.safePop();
@@ -67,13 +67,13 @@ class _SelectOrdinaryWidgetState extends State<SelectOrdinaryWidget> {
             style: FlutterFlowTheme.of(context).bodyMedium.override(
                   fontFamily: 'Noto Sans Thai',
                   color: Color(0xFF1D4774),
-                  fontSize: 18.0,
+                  fontSize: 18,
                   letterSpacing: 0.0,
                 ),
           ),
           actions: [],
           centerTitle: true,
-          elevation: 0.0,
+          elevation: 0,
         ),
         body: SafeArea(
           top: true,
@@ -83,18 +83,17 @@ class _SelectOrdinaryWidgetState extends State<SelectOrdinaryWidget> {
               Expanded(
                 flex: 7,
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
                   child: Container(
                     width: double.infinity,
-                    height: 100.0,
+                    height: 100,
                     decoration: BoxDecoration(
                       color: Color(0xFFF1F4F8),
                     ),
                     child: Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
+                      alignment: AlignmentDirectional(0, 0),
                       child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 24),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -106,7 +105,7 @@ class _SelectOrdinaryWidgetState extends State<SelectOrdinaryWidget> {
                                 Expanded(
                                   flex: 1,
                                   child: Padding(
-                                    padding: EdgeInsets.all(10.0),
+                                    padding: EdgeInsets.all(10),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
                                       focusColor: Colors.transparent,
@@ -118,25 +117,25 @@ class _SelectOrdinaryWidgetState extends State<SelectOrdinaryWidget> {
                                           FFAppState().buttonCorporation =
                                               false;
                                           FFAppState().buttonOrdinary = false;
-                                          setState(() {});
+                                          safeSetState(() {});
                                           FFAppState().insuranceInfoCardType =
                                               'เลือกประเภทบัตร';
-                                          setState(() {});
+                                          safeSetState(() {});
                                         } else {
                                           FFAppState().buttonCorporation =
                                               false;
                                           FFAppState().buttonOrdinary = true;
-                                          setState(() {});
+                                          safeSetState(() {});
                                           FFAppState().insuranceInfoCardType =
                                               'เลือกประเภทบัตร';
-                                          setState(() {});
+                                          safeSetState(() {});
                                         }
 
                                         context.safePop();
                                       },
                                       child: Container(
-                                        width: 100.0,
-                                        height: 120.0,
+                                        width: 100,
+                                        height: 120,
                                         decoration: BoxDecoration(
                                           color: valueOrDefault<Color>(
                                             FFAppState().buttonOrdinary == true
@@ -145,7 +144,7 @@ class _SelectOrdinaryWidgetState extends State<SelectOrdinaryWidget> {
                                             Colors.white,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(16.0),
+                                              BorderRadius.circular(16),
                                         ),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
@@ -153,15 +152,15 @@ class _SelectOrdinaryWidgetState extends State<SelectOrdinaryWidget> {
                                             Expanded(
                                               flex: 2,
                                               child: Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
+                                                alignment:
+                                                    AlignmentDirectional(0, 0),
                                                 child: Container(
-                                                  width: 50.0,
-                                                  height: 50.0,
+                                                  width: 50,
+                                                  height: 50,
                                                   decoration: BoxDecoration(
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            60.0),
+                                                            60),
                                                     border: Border.all(
                                                       color: Color(0xFF1D4774),
                                                       width: 1.5,
@@ -170,12 +169,12 @@ class _SelectOrdinaryWidgetState extends State<SelectOrdinaryWidget> {
                                                   child: Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.0, 0.0),
+                                                            0, 0),
                                                     child: Icon(
                                                       Icons
                                                           .person_outline_sharp,
                                                       color: Color(0xFF1D4774),
-                                                      size: 35.0,
+                                                      size: 35,
                                                     ),
                                                   ),
                                                 ),
@@ -193,7 +192,7 @@ class _SelectOrdinaryWidgetState extends State<SelectOrdinaryWidget> {
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFF1D4774),
-                                                          fontSize: 15.0,
+                                                          fontSize: 15,
                                                           letterSpacing: 0.0,
                                                         ),
                                               ),
@@ -207,7 +206,7 @@ class _SelectOrdinaryWidgetState extends State<SelectOrdinaryWidget> {
                                 Expanded(
                                   flex: 1,
                                   child: Padding(
-                                    padding: EdgeInsets.all(10.0),
+                                    padding: EdgeInsets.all(10),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
                                       focusColor: Colors.transparent,
@@ -219,24 +218,24 @@ class _SelectOrdinaryWidgetState extends State<SelectOrdinaryWidget> {
                                           FFAppState().buttonCorporation =
                                               false;
                                           FFAppState().buttonOrdinary = false;
-                                          setState(() {});
+                                          safeSetState(() {});
                                           FFAppState().insuranceInfoCardType =
                                               'เลือกประเภทบัตร';
-                                          setState(() {});
+                                          safeSetState(() {});
                                         } else {
                                           FFAppState().buttonCorporation = true;
                                           FFAppState().buttonOrdinary = false;
-                                          setState(() {});
+                                          safeSetState(() {});
                                           FFAppState().insuranceInfoCardType =
                                               '3';
-                                          setState(() {});
+                                          safeSetState(() {});
                                         }
 
                                         context.safePop();
                                       },
                                       child: Container(
-                                        width: 100.0,
-                                        height: 120.0,
+                                        width: 100,
+                                        height: 120,
                                         decoration: BoxDecoration(
                                           color: valueOrDefault<Color>(
                                             FFAppState().buttonCorporation ==
@@ -246,7 +245,7 @@ class _SelectOrdinaryWidgetState extends State<SelectOrdinaryWidget> {
                                             Colors.white,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(16.0),
+                                              BorderRadius.circular(16),
                                         ),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
@@ -254,15 +253,15 @@ class _SelectOrdinaryWidgetState extends State<SelectOrdinaryWidget> {
                                             Expanded(
                                               flex: 2,
                                               child: Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
+                                                alignment:
+                                                    AlignmentDirectional(0, 0),
                                                 child: Container(
-                                                  width: 50.0,
-                                                  height: 50.0,
+                                                  width: 50,
+                                                  height: 50,
                                                   decoration: BoxDecoration(
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            60.0),
+                                                            60),
                                                     border: Border.all(
                                                       color: Color(0xFF1D4774),
                                                       width: 1.5,
@@ -271,11 +270,11 @@ class _SelectOrdinaryWidgetState extends State<SelectOrdinaryWidget> {
                                                   child: Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.0, 0.0),
+                                                            0, 0),
                                                     child: Icon(
                                                       Icons.home_work_outlined,
                                                       color: Color(0xFF1D4774),
-                                                      size: 30.0,
+                                                      size: 30,
                                                     ),
                                                   ),
                                                 ),
@@ -293,7 +292,7 @@ class _SelectOrdinaryWidgetState extends State<SelectOrdinaryWidget> {
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFF1D4774),
-                                                          fontSize: 15.0,
+                                                          fontSize: 15,
                                                           letterSpacing: 0.0,
                                                         ),
                                               ),

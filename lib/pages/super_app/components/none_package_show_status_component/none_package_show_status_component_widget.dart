@@ -69,7 +69,7 @@ class _NonePackageShowStatusComponentWidgetState
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(8, 8, 0, 0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -81,7 +81,7 @@ class _NonePackageShowStatusComponentWidgetState
                   child: Icon(
                     Icons.arrow_back_sharp,
                     color: Colors.black,
-                    size: 35.0,
+                    size: 35,
                   ),
                 ),
               ),
@@ -130,16 +130,16 @@ class _NonePackageShowStatusComponentWidgetState
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Container(
-                                        width: 25.0,
-                                        height: 25.0,
+                                        width: 25,
+                                        height: 25,
                                         decoration: BoxDecoration(
                                           color: Color(0xFF24D200),
                                           shape: BoxShape.circle,
                                         ),
                                       ),
                                       Container(
-                                        width: 5.0,
-                                        height: 150.0,
+                                        width: 5,
+                                        height: 150,
                                         decoration: BoxDecoration(
                                           color: Color(0xFF24D200),
                                         ),
@@ -157,7 +157,7 @@ class _NonePackageShowStatusComponentWidgetState
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  15.0, 0.0, 0.0, 0.0),
+                                                  15, 0, 0, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             crossAxisAlignment:
@@ -165,11 +165,10 @@ class _NonePackageShowStatusComponentWidgetState
                                             children: [
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 0.0, 0.0, 10.0),
+                                                    .fromSTEB(0, 0, 0, 10),
                                                 child: Container(
-                                                  width: 3.0,
-                                                  height: 150.0,
+                                                  width: 3,
+                                                  height: 150,
                                                   decoration: BoxDecoration(
                                                     color: random_data
                                                         .randomColor(),
@@ -179,8 +178,7 @@ class _NonePackageShowStatusComponentWidgetState
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        16.0, 0.0, 0.0, 0.0),
+                                                    .fromSTEB(16, 0, 0, 0),
                                                 child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -207,7 +205,7 @@ class _NonePackageShowStatusComponentWidgetState
                                                             fontFamily:
                                                                 'Noto Sans Thai',
                                                             color: Colors.black,
-                                                            fontSize: 18.0,
+                                                            fontSize: 18,
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
@@ -245,7 +243,7 @@ class _NonePackageShowStatusComponentWidgetState
                                                                       fontFamily:
                                                                           'Noto Sans Thai',
                                                                       fontSize:
-                                                                          15.0,
+                                                                          15,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -277,7 +275,7 @@ class _NonePackageShowStatusComponentWidgetState
                                                                           color:
                                                                               Colors.black,
                                                                           fontSize:
-                                                                              12.0,
+                                                                              12,
                                                                           letterSpacing:
                                                                               0.0,
                                                                         ),
@@ -299,7 +297,7 @@ class _NonePackageShowStatusComponentWidgetState
                                                                           color:
                                                                               Colors.black,
                                                                           fontSize:
-                                                                              12.0,
+                                                                              12,
                                                                           letterSpacing:
                                                                               0.0,
                                                                         ),
@@ -370,8 +368,7 @@ class _NonePackageShowStatusComponentWidgetState
                       },
                     ),
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 30.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 30),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -384,8 +381,8 @@ class _NonePackageShowStatusComponentWidgetState
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Container(
-                                  width: 25.0,
-                                  height: 25.0,
+                                  width: 25,
+                                  height: 25,
                                   decoration: BoxDecoration(
                                     color: Color(0xFF24D200),
                                     shape: BoxShape.circle,
@@ -401,7 +398,7 @@ class _NonePackageShowStatusComponentWidgetState
                                   decoration: BoxDecoration(),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        15.0, 0.0, 0.0, 0.0),
+                                        15, 0, 0, 0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       crossAxisAlignment:
@@ -410,10 +407,10 @@ class _NonePackageShowStatusComponentWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 10.0),
+                                                  0, 0, 0, 10),
                                           child: Container(
-                                            width: 3.0,
-                                            height: 100.0,
+                                            width: 3,
+                                            height: 100,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -426,7 +423,7 @@ class _NonePackageShowStatusComponentWidgetState
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    15.0, 0.0, 0.0, 0.0),
+                                                    15, 0, 0, 0),
                                             child: Container(
                                               width: double.infinity,
                                               color: Colors.white,
@@ -448,15 +445,14 @@ class _NonePackageShowStatusComponentWidgetState
                                                           fontFamily:
                                                               'Noto Sans Thai',
                                                           color: Colors.black,
-                                                          fontSize: 18.0,
+                                                          fontSize: 18,
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                   collapsed: Container(
                                                     width: MediaQuery.sizeOf(
-                                                                context)
-                                                            .width *
-                                                        1.0,
+                                                            context)
+                                                        .width,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
@@ -472,11 +468,8 @@ class _NonePackageShowStatusComponentWidgetState
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      8.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                                  .fromSTEB(0,
+                                                                      8, 0, 0),
                                                           child: Text(
                                                             'โดย : ${widget!.updaterList?.last}',
                                                             style: FlutterFlowTheme
@@ -523,7 +516,7 @@ class _NonePackageShowStatusComponentWidgetState
                                                                     color: Color(
                                                                         0x8A000000),
                                                                     fontSize:
-                                                                        12.0,
+                                                                        12,
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -546,7 +539,7 @@ class _NonePackageShowStatusComponentWidgetState
                                                                     color: Color(
                                                                         0x8A000000),
                                                                     fontSize:
-                                                                        12.0,
+                                                                        12,
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -558,9 +551,8 @@ class _NonePackageShowStatusComponentWidgetState
                                                   ),
                                                   expanded: Container(
                                                     width: MediaQuery.sizeOf(
-                                                                context)
-                                                            .width *
-                                                        1.0,
+                                                            context)
+                                                        .width,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
@@ -576,11 +568,8 @@ class _NonePackageShowStatusComponentWidgetState
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      8.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                                  .fromSTEB(0,
+                                                                      8, 0, 0),
                                                           child: Text(
                                                             'โดย : ${widget!.updaterList?.last}',
                                                             style: FlutterFlowTheme
@@ -623,7 +612,7 @@ class _NonePackageShowStatusComponentWidgetState
                                                                     color: Color(
                                                                         0x8A000000),
                                                                     fontSize:
-                                                                        12.0,
+                                                                        12,
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -646,7 +635,7 @@ class _NonePackageShowStatusComponentWidgetState
                                                                     color: Color(
                                                                         0x8A000000),
                                                                     fontSize:
-                                                                        12.0,
+                                                                        12,
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),

@@ -58,8 +58,8 @@ class _NonePackageEditPage2CopyWidgetState
             backgroundColor: Colors.white,
             body: Center(
               child: SizedBox(
-                width: 50.0,
-                height: 50.0,
+                width: 50,
+                height: 50,
                 child: CircularProgressIndicator(
                   valueColor: AlwaysStoppedAnimation<Color>(
                     FlutterFlowTheme.of(context).primary,
@@ -88,13 +88,13 @@ class _NonePackageEditPage2CopyWidgetState
                 automaticallyImplyLeading: false,
                 leading: FlutterFlowIconButton(
                   borderColor: Colors.transparent,
-                  borderRadius: 30.0,
-                  borderWidth: 1.0,
-                  buttonSize: 60.0,
+                  borderRadius: 30,
+                  borderWidth: 1,
+                  buttonSize: 60,
                   icon: Icon(
                     Icons.arrow_back_rounded,
                     color: Color(0xFFDB771A),
-                    size: 30.0,
+                    size: 30,
                   ),
                   onPressed: () async {
                     context.pop();
@@ -105,14 +105,14 @@ class _NonePackageEditPage2CopyWidgetState
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
                         fontFamily: 'Noto Sans Thai',
                         color: Color(0xFF003063),
-                        fontSize: 18.0,
+                        fontSize: 18,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w600,
                       ),
                 ),
                 actions: [],
                 centerTitle: true,
-                elevation: 2.0,
+                elevation: 2,
               ),
               body: SafeArea(
                 top: true,
@@ -137,7 +137,7 @@ class _NonePackageEditPage2CopyWidgetState
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          24.0, 12.0, 24.0, 0.0),
+                                          24, 12, 24, 0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
@@ -148,7 +148,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF002D5E),
-                                                  fontSize: 16.0,
+                                                  fontSize: 16,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
@@ -162,19 +162,19 @@ class _NonePackageEditPage2CopyWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 12.0, 12.0, 0.0),
+                                                  12, 12, 12, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Expanded(
                                                 child: Container(
-                                                  width: 100.0,
-                                                  height: 60.0,
+                                                  width: 100,
+                                                  height: 60,
                                                   decoration: BoxDecoration(
                                                     color: Color(0xFFF0F0F0),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            8),
                                                     border: Border.all(
                                                       color: Color(0xFF737373),
                                                     ),
@@ -182,8 +182,8 @@ class _NonePackageEditPage2CopyWidgetState
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                10.0, 0.0),
+                                                            .fromSTEB(
+                                                                10, 0, 10, 0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -198,7 +198,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                                     'Noto Sans Thai',
                                                                 color: Color(
                                                                     0xFF565656),
-                                                                fontSize: 15.0,
+                                                                fontSize: 15,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -222,7 +222,7 @@ class _NonePackageEditPage2CopyWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 15.0, 12.0, 0.0),
+                                                  12, 15, 12, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -234,7 +234,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                         .override(
                                                           fontFamily:
                                                               'Noto Sans Thai',
-                                                          fontSize: 20.0,
+                                                          fontSize: 20,
                                                           letterSpacing: 0.0,
                                                         ),
                                               ),
@@ -249,7 +249,7 @@ class _NonePackageEditPage2CopyWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 0.0, 12.0, 0.0),
+                                                  12, 0, 12, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -273,14 +273,14 @@ class _NonePackageEditPage2CopyWidgetState
                                     ),
                                     Container(
                                       width: double.infinity,
-                                      height: 315.0,
+                                      height: 315,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
                                       ),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 12.0, 0.0, 0.0),
+                                            0, 12, 0, 0),
                                         child: Container(
                                           width: double.infinity,
                                           child: Stack(
@@ -354,7 +354,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                             validateFileFormat(
                                                                 m.storagePath,
                                                                 context))) {
-                                                      setState(() => _model
+                                                      safeSetState(() => _model
                                                               .isDataUploading1 =
                                                           true);
                                                       var selectedUploadedFiles =
@@ -390,13 +390,13 @@ class _NonePackageEditPage2CopyWidgetState
                                                               .length ==
                                                           selectedMedia
                                                               .length) {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.uploadedLocalFile1 =
                                                               selectedUploadedFiles
                                                                   .first;
                                                         });
                                                       } else {
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                         return;
                                                       }
                                                     }
@@ -452,8 +452,8 @@ class _NonePackageEditPage2CopyWidgetState
                                                     }
                                                   },
                                                   child: Container(
-                                                    width: 100.0,
-                                                    height: 70.0,
+                                                    width: 100,
+                                                    height: 70,
                                                     decoration: BoxDecoration(
                                                       color: Color(0x00FFFFFF),
                                                     ),
@@ -518,7 +518,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                             validateFileFormat(
                                                                 m.storagePath,
                                                                 context))) {
-                                                      setState(() => _model
+                                                      safeSetState(() => _model
                                                               .isDataUploading2 =
                                                           true);
                                                       var selectedUploadedFiles =
@@ -554,13 +554,13 @@ class _NonePackageEditPage2CopyWidgetState
                                                               .length ==
                                                           selectedMedia
                                                               .length) {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.uploadedLocalFile2 =
                                                               selectedUploadedFiles
                                                                   .first;
                                                         });
                                                       } else {
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                         return;
                                                       }
                                                     }
@@ -616,8 +616,8 @@ class _NonePackageEditPage2CopyWidgetState
                                                     }
                                                   },
                                                   child: Container(
-                                                    width: 110.0,
-                                                    height: 80.0,
+                                                    width: 110,
+                                                    height: 80,
                                                     decoration: BoxDecoration(
                                                       color: Color(0x00FFFFFF),
                                                     ),
@@ -626,7 +626,7 @@ class _NonePackageEditPage2CopyWidgetState
                                               ),
                                               Align(
                                                 alignment: AlignmentDirectional(
-                                                    0.0, -0.8),
+                                                    0, -0.8),
                                                 child: InkWell(
                                                   splashColor:
                                                       Colors.transparent,
@@ -682,7 +682,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                             validateFileFormat(
                                                                 m.storagePath,
                                                                 context))) {
-                                                      setState(() => _model
+                                                      safeSetState(() => _model
                                                               .isDataUploading3 =
                                                           true);
                                                       var selectedUploadedFiles =
@@ -718,13 +718,13 @@ class _NonePackageEditPage2CopyWidgetState
                                                               .length ==
                                                           selectedMedia
                                                               .length) {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.uploadedLocalFile3 =
                                                               selectedUploadedFiles
                                                                   .first;
                                                         });
                                                       } else {
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                         return;
                                                       }
                                                     }
@@ -780,8 +780,8 @@ class _NonePackageEditPage2CopyWidgetState
                                                     }
                                                   },
                                                   child: Container(
-                                                    width: 110.0,
-                                                    height: 80.0,
+                                                    width: 110,
+                                                    height: 80,
                                                     decoration: BoxDecoration(
                                                       color: Color(0x00FFFFFF),
                                                     ),
@@ -846,7 +846,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                             validateFileFormat(
                                                                 m.storagePath,
                                                                 context))) {
-                                                      setState(() => _model
+                                                      safeSetState(() => _model
                                                               .isDataUploading4 =
                                                           true);
                                                       var selectedUploadedFiles =
@@ -882,13 +882,13 @@ class _NonePackageEditPage2CopyWidgetState
                                                               .length ==
                                                           selectedMedia
                                                               .length) {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.uploadedLocalFile4 =
                                                               selectedUploadedFiles
                                                                   .first;
                                                         });
                                                       } else {
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                         return;
                                                       }
                                                     }
@@ -944,8 +944,8 @@ class _NonePackageEditPage2CopyWidgetState
                                                     }
                                                   },
                                                   child: Container(
-                                                    width: 110.0,
-                                                    height: 80.0,
+                                                    width: 110,
+                                                    height: 80,
                                                     decoration: BoxDecoration(
                                                       color: Color(0x00FFFFFF),
                                                     ),
@@ -1010,7 +1010,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                             validateFileFormat(
                                                                 m.storagePath,
                                                                 context))) {
-                                                      setState(() => _model
+                                                      safeSetState(() => _model
                                                               .isDataUploading5 =
                                                           true);
                                                       var selectedUploadedFiles =
@@ -1046,13 +1046,13 @@ class _NonePackageEditPage2CopyWidgetState
                                                               .length ==
                                                           selectedMedia
                                                               .length) {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.uploadedLocalFile5 =
                                                               selectedUploadedFiles
                                                                   .first;
                                                         });
                                                       } else {
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                         return;
                                                       }
                                                     }
@@ -1108,8 +1108,8 @@ class _NonePackageEditPage2CopyWidgetState
                                                     }
                                                   },
                                                   child: Container(
-                                                    width: 110.0,
-                                                    height: 70.0,
+                                                    width: 110,
+                                                    height: 70,
                                                     decoration: BoxDecoration(
                                                       color: Color(0x00FFFFFF),
                                                     ),
@@ -1174,7 +1174,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                             validateFileFormat(
                                                                 m.storagePath,
                                                                 context))) {
-                                                      setState(() => _model
+                                                      safeSetState(() => _model
                                                               .isDataUploading6 =
                                                           true);
                                                       var selectedUploadedFiles =
@@ -1210,13 +1210,13 @@ class _NonePackageEditPage2CopyWidgetState
                                                               .length ==
                                                           selectedMedia
                                                               .length) {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.uploadedLocalFile6 =
                                                               selectedUploadedFiles
                                                                   .first;
                                                         });
                                                       } else {
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                         return;
                                                       }
                                                     }
@@ -1272,8 +1272,8 @@ class _NonePackageEditPage2CopyWidgetState
                                                     }
                                                   },
                                                   child: Container(
-                                                    width: 100.0,
-                                                    height: 80.0,
+                                                    width: 100,
+                                                    height: 80,
                                                     decoration: BoxDecoration(
                                                       color: Color(0x00FFFFFF),
                                                     ),
@@ -1338,7 +1338,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                             validateFileFormat(
                                                                 m.storagePath,
                                                                 context))) {
-                                                      setState(() => _model
+                                                      safeSetState(() => _model
                                                               .isDataUploading7 =
                                                           true);
                                                       var selectedUploadedFiles =
@@ -1374,13 +1374,13 @@ class _NonePackageEditPage2CopyWidgetState
                                                               .length ==
                                                           selectedMedia
                                                               .length) {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.uploadedLocalFile7 =
                                                               selectedUploadedFiles
                                                                   .first;
                                                         });
                                                       } else {
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                         return;
                                                       }
                                                     }
@@ -1436,8 +1436,8 @@ class _NonePackageEditPage2CopyWidgetState
                                                     }
                                                   },
                                                   child: Container(
-                                                    width: 100.0,
-                                                    height: 80.0,
+                                                    width: 100,
+                                                    height: 80,
                                                     decoration: BoxDecoration(
                                                       color: Color(0x00FFFFFF),
                                                     ),
@@ -1502,7 +1502,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                             validateFileFormat(
                                                                 m.storagePath,
                                                                 context))) {
-                                                      setState(() => _model
+                                                      safeSetState(() => _model
                                                               .isDataUploading8 =
                                                           true);
                                                       var selectedUploadedFiles =
@@ -1538,13 +1538,13 @@ class _NonePackageEditPage2CopyWidgetState
                                                               .length ==
                                                           selectedMedia
                                                               .length) {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.uploadedLocalFile8 =
                                                               selectedUploadedFiles
                                                                   .first;
                                                         });
                                                       } else {
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                         return;
                                                       }
                                                     }
@@ -1600,8 +1600,8 @@ class _NonePackageEditPage2CopyWidgetState
                                                     }
                                                   },
                                                   child: Container(
-                                                    width: 100.0,
-                                                    height: 80.0,
+                                                    width: 100,
+                                                    height: 80,
                                                     decoration: BoxDecoration(
                                                       color: Color(0x00FFFFFF),
                                                     ),
@@ -1666,7 +1666,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                             validateFileFormat(
                                                                 m.storagePath,
                                                                 context))) {
-                                                      setState(() => _model
+                                                      safeSetState(() => _model
                                                               .isDataUploading9 =
                                                           true);
                                                       var selectedUploadedFiles =
@@ -1702,13 +1702,13 @@ class _NonePackageEditPage2CopyWidgetState
                                                               .length ==
                                                           selectedMedia
                                                               .length) {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.uploadedLocalFile9 =
                                                               selectedUploadedFiles
                                                                   .first;
                                                         });
                                                       } else {
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                         return;
                                                       }
                                                     }
@@ -1764,8 +1764,8 @@ class _NonePackageEditPage2CopyWidgetState
                                                     }
                                                   },
                                                   child: Container(
-                                                    width: 160.0,
-                                                    height: 70.0,
+                                                    width: 160,
+                                                    height: 70,
                                                     decoration: BoxDecoration(
                                                       color: Color(0x00FFFFFF),
                                                     ),
@@ -1783,7 +1783,7 @@ class _NonePackageEditPage2CopyWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 15.0, 12.0, 0.0),
+                                                  12, 15, 12, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -1799,14 +1799,13 @@ class _NonePackageEditPage2CopyWidgetState
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFF002D5E),
-                                                          fontSize: 18.0,
+                                                          fontSize: 18,
                                                           letterSpacing: 0.0,
                                                         ),
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 0.0, 0.0),
+                                                    .fromSTEB(10, 0, 0, 0),
                                                 child: Text(
                                                   'กรุณาถ่ายรูปให้ครบ 9 รูป',
                                                   style: FlutterFlowTheme.of(
@@ -1836,7 +1835,7 @@ class _NonePackageEditPage2CopyWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  24.0, 12.0, 16.0, 0.0),
+                                                  24, 12, 16, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -1898,7 +1897,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                   Icons
                                                       .content_paste_search_rounded,
                                                   color: Color(0xFF354052),
-                                                  size: 18.0,
+                                                  size: 18,
                                                 ),
                                               ),
                                               Expanded(
@@ -1906,7 +1905,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                 child: Icon(
                                                   Icons.close,
                                                   color: Color(0xFFFC0A0A),
-                                                  size: 17.0,
+                                                  size: 17,
                                                 ),
                                               ),
                                             ],
@@ -1920,7 +1919,7 @@ class _NonePackageEditPage2CopyWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  24.0, 12.0, 16.0, 0.0),
+                                                  24, 12, 16, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -1982,7 +1981,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                   Icons
                                                       .content_paste_search_rounded,
                                                   color: Color(0xFF354052),
-                                                  size: 18.0,
+                                                  size: 18,
                                                 ),
                                               ),
                                               Expanded(
@@ -1990,7 +1989,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                 child: Icon(
                                                   Icons.close,
                                                   color: Color(0xFFFC0A0A),
-                                                  size: 17.0,
+                                                  size: 17,
                                                 ),
                                               ),
                                             ],
@@ -2004,7 +2003,7 @@ class _NonePackageEditPage2CopyWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  24.0, 12.0, 16.0, 0.0),
+                                                  24, 12, 16, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -2066,7 +2065,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                   Icons
                                                       .content_paste_search_rounded,
                                                   color: Color(0xFF354052),
-                                                  size: 18.0,
+                                                  size: 18,
                                                 ),
                                               ),
                                               Expanded(
@@ -2074,7 +2073,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                 child: Icon(
                                                   Icons.close,
                                                   color: Color(0xFFFC0A0A),
-                                                  size: 17.0,
+                                                  size: 17,
                                                 ),
                                               ),
                                             ],
@@ -2088,7 +2087,7 @@ class _NonePackageEditPage2CopyWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  24.0, 12.0, 16.0, 0.0),
+                                                  24, 12, 16, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -2150,7 +2149,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                   Icons
                                                       .content_paste_search_rounded,
                                                   color: Color(0xFF354052),
-                                                  size: 18.0,
+                                                  size: 18,
                                                 ),
                                               ),
                                               Expanded(
@@ -2158,7 +2157,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                 child: Icon(
                                                   Icons.check,
                                                   color: Color(0xFF00B505),
-                                                  size: 17.0,
+                                                  size: 17,
                                                 ),
                                               ),
                                             ],
@@ -2172,7 +2171,7 @@ class _NonePackageEditPage2CopyWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  24.0, 12.0, 16.0, 0.0),
+                                                  24, 12, 16, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -2234,7 +2233,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                   Icons
                                                       .content_paste_search_rounded,
                                                   color: Color(0xFF354052),
-                                                  size: 18.0,
+                                                  size: 18,
                                                 ),
                                               ),
                                               Expanded(
@@ -2242,7 +2241,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                 child: Icon(
                                                   Icons.close,
                                                   color: Color(0xFFFC0A0A),
-                                                  size: 17.0,
+                                                  size: 17,
                                                 ),
                                               ),
                                             ],
@@ -2256,7 +2255,7 @@ class _NonePackageEditPage2CopyWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  24.0, 12.0, 16.0, 0.0),
+                                                  24, 12, 16, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -2318,7 +2317,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                   Icons
                                                       .content_paste_search_rounded,
                                                   color: Color(0xFF354052),
-                                                  size: 18.0,
+                                                  size: 18,
                                                 ),
                                               ),
                                               Expanded(
@@ -2326,7 +2325,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                 child: Icon(
                                                   Icons.close,
                                                   color: Color(0xFFFC0A0A),
-                                                  size: 17.0,
+                                                  size: 17,
                                                 ),
                                               ),
                                             ],
@@ -2340,7 +2339,7 @@ class _NonePackageEditPage2CopyWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  24.0, 12.0, 16.0, 0.0),
+                                                  24, 12, 16, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -2402,7 +2401,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                   Icons
                                                       .content_paste_search_rounded,
                                                   color: Color(0xFF354052),
-                                                  size: 18.0,
+                                                  size: 18,
                                                 ),
                                               ),
                                               Expanded(
@@ -2410,7 +2409,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                 child: Icon(
                                                   Icons.close,
                                                   color: Color(0xFFFC0A0A),
-                                                  size: 17.0,
+                                                  size: 17,
                                                 ),
                                               ),
                                             ],
@@ -2424,7 +2423,7 @@ class _NonePackageEditPage2CopyWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  24.0, 12.0, 16.0, 0.0),
+                                                  24, 12, 16, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -2486,7 +2485,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                   Icons
                                                       .content_paste_search_rounded,
                                                   color: Color(0xFF354052),
-                                                  size: 18.0,
+                                                  size: 18,
                                                 ),
                                               ),
                                               Expanded(
@@ -2494,7 +2493,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                 child: Icon(
                                                   Icons.close,
                                                   color: Color(0xFFFC0A0A),
-                                                  size: 17.0,
+                                                  size: 17,
                                                 ),
                                               ),
                                             ],
@@ -2508,7 +2507,7 @@ class _NonePackageEditPage2CopyWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  24.0, 12.0, 16.0, 0.0),
+                                                  24, 12, 16, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -2570,7 +2569,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                   Icons
                                                       .content_paste_search_rounded,
                                                   color: Color(0xFF354052),
-                                                  size: 18.0,
+                                                  size: 18,
                                                 ),
                                               ),
                                               Expanded(
@@ -2578,7 +2577,7 @@ class _NonePackageEditPage2CopyWidgetState
                                                 child: Icon(
                                                   Icons.close,
                                                   color: Color(0xFFFC0A0A),
-                                                  size: 17.0,
+                                                  size: 17,
                                                 ),
                                               ),
                                             ],
@@ -2598,15 +2597,15 @@ class _NonePackageEditPage2CopyWidgetState
                       flex: 2,
                       child: Container(
                         width: double.infinity,
-                        height: 69.0,
+                        height: 69,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.0),
+                          borderRadius: BorderRadius.circular(10),
                         ),
                         child: Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
+                          alignment: AlignmentDirectional(0, 0),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 0.0, 12.0, 0.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
                             child: FFButtonWidget(
                               onPressed: () {
                                 print('Button pressed ...');
@@ -2614,11 +2613,11 @@ class _NonePackageEditPage2CopyWidgetState
                               text: 'ถัดไป',
                               options: FFButtonOptions(
                                 width: double.infinity,
-                                height: 60.0,
+                                height: 60,
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    24.0, 0.0, 24.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
+                                    24, 0, 24, 0),
+                                iconPadding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                                 color: Color(0xFFDB771A),
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
@@ -2628,12 +2627,12 @@ class _NonePackageEditPage2CopyWidgetState
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
                                     ),
-                                elevation: 3.0,
+                                elevation: 3,
                                 borderSide: BorderSide(
                                   color: Colors.transparent,
-                                  width: 1.0,
+                                  width: 1,
                                 ),
-                                borderRadius: BorderRadius.circular(16.0),
+                                borderRadius: BorderRadius.circular(16),
                               ),
                             ),
                           ),

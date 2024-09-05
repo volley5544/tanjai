@@ -74,13 +74,13 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
             automaticallyImplyLeading: false,
             leading: FlutterFlowIconButton(
               borderColor: Colors.transparent,
-              borderRadius: 30.0,
-              borderWidth: 1.0,
-              buttonSize: 60.0,
+              borderRadius: 30,
+              borderWidth: 1,
+              buttonSize: 60,
               icon: Icon(
                 Icons.arrow_back_rounded,
                 color: Color(0xFFDB771A),
-                size: 30.0,
+                size: 30,
               ),
               onPressed: () async {
                 context.pushNamed('LoginPage');
@@ -91,14 +91,14 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF003063),
-                    fontSize: 18.0,
+                    fontSize: 18,
                     letterSpacing: 0.0,
                     fontWeight: FontWeight.w600,
                   ),
             ),
             actions: [],
             centerTitle: true,
-            elevation: 2.0,
+            elevation: 2,
           ),
           body: SafeArea(
             top: true,
@@ -112,23 +112,22 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Container(
-                          width: MediaQuery.sizeOf(context).width * 1.0,
-                          height: 682.0,
+                          width: MediaQuery.sizeOf(context).width,
+                          height: 682,
                           decoration: BoxDecoration(
                             color: Color(0xFFFAFAFA),
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 0.0, 12.0, 0.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 12.0, 0.0, 0.0),
+                                      0, 12, 0, 0),
                                   child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 1.0,
+                                    width: MediaQuery.sizeOf(context).width,
                                     decoration: BoxDecoration(),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
@@ -136,7 +135,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 0.0, 12.0, 0.0),
+                                                  12, 0, 12, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -148,7 +147,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                         .override(
                                                           fontFamily:
                                                               'Noto Sans Thai',
-                                                          fontSize: 15.0,
+                                                          fontSize: 15,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -156,8 +155,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 0.0, 0.0),
+                                                    .fromSTEB(10, 0, 0, 0),
                                                 child: Text(
                                                   '(บังคับกรอก)',
                                                   style: FlutterFlowTheme.of(
@@ -168,7 +166,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                             'Noto Sans Thai',
                                                         color:
                                                             Color(0xFFFB0606),
-                                                        fontSize: 12.0,
+                                                        fontSize: 12,
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -179,18 +177,17 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 5.0, 0.0, 0.0),
+                                                  0, 5, 0, 0),
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
-                                                    .width *
-                                                1.0,
-                                            height: 60.0,
+                                                .width,
+                                            height: 60,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
                                               borderRadius:
-                                                  BorderRadius.circular(8.0),
+                                                  BorderRadius.circular(8),
                                               border: Border.all(
                                                 color: Color(0xFFB3B3B3),
                                               ),
@@ -205,8 +202,8 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                10.0, 0.0),
+                                                            .fromSTEB(
+                                                                10, 0, 10, 0),
                                                     child: TextFormField(
                                                       controller: _model
                                                           .emailTextController,
@@ -269,10 +266,9 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 12.0, 0.0, 0.0),
+                                      0, 12, 0, 0),
                                   child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 1.0,
+                                    width: MediaQuery.sizeOf(context).width,
                                     decoration: BoxDecoration(),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
@@ -280,7 +276,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 0.0, 12.0, 0.0),
+                                                  12, 0, 12, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -292,7 +288,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                         .override(
                                                           fontFamily:
                                                               'Noto Sans Thai',
-                                                          fontSize: 15.0,
+                                                          fontSize: 15,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -300,8 +296,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 0.0, 0.0),
+                                                    .fromSTEB(10, 0, 0, 0),
                                                 child: Text(
                                                   '(บังคับกรอก)',
                                                   style: FlutterFlowTheme.of(
@@ -312,7 +307,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                             'Noto Sans Thai',
                                                         color:
                                                             Color(0xFFFB0606),
-                                                        fontSize: 12.0,
+                                                        fontSize: 12,
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -323,18 +318,17 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 5.0, 0.0, 0.0),
+                                                  0, 5, 0, 0),
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
-                                                    .width *
-                                                1.0,
-                                            height: 60.0,
+                                                .width,
+                                            height: 60,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
                                               borderRadius:
-                                                  BorderRadius.circular(8.0),
+                                                  BorderRadius.circular(8),
                                               border: Border.all(
                                                 color: Color(0xFFB3B3B3),
                                               ),
@@ -345,8 +339,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                   AutovalidateMode.always,
                                               child: Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 10.0, 0.0),
+                                                    .fromSTEB(10, 0, 10, 0),
                                                 child: TextFormField(
                                                   controller: _model
                                                       .passwordTextController,
@@ -381,7 +374,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                     focusedErrorBorder:
                                                         InputBorder.none,
                                                     suffixIcon: InkWell(
-                                                      onTap: () => setState(
+                                                      onTap: () => safeSetState(
                                                         () => _model
                                                                 .passwordVisibility =
                                                             !_model
@@ -395,7 +388,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                                 .visibility_outlined
                                                             : Icons
                                                                 .visibility_off_outlined,
-                                                        size: 24.0,
+                                                        size: 24,
                                                       ),
                                                     ),
                                                   ),
@@ -421,10 +414,9 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 12.0, 0.0, 0.0),
+                                      0, 12, 0, 0),
                                   child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 1.0,
+                                    width: MediaQuery.sizeOf(context).width,
                                     decoration: BoxDecoration(),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
@@ -432,7 +424,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 0.0, 12.0, 0.0),
+                                                  12, 0, 12, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -444,7 +436,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                         .override(
                                                           fontFamily:
                                                               'Noto Sans Thai',
-                                                          fontSize: 15.0,
+                                                          fontSize: 15,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -452,8 +444,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 0.0, 0.0),
+                                                    .fromSTEB(10, 0, 0, 0),
                                                 child: Text(
                                                   '(บังคับกรอก)',
                                                   style: FlutterFlowTheme.of(
@@ -464,7 +455,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                             'Noto Sans Thai',
                                                         color:
                                                             Color(0xFFFB0606),
-                                                        fontSize: 12.0,
+                                                        fontSize: 12,
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -475,26 +466,24 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 5.0, 0.0, 0.0),
+                                                  0, 5, 0, 0),
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
-                                                    .width *
-                                                1.0,
-                                            height: 60.0,
+                                                .width,
+                                            height: 60,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
                                               borderRadius:
-                                                  BorderRadius.circular(8.0),
+                                                  BorderRadius.circular(8),
                                               border: Border.all(
                                                 color: Color(0xFFB3B3B3),
                                               ),
                                             ),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      10.0, 0.0, 10.0, 0.0),
+                                                  .fromSTEB(10, 0, 10, 0),
                                               child: TextFormField(
                                                 controller: _model
                                                     .confirmpasswordTextController,
@@ -530,7 +519,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                   focusedErrorBorder:
                                                       InputBorder.none,
                                                   suffixIcon: InkWell(
-                                                    onTap: () => setState(
+                                                    onTap: () => safeSetState(
                                                       () => _model
                                                               .confirmpasswordVisibility =
                                                           !_model
@@ -544,7 +533,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                               .visibility_outlined
                                                           : Icons
                                                               .visibility_off_outlined,
-                                                      size: 24.0,
+                                                      size: 24,
                                                     ),
                                                   ),
                                                 ),
@@ -569,10 +558,9 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 5.0, 0.0, 0.0),
+                                      0, 5, 0, 0),
                                   child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 1.0,
+                                    width: MediaQuery.sizeOf(context).width,
                                     decoration: BoxDecoration(
                                       color: Color(0xFFFAFAFA),
                                     ),
@@ -582,7 +570,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 0.0, 12.0, 0.0),
+                                                  12, 0, 12, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -594,7 +582,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                         .override(
                                                           fontFamily:
                                                               'Noto Sans Thai',
-                                                          fontSize: 15.0,
+                                                          fontSize: 15,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -602,8 +590,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 0.0, 0.0),
+                                                    .fromSTEB(10, 0, 0, 0),
                                                 child: Text(
                                                   '(บังคับกรอก)',
                                                   style: FlutterFlowTheme.of(
@@ -614,7 +601,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                             'Noto Sans Thai',
                                                         color:
                                                             Color(0xFFFB0606),
-                                                        fontSize: 12.0,
+                                                        fontSize: 12,
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -625,18 +612,17 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 5.0, 0.0, 0.0),
+                                                  0, 5, 0, 0),
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
-                                                    .width *
-                                                1.0,
-                                            height: 60.0,
+                                                .width,
+                                            height: 60,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
                                               borderRadius:
-                                                  BorderRadius.circular(8.0),
+                                                  BorderRadius.circular(8),
                                               border: Border.all(
                                                 color: Color(0xFFB3B3B3),
                                               ),
@@ -651,15 +637,12 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                   child: Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.0, 0.0),
+                                                            0, 0),
                                                     child: Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  10.0,
-                                                                  0.0),
+                                                                  10, 0, 10, 0),
                                                       child: TextFormField(
                                                         controller: _model
                                                             .nameTextController,
@@ -689,7 +672,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                                     color: Color(
                                                                         0xFFB3B3B3),
                                                                     fontSize:
-                                                                        15.0,
+                                                                        15,
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -730,10 +713,9 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 5.0, 0.0, 0.0),
+                                      0, 5, 0, 0),
                                   child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 1.0,
+                                    width: MediaQuery.sizeOf(context).width,
                                     decoration: BoxDecoration(
                                       color: Color(0xFFFAFAFA),
                                     ),
@@ -743,7 +725,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 0.0, 12.0, 0.0),
+                                                  12, 0, 12, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -755,7 +737,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                         .override(
                                                           fontFamily:
                                                               'Noto Sans Thai',
-                                                          fontSize: 15.0,
+                                                          fontSize: 15,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -763,8 +745,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 0.0, 0.0),
+                                                    .fromSTEB(10, 0, 0, 0),
                                                 child: Text(
                                                   '(บังคับกรอก)',
                                                   style: FlutterFlowTheme.of(
@@ -775,7 +756,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                             'Noto Sans Thai',
                                                         color:
                                                             Color(0xFFFB0606),
-                                                        fontSize: 12.0,
+                                                        fontSize: 12,
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -786,18 +767,17 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 5.0, 0.0, 0.0),
+                                                  0, 5, 0, 0),
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
-                                                    .width *
-                                                1.0,
-                                            height: 60.0,
+                                                .width,
+                                            height: 60,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
                                               borderRadius:
-                                                  BorderRadius.circular(8.0),
+                                                  BorderRadius.circular(8),
                                               border: Border.all(
                                                 color: Color(0xFFB3B3B3),
                                               ),
@@ -812,15 +792,12 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                   child: Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.0, 0.0),
+                                                            0, 0),
                                                     child: Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  10.0,
-                                                                  0.0),
+                                                                  10, 0, 10, 0),
                                                       child: TextFormField(
                                                         controller: _model
                                                             .idCardTextController,
@@ -850,7 +827,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                                     color: Color(
                                                                         0xFFB3B3B3),
                                                                     fontSize:
-                                                                        15.0,
+                                                                        15,
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -897,10 +874,9 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 5.0, 0.0, 0.0),
+                                      0, 5, 0, 0),
                                   child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 1.0,
+                                    width: MediaQuery.sizeOf(context).width,
                                     decoration: BoxDecoration(
                                       color: Color(0xFFFAFAFA),
                                     ),
@@ -910,7 +886,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 0.0, 12.0, 0.0),
+                                                  12, 0, 12, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -922,7 +898,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                         .override(
                                                           fontFamily:
                                                               'Noto Sans Thai',
-                                                          fontSize: 15.0,
+                                                          fontSize: 15,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -930,8 +906,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 0.0, 0.0),
+                                                    .fromSTEB(10, 0, 0, 0),
                                                 child: Text(
                                                   '(บังคับกรอก)',
                                                   style: FlutterFlowTheme.of(
@@ -942,7 +917,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                             'Noto Sans Thai',
                                                         color:
                                                             Color(0xFFFB0606),
-                                                        fontSize: 12.0,
+                                                        fontSize: 12,
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -953,18 +928,17 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 5.0, 0.0, 0.0),
+                                                  0, 5, 0, 0),
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
-                                                    .width *
-                                                1.0,
-                                            height: 60.0,
+                                                .width,
+                                            height: 60,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
                                               borderRadius:
-                                                  BorderRadius.circular(8.0),
+                                                  BorderRadius.circular(8),
                                               border: Border.all(
                                                 color: Color(0xFFB3B3B3),
                                               ),
@@ -979,15 +953,12 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                   child: Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.0, 0.0),
+                                                            0, 0),
                                                     child: Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  10.0,
-                                                                  0.0),
+                                                                  10, 0, 10, 0),
                                                       child: TextFormField(
                                                         controller: _model
                                                             .phonenumberTextController,
@@ -1017,7 +988,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                                     color: Color(
                                                                         0xFFB3B3B3),
                                                                     fontSize:
-                                                                        15.0,
+                                                                        15,
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -1057,22 +1028,22 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                   ),
                                 ),
                                 Container(
-                                  width: 444.0,
-                                  height: 100.0,
+                                  width: 444,
+                                  height: 100,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
                                   ),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 5.0, 0.0, 0.0),
+                                        0, 5, 0, 0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 0.0, 12.0, 0.0),
+                                                  12, 0, 12, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -1084,7 +1055,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                         .override(
                                                           fontFamily:
                                                               'Noto Sans Thai',
-                                                          fontSize: 15.0,
+                                                          fontSize: 15,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -1092,8 +1063,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 0.0, 0.0),
+                                                    .fromSTEB(10, 0, 0, 0),
                                                 child: Text(
                                                   '(บังคับกรอก)',
                                                   style: FlutterFlowTheme.of(
@@ -1104,7 +1074,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                             'Noto Sans Thai',
                                                         color:
                                                             Color(0xFFFB0606),
-                                                        fontSize: 12.0,
+                                                        fontSize: 12,
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -1115,18 +1085,17 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 5.0, 0.0, 0.0),
+                                                  0, 5, 0, 0),
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
-                                                    .width *
-                                                1.0,
-                                            height: 60.0,
+                                                .width,
+                                            height: 60,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
                                               borderRadius:
-                                                  BorderRadius.circular(8.0),
+                                                  BorderRadius.circular(8),
                                               border: Border.all(
                                                 color: Color(0xFFB3B3B3),
                                               ),
@@ -1141,15 +1110,12 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                   child: Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.0, 0.0),
+                                                            0, 0),
                                                     child: Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  10.0,
-                                                                  0.0),
+                                                                  10, 0, 10, 0),
                                                       child: TextFormField(
                                                         controller: _model
                                                             .licenseIdTextController,
@@ -1182,7 +1148,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                                     color: Color(
                                                                         0xFFB3B3B3),
                                                                     fontSize:
-                                                                        15.0,
+                                                                        15,
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -1235,10 +1201,10 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                 Expanded(
                   flex: 1,
                   child: Align(
-                    alignment: AlignmentDirectional(0.0, 0.75),
+                    alignment: AlignmentDirectional(0, 0.75),
                     child: Container(
                       width: double.infinity,
-                      height: 100.0,
+                      height: 100,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                       ),
@@ -1247,8 +1213,8 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 0.0, 12.0, 50.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(12, 0, 12, 50),
                             child: FFButtonWidget(
                               onPressed: () async {
                                 var _shouldSetState = false;
@@ -1305,7 +1271,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                       );
                                     },
                                   );
-                                  if (_shouldSetState) setState(() {});
+                                  if (_shouldSetState) safeSetState(() {});
                                   return;
                                 }
                                 if (_model.passwordTextController.text !=
@@ -1327,7 +1293,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                       );
                                     },
                                   );
-                                  if (_shouldSetState) setState(() {});
+                                  if (_shouldSetState) safeSetState(() {});
                                   return;
                                 }
                                 await authManager.sendEmailVerification();
@@ -1373,7 +1339,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                       );
                                     },
                                   );
-                                  if (_shouldSetState) setState(() {});
+                                  if (_shouldSetState) safeSetState(() {});
                                   return;
                                 }
                                 await showDialog(
@@ -1396,35 +1362,35 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
 
                                 context.goNamed('LoginPage');
 
-                                if (_shouldSetState) setState(() {});
+                                if (_shouldSetState) safeSetState(() {});
                               },
                               text: 'ลงทะเบียน',
                               options: FFButtonOptions(
                                 width: double.infinity,
-                                height: 60.0,
+                                height: 60,
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    24.0, 0.0, 24.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
+                                    24, 0, 24, 0),
+                                iconPadding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                                 color: Color(0xFFDB771B),
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       color: Colors.white,
-                                      fontSize: 16.0,
+                                      fontSize: 16,
                                       letterSpacing: 0.0,
                                     ),
-                                elevation: 3.0,
+                                elevation: 3,
                                 borderSide: BorderSide(
                                   color: Colors.transparent,
-                                  width: 1.0,
+                                  width: 1,
                                 ),
-                                borderRadius: BorderRadius.circular(16.0),
+                                borderRadius: BorderRadius.circular(16),
                               ),
                             ),
                           ),
-                        ].addToStart(SizedBox(height: 16.0)),
+                        ].addToStart(SizedBox(height: 16)),
                       ),
                     ),
                   ),

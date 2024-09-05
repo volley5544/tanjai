@@ -46,7 +46,7 @@ class _ShowimgurlWidgetState extends State<ShowimgurlWidget> {
     return Stack(
       children: [
         ClipRRect(
-          borderRadius: BorderRadius.circular(8.0),
+          borderRadius: BorderRadius.circular(8),
           child: Image.network(
             widget!.imgPath!,
             width: double.infinity,
@@ -56,14 +56,14 @@ class _ShowimgurlWidgetState extends State<ShowimgurlWidget> {
         ),
         FlutterFlowIconButton(
           borderColor: FlutterFlowTheme.of(context).primaryBtnText,
-          borderRadius: 20.0,
-          borderWidth: 1.0,
-          buttonSize: 40.0,
+          borderRadius: 20,
+          borderWidth: 1,
+          buttonSize: 40,
           fillColor: Color(0x00FFFFFF),
           icon: Icon(
             Icons.close,
             color: FlutterFlowTheme.of(context).error,
-            size: 24.0,
+            size: 24,
           ),
           onPressed: () {
             print('IconButton pressed ...');

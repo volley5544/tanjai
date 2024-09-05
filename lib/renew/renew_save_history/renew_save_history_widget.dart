@@ -137,13 +137,13 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
             automaticallyImplyLeading: false,
             leading: FlutterFlowIconButton(
               borderColor: Colors.transparent,
-              borderRadius: 30.0,
-              borderWidth: 1.0,
-              buttonSize: 60.0,
+              borderRadius: 30,
+              borderWidth: 1,
+              buttonSize: 60,
               icon: Icon(
                 Icons.arrow_back_rounded,
                 color: Color(0xFFDB771A),
-                size: 30.0,
+                size: 30,
               ),
               onPressed: () async {
                 context.safePop();
@@ -154,19 +154,19 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF003063),
-                    fontSize: 18.0,
+                    fontSize: 18,
                     letterSpacing: 0.0,
                     fontWeight: FontWeight.w600,
                   ),
             ),
             actions: [],
             centerTitle: true,
-            elevation: 2.0,
+            elevation: 2,
           ),
           body: SafeArea(
             top: true,
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(12.0, 15.0, 12.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(12, 15, 12, 0),
               child: FutureBuilder<List<DataListRecord>>(
                 future: queryDataListRecordOnce(
                   singleRecord: true,
@@ -176,8 +176,8 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                   if (!snapshot.hasData) {
                     return Center(
                       child: SizedBox(
-                        width: 50.0,
-                        height: 50.0,
+                        width: 50,
+                        height: 50,
                         child: CircularProgressIndicator(
                           valueColor: AlwaysStoppedAnimation<Color>(
                             FlutterFlowTheme.of(context).primary,
@@ -202,10 +202,10 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0, 0),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    5.0, 5.0, 5.0, 5.0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
                                 child: Container(
                                   width: double.infinity,
                                   decoration: BoxDecoration(
@@ -213,26 +213,26 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                         .secondaryBackground,
                                     boxShadow: [
                                       BoxShadow(
-                                        blurRadius: 4.0,
+                                        blurRadius: 4,
                                         color: Color(0x33000000),
                                         offset: Offset(
-                                          0.0,
-                                          2.0,
+                                          0,
+                                          2,
                                         ),
                                       )
                                     ],
-                                    borderRadius: BorderRadius.circular(20.0),
+                                    borderRadius: BorderRadius.circular(20),
                                   ),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 10.0, 10.0, 0.0),
+                                        10, 10, 10, 0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 12.0),
+                                                  0, 0, 0, 12),
                                           child: Stack(
                                             children: [
                                               Container(
@@ -274,7 +274,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                                     fontFamily:
                                                                         'Noto Sans Thai',
                                                                     fontSize:
-                                                                        14.0,
+                                                                        14,
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -284,7 +284,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                         Expanded(
                                                           flex: 1,
                                                           child: Container(
-                                                            width: 10.0,
+                                                            width: 10,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color: FlutterFlowTheme
@@ -323,7 +323,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                                     fontFamily:
                                                                         'Noto Sans Thai',
                                                                     fontSize:
-                                                                        14.0,
+                                                                        14,
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -359,7 +359,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                                     fontFamily:
                                                                         'Noto Sans Thai',
                                                                     fontSize:
-                                                                        14.0,
+                                                                        14,
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -369,7 +369,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                         Expanded(
                                                           flex: 1,
                                                           child: Container(
-                                                            width: 10.0,
+                                                            width: 10,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color: FlutterFlowTheme
@@ -408,7 +408,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                                     fontFamily:
                                                                         'Noto Sans Thai',
                                                                     fontSize:
-                                                                        14.0,
+                                                                        14,
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -444,7 +444,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                                     fontFamily:
                                                                         'Noto Sans Thai',
                                                                     fontSize:
-                                                                        14.0,
+                                                                        14,
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -454,7 +454,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                         Expanded(
                                                           flex: 1,
                                                           child: Container(
-                                                            width: 10.0,
+                                                            width: 10,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color: FlutterFlowTheme
@@ -493,7 +493,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                                     fontFamily:
                                                                         'Noto Sans Thai',
                                                                     fontSize:
-                                                                        14.0,
+                                                                        14,
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -529,7 +529,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                                     fontFamily:
                                                                         'Noto Sans Thai',
                                                                     fontSize:
-                                                                        14.0,
+                                                                        14,
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -539,7 +539,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                         Expanded(
                                                           flex: 1,
                                                           child: Container(
-                                                            width: 10.0,
+                                                            width: 10,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color: FlutterFlowTheme
@@ -583,7 +583,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                                     fontFamily:
                                                                         'Noto Sans Thai',
                                                                     fontSize:
-                                                                        14.0,
+                                                                        14,
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -619,7 +619,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                                     fontFamily:
                                                                         'Noto Sans Thai',
                                                                     fontSize:
-                                                                        14.0,
+                                                                        14,
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -629,7 +629,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                         Expanded(
                                                           flex: 1,
                                                           child: Container(
-                                                            width: 10.0,
+                                                            width: 10,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color: FlutterFlowTheme
@@ -673,7 +673,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                                     fontFamily:
                                                                         'Noto Sans Thai',
                                                                     fontSize:
-                                                                        14.0,
+                                                                        14,
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -709,7 +709,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                                     fontFamily:
                                                                         'Noto Sans Thai',
                                                                     fontSize:
-                                                                        14.0,
+                                                                        14,
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -719,7 +719,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                         Expanded(
                                                           flex: 1,
                                                           child: Container(
-                                                            width: 10.0,
+                                                            width: 10,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color: FlutterFlowTheme
@@ -765,7 +765,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                                     fontFamily:
                                                                         'Noto Sans Thai',
                                                                     fontSize:
-                                                                        14.0,
+                                                                        14,
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -801,7 +801,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                                     fontFamily:
                                                                         'Noto Sans Thai',
                                                                     fontSize:
-                                                                        14.0,
+                                                                        14,
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -811,7 +811,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                         Expanded(
                                                           flex: 1,
                                                           child: Container(
-                                                            width: 10.0,
+                                                            width: 10,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color: FlutterFlowTheme
@@ -854,7 +854,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                                     fontFamily:
                                                                         'Noto Sans Thai',
                                                                     fontSize:
-                                                                        14.0,
+                                                                        14,
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -877,8 +877,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                             Flexible(
                                               child: Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 10.0, 15.0),
+                                                    .fromSTEB(10, 0, 10, 15),
                                                 child: FFButtonWidget(
                                                   onPressed: () async {
                                                     context.pushNamed(
@@ -894,16 +893,16 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                   },
                                                   text: 'ประวัติ',
                                                   options: FFButtonOptions(
-                                                    width: 110.0,
-                                                    height: 35.0,
+                                                    width: 110,
+                                                    height: 35,
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 0.0),
+                                                            .fromSTEB(
+                                                                0, 0, 0, 0),
                                                     iconPadding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 0.0),
+                                                            .fromSTEB(
+                                                                0, 0, 0, 0),
                                                     color: Color(0xFF004984),
                                                     textStyle: FlutterFlowTheme
                                                             .of(context)
@@ -912,18 +911,18 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                           fontFamily:
                                                               'Noto Sans Thai',
                                                           color: Colors.white,
-                                                          fontSize: 14.0,
+                                                          fontSize: 14,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
-                                                    elevation: 3.0,
+                                                    elevation: 3,
                                                     borderSide: BorderSide(
-                                                      width: 0.0,
+                                                      width: 0,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            15.0),
+                                                            15),
                                                   ),
                                                 ),
                                               ),
@@ -937,17 +936,17 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 5.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width * 1.0,
+                                width: MediaQuery.sizeOf(context).width,
                                 decoration: BoxDecoration(),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          12.0, 10.0, 12.0, 10.0),
+                                          12, 10, 12, 10),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
@@ -957,7 +956,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
-                                                  fontSize: 15.0,
+                                                  fontSize: 15,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
@@ -965,7 +964,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 0.0, 0.0, 0.0),
+                                                    10, 0, 0, 0),
                                             child: Text(
                                               '***บังคับเลือก',
                                               style:
@@ -978,7 +977,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .alternate,
-                                                        fontSize: 12.0,
+                                                        fontSize: 12,
                                                         letterSpacing: 0.0,
                                                       ),
                                             ),
@@ -988,17 +987,15 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 5.0, 0.0, 0.0),
+                                          0, 5, 0, 0),
                                       child: Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                1.0,
-                                        height: 48.0,
+                                        width: MediaQuery.sizeOf(context).width,
+                                        height: 48,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                           borderRadius:
-                                              BorderRadius.circular(8.0),
+                                              BorderRadius.circular(8),
                                           border: Border.all(
                                             color: Color(0xFFB3B3B3),
                                           ),
@@ -1012,10 +1009,10 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                             (_model.masterAPIOutput?.jsonBody ??
                                                 ''),
                                           )!,
-                                          onChanged: (val) => setState(() =>
+                                          onChanged: (val) => safeSetState(() =>
                                               _model.dropDownMainValue = val),
-                                          width: 300.0,
-                                          height: 50.0,
+                                          width: 300,
+                                          height: 50,
                                           textStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodyMedium
@@ -1029,18 +1026,18 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                             Icons.keyboard_arrow_down_rounded,
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryText,
-                                            size: 24.0,
+                                            size: 24,
                                           ),
                                           fillColor:
                                               FlutterFlowTheme.of(context)
                                                   .secondaryBackground,
-                                          elevation: 2.0,
+                                          elevation: 2,
                                           borderColor: Colors.transparent,
-                                          borderWidth: 2.0,
-                                          borderRadius: 8.0,
+                                          borderWidth: 2,
+                                          borderRadius: 8,
                                           margin:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  16.0, 4.0, 16.0, 4.0),
+                                                  16, 4, 16, 4),
                                           hidesUnderline: true,
                                           isOverButton: true,
                                           isSearchable: false,
@@ -1051,17 +1048,16 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                     if (false)
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 5.0, 0.0, 0.0),
+                                            0, 5, 0, 0),
                                         child: Container(
                                           width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  1.0,
-                                          height: 48.0,
+                                              MediaQuery.sizeOf(context).width,
+                                          height: 48,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             borderRadius:
-                                                BorderRadius.circular(8.0),
+                                                BorderRadius.circular(8),
                                             border: Border.all(
                                               color: Color(0xFFB3B3B3),
                                             ),
@@ -1075,10 +1071,11 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                               'ติดต่อได้',
                                               'ติดต่อไม่ได้'
                                             ],
-                                            onChanged: (val) => setState(() =>
-                                                _model.dropDownSubValue = val),
-                                            width: 300.0,
-                                            height: 50.0,
+                                            onChanged: (val) => safeSetState(
+                                                () => _model.dropDownSubValue =
+                                                    val),
+                                            width: 300,
+                                            height: 50,
                                             textStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .bodyMedium
@@ -1093,18 +1090,18 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryText,
-                                              size: 24.0,
+                                              size: 24,
                                             ),
                                             fillColor:
                                                 FlutterFlowTheme.of(context)
                                                     .secondaryBackground,
-                                            elevation: 2.0,
+                                            elevation: 2,
                                             borderColor: Colors.transparent,
-                                            borderWidth: 2.0,
-                                            borderRadius: 8.0,
+                                            borderWidth: 2,
+                                            borderRadius: 8,
                                             margin:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 4.0, 16.0, 4.0),
+                                                    16, 4, 16, 4),
                                             hidesUnderline: true,
                                             isOverButton: true,
                                             isSearchable: false,
@@ -1121,10 +1118,9 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 15.0, 0.0, 0.0),
+                                      0, 15, 0, 0),
                                   child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 1.0,
+                                    width: MediaQuery.sizeOf(context).width,
                                     decoration: BoxDecoration(),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
@@ -1132,7 +1128,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 0.0, 12.0, 0.0),
+                                                  12, 0, 12, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -1144,7 +1140,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                         .override(
                                                           fontFamily:
                                                               'Noto Sans Thai',
-                                                          fontSize: 15.0,
+                                                          fontSize: 15,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -1152,8 +1148,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 0.0, 0.0),
+                                                    .fromSTEB(10, 0, 0, 0),
                                                 child: Text(
                                                   '***บังคับกรอก',
                                                   style: FlutterFlowTheme.of(
@@ -1166,7 +1161,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .alternate,
-                                                        fontSize: 12.0,
+                                                        fontSize: 12,
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -1180,29 +1175,27 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 15.0, 0.0, 15.0),
+                                      0, 15, 0, 15),
                                   child: Material(
                                     color: Colors.transparent,
-                                    elevation: 1.0,
+                                    elevation: 1,
                                     shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(8.0),
+                                      borderRadius: BorderRadius.circular(8),
                                     ),
                                     child: Container(
-                                      width: MediaQuery.sizeOf(context).width *
-                                          1.0,
-                                      height: 150.0,
+                                      width: MediaQuery.sizeOf(context).width,
+                                      height: 150,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
+                                        borderRadius: BorderRadius.circular(8),
                                         border: Border.all(
                                           color: Color(0xFFE6E6E6),
                                         ),
                                       ),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            8.0, 0.0, 8.0, 0.0),
+                                            8, 0, 8, 0),
                                         child: TextFormField(
                                           controller: _model.textController,
                                           focusNode: _model.textFieldFocusNode,
@@ -1215,7 +1208,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                     .override(
                                                       fontFamily:
                                                           'Noto Sans Thai',
-                                                      fontSize: 14.0,
+                                                      fontSize: 14,
                                                       letterSpacing: 0.0,
                                                     ),
                                             hintText: 'กรอกรายละเอียดการโทร',
@@ -1227,7 +1220,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondaryText,
-                                                  fontSize: 14.0,
+                                                  fontSize: 14,
                                                   letterSpacing: 0.0,
                                                 ),
                                             enabledBorder: InputBorder.none,
@@ -1253,10 +1246,10 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                               ],
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 15.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width * 1.0,
+                                width: MediaQuery.sizeOf(context).width,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -1273,7 +1266,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 10.0, 0.0),
+                                                    0, 0, 10, 0),
                                             child: FFButtonWidget(
                                               onPressed: () async {
                                                 var _shouldSetState = false;
@@ -1302,7 +1295,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                     },
                                                   );
                                                   if (_shouldSetState)
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                   return;
                                                 }
                                                 if (!(_model.textController
@@ -1332,7 +1325,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                     },
                                                   );
                                                   if (_shouldSetState)
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                   return;
                                                 }
                                                 showModalBottomSheet(
@@ -1423,7 +1416,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                   );
                                                   Navigator.pop(context);
                                                   if (_shouldSetState)
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                   return;
                                                 }
                                                 if (RenewCallStatusSaveCall
@@ -1459,7 +1452,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                   );
                                                   Navigator.pop(context);
                                                   if (_shouldSetState)
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                   return;
                                                 }
                                                 await showDialog(
@@ -1499,19 +1492,17 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
 
                                                 Navigator.pop(context);
                                                 if (_shouldSetState)
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                               },
                                               text: 'บันทึกการโทร',
                                               options: FFButtonOptions(
-                                                width: 115.0,
-                                                height: 35.0,
+                                                width: 115,
+                                                height: 35,
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 0.0, 0.0, 0.0),
+                                                    .fromSTEB(0, 0, 0, 0),
                                                 iconPadding:
                                                     EdgeInsetsDirectional
-                                                        .fromSTEB(
-                                                            0.0, 0.0, 0.0, 0.0),
+                                                        .fromSTEB(0, 0, 0, 0),
                                                 color: Color(0xFF00B37E),
                                                 textStyle:
                                                     FlutterFlowTheme.of(context)
@@ -1520,18 +1511,18 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                           fontFamily:
                                                               'Noto Sans Thai',
                                                           color: Colors.white,
-                                                          fontSize: 14.0,
+                                                          fontSize: 14,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
-                                                elevation: 3.0,
+                                                elevation: 3,
                                                 borderSide: BorderSide(
                                                   color: Colors.transparent,
-                                                  width: 1.0,
+                                                  width: 1,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(14.0),
+                                                    BorderRadius.circular(14),
                                               ),
                                             ),
                                           ),
@@ -1544,7 +1535,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                             ),
                           ],
                         ),
-                      ].addToEnd(SizedBox(height: 50.0)),
+                      ].addToEnd(SizedBox(height: 50)),
                     ),
                   );
                 },

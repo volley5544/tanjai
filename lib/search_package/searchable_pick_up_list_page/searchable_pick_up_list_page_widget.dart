@@ -60,7 +60,7 @@ class _SearchablePickUpListPageWidgetState
               .createFalseListByItemNumber(true, widget!.dataList?.length)!
               .toList()
               .cast<bool>();
-          setState(() {});
+          safeSetState(() {});
           return;
         }
       }
@@ -70,7 +70,7 @@ class _SearchablePickUpListPageWidgetState
           .createFalseListByItemNumber(false, widget!.dataList?.length)!
           .toList()
           .cast<bool>();
-      setState(() {});
+      safeSetState(() {});
     });
 
     _model.textController ??= TextEditingController();
@@ -109,7 +109,7 @@ class _SearchablePickUpListPageWidgetState
               child: Icon(
                 Icons.arrow_back,
                 color: Color(0xFFDB7619),
-                size: 30.0,
+                size: 30,
               ),
             ),
             title: Text(
@@ -117,7 +117,7 @@ class _SearchablePickUpListPageWidgetState
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF123063),
-                    fontSize: 16.0,
+                    fontSize: 16,
                     letterSpacing: 0.0,
                   ),
             ),
@@ -127,7 +127,7 @@ class _SearchablePickUpListPageWidgetState
           body: SafeArea(
             top: true,
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -138,8 +138,8 @@ class _SearchablePickUpListPageWidgetState
                       children: [
                         if (widget!.multiSelect)
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 0.0, 12.0, 0.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -164,11 +164,11 @@ class _SearchablePickUpListPageWidgetState
                         if (widget!.dataList!.length > 5)
                           Container(
                             width: double.infinity,
-                            height: 50.0,
+                            height: 50,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
-                              borderRadius: BorderRadius.circular(10.0),
+                              borderRadius: BorderRadius.circular(10),
                               border: Border.all(
                                 width: 0.5,
                               ),
@@ -179,14 +179,14 @@ class _SearchablePickUpListPageWidgetState
                                 Expanded(
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        8.0, 0.0, 8.0, 0.0),
+                                        8, 0, 8, 0),
                                     child: TextFormField(
                                       controller: _model.textController,
                                       focusNode: _model.textFieldFocusNode,
                                       onChanged: (_) => EasyDebounce.debounce(
                                         '_model.textController',
                                         Duration(milliseconds: 100),
-                                        () => setState(() {}),
+                                        () => safeSetState(() {}),
                                       ),
                                       autofocus: false,
                                       obscureText: false,
@@ -247,7 +247,7 @@ class _SearchablePickUpListPageWidgetState
                                           'รถเก๋ง')!)
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 7.0),
+                                          0, 0, 0, 7),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
                                         focusColor: Colors.transparent,
@@ -295,7 +295,7 @@ class _SearchablePickUpListPageWidgetState
                                                 FFAppState()
                                                         .insuranceBasicCarTypeDoors =
                                                     '2 Doors';
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState()
                                                         .insuranceBasicBrandName =
                                                     'เลือกยี่ห้อรถ';
@@ -306,7 +306,7 @@ class _SearchablePickUpListPageWidgetState
                                                     'เลือกรุ่นรถ';
                                                 FFAppState()
                                                     .insuranceBasicModelId = '';
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               } else {
@@ -321,14 +321,14 @@ class _SearchablePickUpListPageWidgetState
                                                   FFAppState()
                                                           .nonepackagevehicletypeDetail =
                                                       'กระบะไม่ต่อเติม';
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                   FFAppState()
                                                           .insuranceBasicCarTypeContain =
                                                       '-';
                                                   FFAppState()
                                                           .insuranceBasicCarTypeDoors =
                                                       '2 Doors';
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                   context.safePop();
                                                   return;
                                                 } else {
@@ -343,14 +343,14 @@ class _SearchablePickUpListPageWidgetState
                                                     FFAppState()
                                                             .insuranceInfoVehicleType =
                                                         'กระบะไม่ต่อเติม';
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                     FFAppState()
                                                             .insuranceBasicCarTypeContain =
                                                         '-';
                                                     FFAppState()
                                                             .insuranceBasicCarTypeDoors =
                                                         '2 Doors';
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                     context.safePop();
                                                     return;
                                                   }
@@ -382,7 +382,7 @@ class _SearchablePickUpListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState().insuranceBasicModelNameList = functions
                                                     .returnMappedListFrom2List(
                                                         FFAppState()
@@ -422,13 +422,13 @@ class _SearchablePickUpListPageWidgetState
                                                     'เลือกรุ่นรถ';
                                                 FFAppState()
                                                     .insuranceBasicModelId = '';
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState()
                                                     .updateSearchPackageCheckFilledAtIndex(
                                                   1,
                                                   (_) => true,
                                                 );
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 if (FFAppState()
                                                         .insuranceBasicModelNameList
                                                         .length <=
@@ -481,7 +481,7 @@ class _SearchablePickUpListPageWidgetState
                                                 FFAppState()
                                                         .nonePackageIsBrandSelect =
                                                     true;
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState().nonePackageSearchModelList = functions
                                                     .returnMappedListFrom2List(
                                                         FFAppState()
@@ -516,7 +516,7 @@ class _SearchablePickUpListPageWidgetState
                                                                 true)])
                                                     .toList()
                                                     .cast<String>();
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -525,12 +525,12 @@ class _SearchablePickUpListPageWidgetState
                                         },
                                         child: Container(
                                           width: double.infinity,
-                                          height: 65.0,
+                                          height: 65,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             borderRadius:
-                                                BorderRadius.circular(10.0),
+                                                BorderRadius.circular(10),
                                             border: Border.all(
                                               width: 0.5,
                                             ),
@@ -540,7 +540,7 @@ class _SearchablePickUpListPageWidgetState
                                             children: [
                                               Container(
                                                 width: double.infinity,
-                                                height: 60.0,
+                                                height: 60,
                                                 decoration: BoxDecoration(),
                                                 child: Row(
                                                   mainAxisSize:
@@ -553,10 +553,7 @@ class _SearchablePickUpListPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  12.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                                  12, 0, 0, 0),
                                                       child: Text(
                                                         'กระบะไม่ต่อเติม',
                                                         style:
@@ -575,17 +572,14 @@ class _SearchablePickUpListPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  16.0,
-                                                                  0.0),
+                                                                  0, 0, 16, 0),
                                                       child: ClipRRect(
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8.0),
+                                                                .circular(8),
                                                         child: Image.asset(
                                                           'assets/images/_2_.png',
-                                                          width: 100.0,
+                                                          width: 100,
                                                           fit: BoxFit.cover,
                                                         ),
                                                       ),
@@ -594,7 +588,7 @@ class _SearchablePickUpListPageWidgetState
                                                 ),
                                               ),
                                               Divider(
-                                                thickness: 1.0,
+                                                thickness: 1,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .accent4,
@@ -612,7 +606,7 @@ class _SearchablePickUpListPageWidgetState
                                           'รถเก๋ง')!)
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 7.0),
+                                          0, 0, 0, 7),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
                                         focusColor: Colors.transparent,
@@ -660,7 +654,7 @@ class _SearchablePickUpListPageWidgetState
                                                 FFAppState()
                                                         .insuranceBasicCarTypeDoors =
                                                     '2 Doors';
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState()
                                                         .insuranceBasicBrandName =
                                                     'เลือกยี่ห้อรถ';
@@ -671,7 +665,7 @@ class _SearchablePickUpListPageWidgetState
                                                     'เลือกรุ่นรถ';
                                                 FFAppState()
                                                     .insuranceBasicModelId = '';
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               } else {
@@ -686,14 +680,14 @@ class _SearchablePickUpListPageWidgetState
                                                   FFAppState()
                                                           .nonepackagevehicletypeDetail =
                                                       'กระบะต่อเติมเกินหัวเก๋ง';
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                   FFAppState()
                                                           .insuranceBasicCarTypeContain =
                                                       'ต่อเติมเกินหัวเก๋ง';
                                                   FFAppState()
                                                           .insuranceBasicCarTypeDoors =
                                                       '2 Doors';
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                   context.safePop();
                                                   return;
                                                 } else {
@@ -708,14 +702,14 @@ class _SearchablePickUpListPageWidgetState
                                                     FFAppState()
                                                             .insuranceInfoVehicleType =
                                                         'กระบะต่อเติมเกินหัวเก๋ง';
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                     FFAppState()
                                                             .insuranceBasicCarTypeContain =
                                                         'ต่อเติมเกินหัวเก๋ง';
                                                     FFAppState()
                                                             .insuranceBasicCarTypeDoors =
                                                         '2 Doors';
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                     context.safePop();
                                                     return;
                                                   }
@@ -747,7 +741,7 @@ class _SearchablePickUpListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState().insuranceBasicModelNameList = functions
                                                     .returnMappedListFrom2List(
                                                         FFAppState()
@@ -787,13 +781,13 @@ class _SearchablePickUpListPageWidgetState
                                                     'เลือกรุ่นรถ';
                                                 FFAppState()
                                                     .insuranceBasicModelId = '';
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState()
                                                     .updateSearchPackageCheckFilledAtIndex(
                                                   1,
                                                   (_) => true,
                                                 );
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 if (FFAppState()
                                                         .insuranceBasicModelNameList
                                                         .length <=
@@ -846,7 +840,7 @@ class _SearchablePickUpListPageWidgetState
                                                 FFAppState()
                                                         .nonePackageIsBrandSelect =
                                                     true;
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState().nonePackageSearchModelList = functions
                                                     .returnMappedListFrom2List(
                                                         FFAppState()
@@ -881,7 +875,7 @@ class _SearchablePickUpListPageWidgetState
                                                                 true)])
                                                     .toList()
                                                     .cast<String>();
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -898,13 +892,13 @@ class _SearchablePickUpListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState()
                                                     .updateSearchPackageCheckFilledAtIndex(
                                                   3,
                                                   (_) => true,
                                                 );
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               } else {
@@ -916,7 +910,7 @@ class _SearchablePickUpListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -991,13 +985,13 @@ class _SearchablePickUpListPageWidgetState
                                                                     .searchableListComponentSelectedList
                                                                     .toList(),
                                                                 true)])];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState()
                                                     .updateSearchPackageCheckFilledAtIndex(
                                                   4,
                                                   (_) => true,
                                                 );
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               } else {
@@ -1067,7 +1061,7 @@ class _SearchablePickUpListPageWidgetState
                                                                     .searchableListComponentSelectedList
                                                                     .toList(),
                                                                 true)])];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -1114,7 +1108,7 @@ class _SearchablePickUpListPageWidgetState
                                                             true)
                                                         .toList()
                                                         .cast<String>();
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               } else {
@@ -1142,7 +1136,7 @@ class _SearchablePickUpListPageWidgetState
                                                                 .searchableListComponentSelectedList
                                                                 .toList(),
                                                             true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -1177,7 +1171,7 @@ class _SearchablePickUpListPageWidgetState
                                                             true)
                                                         .toList()
                                                         .cast<String>();
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               } else {
@@ -1205,7 +1199,7 @@ class _SearchablePickUpListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -1222,7 +1216,7 @@ class _SearchablePickUpListPageWidgetState
                                                       true)
                                                   .toList()
                                                   .cast<String>();
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -1239,7 +1233,7 @@ class _SearchablePickUpListPageWidgetState
                                                           true)
                                                       .toList()
                                                       .cast<String>();
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -1257,7 +1251,7 @@ class _SearchablePickUpListPageWidgetState
                                                           true)
                                                       .toList()
                                                       .cast<String>();
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -1271,7 +1265,7 @@ class _SearchablePickUpListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -1286,7 +1280,7 @@ class _SearchablePickUpListPageWidgetState
                                                       true)];
                                               FFAppState().insuranceInfoTitle =
                                                   'เลือกคำนำหน้าชื่อ';
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -1300,7 +1294,7 @@ class _SearchablePickUpListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -1314,7 +1308,7 @@ class _SearchablePickUpListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               FFAppState()
                                                       .insuranceInfoSelectOccupationCode =
                                                   functions.removeDupeInList(
@@ -1334,7 +1328,7 @@ class _SearchablePickUpListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               FFAppState()
                                                       .insuranceInfoSelectOccupationSubCode =
                                                   functions
@@ -1363,10 +1357,10 @@ class _SearchablePickUpListPageWidgetState
                                                               .insuranceInfoSelectOccupationName)
                                                       .toList()
                                                       .cast<String>();
-                                              setState(() {});
+                                              safeSetState(() {});
                                               FFAppState()
                                                   .insuranceInfoSelectOccupationSubNameChoose = '';
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -1393,7 +1387,7 @@ class _SearchablePickUpListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -1481,7 +1475,7 @@ class _SearchablePickUpListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               } else {
@@ -1565,7 +1559,7 @@ class _SearchablePickUpListPageWidgetState
                                                                     .searchableListComponentSelectedList
                                                                     .toList(),
                                                                 true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -1585,7 +1579,7 @@ class _SearchablePickUpListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -1604,7 +1598,7 @@ class _SearchablePickUpListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -1623,7 +1617,7 @@ class _SearchablePickUpListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -1637,7 +1631,7 @@ class _SearchablePickUpListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -1667,7 +1661,7 @@ class _SearchablePickUpListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -1683,7 +1677,7 @@ class _SearchablePickUpListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -1706,7 +1700,7 @@ class _SearchablePickUpListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -1730,13 +1724,13 @@ class _SearchablePickUpListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState()
                                                     .updateSearchPackageCheckFilledAtIndex(
                                                   2,
                                                   (_) => true,
                                                 );
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -1750,7 +1744,7 @@ class _SearchablePickUpListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -1758,12 +1752,12 @@ class _SearchablePickUpListPageWidgetState
                                         },
                                         child: Container(
                                           width: double.infinity,
-                                          height: 65.0,
+                                          height: 65,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             borderRadius:
-                                                BorderRadius.circular(10.0),
+                                                BorderRadius.circular(10),
                                             border: Border.all(
                                               width: 0.5,
                                             ),
@@ -1773,7 +1767,7 @@ class _SearchablePickUpListPageWidgetState
                                             children: [
                                               Container(
                                                 width: double.infinity,
-                                                height: 60.0,
+                                                height: 60,
                                                 decoration: BoxDecoration(),
                                                 child: Row(
                                                   mainAxisSize:
@@ -1786,10 +1780,7 @@ class _SearchablePickUpListPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  12.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                                  12, 0, 0, 0),
                                                       child: Text(
                                                         'กระบะต่อเติมเกินหัวเก๋ง',
                                                         style:
@@ -1807,10 +1798,10 @@ class _SearchablePickUpListPageWidgetState
                                                     ClipRRect(
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              8.0),
+                                                              8),
                                                       child: Image.asset(
                                                         'assets/images/ik1p2_.png',
-                                                        width: 130.0,
+                                                        width: 130,
                                                         fit: BoxFit.cover,
                                                       ),
                                                     ),
@@ -1818,7 +1809,7 @@ class _SearchablePickUpListPageWidgetState
                                                 ),
                                               ),
                                               Divider(
-                                                thickness: 1.0,
+                                                thickness: 1,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .accent4,
@@ -1836,7 +1827,7 @@ class _SearchablePickUpListPageWidgetState
                                           'รถเก๋ง')!)
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 7.0),
+                                          0, 0, 0, 7),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
                                         focusColor: Colors.transparent,
@@ -1884,7 +1875,7 @@ class _SearchablePickUpListPageWidgetState
                                                 FFAppState()
                                                         .insuranceBasicCarTypeDoors =
                                                     '2 Doors';
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState()
                                                         .insuranceBasicBrandName =
                                                     'เลือกยี่ห้อรถ';
@@ -1895,7 +1886,7 @@ class _SearchablePickUpListPageWidgetState
                                                     'เลือกรุ่นรถ';
                                                 FFAppState()
                                                     .insuranceBasicModelId = '';
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               } else {
@@ -1910,14 +1901,14 @@ class _SearchablePickUpListPageWidgetState
                                                   FFAppState()
                                                           .nonepackagevehicletypeDetail =
                                                       'กระบะต่อเติมไม่เกินหัวเก๋ง';
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                   FFAppState()
                                                           .insuranceBasicCarTypeContain =
                                                       'ต่อเติมไม่เกินหัวเก๋ง';
                                                   FFAppState()
                                                           .insuranceBasicCarTypeDoors =
                                                       '2 Doors';
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                   context.safePop();
                                                   return;
                                                 } else {
@@ -1932,14 +1923,14 @@ class _SearchablePickUpListPageWidgetState
                                                     FFAppState()
                                                             .insuranceInfoVehicleType =
                                                         'กระบะต่อเติมไม่เกินหัวเก๋ง';
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                     FFAppState()
                                                             .insuranceBasicCarTypeContain =
                                                         'ต่อเติมไม่เกินหัวเก๋ง';
                                                     FFAppState()
                                                             .insuranceBasicCarTypeDoors =
                                                         '2 Doors';
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                     context.safePop();
                                                     return;
                                                   }
@@ -1971,7 +1962,7 @@ class _SearchablePickUpListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState().insuranceBasicModelNameList = functions
                                                     .returnMappedListFrom2List(
                                                         FFAppState()
@@ -2011,13 +2002,13 @@ class _SearchablePickUpListPageWidgetState
                                                     'เลือกรุ่นรถ';
                                                 FFAppState()
                                                     .insuranceBasicModelId = '';
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState()
                                                     .updateSearchPackageCheckFilledAtIndex(
                                                   1,
                                                   (_) => true,
                                                 );
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 if (FFAppState()
                                                         .insuranceBasicModelNameList
                                                         .length <=
@@ -2070,7 +2061,7 @@ class _SearchablePickUpListPageWidgetState
                                                 FFAppState()
                                                         .nonePackageIsBrandSelect =
                                                     true;
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState().nonePackageSearchModelList = functions
                                                     .returnMappedListFrom2List(
                                                         FFAppState()
@@ -2105,7 +2096,7 @@ class _SearchablePickUpListPageWidgetState
                                                                 true)])
                                                     .toList()
                                                     .cast<String>();
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -2122,13 +2113,13 @@ class _SearchablePickUpListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState()
                                                     .updateSearchPackageCheckFilledAtIndex(
                                                   3,
                                                   (_) => true,
                                                 );
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               } else {
@@ -2140,7 +2131,7 @@ class _SearchablePickUpListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -2215,13 +2206,13 @@ class _SearchablePickUpListPageWidgetState
                                                                     .searchableListComponentSelectedList
                                                                     .toList(),
                                                                 true)])];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState()
                                                     .updateSearchPackageCheckFilledAtIndex(
                                                   4,
                                                   (_) => true,
                                                 );
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               } else {
@@ -2291,7 +2282,7 @@ class _SearchablePickUpListPageWidgetState
                                                                     .searchableListComponentSelectedList
                                                                     .toList(),
                                                                 true)])];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -2338,7 +2329,7 @@ class _SearchablePickUpListPageWidgetState
                                                             true)
                                                         .toList()
                                                         .cast<String>();
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               } else {
@@ -2366,7 +2357,7 @@ class _SearchablePickUpListPageWidgetState
                                                                 .searchableListComponentSelectedList
                                                                 .toList(),
                                                             true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -2401,7 +2392,7 @@ class _SearchablePickUpListPageWidgetState
                                                             true)
                                                         .toList()
                                                         .cast<String>();
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               } else {
@@ -2429,7 +2420,7 @@ class _SearchablePickUpListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -2446,7 +2437,7 @@ class _SearchablePickUpListPageWidgetState
                                                       true)
                                                   .toList()
                                                   .cast<String>();
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -2463,7 +2454,7 @@ class _SearchablePickUpListPageWidgetState
                                                           true)
                                                       .toList()
                                                       .cast<String>();
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -2481,7 +2472,7 @@ class _SearchablePickUpListPageWidgetState
                                                           true)
                                                       .toList()
                                                       .cast<String>();
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -2495,7 +2486,7 @@ class _SearchablePickUpListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -2510,7 +2501,7 @@ class _SearchablePickUpListPageWidgetState
                                                       true)];
                                               FFAppState().insuranceInfoTitle =
                                                   'เลือกคำนำหน้าชื่อ';
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -2524,7 +2515,7 @@ class _SearchablePickUpListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -2538,7 +2529,7 @@ class _SearchablePickUpListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               FFAppState()
                                                       .insuranceInfoSelectOccupationCode =
                                                   functions.removeDupeInList(
@@ -2558,7 +2549,7 @@ class _SearchablePickUpListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               FFAppState()
                                                       .insuranceInfoSelectOccupationSubCode =
                                                   functions
@@ -2587,10 +2578,10 @@ class _SearchablePickUpListPageWidgetState
                                                               .insuranceInfoSelectOccupationName)
                                                       .toList()
                                                       .cast<String>();
-                                              setState(() {});
+                                              safeSetState(() {});
                                               FFAppState()
                                                   .insuranceInfoSelectOccupationSubNameChoose = '';
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -2617,7 +2608,7 @@ class _SearchablePickUpListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -2705,7 +2696,7 @@ class _SearchablePickUpListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               } else {
@@ -2789,7 +2780,7 @@ class _SearchablePickUpListPageWidgetState
                                                                     .searchableListComponentSelectedList
                                                                     .toList(),
                                                                 true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -2809,7 +2800,7 @@ class _SearchablePickUpListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -2828,7 +2819,7 @@ class _SearchablePickUpListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -2847,7 +2838,7 @@ class _SearchablePickUpListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -2861,7 +2852,7 @@ class _SearchablePickUpListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -2891,7 +2882,7 @@ class _SearchablePickUpListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -2907,7 +2898,7 @@ class _SearchablePickUpListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -2930,7 +2921,7 @@ class _SearchablePickUpListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -2954,13 +2945,13 @@ class _SearchablePickUpListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)];
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState()
                                                     .updateSearchPackageCheckFilledAtIndex(
                                                   2,
                                                   (_) => true,
                                                 );
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -2974,7 +2965,7 @@ class _SearchablePickUpListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
@@ -2982,12 +2973,12 @@ class _SearchablePickUpListPageWidgetState
                                         },
                                         child: Container(
                                           width: double.infinity,
-                                          height: 65.0,
+                                          height: 65,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             borderRadius:
-                                                BorderRadius.circular(10.0),
+                                                BorderRadius.circular(10),
                                             border: Border.all(
                                               width: 0.5,
                                             ),
@@ -2997,7 +2988,7 @@ class _SearchablePickUpListPageWidgetState
                                             children: [
                                               Container(
                                                 width: double.infinity,
-                                                height: 60.0,
+                                                height: 60,
                                                 decoration: BoxDecoration(),
                                                 child: Row(
                                                   mainAxisSize:
@@ -3010,10 +3001,7 @@ class _SearchablePickUpListPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  12.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                                  12, 0, 0, 0),
                                                       child: Text(
                                                         'กระบะต่อเติมไม่เกินหัวเก๋ง',
                                                         style:
@@ -3031,10 +3019,10 @@ class _SearchablePickUpListPageWidgetState
                                                     ClipRRect(
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              8.0),
+                                                              8),
                                                       child: Image.asset(
                                                         'assets/images/_1.png',
-                                                        width: 130.0,
+                                                        width: 130,
                                                         fit: BoxFit.cover,
                                                       ),
                                                     ),
@@ -3042,7 +3030,7 @@ class _SearchablePickUpListPageWidgetState
                                                 ),
                                               ),
                                               Divider(
-                                                thickness: 1.0,
+                                                thickness: 1,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .accent4,
@@ -3099,7 +3087,7 @@ class _SearchablePickUpListPageWidgetState
                                             FFAppState()
                                                     .insuranceBasicCarTypeDoors =
                                                 '2 Doors';
-                                            setState(() {});
+                                            safeSetState(() {});
                                             FFAppState()
                                                     .insuranceBasicBrandName =
                                                 'เลือกยี่ห้อรถ';
@@ -3110,7 +3098,7 @@ class _SearchablePickUpListPageWidgetState
                                                 'เลือกรุ่นรถ';
                                             FFAppState().insuranceBasicModelId =
                                                 '';
-                                            setState(() {});
+                                            safeSetState(() {});
                                             context.safePop();
                                             return;
                                           } else {
@@ -3125,14 +3113,14 @@ class _SearchablePickUpListPageWidgetState
                                               FFAppState()
                                                       .nonepackagevehicletypeDetail =
                                                   'กระบะตู้ทึบ/ตู้แห้ง';
-                                              setState(() {});
+                                              safeSetState(() {});
                                               FFAppState()
                                                       .insuranceBasicCarTypeContain =
                                                   'ตู้ทึบ/ตู้แห้ง';
                                               FFAppState()
                                                       .insuranceBasicCarTypeDoors =
                                                   '2 Doors';
-                                              setState(() {});
+                                              safeSetState(() {});
                                               context.safePop();
                                               return;
                                             } else {
@@ -3147,14 +3135,14 @@ class _SearchablePickUpListPageWidgetState
                                                 FFAppState()
                                                         .insuranceInfoVehicleType =
                                                     'กระบะตู้ทึบ/ตู้แห้ง';
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState()
                                                         .insuranceBasicCarTypeContain =
                                                     'ตู้ทึบ/ตู้แห้ง';
                                                 FFAppState()
                                                         .insuranceBasicCarTypeDoors =
                                                     '2 Doors';
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -3185,7 +3173,7 @@ class _SearchablePickUpListPageWidgetState
                                                         .searchableListComponentSelectedList
                                                         .toList(),
                                                     true)];
-                                            setState(() {});
+                                            safeSetState(() {});
                                             FFAppState().insuranceBasicModelNameList = functions
                                                 .returnMappedListFrom2List(
                                                     FFAppState()
@@ -3227,13 +3215,13 @@ class _SearchablePickUpListPageWidgetState
                                                 'เลือกรุ่นรถ';
                                             FFAppState().insuranceBasicModelId =
                                                 '';
-                                            setState(() {});
+                                            safeSetState(() {});
                                             FFAppState()
                                                 .updateSearchPackageCheckFilledAtIndex(
                                               1,
                                               (_) => true,
                                             );
-                                            setState(() {});
+                                            safeSetState(() {});
                                             if (FFAppState()
                                                     .insuranceBasicModelNameList
                                                     .length <=
@@ -3285,7 +3273,7 @@ class _SearchablePickUpListPageWidgetState
                                             FFAppState()
                                                     .nonePackageIsBrandSelect =
                                                 true;
-                                            setState(() {});
+                                            safeSetState(() {});
                                             FFAppState().nonePackageSearchModelList = functions
                                                 .returnMappedListFrom2List(
                                                     FFAppState()
@@ -3322,7 +3310,7 @@ class _SearchablePickUpListPageWidgetState
                                                                 true)])
                                                 .toList()
                                                 .cast<String>();
-                                            setState(() {});
+                                            safeSetState(() {});
                                             context.safePop();
                                             return;
                                           }
@@ -3339,13 +3327,13 @@ class _SearchablePickUpListPageWidgetState
                                                         .searchableListComponentSelectedList
                                                         .toList(),
                                                     true)];
-                                            setState(() {});
+                                            safeSetState(() {});
                                             FFAppState()
                                                 .updateSearchPackageCheckFilledAtIndex(
                                               3,
                                               (_) => true,
                                             );
-                                            setState(() {});
+                                            safeSetState(() {});
                                             context.safePop();
                                             return;
                                           } else {
@@ -3357,7 +3345,7 @@ class _SearchablePickUpListPageWidgetState
                                                         .searchableListComponentSelectedList
                                                         .toList(),
                                                     true)];
-                                            setState(() {});
+                                            safeSetState(() {});
                                             context.safePop();
                                             return;
                                           }
@@ -3429,13 +3417,13 @@ class _SearchablePickUpListPageWidgetState
                                                                 .searchableListComponentSelectedList
                                                                 .toList(),
                                                             true)])];
-                                            setState(() {});
+                                            safeSetState(() {});
                                             FFAppState()
                                                 .updateSearchPackageCheckFilledAtIndex(
                                               4,
                                               (_) => true,
                                             );
-                                            setState(() {});
+                                            safeSetState(() {});
                                             context.safePop();
                                             return;
                                           } else {
@@ -3503,7 +3491,7 @@ class _SearchablePickUpListPageWidgetState
                                                                 .searchableListComponentSelectedList
                                                                 .toList(),
                                                             true)])];
-                                            setState(() {});
+                                            safeSetState(() {});
                                             context.safePop();
                                             return;
                                           }
@@ -3550,7 +3538,7 @@ class _SearchablePickUpListPageWidgetState
                                                         true)
                                                     .toList()
                                                     .cast<String>();
-                                            setState(() {});
+                                            safeSetState(() {});
                                             context.safePop();
                                             return;
                                           } else {
@@ -3578,7 +3566,7 @@ class _SearchablePickUpListPageWidgetState
                                                         .searchableListComponentSelectedList
                                                         .toList(),
                                                     true)];
-                                            setState(() {});
+                                            safeSetState(() {});
                                             context.safePop();
                                             return;
                                           }
@@ -3613,7 +3601,7 @@ class _SearchablePickUpListPageWidgetState
                                                         true)
                                                     .toList()
                                                     .cast<String>();
-                                            setState(() {});
+                                            safeSetState(() {});
                                             context.safePop();
                                             return;
                                           } else {
@@ -3641,7 +3629,7 @@ class _SearchablePickUpListPageWidgetState
                                                         .searchableListComponentSelectedList
                                                         .toList(),
                                                     true)];
-                                            setState(() {});
+                                            safeSetState(() {});
                                             context.safePop();
                                             return;
                                           }
@@ -3657,7 +3645,7 @@ class _SearchablePickUpListPageWidgetState
                                                   true)
                                               .toList()
                                               .cast<String>();
-                                          setState(() {});
+                                          safeSetState(() {});
                                           context.safePop();
                                           return;
                                         }
@@ -3674,7 +3662,7 @@ class _SearchablePickUpListPageWidgetState
                                                       true)
                                                   .toList()
                                                   .cast<String>();
-                                          setState(() {});
+                                          safeSetState(() {});
                                           context.safePop();
                                           return;
                                         }
@@ -3691,7 +3679,7 @@ class _SearchablePickUpListPageWidgetState
                                                       true)
                                                   .toList()
                                                   .cast<String>();
-                                          setState(() {});
+                                          safeSetState(() {});
                                           context.safePop();
                                           return;
                                         }
@@ -3704,7 +3692,7 @@ class _SearchablePickUpListPageWidgetState
                                                       .searchableListComponentSelectedList
                                                       .toList(),
                                                   true)];
-                                          setState(() {});
+                                          safeSetState(() {});
                                           context.safePop();
                                           return;
                                         }
@@ -3719,7 +3707,7 @@ class _SearchablePickUpListPageWidgetState
                                                   true)];
                                           FFAppState().insuranceInfoTitle =
                                               'เลือกคำนำหน้าชื่อ';
-                                          setState(() {});
+                                          safeSetState(() {});
                                           context.safePop();
                                           return;
                                         }
@@ -3732,7 +3720,7 @@ class _SearchablePickUpListPageWidgetState
                                                       .searchableListComponentSelectedList
                                                       .toList(),
                                                   true)];
-                                          setState(() {});
+                                          safeSetState(() {});
                                           context.safePop();
                                           return;
                                         }
@@ -3745,7 +3733,7 @@ class _SearchablePickUpListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                          setState(() {});
+                                          safeSetState(() {});
                                           FFAppState()
                                                   .insuranceInfoSelectOccupationCode =
                                               functions.removeDupeInList(
@@ -3765,7 +3753,7 @@ class _SearchablePickUpListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                          setState(() {});
+                                          safeSetState(() {});
                                           FFAppState()
                                                   .insuranceInfoSelectOccupationSubCode =
                                               functions
@@ -3794,10 +3782,10 @@ class _SearchablePickUpListPageWidgetState
                                                           .insuranceInfoSelectOccupationName)
                                                   .toList()
                                                   .cast<String>();
-                                          setState(() {});
+                                          safeSetState(() {});
                                           FFAppState()
                                               .insuranceInfoSelectOccupationSubNameChoose = '';
-                                          setState(() {});
+                                          safeSetState(() {});
                                           context.safePop();
                                           return;
                                         }
@@ -3824,7 +3812,7 @@ class _SearchablePickUpListPageWidgetState
                                                       .searchableListComponentSelectedList
                                                       .toList(),
                                                   true)];
-                                          setState(() {});
+                                          safeSetState(() {});
                                           context.safePop();
                                           return;
                                         }
@@ -3913,7 +3901,7 @@ class _SearchablePickUpListPageWidgetState
                                                         .searchableListComponentSelectedList
                                                         .toList(),
                                                     true)];
-                                            setState(() {});
+                                            safeSetState(() {});
                                             context.safePop();
                                             return;
                                           } else {
@@ -3998,7 +3986,7 @@ class _SearchablePickUpListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)];
-                                            setState(() {});
+                                            safeSetState(() {});
                                             context.safePop();
                                             return;
                                           }
@@ -4018,7 +4006,7 @@ class _SearchablePickUpListPageWidgetState
                                                       .searchableListComponentSelectedList
                                                       .toList(),
                                                   true)];
-                                          setState(() {});
+                                          safeSetState(() {});
                                           context.safePop();
                                           return;
                                         }
@@ -4037,7 +4025,7 @@ class _SearchablePickUpListPageWidgetState
                                                       .searchableListComponentSelectedList
                                                       .toList(),
                                                   true)];
-                                          setState(() {});
+                                          safeSetState(() {});
                                           context.safePop();
                                           return;
                                         }
@@ -4056,7 +4044,7 @@ class _SearchablePickUpListPageWidgetState
                                                       .searchableListComponentSelectedList
                                                       .toList(),
                                                   true)];
-                                          setState(() {});
+                                          safeSetState(() {});
                                           context.safePop();
                                           return;
                                         }
@@ -4070,7 +4058,7 @@ class _SearchablePickUpListPageWidgetState
                                                       .searchableListComponentSelectedList
                                                       .toList(),
                                                   true)];
-                                          setState(() {});
+                                          safeSetState(() {});
                                           context.safePop();
                                           return;
                                         }
@@ -4102,7 +4090,7 @@ class _SearchablePickUpListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                          setState(() {});
+                                          safeSetState(() {});
                                           context.safePop();
                                           return;
                                         }
@@ -4118,7 +4106,7 @@ class _SearchablePickUpListPageWidgetState
                                                         .searchableListComponentSelectedList
                                                         .toList(),
                                                     true)];
-                                            setState(() {});
+                                            safeSetState(() {});
                                             context.safePop();
                                             return;
                                           }
@@ -4143,7 +4131,7 @@ class _SearchablePickUpListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                          setState(() {});
+                                          safeSetState(() {});
                                           context.safePop();
                                           return;
                                         }
@@ -4167,13 +4155,13 @@ class _SearchablePickUpListPageWidgetState
                                                         .searchableListComponentSelectedList
                                                         .toList(),
                                                     true)];
-                                            setState(() {});
+                                            safeSetState(() {});
                                             FFAppState()
                                                 .updateSearchPackageCheckFilledAtIndex(
                                               2,
                                               (_) => true,
                                             );
-                                            setState(() {});
+                                            safeSetState(() {});
                                             context.safePop();
                                             return;
                                           }
@@ -4187,7 +4175,7 @@ class _SearchablePickUpListPageWidgetState
                                                           .searchableListComponentSelectedList
                                                           .toList(),
                                                       true)];
-                                          setState(() {});
+                                          safeSetState(() {});
                                           context.safePop();
                                           return;
                                         }
@@ -4195,12 +4183,11 @@ class _SearchablePickUpListPageWidgetState
                                     },
                                     child: Container(
                                       width: double.infinity,
-                                      height: 65.0,
+                                      height: 65,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
+                                        borderRadius: BorderRadius.circular(10),
                                         border: Border.all(
                                           width: 0.5,
                                         ),
@@ -4210,7 +4197,7 @@ class _SearchablePickUpListPageWidgetState
                                         children: [
                                           Container(
                                             width: double.infinity,
-                                            height: 60.0,
+                                            height: 60,
                                             decoration: BoxDecoration(),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -4220,8 +4207,7 @@ class _SearchablePickUpListPageWidgetState
                                               children: [
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          12.0, 0.0, 0.0, 0.0),
+                                                      .fromSTEB(12, 0, 0, 0),
                                                   child: Text(
                                                     'กระบะตู้ทึบ/ตู้แห้ง',
                                                     style: FlutterFlowTheme.of(
@@ -4236,15 +4222,14 @@ class _SearchablePickUpListPageWidgetState
                                                 ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 16.0, 0.0),
+                                                      .fromSTEB(0, 0, 16, 0),
                                                   child: ClipRRect(
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            8),
                                                     child: Image.asset(
                                                       'assets/images/2__.png',
-                                                      width: 100.0,
+                                                      width: 100,
                                                       fit: BoxFit.cover,
                                                     ),
                                                   ),
@@ -4253,7 +4238,7 @@ class _SearchablePickUpListPageWidgetState
                                             ),
                                           ),
                                           Divider(
-                                            thickness: 1.0,
+                                            thickness: 1,
                                             color: FlutterFlowTheme.of(context)
                                                 .accent4,
                                           ),
@@ -4266,9 +4251,9 @@ class _SearchablePickUpListPageWidgetState
                             ),
                           ),
                       ]
-                          .divide(SizedBox(height: 12.0))
-                          .addToStart(SizedBox(height: 12.0))
-                          .addToEnd(SizedBox(height: 24.0)),
+                          .divide(SizedBox(height: 12))
+                          .addToStart(SizedBox(height: 12))
+                          .addToEnd(SizedBox(height: 24)),
                     ),
                   ),
                   if (widget!.multiSelect)
@@ -4276,7 +4261,7 @@ class _SearchablePickUpListPageWidgetState
                       flex: 1,
                       child: Container(
                         width: double.infinity,
-                        height: 100.0,
+                        height: 100,
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
@@ -4287,8 +4272,8 @@ class _SearchablePickUpListPageWidgetState
                           children: [
                             if (false)
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    8.0, 0.0, 8.0, 0.0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
                                     if (functions.countTrueInBoolList(FFAppState()
@@ -4364,7 +4349,7 @@ class _SearchablePickUpListPageWidgetState
                                           0,
                                           (_) => true,
                                         );
-                                        setState(() {});
+                                        safeSetState(() {});
                                         context.safePop();
                                         return;
                                       } else {
@@ -4377,7 +4362,7 @@ class _SearchablePickUpListPageWidgetState
                                                       .searchableListComponentSelectedList
                                                       .toList(),
                                                   true)];
-                                          setState(() {});
+                                          safeSetState(() {});
                                           context.safePop();
                                           return;
                                         }
@@ -4405,7 +4390,7 @@ class _SearchablePickUpListPageWidgetState
                                                     .searchableListComponentSelectedList
                                                     .toList(),
                                                 true)];
-                                        setState(() {});
+                                        safeSetState(() {});
                                         FFAppState().insuranceBasicModelNameList = functions
                                             .returnMappedListFrom2List(
                                                 FFAppState()
@@ -4440,13 +4425,13 @@ class _SearchablePickUpListPageWidgetState
                                                         true)])
                                             .toList()
                                             .cast<String>();
-                                        setState(() {});
+                                        safeSetState(() {});
                                         FFAppState()
                                             .updateSearchPackageCheckFilledAtIndex(
                                           1,
                                           (_) => true,
                                         );
-                                        setState(() {});
+                                        safeSetState(() {});
                                         context.safePop();
                                         return;
                                       } else {
@@ -4468,7 +4453,7 @@ class _SearchablePickUpListPageWidgetState
                                                 true)];
                                         FFAppState().nonePackageIsBrandSelect =
                                             true;
-                                        setState(() {});
+                                        safeSetState(() {});
                                         FFAppState().nonePackageSearchModelList = functions
                                             .returnMappedListFrom2List(
                                                 FFAppState()
@@ -4503,7 +4488,7 @@ class _SearchablePickUpListPageWidgetState
                                                         true)])
                                             .toList()
                                             .cast<String>();
-                                        setState(() {});
+                                        safeSetState(() {});
                                         context.safePop();
                                         return;
                                       }
@@ -4519,13 +4504,13 @@ class _SearchablePickUpListPageWidgetState
                                                     .searchableListComponentSelectedList
                                                     .toList(),
                                                 true)];
-                                        setState(() {});
+                                        safeSetState(() {});
                                         FFAppState()
                                             .updateSearchPackageCheckFilledAtIndex(
                                           3,
                                           (_) => true,
                                         );
-                                        setState(() {});
+                                        safeSetState(() {});
                                         context.safePop();
                                         return;
                                       } else {
@@ -4536,7 +4521,7 @@ class _SearchablePickUpListPageWidgetState
                                                     .searchableListComponentSelectedList
                                                     .toList(),
                                                 true)];
-                                        setState(() {});
+                                        safeSetState(() {});
                                         context.safePop();
                                         return;
                                       }
@@ -4610,13 +4595,13 @@ class _SearchablePickUpListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)])];
-                                        setState(() {});
+                                        safeSetState(() {});
                                         FFAppState()
                                             .updateSearchPackageCheckFilledAtIndex(
                                           4,
                                           (_) => true,
                                         );
-                                        setState(() {});
+                                        safeSetState(() {});
                                         context.safePop();
                                         return;
                                       } else {
@@ -4686,7 +4671,7 @@ class _SearchablePickUpListPageWidgetState
                                                             .searchableListComponentSelectedList
                                                             .toList(),
                                                         true)])];
-                                        setState(() {});
+                                        safeSetState(() {});
                                         context.safePop();
                                         return;
                                       }
@@ -4731,7 +4716,7 @@ class _SearchablePickUpListPageWidgetState
                                                     true)
                                                 .toList()
                                                 .cast<String>();
-                                        setState(() {});
+                                        safeSetState(() {});
                                         context.safePop();
                                         return;
                                       } else {
@@ -4759,7 +4744,7 @@ class _SearchablePickUpListPageWidgetState
                                                     .searchableListComponentSelectedList
                                                     .toList(),
                                                 true)];
-                                        setState(() {});
+                                        safeSetState(() {});
                                         context.safePop();
                                         return;
                                       }
@@ -4793,7 +4778,7 @@ class _SearchablePickUpListPageWidgetState
                                                     true)
                                                 .toList()
                                                 .cast<String>();
-                                        setState(() {});
+                                        safeSetState(() {});
                                         context.safePop();
                                         return;
                                       } else {
@@ -4821,7 +4806,7 @@ class _SearchablePickUpListPageWidgetState
                                                     .searchableListComponentSelectedList
                                                     .toList(),
                                                 true)];
-                                        setState(() {});
+                                        safeSetState(() {});
                                         context.safePop();
                                         return;
                                       }
@@ -4837,7 +4822,7 @@ class _SearchablePickUpListPageWidgetState
                                               true)
                                           .toList()
                                           .cast<String>();
-                                      setState(() {});
+                                      safeSetState(() {});
                                       context.safePop();
                                       return;
                                     }
@@ -4852,7 +4837,7 @@ class _SearchablePickUpListPageWidgetState
                                               true)
                                           .toList()
                                           .cast<String>();
-                                      setState(() {});
+                                      safeSetState(() {});
                                       context.safePop();
                                       return;
                                     }
@@ -4867,7 +4852,7 @@ class _SearchablePickUpListPageWidgetState
                                               true)
                                           .toList()
                                           .cast<String>();
-                                      setState(() {});
+                                      safeSetState(() {});
                                       context.safePop();
                                       return;
                                     }
@@ -4880,7 +4865,7 @@ class _SearchablePickUpListPageWidgetState
                                                   .searchableListComponentSelectedList
                                                   .toList(),
                                               true)];
-                                      setState(() {});
+                                      safeSetState(() {});
                                       context.safePop();
                                       return;
                                     }
@@ -4892,7 +4877,7 @@ class _SearchablePickUpListPageWidgetState
                                                   .searchableListComponentSelectedList
                                                   .toList(),
                                               true)];
-                                      setState(() {});
+                                      safeSetState(() {});
                                       context.safePop();
                                       return;
                                     }
@@ -4904,7 +4889,7 @@ class _SearchablePickUpListPageWidgetState
                                                   .searchableListComponentSelectedList
                                                   .toList(),
                                               true)];
-                                      setState(() {});
+                                      safeSetState(() {});
                                       context.safePop();
                                       return;
                                     }
@@ -4917,7 +4902,7 @@ class _SearchablePickUpListPageWidgetState
                                                   .searchableListComponentSelectedList
                                                   .toList(),
                                               true)];
-                                      setState(() {});
+                                      safeSetState(() {});
                                       context.safePop();
                                       return;
                                     }
@@ -4942,7 +4927,7 @@ class _SearchablePickUpListPageWidgetState
                                                   .searchableListComponentSelectedList
                                                   .toList(),
                                               true)];
-                                      setState(() {});
+                                      safeSetState(() {});
                                       context.safePop();
                                       return;
                                     }
@@ -5026,7 +5011,7 @@ class _SearchablePickUpListPageWidgetState
                                                     .searchableListComponentSelectedList
                                                     .toList(),
                                                 true)];
-                                        setState(() {});
+                                        safeSetState(() {});
                                         context.safePop();
                                         return;
                                       } else {
@@ -5107,7 +5092,7 @@ class _SearchablePickUpListPageWidgetState
                                                         .searchableListComponentSelectedList
                                                         .toList(),
                                                     true)];
-                                        setState(() {});
+                                        safeSetState(() {});
                                         context.safePop();
                                         return;
                                       }
@@ -5126,7 +5111,7 @@ class _SearchablePickUpListPageWidgetState
                                                   .searchableListComponentSelectedList
                                                   .toList(),
                                               true)];
-                                      setState(() {});
+                                      safeSetState(() {});
                                       context.safePop();
                                       return;
                                     }
@@ -5144,7 +5129,7 @@ class _SearchablePickUpListPageWidgetState
                                                   .searchableListComponentSelectedList
                                                   .toList(),
                                               true)];
-                                      setState(() {});
+                                      safeSetState(() {});
                                       context.safePop();
                                       return;
                                     }
@@ -5162,7 +5147,7 @@ class _SearchablePickUpListPageWidgetState
                                                   .searchableListComponentSelectedList
                                                   .toList(),
                                               true)];
-                                      setState(() {});
+                                      safeSetState(() {});
                                       context.safePop();
                                       return;
                                     }
@@ -5175,7 +5160,7 @@ class _SearchablePickUpListPageWidgetState
                                                   .searchableListComponentSelectedList
                                                   .toList(),
                                               true)];
-                                      setState(() {});
+                                      safeSetState(() {});
                                       context.safePop();
                                       return;
                                     }
@@ -5183,30 +5168,30 @@ class _SearchablePickUpListPageWidgetState
                                   text: 'ตกลง',
                                   options: FFButtonOptions(
                                     width: double.infinity,
-                                    height: 60.0,
+                                    height: 60,
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        24.0, 0.0, 24.0, 0.0),
+                                        24, 0, 24, 0),
                                     iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
+                                        0, 0, 0, 0),
                                     color: Color(0xFFDB771B),
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Colors.white,
-                                          fontSize: 15.0,
+                                          fontSize: 15,
                                           letterSpacing: 0.0,
                                         ),
-                                    elevation: 3.0,
+                                    elevation: 3,
                                     borderSide: BorderSide(
                                       color: Colors.transparent,
-                                      width: 1.0,
+                                      width: 1,
                                     ),
-                                    borderRadius: BorderRadius.circular(16.0),
+                                    borderRadius: BorderRadius.circular(16),
                                   ),
                                 ),
                               ),
-                          ].addToStart(SizedBox(height: 16.0)),
+                          ].addToStart(SizedBox(height: 16)),
                         ),
                       ),
                     ),

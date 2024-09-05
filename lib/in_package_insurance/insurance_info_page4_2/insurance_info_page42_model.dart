@@ -22,7 +22,6 @@ class InsuranceInfoPage42Model
     extends FlutterFlowModel<InsuranceInfoPage42Widget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (insuranceRequestGetInsurerAPI)] action in insuranceInfoPage4_2 widget.
   ApiCallResponse? getInsurer;
   // Stores action output result for [Backend Call - API (ibsApplicationsDetail)] action in insuranceInfoPage4_2 widget.

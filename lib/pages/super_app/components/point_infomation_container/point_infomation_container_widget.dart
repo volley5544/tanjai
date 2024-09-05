@@ -44,16 +44,16 @@ class _PointInfomationContainerWidgetState
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 8.0),
+      padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 8),
       child: Container(
         width: MediaQuery.sizeOf(context).width * 0.9,
-        height: 290.0,
+        height: 290,
         decoration: BoxDecoration(
           color: Color(0xFFE5E7E9),
-          borderRadius: BorderRadius.circular(8.0),
+          borderRadius: BorderRadius.circular(8),
           border: Border.all(
             color: Colors.black,
-            width: 2.0,
+            width: 2,
           ),
         ),
         child: Row(
@@ -61,7 +61,7 @@ class _PointInfomationContainerWidgetState
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -75,8 +75,8 @@ class _PointInfomationContainerWidgetState
                       if (!snapshot.hasData) {
                         return Center(
                           child: SizedBox(
-                            width: 50.0,
-                            height: 50.0,
+                            width: 50,
+                            height: 50,
                             child: CircularProgressIndicator(
                               valueColor: AlwaysStoppedAnimation<Color>(
                                 FlutterFlowTheme.of(context).primary,
@@ -93,8 +93,8 @@ class _PointInfomationContainerWidgetState
                               : null;
 
                       return Container(
-                        width: 80.0,
-                        height: 80.0,
+                        width: 80,
+                        height: 80,
                         clipBehavior: Clip.antiAlias,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
@@ -132,22 +132,21 @@ class _PointInfomationContainerWidgetState
                   //
                   //
                   Align(
-                    alignment: AlignmentDirectional(1.0, -1.0),
+                    alignment: AlignmentDirectional(1, -1),
                     child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 8.0, 0.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 8, 8, 0),
                       child: Container(
-                        width: 65.0,
-                        height: 65.0,
+                        width: 65,
+                        height: 65,
                         decoration: BoxDecoration(
                           color: Color(0xFFE5E7E9),
-                          borderRadius: BorderRadius.circular(8.0),
+                          borderRadius: BorderRadius.circular(8),
                           border: Border.all(
                             color: FlutterFlowTheme.of(context).secondaryText,
                           ),
                         ),
                         child: Padding(
-                          padding: EdgeInsets.all(12.0),
+                          padding: EdgeInsets.all(12),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -156,7 +155,7 @@ class _PointInfomationContainerWidgetState
                               Icon(
                                 Icons.star_outline,
                                 color: FlutterFlowTheme.of(context).primaryText,
-                                size: 38.0,
+                                size: 38,
                               ),
                             ],
                           ),
@@ -165,15 +164,13 @@ class _PointInfomationContainerWidgetState
                     ),
                   ),
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 32, 0, 0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 5.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -188,7 +185,7 @@ class _PointInfomationContainerWidgetState
                                         fontFamily: 'Lexend Deca',
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
-                                        fontSize: 14.0,
+                                        fontSize: 14,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
                                       ),
@@ -205,7 +202,7 @@ class _PointInfomationContainerWidgetState
                                         fontFamily: 'Lexend Deca',
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
-                                        fontSize: 14.0,
+                                        fontSize: 14,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
                                       ),
@@ -215,8 +212,7 @@ class _PointInfomationContainerWidgetState
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 5.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -231,7 +227,7 @@ class _PointInfomationContainerWidgetState
                                         fontFamily: 'Lexend Deca',
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
-                                        fontSize: 14.0,
+                                        fontSize: 14,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
                                       ),
@@ -248,7 +244,7 @@ class _PointInfomationContainerWidgetState
                                         fontFamily: 'Lexend Deca',
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
-                                        fontSize: 15.0,
+                                        fontSize: 15,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
                                       ),
@@ -258,8 +254,7 @@ class _PointInfomationContainerWidgetState
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 5.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -273,7 +268,7 @@ class _PointInfomationContainerWidgetState
                                         fontFamily: 'Lexend Deca',
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
-                                        fontSize: 14.0,
+                                        fontSize: 14,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
                                       ),
@@ -290,7 +285,7 @@ class _PointInfomationContainerWidgetState
                                         fontFamily: 'Lexend Deca',
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
-                                        fontSize: 14.0,
+                                        fontSize: 14,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
                                       ),
@@ -412,15 +407,15 @@ class _PointInfomationContainerWidgetState
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Container(
-                                width: 160.0,
-                                height: 50.0,
+                                width: 160,
+                                height: 50,
                                 decoration: BoxDecoration(
                                   color: Colors.white,
-                                  borderRadius: BorderRadius.circular(25.0),
+                                  borderRadius: BorderRadius.circular(25),
                                   shape: BoxShape.rectangle,
                                   border: Border.all(
                                     color: Color(0xFF9E9E9E),
-                                    width: 1.0,
+                                    width: 1,
                                   ),
                                 ),
                                 child: FlutterFlowCountController(
@@ -429,14 +424,14 @@ class _PointInfomationContainerWidgetState
                                     color: enabled
                                         ? Color(0xDD000000)
                                         : Color(0xFFEEEEEE),
-                                    size: 20.0,
+                                    size: 20,
                                   ),
                                   incrementIconBuilder: (enabled) => FaIcon(
                                     FontAwesomeIcons.plus,
                                     color: enabled
                                         ? Colors.blue
                                         : Color(0xFFEEEEEE),
-                                    size: 20.0,
+                                    size: 20,
                                   ),
                                   countBuilder: (count) => Text(
                                     count.toString(),
@@ -444,11 +439,11 @@ class _PointInfomationContainerWidgetState
                                       'Roboto',
                                       color: Colors.black,
                                       fontWeight: FontWeight.w600,
-                                      fontSize: 16.0,
+                                      fontSize: 16,
                                     ),
                                   ),
                                   count: _model.countControllerValue ??= 0,
-                                  updateCount: (count) => setState(() =>
+                                  updateCount: (count) => safeSetState(() =>
                                       _model.countControllerValue = count),
                                   stepSize: 1,
                                 ),
@@ -457,20 +452,19 @@ class _PointInfomationContainerWidgetState
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 15.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
                           child: FFButtonWidget(
                             onPressed: () {
                               print('Button pressed ...');
                             },
                             text: 'บันทึก',
                             options: FFButtonOptions(
-                              width: 130.0,
-                              height: 30.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
+                              width: 130,
+                              height: 30,
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                              iconPadding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                               color: FlutterFlowTheme.of(context).primary,
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
@@ -479,12 +473,12 @@ class _PointInfomationContainerWidgetState
                                     color: Colors.white,
                                     letterSpacing: 0.0,
                                   ),
-                              elevation: 2.0,
+                              elevation: 2,
                               borderSide: BorderSide(
                                 color: Colors.transparent,
-                                width: 1.0,
+                                width: 1,
                               ),
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(8),
                             ),
                           ),
                         ),

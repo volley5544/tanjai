@@ -65,13 +65,13 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
             automaticallyImplyLeading: false,
             leading: FlutterFlowIconButton(
               borderColor: Colors.transparent,
-              borderRadius: 30.0,
-              borderWidth: 1.0,
-              buttonSize: 60.0,
+              borderRadius: 30,
+              borderWidth: 1,
+              buttonSize: 60,
               icon: Icon(
                 Icons.arrow_back_rounded,
                 color: Color(0xFFDB771A),
-                size: 30.0,
+                size: 30,
               ),
               onPressed: () async {
                 await Future.delayed(const Duration(milliseconds: 500));
@@ -83,19 +83,19 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF003063),
-                    fontSize: 18.0,
+                    fontSize: 18,
                     letterSpacing: 0.0,
                     fontWeight: FontWeight.w600,
                   ),
             ),
             actions: [],
             centerTitle: true,
-            elevation: 2.0,
+            elevation: 2,
           ),
           body: SafeArea(
             top: true,
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(12.0, 15.0, 12.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(12, 15, 12, 0),
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
@@ -106,39 +106,38 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                         if (FFAppState().insuranceinfoActType != 'CMI')
                           wrapWithModel(
                             model: _model.infomationCustomerModel,
-                            updateCallback: () => setState(() {}),
+                            updateCallback: () => safeSetState(() {}),
                             child: InfomationCustomerWidget(),
                           ),
                         if (FFAppState().insuranceinfoActType == 'CMI')
                           wrapWithModel(
                             model: _model.infomationCustomerActModel,
-                            updateCallback: () => setState(() {}),
+                            updateCallback: () => safeSetState(() {}),
                             child: InfomationCustomerActWidget(),
                           ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 10.0, 0.0, 0.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                           child: Container(
-                            width: MediaQuery.sizeOf(context).width * 1.0,
+                            width: MediaQuery.sizeOf(context).width,
                             height: MediaQuery.sizeOf(context).height * 0.1,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
                               boxShadow: [
                                 BoxShadow(
-                                  blurRadius: 1.0,
+                                  blurRadius: 1,
                                   color: Color(0x33000000),
                                 )
                               ],
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(8),
                               border: Border.all(
                                 color: Color(0xFFE6E6E6),
                               ),
                             ),
-                            alignment: AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(0, 0),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  5.0, 0.0, 5.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(5, 0, 5, 0),
                               child: SingleChildScrollView(
                                 scrollDirection: Axis.horizontal,
                                 child: Row(
@@ -146,7 +145,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      alignment: AlignmentDirectional(0, 0),
                                       child: Container(
                                         width:
                                             MediaQuery.sizeOf(context).width *
@@ -161,8 +160,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                             color: Color(0xFFFAFAFA),
                                           ),
                                         ),
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                        alignment: AlignmentDirectional(0, 0),
                                         child: Text(
                                           '1',
                                           style: FlutterFlowTheme.of(context)
@@ -170,7 +168,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Color(0xFFFAFAFA),
-                                                fontSize: 15.0,
+                                                fontSize: 15,
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -179,7 +177,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                     Container(
                                       width: MediaQuery.sizeOf(context).width *
                                           0.06,
-                                      height: 100.0,
+                                      height: 100,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
@@ -190,9 +188,9 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                             MainAxisAlignment.center,
                                         children: [
                                           SizedBox(
-                                            width: 32.0,
+                                            width: 32,
                                             child: Divider(
-                                              thickness: 1.0,
+                                              thickness: 1,
                                               color: Color(0xFFD9761A),
                                             ),
                                           ),
@@ -211,7 +209,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                           color: Color(0xFFB3B3B3),
                                         ),
                                       ),
-                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      alignment: AlignmentDirectional(0, 0),
                                       child: Text(
                                         '2',
                                         style: FlutterFlowTheme.of(context)
@@ -219,7 +217,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFFFAFAFA),
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                             ),
                                       ),
@@ -227,7 +225,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                     Container(
                                       width: MediaQuery.sizeOf(context).width *
                                           0.06,
-                                      height: 100.0,
+                                      height: 100,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
@@ -238,9 +236,9 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                             MainAxisAlignment.center,
                                         children: [
                                           SizedBox(
-                                            width: 32.0,
+                                            width: 32,
                                             child: Divider(
-                                              thickness: 1.0,
+                                              thickness: 1,
                                               color: Color(0xFFD9761A),
                                             ),
                                           ),
@@ -259,7 +257,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                           color: Color(0xFFB3B3B3),
                                         ),
                                       ),
-                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      alignment: AlignmentDirectional(0, 0),
                                       child: Text(
                                         '3',
                                         style: FlutterFlowTheme.of(context)
@@ -274,7 +272,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                     Container(
                                       width: MediaQuery.sizeOf(context).width *
                                           0.06,
-                                      height: 100.0,
+                                      height: 100,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
@@ -285,9 +283,9 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                             MainAxisAlignment.center,
                                         children: [
                                           SizedBox(
-                                            width: 32.0,
+                                            width: 32,
                                             child: Divider(
-                                              thickness: 1.0,
+                                              thickness: 1,
                                               color: Color(0xFFB3B3B3),
                                             ),
                                           ),
@@ -307,7 +305,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                           color: Color(0xFFB3B3B3),
                                         ),
                                       ),
-                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      alignment: AlignmentDirectional(0, 0),
                                       child: Text(
                                         '4',
                                         style: FlutterFlowTheme.of(context)
@@ -315,7 +313,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFFB3B3B3),
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                             ),
                                       ),
@@ -323,7 +321,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                     Container(
                                       width: MediaQuery.sizeOf(context).width *
                                           0.06,
-                                      height: 100.0,
+                                      height: 100,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
@@ -334,9 +332,9 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                             MainAxisAlignment.center,
                                         children: [
                                           SizedBox(
-                                            width: 32.0,
+                                            width: 32,
                                             child: Divider(
-                                              thickness: 1.0,
+                                              thickness: 1,
                                               color: Color(0xFFB3B3B3),
                                             ),
                                           ),
@@ -356,7 +354,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                           color: Color(0xFFB3B3B3),
                                         ),
                                       ),
-                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      alignment: AlignmentDirectional(0, 0),
                                       child: Text(
                                         '5',
                                         style: FlutterFlowTheme.of(context)
@@ -364,7 +362,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFFB3B3B3),
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                             ),
                                       ),
@@ -381,8 +379,8 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                             if ((FFAppState().insuranceinfoActType != 'CMI') &&
                                 (FFAppState().insuranceinfoActType != 'MC'))
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 10.0, 0.0, 0.0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,
@@ -393,9 +391,8 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                         'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/filePDF%2F%E0%B9%83%E0%B8%9A%E0%B8%95%E0%B8%A3%E0%B8%A7%E0%B8%88%E0%B8%AA%E0%B8%A0%E0%B8%B2%E0%B8%9E%E0%B8%A3%E0%B8%96_ssw.pdf?alt=media&token=a4e63a2e-c74b-4c06-8b87-fb7abc80b128&_gl=1*1jny086*_ga*MTI5MzM2MTI1My4xNjkzODIzNjI0*_ga_CW55HF8NVT*MTY5NjM5OTc2OC4yMi4xLjE2OTYzOTk4NjMuMzUuMC4w');
                                   },
                                   child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 1.0,
-                                    height: 33.0,
+                                    width: MediaQuery.sizeOf(context).width,
+                                    height: 33,
                                     decoration: BoxDecoration(),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -404,12 +401,12 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                           Icons.file_download_outlined,
                                           color: FlutterFlowTheme.of(context)
                                               .primaryText,
-                                          size: 24.0,
+                                          size: 24,
                                         ),
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  10.0, 0.0, 0.0, 0.0),
+                                                  10, 0, 0, 0),
                                           child: Text(
                                             'ดาวน์โหลดเอกสาร ใบตรวจสภาพรถ SSW',
                                             style: FlutterFlowTheme.of(context)
@@ -417,7 +414,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF003063),
-                                                  fontSize: 15.0,
+                                                  fontSize: 15,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.bold,
                                                   decoration:
@@ -435,11 +432,11 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                 (FFAppState().insuranceinfoActType != 'CMI') &&
                                 (FFAppState().insuranceinfoActType != 'MC'))
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 10.0, 0.0, 0.0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                                 child: Container(
-                                  width: MediaQuery.sizeOf(context).width * 1.0,
-                                  height: 80.0,
+                                  width: MediaQuery.sizeOf(context).width,
+                                  height: 80,
                                   decoration: BoxDecoration(),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -453,7 +450,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
-                                                  fontSize: 15.0,
+                                                  fontSize: 15,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
@@ -463,8 +460,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                               'ชั้น 1')
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      10.0, 0.0, 0.0, 0.0),
+                                                  .fromSTEB(10, 0, 0, 0),
                                               child: Text(
                                                 'บังคับอัพโหลดรูป',
                                                 style:
@@ -475,7 +471,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFFFB0606),
-                                                          fontSize: 12.0,
+                                                          fontSize: 12,
                                                           letterSpacing: 0.0,
                                                         ),
                                               ),
@@ -484,15 +480,14 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 5.0, 0.0, 0.0),
+                                            0, 5, 0, 0),
                                         child: Container(
                                           width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  1.0,
-                                          height: 45.0,
+                                              MediaQuery.sizeOf(context).width,
+                                          height: 45,
                                           decoration: BoxDecoration(
                                             borderRadius:
-                                                BorderRadius.circular(8.0),
+                                                BorderRadius.circular(8),
                                           ),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -500,18 +495,18 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
                                               Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
+                                                alignment:
+                                                    AlignmentDirectional(0, 0),
                                                 child: Container(
                                                   width:
                                                       MediaQuery.sizeOf(context)
                                                               .width *
                                                           0.74,
-                                                  height: 100.0,
+                                                  height: 100,
                                                   decoration: BoxDecoration(),
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0.0, 0.0),
+                                                          0, 0),
                                                   child: Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -519,7 +514,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                       Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                -1.0, 0.0),
+                                                                -1, 0),
                                                         child: InkWell(
                                                           splashColor: Colors
                                                               .transparent,
@@ -542,7 +537,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                                     validateFileFormat(
                                                                         m.storagePath,
                                                                         context))) {
-                                                              setState(() =>
+                                                              safeSetState(() =>
                                                                   _model.isDataUploading1 =
                                                                       true);
                                                               var selectedUploadedFiles =
@@ -591,7 +586,8 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                                           .length ==
                                                                       selectedMedia
                                                                           .length) {
-                                                                setState(() {
+                                                                safeSetState(
+                                                                    () {
                                                                   _model.uploadedLocalFile1 =
                                                                       selectedUploadedFiles
                                                                           .first;
@@ -600,7 +596,8 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                                           .first;
                                                                 });
                                                               } else {
-                                                                setState(() {});
+                                                                safeSetState(
+                                                                    () {});
                                                                 return;
                                                               }
                                                             }
@@ -609,7 +606,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                                     .insuranceInfoPage3ImageExamination =
                                                                 _model
                                                                     .uploadedFileUrl1;
-                                                            setState(() {});
+                                                            safeSetState(() {});
                                                             if (_model.uploadedFileUrl1 !=
                                                                     null &&
                                                                 _model.uploadedFileUrl1 !=
@@ -663,7 +660,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                                             context)
                                                                     .width *
                                                                 0.35,
-                                                            height: 60.0,
+                                                            height: 60,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color: Color(
@@ -671,21 +668,20 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          16.0),
+                                                                          16),
                                                             ),
                                                             child: Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      -1.0,
-                                                                      0.0),
+                                                                      -1, 0),
                                                               child: Padding(
                                                                 padding:
                                                                     EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            10.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            10,
+                                                                            0,
+                                                                            0,
+                                                                            0),
                                                                 child: Row(
                                                                   mainAxisSize:
                                                                       MainAxisSize
@@ -697,15 +693,15 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .primaryText,
-                                                                      size:
-                                                                          24.0,
+                                                                      size: 24,
                                                                     ),
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          8.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                      padding: EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              8,
+                                                                              0,
+                                                                              0,
+                                                                              0),
                                                                       child:
                                                                           Text(
                                                                         'อัพโหลดรูป',
@@ -716,7 +712,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                                             .override(
                                                                               fontFamily: 'Noto Sans Thai',
                                                                               color: Color(0xFFD9761A),
-                                                                              fontSize: 16.0,
+                                                                              fontSize: 16,
                                                                               letterSpacing: 0.0,
                                                                             ),
                                                                       ),
@@ -731,11 +727,8 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    10.0,
-                                                                    0.0,
-                                                                    5.0,
-                                                                    0.0),
+                                                                .fromSTEB(10, 0,
+                                                                    5, 0),
                                                         child: Text(
                                                           'สถานะ :',
                                                           style: FlutterFlowTheme
@@ -744,7 +737,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                fontSize: 14.0,
+                                                                fontSize: 14,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -770,7 +763,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                fontSize: 14.0,
+                                                                fontSize: 14,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -793,7 +786,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                fontSize: 14.0,
+                                                                fontSize: 14,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -862,13 +855,13 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                         safeSetState(() {}));
                                                   },
                                                   child: Container(
-                                                    height: 100.0,
+                                                    height: 100,
                                                     decoration: BoxDecoration(),
                                                     child: Icon(
                                                       Icons
                                                           .content_paste_search_rounded,
                                                       color: Color(0xFF354052),
-                                                      size: 24.0,
+                                                      size: 24,
                                                     ),
                                                   ),
                                                 ),
@@ -886,12 +879,12 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                           '')))
                                                 Flexible(
                                                   child: Container(
-                                                    height: 100.0,
+                                                    height: 100,
                                                     decoration: BoxDecoration(),
                                                     child: Icon(
                                                       Icons.close,
                                                       color: Color(0xFFFC0A0A),
-                                                      size: 24.0,
+                                                      size: 24,
                                                     ),
                                                   ),
                                                 ),
@@ -907,12 +900,12 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                           ''))
                                                 Flexible(
                                                   child: Container(
-                                                    height: 100.0,
+                                                    height: 100,
                                                     decoration: BoxDecoration(),
                                                     child: Icon(
                                                       Icons.check_sharp,
                                                       color: Color(0xFF00FD76),
-                                                      size: 24.0,
+                                                      size: 24,
                                                     ),
                                                   ),
                                                 ),
@@ -927,11 +920,11 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                             if (FFAppState().nonePackageWorkType !=
                                 'งานต่ออายุ')
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 10.0, 0.0, 0.0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                                 child: Container(
-                                  width: MediaQuery.sizeOf(context).width * 1.0,
-                                  height: 80.0,
+                                  width: MediaQuery.sizeOf(context).width,
+                                  height: 80,
                                   decoration: BoxDecoration(),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -945,7 +938,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
-                                                  fontSize: 15.0,
+                                                  fontSize: 15,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
@@ -953,7 +946,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 0.0, 0.0, 0.0),
+                                                    10, 0, 0, 0),
                                             child: Text(
                                               'บังคับอัพโหลดรูป',
                                               style:
@@ -964,7 +957,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                             'Noto Sans Thai',
                                                         color:
                                                             Color(0xFFFB0606),
-                                                        fontSize: 12.0,
+                                                        fontSize: 12,
                                                         letterSpacing: 0.0,
                                                       ),
                                             ),
@@ -973,15 +966,14 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 5.0, 0.0, 0.0),
+                                            0, 5, 0, 0),
                                         child: Container(
                                           width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  1.0,
-                                          height: 45.0,
+                                              MediaQuery.sizeOf(context).width,
+                                          height: 45,
                                           decoration: BoxDecoration(
                                             borderRadius:
-                                                BorderRadius.circular(8.0),
+                                                BorderRadius.circular(8),
                                           ),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -989,18 +981,18 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
                                               Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
+                                                alignment:
+                                                    AlignmentDirectional(0, 0),
                                                 child: Container(
                                                   width:
                                                       MediaQuery.sizeOf(context)
                                                               .width *
                                                           0.74,
-                                                  height: 100.0,
+                                                  height: 100,
                                                   decoration: BoxDecoration(),
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0.0, 0.0),
+                                                          0, 0),
                                                   child: Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -1008,7 +1000,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                       Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                -1.0, 0.0),
+                                                                -1, 0),
                                                         child: InkWell(
                                                           splashColor: Colors
                                                               .transparent,
@@ -1031,7 +1023,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                                     validateFileFormat(
                                                                         m.storagePath,
                                                                         context))) {
-                                                              setState(() =>
+                                                              safeSetState(() =>
                                                                   _model.isDataUploading2 =
                                                                       true);
                                                               var selectedUploadedFiles =
@@ -1080,7 +1072,8 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                                           .length ==
                                                                       selectedMedia
                                                                           .length) {
-                                                                setState(() {
+                                                                safeSetState(
+                                                                    () {
                                                                   _model.uploadedLocalFile2 =
                                                                       selectedUploadedFiles
                                                                           .first;
@@ -1089,7 +1082,8 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                                           .first;
                                                                 });
                                                               } else {
-                                                                setState(() {});
+                                                                safeSetState(
+                                                                    () {});
                                                                 return;
                                                               }
                                                             }
@@ -1098,7 +1092,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                                     .insuranceInfoPage3ImageBluebook =
                                                                 _model
                                                                     .uploadedFileUrl2;
-                                                            setState(() {});
+                                                            safeSetState(() {});
                                                             if (_model.uploadedFileUrl2 !=
                                                                     null &&
                                                                 _model.uploadedFileUrl2 !=
@@ -1152,7 +1146,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                                             context)
                                                                     .width *
                                                                 0.35,
-                                                            height: 60.0,
+                                                            height: 60,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color: Color(
@@ -1160,21 +1154,20 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          16.0),
+                                                                          16),
                                                             ),
                                                             child: Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      -1.0,
-                                                                      0.0),
+                                                                      -1, 0),
                                                               child: Padding(
                                                                 padding:
                                                                     EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            10.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            10,
+                                                                            0,
+                                                                            0,
+                                                                            0),
                                                                 child: Row(
                                                                   mainAxisSize:
                                                                       MainAxisSize
@@ -1186,15 +1179,15 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .primaryText,
-                                                                      size:
-                                                                          24.0,
+                                                                      size: 24,
                                                                     ),
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          8.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                      padding: EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              8,
+                                                                              0,
+                                                                              0,
+                                                                              0),
                                                                       child:
                                                                           Text(
                                                                         'อัพโหลดรูป',
@@ -1205,7 +1198,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                                             .override(
                                                                               fontFamily: 'Noto Sans Thai',
                                                                               color: Color(0xFFD9761A),
-                                                                              fontSize: 16.0,
+                                                                              fontSize: 16,
                                                                               letterSpacing: 0.0,
                                                                             ),
                                                                       ),
@@ -1220,11 +1213,8 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    10.0,
-                                                                    0.0,
-                                                                    5.0,
-                                                                    0.0),
+                                                                .fromSTEB(10, 0,
+                                                                    5, 0),
                                                         child: Text(
                                                           'สถานะ :',
                                                           style: FlutterFlowTheme
@@ -1233,7 +1223,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                fontSize: 14.0,
+                                                                fontSize: 14,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -1259,7 +1249,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                fontSize: 14.0,
+                                                                fontSize: 14,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -1282,7 +1272,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                fontSize: 14.0,
+                                                                fontSize: 14,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -1351,13 +1341,13 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                         safeSetState(() {}));
                                                   },
                                                   child: Container(
-                                                    height: 100.0,
+                                                    height: 100,
                                                     decoration: BoxDecoration(),
                                                     child: Icon(
                                                       Icons
                                                           .content_paste_search_rounded,
                                                       color: Color(0xFF354052),
-                                                      size: 24.0,
+                                                      size: 24,
                                                     ),
                                                   ),
                                                 ),
@@ -1375,12 +1365,12 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                           '')))
                                                 Flexible(
                                                   child: Container(
-                                                    height: 100.0,
+                                                    height: 100,
                                                     decoration: BoxDecoration(),
                                                     child: Icon(
                                                       Icons.close,
                                                       color: Color(0xFFFC0A0A),
-                                                      size: 24.0,
+                                                      size: 24,
                                                     ),
                                                   ),
                                                 ),
@@ -1396,12 +1386,12 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                           ''))
                                                 Flexible(
                                                   child: Container(
-                                                    height: 100.0,
+                                                    height: 100,
                                                     decoration: BoxDecoration(),
                                                     child: Icon(
                                                       Icons.check_sharp,
                                                       color: Color(0xFF00FD76),
-                                                      size: 24.0,
+                                                      size: 24,
                                                     ),
                                                   ),
                                                 ),
@@ -1414,11 +1404,11 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                 ),
                               ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 10.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width * 1.0,
-                                height: 80.0,
+                                width: MediaQuery.sizeOf(context).width,
+                                height: 80,
                                 decoration: BoxDecoration(),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
@@ -1432,7 +1422,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
-                                                fontSize: 15.0,
+                                                fontSize: 15,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
                                               ),
@@ -1440,7 +1430,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  10.0, 0.0, 0.0, 0.0),
+                                                  10, 0, 0, 0),
                                           child: Text(
                                             'บังคับอัพโหลดรูป',
                                             style: FlutterFlowTheme.of(context)
@@ -1448,7 +1438,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFFFB0606),
-                                                  fontSize: 12.0,
+                                                  fontSize: 12,
                                                   letterSpacing: 0.0,
                                                 ),
                                           ),
@@ -1457,15 +1447,13 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 5.0, 0.0, 0.0),
+                                          0, 5, 0, 0),
                                       child: Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                1.0,
-                                        height: 45.0,
+                                        width: MediaQuery.sizeOf(context).width,
+                                        height: 45,
                                         decoration: BoxDecoration(
                                           borderRadius:
-                                              BorderRadius.circular(8.0),
+                                              BorderRadius.circular(8),
                                         ),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -1473,17 +1461,17 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                               MainAxisAlignment.spaceBetween,
                                           children: [
                                             Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
+                                              alignment:
+                                                  AlignmentDirectional(0, 0),
                                               child: Container(
                                                 width:
                                                     MediaQuery.sizeOf(context)
                                                             .width *
                                                         0.74,
-                                                height: 100.0,
+                                                height: 100,
                                                 decoration: BoxDecoration(),
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
+                                                alignment:
+                                                    AlignmentDirectional(0, 0),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -1491,7 +1479,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                     Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              -1.0, 0.0),
+                                                              -1, 0),
                                                       child: InkWell(
                                                         splashColor:
                                                             Colors.transparent,
@@ -1514,9 +1502,9 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                                   validateFileFormat(
                                                                       m.storagePath,
                                                                       context))) {
-                                                            setState(() => _model
-                                                                    .isDataUploading3 =
-                                                                true);
+                                                            safeSetState(() =>
+                                                                _model.isDataUploading3 =
+                                                                    true);
                                                             var selectedUploadedFiles =
                                                                 <FFUploadedFile>[];
 
@@ -1569,7 +1557,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                                         .length ==
                                                                     selectedMedia
                                                                         .length) {
-                                                              setState(() {
+                                                              safeSetState(() {
                                                                 _model.uploadedLocalFile3 =
                                                                     selectedUploadedFiles
                                                                         .first;
@@ -1578,7 +1566,8 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                                         .first;
                                                               });
                                                             } else {
-                                                              setState(() {});
+                                                              safeSetState(
+                                                                  () {});
                                                               return;
                                                             }
                                                           }
@@ -1587,7 +1576,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                                   .insuranceInfoPage3ImageIdCard =
                                                               _model
                                                                   .uploadedFileUrl3;
-                                                          setState(() {});
+                                                          safeSetState(() {});
                                                           if (_model.uploadedFileUrl3 !=
                                                                   null &&
                                                               _model.uploadedFileUrl3 !=
@@ -1641,7 +1630,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                                           context)
                                                                       .width *
                                                                   0.35,
-                                                          height: 60.0,
+                                                          height: 60,
                                                           decoration:
                                                               BoxDecoration(
                                                             color: Color(
@@ -1649,20 +1638,20 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        16.0),
+                                                                        16),
                                                           ),
                                                           child: Align(
                                                             alignment:
                                                                 AlignmentDirectional(
-                                                                    -1.0, 0.0),
+                                                                    -1, 0),
                                                             child: Padding(
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          10.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                          10,
+                                                                          0,
+                                                                          0,
+                                                                          0),
                                                               child: Row(
                                                                 mainAxisSize:
                                                                     MainAxisSize
@@ -1674,15 +1663,15 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .primaryText,
-                                                                    size: 24.0,
+                                                                    size: 24,
                                                                   ),
                                                                   Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            8.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            8,
+                                                                            0,
+                                                                            0,
+                                                                            0),
                                                                     child: Text(
                                                                       'อัพโหลดรูป',
                                                                       textAlign:
@@ -1697,7 +1686,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                                             color:
                                                                                 Color(0xFFD9761A),
                                                                             fontSize:
-                                                                                16.0,
+                                                                                16,
                                                                             letterSpacing:
                                                                                 0.0,
                                                                           ),
@@ -1714,10 +1703,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  5.0,
-                                                                  0.0),
+                                                                  10, 0, 5, 0),
                                                       child: Text(
                                                         'สถานะ :',
                                                         style:
@@ -1840,13 +1826,13 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                       safeSetState(() {}));
                                                 },
                                                 child: Container(
-                                                  height: 100.0,
+                                                  height: 100,
                                                   decoration: BoxDecoration(),
                                                   child: Icon(
                                                     Icons
                                                         .content_paste_search_rounded,
                                                     color: Color(0xFF354052),
-                                                    size: 24.0,
+                                                    size: 24,
                                                   ),
                                                 ),
                                               ),
@@ -1864,12 +1850,12 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                         '')))
                                               Flexible(
                                                 child: Container(
-                                                  height: 100.0,
+                                                  height: 100,
                                                   decoration: BoxDecoration(),
                                                   child: Icon(
                                                     Icons.close,
                                                     color: Color(0xFFFC0A0A),
-                                                    size: 24.0,
+                                                    size: 24,
                                                   ),
                                                 ),
                                               ),
@@ -1885,12 +1871,12 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                         ''))
                                               Flexible(
                                                 child: Container(
-                                                  height: 100.0,
+                                                  height: 100,
                                                   decoration: BoxDecoration(),
                                                   child: Icon(
                                                     Icons.check_sharp,
                                                     color: Color(0xFF00FD76),
-                                                    size: 24.0,
+                                                    size: 24,
                                                   ),
                                                 ),
                                               ),
@@ -1907,10 +1893,10 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                 (FFAppState().insuranceinfoActType != 'CMI') &&
                                 (FFAppState().insuranceinfoActType != 'MC'))
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 10.0, 0.0, 0.0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                                 child: Container(
-                                  width: MediaQuery.sizeOf(context).width * 1.0,
+                                  width: MediaQuery.sizeOf(context).width,
                                   decoration: BoxDecoration(),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -1924,7 +1910,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
-                                                  fontSize: 15.0,
+                                                  fontSize: 15,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
@@ -1932,7 +1918,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 0.0, 0.0, 0.0),
+                                                    10, 0, 0, 0),
                                             child: Text(
                                               '(ถ่ายได้ไม่เกิน 5 รูป)',
                                               style:
@@ -1942,7 +1928,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                         fontFamily:
                                                             'Noto Sans Thai',
                                                         color: Colors.black,
-                                                        fontSize: 12.0,
+                                                        fontSize: 12,
                                                         letterSpacing: 0.0,
                                                       ),
                                             ),
@@ -1951,15 +1937,14 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 5.0, 0.0, 0.0),
+                                            0, 5, 0, 0),
                                         child: Container(
                                           width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  1.0,
-                                          height: 45.0,
+                                              MediaQuery.sizeOf(context).width,
+                                          height: 45,
                                           decoration: BoxDecoration(
                                             borderRadius:
-                                                BorderRadius.circular(8.0),
+                                                BorderRadius.circular(8),
                                           ),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -1967,18 +1952,18 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
                                               Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
+                                                alignment:
+                                                    AlignmentDirectional(0, 0),
                                                 child: Container(
                                                   width:
                                                       MediaQuery.sizeOf(context)
                                                               .width *
                                                           0.74,
-                                                  height: 100.0,
+                                                  height: 100,
                                                   decoration: BoxDecoration(),
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0.0, 0.0),
+                                                          0, 0),
                                                   child: Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -1986,7 +1971,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                       Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                -1.0, 0.0),
+                                                                -1, 0),
                                                         child: InkWell(
                                                           splashColor: Colors
                                                               .transparent,
@@ -2027,7 +2012,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                                             context)
                                                                     .width *
                                                                 0.35,
-                                                            height: 60.0,
+                                                            height: 60,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color: Color(
@@ -2035,21 +2020,20 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          16.0),
+                                                                          16),
                                                             ),
                                                             child: Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      -1.0,
-                                                                      0.0),
+                                                                      -1, 0),
                                                               child: Padding(
                                                                 padding:
                                                                     EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            10.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            10,
+                                                                            0,
+                                                                            0,
+                                                                            0),
                                                                 child: Row(
                                                                   mainAxisSize:
                                                                       MainAxisSize
@@ -2061,15 +2045,15 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .primaryText,
-                                                                      size:
-                                                                          24.0,
+                                                                      size: 24,
                                                                     ),
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          8.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                      padding: EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              8,
+                                                                              0,
+                                                                              0,
+                                                                              0),
                                                                       child:
                                                                           Text(
                                                                         'ถ่ายรูป',
@@ -2080,7 +2064,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                                             .override(
                                                                               fontFamily: 'Noto Sans Thai',
                                                                               color: Color(0xFFD9761A),
-                                                                              fontSize: 16.0,
+                                                                              fontSize: 16,
                                                                               letterSpacing: 0.0,
                                                                             ),
                                                                       ),
@@ -2095,11 +2079,8 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    10.0,
-                                                                    0.0,
-                                                                    5.0,
-                                                                    0.0),
+                                                                .fromSTEB(10, 0,
+                                                                    5, 0),
                                                         child: InkWell(
                                                           splashColor: Colors
                                                               .transparent,
@@ -2244,13 +2225,13 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                         safeSetState(() {}));
                                                   },
                                                   child: Container(
-                                                    height: 100.0,
+                                                    height: 100,
                                                     decoration: BoxDecoration(),
                                                     child: Icon(
                                                       Icons
                                                           .content_paste_search_rounded,
                                                       color: Color(0xFF354052),
-                                                      size: 24.0,
+                                                      size: 24,
                                                     ),
                                                   ),
                                                 ),
@@ -2268,12 +2249,12 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                           '')))
                                                 Flexible(
                                                   child: Container(
-                                                    height: 100.0,
+                                                    height: 100,
                                                     decoration: BoxDecoration(),
                                                     child: Icon(
                                                       Icons.close,
                                                       color: Color(0xFFFC0A0A),
-                                                      size: 24.0,
+                                                      size: 24,
                                                     ),
                                                   ),
                                                 ),
@@ -2289,12 +2270,12 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                           ''))
                                                 Flexible(
                                                   child: Container(
-                                                    height: 100.0,
+                                                    height: 100,
                                                     decoration: BoxDecoration(),
                                                     child: Icon(
                                                       Icons.check_sharp,
                                                       color: Color(0xFF00FD76),
-                                                      size: 24.0,
+                                                      size: 24,
                                                     ),
                                                   ),
                                                 ),
@@ -2311,10 +2292,10 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                 (FFAppState().insuranceinfoActType != 'CMI') &&
                                 (FFAppState().insuranceinfoActType != 'MC'))
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 10.0, 0.0, 0.0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                                 child: Container(
-                                  width: MediaQuery.sizeOf(context).width * 1.0,
+                                  width: MediaQuery.sizeOf(context).width,
                                   decoration: BoxDecoration(),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -2328,7 +2309,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
-                                                  fontSize: 15.0,
+                                                  fontSize: 15,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
@@ -2336,7 +2317,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 0.0, 0.0, 0.0),
+                                                    10, 0, 0, 0),
                                             child: Text(
                                               '(ถ่ายได้ไม่เกิน 6 รูป)',
                                               style:
@@ -2346,7 +2327,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                         fontFamily:
                                                             'Noto Sans Thai',
                                                         color: Colors.black,
-                                                        fontSize: 12.0,
+                                                        fontSize: 12,
                                                         letterSpacing: 0.0,
                                                       ),
                                             ),
@@ -2355,15 +2336,14 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 5.0, 0.0, 0.0),
+                                            0, 5, 0, 0),
                                         child: Container(
                                           width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  1.0,
-                                          height: 45.0,
+                                              MediaQuery.sizeOf(context).width,
+                                          height: 45,
                                           decoration: BoxDecoration(
                                             borderRadius:
-                                                BorderRadius.circular(8.0),
+                                                BorderRadius.circular(8),
                                           ),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -2371,18 +2351,18 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
                                               Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
+                                                alignment:
+                                                    AlignmentDirectional(0, 0),
                                                 child: Container(
                                                   width:
                                                       MediaQuery.sizeOf(context)
                                                               .width *
                                                           0.74,
-                                                  height: 100.0,
+                                                  height: 100,
                                                   decoration: BoxDecoration(),
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0.0, 0.0),
+                                                          0, 0),
                                                   child: Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -2390,7 +2370,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                       Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                -1.0, 0.0),
+                                                                -1, 0),
                                                         child: InkWell(
                                                           splashColor: Colors
                                                               .transparent,
@@ -2431,7 +2411,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                                             context)
                                                                     .width *
                                                                 0.35,
-                                                            height: 60.0,
+                                                            height: 60,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color: Color(
@@ -2439,21 +2419,20 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          16.0),
+                                                                          16),
                                                             ),
                                                             child: Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      -1.0,
-                                                                      0.0),
+                                                                      -1, 0),
                                                               child: Padding(
                                                                 padding:
                                                                     EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            10.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            10,
+                                                                            0,
+                                                                            0,
+                                                                            0),
                                                                 child: Row(
                                                                   mainAxisSize:
                                                                       MainAxisSize
@@ -2465,15 +2444,15 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .primaryText,
-                                                                      size:
-                                                                          24.0,
+                                                                      size: 24,
                                                                     ),
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          8.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                      padding: EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              8,
+                                                                              0,
+                                                                              0,
+                                                                              0),
                                                                       child:
                                                                           Text(
                                                                         'ถ่ายรูป',
@@ -2484,7 +2463,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                                             .override(
                                                                               fontFamily: 'Noto Sans Thai',
                                                                               color: Color(0xFFD9761A),
-                                                                              fontSize: 16.0,
+                                                                              fontSize: 16,
                                                                               letterSpacing: 0.0,
                                                                             ),
                                                                       ),
@@ -2499,11 +2478,8 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    10.0,
-                                                                    0.0,
-                                                                    5.0,
-                                                                    0.0),
+                                                                .fromSTEB(10, 0,
+                                                                    5, 0),
                                                         child: Text(
                                                           'สถานะ :',
                                                           style: FlutterFlowTheme
@@ -2608,13 +2584,13 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                         safeSetState(() {}));
                                                   },
                                                   child: Container(
-                                                    height: 100.0,
+                                                    height: 100,
                                                     decoration: BoxDecoration(),
                                                     child: Icon(
                                                       Icons
                                                           .content_paste_search_rounded,
                                                       color: Color(0xFF354052),
-                                                      size: 24.0,
+                                                      size: 24,
                                                     ),
                                                   ),
                                                 ),
@@ -2624,12 +2600,12 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                   0)
                                                 Flexible(
                                                   child: Container(
-                                                    height: 100.0,
+                                                    height: 100,
                                                     decoration: BoxDecoration(),
                                                     child: Icon(
                                                       Icons.close,
                                                       color: Color(0xFFFC0A0A),
-                                                      size: 24.0,
+                                                      size: 24,
                                                     ),
                                                   ),
                                                 ),
@@ -2639,12 +2615,12 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                   0)
                                                 Flexible(
                                                   child: Container(
-                                                    height: 100.0,
+                                                    height: 100,
                                                     decoration: BoxDecoration(),
                                                     child: Icon(
                                                       Icons.check_sharp,
                                                       color: Color(0xFF00FD76),
-                                                      size: 24.0,
+                                                      size: 24,
                                                     ),
                                                   ),
                                                 ),
@@ -2662,9 +2638,9 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                 (FFAppState().insuranceinfoActType != 'MC'))
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 10.0, 0.0, 20.0),
+                                    0, 10, 0, 20),
                                 child: Container(
-                                  width: MediaQuery.sizeOf(context).width * 1.0,
+                                  width: MediaQuery.sizeOf(context).width,
                                   decoration: BoxDecoration(),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -2678,7 +2654,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
-                                                  fontSize: 15.0,
+                                                  fontSize: 15,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
@@ -2686,7 +2662,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 0.0, 0.0, 0.0),
+                                                    10, 0, 0, 0),
                                             child: Text(
                                               '(ถ่ายได้ไม่เกิน 6 รูป)',
                                               style:
@@ -2696,7 +2672,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                         fontFamily:
                                                             'Noto Sans Thai',
                                                         color: Colors.black,
-                                                        fontSize: 12.0,
+                                                        fontSize: 12,
                                                         letterSpacing: 0.0,
                                                       ),
                                             ),
@@ -2705,15 +2681,14 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 5.0, 0.0, 0.0),
+                                            0, 5, 0, 0),
                                         child: Container(
                                           width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  1.0,
-                                          height: 45.0,
+                                              MediaQuery.sizeOf(context).width,
+                                          height: 45,
                                           decoration: BoxDecoration(
                                             borderRadius:
-                                                BorderRadius.circular(8.0),
+                                                BorderRadius.circular(8),
                                           ),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -2721,18 +2696,18 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
                                               Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
+                                                alignment:
+                                                    AlignmentDirectional(0, 0),
                                                 child: Container(
                                                   width:
                                                       MediaQuery.sizeOf(context)
                                                               .width *
                                                           0.74,
-                                                  height: 100.0,
+                                                  height: 100,
                                                   decoration: BoxDecoration(),
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0.0, 0.0),
+                                                          0, 0),
                                                   child: Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -2740,7 +2715,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                       Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                -1.0, 0.0),
+                                                                -1, 0),
                                                         child: InkWell(
                                                           splashColor: Colors
                                                               .transparent,
@@ -2781,7 +2756,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                                             context)
                                                                     .width *
                                                                 0.35,
-                                                            height: 60.0,
+                                                            height: 60,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color: Color(
@@ -2789,21 +2764,20 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          16.0),
+                                                                          16),
                                                             ),
                                                             child: Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      -1.0,
-                                                                      0.0),
+                                                                      -1, 0),
                                                               child: Padding(
                                                                 padding:
                                                                     EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            10.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            10,
+                                                                            0,
+                                                                            0,
+                                                                            0),
                                                                 child: Row(
                                                                   mainAxisSize:
                                                                       MainAxisSize
@@ -2815,15 +2789,15 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .primaryText,
-                                                                      size:
-                                                                          24.0,
+                                                                      size: 24,
                                                                     ),
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          8.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                      padding: EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              8,
+                                                                              0,
+                                                                              0,
+                                                                              0),
                                                                       child:
                                                                           Text(
                                                                         'ถ่ายรูป',
@@ -2834,7 +2808,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                                             .override(
                                                                               fontFamily: 'Noto Sans Thai',
                                                                               color: Color(0xFFD9761A),
-                                                                              fontSize: 16.0,
+                                                                              fontSize: 16,
                                                                               letterSpacing: 0.0,
                                                                             ),
                                                                       ),
@@ -2849,11 +2823,8 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    10.0,
-                                                                    0.0,
-                                                                    5.0,
-                                                                    0.0),
+                                                                .fromSTEB(10, 0,
+                                                                    5, 0),
                                                         child: Text(
                                                           'สถานะ :',
                                                           style: FlutterFlowTheme
@@ -2958,13 +2929,13 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                         safeSetState(() {}));
                                                   },
                                                   child: Container(
-                                                    height: 100.0,
+                                                    height: 100,
                                                     decoration: BoxDecoration(),
                                                     child: Icon(
                                                       Icons
                                                           .content_paste_search_rounded,
                                                       color: Color(0xFF354052),
-                                                      size: 24.0,
+                                                      size: 24,
                                                     ),
                                                   ),
                                                 ),
@@ -2974,12 +2945,12 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                   0)
                                                 Flexible(
                                                   child: Container(
-                                                    height: 100.0,
+                                                    height: 100,
                                                     decoration: BoxDecoration(),
                                                     child: Icon(
                                                       Icons.close,
                                                       color: Color(0xFFFC0A0A),
-                                                      size: 24.0,
+                                                      size: 24,
                                                     ),
                                                   ),
                                                 ),
@@ -2989,12 +2960,12 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                   0)
                                                 Flexible(
                                                   child: Container(
-                                                    height: 100.0,
+                                                    height: 100,
                                                     decoration: BoxDecoration(),
                                                     child: Icon(
                                                       Icons.check_sharp,
                                                       color: Color(0xFF00FD76),
-                                                      size: 24.0,
+                                                      size: 24,
                                                     ),
                                                   ),
                                                 ),
@@ -3014,7 +2985,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                             (FFAppState().insuranceinfoActType != 'CMI'))
                           Container(
                             width: double.infinity,
-                            height: 320.0,
+                            height: 320,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
@@ -3025,9 +2996,9 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                               child: Stack(
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0, 0),
                                     child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(0.0),
+                                      borderRadius: BorderRadius.circular(0),
                                       child: Image.asset(
                                         'assets/images/messageImage_1694485563447.jpg',
                                         width: double.infinity,
@@ -3088,7 +3059,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                             selectedMedia.every((m) =>
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
-                                          setState(() =>
+                                          safeSetState(() =>
                                               _model.isDataUploading4 = true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
@@ -3126,14 +3097,14 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                   selectedMedia.length &&
                                               downloadUrls.length ==
                                                   selectedMedia.length) {
-                                            setState(() {
+                                            safeSetState(() {
                                               _model.uploadedLocalFile4 =
                                                   selectedUploadedFiles.first;
                                               _model.uploadedFileUrl4 =
                                                   downloadUrls.first;
                                             });
                                           } else {
-                                            setState(() {});
+                                            safeSetState(() {});
                                             return;
                                           }
                                         }
@@ -3141,7 +3112,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                         FFAppState()
                                                 .insuranceInfoPage3ImageFront =
                                             _model.uploadedFileUrl4;
-                                        setState(() {});
+                                        safeSetState(() {});
                                         if (_model.uploadedFileUrl4 != null &&
                                             _model.uploadedFileUrl4 != '') {
                                           ScaffoldMessenger.of(context)
@@ -3179,8 +3150,8 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                         }
                                       },
                                       child: Container(
-                                        width: 100.0,
-                                        height: 70.0,
+                                        width: 100,
+                                        height: 70,
                                         decoration: BoxDecoration(),
                                       ),
                                     ),
@@ -3237,7 +3208,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                             selectedMedia.every((m) =>
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
-                                          setState(() =>
+                                          safeSetState(() =>
                                               _model.isDataUploading5 = true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
@@ -3275,14 +3246,14 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                   selectedMedia.length &&
                                               downloadUrls.length ==
                                                   selectedMedia.length) {
-                                            setState(() {
+                                            safeSetState(() {
                                               _model.uploadedLocalFile5 =
                                                   selectedUploadedFiles.first;
                                               _model.uploadedFileUrl5 =
                                                   downloadUrls.first;
                                             });
                                           } else {
-                                            setState(() {});
+                                            safeSetState(() {});
                                             return;
                                           }
                                         }
@@ -3290,7 +3261,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                         FFAppState()
                                                 .insuranceInfoPage3ImageRightFront =
                                             _model.uploadedFileUrl5;
-                                        setState(() {});
+                                        safeSetState(() {});
                                         if (_model.uploadedFileUrl5 != null &&
                                             _model.uploadedFileUrl5 != '') {
                                           ScaffoldMessenger.of(context)
@@ -3327,8 +3298,8 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                         }
                                       },
                                       child: Container(
-                                        width: 100.0,
-                                        height: 70.0,
+                                        width: 100,
+                                        height: 70,
                                         decoration: BoxDecoration(),
                                       ),
                                     ),
@@ -3385,7 +3356,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                             selectedMedia.every((m) =>
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
-                                          setState(() =>
+                                          safeSetState(() =>
                                               _model.isDataUploading6 = true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
@@ -3423,14 +3394,14 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                   selectedMedia.length &&
                                               downloadUrls.length ==
                                                   selectedMedia.length) {
-                                            setState(() {
+                                            safeSetState(() {
                                               _model.uploadedLocalFile6 =
                                                   selectedUploadedFiles.first;
                                               _model.uploadedFileUrl6 =
                                                   downloadUrls.first;
                                             });
                                           } else {
-                                            setState(() {});
+                                            safeSetState(() {});
                                             return;
                                           }
                                         }
@@ -3438,7 +3409,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                         FFAppState()
                                                 .insuranceInfoPage3ImageRight =
                                             _model.uploadedFileUrl6;
-                                        setState(() {});
+                                        safeSetState(() {});
                                         if (_model.uploadedFileUrl6 != null &&
                                             _model.uploadedFileUrl6 != '') {
                                           ScaffoldMessenger.of(context)
@@ -3475,8 +3446,8 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                         }
                                       },
                                       child: Container(
-                                        width: 100.0,
-                                        height: 70.0,
+                                        width: 100,
+                                        height: 70,
                                         decoration: BoxDecoration(),
                                       ),
                                     ),
@@ -3533,7 +3504,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                             selectedMedia.every((m) =>
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
-                                          setState(() =>
+                                          safeSetState(() =>
                                               _model.isDataUploading7 = true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
@@ -3571,14 +3542,14 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                   selectedMedia.length &&
                                               downloadUrls.length ==
                                                   selectedMedia.length) {
-                                            setState(() {
+                                            safeSetState(() {
                                               _model.uploadedLocalFile7 =
                                                   selectedUploadedFiles.first;
                                               _model.uploadedFileUrl7 =
                                                   downloadUrls.first;
                                             });
                                           } else {
-                                            setState(() {});
+                                            safeSetState(() {});
                                             return;
                                           }
                                         }
@@ -3586,7 +3557,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                         FFAppState()
                                                 .insuranceInfoPage3ImageRightRear =
                                             _model.uploadedFileUrl7;
-                                        setState(() {});
+                                        safeSetState(() {});
                                         if (_model.uploadedFileUrl7 != null &&
                                             _model.uploadedFileUrl7 != '') {
                                           ScaffoldMessenger.of(context)
@@ -3623,8 +3594,8 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                         }
                                       },
                                       child: Container(
-                                        width: 100.0,
-                                        height: 70.0,
+                                        width: 100,
+                                        height: 70,
                                         decoration: BoxDecoration(),
                                       ),
                                     ),
@@ -3680,7 +3651,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                             selectedMedia.every((m) =>
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
-                                          setState(() =>
+                                          safeSetState(() =>
                                               _model.isDataUploading8 = true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
@@ -3718,14 +3689,14 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                   selectedMedia.length &&
                                               downloadUrls.length ==
                                                   selectedMedia.length) {
-                                            setState(() {
+                                            safeSetState(() {
                                               _model.uploadedLocalFile8 =
                                                   selectedUploadedFiles.first;
                                               _model.uploadedFileUrl8 =
                                                   downloadUrls.first;
                                             });
                                           } else {
-                                            setState(() {});
+                                            safeSetState(() {});
                                             return;
                                           }
                                         }
@@ -3733,7 +3704,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                         FFAppState()
                                                 .insuranceInfoPageImageRear =
                                             _model.uploadedFileUrl8;
-                                        setState(() {});
+                                        safeSetState(() {});
                                         if (_model.uploadedFileUrl8 != null &&
                                             _model.uploadedFileUrl8 != '') {
                                           ScaffoldMessenger.of(context)
@@ -3772,8 +3743,8 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                         }
                                       },
                                       child: Container(
-                                        width: 100.0,
-                                        height: 70.0,
+                                        width: 100,
+                                        height: 70,
                                         decoration: BoxDecoration(),
                                       ),
                                     ),
@@ -3829,7 +3800,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                             selectedMedia.every((m) =>
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
-                                          setState(() =>
+                                          safeSetState(() =>
                                               _model.isDataUploading9 = true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
@@ -3867,14 +3838,14 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                   selectedMedia.length &&
                                               downloadUrls.length ==
                                                   selectedMedia.length) {
-                                            setState(() {
+                                            safeSetState(() {
                                               _model.uploadedLocalFile9 =
                                                   selectedUploadedFiles.first;
                                               _model.uploadedFileUrl9 =
                                                   downloadUrls.first;
                                             });
                                           } else {
-                                            setState(() {});
+                                            safeSetState(() {});
                                             return;
                                           }
                                         }
@@ -3882,7 +3853,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                         FFAppState()
                                                 .insuranceInfoPage3ImageLeftRear =
                                             _model.uploadedFileUrl9;
-                                        setState(() {});
+                                        safeSetState(() {});
                                         if (_model.uploadedFileUrl9 != null &&
                                             _model.uploadedFileUrl9 != '') {
                                           ScaffoldMessenger.of(context)
@@ -3919,8 +3890,8 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                         }
                                       },
                                       child: Container(
-                                        width: 100.0,
-                                        height: 70.0,
+                                        width: 100,
+                                        height: 70,
                                         decoration: BoxDecoration(),
                                       ),
                                     ),
@@ -3976,7 +3947,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                             selectedMedia.every((m) =>
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
-                                          setState(() =>
+                                          safeSetState(() =>
                                               _model.isDataUploading10 = true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
@@ -4014,14 +3985,14 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                   selectedMedia.length &&
                                               downloadUrls.length ==
                                                   selectedMedia.length) {
-                                            setState(() {
+                                            safeSetState(() {
                                               _model.uploadedLocalFile10 =
                                                   selectedUploadedFiles.first;
                                               _model.uploadedFileUrl10 =
                                                   downloadUrls.first;
                                             });
                                           } else {
-                                            setState(() {});
+                                            safeSetState(() {});
                                             return;
                                           }
                                         }
@@ -4029,7 +4000,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                         FFAppState()
                                                 .insuranceInfoPage3ImageLeft =
                                             _model.uploadedFileUrl10;
-                                        setState(() {});
+                                        safeSetState(() {});
                                         if (_model.uploadedFileUrl10 != null &&
                                             _model.uploadedFileUrl10 != '') {
                                           ScaffoldMessenger.of(context)
@@ -4067,8 +4038,8 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                         }
                                       },
                                       child: Container(
-                                        width: 100.0,
-                                        height: 70.0,
+                                        width: 100,
+                                        height: 70,
                                         decoration: BoxDecoration(),
                                       ),
                                     ),
@@ -4125,7 +4096,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                             selectedMedia.every((m) =>
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
-                                          setState(() =>
+                                          safeSetState(() =>
                                               _model.isDataUploading11 = true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
@@ -4163,14 +4134,14 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                   selectedMedia.length &&
                                               downloadUrls.length ==
                                                   selectedMedia.length) {
-                                            setState(() {
+                                            safeSetState(() {
                                               _model.uploadedLocalFile11 =
                                                   selectedUploadedFiles.first;
                                               _model.uploadedFileUrl11 =
                                                   downloadUrls.first;
                                             });
                                           } else {
-                                            setState(() {});
+                                            safeSetState(() {});
                                             return;
                                           }
                                         }
@@ -4178,7 +4149,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                         FFAppState()
                                                 .insuranceInfoPage3ImageLeftFront =
                                             _model.uploadedFileUrl11;
-                                        setState(() {});
+                                        safeSetState(() {});
                                         if (_model.uploadedFileUrl11 != null &&
                                             _model.uploadedFileUrl11 != '') {
                                           ScaffoldMessenger.of(context)
@@ -4219,8 +4190,8 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                         }
                                       },
                                       child: Container(
-                                        width: 100.0,
-                                        height: 70.0,
+                                        width: 100,
+                                        height: 70,
                                         decoration: BoxDecoration(),
                                       ),
                                     ),
@@ -4278,7 +4249,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                             selectedMedia.every((m) =>
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
-                                          setState(() =>
+                                          safeSetState(() =>
                                               _model.isDataUploading12 = true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
@@ -4316,14 +4287,14 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                   selectedMedia.length &&
                                               downloadUrls.length ==
                                                   selectedMedia.length) {
-                                            setState(() {
+                                            safeSetState(() {
                                               _model.uploadedLocalFile12 =
                                                   selectedUploadedFiles.first;
                                               _model.uploadedFileUrl12 =
                                                   downloadUrls.first;
                                             });
                                           } else {
-                                            setState(() {});
+                                            safeSetState(() {});
                                             return;
                                           }
                                         }
@@ -4331,7 +4302,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                         FFAppState()
                                                 .insuranceInfoPage3ImageRoof =
                                             _model.uploadedFileUrl12;
-                                        setState(() {});
+                                        safeSetState(() {});
                                         if (_model.uploadedFileUrl12 != null &&
                                             _model.uploadedFileUrl12 != '') {
                                           ScaffoldMessenger.of(context)
@@ -4368,8 +4339,8 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                         }
                                       },
                                       child: Container(
-                                        width: 157.0,
-                                        height: 70.0,
+                                        width: 157,
+                                        height: 70,
                                         decoration: BoxDecoration(),
                                       ),
                                     ),
@@ -4383,11 +4354,11 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                 'งานต่ออายุ') &&
                             (FFAppState().insuranceinfoActType != 'CMI'))
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 20.0, 0.0, 0.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                             child: Container(
-                              width: MediaQuery.sizeOf(context).width * 1.0,
-                              height: 33.0,
+                              width: MediaQuery.sizeOf(context).width,
+                              height: 33,
                               decoration: BoxDecoration(),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -4399,14 +4370,14 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFF003063),
-                                          fontSize: 15.0,
+                                          fontSize: 15,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
                                         ),
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 0.0, 0.0, 0.0),
+                                        10, 0, 0, 0),
                                     child: Text(
                                       'บังคับถ่ายรูปให้ครบ 9 รูป',
                                       style: FlutterFlowTheme.of(context)
@@ -4414,7 +4385,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFFFB0606),
-                                            fontSize: 12.0,
+                                            fontSize: 12,
                                             letterSpacing: 0.0,
                                           ),
                                     ),
@@ -4428,8 +4399,8 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                 'งานต่ออายุ') &&
                             (FFAppState().insuranceinfoActType != 'CMI'))
                           Container(
-                            width: MediaQuery.sizeOf(context).width * 1.0,
-                            height: 310.0,
+                            width: MediaQuery.sizeOf(context).width,
+                            height: 310,
                             decoration: BoxDecoration(),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
@@ -4440,10 +4411,9 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                     Container(
                                       width: MediaQuery.sizeOf(context).width *
                                           0.9,
-                                      height: 35.0,
+                                      height: 35,
                                       decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
+                                        borderRadius: BorderRadius.circular(8),
                                       ),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -4452,15 +4422,15 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                         children: [
                                           Align(
                                             alignment:
-                                                AlignmentDirectional(0.0, 0.0),
+                                                AlignmentDirectional(0, 0),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
                                                   0.74,
-                                              height: 100.0,
+                                              height: 100,
                                               decoration: BoxDecoration(),
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
+                                              alignment:
+                                                  AlignmentDirectional(0, 0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
@@ -4478,8 +4448,8 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                5.0, 0.0),
+                                                            .fromSTEB(
+                                                                10, 0, 5, 0),
                                                     child: Text(
                                                       'สถานะ :',
                                                       style: FlutterFlowTheme
@@ -4596,13 +4566,13 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                     safeSetState(() {}));
                                               },
                                               child: Container(
-                                                height: 100.0,
+                                                height: 100,
                                                 decoration: BoxDecoration(),
                                                 child: Icon(
                                                   Icons
                                                       .content_paste_search_rounded,
                                                   color: Color(0xFF354052),
-                                                  size: 24.0,
+                                                  size: 24,
                                                 ),
                                               ),
                                             ),
@@ -4620,12 +4590,12 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                       '')))
                                             Flexible(
                                               child: Container(
-                                                height: 100.0,
+                                                height: 100,
                                                 decoration: BoxDecoration(),
                                                 child: Icon(
                                                   Icons.close,
                                                   color: Color(0xFFFC0A0A),
-                                                  size: 24.0,
+                                                  size: 24,
                                                 ),
                                               ),
                                             ),
@@ -4641,14 +4611,14 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                       ''))
                                             Flexible(
                                               child: Container(
-                                                height: 100.0,
+                                                height: 100,
                                                 decoration: BoxDecoration(),
                                                 child: Icon(
                                                   Icons.check_sharp,
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .success,
-                                                  size: 24.0,
+                                                  size: 24,
                                                 ),
                                               ),
                                             ),
@@ -4663,10 +4633,9 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                     Container(
                                       width: MediaQuery.sizeOf(context).width *
                                           0.9,
-                                      height: 35.0,
+                                      height: 35,
                                       decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
+                                        borderRadius: BorderRadius.circular(8),
                                       ),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -4675,15 +4644,15 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                         children: [
                                           Align(
                                             alignment:
-                                                AlignmentDirectional(0.0, 0.0),
+                                                AlignmentDirectional(0, 0),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
                                                   0.74,
-                                              height: 100.0,
+                                              height: 100,
                                               decoration: BoxDecoration(),
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
+                                              alignment:
+                                                  AlignmentDirectional(0, 0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
@@ -4701,8 +4670,8 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                5.0, 0.0),
+                                                            .fromSTEB(
+                                                                10, 0, 5, 0),
                                                     child: Text(
                                                       'สถานะ :',
                                                       style: FlutterFlowTheme
@@ -4819,13 +4788,13 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                     safeSetState(() {}));
                                               },
                                               child: Container(
-                                                height: 100.0,
+                                                height: 100,
                                                 decoration: BoxDecoration(),
                                                 child: Icon(
                                                   Icons
                                                       .content_paste_search_rounded,
                                                   color: Color(0xFF354052),
-                                                  size: 24.0,
+                                                  size: 24,
                                                 ),
                                               ),
                                             ),
@@ -4843,14 +4812,14 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                       '')))
                                             Flexible(
                                               child: Container(
-                                                height: 100.0,
+                                                height: 100,
                                                 decoration: BoxDecoration(),
                                                 child: Icon(
                                                   Icons.close,
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .error,
-                                                  size: 24.0,
+                                                  size: 24,
                                                 ),
                                               ),
                                             ),
@@ -4866,12 +4835,12 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                       ''))
                                             Flexible(
                                               child: Container(
-                                                height: 100.0,
+                                                height: 100,
                                                 decoration: BoxDecoration(),
                                                 child: Icon(
                                                   Icons.check_rounded,
                                                   color: Color(0xFF00B505),
-                                                  size: 24.0,
+                                                  size: 24,
                                                 ),
                                               ),
                                             ),
@@ -4886,10 +4855,9 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                     Container(
                                       width: MediaQuery.sizeOf(context).width *
                                           0.9,
-                                      height: 35.0,
+                                      height: 35,
                                       decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
+                                        borderRadius: BorderRadius.circular(8),
                                       ),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -4898,15 +4866,15 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                         children: [
                                           Align(
                                             alignment:
-                                                AlignmentDirectional(0.0, 0.0),
+                                                AlignmentDirectional(0, 0),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
                                                   0.74,
-                                              height: 100.0,
+                                              height: 100,
                                               decoration: BoxDecoration(),
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
+                                              alignment:
+                                                  AlignmentDirectional(0, 0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
@@ -4924,8 +4892,8 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                5.0, 0.0),
+                                                            .fromSTEB(
+                                                                10, 0, 5, 0),
                                                     child: Text(
                                                       'สถานะ :',
                                                       style: FlutterFlowTheme
@@ -5042,13 +5010,13 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                     safeSetState(() {}));
                                               },
                                               child: Container(
-                                                height: 100.0,
+                                                height: 100,
                                                 decoration: BoxDecoration(),
                                                 child: Icon(
                                                   Icons
                                                       .content_paste_search_rounded,
                                                   color: Color(0xFF354052),
-                                                  size: 24.0,
+                                                  size: 24,
                                                 ),
                                               ),
                                             ),
@@ -5066,14 +5034,14 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                       '')))
                                             Flexible(
                                               child: Container(
-                                                height: 100.0,
+                                                height: 100,
                                                 decoration: BoxDecoration(),
                                                 child: Icon(
                                                   Icons.close,
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .error,
-                                                  size: 24.0,
+                                                  size: 24,
                                                 ),
                                               ),
                                             ),
@@ -5089,12 +5057,12 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                       ''))
                                             Flexible(
                                               child: Container(
-                                                height: 100.0,
+                                                height: 100,
                                                 decoration: BoxDecoration(),
                                                 child: Icon(
                                                   Icons.check_rounded,
                                                   color: Color(0xFF00B505),
-                                                  size: 24.0,
+                                                  size: 24,
                                                 ),
                                               ),
                                             ),
@@ -5109,10 +5077,9 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                     Container(
                                       width: MediaQuery.sizeOf(context).width *
                                           0.9,
-                                      height: 35.0,
+                                      height: 35,
                                       decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
+                                        borderRadius: BorderRadius.circular(8),
                                       ),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -5121,15 +5088,15 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                         children: [
                                           Align(
                                             alignment:
-                                                AlignmentDirectional(0.0, 0.0),
+                                                AlignmentDirectional(0, 0),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
                                                   0.74,
-                                              height: 100.0,
+                                              height: 100,
                                               decoration: BoxDecoration(),
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
+                                              alignment:
+                                                  AlignmentDirectional(0, 0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
@@ -5147,8 +5114,8 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                5.0, 0.0),
+                                                            .fromSTEB(
+                                                                10, 0, 5, 0),
                                                     child: Text(
                                                       'สถานะ :',
                                                       style: FlutterFlowTheme
@@ -5265,13 +5232,13 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                     safeSetState(() {}));
                                               },
                                               child: Container(
-                                                height: 100.0,
+                                                height: 100,
                                                 decoration: BoxDecoration(),
                                                 child: Icon(
                                                   Icons
                                                       .content_paste_search_rounded,
                                                   color: Color(0xFF354052),
-                                                  size: 24.0,
+                                                  size: 24,
                                                 ),
                                               ),
                                             ),
@@ -5289,14 +5256,14 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                       '')))
                                             Flexible(
                                               child: Container(
-                                                height: 100.0,
+                                                height: 100,
                                                 decoration: BoxDecoration(),
                                                 child: Icon(
                                                   Icons.close,
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .error,
-                                                  size: 24.0,
+                                                  size: 24,
                                                 ),
                                               ),
                                             ),
@@ -5312,12 +5279,12 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                       ''))
                                             Flexible(
                                               child: Container(
-                                                height: 100.0,
+                                                height: 100,
                                                 decoration: BoxDecoration(),
                                                 child: Icon(
                                                   Icons.check_rounded,
                                                   color: Color(0xFF00B505),
-                                                  size: 24.0,
+                                                  size: 24,
                                                 ),
                                               ),
                                             ),
@@ -5332,10 +5299,9 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                     Container(
                                       width: MediaQuery.sizeOf(context).width *
                                           0.9,
-                                      height: 35.0,
+                                      height: 35,
                                       decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
+                                        borderRadius: BorderRadius.circular(8),
                                       ),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -5344,15 +5310,15 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                         children: [
                                           Align(
                                             alignment:
-                                                AlignmentDirectional(0.0, 0.0),
+                                                AlignmentDirectional(0, 0),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
                                                   0.74,
-                                              height: 100.0,
+                                              height: 100,
                                               decoration: BoxDecoration(),
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
+                                              alignment:
+                                                  AlignmentDirectional(0, 0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
@@ -5370,8 +5336,8 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                5.0, 0.0),
+                                                            .fromSTEB(
+                                                                10, 0, 5, 0),
                                                     child: Text(
                                                       'สถานะ :',
                                                       style: FlutterFlowTheme
@@ -5488,13 +5454,13 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                     safeSetState(() {}));
                                               },
                                               child: Container(
-                                                height: 100.0,
+                                                height: 100,
                                                 decoration: BoxDecoration(),
                                                 child: Icon(
                                                   Icons
                                                       .content_paste_search_rounded,
                                                   color: Color(0xFF354052),
-                                                  size: 24.0,
+                                                  size: 24,
                                                 ),
                                               ),
                                             ),
@@ -5512,14 +5478,14 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                       '')))
                                             Flexible(
                                               child: Container(
-                                                height: 100.0,
+                                                height: 100,
                                                 decoration: BoxDecoration(),
                                                 child: Icon(
                                                   Icons.close,
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .error,
-                                                  size: 24.0,
+                                                  size: 24,
                                                 ),
                                               ),
                                             ),
@@ -5535,12 +5501,12 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                       ''))
                                             Flexible(
                                               child: Container(
-                                                height: 100.0,
+                                                height: 100,
                                                 decoration: BoxDecoration(),
                                                 child: Icon(
                                                   Icons.check_rounded,
                                                   color: Color(0xFF00B505),
-                                                  size: 24.0,
+                                                  size: 24,
                                                 ),
                                               ),
                                             ),
@@ -5555,10 +5521,9 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                     Container(
                                       width: MediaQuery.sizeOf(context).width *
                                           0.9,
-                                      height: 35.0,
+                                      height: 35,
                                       decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
+                                        borderRadius: BorderRadius.circular(8),
                                       ),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -5567,15 +5532,15 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                         children: [
                                           Align(
                                             alignment:
-                                                AlignmentDirectional(0.0, 0.0),
+                                                AlignmentDirectional(0, 0),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
                                                   0.74,
-                                              height: 100.0,
+                                              height: 100,
                                               decoration: BoxDecoration(),
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
+                                              alignment:
+                                                  AlignmentDirectional(0, 0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
@@ -5593,8 +5558,8 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                5.0, 0.0),
+                                                            .fromSTEB(
+                                                                10, 0, 5, 0),
                                                     child: Text(
                                                       'สถานะ :',
                                                       style: FlutterFlowTheme
@@ -5711,13 +5676,13 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                     safeSetState(() {}));
                                               },
                                               child: Container(
-                                                height: 100.0,
+                                                height: 100,
                                                 decoration: BoxDecoration(),
                                                 child: Icon(
                                                   Icons
                                                       .content_paste_search_rounded,
                                                   color: Color(0xFF354052),
-                                                  size: 24.0,
+                                                  size: 24,
                                                 ),
                                               ),
                                             ),
@@ -5735,14 +5700,14 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                       '')))
                                             Flexible(
                                               child: Container(
-                                                height: 100.0,
+                                                height: 100,
                                                 decoration: BoxDecoration(),
                                                 child: Icon(
                                                   Icons.close,
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .error,
-                                                  size: 24.0,
+                                                  size: 24,
                                                 ),
                                               ),
                                             ),
@@ -5758,12 +5723,12 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                       ''))
                                             Flexible(
                                               child: Container(
-                                                height: 100.0,
+                                                height: 100,
                                                 decoration: BoxDecoration(),
                                                 child: Icon(
                                                   Icons.check_rounded,
                                                   color: Color(0xFF00B505),
-                                                  size: 24.0,
+                                                  size: 24,
                                                 ),
                                               ),
                                             ),
@@ -5778,10 +5743,9 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                     Container(
                                       width: MediaQuery.sizeOf(context).width *
                                           0.9,
-                                      height: 35.0,
+                                      height: 35,
                                       decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
+                                        borderRadius: BorderRadius.circular(8),
                                       ),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -5790,15 +5754,15 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                         children: [
                                           Align(
                                             alignment:
-                                                AlignmentDirectional(0.0, 0.0),
+                                                AlignmentDirectional(0, 0),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
                                                   0.74,
-                                              height: 100.0,
+                                              height: 100,
                                               decoration: BoxDecoration(),
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
+                                              alignment:
+                                                  AlignmentDirectional(0, 0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
@@ -5816,8 +5780,8 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                5.0, 0.0),
+                                                            .fromSTEB(
+                                                                10, 0, 5, 0),
                                                     child: Text(
                                                       'สถานะ :',
                                                       style: FlutterFlowTheme
@@ -5934,13 +5898,13 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                     safeSetState(() {}));
                                               },
                                               child: Container(
-                                                height: 100.0,
+                                                height: 100,
                                                 decoration: BoxDecoration(),
                                                 child: Icon(
                                                   Icons
                                                       .content_paste_search_rounded,
                                                   color: Color(0xFF354052),
-                                                  size: 24.0,
+                                                  size: 24,
                                                 ),
                                               ),
                                             ),
@@ -5958,14 +5922,14 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                       '')))
                                             Flexible(
                                               child: Container(
-                                                height: 100.0,
+                                                height: 100,
                                                 decoration: BoxDecoration(),
                                                 child: Icon(
                                                   Icons.close,
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .error,
-                                                  size: 24.0,
+                                                  size: 24,
                                                 ),
                                               ),
                                             ),
@@ -5981,12 +5945,12 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                       ''))
                                             Flexible(
                                               child: Container(
-                                                height: 100.0,
+                                                height: 100,
                                                 decoration: BoxDecoration(),
                                                 child: Icon(
                                                   Icons.check_rounded,
                                                   color: Color(0xFF00B505),
-                                                  size: 24.0,
+                                                  size: 24,
                                                 ),
                                               ),
                                             ),
@@ -6001,10 +5965,9 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                     Container(
                                       width: MediaQuery.sizeOf(context).width *
                                           0.9,
-                                      height: 35.0,
+                                      height: 35,
                                       decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
+                                        borderRadius: BorderRadius.circular(8),
                                       ),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -6013,15 +5976,15 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                         children: [
                                           Align(
                                             alignment:
-                                                AlignmentDirectional(0.0, 0.0),
+                                                AlignmentDirectional(0, 0),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
                                                   0.74,
-                                              height: 100.0,
+                                              height: 100,
                                               decoration: BoxDecoration(),
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
+                                              alignment:
+                                                  AlignmentDirectional(0, 0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
@@ -6039,8 +6002,8 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                5.0, 0.0),
+                                                            .fromSTEB(
+                                                                10, 0, 5, 0),
                                                     child: Text(
                                                       'สถานะ :',
                                                       style: FlutterFlowTheme
@@ -6157,13 +6120,13 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                     safeSetState(() {}));
                                               },
                                               child: Container(
-                                                height: 100.0,
+                                                height: 100,
                                                 decoration: BoxDecoration(),
                                                 child: Icon(
                                                   Icons
                                                       .content_paste_search_rounded,
                                                   color: Color(0xFF354052),
-                                                  size: 24.0,
+                                                  size: 24,
                                                 ),
                                               ),
                                             ),
@@ -6181,14 +6144,14 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                       '')))
                                             Flexible(
                                               child: Container(
-                                                height: 100.0,
+                                                height: 100,
                                                 decoration: BoxDecoration(),
                                                 child: Icon(
                                                   Icons.close,
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .error,
-                                                  size: 24.0,
+                                                  size: 24,
                                                 ),
                                               ),
                                             ),
@@ -6204,12 +6167,12 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                       ''))
                                             Flexible(
                                               child: Container(
-                                                height: 100.0,
+                                                height: 100,
                                                 decoration: BoxDecoration(),
                                                 child: Icon(
                                                   Icons.check_rounded,
                                                   color: Color(0xFF00B505),
-                                                  size: 24.0,
+                                                  size: 24,
                                                 ),
                                               ),
                                             ),
@@ -6224,10 +6187,9 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                     Container(
                                       width: MediaQuery.sizeOf(context).width *
                                           0.9,
-                                      height: 35.0,
+                                      height: 35,
                                       decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
+                                        borderRadius: BorderRadius.circular(8),
                                       ),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -6236,15 +6198,15 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                         children: [
                                           Align(
                                             alignment:
-                                                AlignmentDirectional(0.0, 0.0),
+                                                AlignmentDirectional(0, 0),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
                                                   0.74,
-                                              height: 100.0,
+                                              height: 100,
                                               decoration: BoxDecoration(),
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
+                                              alignment:
+                                                  AlignmentDirectional(0, 0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
@@ -6262,8 +6224,8 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                5.0, 0.0),
+                                                            .fromSTEB(
+                                                                10, 0, 5, 0),
                                                     child: Text(
                                                       'สถานะ :',
                                                       style: FlutterFlowTheme
@@ -6380,13 +6342,13 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                     safeSetState(() {}));
                                               },
                                               child: Container(
-                                                height: 100.0,
+                                                height: 100,
                                                 decoration: BoxDecoration(),
                                                 child: Icon(
                                                   Icons
                                                       .content_paste_search_rounded,
                                                   color: Color(0xFF354052),
-                                                  size: 24.0,
+                                                  size: 24,
                                                 ),
                                               ),
                                             ),
@@ -6404,14 +6366,14 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                       '')))
                                             Flexible(
                                               child: Container(
-                                                height: 100.0,
+                                                height: 100,
                                                 decoration: BoxDecoration(),
                                                 child: Icon(
                                                   Icons.close,
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .error,
-                                                  size: 24.0,
+                                                  size: 24,
                                                 ),
                                               ),
                                             ),
@@ -6427,12 +6389,12 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                       ''))
                                             Flexible(
                                               child: Container(
-                                                height: 100.0,
+                                                height: 100,
                                                 decoration: BoxDecoration(),
                                                 child: Icon(
                                                   Icons.check_rounded,
                                                   color: Color(0xFF00B505),
-                                                  size: 24.0,
+                                                  size: 24,
                                                 ),
                                               ),
                                             ),
@@ -6445,14 +6407,13 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                             ),
                           ),
                         Divider(
-                          thickness: 1.0,
+                          thickness: 1,
                           color: FlutterFlowTheme.of(context).secondaryText,
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 20.0, 0.0, 0.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                           child: Container(
-                            width: MediaQuery.sizeOf(context).width * 1.0,
+                            width: MediaQuery.sizeOf(context).width,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
@@ -6463,21 +6424,21 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 12.0),
+                                      0, 0, 0, 12),
                                   child: Text(
                                     'รายละเอียดความยินยอม',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
-                                          fontSize: 16.0,
+                                          fontSize: 16,
                                           letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      12.0, 0.0, 12.0, 0.0),
+                                      12, 0, 12, 0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -6489,7 +6450,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFFFF0000),
-                                              fontSize: 16.0,
+                                              fontSize: 16,
                                               letterSpacing: 0.0,
                                             ),
                                       ),
@@ -6508,7 +6469,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                       Expanded(
                                         flex: 1,
                                         child: Container(
-                                          height: 250.0,
+                                          height: 250,
                                           decoration: BoxDecoration(),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
@@ -6528,7 +6489,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                         RoundedRectangleBorder(
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              4.0),
+                                                              4),
                                                     ),
                                                   ),
                                                   unselectedWidgetColor:
@@ -6541,7 +6502,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                           .privacyConsent1Value ??=
                                                       false,
                                                   onChanged: (newValue) async {
-                                                    setState(() => _model
+                                                    safeSetState(() => _model
                                                             .privacyConsent1Value =
                                                         newValue!);
                                                   },
@@ -6560,8 +6521,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 40.0, 0.0, 0.0),
+                                                    .fromSTEB(0, 40, 0, 0),
                                                 child: Theme(
                                                   data: ThemeData(
                                                     checkboxTheme:
@@ -6575,7 +6535,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                           RoundedRectangleBorder(
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(4.0),
+                                                                .circular(4),
                                                       ),
                                                     ),
                                                     unselectedWidgetColor:
@@ -6589,7 +6549,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                         false,
                                                     onChanged:
                                                         (newValue) async {
-                                                      setState(() => _model
+                                                      safeSetState(() => _model
                                                               .privacyConsent2Value =
                                                           newValue!);
                                                     },
@@ -6611,8 +6571,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 40.0, 0.0, 0.0),
+                                                    .fromSTEB(0, 40, 0, 0),
                                                 child: Theme(
                                                   data: ThemeData(
                                                     checkboxTheme:
@@ -6626,7 +6585,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                           RoundedRectangleBorder(
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(4.0),
+                                                                .circular(4),
                                                       ),
                                                     ),
                                                     unselectedWidgetColor:
@@ -6640,7 +6599,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                         false,
                                                     onChanged:
                                                         (newValue) async {
-                                                      setState(() => _model
+                                                      safeSetState(() => _model
                                                               .privacyConsent3Value =
                                                           newValue!);
                                                     },
@@ -6690,7 +6649,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 12.0, 0.0, 0.0),
+                                      0, 12, 0, 0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -6705,7 +6664,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                     .shrinkWrap,
                                             shape: RoundedRectangleBorder(
                                               borderRadius:
-                                                  BorderRadius.circular(4.0),
+                                                  BorderRadius.circular(4),
                                             ),
                                           ),
                                           unselectedWidgetColor:
@@ -6716,32 +6675,32 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                           value: _model.privacyConsentValue ??=
                                               false,
                                           onChanged: (newValue) async {
-                                            setState(() =>
+                                            safeSetState(() =>
                                                 _model.privacyConsentValue =
                                                     newValue!);
                                             if (newValue!) {
-                                              setState(() {
+                                              safeSetState(() {
                                                 _model.privacyConsent1Value =
                                                     true;
                                               });
-                                              setState(() {
+                                              safeSetState(() {
                                                 _model.privacyConsent2Value =
                                                     true;
                                               });
-                                              setState(() {
+                                              safeSetState(() {
                                                 _model.privacyConsent3Value =
                                                     true;
                                               });
                                             } else {
-                                              setState(() {
+                                              safeSetState(() {
                                                 _model.privacyConsent1Value =
                                                     false;
                                               });
-                                              setState(() {
+                                              safeSetState(() {
                                                 _model.privacyConsent2Value =
                                                     false;
                                               });
-                                              setState(() {
+                                              safeSetState(() {
                                                 _model.privacyConsent3Value =
                                                     false;
                                               });
@@ -6775,14 +6734,13 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                           ),
                         ),
                         Divider(
-                          thickness: 1.0,
+                          thickness: 1,
                           color: FlutterFlowTheme.of(context).secondaryText,
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 15.0, 0.0, 15.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 15, 0, 15),
                           child: Container(
-                            width: MediaQuery.sizeOf(context).width * 1.0,
+                            width: MediaQuery.sizeOf(context).width,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
@@ -6892,7 +6850,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                       },
                                                     );
                                                     if (_shouldSetState)
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     return;
                                                   }
                                                   showModalBottomSheet(
@@ -7022,7 +6980,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                     );
                                                     Navigator.pop(context);
                                                     if (_shouldSetState)
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     return;
                                                   }
                                                   if (IbsApplicationsSaveCall
@@ -7060,7 +7018,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                     );
                                                     Navigator.pop(context);
                                                     if (_shouldSetState)
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     return;
                                                   }
                                                   await showDialog(
@@ -7093,7 +7051,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                             ?.jsonBody ??
                                                         ''),
                                                   ).toString()}';
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                   Navigator.pop(context);
                                                 } else {
                                                   await showDialog(
@@ -7117,12 +7075,12 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                     },
                                                   );
                                                   if (_shouldSetState)
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                   return;
                                                 }
 
                                                 if (_shouldSetState)
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                               },
                                               text: 'บันทึกเตรียมข้อมูล',
                                               options: FFButtonOptions(
@@ -7130,14 +7088,12 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                     MediaQuery.sizeOf(context)
                                                             .width *
                                                         0.45,
-                                                height: 60.0,
+                                                height: 60,
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 10.0, 0.0),
+                                                    .fromSTEB(10, 0, 10, 0),
                                                 iconPadding:
                                                     EdgeInsetsDirectional
-                                                        .fromSTEB(
-                                                            0.0, 0.0, 0.0, 0.0),
+                                                        .fromSTEB(0, 0, 0, 0),
                                                 color: Color(0xFFFCEFE4),
                                                 textStyle:
                                                     FlutterFlowTheme.of(context)
@@ -7151,13 +7107,13 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
-                                                elevation: 3.0,
+                                                elevation: 3,
                                                 borderSide: BorderSide(
                                                   color: Color(0xFFFCEFE4),
-                                                  width: 1.0,
+                                                  width: 1,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(16.0),
+                                                    BorderRadius.circular(16),
                                               ),
                                             ),
                                           if ((FFAppState()
@@ -7243,7 +7199,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                       },
                                                     );
                                                     if (_shouldSetState)
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     return;
                                                   }
                                                   showModalBottomSheet(
@@ -7355,7 +7311,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                     );
                                                     Navigator.pop(context);
                                                     if (_shouldSetState)
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     return;
                                                   }
                                                   if (IbsApplicationsSaveCall
@@ -7393,7 +7349,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                     );
                                                     Navigator.pop(context);
                                                     if (_shouldSetState)
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     return;
                                                   }
                                                   await showDialog(
@@ -7426,7 +7382,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                             ?.jsonBody ??
                                                         ''),
                                                   ).toString()}';
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                   Navigator.pop(context);
                                                 } else {
                                                   await showDialog(
@@ -7450,12 +7406,12 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                     },
                                                   );
                                                   if (_shouldSetState)
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                   return;
                                                 }
 
                                                 if (_shouldSetState)
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                               },
                                               text: 'บันทึกเตรียมข้อมูล',
                                               options: FFButtonOptions(
@@ -7463,14 +7419,12 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                     MediaQuery.sizeOf(context)
                                                             .width *
                                                         0.45,
-                                                height: 60.0,
+                                                height: 60,
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 10.0, 0.0),
+                                                    .fromSTEB(10, 0, 10, 0),
                                                 iconPadding:
                                                     EdgeInsetsDirectional
-                                                        .fromSTEB(
-                                                            0.0, 0.0, 0.0, 0.0),
+                                                        .fromSTEB(0, 0, 0, 0),
                                                 color: Color(0xFFFCEFE4),
                                                 textStyle:
                                                     FlutterFlowTheme.of(context)
@@ -7484,13 +7438,13 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
-                                                elevation: 3.0,
+                                                elevation: 3,
                                                 borderSide: BorderSide(
                                                   color: Color(0xFFFCEFE4),
-                                                  width: 1.0,
+                                                  width: 1,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(16.0),
+                                                    BorderRadius.circular(16),
                                               ),
                                             ),
                                           if ((FFAppState()
@@ -7543,7 +7497,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                       },
                                                     );
                                                     if (_shouldSetState)
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     return;
                                                   }
                                                   if ((FFAppState()
@@ -7586,7 +7540,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                         },
                                                       );
                                                       if (_shouldSetState)
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                       return;
                                                     }
                                                   }
@@ -7681,7 +7635,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                     );
                                                     Navigator.pop(context);
                                                     if (_shouldSetState)
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     return;
                                                   }
                                                   if (IbsApplicationsSaveCall
@@ -7719,7 +7673,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                     );
                                                     Navigator.pop(context);
                                                     if (_shouldSetState)
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     return;
                                                   }
                                                   await showDialog(
@@ -7752,7 +7706,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                             ?.jsonBody ??
                                                         ''),
                                                   ).toString()}';
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                   Navigator.pop(context);
                                                 } else {
                                                   await showDialog(
@@ -7776,12 +7730,12 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                     },
                                                   );
                                                   if (_shouldSetState)
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                   return;
                                                 }
 
                                                 if (_shouldSetState)
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                               },
                                               text: 'บันทึกเตรียมข้อมูล',
                                               options: FFButtonOptions(
@@ -7789,14 +7743,12 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                     MediaQuery.sizeOf(context)
                                                             .width *
                                                         0.45,
-                                                height: 60.0,
+                                                height: 60,
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 10.0, 0.0),
+                                                    .fromSTEB(10, 0, 10, 0),
                                                 iconPadding:
                                                     EdgeInsetsDirectional
-                                                        .fromSTEB(
-                                                            0.0, 0.0, 0.0, 0.0),
+                                                        .fromSTEB(0, 0, 0, 0),
                                                 color: Color(0xFFFCEFE4),
                                                 textStyle:
                                                     FlutterFlowTheme.of(context)
@@ -7810,13 +7762,13 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
-                                                elevation: 3.0,
+                                                elevation: 3,
                                                 borderSide: BorderSide(
                                                   color: Color(0xFFFCEFE4),
-                                                  width: 1.0,
+                                                  width: 1,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(16.0),
+                                                    BorderRadius.circular(16),
                                               ),
                                             ),
                                         ],
@@ -7826,7 +7778,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  15.0, 0.0, 0.0, 0.0),
+                                                  15, 0, 0, 0),
                                           child: FFButtonWidget(
                                             onPressed: () async {
                                               var _shouldSetState = false;
@@ -7909,7 +7861,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                     },
                                                   );
                                                   if (_shouldSetState)
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                   return;
                                                 }
                                                 if (IbsApplicationsSaveCall
@@ -7945,7 +7897,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                     },
                                                   );
                                                   if (_shouldSetState)
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                   return;
                                                 }
                                                 FFAppState()
@@ -7997,7 +7949,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                           ?.jsonBody ??
                                                       ''),
                                                 )}';
-                                                setState(() {});
+                                                safeSetState(() {});
 
                                                 context.pushNamed(
                                                   'insuranceInfoPage4_2',
@@ -8022,19 +7974,18 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                               }
 
                                               if (_shouldSetState)
-                                                setState(() {});
+                                                safeSetState(() {});
                                             },
                                             text: 'ถัดไป',
                                             options: FFButtonOptions(
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
                                                   0.45,
-                                              height: 60.0,
+                                              height: 60,
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      24.0, 0.0, 24.0, 0.0),
+                                                  .fromSTEB(24, 0, 24, 0),
                                               iconPadding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                  .fromSTEB(0, 0, 0, 0),
                                               color: Color(0xFFD9761A),
                                               textStyle: FlutterFlowTheme.of(
                                                       context)
@@ -8048,13 +7999,13 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
-                                              elevation: 3.0,
+                                              elevation: 3,
                                               borderSide: BorderSide(
                                                 color: Colors.transparent,
-                                                width: 1.0,
+                                                width: 1,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(16.0),
+                                                  BorderRadius.circular(16),
                                             ),
                                           ),
                                         ),
@@ -8067,7 +8018,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                         ),
                       ],
                     ),
-                  ].addToEnd(SizedBox(height: 50.0)),
+                  ].addToEnd(SizedBox(height: 50)),
                 ),
               ),
             ),

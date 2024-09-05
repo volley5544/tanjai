@@ -17,7 +17,6 @@ class InsuranceInfoPage4Model
     extends FlutterFlowModel<InsuranceInfoPage4Widget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Model for infomationCustomer component.
   late InfomationCustomerModel infomationCustomerModel;
   bool isDataUploading1 = false;

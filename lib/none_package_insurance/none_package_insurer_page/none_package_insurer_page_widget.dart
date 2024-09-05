@@ -123,7 +123,7 @@ class _NonePackageInsurerPageWidgetState
         )!
                 .toList()
                 .cast<String>();
-        setState(() {});
+        safeSetState(() {});
       } else {
         await showDialog(
           context: context,
@@ -151,7 +151,7 @@ class _NonePackageInsurerPageWidgetState
               false, FFAppState().nonePackageInsurerNameList.length)!
           .toList()
           .cast<bool>();
-      setState(() {});
+      safeSetState(() {});
       if (FFAppState().nonePackageInsurerShortNameDupList.length > 0) {
         FFAppState().nonePackageInsurerSelectedList = functions
             .setInsurerDupList(
@@ -160,7 +160,7 @@ class _NonePackageInsurerPageWidgetState
                 FFAppState().nonePackageInsurerShortNameDupList.toList())!
             .toList()
             .cast<bool>();
-        setState(() {});
+        safeSetState(() {});
       }
       Navigator.pop(context);
     });
@@ -190,8 +190,8 @@ class _NonePackageInsurerPageWidgetState
             backgroundColor: Color(0xFFFAFAFA),
             body: Center(
               child: SizedBox(
-                width: 50.0,
-                height: 50.0,
+                width: 50,
+                height: 50,
                 child: CircularProgressIndicator(
                   valueColor: AlwaysStoppedAnimation<Color>(
                     FlutterFlowTheme.of(context).primary,
@@ -225,7 +225,7 @@ class _NonePackageInsurerPageWidgetState
                   child: Icon(
                     Icons.arrow_back,
                     color: Color(0xFFDB7619),
-                    size: 30.0,
+                    size: 30,
                   ),
                 ),
                 title: Text(
@@ -241,7 +241,7 @@ class _NonePackageInsurerPageWidgetState
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
                         fontFamily: 'Noto Sans Thai',
                         color: Color(0xFF123063),
-                        fontSize: 16.0,
+                        fontSize: 16,
                         letterSpacing: 0.0,
                       ),
                 ),
@@ -251,7 +251,7 @@ class _NonePackageInsurerPageWidgetState
               body: SafeArea(
                 top: true,
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -260,8 +260,7 @@ class _NonePackageInsurerPageWidgetState
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                4.0, 0.0, 0.0, 0.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(4, 0, 0, 0),
                             child: Text(
                               FFAppState().nonePackageFlagRenew
                                   ? 'บริษัทประกันที่ต้องการต่ออายุ'
@@ -270,7 +269,7 @@ class _NonePackageInsurerPageWidgetState
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Noto Sans Thai',
-                                    fontSize: 15.0,
+                                    fontSize: 15,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
                                   ),
@@ -278,8 +277,8 @@ class _NonePackageInsurerPageWidgetState
                           ),
                           if (!FFAppState().nonePackageFlagRenew)
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  4.0, 0.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(4, 0, 0, 0),
                               child: Text(
                                 '(${functions.countTrueInBoolList(FFAppState().nonePackageInsurerSelectedList.toList())?.toString()}/3)',
                                 style: FlutterFlowTheme.of(context)
@@ -287,7 +286,7 @@ class _NonePackageInsurerPageWidgetState
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       color: FlutterFlowTheme.of(context).error,
-                                      fontSize: 15.0,
+                                      fontSize: 15,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
@@ -304,8 +303,7 @@ class _NonePackageInsurerPageWidgetState
                         child: Visibility(
                           visible: !FFAppState().nonePackageFlagRenew,
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                4.0, 4.0, 0.0, 0.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(4, 4, 0, 0),
                             child: Text(
                               'กรุณาถามลูกค้าให้เลือกบริษัทประกันสูงสุดเพียง 3 บริษัทเท่านั้น',
                               maxLines: 2,
@@ -314,7 +312,7 @@ class _NonePackageInsurerPageWidgetState
                                   .override(
                                     fontFamily: 'Noto Sans Thai',
                                     color: FlutterFlowTheme.of(context).error,
-                                    fontSize: 15.0,
+                                    fontSize: 15,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
                                   ),
@@ -330,11 +328,11 @@ class _NonePackageInsurerPageWidgetState
                             if (false)
                               Container(
                                 width: double.infinity,
-                                height: 50.0,
+                                height: 50,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderRadius: BorderRadius.circular(10),
                                   border: Border.all(
                                     width: 0.5,
                                   ),
@@ -345,7 +343,7 @@ class _NonePackageInsurerPageWidgetState
                                     Expanded(
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            8.0, 0.0, 8.0, 0.0),
+                                            8, 0, 8, 0),
                                         child: TextFormField(
                                           controller: _model.textController,
                                           focusNode: _model.textFieldFocusNode,
@@ -353,7 +351,7 @@ class _NonePackageInsurerPageWidgetState
                                               EasyDebounce.debounce(
                                             '_model.textController',
                                             Duration(milliseconds: 100),
-                                            () => setState(() {}),
+                                            () => safeSetState(() {}),
                                           ),
                                           autofocus: false,
                                           obscureText: false,
@@ -413,8 +411,8 @@ class _NonePackageInsurerPageWidgetState
                                   if (!snapshot.hasData) {
                                     return Center(
                                       child: SizedBox(
-                                        width: 50.0,
-                                        height: 50.0,
+                                        width: 50,
+                                        height: 50,
                                         child: CircularProgressIndicator(
                                           valueColor:
                                               AlwaysStoppedAnimation<Color>(
@@ -464,8 +462,8 @@ class _NonePackageInsurerPageWidgetState
                                           if (!snapshot.hasData) {
                                             return Center(
                                               child: SizedBox(
-                                                width: 50.0,
-                                                height: 50.0,
+                                                width: 50,
+                                                height: 50,
                                                 child:
                                                     CircularProgressIndicator(
                                                   valueColor:
@@ -563,16 +561,12 @@ class _NonePackageInsurerPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0.0,
-                                                                  10.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                                  0, 10, 0, 0),
                                                       child: Container(
                                                         width:
                                                             MediaQuery.sizeOf(
-                                                                        context)
-                                                                    .width *
-                                                                1.0,
+                                                                    context)
+                                                                .width,
                                                         decoration:
                                                             BoxDecoration(),
                                                         child: Column(
@@ -636,7 +630,7 @@ class _NonePackageInsurerPageWidgetState
                                                                           dataListIndex)!
                                                                       .toList()
                                                                       .cast<bool>();
-                                                                  setState(
+                                                                  safeSetState(
                                                                       () {});
                                                                 } else {
                                                                   if (functions.countTrueInBoolList(FFAppState()
@@ -649,7 +643,7 @@ class _NonePackageInsurerPageWidgetState
                                                                       (_) =>
                                                                           false,
                                                                     );
-                                                                    setState(
+                                                                    safeSetState(
                                                                         () {});
                                                                   } else {
                                                                     FFAppState()
@@ -660,17 +654,17 @@ class _NonePackageInsurerPageWidgetState
                                                                           ? false
                                                                           : true,
                                                                     );
-                                                                    setState(
+                                                                    safeSetState(
                                                                         () {});
                                                                   }
                                                                 }
                                                               },
                                                               child: Container(
-                                                                width: MediaQuery.sizeOf(
+                                                                width: MediaQuery
+                                                                        .sizeOf(
                                                                             context)
-                                                                        .width *
-                                                                    1.0,
-                                                                height: 60.0,
+                                                                    .width,
+                                                                height: 60,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   color: FlutterFlowTheme.of(
@@ -679,7 +673,7 @@ class _NonePackageInsurerPageWidgetState
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .circular(
-                                                                              8.0),
+                                                                              8),
                                                                   border: Border
                                                                       .all(
                                                                     color: Color(
@@ -695,11 +689,12 @@ class _NonePackageInsurerPageWidgetState
                                                                           .spaceBetween,
                                                                   children: [
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          10.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                      padding: EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              10,
+                                                                              0,
+                                                                              0,
+                                                                              0),
                                                                       child:
                                                                           Text(
                                                                         FFAppState()
@@ -709,7 +704,7 @@ class _NonePackageInsurerPageWidgetState
                                                                             .override(
                                                                               fontFamily: 'Noto Sans Thai',
                                                                               color: Color(0xFFB3B3B3),
-                                                                              fontSize: 15.0,
+                                                                              fontSize: 15,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.w600,
                                                                             ),
@@ -720,16 +715,16 @@ class _NonePackageInsurerPageWidgetState
                                                                         dataListIndex])
                                                                       Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            10.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            0,
+                                                                            10,
+                                                                            0),
                                                                         child:
                                                                             Container(
                                                                           width:
-                                                                              25.0,
+                                                                              25,
                                                                           height:
-                                                                              25.0,
+                                                                              25,
                                                                           decoration:
                                                                               BoxDecoration(
                                                                             color:
@@ -739,7 +734,7 @@ class _NonePackageInsurerPageWidgetState
                                                                             border:
                                                                                 Border.all(
                                                                               color: Color(0xFF9F9F9F),
-                                                                              width: 1.0,
+                                                                              width: 1,
                                                                             ),
                                                                           ),
                                                                         ),
@@ -749,16 +744,16 @@ class _NonePackageInsurerPageWidgetState
                                                                         dataListIndex])
                                                                       Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            10.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            0,
+                                                                            10,
+                                                                            0),
                                                                         child:
                                                                             Container(
                                                                           width:
-                                                                              25.0,
+                                                                              25,
                                                                           height:
-                                                                              25.0,
+                                                                              25,
                                                                           decoration:
                                                                               BoxDecoration(
                                                                             color:
@@ -769,12 +764,12 @@ class _NonePackageInsurerPageWidgetState
                                                                           child:
                                                                               Align(
                                                                             alignment:
-                                                                                AlignmentDirectional(0.0, 0.0),
+                                                                                AlignmentDirectional(0, 0),
                                                                             child:
                                                                                 Icon(
                                                                               Icons.check,
                                                                               color: Colors.white,
-                                                                              size: 18.0,
+                                                                              size: 18,
                                                                             ),
                                                                           ),
                                                                         ),
@@ -799,14 +794,14 @@ class _NonePackageInsurerPageWidgetState
                                 },
                               ),
                             ),
-                          ].addToEnd(SizedBox(height: 24.0)),
+                          ].addToEnd(SizedBox(height: 24)),
                         ),
                       ),
                       Expanded(
                         flex: 1,
                         child: Container(
                           width: double.infinity,
-                          height: 100.0,
+                          height: 100,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
@@ -816,8 +811,8 @@ class _NonePackageInsurerPageWidgetState
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    8.0, 0.0, 8.0, 0.0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
                                     var _shouldSetState = false;
@@ -845,7 +840,7 @@ class _NonePackageInsurerPageWidgetState
                                           );
                                         },
                                       );
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                     FFAppState()
@@ -900,7 +895,7 @@ class _NonePackageInsurerPageWidgetState
                                                 true)
                                             .toList()
                                             .cast<String>();
-                                    setState(() {});
+                                    safeSetState(() {});
                                     if (FFAppState().nonePackageFlagRenew) {
                                       _model.sendRenewApi =
                                           await InsuranceRequestSendEmailAPICall
@@ -1167,7 +1162,8 @@ class _NonePackageInsurerPageWidgetState
                                             );
                                           },
                                         );
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                         return;
                                       }
                                       if (InsuranceRequestSendEmailAPICall
@@ -1206,7 +1202,8 @@ class _NonePackageInsurerPageWidgetState
                                               );
                                             },
                                           );
-                                          if (_shouldSetState) setState(() {});
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
                                           return;
                                         }
                                         FFAppState().nonePackageFlagCarrier =
@@ -1436,7 +1433,7 @@ class _NonePackageInsurerPageWidgetState
                                         FFAppState()
                                             .nonePackageInsurerShortNameDupList = [];
                                         FFAppState().nonePackageYearChrist = '';
-                                        setState(() {});
+                                        safeSetState(() {});
                                         FFAppState()
                                                 .insuranceVehicleTypeDropDown =
                                             'เลือกประเภทรถ';
@@ -1457,7 +1454,7 @@ class _NonePackageInsurerPageWidgetState
                                             .insuranceBasicCoverTypeNameOutputList = [];
                                         FFAppState()
                                             .insuranceBasicGarageTypeInPackage = [];
-                                        setState(() {});
+                                        safeSetState(() {});
                                         FFAppState()
                                             .nonePackageImageFrontUploaded = '';
                                         FFAppState()
@@ -1510,12 +1507,13 @@ class _NonePackageInsurerPageWidgetState
                                             '';
                                         FFAppState()
                                             .nonePackageCompanyBookImageUrl = '';
-                                        setState(() {});
+                                        safeSetState(() {});
 
                                         context
                                             .goNamed('InsuranceUnSuccessPage');
 
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                         return;
                                       }
                                       await showDialog(
@@ -1857,7 +1855,8 @@ class _NonePackageInsurerPageWidgetState
                                             );
                                           },
                                         );
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                         return;
                                       }
                                       if (InsuranceRequestSendEmailAPICall
@@ -2120,7 +2119,7 @@ class _NonePackageInsurerPageWidgetState
                                               .nonePackageInsurerShortNameDupList = [];
                                           FFAppState().nonePackageYearChrist =
                                               '';
-                                          setState(() {});
+                                          safeSetState(() {});
                                           FFAppState()
                                                   .insuranceVehicleTypeDropDown =
                                               'เลือกประเภทรถ';
@@ -2143,7 +2142,7 @@ class _NonePackageInsurerPageWidgetState
                                               .insuranceBasicCoverTypeNameOutputList = [];
                                           FFAppState()
                                               .insuranceBasicGarageTypeInPackage = [];
-                                          setState(() {});
+                                          safeSetState(() {});
                                           FFAppState()
                                               .nonePackageImageFrontUploaded = '';
                                           FFAppState()
@@ -2196,7 +2195,7 @@ class _NonePackageInsurerPageWidgetState
                                               .nonePackageOldVmiImageUrl = '';
                                           FFAppState()
                                               .nonePackageCompanyBookImageUrl = '';
-                                          setState(() {});
+                                          safeSetState(() {});
 
                                           context.goNamed(
                                               'InsuranceUnSuccessPage');
@@ -2225,11 +2224,13 @@ class _NonePackageInsurerPageWidgetState
                                               );
                                             },
                                           );
-                                          if (_shouldSetState) setState(() {});
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
                                           return;
                                         }
 
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                         return;
                                       }
                                       await showDialog(
@@ -2457,7 +2458,7 @@ class _NonePackageInsurerPageWidgetState
                                     FFAppState()
                                         .nonePackageInsurerShortNameDupList = [];
                                     FFAppState().nonePackageYearChrist = '';
-                                    setState(() {});
+                                    safeSetState(() {});
                                     FFAppState().insuranceVehicleTypeDropDown =
                                         'เลือกประเภทรถ';
                                     FFAppState().insuranceBasicBrandName =
@@ -2476,7 +2477,7 @@ class _NonePackageInsurerPageWidgetState
                                         .insuranceBasicCoverTypeNameOutputList = [];
                                     FFAppState()
                                         .insuranceBasicGarageTypeInPackage = [];
-                                    setState(() {});
+                                    safeSetState(() {});
                                     FFAppState().nonePackageImageFrontUploaded =
                                         '';
                                     FFAppState()
@@ -2522,43 +2523,43 @@ class _NonePackageInsurerPageWidgetState
                                     FFAppState().nonePackageOldVmiImageUrl = '';
                                     FFAppState()
                                         .nonePackageCompanyBookImageUrl = '';
-                                    setState(() {});
+                                    safeSetState(() {});
 
                                     context.goNamed('InsuranceSuccessPage');
 
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                   },
                                   text: 'ตกลง',
                                   options: FFButtonOptions(
                                     width: double.infinity,
-                                    height: 60.0,
+                                    height: 60,
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        24.0, 0.0, 24.0, 0.0),
+                                        24, 0, 24, 0),
                                     iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
+                                        0, 0, 0, 0),
                                     color: Color(0xFFDB771B),
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Colors.white,
-                                          fontSize: 15.0,
+                                          fontSize: 15,
                                           letterSpacing: 0.0,
                                         ),
-                                    elevation: 3.0,
+                                    elevation: 3,
                                     borderSide: BorderSide(
                                       color: Colors.transparent,
-                                      width: 1.0,
+                                      width: 1,
                                     ),
-                                    borderRadius: BorderRadius.circular(16.0),
+                                    borderRadius: BorderRadius.circular(16),
                                   ),
                                 ),
                               ),
-                            ].addToStart(SizedBox(height: 16.0)),
+                            ].addToStart(SizedBox(height: 16)),
                           ),
                         ),
                       ),
-                    ].addToStart(SizedBox(height: 12.0)),
+                    ].addToStart(SizedBox(height: 12)),
                   ),
                 ),
               ),

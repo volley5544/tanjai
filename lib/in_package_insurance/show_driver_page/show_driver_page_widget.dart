@@ -59,13 +59,13 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
           automaticallyImplyLeading: false,
           leading: FlutterFlowIconButton(
             borderColor: Colors.transparent,
-            borderRadius: 30.0,
-            borderWidth: 1.0,
-            buttonSize: 60.0,
+            borderRadius: 30,
+            borderWidth: 1,
+            buttonSize: 60,
             icon: Icon(
               Icons.arrow_back,
               color: Color(0xFFDB771A),
-              size: 30.0,
+              size: 30,
             ),
             onPressed: () async {
               context.pop();
@@ -76,13 +76,13 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Noto Sans Thai',
                   color: Color(0xFF204A77),
-                  fontSize: 18.0,
+                  fontSize: 18,
                   letterSpacing: 0.0,
                 ),
           ),
           actions: [],
           centerTitle: true,
-          elevation: 2.0,
+          elevation: 2,
         ),
         body: SafeArea(
           top: true,
@@ -98,9 +98,9 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                     return ListView.builder(
                       padding: EdgeInsets.fromLTRB(
                         0,
-                        12.0,
+                        12,
                         0,
-                        30.0,
+                        30,
                       ),
                       shrinkWrap: true,
                       scrollDirection: Axis.vertical,
@@ -143,8 +143,8 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                           '')))
                               : true,
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 0.0, 12.0, 16.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(12, 0, 12, 16),
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
@@ -174,25 +174,25 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                 );
                               },
                               child: Container(
-                                width: 100.0,
+                                width: 100,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
                                   boxShadow: [
                                     BoxShadow(
-                                      blurRadius: 4.0,
+                                      blurRadius: 4,
                                       color: Color(0x33000000),
                                       offset: Offset(
-                                        0.0,
-                                        2.0,
+                                        0,
+                                        2,
                                       ),
                                     )
                                   ],
-                                  borderRadius: BorderRadius.circular(12.0),
+                                  borderRadius: BorderRadius.circular(12),
                                 ),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      12.0, 12.0, 12.0, 12.0),
+                                      12, 12, 12, 12),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
@@ -216,30 +216,28 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                                     Icon(
                                                       Icons.sports_motorsports,
                                                       color: Color(0xFF204A77),
-                                                      size: 24.0,
+                                                      size: 24,
                                                     ),
                                                     Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  4.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                                  4, 0, 0, 0),
                                                       child: Text(
                                                         'ผู้ขับขี่ที่ ${(driverListItemIndex + 1).toString()}',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Noto Sans Thai',
-                                                              color: Color(
-                                                                  0xFF204A77),
-                                                              fontSize: 16.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                            ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Noto Sans Thai',
+                                                                  color: Color(
+                                                                      0xFF204A77),
+                                                                  fontSize: 16,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                       ),
                                                     ),
                                                   ],
@@ -258,7 +256,7 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                                                 'Noto Sans Thai',
                                                             color: Color(
                                                                 0xFF204A77),
-                                                            fontSize: 14.0,
+                                                            fontSize: 14,
                                                             letterSpacing: 0.0,
                                                             decoration:
                                                                 TextDecoration
@@ -269,15 +267,12 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  4.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                                  4, 0, 0, 0),
                                                       child: Icon(
                                                         Icons.navigate_next,
                                                         color:
                                                             Color(0xFF204A77),
-                                                        size: 24.0,
+                                                        size: 24,
                                                       ),
                                                     ),
                                                   ],
@@ -298,24 +293,22 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  8.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                                  8, 0, 0, 0),
                                                       child: Text(
                                                         '${FFAppState().DriverList[driverListItemIndex].titleTh} ${FFAppState().DriverList[driverListItemIndex].firstNameTh} ${FFAppState().DriverList[driverListItemIndex].lastNameTh}',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Noto Sans Thai',
-                                                              color: Color(
-                                                                  0xFF204A77),
-                                                              fontSize: 14.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                            ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Noto Sans Thai',
+                                                                  color: Color(
+                                                                      0xFF204A77),
+                                                                  fontSize: 14,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                       ),
                                                     ),
                                                   ],
@@ -335,11 +328,8 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      8.0,
-                                                                      4.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                                  .fromSTEB(8,
+                                                                      4, 0, 0),
                                                           child: Row(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -354,7 +344,7 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                                                       fontFamily:
                                                                           'Noto Sans Thai',
                                                                       fontSize:
-                                                                          14.0,
+                                                                          14,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -365,11 +355,8 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      8.0,
-                                                                      4.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                                  .fromSTEB(8,
+                                                                      4, 0, 0),
                                                           child: Row(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -396,7 +383,7 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                                                       fontFamily:
                                                                           'Noto Sans Thai',
                                                                       fontSize:
-                                                                          13.0,
+                                                                          13,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -418,11 +405,8 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      8.0,
-                                                                      4.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                                  .fromSTEB(8,
+                                                                      4, 0, 0),
                                                           child: Row(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -437,7 +421,7 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                                                       fontFamily:
                                                                           'Noto Sans Thai',
                                                                       fontSize:
-                                                                          14.0,
+                                                                          14,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -448,11 +432,8 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      8.0,
-                                                                      4.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                                  .fromSTEB(8,
+                                                                      4, 0, 0),
                                                           child: Row(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -470,7 +451,7 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                                                       fontFamily:
                                                                           'Noto Sans Thai',
                                                                       fontSize:
-                                                                          13.0,
+                                                                          13,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -486,7 +467,7 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 8.0, 0.0, 0.0),
+                                                  .fromSTEB(0, 8, 0, 0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
@@ -502,10 +483,10 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        8.0,
-                                                                        4.0,
-                                                                        0.0,
-                                                                        0.0),
+                                                                        8,
+                                                                        4,
+                                                                        0,
+                                                                        0),
                                                             child: Row(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -520,7 +501,7 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                                                         fontFamily:
                                                                             'Noto Sans Thai',
                                                                         fontSize:
-                                                                            13.0,
+                                                                            13,
                                                                         letterSpacing:
                                                                             0.0,
                                                                       ),
@@ -532,10 +513,10 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        8.0,
-                                                                        4.0,
-                                                                        0.0,
-                                                                        0.0),
+                                                                        8,
+                                                                        4,
+                                                                        0,
+                                                                        0),
                                                             child: Row(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -559,7 +540,7 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                                                         fontFamily:
                                                                             'Noto Sans Thai',
                                                                         fontSize:
-                                                                            13.0,
+                                                                            13,
                                                                         letterSpacing:
                                                                             0.0,
                                                                       ),
@@ -583,10 +564,10 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        8.0,
-                                                                        4.0,
-                                                                        0.0,
-                                                                        0.0),
+                                                                        8,
+                                                                        4,
+                                                                        0,
+                                                                        0),
                                                             child: Row(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -601,7 +582,7 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                                                         fontFamily:
                                                                             'Noto Sans Thai',
                                                                         fontSize:
-                                                                            13.0,
+                                                                            13,
                                                                         letterSpacing:
                                                                             0.0,
                                                                       ),
@@ -613,10 +594,10 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        8.0,
-                                                                        4.0,
-                                                                        0.0,
-                                                                        0.0),
+                                                                        8,
+                                                                        4,
+                                                                        0,
+                                                                        0),
                                                             child: Row(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -634,7 +615,7 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                                                         fontFamily:
                                                                             'Noto Sans Thai',
                                                                         fontSize:
-                                                                            13.0,
+                                                                            13,
                                                                         letterSpacing:
                                                                             0.0,
                                                                       ),
@@ -651,7 +632,7 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                                  .fromSTEB(0, 4, 0, 0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 mainAxisAlignment:
@@ -660,8 +641,8 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(8.0, 8.0,
-                                                                0.0, 0.0),
+                                                            .fromSTEB(
+                                                                8, 8, 0, 0),
                                                     child: FFButtonWidget(
                                                       onPressed: () async {
                                                         var confirmDialogResponse =
@@ -703,7 +684,7 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                                                 driverListItemIndex);
                                                         FFAppState()
                                                             .loopCountTemp = 0;
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                         while (FFAppState()
                                                                 .loopCountTemp <
                                                             FFAppState()
@@ -725,35 +706,29 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                                               FFAppState()
                                                                       .loopCountTemp +
                                                                   1;
-                                                          setState(() {});
+                                                          safeSetState(() {});
                                                         }
                                                         FFAppState()
                                                             .loopCountTemp = 0;
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                       },
                                                       text: 'ลบผู้ขับขี่',
                                                       icon: Icon(
                                                         Icons
                                                             .person_remove_alt_1_rounded,
-                                                        size: 24.0,
+                                                        size: 24,
                                                       ),
                                                       options: FFButtonOptions(
-                                                        width: 150.0,
-                                                        height: 40.0,
+                                                        width: 150,
+                                                        height: 40,
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    24.0,
-                                                                    0.0,
-                                                                    24.0,
-                                                                    0.0),
+                                                                .fromSTEB(24, 0,
+                                                                    24, 0),
                                                         iconPadding:
                                                             EdgeInsetsDirectional
                                                                 .fromSTEB(
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                                    0, 0, 0, 0),
                                                         color:
                                                             Color(0xFFD80000),
                                                         textStyle:
@@ -772,15 +747,15 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                                                       FontWeight
                                                                           .w600,
                                                                 ),
-                                                        elevation: 3.0,
+                                                        elevation: 3,
                                                         borderSide: BorderSide(
                                                           color: Colors
                                                               .transparent,
-                                                          width: 1.0,
+                                                          width: 1,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(16.0),
+                                                                .circular(16),
                                                       ),
                                                     ),
                                                   ),
@@ -805,15 +780,14 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
               Container(
                 decoration: BoxDecoration(),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       if (FFAppState().DriverList.length < 5)
                         Expanded(
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 8.0, 0.0, 0.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                             child: FFButtonWidget(
                               onPressed: () async {
                                 if (FFAppState().DriverList.length != 0) {
@@ -869,7 +843,7 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                   occupationSubcode: '',
                                   occupationSubname: '',
                                 ));
-                                setState(() {});
+                                safeSetState(() {});
 
                                 context.pushNamed(
                                   'AddDriverPage',
@@ -896,15 +870,15 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                               text: 'เพิ่มผู้ขับขี่',
                               icon: Icon(
                                 Icons.person_add_alt_rounded,
-                                size: 24.0,
+                                size: 24,
                               ),
                               options: FFButtonOptions(
-                                width: MediaQuery.sizeOf(context).width * 1.0,
-                                height: 60.0,
+                                width: MediaQuery.sizeOf(context).width,
+                                height: 60,
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    24.0, 0.0, 24.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
+                                    24, 0, 24, 0),
+                                iconPadding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                                 color: FlutterFlowTheme.of(context).primary,
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
@@ -915,12 +889,12 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
                                     ),
-                                elevation: 3.0,
+                                elevation: 3,
                                 borderSide: BorderSide(
                                   color: Colors.transparent,
-                                  width: 1.0,
+                                  width: 1,
                                 ),
-                                borderRadius: BorderRadius.circular(16.0),
+                                borderRadius: BorderRadius.circular(16),
                               ),
                             ),
                           ),
@@ -967,26 +941,25 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                           false)
                         Expanded(
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                8.0, 8.0, 0.0, 0.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(8, 8, 0, 0),
                             child: FFButtonWidget(
                               onPressed: () async {
                                 FFAppState().removeAtIndexFromDriverList(
                                     FFAppState().DriverList.length - 1);
-                                setState(() {});
+                                safeSetState(() {});
                               },
                               text: 'ลบผู้ขับขี่',
                               icon: Icon(
                                 Icons.person_remove_alt_1_rounded,
-                                size: 24.0,
+                                size: 24,
                               ),
                               options: FFButtonOptions(
-                                width: MediaQuery.sizeOf(context).width * 1.0,
-                                height: 60.0,
+                                width: MediaQuery.sizeOf(context).width,
+                                height: 60,
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    24.0, 0.0, 24.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
+                                    24, 0, 24, 0),
+                                iconPadding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                                 color: Color(0xFFD80000),
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
@@ -997,12 +970,12 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
                                     ),
-                                elevation: 3.0,
+                                elevation: 3,
                                 borderSide: BorderSide(
                                   color: Colors.transparent,
-                                  width: 1.0,
+                                  width: 1,
                                 ),
-                                borderRadius: BorderRadius.circular(16.0),
+                                borderRadius: BorderRadius.circular(16),
                               ),
                             ),
                           ),
@@ -1011,9 +984,7 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                   ),
                 ),
               ),
-            ]
-                .addToStart(SizedBox(height: 12.0))
-                .addToEnd(SizedBox(height: 30.0)),
+            ].addToStart(SizedBox(height: 12)).addToEnd(SizedBox(height: 30)),
           ),
         ),
       ),

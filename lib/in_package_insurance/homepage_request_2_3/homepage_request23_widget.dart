@@ -112,9 +112,9 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
       )!
           .toList()
           .cast<String>();
-      setState(() {});
+      safeSetState(() {});
       FFAppState().addToInsuranceInfoFinance('อื่นๆ');
-      setState(() {});
+      safeSetState(() {});
       Navigator.pop(context);
     });
 
@@ -145,13 +145,13 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
             automaticallyImplyLeading: false,
             leading: FlutterFlowIconButton(
               borderColor: Colors.transparent,
-              borderRadius: 30.0,
-              borderWidth: 1.0,
-              buttonSize: 60.0,
+              borderRadius: 30,
+              borderWidth: 1,
+              buttonSize: 60,
               icon: Icon(
                 Icons.arrow_back,
                 color: Color(0xFFDB771A),
-                size: 30.0,
+                size: 30,
               ),
               onPressed: () async {
                 context.pop();
@@ -162,33 +162,32 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF204A77),
-                    fontSize: 18.0,
+                    fontSize: 18,
                     letterSpacing: 0.0,
                   ),
             ),
             actions: [],
             centerTitle: true,
-            elevation: 2.0,
+            elevation: 2,
           ),
           body: SafeArea(
             top: true,
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                     child: Container(
-                      width: MediaQuery.sizeOf(context).width * 1.0,
+                      width: MediaQuery.sizeOf(context).width,
                       decoration: BoxDecoration(),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 0.0, 12.0, 0.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -199,14 +198,14 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFF1D4774),
-                                        fontSize: 15.0,
+                                        fontSize: 15,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 0.0, 0.0, 0.0),
+                                      10, 0, 0, 0),
                                   child: Text(
                                     '(บังคับเลือก)',
                                     style: FlutterFlowTheme.of(context)
@@ -214,7 +213,7 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFFFB0606),
-                                          fontSize: 12.0,
+                                          fontSize: 12,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
                                         ),
@@ -224,8 +223,7 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 5.0, 0.0, 0.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
@@ -237,12 +235,12 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                 );
                               },
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width * 1.0,
-                                height: 60.0,
+                                width: MediaQuery.sizeOf(context).width,
+                                height: 60,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(8),
                                   border: Border.all(
                                     color: Color(0xFFB3B3B3),
                                   ),
@@ -254,7 +252,7 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          30.0, 0.0, 0.0, 0.0),
+                                          30, 0, 0, 0),
                                       child: Text(
                                         'ผู้รับประโยชน์เป็นผู้เอาประกัน',
                                         style: FlutterFlowTheme.of(context)
@@ -262,7 +260,7 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFFB3B3B3),
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -271,10 +269,10 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                     if (false)
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 10.0, 0.0),
+                                            0, 0, 10, 0),
                                         child: Container(
-                                          width: 25.0,
-                                          height: 25.0,
+                                          width: 25,
+                                          height: 25,
                                           decoration: BoxDecoration(
                                             color: Colors.white,
                                             shape: BoxShape.circle,
@@ -287,39 +285,39 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                     if (false)
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 10.0, 0.0),
+                                            0, 0, 10, 0),
                                         child: Container(
-                                          width: 25.0,
-                                          height: 25.0,
+                                          width: 25,
+                                          height: 25,
                                           decoration: BoxDecoration(
                                             color: Color(0xFF04A24C),
                                             shape: BoxShape.circle,
                                             border: Border.all(
                                               color: Color(0xFF9F9F9F),
-                                              width: 1.0,
+                                              width: 1,
                                             ),
                                           ),
                                           child: Icon(
                                             Icons.check,
                                             color: Colors.white,
-                                            size: 18.0,
+                                            size: 18,
                                           ),
                                         ),
                                       ),
                                     if (false)
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 10.0, 0.0),
+                                            0, 0, 10, 0),
                                         child: Container(
-                                          width: 25.0,
-                                          height: 25.0,
+                                          width: 25,
+                                          height: 25,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             shape: BoxShape.circle,
                                             border: Border.all(
                                               color: Color(0xFF9F9F9F),
-                                              width: 1.0,
+                                              width: 1,
                                             ),
                                           ),
                                         ),
@@ -327,10 +325,10 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                     if (false)
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 10.0, 0.0),
+                                            0, 0, 10, 0),
                                         child: Container(
-                                          width: 25.0,
-                                          height: 25.0,
+                                          width: 25,
+                                          height: 25,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .success,
@@ -338,18 +336,18 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                           ),
                                           child: Align(
                                             alignment:
-                                                AlignmentDirectional(0.0, 0.0),
+                                                AlignmentDirectional(0, 0),
                                             child: Icon(
                                               Icons.check,
                                               color: Colors.white,
-                                              size: 18.0,
+                                              size: 18,
                                             ),
                                           ),
                                         ),
                                       ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 10.0, 0.0),
+                                          0, 0, 10, 0),
                                       child: Theme(
                                         data: ThemeData(
                                           checkboxTheme: CheckboxThemeData(
@@ -378,17 +376,17 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                                       .insuranceInfoBeneficiaryName !=
                                                   ''),
                                           onChanged: (newValue) async {
-                                            setState(() => _model
+                                            safeSetState(() => _model
                                                 .checkbox1Value = newValue!);
                                             if (newValue!) {
                                               FFAppState()
                                                       .insuranceInfoBeneficiaryName =
                                                   '${FFAppState().insuranceInfoFirstName} ${FFAppState().insuranceInfoLastName}';
-                                              setState(() {});
+                                              safeSetState(() {});
                                             } else {
                                               FFAppState()
                                                   .insuranceInfoBeneficiaryName = '';
-                                              setState(() {});
+                                              safeSetState(() {});
                                             }
                                           },
                                           side: BorderSide(
@@ -416,17 +414,16 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                   ),
                   if (!_model.checkbox1Value!)
                     Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
                       child: Container(
-                        width: MediaQuery.sizeOf(context).width * 1.0,
+                        width: MediaQuery.sizeOf(context).width,
                         decoration: BoxDecoration(),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 0.0, 12.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
@@ -438,14 +435,14 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                           fontFamily: 'Noto Sans Thai',
                                           color: FlutterFlowTheme.of(context)
                                               .black600,
-                                          fontSize: 15.0,
+                                          fontSize: 15,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
                                         ),
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 0.0, 0.0, 0.0),
+                                        10, 0, 0, 0),
                                     child: Text(
                                       '(บังคับเลือกอื่น ๆ)',
                                       style: FlutterFlowTheme.of(context)
@@ -453,7 +450,7 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFFFB0606),
-                                            fontSize: 12.0,
+                                            fontSize: 12,
                                             letterSpacing: 0.0,
                                           ),
                                     ),
@@ -462,15 +459,15 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 5.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width * 1.0,
-                                height: 60.0,
+                                width: MediaQuery.sizeOf(context).width,
+                                height: 60,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(8),
                                   border: Border.all(
                                     color: Color(0xFFB3B3B3),
                                   ),
@@ -480,19 +477,20 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                       FormFieldController<String>(null),
                                   options: FFAppState().insuranceInfoFinance,
                                   onChanged: (val) async {
-                                    setState(() => _model.dropDownValue = val);
+                                    safeSetState(
+                                        () => _model.dropDownValue = val);
                                     FFAppState().insuranceInfoBeneficiaryName =
                                         _model.dropDownValue!;
-                                    setState(() {});
+                                    safeSetState(() {});
                                   },
-                                  width: 300.0,
-                                  height: 50.0,
+                                  width: 300,
+                                  height: 50,
                                   searchHintTextStyle:
                                       FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
-                                            fontSize: 12.0,
+                                            fontSize: 12,
                                             letterSpacing: 0.0,
                                           ),
                                   searchTextStyle: FlutterFlowTheme.of(context)
@@ -506,7 +504,7 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Colors.black,
-                                        fontSize: 15.0,
+                                        fontSize: 15,
                                         letterSpacing: 0.0,
                                       ),
                                   hintText: 'เลือกผู้รับผลประโยชน์',
@@ -515,16 +513,16 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                     Icons.keyboard_arrow_down_rounded,
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryText,
-                                    size: 24.0,
+                                    size: 24,
                                   ),
                                   fillColor: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
-                                  elevation: 2.0,
+                                  elevation: 2,
                                   borderColor: Colors.transparent,
-                                  borderWidth: 2.0,
-                                  borderRadius: 8.0,
+                                  borderWidth: 2,
+                                  borderRadius: 8,
                                   margin: EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 4.0, 16.0, 4.0),
+                                      16, 4, 16, 4),
                                   hidesUnderline: true,
                                   isSearchable: true,
                                   isMultiSelect: false,
@@ -538,17 +536,16 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                   if (_model.checkbox1Value! ||
                       (_model.dropDownValue != 'อื่นๆ'))
                     Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
                       child: Container(
-                        width: MediaQuery.sizeOf(context).width * 1.0,
+                        width: MediaQuery.sizeOf(context).width,
                         decoration: BoxDecoration(),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 0.0, 12.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
@@ -560,7 +557,7 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                           fontFamily: 'Noto Sans Thai',
                                           color: FlutterFlowTheme.of(context)
                                               .black600,
-                                          fontSize: 15.0,
+                                          fontSize: 15,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
                                         ),
@@ -569,24 +566,24 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 5.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width * 1.0,
-                                height: 60.0,
+                                width: MediaQuery.sizeOf(context).width,
+                                height: 60,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(8),
                                   border: Border.all(
                                     color: Color(0xFFB3B3B3),
                                   ),
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(-1.0, 0.0),
+                                  alignment: AlignmentDirectional(-1, 0),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        30.0, 0.0, 0.0, 0.0),
+                                        30, 0, 0, 0),
                                     child: Text(
                                       FFAppState().insuranceInfoBeneficiaryName,
                                       style: FlutterFlowTheme.of(context)
@@ -606,10 +603,9 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                     ),
                   if (_model.dropDownValue == 'อื่นๆ')
                     Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
                       child: Container(
-                        width: MediaQuery.sizeOf(context).width * 1.0,
+                        width: MediaQuery.sizeOf(context).width,
                         decoration: BoxDecoration(),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -617,7 +613,7 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                             if (!_model.checkbox1Value!)
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    12.0, 0.0, 12.0, 0.0),
+                                    12, 0, 12, 0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -629,14 +625,14 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                             fontFamily: 'Noto Sans Thai',
                                             color: FlutterFlowTheme.of(context)
                                                 .black600,
-                                            fontSize: 15.0,
+                                            fontSize: 15,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
                                           ),
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 0.0, 0.0, 0.0),
+                                          10, 0, 0, 0),
                                       child: Text(
                                         '(บังคับกรอก)',
                                         style: FlutterFlowTheme.of(context)
@@ -644,7 +640,7 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFFFB0606),
-                                              fontSize: 12.0,
+                                              fontSize: 12,
                                               letterSpacing: 0.0,
                                             ),
                                       ),
@@ -653,22 +649,22 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                 ),
                               ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 5.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width * 1.0,
-                                height: 60.0,
+                                width: MediaQuery.sizeOf(context).width,
+                                height: 60,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(8),
                                   border: Border.all(
                                     color: Color(0xFFB3B3B3),
                                   ),
                                 ),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      30.0, 0.0, 8.0, 0.0),
+                                      30, 0, 8, 0),
                                   child: TextFormField(
                                     controller: _model.textController,
                                     focusNode: _model.textFieldFocusNode,
@@ -679,7 +675,7 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                           .labelMedium
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
-                                            fontSize: 15.0,
+                                            fontSize: 15,
                                             letterSpacing: 0.0,
                                           ),
                                       hintText: 'ระบุชื่อผู้รับผลประโยชน์',
@@ -688,7 +684,7 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFFB3B3B3),
-                                            fontSize: 15.0,
+                                            fontSize: 15,
                                             letterSpacing: 0.0,
                                           ),
                                       enabledBorder: InputBorder.none,
@@ -700,7 +696,7 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
-                                          fontSize: 15.0,
+                                          fontSize: 15,
                                           letterSpacing: 0.0,
                                         ),
                                     validator: _model.textControllerValidator
@@ -715,42 +711,41 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                     ),
                   Flexible(
                     child: Align(
-                      alignment: AlignmentDirectional(0.0, 1.0),
+                      alignment: AlignmentDirectional(0, 1),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            16.0, 0.0, 16.0, 40.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 40),
                         child: FFButtonWidget(
                           onPressed: () async {
                             if (_model.dropDownValue == 'อื่นๆ') {
                               FFAppState().insuranceInfoBeneficiaryName =
                                   _model.textController.text;
-                              setState(() {});
+                              safeSetState(() {});
                             }
                             context.safePop();
                           },
                           text: 'ตกลง',
                           options: FFButtonOptions(
                             width: double.infinity,
-                            height: 60.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                24.0, 0.0, 24.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
+                            height: 60,
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                            iconPadding:
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                             color: Color(0xFFDB771B),
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
                                   fontFamily: 'Noto Sans Thai',
                                   color: Colors.white,
-                                  fontSize: 15.0,
+                                  fontSize: 15,
                                   letterSpacing: 0.0,
                                 ),
-                            elevation: 3.0,
+                            elevation: 3,
                             borderSide: BorderSide(
                               color: Colors.transparent,
-                              width: 1.0,
+                              width: 1,
                             ),
-                            borderRadius: BorderRadius.circular(16.0),
+                            borderRadius: BorderRadius.circular(16),
                           ),
                         ),
                       ),

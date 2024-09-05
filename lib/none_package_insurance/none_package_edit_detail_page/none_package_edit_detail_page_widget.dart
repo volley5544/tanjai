@@ -63,8 +63,8 @@ class _NonePackageEditDetailPageWidgetState
             backgroundColor: Colors.white,
             body: Center(
               child: SizedBox(
-                width: 50.0,
-                height: 50.0,
+                width: 50,
+                height: 50,
                 child: CircularProgressIndicator(
                   valueColor: AlwaysStoppedAnimation<Color>(
                     FlutterFlowTheme.of(context).primary,
@@ -93,13 +93,13 @@ class _NonePackageEditDetailPageWidgetState
                 automaticallyImplyLeading: false,
                 leading: FlutterFlowIconButton(
                   borderColor: Colors.transparent,
-                  borderRadius: 30.0,
-                  borderWidth: 1.0,
-                  buttonSize: 60.0,
+                  borderRadius: 30,
+                  borderWidth: 1,
+                  buttonSize: 60,
                   icon: Icon(
                     Icons.arrow_back_rounded,
                     color: Color(0xFFDB771A),
-                    size: 30.0,
+                    size: 30,
                   ),
                   onPressed: () async {
                     context.pop();
@@ -110,14 +110,14 @@ class _NonePackageEditDetailPageWidgetState
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
                         fontFamily: 'Noto Sans Thai',
                         color: Color(0xFF003063),
-                        fontSize: 18.0,
+                        fontSize: 18,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w600,
                       ),
                 ),
                 actions: [],
                 centerTitle: true,
-                elevation: 2.0,
+                elevation: 2,
               ),
               body: SafeArea(
                 top: true,
@@ -141,7 +141,7 @@ class _NonePackageEditDetailPageWidgetState
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 12.0, 10.0, 0.0),
+                                          10, 12, 10, 0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         crossAxisAlignment:
@@ -150,18 +150,17 @@ class _NonePackageEditDetailPageWidgetState
                                           Expanded(
                                             flex: 1,
                                             child: Padding(
-                                              padding: EdgeInsets.all(10.0),
+                                              padding: EdgeInsets.all(10),
                                               child: Material(
                                                 color: Colors.transparent,
-                                                elevation: 1.0,
+                                                elevation: 1,
                                                 shape: RoundedRectangleBorder(
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          16.0),
+                                                      BorderRadius.circular(16),
                                                 ),
                                                 child: Container(
-                                                  width: 100.0,
-                                                  height: 120.0,
+                                                  width: 100,
+                                                  height: 120,
                                                   decoration: BoxDecoration(
                                                     color: FFAppState()
                                                                 .nonePackageCustomerType ==
@@ -170,7 +169,7 @@ class _NonePackageEditDetailPageWidgetState
                                                         : Colors.white,
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            16.0),
+                                                            16),
                                                   ),
                                                   child: Column(
                                                     mainAxisSize:
@@ -181,33 +180,33 @@ class _NonePackageEditDetailPageWidgetState
                                                         child: Align(
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  0.0, 0.0),
+                                                                  0, 0),
                                                           child: Container(
-                                                            width: 50.0,
-                                                            height: 50.0,
+                                                            width: 50,
+                                                            height: 50,
                                                             decoration:
                                                                 BoxDecoration(
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          60.0),
+                                                                          60),
                                                               border:
                                                                   Border.all(
                                                                 color: Colors
                                                                     .black,
-                                                                width: 1.0,
+                                                                width: 1,
                                                               ),
                                                             ),
                                                             child: Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.0, 0.0),
+                                                                      0, 0),
                                                               child: Icon(
                                                                 Icons
                                                                     .person_2_sharp,
                                                                 color: Color(
                                                                     0xFF354052),
-                                                                size: 28.0,
+                                                                size: 28,
                                                               ),
                                                             ),
                                                           ),
@@ -225,7 +224,7 @@ class _NonePackageEditDetailPageWidgetState
                                                                     'Noto Sans Thai',
                                                                 color: Color(
                                                                     0xFF204A77),
-                                                                fontSize: 16.0,
+                                                                fontSize: 16,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -240,10 +239,10 @@ class _NonePackageEditDetailPageWidgetState
                                           Expanded(
                                             flex: 1,
                                             child: Padding(
-                                              padding: EdgeInsets.all(10.0),
+                                              padding: EdgeInsets.all(10),
                                               child: Container(
-                                                width: 100.0,
-                                                height: 120.0,
+                                                width: 100,
+                                                height: 120,
                                                 decoration: BoxDecoration(
                                                   color: FFAppState()
                                                               .nonePackageCustomerType ==
@@ -251,8 +250,7 @@ class _NonePackageEditDetailPageWidgetState
                                                       ? Color(0xFFD9D9D9)
                                                       : Colors.white,
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          16.0),
+                                                      BorderRadius.circular(16),
                                                 ),
                                                 child: Column(
                                                   mainAxisSize:
@@ -265,32 +263,32 @@ class _NonePackageEditDetailPageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.0, 0.0),
+                                                                0, 0),
                                                         child: Container(
-                                                          width: 50.0,
-                                                          height: 50.0,
+                                                          width: 50,
+                                                          height: 50,
                                                           decoration:
                                                               BoxDecoration(
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        60.0),
+                                                                        60),
                                                             border: Border.all(
                                                               color:
                                                                   Colors.black,
-                                                              width: 1.0,
+                                                              width: 1,
                                                             ),
                                                           ),
                                                           child: Align(
                                                             alignment:
                                                                 AlignmentDirectional(
-                                                                    0.0, 0.0),
+                                                                    0, 0),
                                                             child: FaIcon(
                                                               FontAwesomeIcons
                                                                   .solidBuilding,
                                                               color: Color(
                                                                   0xFF354052),
-                                                              size: 28.0,
+                                                              size: 28,
                                                             ),
                                                           ),
                                                         ),
@@ -300,18 +298,19 @@ class _NonePackageEditDetailPageWidgetState
                                                       flex: 1,
                                                       child: Text(
                                                         'นิติบุคคล',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Noto Sans Thai',
-                                                              color: Color(
-                                                                  0xFF204A77),
-                                                              fontSize: 16.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                            ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Noto Sans Thai',
+                                                                  color: Color(
+                                                                      0xFF204A77),
+                                                                  fontSize: 16,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                       ),
                                                     ),
                                                   ],
@@ -328,7 +327,7 @@ class _NonePackageEditDetailPageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  24.0, 12.0, 24.0, 0.0),
+                                                  24, 12, 24, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -344,7 +343,7 @@ class _NonePackageEditDetailPageWidgetState
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFF565656),
-                                                          fontSize: 16.0,
+                                                          fontSize: 16,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -361,19 +360,19 @@ class _NonePackageEditDetailPageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 5.0, 12.0, 0.0),
+                                                  12, 5, 12, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Expanded(
                                                 child: Container(
-                                                  width: 100.0,
-                                                  height: 60.0,
+                                                  width: 100,
+                                                  height: 60,
                                                   decoration: BoxDecoration(
                                                     color: Color(0xFFE5E5E5),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            8),
                                                     border: Border.all(
                                                       color: Color(0xFF737373),
                                                     ),
@@ -381,8 +380,8 @@ class _NonePackageEditDetailPageWidgetState
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                0.0, 0.0),
+                                                            .fromSTEB(
+                                                                10, 0, 0, 0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -398,7 +397,7 @@ class _NonePackageEditDetailPageWidgetState
                                                                     'Noto Sans Thai',
                                                                 color: Color(
                                                                     0xFF565656),
-                                                                fontSize: 15.0,
+                                                                fontSize: 15,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -426,8 +425,7 @@ class _NonePackageEditDetailPageWidgetState
                                             children: [
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        24.0, 12.0, 24.0, 0.0),
+                                                    .fromSTEB(24, 12, 24, 0),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -444,7 +442,7 @@ class _NonePackageEditDetailPageWidgetState
                                                                 'Noto Sans Thai',
                                                             color: Color(
                                                                 0xFF565656),
-                                                            fontSize: 16.0,
+                                                            fontSize: 16,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w500,
@@ -460,24 +458,22 @@ class _NonePackageEditDetailPageWidgetState
                                             children: [
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        12.0, 5.0, 12.0, 0.0),
+                                                    .fromSTEB(12, 5, 12, 0),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
                                                   children: [
                                                     Expanded(
                                                       child: Container(
-                                                        width: 100.0,
-                                                        height: 60.0,
+                                                        width: 100,
+                                                        height: 60,
                                                         decoration:
                                                             BoxDecoration(
                                                           color:
                                                               Color(0xFFE5E5E5),
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(
-                                                                      8.0),
+                                                                  .circular(8),
                                                           border: Border.all(
                                                             color: Color(
                                                                 0xFF737373),
@@ -486,11 +482,8 @@ class _NonePackageEditDetailPageWidgetState
                                                         child: Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      10.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                                  .fromSTEB(10,
+                                                                      0, 0, 0),
                                                           child: Row(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -510,7 +503,7 @@ class _NonePackageEditDetailPageWidgetState
                                                                       color: Color(
                                                                           0xFF565656),
                                                                       fontSize:
-                                                                          15.0,
+                                                                          15,
                                                                       letterSpacing:
                                                                           0.0,
                                                                       fontWeight:
@@ -540,8 +533,7 @@ class _NonePackageEditDetailPageWidgetState
                                             children: [
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        24.0, 12.0, 24.0, 0.0),
+                                                    .fromSTEB(24, 12, 24, 0),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -558,7 +550,7 @@ class _NonePackageEditDetailPageWidgetState
                                                                 'Noto Sans Thai',
                                                             color: Color(
                                                                 0xFF565656),
-                                                            fontSize: 16.0,
+                                                            fontSize: 16,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w500,
@@ -574,24 +566,22 @@ class _NonePackageEditDetailPageWidgetState
                                             children: [
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        12.0, 5.0, 12.0, 0.0),
+                                                    .fromSTEB(12, 5, 12, 0),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
                                                   children: [
                                                     Expanded(
                                                       child: Container(
-                                                        width: 100.0,
-                                                        height: 60.0,
+                                                        width: 100,
+                                                        height: 60,
                                                         decoration:
                                                             BoxDecoration(
                                                           color:
                                                               Color(0xFFE5E5E5),
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(
-                                                                      8.0),
+                                                                  .circular(8),
                                                           border: Border.all(
                                                             color: Color(
                                                                 0xFF737373),
@@ -600,11 +590,8 @@ class _NonePackageEditDetailPageWidgetState
                                                         child: Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      10.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                                  .fromSTEB(10,
+                                                                      0, 0, 0),
                                                           child: Row(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -624,7 +611,7 @@ class _NonePackageEditDetailPageWidgetState
                                                                       color: Color(
                                                                           0xFF565656),
                                                                       fontSize:
-                                                                          15.0,
+                                                                          15,
                                                                       letterSpacing:
                                                                           0.0,
                                                                       fontWeight:
@@ -654,8 +641,7 @@ class _NonePackageEditDetailPageWidgetState
                                             children: [
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        24.0, 12.0, 24.0, 0.0),
+                                                    .fromSTEB(24, 12, 24, 0),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -672,7 +658,7 @@ class _NonePackageEditDetailPageWidgetState
                                                                 'Noto Sans Thai',
                                                             color: Color(
                                                                 0xFF565656),
-                                                            fontSize: 16.0,
+                                                            fontSize: 16,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w500,
@@ -688,24 +674,22 @@ class _NonePackageEditDetailPageWidgetState
                                             children: [
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        12.0, 5.0, 12.0, 0.0),
+                                                    .fromSTEB(12, 5, 12, 0),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
                                                   children: [
                                                     Expanded(
                                                       child: Container(
-                                                        width: 100.0,
-                                                        height: 60.0,
+                                                        width: 100,
+                                                        height: 60,
                                                         decoration:
                                                             BoxDecoration(
                                                           color:
                                                               Color(0xFFE5E5E5),
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(
-                                                                      8.0),
+                                                                  .circular(8),
                                                           border: Border.all(
                                                             color: Color(
                                                                 0xFF737373),
@@ -714,11 +698,8 @@ class _NonePackageEditDetailPageWidgetState
                                                         child: Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      10.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                                  .fromSTEB(10,
+                                                                      0, 0, 0),
                                                           child: Row(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -736,7 +717,7 @@ class _NonePackageEditDetailPageWidgetState
                                                                       color: Color(
                                                                           0xFF565656),
                                                                       fontSize:
-                                                                          15.0,
+                                                                          15,
                                                                       letterSpacing:
                                                                           0.0,
                                                                       fontWeight:
@@ -766,8 +747,7 @@ class _NonePackageEditDetailPageWidgetState
                                             children: [
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        24.0, 12.0, 24.0, 0.0),
+                                                    .fromSTEB(24, 12, 24, 0),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -784,7 +764,7 @@ class _NonePackageEditDetailPageWidgetState
                                                                 'Noto Sans Thai',
                                                             color: Color(
                                                                 0xFF565656),
-                                                            fontSize: 16.0,
+                                                            fontSize: 16,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w500,
@@ -800,24 +780,22 @@ class _NonePackageEditDetailPageWidgetState
                                             children: [
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        12.0, 5.0, 12.0, 0.0),
+                                                    .fromSTEB(12, 5, 12, 0),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
                                                   children: [
                                                     Expanded(
                                                       child: Container(
-                                                        width: 100.0,
-                                                        height: 60.0,
+                                                        width: 100,
+                                                        height: 60,
                                                         decoration:
                                                             BoxDecoration(
                                                           color:
                                                               Color(0xFFE5E5E5),
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(
-                                                                      8.0),
+                                                                  .circular(8),
                                                           border: Border.all(
                                                             color: Color(
                                                                 0xFF737373),
@@ -826,11 +804,8 @@ class _NonePackageEditDetailPageWidgetState
                                                         child: Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      10.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                                  .fromSTEB(10,
+                                                                      0, 0, 0),
                                                           child: Row(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -853,7 +828,7 @@ class _NonePackageEditDetailPageWidgetState
                                                                       color: Color(
                                                                           0xFF565656),
                                                                       fontSize:
-                                                                          15.0,
+                                                                          15,
                                                                       letterSpacing:
                                                                           0.0,
                                                                       fontWeight:
@@ -881,19 +856,19 @@ class _NonePackageEditDetailPageWidgetState
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    12.0, 15.0, 12.0, 0.0),
+                                                    12, 15, 12, 0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Expanded(
                                                   child: Container(
-                                                    width: 100.0,
-                                                    height: 60.0,
+                                                    width: 100,
+                                                    height: 60,
                                                     decoration: BoxDecoration(
                                                       color: Color(0xFFE5E5E5),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              8.0),
+                                                              8),
                                                       border: Border.all(
                                                         color:
                                                             Color(0xFF737373),
@@ -903,10 +878,7 @@ class _NonePackageEditDetailPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                                  10, 0, 0, 0),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -921,8 +893,7 @@ class _NonePackageEditDetailPageWidgetState
                                                                       'Noto Sans Thai',
                                                                   color: Color(
                                                                       0xFF565656),
-                                                                  fontSize:
-                                                                      15.0,
+                                                                  fontSize: 15,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -954,16 +925,16 @@ class _NonePackageEditDetailPageWidgetState
                                                                         .nonePackageFlagCarrier)
                                                                       Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            10.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            0,
+                                                                            10,
+                                                                            0),
                                                                         child:
                                                                             Container(
                                                                           width:
-                                                                              25.0,
+                                                                              25,
                                                                           height:
-                                                                              25.0,
+                                                                              25,
                                                                           decoration:
                                                                               BoxDecoration(
                                                                             color:
@@ -988,13 +959,13 @@ class _NonePackageEditDetailPageWidgetState
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          10.0,
-                                                                          0.0),
+                                                                          0,
+                                                                          0,
+                                                                          10,
+                                                                          0),
                                                               child: Container(
-                                                                width: 25.0,
-                                                                height: 25.0,
+                                                                width: 25,
+                                                                height: 25,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   color: Color(
@@ -1005,19 +976,18 @@ class _NonePackageEditDetailPageWidgetState
                                                                       .all(
                                                                     color: Color(
                                                                         0xFF9F9F9F),
-                                                                    width: 1.0,
+                                                                    width: 1,
                                                                   ),
                                                                 ),
                                                                 child: Align(
                                                                   alignment:
                                                                       AlignmentDirectional(
-                                                                          0.0,
-                                                                          0.0),
+                                                                          0, 0),
                                                                   child: Icon(
                                                                     Icons.check,
                                                                     color: Colors
                                                                         .white,
-                                                                    size: 18.0,
+                                                                    size: 18,
                                                                   ),
                                                                 ),
                                                               ),
@@ -1041,19 +1011,19 @@ class _NonePackageEditDetailPageWidgetState
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    12.0, 15.0, 12.0, 0.0),
+                                                    12, 15, 12, 0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Expanded(
                                                   child: Container(
-                                                    width: 100.0,
-                                                    height: 60.0,
+                                                    width: 100,
+                                                    height: 60,
                                                     decoration: BoxDecoration(
                                                       color: Color(0xFFE5E5E5),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              8.0),
+                                                              8),
                                                       border: Border.all(
                                                         color:
                                                             Color(0xFF737373),
@@ -1063,10 +1033,7 @@ class _NonePackageEditDetailPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                                  10, 0, 0, 0),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -1081,8 +1048,7 @@ class _NonePackageEditDetailPageWidgetState
                                                                       'Noto Sans Thai',
                                                                   color: Color(
                                                                       0xFF565656),
-                                                                  fontSize:
-                                                                      15.0,
+                                                                  fontSize: 15,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -1114,16 +1080,16 @@ class _NonePackageEditDetailPageWidgetState
                                                                         .nonePackageFlagCoop)
                                                                       Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            10.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            0,
+                                                                            10,
+                                                                            0),
                                                                         child:
                                                                             Container(
                                                                           width:
-                                                                              25.0,
+                                                                              25,
                                                                           height:
-                                                                              25.0,
+                                                                              25,
                                                                           decoration:
                                                                               BoxDecoration(
                                                                             color:
@@ -1148,13 +1114,13 @@ class _NonePackageEditDetailPageWidgetState
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          10.0,
-                                                                          0.0),
+                                                                          0,
+                                                                          0,
+                                                                          10,
+                                                                          0),
                                                               child: Container(
-                                                                width: 25.0,
-                                                                height: 25.0,
+                                                                width: 25,
+                                                                height: 25,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   color: Color(
@@ -1165,19 +1131,18 @@ class _NonePackageEditDetailPageWidgetState
                                                                       .all(
                                                                     color: Color(
                                                                         0xFF9F9F9F),
-                                                                    width: 1.0,
+                                                                    width: 1,
                                                                   ),
                                                                 ),
                                                                 child: Align(
                                                                   alignment:
                                                                       AlignmentDirectional(
-                                                                          0.0,
-                                                                          0.0),
+                                                                          0, 0),
                                                                   child: Icon(
                                                                     Icons.check,
                                                                     color: Colors
                                                                         .white,
-                                                                    size: 18.0,
+                                                                    size: 18,
                                                                   ),
                                                                 ),
                                                               ),
@@ -1201,19 +1166,19 @@ class _NonePackageEditDetailPageWidgetState
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    12.0, 15.0, 12.0, 0.0),
+                                                    12, 15, 12, 0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Expanded(
                                                   child: Container(
-                                                    width: 100.0,
-                                                    height: 60.0,
+                                                    width: 100,
+                                                    height: 60,
                                                     decoration: BoxDecoration(
                                                       color: Color(0xFFE5E5E5),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              8.0),
+                                                              8),
                                                       border: Border.all(
                                                         color:
                                                             Color(0xFF737373),
@@ -1223,10 +1188,7 @@ class _NonePackageEditDetailPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                                  10, 0, 0, 0),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -1242,8 +1204,7 @@ class _NonePackageEditDetailPageWidgetState
                                                                       'Noto Sans Thai',
                                                                   color: Color(
                                                                       0xFF565656),
-                                                                  fontSize:
-                                                                      15.0,
+                                                                  fontSize: 15,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -1271,7 +1232,7 @@ class _NonePackageEditDetailPageWidgetState
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    24.0, 5.0, 24.0, 0.0),
+                                                    24, 5, 24, 0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -1287,7 +1248,7 @@ class _NonePackageEditDetailPageWidgetState
                                                             'Noto Sans Thai',
                                                         color:
                                                             Color(0xFF565656),
-                                                        fontSize: 16.0,
+                                                        fontSize: 16,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -1308,19 +1269,19 @@ class _NonePackageEditDetailPageWidgetState
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    12.0, 5.0, 12.0, 0.0),
+                                                    12, 5, 12, 0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Expanded(
                                                   child: Container(
-                                                    width: 100.0,
-                                                    height: 60.0,
+                                                    width: 100,
+                                                    height: 60,
                                                     decoration: BoxDecoration(
                                                       color: Color(0xFFE5E5E5),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              8.0),
+                                                              8),
                                                       border: Border.all(
                                                         color:
                                                             Color(0xFF737373),
@@ -1330,10 +1291,7 @@ class _NonePackageEditDetailPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                                  10, 0, 0, 0),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -1354,8 +1312,7 @@ class _NonePackageEditDetailPageWidgetState
                                                                       'Noto Sans Thai',
                                                                   color: Color(
                                                                       0xFF565656),
-                                                                  fontSize:
-                                                                      15.0,
+                                                                  fontSize: 15,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -1379,7 +1336,7 @@ class _NonePackageEditDetailPageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  24.0, 5.0, 24.0, 0.0),
+                                                  24, 5, 24, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -1395,7 +1352,7 @@ class _NonePackageEditDetailPageWidgetState
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFF565656),
-                                                          fontSize: 16.0,
+                                                          fontSize: 16,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -1412,19 +1369,19 @@ class _NonePackageEditDetailPageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 5.0, 12.0, 0.0),
+                                                  12, 5, 12, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Expanded(
                                                 child: Container(
-                                                  width: 100.0,
-                                                  height: 60.0,
+                                                  width: 100,
+                                                  height: 60,
                                                   decoration: BoxDecoration(
                                                     color: Color(0xFFE5E5E5),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            8),
                                                     border: Border.all(
                                                       color: Color(0xFF737373),
                                                     ),
@@ -1432,8 +1389,8 @@ class _NonePackageEditDetailPageWidgetState
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                0.0, 0.0),
+                                                            .fromSTEB(
+                                                                10, 0, 0, 0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -1449,7 +1406,7 @@ class _NonePackageEditDetailPageWidgetState
                                                                     'Noto Sans Thai',
                                                                 color: Color(
                                                                     0xFF565656),
-                                                                fontSize: 15.0,
+                                                                fontSize: 15,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -1473,7 +1430,7 @@ class _NonePackageEditDetailPageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  24.0, 5.0, 24.0, 0.0),
+                                                  24, 5, 24, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -1489,7 +1446,7 @@ class _NonePackageEditDetailPageWidgetState
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFF565656),
-                                                          fontSize: 16.0,
+                                                          fontSize: 16,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -1506,19 +1463,19 @@ class _NonePackageEditDetailPageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 5.0, 12.0, 0.0),
+                                                  12, 5, 12, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Expanded(
                                                 child: Container(
-                                                  width: 100.0,
-                                                  height: 60.0,
+                                                  width: 100,
+                                                  height: 60,
                                                   decoration: BoxDecoration(
                                                     color: Color(0xFFE5E5E5),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            8),
                                                     border: Border.all(
                                                       color: Color(0xFF737373),
                                                     ),
@@ -1526,8 +1483,8 @@ class _NonePackageEditDetailPageWidgetState
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                0.0, 0.0),
+                                                            .fromSTEB(
+                                                                10, 0, 0, 0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -1543,7 +1500,7 @@ class _NonePackageEditDetailPageWidgetState
                                                                     'Noto Sans Thai',
                                                                 color: Color(
                                                                     0xFF565656),
-                                                                fontSize: 15.0,
+                                                                fontSize: 15,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -1568,7 +1525,7 @@ class _NonePackageEditDetailPageWidgetState
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    24.0, 5.0, 24.0, 0.0),
+                                                    24, 5, 24, 0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -1584,7 +1541,7 @@ class _NonePackageEditDetailPageWidgetState
                                                             'Noto Sans Thai',
                                                         color:
                                                             Color(0xFF565656),
-                                                        fontSize: 16.0,
+                                                        fontSize: 16,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -1602,19 +1559,19 @@ class _NonePackageEditDetailPageWidgetState
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    12.0, 5.0, 12.0, 0.0),
+                                                    12, 5, 12, 0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Expanded(
                                                   child: Container(
-                                                    width: 100.0,
-                                                    height: 60.0,
+                                                    width: 100,
+                                                    height: 60,
                                                     decoration: BoxDecoration(
                                                       color: Color(0xFFE5E5E5),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              8.0),
+                                                              8),
                                                       border: Border.all(
                                                         color:
                                                             Color(0xFF737373),
@@ -1624,10 +1581,7 @@ class _NonePackageEditDetailPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                                  10, 0, 0, 0),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -1643,8 +1597,7 @@ class _NonePackageEditDetailPageWidgetState
                                                                       'Noto Sans Thai',
                                                                   color: Color(
                                                                       0xFF565656),
-                                                                  fontSize:
-                                                                      15.0,
+                                                                  fontSize: 15,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -1669,7 +1622,7 @@ class _NonePackageEditDetailPageWidgetState
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    24.0, 5.0, 24.0, 0.0),
+                                                    24, 5, 24, 0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -1685,7 +1638,7 @@ class _NonePackageEditDetailPageWidgetState
                                                             'Noto Sans Thai',
                                                         color:
                                                             Color(0xFF565656),
-                                                        fontSize: 16.0,
+                                                        fontSize: 16,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -1703,19 +1656,19 @@ class _NonePackageEditDetailPageWidgetState
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    12.0, 5.0, 12.0, 0.0),
+                                                    12, 5, 12, 0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Expanded(
                                                   child: Container(
-                                                    width: 100.0,
-                                                    height: 60.0,
+                                                    width: 100,
+                                                    height: 60,
                                                     decoration: BoxDecoration(
                                                       color: Color(0xFFE5E5E5),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              8.0),
+                                                              8),
                                                       border: Border.all(
                                                         color:
                                                             Color(0xFF737373),
@@ -1725,10 +1678,7 @@ class _NonePackageEditDetailPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                                  10, 0, 0, 0),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -1749,8 +1699,7 @@ class _NonePackageEditDetailPageWidgetState
                                                                       'Noto Sans Thai',
                                                                   color: Color(
                                                                       0xFF565656),
-                                                                  fontSize:
-                                                                      15.0,
+                                                                  fontSize: 15,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -1774,7 +1723,7 @@ class _NonePackageEditDetailPageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  24.0, 5.0, 24.0, 0.0),
+                                                  24, 5, 24, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -1790,7 +1739,7 @@ class _NonePackageEditDetailPageWidgetState
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFF565656),
-                                                          fontSize: 16.0,
+                                                          fontSize: 16,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -1807,19 +1756,19 @@ class _NonePackageEditDetailPageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 5.0, 12.0, 0.0),
+                                                  12, 5, 12, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Expanded(
                                                 child: Container(
-                                                  width: 100.0,
-                                                  height: 60.0,
+                                                  width: 100,
+                                                  height: 60,
                                                   decoration: BoxDecoration(
                                                     color: Color(0xFFE5E5E5),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            8),
                                                     border: Border.all(
                                                       color: Color(0xFF737373),
                                                     ),
@@ -1827,8 +1776,8 @@ class _NonePackageEditDetailPageWidgetState
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                0.0, 0.0),
+                                                            .fromSTEB(
+                                                                10, 0, 0, 0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -1846,7 +1795,7 @@ class _NonePackageEditDetailPageWidgetState
                                                                     'Noto Sans Thai',
                                                                 color: Color(
                                                                     0xFF565656),
-                                                                fontSize: 15.0,
+                                                                fontSize: 15,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -1870,7 +1819,7 @@ class _NonePackageEditDetailPageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  24.0, 5.0, 24.0, 0.0),
+                                                  24, 5, 24, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -1886,7 +1835,7 @@ class _NonePackageEditDetailPageWidgetState
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFF565656),
-                                                          fontSize: 16.0,
+                                                          fontSize: 16,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -1903,19 +1852,19 @@ class _NonePackageEditDetailPageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 5.0, 12.0, 0.0),
+                                                  12, 5, 12, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Expanded(
                                                 child: Container(
-                                                  width: 100.0,
-                                                  height: 60.0,
+                                                  width: 100,
+                                                  height: 60,
                                                   decoration: BoxDecoration(
                                                     color: Color(0xFFE5E5E5),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            8),
                                                     border: Border.all(
                                                       color: Color(0xFF737373),
                                                     ),
@@ -1923,8 +1872,8 @@ class _NonePackageEditDetailPageWidgetState
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                0.0, 0.0),
+                                                            .fromSTEB(
+                                                                10, 0, 0, 0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -1939,7 +1888,7 @@ class _NonePackageEditDetailPageWidgetState
                                                                     'Noto Sans Thai',
                                                                 color: Color(
                                                                     0xFF565656),
-                                                                fontSize: 15.0,
+                                                                fontSize: 15,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -1963,7 +1912,7 @@ class _NonePackageEditDetailPageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  24.0, 5.0, 24.0, 0.0),
+                                                  24, 5, 24, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -1979,7 +1928,7 @@ class _NonePackageEditDetailPageWidgetState
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFF565656),
-                                                          fontSize: 16.0,
+                                                          fontSize: 16,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -1996,19 +1945,19 @@ class _NonePackageEditDetailPageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 5.0, 12.0, 0.0),
+                                                  12, 5, 12, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Expanded(
                                                 child: Container(
-                                                  width: 100.0,
-                                                  height: 60.0,
+                                                  width: 100,
+                                                  height: 60,
                                                   decoration: BoxDecoration(
                                                     color: Color(0xFFE5E5E5),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            8),
                                                     border: Border.all(
                                                       color: Color(0xFF737373),
                                                     ),
@@ -2016,8 +1965,8 @@ class _NonePackageEditDetailPageWidgetState
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                0.0, 0.0),
+                                                            .fromSTEB(
+                                                                10, 0, 0, 0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -2033,7 +1982,7 @@ class _NonePackageEditDetailPageWidgetState
                                                                     'Noto Sans Thai',
                                                                 color: Color(
                                                                     0xFF565656),
-                                                                fontSize: 15.0,
+                                                                fontSize: 15,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -2057,7 +2006,7 @@ class _NonePackageEditDetailPageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  24.0, 5.0, 24.0, 0.0),
+                                                  24, 5, 24, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -2073,7 +2022,7 @@ class _NonePackageEditDetailPageWidgetState
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFF565656),
-                                                          fontSize: 16.0,
+                                                          fontSize: 16,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -2090,19 +2039,19 @@ class _NonePackageEditDetailPageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 5.0, 12.0, 0.0),
+                                                  12, 5, 12, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Expanded(
                                                 child: Container(
-                                                  width: 100.0,
-                                                  height: 60.0,
+                                                  width: 100,
+                                                  height: 60,
                                                   decoration: BoxDecoration(
                                                     color: Color(0xFFE5E5E5),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            8),
                                                     border: Border.all(
                                                       color: Color(0xFF737373),
                                                     ),
@@ -2110,8 +2059,8 @@ class _NonePackageEditDetailPageWidgetState
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                0.0, 0.0),
+                                                            .fromSTEB(
+                                                                10, 0, 0, 0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -2127,7 +2076,7 @@ class _NonePackageEditDetailPageWidgetState
                                                                     'Noto Sans Thai',
                                                                 color: Color(
                                                                     0xFF565656),
-                                                                fontSize: 15.0,
+                                                                fontSize: 15,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -2151,7 +2100,7 @@ class _NonePackageEditDetailPageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  24.0, 5.0, 24.0, 0.0),
+                                                  24, 5, 24, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -2167,7 +2116,7 @@ class _NonePackageEditDetailPageWidgetState
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFF565656),
-                                                          fontSize: 16.0,
+                                                          fontSize: 16,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -2184,19 +2133,19 @@ class _NonePackageEditDetailPageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 5.0, 12.0, 0.0),
+                                                  12, 5, 12, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Expanded(
                                                 child: Container(
-                                                  width: 100.0,
-                                                  height: 60.0,
+                                                  width: 100,
+                                                  height: 60,
                                                   decoration: BoxDecoration(
                                                     color: Color(0xFFE5E5E5),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            8),
                                                     border: Border.all(
                                                       color: Color(0xFF737373),
                                                     ),
@@ -2204,8 +2153,8 @@ class _NonePackageEditDetailPageWidgetState
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                0.0, 0.0),
+                                                            .fromSTEB(
+                                                                10, 0, 0, 0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -2221,7 +2170,7 @@ class _NonePackageEditDetailPageWidgetState
                                                                     'Noto Sans Thai',
                                                                 color: Color(
                                                                     0xFF565656),
-                                                                fontSize: 15.0,
+                                                                fontSize: 15,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -2245,7 +2194,7 @@ class _NonePackageEditDetailPageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  24.0, 5.0, 24.0, 0.0),
+                                                  24, 5, 24, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -2261,7 +2210,7 @@ class _NonePackageEditDetailPageWidgetState
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFF565656),
-                                                          fontSize: 16.0,
+                                                          fontSize: 16,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -2278,19 +2227,19 @@ class _NonePackageEditDetailPageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 5.0, 12.0, 0.0),
+                                                  12, 5, 12, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Expanded(
                                                 child: Container(
-                                                  width: 100.0,
-                                                  height: 60.0,
+                                                  width: 100,
+                                                  height: 60,
                                                   decoration: BoxDecoration(
                                                     color: Color(0xFFE5E5E5),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            8),
                                                     border: Border.all(
                                                       color: Color(0xFF737373),
                                                     ),
@@ -2298,8 +2247,8 @@ class _NonePackageEditDetailPageWidgetState
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                0.0, 0.0),
+                                                            .fromSTEB(
+                                                                10, 0, 0, 0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -2315,7 +2264,7 @@ class _NonePackageEditDetailPageWidgetState
                                                                     'Noto Sans Thai',
                                                                 color: Color(
                                                                     0xFF565656),
-                                                                fontSize: 15.0,
+                                                                fontSize: 15,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -2339,7 +2288,7 @@ class _NonePackageEditDetailPageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  24.0, 5.0, 24.0, 0.0),
+                                                  24, 5, 24, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -2355,7 +2304,7 @@ class _NonePackageEditDetailPageWidgetState
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFF565656),
-                                                          fontSize: 16.0,
+                                                          fontSize: 16,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -2372,19 +2321,19 @@ class _NonePackageEditDetailPageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 5.0, 12.0, 0.0),
+                                                  12, 5, 12, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Expanded(
                                                 child: Container(
-                                                  width: 100.0,
-                                                  height: 60.0,
+                                                  width: 100,
+                                                  height: 60,
                                                   decoration: BoxDecoration(
                                                     color: Color(0xFFE5E5E5),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            8),
                                                     border: Border.all(
                                                       color: Color(0xFF737373),
                                                     ),
@@ -2392,8 +2341,8 @@ class _NonePackageEditDetailPageWidgetState
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                0.0, 0.0),
+                                                            .fromSTEB(
+                                                                10, 0, 0, 0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -2409,7 +2358,7 @@ class _NonePackageEditDetailPageWidgetState
                                                                     'Noto Sans Thai',
                                                                 color: Color(
                                                                     0xFF565656),
-                                                                fontSize: 15.0,
+                                                                fontSize: 15,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -2439,8 +2388,7 @@ class _NonePackageEditDetailPageWidgetState
                                             children: [
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        24.0, 12.0, 24.0, 0.0),
+                                                    .fromSTEB(24, 12, 24, 0),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -2457,7 +2405,7 @@ class _NonePackageEditDetailPageWidgetState
                                                                 'Noto Sans Thai',
                                                             color: Color(
                                                                 0xFF565656),
-                                                            fontSize: 16.0,
+                                                            fontSize: 16,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w500,
@@ -2473,24 +2421,22 @@ class _NonePackageEditDetailPageWidgetState
                                             children: [
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        12.0, 5.0, 12.0, 0.0),
+                                                    .fromSTEB(12, 5, 12, 0),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
                                                   children: [
                                                     Expanded(
                                                       child: Container(
-                                                        width: 100.0,
-                                                        height: 60.0,
+                                                        width: 100,
+                                                        height: 60,
                                                         decoration:
                                                             BoxDecoration(
                                                           color:
                                                               Color(0xFFE5E5E5),
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(
-                                                                      8.0),
+                                                                  .circular(8),
                                                           border: Border.all(
                                                             color: Color(
                                                                 0xFF737373),
@@ -2499,11 +2445,8 @@ class _NonePackageEditDetailPageWidgetState
                                                         child: Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      10.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                                  .fromSTEB(10,
+                                                                      0, 0, 0),
                                                           child: Row(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -2521,7 +2464,7 @@ class _NonePackageEditDetailPageWidgetState
                                                                       color: Color(
                                                                           0xFF565656),
                                                                       fontSize:
-                                                                          15.0,
+                                                                          15,
                                                                       letterSpacing:
                                                                           0.0,
                                                                       fontWeight:
@@ -2547,7 +2490,7 @@ class _NonePackageEditDetailPageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  24.0, 5.0, 24.0, 0.0),
+                                                  24, 5, 24, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -2563,7 +2506,7 @@ class _NonePackageEditDetailPageWidgetState
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFF565656),
-                                                          fontSize: 16.0,
+                                                          fontSize: 16,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -2580,19 +2523,19 @@ class _NonePackageEditDetailPageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 5.0, 12.0, 0.0),
+                                                  12, 5, 12, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Expanded(
                                                 child: Container(
-                                                  width: 100.0,
-                                                  height: 60.0,
+                                                  width: 100,
+                                                  height: 60,
                                                   decoration: BoxDecoration(
                                                     color: Color(0xFFE5E5E5),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            8),
                                                     border: Border.all(
                                                       color: Color(0xFF737373),
                                                     ),
@@ -2600,8 +2543,8 @@ class _NonePackageEditDetailPageWidgetState
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                0.0, 0.0),
+                                                            .fromSTEB(
+                                                                10, 0, 0, 0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -2617,7 +2560,7 @@ class _NonePackageEditDetailPageWidgetState
                                                                     'Noto Sans Thai',
                                                                 color: Color(
                                                                     0xFF565656),
-                                                                fontSize: 15.0,
+                                                                fontSize: 15,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -2641,7 +2584,7 @@ class _NonePackageEditDetailPageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  24.0, 5.0, 24.0, 0.0),
+                                                  24, 5, 24, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -2657,7 +2600,7 @@ class _NonePackageEditDetailPageWidgetState
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFF565656),
-                                                          fontSize: 16.0,
+                                                          fontSize: 16,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -2674,19 +2617,19 @@ class _NonePackageEditDetailPageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 5.0, 12.0, 0.0),
+                                                  12, 5, 12, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Expanded(
                                                 child: Container(
-                                                  width: 100.0,
-                                                  height: 60.0,
+                                                  width: 100,
+                                                  height: 60,
                                                   decoration: BoxDecoration(
                                                     color: Color(0xFFE5E5E5),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            8),
                                                     border: Border.all(
                                                       color: Color(0xFF737373),
                                                     ),
@@ -2694,8 +2637,8 @@ class _NonePackageEditDetailPageWidgetState
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                0.0, 0.0),
+                                                            .fromSTEB(
+                                                                10, 0, 0, 0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -2717,7 +2660,7 @@ class _NonePackageEditDetailPageWidgetState
                                                                     'Noto Sans Thai',
                                                                 color: Color(
                                                                     0xFF565656),
-                                                                fontSize: 15.0,
+                                                                fontSize: 15,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -2745,7 +2688,7 @@ class _NonePackageEditDetailPageWidgetState
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    24.0, 5.0, 24.0, 0.0),
+                                                    24, 5, 24, 0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -2761,7 +2704,7 @@ class _NonePackageEditDetailPageWidgetState
                                                             'Noto Sans Thai',
                                                         color:
                                                             Color(0xFF565656),
-                                                        fontSize: 16.0,
+                                                        fontSize: 16,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -2782,19 +2725,19 @@ class _NonePackageEditDetailPageWidgetState
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    12.0, 5.0, 12.0, 0.0),
+                                                    12, 5, 12, 0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Expanded(
                                                   child: Container(
-                                                    width: 100.0,
-                                                    height: 60.0,
+                                                    width: 100,
+                                                    height: 60,
                                                     decoration: BoxDecoration(
                                                       color: Color(0xFFE5E5E5),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              8.0),
+                                                              8),
                                                       border: Border.all(
                                                         color:
                                                             Color(0xFF737373),
@@ -2804,10 +2747,7 @@ class _NonePackageEditDetailPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                                  10, 0, 0, 0),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -2828,8 +2768,7 @@ class _NonePackageEditDetailPageWidgetState
                                                                       'Noto Sans Thai',
                                                                   color: Color(
                                                                       0xFF565656),
-                                                                  fontSize:
-                                                                      15.0,
+                                                                  fontSize: 15,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -2853,7 +2792,7 @@ class _NonePackageEditDetailPageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  24.0, 5.0, 24.0, 0.0),
+                                                  24, 5, 24, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -2869,7 +2808,7 @@ class _NonePackageEditDetailPageWidgetState
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFF565656),
-                                                          fontSize: 16.0,
+                                                          fontSize: 16,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -2886,19 +2825,19 @@ class _NonePackageEditDetailPageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 5.0, 12.0, 0.0),
+                                                  12, 5, 12, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Expanded(
                                                 child: Container(
-                                                  width: 100.0,
-                                                  height: 60.0,
+                                                  width: 100,
+                                                  height: 60,
                                                   decoration: BoxDecoration(
                                                     color: Color(0xFFE5E5E5),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            8),
                                                     border: Border.all(
                                                       color: Color(0xFF737373),
                                                     ),
@@ -2906,8 +2845,8 @@ class _NonePackageEditDetailPageWidgetState
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                0.0, 0.0),
+                                                            .fromSTEB(
+                                                                10, 0, 0, 0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -2923,7 +2862,7 @@ class _NonePackageEditDetailPageWidgetState
                                                                     'Noto Sans Thai',
                                                                 color: Color(
                                                                     0xFF565656),
-                                                                fontSize: 15.0,
+                                                                fontSize: 15,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -2947,19 +2886,19 @@ class _NonePackageEditDetailPageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 15.0, 12.0, 0.0),
+                                                  12, 15, 12, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Expanded(
                                                 child: Container(
-                                                  width: 100.0,
-                                                  height: 60.0,
+                                                  width: 100,
+                                                  height: 60,
                                                   decoration: BoxDecoration(
                                                     color: Color(0xFFE5E5E5),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            8),
                                                     border: Border.all(
                                                       color: Color(0xFF737373),
                                                     ),
@@ -2967,8 +2906,8 @@ class _NonePackageEditDetailPageWidgetState
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                0.0, 0.0),
+                                                            .fromSTEB(
+                                                                10, 0, 0, 0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -2983,7 +2922,7 @@ class _NonePackageEditDetailPageWidgetState
                                                                     'Noto Sans Thai',
                                                                 color: Color(
                                                                     0xFF565656),
-                                                                fontSize: 15.0,
+                                                                fontSize: 15,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -3014,17 +2953,18 @@ class _NonePackageEditDetailPageWidgetState
                                                                   if (!FFAppState()
                                                                       .nonePackageFlagAct)
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          10.0,
-                                                                          0.0),
+                                                                      padding: EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              0,
+                                                                              0,
+                                                                              10,
+                                                                              0),
                                                                       child:
                                                                           Container(
                                                                         width:
-                                                                            25.0,
+                                                                            25,
                                                                         height:
-                                                                            25.0,
+                                                                            25,
                                                                         decoration:
                                                                             BoxDecoration(
                                                                           color:
@@ -3042,17 +2982,18 @@ class _NonePackageEditDetailPageWidgetState
                                                                   if (FFAppState()
                                                                       .nonePackageFlagAct)
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          10.0,
-                                                                          0.0),
+                                                                      padding: EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              0,
+                                                                              0,
+                                                                              10,
+                                                                              0),
                                                                       child:
                                                                           Container(
                                                                         width:
-                                                                            25.0,
+                                                                            25,
                                                                         height:
-                                                                            25.0,
+                                                                            25,
                                                                         decoration:
                                                                             BoxDecoration(
                                                                           color:
@@ -3064,21 +3005,21 @@ class _NonePackageEditDetailPageWidgetState
                                                                             color:
                                                                                 Color(0xFF9F9F9F),
                                                                             width:
-                                                                                1.0,
+                                                                                1,
                                                                           ),
                                                                         ),
                                                                         child:
                                                                             Align(
                                                                           alignment: AlignmentDirectional(
-                                                                              0.0,
-                                                                              0.0),
+                                                                              0,
+                                                                              0),
                                                                           child:
                                                                               Icon(
                                                                             Icons.check,
                                                                             color:
                                                                                 Colors.white,
                                                                             size:
-                                                                                18.0,
+                                                                                18,
                                                                           ),
                                                                         ),
                                                                       ),
@@ -3110,15 +3051,15 @@ class _NonePackageEditDetailPageWidgetState
                       flex: 2,
                       child: Container(
                         width: double.infinity,
-                        height: 69.0,
+                        height: 69,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.0),
+                          borderRadius: BorderRadius.circular(10),
                         ),
                         child: Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
+                          alignment: AlignmentDirectional(0, 0),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 0.0, 12.0, 0.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
                             child: FFButtonWidget(
                               onPressed: () async {
                                 context.safePop();
@@ -3126,11 +3067,11 @@ class _NonePackageEditDetailPageWidgetState
                               text: 'ปิด',
                               options: FFButtonOptions(
                                 width: double.infinity,
-                                height: 60.0,
+                                height: 60,
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    24.0, 0.0, 24.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
+                                    24, 0, 24, 0),
+                                iconPadding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                                 color: Color(0xFFDB771A),
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
@@ -3140,12 +3081,12 @@ class _NonePackageEditDetailPageWidgetState
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
                                     ),
-                                elevation: 3.0,
+                                elevation: 3,
                                 borderSide: BorderSide(
                                   color: Colors.transparent,
-                                  width: 1.0,
+                                  width: 1,
                                 ),
-                                borderRadius: BorderRadius.circular(16.0),
+                                borderRadius: BorderRadius.circular(16),
                               ),
                             ),
                           ),

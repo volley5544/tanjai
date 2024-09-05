@@ -222,13 +222,13 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
             automaticallyImplyLeading: false,
             leading: FlutterFlowIconButton(
               borderColor: Colors.transparent,
-              borderRadius: 30.0,
-              borderWidth: 1.0,
-              buttonSize: 60.0,
+              borderRadius: 30,
+              borderWidth: 1,
+              buttonSize: 60,
               icon: Icon(
                 Icons.arrow_back_rounded,
                 color: Color(0xFFDB771A),
-                size: 30.0,
+                size: 30,
               ),
               onPressed: () async {
                 showModalBottomSheet(
@@ -261,14 +261,14 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF003063),
-                    fontSize: 18.0,
+                    fontSize: 18,
                     letterSpacing: 0.0,
                     fontWeight: FontWeight.w600,
                   ),
             ),
             actions: [],
             centerTitle: true,
-            elevation: 2.0,
+            elevation: 2,
           ),
           body: SafeArea(
             top: true,
@@ -278,8 +278,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(24.0, 20.0, 24.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(24, 20, 24, 0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -289,27 +288,27 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                               color: Color(0xFFF6BD67),
                               boxShadow: [
                                 BoxShadow(
-                                  blurRadius: 0.0,
+                                  blurRadius: 0,
                                   color: FlutterFlowTheme.of(context).lineColor,
                                   offset: Offset(
                                     0.0,
-                                    1.0,
+                                    1,
                                   ),
                                 )
                               ],
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(8),
                             ),
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: EdgeInsets.all(8),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Container(
-                                    width: 50.0,
-                                    height: 50.0,
+                                    width: 50,
+                                    height: 50,
                                     decoration: BoxDecoration(
                                       color: Color(0xFFF6BD67),
-                                      borderRadius: BorderRadius.circular(60.0),
+                                      borderRadius: BorderRadius.circular(60),
                                       border: Border.all(
                                         color: Colors.black,
                                         width: 1.5,
@@ -318,12 +317,12 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                     child: Icon(
                                       Icons.person_outline_sharp,
                                       color: Color(0xFF204A77),
-                                      size: 30.0,
+                                      size: 30,
                                     ),
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 10.0, 0.0, 0.0),
+                                        0, 10, 0, 0),
                                     child: Text(
                                       InsuranceRequestListAPICall.listTotal(
                                         (_model.getRequestList?.jsonBody ?? ''),
@@ -334,7 +333,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF204A77),
-                                            fontSize: 15.0,
+                                            fontSize: 15,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w800,
                                           ),
@@ -360,8 +359,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                     ),
                   ),
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 10.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 10),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -372,27 +370,27 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                             color: Color(0xFFF9DCC3),
                             boxShadow: [
                               BoxShadow(
-                                blurRadius: 0.0,
+                                blurRadius: 0,
                                 color: FlutterFlowTheme.of(context).lineColor,
                                 offset: Offset(
                                   0.0,
-                                  1.0,
+                                  1,
                                 ),
                               )
                             ],
-                            borderRadius: BorderRadius.circular(8.0),
+                            borderRadius: BorderRadius.circular(8),
                           ),
                           child: Padding(
-                            padding: EdgeInsets.all(8.0),
+                            padding: EdgeInsets.all(8),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Container(
-                                  width: 50.0,
-                                  height: 50.0,
+                                  width: 50,
+                                  height: 50,
                                   decoration: BoxDecoration(
                                     color: Color(0xFFF9DCC3),
-                                    borderRadius: BorderRadius.circular(60.0),
+                                    borderRadius: BorderRadius.circular(60),
                                     border: Border.all(
                                       color: Colors.black,
                                       width: 1.5,
@@ -401,12 +399,12 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                   child: Icon(
                                     Icons.directions_car_outlined,
                                     color: Color(0xFF204A77),
-                                    size: 30.0,
+                                    size: 30,
                                   ),
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 10.0, 0.0, 0.0),
+                                      0, 10, 0, 0),
                                   child: Text(
                                     InsuranceRequestListAPICall.auto(
                                       (_model.getRequestList?.jsonBody ?? ''),
@@ -417,7 +415,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFF204A77),
-                                          fontSize: 15.0,
+                                          fontSize: 15,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w800,
                                         ),
@@ -444,27 +442,27 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                             color: Color(0xFFD9D9D9),
                             boxShadow: [
                               BoxShadow(
-                                blurRadius: 0.0,
+                                blurRadius: 0,
                                 color: FlutterFlowTheme.of(context).lineColor,
                                 offset: Offset(
                                   0.0,
-                                  1.0,
+                                  1,
                                 ),
                               )
                             ],
-                            borderRadius: BorderRadius.circular(8.0),
+                            borderRadius: BorderRadius.circular(8),
                           ),
                           child: Padding(
-                            padding: EdgeInsets.all(8.0),
+                            padding: EdgeInsets.all(8),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Container(
-                                  width: 50.0,
-                                  height: 50.0,
+                                  width: 50,
+                                  height: 50,
                                   decoration: BoxDecoration(
                                     color: Color(0xFFD9D9D9),
-                                    borderRadius: BorderRadius.circular(60.0),
+                                    borderRadius: BorderRadius.circular(60),
                                     border: Border.all(
                                       color: Colors.black,
                                       width: 1.5,
@@ -473,12 +471,12 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                   child: Icon(
                                     Icons.directions_car_outlined,
                                     color: Color(0xFF204A77),
-                                    size: 30.0,
+                                    size: 30,
                                   ),
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 10.0, 0.0, 0.0),
+                                      0, 10, 0, 0),
                                   child: Text(
                                     InsuranceRequestListAPICall.manual(
                                       (_model.getRequestList?.jsonBody ?? ''),
@@ -489,7 +487,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFF204A77),
-                                          fontSize: 15.0,
+                                          fontSize: 15,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w800,
                                         ),
@@ -514,8 +512,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                     ),
                   ),
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 10.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 10),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -559,34 +556,34 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                               color: Color(0xFFF6EFB4),
                               boxShadow: [
                                 BoxShadow(
-                                  blurRadius: 0.0,
+                                  blurRadius: 0,
                                   color: FlutterFlowTheme.of(context).lineColor,
                                   offset: Offset(
                                     0.0,
-                                    1.0,
+                                    1,
                                   ),
                                 )
                               ],
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(8),
                             ),
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: EdgeInsets.all(8),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Container(
-                                    width: 50.0,
-                                    height: 50.0,
+                                    width: 50,
+                                    height: 50,
                                     decoration: BoxDecoration(
                                       color: Color(0xFFF6EFB4),
-                                      borderRadius: BorderRadius.circular(60.0),
+                                      borderRadius: BorderRadius.circular(60),
                                       border: Border.all(
                                         color: Colors.black,
                                         width: 1.5,
                                       ),
                                     ),
                                     child: Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      alignment: AlignmentDirectional(0, 0),
                                       child: FaIcon(
                                         FontAwesomeIcons.clipboardList,
                                         color: Color(0xFF204A77),
@@ -595,7 +592,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 10.0, 0.0, 0.0),
+                                        0, 10, 0, 0),
                                     child: Text(
                                       InsuranceRequestListAPICall.waitingInfo(
                                         (_model.getRequestList?.jsonBody ?? ''),
@@ -606,7 +603,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF204A77),
-                                            fontSize: 15.0,
+                                            fontSize: 15,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w800,
                                           ),
@@ -667,27 +664,27 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                               color: Color(0xFFB6BFE3),
                               boxShadow: [
                                 BoxShadow(
-                                  blurRadius: 0.0,
+                                  blurRadius: 0,
                                   color: FlutterFlowTheme.of(context).lineColor,
                                   offset: Offset(
                                     0.0,
-                                    1.0,
+                                    1,
                                   ),
                                 )
                               ],
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(8),
                             ),
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: EdgeInsets.all(8),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Container(
-                                    width: 50.0,
-                                    height: 50.0,
+                                    width: 50,
+                                    height: 50,
                                     decoration: BoxDecoration(
                                       color: Color(0xFFB6BFE3),
-                                      borderRadius: BorderRadius.circular(60.0),
+                                      borderRadius: BorderRadius.circular(60),
                                       border: Border.all(
                                         color: Colors.black,
                                         width: 1.5,
@@ -696,12 +693,12 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                     child: Icon(
                                       Icons.directions_car_outlined,
                                       color: Color(0xFF204A77),
-                                      size: 30.0,
+                                      size: 30,
                                     ),
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 10.0, 0.0, 0.0),
+                                        0, 10, 0, 0),
                                     child: Text(
                                       InsuranceRequestListAPICall.waitingCar(
                                         (_model.getRequestList?.jsonBody ?? ''),
@@ -712,7 +709,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF204A77),
-                                            fontSize: 15.0,
+                                            fontSize: 15,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w800,
                                           ),
@@ -738,8 +735,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                     ),
                   ),
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 10.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 10),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -783,38 +779,36 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                               color: Color(0xFF8DEEA7),
                               boxShadow: [
                                 BoxShadow(
-                                  blurRadius: 0.0,
+                                  blurRadius: 0,
                                   color: FlutterFlowTheme.of(context).lineColor,
                                   offset: Offset(
                                     0.0,
-                                    1.0,
+                                    1,
                                   ),
                                 )
                               ],
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(8),
                             ),
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: EdgeInsets.all(8),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0, 0),
                                     child: Container(
-                                      width: 50.0,
-                                      height: 50.0,
+                                      width: 50,
+                                      height: 50,
                                       decoration: BoxDecoration(
                                         color: Color(0xFF8DEEA7),
-                                        borderRadius:
-                                            BorderRadius.circular(60.0),
+                                        borderRadius: BorderRadius.circular(60),
                                         border: Border.all(
                                           color: Colors.black,
                                           width: 1.5,
                                         ),
                                       ),
                                       child: Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                        alignment: AlignmentDirectional(0, 0),
                                         child: FaIcon(
                                           FontAwesomeIcons.userCheck,
                                           color: Color(0xFF204A77),
@@ -824,7 +818,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 10.0, 0.0, 0.0),
+                                        0, 10, 0, 0),
                                     child: Text(
                                       InsuranceRequestListAPICall.approve(
                                         (_model.getRequestList?.jsonBody ?? ''),
@@ -835,7 +829,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF204A77),
-                                            fontSize: 15.0,
+                                            fontSize: 15,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w800,
                                           ),
@@ -896,27 +890,27 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                               color: Color(0xFFE5B2C3),
                               boxShadow: [
                                 BoxShadow(
-                                  blurRadius: 0.0,
+                                  blurRadius: 0,
                                   color: FlutterFlowTheme.of(context).lineColor,
                                   offset: Offset(
                                     0.0,
-                                    1.0,
+                                    1,
                                   ),
                                 )
                               ],
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(8),
                             ),
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: EdgeInsets.all(8),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Container(
-                                    width: 50.0,
-                                    height: 50.0,
+                                    width: 50,
+                                    height: 50,
                                     decoration: BoxDecoration(
                                       color: Color(0xFFE5B2C3),
-                                      borderRadius: BorderRadius.circular(60.0),
+                                      borderRadius: BorderRadius.circular(60),
                                       border: Border.all(
                                         color: Colors.black,
                                         width: 1.5,
@@ -925,12 +919,12 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                     child: Icon(
                                       Icons.highlight_off_outlined,
                                       color: Color(0xFF204A77),
-                                      size: 30.0,
+                                      size: 30,
                                     ),
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 10.0, 0.0, 0.0),
+                                        0, 10, 0, 0),
                                     child: Text(
                                       InsuranceRequestListAPICall.notApprove(
                                         (_model.getRequestList?.jsonBody ?? ''),
@@ -941,7 +935,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF204A77),
-                                            fontSize: 15.0,
+                                            fontSize: 15,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w800,
                                           ),
@@ -967,8 +961,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                     ),
                   ),
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 10.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 10),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -1012,49 +1005,47 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                               color: Color(0xFFC3F9D2),
                               boxShadow: [
                                 BoxShadow(
-                                  blurRadius: 0.0,
+                                  blurRadius: 0,
                                   color: FlutterFlowTheme.of(context).lineColor,
                                   offset: Offset(
                                     0.0,
-                                    1.0,
+                                    1,
                                   ),
                                 )
                               ],
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(8),
                             ),
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: EdgeInsets.all(8),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0, 0),
                                     child: Container(
-                                      width: 50.0,
-                                      height: 50.0,
+                                      width: 50,
+                                      height: 50,
                                       decoration: BoxDecoration(
                                         color: Color(0xFFC3F9D2),
-                                        borderRadius:
-                                            BorderRadius.circular(60.0),
+                                        borderRadius: BorderRadius.circular(60),
                                         border: Border.all(
                                           color: Colors.black,
                                           width: 1.5,
                                         ),
                                       ),
                                       child: Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                        alignment: AlignmentDirectional(0, 0),
                                         child: Icon(
                                           Icons.attach_money_sharp,
                                           color: Color(0xFF204A77),
-                                          size: 30.0,
+                                          size: 30,
                                         ),
                                       ),
                                     ),
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 10.0, 0.0, 0.0),
+                                        0, 10, 0, 0),
                                     child: Text(
                                       InsuranceRequestListAPICall.payment(
                                         (_model.getRequestList?.jsonBody ?? ''),
@@ -1065,7 +1056,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF204A77),
-                                            fontSize: 15.0,
+                                            fontSize: 15,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w800,
                                           ),
@@ -1126,38 +1117,36 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                               color: Color(0xFFE5B2C3),
                               boxShadow: [
                                 BoxShadow(
-                                  blurRadius: 0.0,
+                                  blurRadius: 0,
                                   color: FlutterFlowTheme.of(context).lineColor,
                                   offset: Offset(
                                     0.0,
-                                    1.0,
+                                    1,
                                   ),
                                 )
                               ],
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(8),
                             ),
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: EdgeInsets.all(8),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0, 0),
                                     child: Container(
-                                      width: 50.0,
-                                      height: 50.0,
+                                      width: 50,
+                                      height: 50,
                                       decoration: BoxDecoration(
                                         color: Color(0xFFE5B2C3),
-                                        borderRadius:
-                                            BorderRadius.circular(60.0),
+                                        borderRadius: BorderRadius.circular(60),
                                         border: Border.all(
                                           color: Colors.black,
                                           width: 1.5,
                                         ),
                                       ),
                                       child: Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                        alignment: AlignmentDirectional(0, 0),
                                         child: FaIcon(
                                           FontAwesomeIcons.ban,
                                           color: Color(0xFF204A77),
@@ -1167,7 +1156,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 10.0, 0.0, 0.0),
+                                        0, 10, 0, 0),
                                     child: Text(
                                       InsuranceRequestListAPICall.cancle(
                                         (_model.getRequestList?.jsonBody ?? ''),
@@ -1178,7 +1167,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF204A77),
-                                            fontSize: 15.0,
+                                            fontSize: 15,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w800,
                                           ),
@@ -1204,8 +1193,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                     ),
                   ),
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 10.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 10),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -1249,49 +1237,47 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                               color: Color(0xFFFFCC99),
                               boxShadow: [
                                 BoxShadow(
-                                  blurRadius: 0.0,
+                                  blurRadius: 0,
                                   color: FlutterFlowTheme.of(context).lineColor,
                                   offset: Offset(
                                     0.0,
-                                    1.0,
+                                    1,
                                   ),
                                 )
                               ],
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(8),
                             ),
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: EdgeInsets.all(8),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0, 0),
                                     child: Container(
-                                      width: 50.0,
-                                      height: 50.0,
+                                      width: 50,
+                                      height: 50,
                                       decoration: BoxDecoration(
                                         color: Color(0xFFFFCC99),
-                                        borderRadius:
-                                            BorderRadius.circular(60.0),
+                                        borderRadius: BorderRadius.circular(60),
                                         border: Border.all(
                                           color: Colors.black,
                                           width: 1.5,
                                         ),
                                       ),
                                       child: Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                        alignment: AlignmentDirectional(0, 0),
                                         child: Icon(
                                           Icons.reply_all_sharp,
                                           color: Color(0xFF204A77),
-                                          size: 30.0,
+                                          size: 30,
                                         ),
                                       ),
                                     ),
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 10.0, 0.0, 0.0),
+                                        0, 10, 0, 0),
                                     child: Text(
                                       InsuranceRequestListAPICall.refund(
                                         (_model.getRequestList?.jsonBody ?? ''),
@@ -1302,7 +1288,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF204A77),
-                                            fontSize: 15.0,
+                                            fontSize: 15,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w800,
                                           ),
@@ -1363,38 +1349,36 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                               color: Color(0xFF99FFCC),
                               boxShadow: [
                                 BoxShadow(
-                                  blurRadius: 0.0,
+                                  blurRadius: 0,
                                   color: FlutterFlowTheme.of(context).lineColor,
                                   offset: Offset(
                                     0.0,
-                                    1.0,
+                                    1,
                                   ),
                                 )
                               ],
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(8),
                             ),
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: EdgeInsets.all(8),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0, 0),
                                     child: Container(
-                                      width: 50.0,
-                                      height: 50.0,
+                                      width: 50,
+                                      height: 50,
                                       decoration: BoxDecoration(
                                         color: Color(0xFF99FFCC),
-                                        borderRadius:
-                                            BorderRadius.circular(60.0),
+                                        borderRadius: BorderRadius.circular(60),
                                         border: Border.all(
                                           color: Colors.black,
                                           width: 1.5,
                                         ),
                                       ),
                                       child: Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                        alignment: AlignmentDirectional(0, 0),
                                         child: FaIcon(
                                           FontAwesomeIcons.moneyCheckAlt,
                                           color: Color(0xFF204A77),
@@ -1404,7 +1388,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 10.0, 0.0, 0.0),
+                                        0, 10, 0, 0),
                                     child: Text(
                                       valueOrDefault<String>(
                                         InsuranceRequestListAPICall
@@ -1419,7 +1403,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF204A77),
-                                            fontSize: 15.0,
+                                            fontSize: 15,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w800,
                                           ),
@@ -1444,7 +1428,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                       ],
                     ),
                   ),
-                ].addToEnd(SizedBox(height: 50.0)),
+                ].addToEnd(SizedBox(height: 50)),
               ),
             ),
           ),

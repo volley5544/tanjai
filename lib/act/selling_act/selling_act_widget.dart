@@ -55,7 +55,7 @@ class _SellingActWidgetState extends State<SellingActWidget> {
             child: Icon(
               Icons.arrow_back_ios,
               color: FlutterFlowTheme.of(context).tertiary,
-              size: 24.0,
+              size: 24,
             ),
           ),
           title: Text(
@@ -63,14 +63,14 @@ class _SellingActWidgetState extends State<SellingActWidget> {
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Noto Sans Thai',
                   color: Color(0xFF003063),
-                  fontSize: 18.0,
+                  fontSize: 18,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.w600,
                 ),
           ),
           actions: [],
           centerTitle: true,
-          elevation: 2.0,
+          elevation: 2,
         ),
         body: SafeArea(
           top: true,
@@ -79,13 +79,12 @@ class _SellingActWidgetState extends State<SellingActWidget> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Container(
-                  width: MediaQuery.sizeOf(context).width * 1.0,
+                  width: MediaQuery.sizeOf(context).width,
                   decoration: BoxDecoration(
                     color: Color(0xFFFAFAFA),
                   ),
                   child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(12.0, 22.0, 12.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(12, 22, 12, 0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -99,22 +98,22 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                             FFAppState().actCoverType = '110';
                             FFAppState().actActAmount = '645.21';
                             FFAppState().actCoverTypeName = 'การใช้ส่วนบุคคล';
-                            setState(() {});
+                            safeSetState(() {});
                             FFAppState().actSelected = true;
-                            setState(() {});
+                            safeSetState(() {});
                             context.safePop();
                           },
                           child: Container(
-                            width: 380.0,
-                            height: 174.0,
+                            width: 380,
+                            height: 174,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
                               borderRadius: BorderRadius.only(
-                                bottomLeft: Radius.circular(25.0),
-                                bottomRight: Radius.circular(25.0),
-                                topLeft: Radius.circular(25.0),
-                                topRight: Radius.circular(25.0),
+                                bottomLeft: Radius.circular(25),
+                                bottomRight: Radius.circular(25),
+                                topLeft: Radius.circular(25),
+                                topRight: Radius.circular(25),
                               ),
                               border: Border.all(
                                 color: Color(0xFFB3B3B3),
@@ -125,7 +124,7 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      8.0, 19.0, 8.0, 0.0),
+                                      8, 19, 8, 0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment:
@@ -140,7 +139,7 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
-                                                  fontSize: 12.0,
+                                                  fontSize: 12,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
@@ -148,7 +147,7 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 11.0, 0.0),
+                                                    0, 0, 11, 0),
                                             child: Text(
                                               'รถยนต์นั่ง',
                                               style:
@@ -157,7 +156,7 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                                                       .override(
                                                         fontFamily:
                                                             'Noto Sans Thai',
-                                                        fontSize: 12.0,
+                                                        fontSize: 12,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
@@ -172,7 +171,7 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
-                                              fontSize: 12.0,
+                                              fontSize: 12,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -182,7 +181,7 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      8.0, 5.0, 8.0, 0.0),
+                                      8, 5, 8, 0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment:
@@ -197,7 +196,7 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
-                                                  fontSize: 12.0,
+                                                  fontSize: 12,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
@@ -208,7 +207,7 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
-                                                  fontSize: 12.0,
+                                                  fontSize: 12,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
@@ -224,7 +223,7 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .tertiary,
-                                              fontSize: 20.0,
+                                              fontSize: 20,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.bold,
                                             ),
@@ -233,10 +232,10 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: AlignmentDirectional(0, 0),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        8.0, 15.0, 8.0, 0.0),
+                                        8, 15, 8, 0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -244,21 +243,21 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                                       children: [
                                         ClipRRect(
                                           borderRadius:
-                                              BorderRadius.circular(8.0),
+                                              BorderRadius.circular(8),
                                           child: Image.asset(
                                             'assets/images/0a22b_.png',
-                                            width: 130.0,
-                                            height: 50.0,
+                                            width: 130,
+                                            height: 50,
                                             fit: BoxFit.contain,
                                           ),
                                         ),
                                         ClipRRect(
                                           borderRadius:
-                                              BorderRadius.circular(8.0),
+                                              BorderRadius.circular(8),
                                           child: Image.asset(
                                             'assets/images/_4_.png',
-                                            width: 130.0,
-                                            height: 52.0,
+                                            width: 130,
+                                            height: 52,
                                             fit: BoxFit.contain,
                                           ),
                                         ),
@@ -275,13 +274,12 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                   ),
                 ),
                 Container(
-                  width: MediaQuery.sizeOf(context).width * 1.0,
+                  width: MediaQuery.sizeOf(context).width,
                   decoration: BoxDecoration(
                     color: Color(0xFFFAFAFA),
                   ),
                   child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(12.0, 11.0, 12.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(12, 11, 12, 0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -295,22 +293,22 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                             FFAppState().actCoverType = '210';
                             FFAppState().actActAmount = '1,182.35';
                             FFAppState().actCoverTypeName = 'การใช้ส่วนบุคคล';
-                            setState(() {});
+                            safeSetState(() {});
                             FFAppState().actSelected = true;
-                            setState(() {});
+                            safeSetState(() {});
                             context.safePop();
                           },
                           child: Container(
-                            width: 380.0,
-                            height: 174.0,
+                            width: 380,
+                            height: 174,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
                               borderRadius: BorderRadius.only(
-                                bottomLeft: Radius.circular(25.0),
-                                bottomRight: Radius.circular(25.0),
-                                topLeft: Radius.circular(25.0),
-                                topRight: Radius.circular(25.0),
+                                bottomLeft: Radius.circular(25),
+                                bottomRight: Radius.circular(25),
+                                topLeft: Radius.circular(25),
+                                topRight: Radius.circular(25),
                               ),
                               border: Border.all(
                                 color: Color(0xFFB3B3B3),
@@ -321,7 +319,7 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      8.0, 19.0, 8.0, 0.0),
+                                      8, 19, 8, 0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment:
@@ -336,7 +334,7 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
-                                                  fontSize: 12.0,
+                                                  fontSize: 12,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
@@ -347,7 +345,7 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
-                                                  fontSize: 12.0,
+                                                  fontSize: 12,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
@@ -360,7 +358,7 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
-                                              fontSize: 12.0,
+                                              fontSize: 12,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -370,7 +368,7 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      8.0, 5.0, 8.0, 0.0),
+                                      8, 5, 8, 0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment:
@@ -385,7 +383,7 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
-                                                  fontSize: 12.0,
+                                                  fontSize: 12,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
@@ -396,7 +394,7 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
-                                                  fontSize: 12.0,
+                                                  fontSize: 12,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
@@ -412,7 +410,7 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .tertiary,
-                                              fontSize: 20.0,
+                                              fontSize: 20,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.bold,
                                             ),
@@ -421,10 +419,10 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: AlignmentDirectional(0, 0),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        8.0, 15.0, 8.0, 0.0),
+                                        8, 15, 8, 0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -432,11 +430,11 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                                       children: [
                                         ClipRRect(
                                           borderRadius:
-                                              BorderRadius.circular(8.0),
+                                              BorderRadius.circular(8),
                                           child: Image.asset(
                                             'assets/images/8h5d5_.png',
-                                            width: 110.0,
-                                            height: 50.0,
+                                            width: 110,
+                                            height: 50,
                                             fit: BoxFit.cover,
                                           ),
                                         ),
@@ -453,13 +451,12 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                   ),
                 ),
                 Container(
-                  width: MediaQuery.sizeOf(context).width * 1.0,
+                  width: MediaQuery.sizeOf(context).width,
                   decoration: BoxDecoration(
                     color: Color(0xFFFAFAFA),
                   ),
                   child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(12.0, 11.0, 12.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(12, 11, 12, 0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -474,22 +471,22 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                             FFAppState().actActAmount = '967.82';
                             FFAppState().actCoverTypeName =
                                 'การใช้เพื่อพาณิชย์';
-                            setState(() {});
+                            safeSetState(() {});
                             FFAppState().actSelected = true;
-                            setState(() {});
+                            safeSetState(() {});
                             context.safePop();
                           },
                           child: Container(
-                            width: 380.0,
-                            height: 174.0,
+                            width: 380,
+                            height: 174,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
                               borderRadius: BorderRadius.only(
-                                bottomLeft: Radius.circular(25.0),
-                                bottomRight: Radius.circular(25.0),
-                                topLeft: Radius.circular(25.0),
-                                topRight: Radius.circular(25.0),
+                                bottomLeft: Radius.circular(25),
+                                bottomRight: Radius.circular(25),
+                                topLeft: Radius.circular(25),
+                                topRight: Radius.circular(25),
                               ),
                               border: Border.all(
                                 color: Color(0xFFB3B3B3),
@@ -500,7 +497,7 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      8.0, 19.0, 8.0, 0.0),
+                                      8, 19, 8, 0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment:
@@ -515,7 +512,7 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
-                                                  fontSize: 12.0,
+                                                  fontSize: 12,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
@@ -526,7 +523,7 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
-                                                  fontSize: 12.0,
+                                                  fontSize: 12,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
@@ -539,7 +536,7 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
-                                              fontSize: 12.0,
+                                              fontSize: 12,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -549,7 +546,7 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      8.0, 5.0, 8.0, 0.0),
+                                      8, 5, 8, 0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment:
@@ -564,7 +561,7 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
-                                                  fontSize: 12.0,
+                                                  fontSize: 12,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
@@ -575,7 +572,7 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
-                                                  fontSize: 12.0,
+                                                  fontSize: 12,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
@@ -591,7 +588,7 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .tertiary,
-                                              fontSize: 20.0,
+                                              fontSize: 20,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.bold,
                                             ),
@@ -600,10 +597,10 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: AlignmentDirectional(0, 0),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        8.0, 15.0, 8.0, 0.0),
+                                        8, 15, 8, 0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -611,31 +608,31 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                                       children: [
                                         ClipRRect(
                                           borderRadius:
-                                              BorderRadius.circular(8.0),
+                                              BorderRadius.circular(8),
                                           child: Image.asset(
                                             'assets/images/_2_.png',
-                                            width: 110.0,
-                                            height: 50.0,
+                                            width: 110,
+                                            height: 50,
                                             fit: BoxFit.cover,
                                           ),
                                         ),
                                         ClipRRect(
                                           borderRadius:
-                                              BorderRadius.circular(8.0),
+                                              BorderRadius.circular(8),
                                           child: Image.asset(
                                             'assets/images/ik1p2_.png',
-                                            width: 110.0,
-                                            height: 80.0,
+                                            width: 110,
+                                            height: 80,
                                             fit: BoxFit.cover,
                                           ),
                                         ),
                                         ClipRRect(
                                           borderRadius:
-                                              BorderRadius.circular(8.0),
+                                              BorderRadius.circular(8),
                                           child: Image.asset(
                                             'assets/images/2__.png',
-                                            width: 110.0,
-                                            height: 45.0,
+                                            width: 110,
+                                            height: 45,
                                             fit: BoxFit.cover,
                                           ),
                                         ),
@@ -651,7 +648,7 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                     ),
                   ),
                 ),
-              ].addToEnd(SizedBox(height: 50.0)),
+              ].addToEnd(SizedBox(height: 50)),
             ),
           ),
         ),

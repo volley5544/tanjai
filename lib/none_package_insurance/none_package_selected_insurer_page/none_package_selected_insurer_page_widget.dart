@@ -69,7 +69,7 @@ class _NonePackageSelectedInsurerPageWidgetState
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       _model.flagActStateVariable = widget!.actFlag!;
-      setState(() {});
+      safeSetState(() {});
     });
 
     _model.netPremiumTextController ??= TextEditingController();
@@ -80,7 +80,7 @@ class _NonePackageSelectedInsurerPageWidgetState
           if (_model.netPremiumTextController.text == '') {
             return;
           }
-          setState(() {
+          safeSetState(() {
             _model.netPremiumTextController?.text = functions
                 .removeCommaFromNumText(_model.netPremiumTextController.text);
             _model.netPremiumTextController?.selection =
@@ -91,7 +91,7 @@ class _NonePackageSelectedInsurerPageWidgetState
           if (_model.netPremiumTextController.text == '') {
             return;
           }
-          setState(() {
+          safeSetState(() {
             _model.netPremiumTextController?.text =
                 functions.returnNumberWithComma2Decimal(
                     _model.netPremiumTextController.text)!;
@@ -113,7 +113,7 @@ class _NonePackageSelectedInsurerPageWidgetState
           if (_model.actAmountTextController.text == '') {
             return;
           }
-          setState(() {
+          safeSetState(() {
             _model.actAmountTextController?.text = functions
                 .removeCommaFromNumText(_model.actAmountTextController.text);
             _model.actAmountTextController?.selection = TextSelection.collapsed(
@@ -123,7 +123,7 @@ class _NonePackageSelectedInsurerPageWidgetState
           if (_model.actAmountTextController.text == '') {
             return;
           }
-          setState(() {
+          safeSetState(() {
             _model.actAmountTextController?.text =
                 functions.returnNumberWithComma2Decimal(
                     _model.actAmountTextController.text)!;
@@ -141,7 +141,7 @@ class _NonePackageSelectedInsurerPageWidgetState
           if (_model.accessoryTotalTextController.text == '') {
             return;
           }
-          setState(() {
+          safeSetState(() {
             _model.accessoryTotalTextController?.text =
                 functions.removeCommaFromNumText(
                     _model.accessoryTotalTextController.text);
@@ -153,7 +153,7 @@ class _NonePackageSelectedInsurerPageWidgetState
           if (_model.accessoryTotalTextController.text == '') {
             return;
           }
-          setState(() {
+          safeSetState(() {
             _model.accessoryTotalTextController?.text =
                 functions.returnNumberWithComma2Decimal(
                     _model.accessoryTotalTextController.text)!;
@@ -213,8 +213,8 @@ class _NonePackageSelectedInsurerPageWidgetState
             backgroundColor: Colors.white,
             body: Center(
               child: SizedBox(
-                width: 50.0,
-                height: 50.0,
+                width: 50,
+                height: 50,
                 child: CircularProgressIndicator(
                   valueColor: AlwaysStoppedAnimation<Color>(
                     FlutterFlowTheme.of(context).primary,
@@ -244,13 +244,13 @@ class _NonePackageSelectedInsurerPageWidgetState
                 automaticallyImplyLeading: false,
                 leading: FlutterFlowIconButton(
                   borderColor: Colors.transparent,
-                  borderRadius: 30.0,
-                  borderWidth: 1.0,
-                  buttonSize: 60.0,
+                  borderRadius: 30,
+                  borderWidth: 1,
+                  buttonSize: 60,
                   icon: Icon(
                     Icons.arrow_back_rounded,
                     color: Color(0xFFDB771A),
-                    size: 30.0,
+                    size: 30,
                   ),
                   onPressed: () async {
                     context.pop();
@@ -261,14 +261,14 @@ class _NonePackageSelectedInsurerPageWidgetState
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
                         fontFamily: 'Noto Sans Thai',
                         color: Color(0xFF003063),
-                        fontSize: 18.0,
+                        fontSize: 18,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w600,
                       ),
                 ),
                 actions: [],
                 centerTitle: true,
-                elevation: 2.0,
+                elevation: 2,
               ),
               body: SafeArea(
                 top: true,
@@ -282,32 +282,29 @@ class _NonePackageSelectedInsurerPageWidgetState
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Container(
-                              width: MediaQuery.sizeOf(context).width * 1.0,
-                              height: 682.0,
+                              width: MediaQuery.sizeOf(context).width,
+                              height: 682,
                               decoration: BoxDecoration(
                                 color: Color(0xFFFAFAFA),
                               ),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    12.0, 0.0, 12.0, 0.0),
+                                    12, 0, 12, 0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 12.0, 0.0, 0.0),
+                                          0, 12, 0, 0),
                                       child: Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                1.0,
+                                        width: MediaQuery.sizeOf(context).width,
                                         decoration: BoxDecoration(),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      12.0, 0.0, 12.0, 0.0),
+                                                  .fromSTEB(12, 0, 12, 0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
@@ -319,7 +316,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                         .override(
                                                           fontFamily:
                                                               'Noto Sans Thai',
-                                                          fontSize: 15.0,
+                                                          fontSize: 15,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -330,27 +327,25 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                                  10, 0, 0, 0),
                                                       child: Text(
                                                         '(บังคับเลือก)',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Noto Sans Thai',
-                                                              color: Color(
-                                                                  0xFFF40606),
-                                                              fontSize: 12.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600,
-                                                            ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Noto Sans Thai',
+                                                                  color: Color(
+                                                                      0xFFF40606),
+                                                                  fontSize: 12,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                ),
                                                       ),
                                                     ),
                                                 ],
@@ -358,20 +353,18 @@ class _NonePackageSelectedInsurerPageWidgetState
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 5.0, 0.0, 0.0),
+                                                  .fromSTEB(0, 5, 0, 0),
                                               child: Container(
                                                 width:
                                                     MediaQuery.sizeOf(context)
-                                                            .width *
-                                                        1.0,
-                                                height: 60.0,
+                                                        .width,
+                                                height: 60,
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondaryBackground,
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
+                                                      BorderRadius.circular(8),
                                                   border: Border.all(
                                                     color: Color(0xFFB3B3B3),
                                                   ),
@@ -387,10 +380,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                                  10, 0, 0, 0),
                                                       child: Text(
                                                         widget!.insurerName!,
                                                         style:
@@ -403,8 +393,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryText,
-                                                                  fontSize:
-                                                                      15.0,
+                                                                  fontSize: 15,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -423,19 +412,16 @@ class _NonePackageSelectedInsurerPageWidgetState
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 12.0, 0.0, 0.0),
+                                          0, 12, 0, 0),
                                       child: Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                1.0,
+                                        width: MediaQuery.sizeOf(context).width,
                                         decoration: BoxDecoration(),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      12.0, 0.0, 12.0, 0.0),
+                                                  .fromSTEB(12, 0, 12, 0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
@@ -447,7 +433,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                         .override(
                                                           fontFamily:
                                                               'Noto Sans Thai',
-                                                          fontSize: 15.0,
+                                                          fontSize: 15,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -458,27 +444,25 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                                  10, 0, 0, 0),
                                                       child: Text(
                                                         '(บังคับเลือก)',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Noto Sans Thai',
-                                                              color: Color(
-                                                                  0xFFF40606),
-                                                              fontSize: 12.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600,
-                                                            ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Noto Sans Thai',
+                                                                  color: Color(
+                                                                      0xFFF40606),
+                                                                  fontSize: 12,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                ),
                                                       ),
                                                     ),
                                                 ],
@@ -486,20 +470,18 @@ class _NonePackageSelectedInsurerPageWidgetState
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 5.0, 0.0, 0.0),
+                                                  .fromSTEB(0, 5, 0, 0),
                                               child: Container(
                                                 width:
                                                     MediaQuery.sizeOf(context)
-                                                            .width *
-                                                        1.0,
-                                                height: 60.0,
+                                                        .width,
+                                                height: 60,
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primaryBackground,
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
+                                                      BorderRadius.circular(8),
                                                   border: Border.all(
                                                     color: Color(0xFFB3B3B3),
                                                   ),
@@ -515,10 +497,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                                  10, 0, 0, 0),
                                                       child: Text(
                                                         widget!.coverTypeName!,
                                                         style:
@@ -531,8 +510,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryText,
-                                                                  fontSize:
-                                                                      15.0,
+                                                                  fontSize: 15,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -551,19 +529,16 @@ class _NonePackageSelectedInsurerPageWidgetState
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 12.0, 0.0, 0.0),
+                                          0, 12, 0, 0),
                                       child: Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                1.0,
+                                        width: MediaQuery.sizeOf(context).width,
                                         decoration: BoxDecoration(),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      12.0, 0.0, 12.0, 0.0),
+                                                  .fromSTEB(12, 0, 12, 0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
@@ -575,7 +550,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                         .override(
                                                           fontFamily:
                                                               'Noto Sans Thai',
-                                                          fontSize: 15.0,
+                                                          fontSize: 15,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -586,27 +561,25 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                                  10, 0, 0, 0),
                                                       child: Text(
                                                         '(บังคับเลือก)',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Noto Sans Thai',
-                                                              color: Color(
-                                                                  0xFFF40606),
-                                                              fontSize: 12.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600,
-                                                            ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Noto Sans Thai',
+                                                                  color: Color(
+                                                                      0xFFF40606),
+                                                                  fontSize: 12,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                ),
                                                       ),
                                                     ),
                                                 ],
@@ -614,20 +587,18 @@ class _NonePackageSelectedInsurerPageWidgetState
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 5.0, 0.0, 0.0),
+                                                  .fromSTEB(0, 5, 0, 0),
                                               child: Container(
                                                 width:
                                                     MediaQuery.sizeOf(context)
-                                                            .width *
-                                                        1.0,
-                                                height: 60.0,
+                                                        .width,
+                                                height: 60,
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondaryBackground,
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
+                                                      BorderRadius.circular(8),
                                                   border: Border.all(
                                                     color: Color(0xFFB3B3B3),
                                                   ),
@@ -643,10 +614,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                                  10, 0, 0, 0),
                                                       child: Text(
                                                         widget!.garageTypeName!,
                                                         style:
@@ -659,8 +627,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryText,
-                                                                  fontSize:
-                                                                      15.0,
+                                                                  fontSize: 15,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -679,11 +646,9 @@ class _NonePackageSelectedInsurerPageWidgetState
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 5.0, 0.0, 0.0),
+                                          0, 5, 0, 0),
                                       child: Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                1.0,
+                                        width: MediaQuery.sizeOf(context).width,
                                         decoration: BoxDecoration(
                                           color: Color(0xFFFAFAFA),
                                         ),
@@ -692,8 +657,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                           children: [
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      12.0, 0.0, 12.0, 0.0),
+                                                  .fromSTEB(12, 0, 12, 0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
@@ -705,7 +669,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                         .override(
                                                           fontFamily:
                                                               'Noto Sans Thai',
-                                                          fontSize: 15.0,
+                                                          fontSize: 15,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -721,7 +685,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFF1F6CFF),
-                                                          fontSize: 15.0,
+                                                          fontSize: 15,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -730,8 +694,8 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                0.0, 0.0),
+                                                            .fromSTEB(
+                                                                10, 0, 0, 0),
                                                     child: Text(
                                                       '(บังคับกรอก)',
                                                       style: FlutterFlowTheme
@@ -742,7 +706,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                                 'Noto Sans Thai',
                                                             color: Color(
                                                                 0xFFF40606),
-                                                            fontSize: 12.0,
+                                                            fontSize: 12,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w600,
@@ -754,20 +718,18 @@ class _NonePackageSelectedInsurerPageWidgetState
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 5.0, 0.0, 0.0),
+                                                  .fromSTEB(0, 5, 0, 0),
                                               child: Container(
                                                 width:
                                                     MediaQuery.sizeOf(context)
-                                                            .width *
-                                                        1.0,
-                                                height: 60.0,
+                                                        .width,
+                                                height: 60,
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondaryBackground,
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
+                                                      BorderRadius.circular(8),
                                                   border: Border.all(
                                                     color: Color(0xFFB3B3B3),
                                                   ),
@@ -777,15 +739,12 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                     Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.0, 0.0),
+                                                              0, 0),
                                                       child: Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    10.0,
-                                                                    0.0,
-                                                                    10.0,
-                                                                    0.0),
+                                                                .fromSTEB(10, 0,
+                                                                    10, 0),
                                                         child: TextFormField(
                                                           controller: _model
                                                               .netPremiumTextController,
@@ -798,8 +757,8 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                             Duration(
                                                                 milliseconds:
                                                                     100),
-                                                            () =>
-                                                                setState(() {}),
+                                                            () => safeSetState(
+                                                                () {}),
                                                           ),
                                                           autofocus: true,
                                                           obscureText: false,
@@ -827,7 +786,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                                       color: Color(
                                                                           0xFFB3B3B3),
                                                                       fontSize:
-                                                                          15.0,
+                                                                          15,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -857,7 +816,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                               ),
                                                           keyboardType:
                                                               const TextInputType
-                                                                  .numberWithOptions(
+                                                                      .numberWithOptions(
                                                                   decimal:
                                                                       true),
                                                           validator: _model
@@ -877,7 +836,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 16.0, 0.0, 5.0),
+                                          0, 16, 0, 5),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
                                         focusColor: Colors.transparent,
@@ -886,10 +845,10 @@ class _NonePackageSelectedInsurerPageWidgetState
                                         onTap: () async {
                                           if (_model.flagActStateVariable) {
                                             _model.flagActStateVariable = false;
-                                            setState(() {});
+                                            safeSetState(() {});
                                           } else {
                                             _model.flagActStateVariable = true;
-                                            setState(() {});
+                                            safeSetState(() {});
                                           }
 
                                           await actions.hideKeyboardAction(
@@ -898,14 +857,13 @@ class _NonePackageSelectedInsurerPageWidgetState
                                         },
                                         child: Container(
                                           width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  1.0,
-                                          height: 60.0,
+                                              MediaQuery.sizeOf(context).width,
+                                          height: 60,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             borderRadius:
-                                                BorderRadius.circular(8.0),
+                                                BorderRadius.circular(8),
                                             border: Border.all(
                                               color: Color(0xFFB3B3B3),
                                             ),
@@ -917,8 +875,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                             children: [
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 0.0, 0.0),
+                                                    .fromSTEB(10, 0, 0, 0),
                                                 child: Text(
                                                   'ขอเบี้ย พ.ร.บ. หรือไม่',
                                                   style:
@@ -933,7 +890,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                                         context)
                                                                     .secondaryText
                                                                 : Colors.black,
-                                                            fontSize: 15.0,
+                                                            fontSize: 15,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w600,
@@ -943,11 +900,10 @@ class _NonePackageSelectedInsurerPageWidgetState
                                               if (!_model.flagActStateVariable)
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 10.0, 0.0),
+                                                      .fromSTEB(0, 0, 10, 0),
                                                   child: Container(
-                                                    width: 25.0,
-                                                    height: 25.0,
+                                                    width: 25,
+                                                    height: 25,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
@@ -956,7 +912,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                       border: Border.all(
                                                         color:
                                                             Color(0xFF9F9F9F),
-                                                        width: 1.0,
+                                                        width: 1,
                                                       ),
                                                     ),
                                                   ),
@@ -964,11 +920,10 @@ class _NonePackageSelectedInsurerPageWidgetState
                                               if (_model.flagActStateVariable)
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 10.0, 0.0),
+                                                      .fromSTEB(0, 0, 10, 0),
                                                   child: Container(
-                                                    width: 25.0,
-                                                    height: 25.0,
+                                                    width: 25,
+                                                    height: 25,
                                                     decoration: BoxDecoration(
                                                       color:
                                                           FlutterFlowTheme.of(
@@ -979,11 +934,11 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.0, 0.0),
+                                                              0, 0),
                                                       child: Icon(
                                                         Icons.check,
                                                         color: Colors.white,
-                                                        size: 18.0,
+                                                        size: 18,
                                                       ),
                                                     ),
                                                   ),
@@ -996,11 +951,10 @@ class _NonePackageSelectedInsurerPageWidgetState
                                     if (_model.flagActStateVariable)
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 5.0, 0.0, 0.0),
+                                            0, 5, 0, 0),
                                         child: Container(
                                           width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  1.0,
+                                              MediaQuery.sizeOf(context).width,
                                           decoration: BoxDecoration(
                                             color: Color(0xFFFAFAFA),
                                           ),
@@ -1009,8 +963,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                             children: [
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        12.0, 0.0, 12.0, 0.0),
+                                                    .fromSTEB(12, 0, 12, 0),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -1023,7 +976,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                           .override(
                                                             fontFamily:
                                                                 'Noto Sans Thai',
-                                                            fontSize: 15.0,
+                                                            fontSize: 15,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w500,
@@ -1033,27 +986,25 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                                  10, 0, 0, 0),
                                                       child: Text(
                                                         '(บังคับกรอก)',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Noto Sans Thai',
-                                                              color: Color(
-                                                                  0xFFF40606),
-                                                              fontSize: 12.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600,
-                                                            ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Noto Sans Thai',
+                                                                  color: Color(
+                                                                      0xFFF40606),
+                                                                  fontSize: 12,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                ),
                                                       ),
                                                     ),
                                                   ],
@@ -1061,21 +1012,19 @@ class _NonePackageSelectedInsurerPageWidgetState
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 5.0, 0.0, 0.0),
+                                                    .fromSTEB(0, 5, 0, 0),
                                                 child: Container(
                                                   width:
                                                       MediaQuery.sizeOf(context)
-                                                              .width *
-                                                          1.0,
-                                                  height: 60.0,
+                                                          .width,
+                                                  height: 60,
                                                   decoration: BoxDecoration(
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .secondaryBackground,
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            8),
                                                     border: Border.all(
                                                       color: Color(0xFFB3B3B3),
                                                     ),
@@ -1085,15 +1034,12 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                       Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.0, 0.0),
+                                                                0, 0),
                                                         child: Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      10.0,
-                                                                      0.0,
-                                                                      10.0,
-                                                                      0.0),
+                                                                  .fromSTEB(10,
+                                                                      0, 10, 0),
                                                           child: TextFormField(
                                                             controller: _model
                                                                 .actAmountTextController,
@@ -1106,8 +1052,9 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                               Duration(
                                                                   milliseconds:
                                                                       100),
-                                                              () => setState(
-                                                                  () {}),
+                                                              () =>
+                                                                  safeSetState(
+                                                                      () {}),
                                                             ),
                                                             autofocus: true,
                                                             readOnly:
@@ -1140,7 +1087,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                                         color: Color(
                                                                             0xFFB3B3B3),
                                                                         fontSize:
-                                                                            15.0,
+                                                                            15,
                                                                         letterSpacing:
                                                                             0.0,
                                                                       ),
@@ -1170,7 +1117,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                                 ),
                                                             keyboardType:
                                                                 const TextInputType
-                                                                    .numberWithOptions(
+                                                                        .numberWithOptions(
                                                                     decimal:
                                                                         true),
                                                             validator: _model
@@ -1191,11 +1138,9 @@ class _NonePackageSelectedInsurerPageWidgetState
                                       ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 5.0, 0.0, 0.0),
+                                          0, 5, 0, 0),
                                       child: Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                1.0,
+                                        width: MediaQuery.sizeOf(context).width,
                                         decoration: BoxDecoration(
                                           color: Color(0xFFFAFAFA),
                                         ),
@@ -1204,8 +1149,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                           children: [
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      12.0, 0.0, 12.0, 0.0),
+                                                  .fromSTEB(12, 0, 12, 0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
@@ -1217,7 +1161,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                         .override(
                                                           fontFamily:
                                                               'Noto Sans Thai',
-                                                          fontSize: 15.0,
+                                                          fontSize: 15,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -1228,20 +1172,18 @@ class _NonePackageSelectedInsurerPageWidgetState
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 5.0, 0.0, 0.0),
+                                                  .fromSTEB(0, 5, 0, 0),
                                               child: Container(
                                                 width:
                                                     MediaQuery.sizeOf(context)
-                                                            .width *
-                                                        1.0,
-                                                height: 60.0,
+                                                        .width,
+                                                height: 60,
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondaryBackground,
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
+                                                      BorderRadius.circular(8),
                                                   border: Border.all(
                                                     color: Color(0xFFB3B3B3),
                                                   ),
@@ -1251,15 +1193,12 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                     Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.0, 0.0),
+                                                              0, 0),
                                                       child: Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    10.0,
-                                                                    0.0,
-                                                                    10.0,
-                                                                    0.0),
+                                                                .fromSTEB(10, 0,
+                                                                    10, 0),
                                                         child: TextFormField(
                                                           controller: _model
                                                               .accessoryTotalTextController,
@@ -1272,8 +1211,8 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                             Duration(
                                                                 milliseconds:
                                                                     100),
-                                                            () =>
-                                                                setState(() {}),
+                                                            () => safeSetState(
+                                                                () {}),
                                                           ),
                                                           autofocus: true,
                                                           obscureText: false,
@@ -1301,7 +1240,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                                       color: Color(
                                                                           0xFFB3B3B3),
                                                                       fontSize:
-                                                                          15.0,
+                                                                          15,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -1331,7 +1270,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                               ),
                                                           keyboardType:
                                                               const TextInputType
-                                                                  .numberWithOptions(
+                                                                      .numberWithOptions(
                                                                   decimal:
                                                                       true),
                                                           validator: _model
@@ -1360,10 +1299,10 @@ class _NonePackageSelectedInsurerPageWidgetState
                     Expanded(
                       flex: 1,
                       child: Align(
-                        alignment: AlignmentDirectional(0.0, 0.75),
+                        alignment: AlignmentDirectional(0, 0.75),
                         child: Container(
                           width: double.infinity,
-                          height: 100.0,
+                          height: 100,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
@@ -1374,7 +1313,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                             children: [
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    12.0, 0.0, 12.0, 50.0),
+                                    12, 0, 12, 50),
                                 child: FFButtonWidget(
                                   onPressed: () async {
                                     var _shouldSetState = false;
@@ -1402,7 +1341,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                           );
                                         },
                                       );
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                     if (!(double.parse(functions
@@ -1429,7 +1368,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                           );
                                         },
                                       );
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                     if (_model.flagActStateVariable) {
@@ -1457,7 +1396,8 @@ class _NonePackageSelectedInsurerPageWidgetState
                                             );
                                           },
                                         );
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                         return;
                                       }
                                       if (!(double.parse(functions
@@ -1484,7 +1424,8 @@ class _NonePackageSelectedInsurerPageWidgetState
                                             );
                                           },
                                         );
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                         return;
                                       }
                                     }
@@ -1518,7 +1459,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                             ) ??
                                             false;
                                     if (!confirmDialogResponse) {
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                     showModalBottomSheet(
@@ -1625,7 +1566,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                           );
                                         },
                                       );
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                     if (SaveInsurerAPICall.statusLayer2(
@@ -1656,7 +1597,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                           );
                                         },
                                       );
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                     Navigator.pop(context);
@@ -1675,35 +1616,35 @@ class _NonePackageSelectedInsurerPageWidgetState
                                       }.withoutNulls,
                                     );
 
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                   },
                                   text: 'บันทึก',
                                   options: FFButtonOptions(
                                     width: double.infinity,
-                                    height: 60.0,
+                                    height: 60,
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        24.0, 0.0, 24.0, 0.0),
+                                        24, 0, 24, 0),
                                     iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
+                                        0, 0, 0, 0),
                                     color: Color(0xFFDB771B),
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Colors.white,
-                                          fontSize: 16.0,
+                                          fontSize: 16,
                                           letterSpacing: 0.0,
                                         ),
-                                    elevation: 3.0,
+                                    elevation: 3,
                                     borderSide: BorderSide(
                                       color: Colors.transparent,
-                                      width: 1.0,
+                                      width: 1,
                                     ),
-                                    borderRadius: BorderRadius.circular(16.0),
+                                    borderRadius: BorderRadius.circular(16),
                                   ),
                                 ),
                               ),
-                            ].addToStart(SizedBox(height: 16.0)),
+                            ].addToStart(SizedBox(height: 16)),
                           ),
                         ),
                       ),

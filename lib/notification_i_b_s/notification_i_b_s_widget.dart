@@ -55,13 +55,13 @@ class _NotificationIBSWidgetState extends State<NotificationIBSWidget> {
           automaticallyImplyLeading: false,
           leading: FlutterFlowIconButton(
             borderColor: Colors.transparent,
-            borderRadius: 30.0,
-            borderWidth: 1.0,
-            buttonSize: 48.0,
+            borderRadius: 30,
+            borderWidth: 1,
+            buttonSize: 48,
             icon: Icon(
               Icons.arrow_back_rounded,
               color: Color(0xFFD9761A),
-              size: 30.0,
+              size: 30,
             ),
             onPressed: () async {
               context.goNamed('SuperAppPage');
@@ -72,14 +72,14 @@ class _NotificationIBSWidgetState extends State<NotificationIBSWidget> {
             style: FlutterFlowTheme.of(context).headlineSmall.override(
                   fontFamily: 'Noto Sans Thai',
                   color: Color(0xFF003063),
-                  fontSize: 18.0,
+                  fontSize: 18,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.w600,
                 ),
           ),
           actions: [],
           centerTitle: true,
-          elevation: 2.0,
+          elevation: 2,
         ),
         body: SafeArea(
           top: true,
@@ -87,7 +87,7 @@ class _NotificationIBSWidgetState extends State<NotificationIBSWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -96,7 +96,7 @@ class _NotificationIBSWidgetState extends State<NotificationIBSWidget> {
                         'การแจ้งเตือน',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Noto Sans Thai',
-                              fontSize: 18.0,
+                              fontSize: 18,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.w600,
                             ),
@@ -117,12 +117,11 @@ class _NotificationIBSWidgetState extends State<NotificationIBSWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 5.0, 0.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 5, 0),
                             child: Icon(
                               Icons.done_all,
                               color: Color(0xFFDB771A),
-                              size: 24.0,
+                              size: 24,
                             ),
                           ),
                           Text(
@@ -132,7 +131,7 @@ class _NotificationIBSWidgetState extends State<NotificationIBSWidget> {
                                 .override(
                                   fontFamily: 'Noto Sans Thai',
                                   color: Color(0xFFDB771A),
-                                  fontSize: 16.0,
+                                  fontSize: 16,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
                                 ),
@@ -156,8 +155,8 @@ class _NotificationIBSWidgetState extends State<NotificationIBSWidget> {
                     if (!snapshot.hasData) {
                       return Center(
                         child: SizedBox(
-                          width: 50.0,
-                          height: 50.0,
+                          width: 50,
+                          height: 50,
                           child: CircularProgressIndicator(
                             valueColor: AlwaysStoppedAnimation<Color>(
                               FlutterFlowTheme.of(context).primary,
@@ -204,7 +203,7 @@ class _NotificationIBSWidgetState extends State<NotificationIBSWidget> {
                             children: [
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 20.0, 10.0, 0.0),
+                                    10, 20, 10, 0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment:
@@ -213,7 +212,7 @@ class _NotificationIBSWidgetState extends State<NotificationIBSWidget> {
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 7.0, 0.0, 0.0),
+                                          0, 7, 0, 0),
                                       child: Icon(
                                         Icons.lens,
                                         color: listViewNotificationRecord
@@ -221,7 +220,7 @@ class _NotificationIBSWidgetState extends State<NotificationIBSWidget> {
                                             ? Color(0xFFBBBBBB)
                                             : FlutterFlowTheme.of(context)
                                                 .tertiary,
-                                        size: 10.0,
+                                        size: 10,
                                       ),
                                     ),
                                     Expanded(
@@ -231,7 +230,7 @@ class _NotificationIBSWidgetState extends State<NotificationIBSWidget> {
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  10.0, 0.0, 0.0, 0.0),
+                                                  10, 0, 0, 0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             crossAxisAlignment:
@@ -246,7 +245,7 @@ class _NotificationIBSWidgetState extends State<NotificationIBSWidget> {
                                                         .override(
                                                           fontFamily:
                                                               'Noto Sans Thai',
-                                                          fontSize: 16.0,
+                                                          fontSize: 16,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
@@ -289,8 +288,8 @@ class _NotificationIBSWidgetState extends State<NotificationIBSWidget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                0.0, 0.0),
+                                                            .fromSTEB(
+                                                                10, 0, 0, 0),
                                                     child: Text(
                                                       dateTimeFormat(
                                                         "Hm",
@@ -329,10 +328,10 @@ class _NotificationIBSWidgetState extends State<NotificationIBSWidget> {
                                         : false)
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            65.0, 5.0, 0.0, 0.0),
+                                            65, 5, 0, 0),
                                         child: Container(
-                                          width: 55.0,
-                                          height: 55.0,
+                                          width: 55,
+                                          height: 55,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
@@ -340,15 +339,15 @@ class _NotificationIBSWidgetState extends State<NotificationIBSWidget> {
                                           ),
                                           child: ClipRRect(
                                             borderRadius:
-                                                BorderRadius.circular(100.0),
+                                                BorderRadius.circular(100),
                                             child: Image.network(
                                               valueOrDefault<String>(
                                                 listViewNotificationRecord
                                                     .notiImage,
                                                 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/InsurerLogo%2FVIRIYAH_logo.jpg?alt=media&token=0686a1ee-f7a2-4781-836f-85cc6364edf5',
                                               ),
-                                              width: 300.0,
-                                              height: 200.0,
+                                              width: 300,
+                                              height: 200,
                                               fit: BoxFit.cover,
                                             ),
                                           ),
@@ -358,10 +357,10 @@ class _NotificationIBSWidgetState extends State<NotificationIBSWidget> {
                                 ),
                               ),
                               SizedBox(
-                                width: 410.0,
+                                width: 410,
                                 child: Divider(
-                                  height: 20.0,
-                                  thickness: 1.0,
+                                  height: 20,
+                                  thickness: 1,
                                   color: Color(0xFFD9D9D9),
                                 ),
                               ),

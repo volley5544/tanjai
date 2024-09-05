@@ -67,7 +67,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
             child: Icon(
               Icons.arrow_back_ios,
               color: FlutterFlowTheme.of(context).tertiary,
-              size: 24.0,
+              size: 24,
             ),
           ),
           title: Text(
@@ -75,14 +75,14 @@ class _InformationActWidgetState extends State<InformationActWidget> {
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Noto Sans Thai',
                   color: Color(0xFF003063),
-                  fontSize: 18.0,
+                  fontSize: 18,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.w600,
                 ),
           ),
           actions: [],
           centerTitle: true,
-          elevation: 2.0,
+          elevation: 2,
         ),
         body: SafeArea(
           top: true,
@@ -91,7 +91,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 22.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 22, 0, 0),
                   child: Container(
                     width: double.infinity,
                     decoration: BoxDecoration(),
@@ -100,8 +100,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              24.0, 0.0, 24.0, 4.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 4),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             crossAxisAlignment: CrossAxisAlignment.center,
@@ -113,14 +112,14 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       color: Color(0xFF404040),
-                                      fontSize: 15.0,
+                                      fontSize: 15,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 0.0, 0.0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
                                 child: Text(
                                   '(บังคับเลือก)',
                                   style: FlutterFlowTheme.of(context)
@@ -128,7 +127,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFF40606),
-                                        fontSize: 12.0,
+                                        fontSize: 12,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
@@ -138,8 +137,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 0.0, 16.0, 0.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                           child: InkWell(
                             splashColor: Colors.transparent,
                             focusColor: Colors.transparent,
@@ -150,20 +148,20 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                             },
                             child: Container(
                               width: double.infinity,
-                              height: 60.0,
+                              height: 60,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
-                                borderRadius: BorderRadius.circular(10.0),
+                                borderRadius: BorderRadius.circular(10),
                                 border: Border.all(
                                   width: 0.5,
                                 ),
                               ),
                               child: Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: AlignmentDirectional(0, 0),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      4.0, 0.0, 0.0, 0.0),
+                                      4, 0, 0, 0),
                                   child: ListTile(
                                     title: Text(
                                       FFAppState().actSelected
@@ -180,7 +178,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                                         .insuranceBasicVehicleUsedTypeName)!
                                                 ? Color(0xFF9F9F9F)
                                                 : Colors.black,
-                                            fontSize: 15.0,
+                                            fontSize: 15,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
@@ -188,13 +186,13 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                     trailing: Icon(
                                       Icons.arrow_forward_ios,
                                       color: Color(0xFF474747),
-                                      size: 20.0,
+                                      size: 20,
                                     ),
                                     tileColor: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
                                     dense: false,
                                     shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10.0),
+                                      borderRadius: BorderRadius.circular(10),
                                     ),
                                   ),
                                 ),
@@ -208,17 +206,16 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                 ),
                 if (FFAppState().actSelected)
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(12.0, 10.0, 12.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(12, 10, 12, 0),
                     child: Container(
-                      width: MediaQuery.sizeOf(context).width * 1.0,
+                      width: MediaQuery.sizeOf(context).width,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                         borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(25.0),
-                          bottomRight: Radius.circular(25.0),
-                          topLeft: Radius.circular(25.0),
-                          topRight: Radius.circular(25.0),
+                          bottomLeft: Radius.circular(25),
+                          bottomRight: Radius.circular(25),
+                          topLeft: Radius.circular(25),
+                          topRight: Radius.circular(25),
                         ),
                         border: Border.all(
                           color: Color(0xFFB3B3B3),
@@ -228,8 +225,8 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                8.0, 19.0, 8.0, 0.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(8, 19, 8, 0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -243,7 +240,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
-                                            fontSize: 12.0,
+                                            fontSize: 12,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
@@ -254,7 +251,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
-                                            fontSize: 12.0,
+                                            fontSize: 12,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
@@ -267,7 +264,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
-                                        fontSize: 12.0,
+                                        fontSize: 12,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
@@ -276,8 +273,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                8.0, 5.0, 8.0, 0.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(8, 5, 8, 0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -291,7 +287,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
-                                            fontSize: 12.0,
+                                            fontSize: 12,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
@@ -302,7 +298,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
-                                            fontSize: 12.0,
+                                            fontSize: 12,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
@@ -317,7 +313,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                         fontFamily: 'Noto Sans Thai',
                                         color: FlutterFlowTheme.of(context)
                                             .tertiary,
-                                        fontSize: 17.0,
+                                        fontSize: 17,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.bold,
                                       ),
@@ -327,39 +323,39 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                           ),
                           if (FFAppState().actCoverType == '320')
                             Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0, 0),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    8.0, 15.0, 8.0, 10.0),
+                                    8, 15, 8, 10),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     ClipRRect(
-                                      borderRadius: BorderRadius.circular(8.0),
+                                      borderRadius: BorderRadius.circular(8),
                                       child: Image.asset(
                                         'assets/images/_2_.png',
-                                        width: 110.0,
-                                        height: 50.0,
+                                        width: 110,
+                                        height: 50,
                                         fit: BoxFit.contain,
                                       ),
                                     ),
                                     ClipRRect(
-                                      borderRadius: BorderRadius.circular(8.0),
+                                      borderRadius: BorderRadius.circular(8),
                                       child: Image.asset(
                                         'assets/images/ik1p2_.png',
-                                        width: 110.0,
-                                        height: 75.0,
+                                        width: 110,
+                                        height: 75,
                                         fit: BoxFit.cover,
                                       ),
                                     ),
                                     ClipRRect(
-                                      borderRadius: BorderRadius.circular(8.0),
+                                      borderRadius: BorderRadius.circular(8),
                                       child: Image.asset(
                                         'assets/images/2__.png',
-                                        width: 110.0,
-                                        height: 45.0,
+                                        width: 110,
+                                        height: 45,
                                         fit: BoxFit.contain,
                                       ),
                                     ),
@@ -369,29 +365,29 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                             ),
                           if (FFAppState().actCoverType == '110')
                             Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0, 0),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    8.0, 15.0, 8.0, 10.0),
+                                    8, 15, 8, 10),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     ClipRRect(
-                                      borderRadius: BorderRadius.circular(8.0),
+                                      borderRadius: BorderRadius.circular(8),
                                       child: Image.asset(
                                         'assets/images/0a22b_.png',
-                                        width: 140.0,
-                                        height: 50.0,
+                                        width: 140,
+                                        height: 50,
                                         fit: BoxFit.contain,
                                       ),
                                     ),
                                     ClipRRect(
-                                      borderRadius: BorderRadius.circular(8.0),
+                                      borderRadius: BorderRadius.circular(8),
                                       child: Image.asset(
                                         'assets/images/_4_.png',
-                                        width: 140.0,
-                                        height: 55.0,
+                                        width: 140,
+                                        height: 55,
                                         fit: BoxFit.contain,
                                       ),
                                     ),
@@ -401,20 +397,20 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                             ),
                           if (FFAppState().actCoverType == '210')
                             Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0, 0),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    8.0, 15.0, 8.0, 10.0),
+                                    8, 15, 8, 10),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     ClipRRect(
-                                      borderRadius: BorderRadius.circular(8.0),
+                                      borderRadius: BorderRadius.circular(8),
                                       child: Image.asset(
                                         'assets/images/8h5d5_.png',
-                                        width: 140.0,
-                                        height: 50.0,
+                                        width: 140,
+                                        height: 50,
                                         fit: BoxFit.contain,
                                       ),
                                     ),
@@ -427,8 +423,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                     ),
                   ),
                 Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(16.0, 13.0, 16.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(16, 13, 16, 0),
                   child: SingleChildScrollView(
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
@@ -438,17 +433,17 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 5.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width * 1.0,
+                                width: MediaQuery.sizeOf(context).width,
                                 decoration: BoxDecoration(),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          12.0, 0.0, 12.0, 0.0),
+                                          12, 0, 12, 0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
@@ -459,7 +454,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF404040),
-                                                  fontSize: 14.0,
+                                                  fontSize: 14,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
@@ -467,7 +462,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 0.0, 0.0, 0.0),
+                                                    10, 0, 0, 0),
                                             child: Text(
                                               '(บังคับกรอก)',
                                               style: FlutterFlowTheme.of(
@@ -477,7 +472,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                                     fontFamily:
                                                         'Noto Sans Thai',
                                                     color: Color(0xFFF40606),
-                                                    fontSize: 10.0,
+                                                    fontSize: 10,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
@@ -488,7 +483,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 5.0, 0.0, 0.0),
+                                          0, 5, 0, 0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
                                         focusColor: Colors.transparent,
@@ -555,14 +550,13 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                         },
                                         child: Container(
                                           width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  1.0,
-                                          height: 60.0,
+                                              MediaQuery.sizeOf(context).width,
+                                          height: 60,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             borderRadius:
-                                                BorderRadius.circular(10.0),
+                                                BorderRadius.circular(10),
                                             border: Border.all(
                                               color: Color(0xFFB3B3B3),
                                               width: 0.5,
@@ -571,7 +565,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 0.0, 10.0, 0.0),
+                                                    10, 0, 10, 0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -599,7 +593,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                                 Icon(
                                                   Icons.calendar_month,
                                                   color: Color(0xFFA9A8A8),
-                                                  size: 24.0,
+                                                  size: 24,
                                                 ),
                                               ],
                                             ),
@@ -612,17 +606,17 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 5.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width * 1.0,
+                                width: MediaQuery.sizeOf(context).width,
                                 decoration: BoxDecoration(),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          12.0, 0.0, 12.0, 0.0),
+                                          12, 0, 12, 0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
@@ -633,7 +627,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF404040),
-                                                  fontSize: 14.0,
+                                                  fontSize: 14,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
@@ -641,7 +635,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 0.0, 0.0, 0.0),
+                                                    10, 0, 0, 0),
                                             child: Text(
                                               '(บังคับกรอก)',
                                               style: FlutterFlowTheme.of(
@@ -651,7 +645,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                                     fontFamily:
                                                         'Noto Sans Thai',
                                                     color: Color(0xFFF40606),
-                                                    fontSize: 10.0,
+                                                    fontSize: 10,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
@@ -662,17 +656,15 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 5.0, 0.0, 0.0),
+                                          0, 5, 0, 0),
                                       child: Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                1.0,
-                                        height: 60.0,
+                                        width: MediaQuery.sizeOf(context).width,
+                                        height: 60,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                           borderRadius:
-                                              BorderRadius.circular(10.0),
+                                              BorderRadius.circular(10),
                                           border: Border.all(
                                             color: Color(0xFFB3B3B3),
                                             width: 0.5,
@@ -681,7 +673,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  10.0, 0.0, 10.0, 0.0),
+                                                  10, 0, 10, 0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -690,8 +682,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                               Expanded(
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          8.0, 0.0, 8.0, 0.0),
+                                                      .fromSTEB(8, 0, 8, 0),
                                                   child: TextFormField(
                                                     controller:
                                                         _model.textController,
@@ -760,7 +751,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                             ),
                           ],
                         ),
-                      ].addToEnd(SizedBox(height: 50.0)),
+                      ].addToEnd(SizedBox(height: 50)),
                     ),
                   ),
                 ),
@@ -770,8 +761,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                   children: [
                     Expanded(
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            20.0, 0.0, 20.0, 0.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -798,7 +788,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                   );
                                 },
                               );
-                              if (_shouldSetState) setState(() {});
+                              if (_shouldSetState) safeSetState(() {});
                               return;
                             }
                             if (!(_model.textController.text != null &&
@@ -820,7 +810,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                   );
                                 },
                               );
-                              if (_shouldSetState) setState(() {});
+                              if (_shouldSetState) safeSetState(() {});
                               return;
                             }
                             if (!FFAppState().actSelected) {
@@ -841,7 +831,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                   );
                                 },
                               );
-                              if (_shouldSetState) setState(() {});
+                              if (_shouldSetState) safeSetState(() {});
                               return;
                             }
                             showModalBottomSheet(
@@ -898,7 +888,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                 },
                               );
                               Navigator.pop(context);
-                              if (_shouldSetState) setState(() {});
+                              if (_shouldSetState) safeSetState(() {});
                               return;
                             }
                             if (CmiCheckAPICall.statuslayer1(
@@ -927,7 +917,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                 },
                               );
                               Navigator.pop(context);
-                              if (_shouldSetState) setState(() {});
+                              if (_shouldSetState) safeSetState(() {});
                               return;
                             }
                             Navigator.pop(context);
@@ -951,18 +941,18 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                 );
                               },
                             );
-                            if (_shouldSetState) setState(() {});
+                            if (_shouldSetState) safeSetState(() {});
                           },
                           child: Container(
-                            width: 180.0,
-                            height: 50.0,
+                            width: 180,
+                            height: 50,
                             decoration: BoxDecoration(
                               color: Color(0xFFFCEFE4),
                               borderRadius: BorderRadius.only(
-                                bottomLeft: Radius.circular(12.0),
-                                bottomRight: Radius.circular(12.0),
-                                topLeft: Radius.circular(12.0),
-                                topRight: Radius.circular(12.0),
+                                bottomLeft: Radius.circular(12),
+                                bottomRight: Radius.circular(12),
+                                topLeft: Radius.circular(12),
+                                topRight: Radius.circular(12),
                               ),
                             ),
                             child: Row(
@@ -976,7 +966,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFDB771A),
-                                        fontSize: 14.0,
+                                        fontSize: 14,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -993,8 +983,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                         '0')
                       Expanded(
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 20.0, 0.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 20, 0),
                           child: FFButtonWidget(
                             onPressed: () async {
                               var _shouldSetState = false;
@@ -1017,7 +1006,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                     );
                                   },
                                 );
-                                if (_shouldSetState) setState(() {});
+                                if (_shouldSetState) safeSetState(() {});
                                 return;
                               }
                               if (!(_model.textController.text != null &&
@@ -1039,7 +1028,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                     );
                                   },
                                 );
-                                if (_shouldSetState) setState(() {});
+                                if (_shouldSetState) safeSetState(() {});
                                 return;
                               }
                               if (!FFAppState().actSelected) {
@@ -1061,7 +1050,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                     );
                                   },
                                 );
-                                if (_shouldSetState) setState(() {});
+                                if (_shouldSetState) safeSetState(() {});
                                 return;
                               }
                               showModalBottomSheet(
@@ -1120,7 +1109,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                   },
                                 );
                                 Navigator.pop(context);
-                                if (_shouldSetState) setState(() {});
+                                if (_shouldSetState) safeSetState(() {});
                                 return;
                               }
                               if (CmiCheckAPICall.statuslayer1(
@@ -1150,7 +1139,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                   },
                                 );
                                 Navigator.pop(context);
-                                if (_shouldSetState) setState(() {});
+                                if (_shouldSetState) safeSetState(() {});
                                 return;
                               }
                               Navigator.pop(context);
@@ -1200,38 +1189,38 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                 );
                               }
 
-                              if (_shouldSetState) setState(() {});
+                              if (_shouldSetState) safeSetState(() {});
                             },
                             text: 'ตกลง',
                             options: FFButtonOptions(
-                              width: 180.0,
-                              height: 50.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 0.0, 24.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
+                              width: 180,
+                              height: 50,
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                              iconPadding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                               color: Color(0xFFD37319),
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
                                     fontFamily: 'Noto Sans Thai',
                                     color: Colors.white,
-                                    fontSize: 14.0,
+                                    fontSize: 14,
                                     letterSpacing: 0.0,
                                   ),
-                              elevation: 3.0,
+                              elevation: 3,
                               borderSide: BorderSide(
                                 color: Colors.transparent,
-                                width: 1.0,
+                                width: 1,
                               ),
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(8),
                             ),
                           ),
                         ),
                       ),
                   ],
                 ),
-              ].addToEnd(SizedBox(height: 50.0)),
+              ].addToEnd(SizedBox(height: 50)),
             ),
           ),
         ),

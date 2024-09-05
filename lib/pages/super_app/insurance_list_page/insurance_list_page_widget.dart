@@ -145,7 +145,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
       }
 
       FFAppState().searchList1 = '0';
-      setState(() {});
+      safeSetState(() {});
       _model.getRequestList = await InsuranceRequestListAPICall.call(
         apiUrl: FFAppState().apiUrlInsuranceAppState,
         token: FFAppState().accessToken,
@@ -210,7 +210,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
       FFAppState().insuranceBoxCheckbokValue = false;
       FFAppState().insuranceBoxTypeChoiceChip = 'ตู้แห้ง';
       FFAppState().insuranceVehicleTypeDropDown = 'กรุณาเลือก';
-      setState(() {});
+      safeSetState(() {});
       Navigator.pop(context);
     });
 
@@ -256,13 +256,13 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
             automaticallyImplyLeading: false,
             leading: FlutterFlowIconButton(
               borderColor: Colors.transparent,
-              borderRadius: 30.0,
-              borderWidth: 1.0,
-              buttonSize: 48.0,
+              borderRadius: 30,
+              borderWidth: 1,
+              buttonSize: 48,
               icon: Icon(
                 Icons.arrow_back_rounded,
                 color: Color(0xFFD9761A),
-                size: 30.0,
+                size: 30,
               ),
               onPressed: () async {
                 FFAppState().nonePackageFlagCarrier = false;
@@ -396,20 +396,20 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                 FFAppState().nonePackageBranchCode = '';
                 FFAppState().nonePackageBranchName = '';
                 FFAppState().nonePackageInsurerShortNameDupList = [];
-                setState(() {});
+                safeSetState(() {});
                 await Future.delayed(const Duration(milliseconds: 500));
 
                 context.goNamed('SuperAppPage');
               },
             ),
             title: Align(
-              alignment: AlignmentDirectional(0.0, 0.0),
+              alignment: AlignmentDirectional(0, 0),
               child: Text(
                 'จำนวนลูกค้าทั้งหมด',
                 style: FlutterFlowTheme.of(context).headlineSmall.override(
                       fontFamily: 'Noto Sans Thai',
                       color: Color(0xFF003063),
-                      fontSize: 18.0,
+                      fontSize: 18,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.w600,
                     ),
@@ -417,16 +417,16 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
             ),
             actions: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 12, 0),
                 child: FlutterFlowIconButton(
                   borderColor: Colors.transparent,
-                  borderRadius: 20.0,
-                  borderWidth: 1.0,
-                  buttonSize: 40.0,
+                  borderRadius: 20,
+                  borderWidth: 1,
+                  buttonSize: 40,
                   icon: FaIcon(
                     FontAwesomeIcons.exclamationTriangle,
                     color: Color(0xFFDB771A),
-                    size: 30.0,
+                    size: 30,
                   ),
                   onPressed: () async {
                     showModalBottomSheet(
@@ -455,7 +455,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
               ),
             ],
             centerTitle: false,
-            elevation: 0.0,
+            elevation: 0,
           ),
           body: SafeArea(
             top: true,
@@ -464,23 +464,21 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(12.0, 15.0, 12.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(12, 15, 12, 0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Expanded(
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 20.0, 0.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 20, 0),
                           child: Container(
                             width: MediaQuery.sizeOf(context).width * 0.9,
-                            height: 50.0,
+                            height: 50,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(8),
                               border: Border.all(
                                 color: Colors.black,
                                 width: 0.1,
@@ -493,19 +491,19 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 0.0, 0.0, 0.0),
+                                      10, 0, 0, 0),
                                   child: Icon(
                                     Icons.search,
                                     color: Color(0xFF878787),
-                                    size: 24.0,
+                                    size: 24,
                                   ),
                                 ),
                                 Expanded(
                                   child: Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0, 0),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          8.0, 0.5, 8.0, 0.5),
+                                          8, 0.5, 8, 0.5),
                                       child: TextFormField(
                                         controller: _model
                                             .searchFirstnameTextController,
@@ -514,7 +512,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                         onChanged: (_) => EasyDebounce.debounce(
                                           '_model.searchFirstnameTextController',
                                           Duration(milliseconds: 100),
-                                          () => setState(() {}),
+                                          () => safeSetState(() {}),
                                         ),
                                         autofocus: false,
                                         obscureText: false,
@@ -525,7 +523,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                   .override(
                                                     fontFamily:
                                                         'Noto Sans Thai',
-                                                    fontSize: 14.0,
+                                                    fontSize: 14,
                                                     letterSpacing: 0.0,
                                                   ),
                                           hintText: 'ค้นหาชื่อลูกค้า',
@@ -535,7 +533,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                   .override(
                                                     fontFamily:
                                                         'Noto Sans Thai',
-                                                    fontSize: 14.0,
+                                                    fontSize: 14,
                                                     letterSpacing: 0.0,
                                                   ),
                                           enabledBorder: InputBorder.none,
@@ -547,7 +545,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -564,8 +562,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                         ),
                       ),
                       Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 20, 0),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -577,7 +574,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                           child: Icon(
                             Icons.refresh_sharp,
                             color: FlutterFlowTheme.of(context).secondaryText,
-                            size: 24.0,
+                            size: 24,
                           ),
                         ),
                       ),
@@ -592,11 +589,10 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                     : false)
                   Expanded(
                     child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 0.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(12, 12, 12, 0),
                       child: Container(
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8.0),
+                          borderRadius: BorderRadius.circular(8),
                         ),
                         child: Builder(
                           builder: (context) {
@@ -610,7 +606,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                 0,
                                 0,
                                 0,
-                                50.0,
+                                50,
                               ),
                               shrinkWrap: true,
                               scrollDirection: Axis.vertical,
@@ -643,10 +639,10 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                     ''),
                                               )?[listIndex]))),
                                   child: Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0, 0),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 20.0),
+                                          0, 0, 0, 20),
                                       child: Container(
                                         decoration: BoxDecoration(
                                           color: (InsuranceRequestListAPICall
@@ -659,7 +655,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                               ? Color(0xFFF9DCC3)
                                               : Color(0xFFD9D9D9),
                                           borderRadius:
-                                              BorderRadius.circular(20.0),
+                                              BorderRadius.circular(20),
                                           border: Border.all(
                                             color: (InsuranceRequestListAPICall
                                                         .quotationtypebak(
@@ -670,7 +666,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                     'manual'
                                                 ? Color(0xFFD9761A)
                                                 : Color(0xFF95A1AC),
-                                            width: 1.0,
+                                            width: 1,
                                           ),
                                         ),
                                         child: Column(
@@ -683,7 +679,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                             Stack(
                                               children: [
                                                 Padding(
-                                                  padding: EdgeInsets.all(12.0),
+                                                  padding: EdgeInsets.all(12),
                                                   child: Column(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -720,7 +716,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                               context)
                                                                           .black600,
                                                                       fontSize:
-                                                                          15.0,
+                                                                          15,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -728,7 +724,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                             ),
                                                           ),
                                                           Container(
-                                                            width: 10.0,
+                                                            width: 10,
                                                             decoration:
                                                                 BoxDecoration(),
                                                             child: Text(
@@ -753,12 +749,12 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          50.0,
-                                                                          0.0),
+                                                                          0,
+                                                                          0,
+                                                                          50,
+                                                                          0),
                                                               child: Container(
-                                                                width: 100.0,
+                                                                width: 100,
                                                                 decoration:
                                                                     BoxDecoration(),
                                                                 child: Text(
@@ -781,7 +777,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .black600,
                                                                         fontSize:
-                                                                            15.0,
+                                                                            15,
                                                                         letterSpacing:
                                                                             0.0,
                                                                       ),
@@ -817,7 +813,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                               context)
                                                                           .black600,
                                                                       fontSize:
-                                                                          15.0,
+                                                                          15,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -825,7 +821,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                             ),
                                                           ),
                                                           Container(
-                                                            width: 10.0,
+                                                            width: 10,
                                                             decoration:
                                                                 BoxDecoration(),
                                                             child: Text(
@@ -867,7 +863,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                               context)
                                                                           .black600,
                                                                       fontSize:
-                                                                          15.0,
+                                                                          15,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -902,7 +898,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                               context)
                                                                           .black600,
                                                                       fontSize:
-                                                                          15.0,
+                                                                          15,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -910,7 +906,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                             ),
                                                           ),
                                                           Container(
-                                                            width: 10.0,
+                                                            width: 10,
                                                             decoration:
                                                                 BoxDecoration(),
                                                             child: Text(
@@ -968,7 +964,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .black600,
                                                                         fontSize:
-                                                                            15.0,
+                                                                            15,
                                                                         letterSpacing:
                                                                             0.0,
                                                                       ),
@@ -1001,7 +997,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                               context)
                                                                           .black600,
                                                                       fontSize:
-                                                                          15.0,
+                                                                          15,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -1036,7 +1032,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                               context)
                                                                           .black600,
                                                                       fontSize:
-                                                                          15.0,
+                                                                          15,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -1044,7 +1040,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                             ),
                                                           ),
                                                           Container(
-                                                            width: 10.0,
+                                                            width: 10,
                                                             decoration:
                                                                 BoxDecoration(),
                                                             child: Text(
@@ -1102,7 +1098,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .black600,
                                                                         fontSize:
-                                                                            15.0,
+                                                                            15,
                                                                         letterSpacing:
                                                                             0.0,
                                                                       ),
@@ -1135,7 +1131,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                               context)
                                                                           .black600,
                                                                       fontSize:
-                                                                          15.0,
+                                                                          15,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -1170,7 +1166,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                               context)
                                                                           .black600,
                                                                       fontSize:
-                                                                          15.0,
+                                                                          15,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -1178,7 +1174,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                             ),
                                                           ),
                                                           Container(
-                                                            width: 10.0,
+                                                            width: 10,
                                                             decoration:
                                                                 BoxDecoration(),
                                                             child: Text(
@@ -1236,7 +1232,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .black600,
                                                                         fontSize:
-                                                                            15.0,
+                                                                            15,
                                                                         letterSpacing:
                                                                             0.0,
                                                                       ),
@@ -1269,7 +1265,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                               context)
                                                                           .black600,
                                                                       fontSize:
-                                                                          15.0,
+                                                                          15,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -1304,7 +1300,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                               context)
                                                                           .black600,
                                                                       fontSize:
-                                                                          15.0,
+                                                                          15,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -1312,7 +1308,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                             ),
                                                           ),
                                                           Container(
-                                                            width: 10.0,
+                                                            width: 10,
                                                             decoration:
                                                                 BoxDecoration(),
                                                             child: Text(
@@ -1354,7 +1350,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                               context)
                                                                           .black600,
                                                                       fontSize:
-                                                                          15.0,
+                                                                          15,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -1389,7 +1385,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                               context)
                                                                           .black600,
                                                                       fontSize:
-                                                                          15.0,
+                                                                          15,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -1397,7 +1393,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                             ),
                                                           ),
                                                           Container(
-                                                            width: 10.0,
+                                                            width: 10,
                                                             decoration:
                                                                 BoxDecoration(),
                                                             child: Text(
@@ -1439,7 +1435,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                               context)
                                                                           .black600,
                                                                       fontSize:
-                                                                          15.0,
+                                                                          15,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -1474,7 +1470,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                               context)
                                                                           .black600,
                                                                       fontSize:
-                                                                          15.0,
+                                                                          15,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -1482,7 +1478,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                             ),
                                                           ),
                                                           Container(
-                                                            width: 10.0,
+                                                            width: 10,
                                                             decoration:
                                                                 BoxDecoration(),
                                                             child: Text(
@@ -1527,7 +1523,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                           ? FlutterFlowTheme.of(context).error
                                                                           : FlutterFlowTheme.of(context).black600,
                                                                       fontSize:
-                                                                          15.0,
+                                                                          15,
                                                                       letterSpacing:
                                                                           0.0,
                                                                       fontWeight:
@@ -1565,7 +1561,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                               context)
                                                                           .black600,
                                                                       fontSize:
-                                                                          15.0,
+                                                                          15,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -1573,7 +1569,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                             ),
                                                           ),
                                                           Container(
-                                                            width: 10.0,
+                                                            width: 10,
                                                             decoration:
                                                                 BoxDecoration(),
                                                             child: Text(
@@ -1615,7 +1611,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                               context)
                                                                           .black600,
                                                                       fontSize:
-                                                                          15.0,
+                                                                          15,
                                                                       letterSpacing:
                                                                           0.0,
                                                                       fontWeight:
@@ -1628,7 +1624,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                         ],
                                                       ),
                                                     ].divide(
-                                                        SizedBox(height: 4.0)),
+                                                        SizedBox(height: 4)),
                                                   ),
                                                 ),
                                                 if ((((InsuranceRequestListAPICall
@@ -1663,18 +1659,15 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            1.0, -1.0),
+                                                            1, -1),
                                                     child: Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0.0,
-                                                                  10.0,
-                                                                  10.0,
-                                                                  0.0),
+                                                                  0, 10, 10, 0),
                                                       child: Container(
-                                                        width: 55.0,
-                                                        height: 55.0,
+                                                        width: 55,
+                                                        height: 55,
                                                         decoration:
                                                             BoxDecoration(
                                                           shape:
@@ -1693,10 +1686,10 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          10.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                          10,
+                                                                          0,
+                                                                          0,
+                                                                          0),
                                                               child: InkWell(
                                                                 splashColor: Colors
                                                                     .transparent,
@@ -1728,7 +1721,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .black600,
-                                                                  size: 30.0,
+                                                                  size: 30,
                                                                 ),
                                                               ),
                                                             ),
@@ -1741,8 +1734,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 0.0, 0.0, 15.0),
+                                                  .fromSTEB(0, 0, 0, 15),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 mainAxisAlignment:
@@ -1769,10 +1761,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  5.0,
-                                                                  0.0),
+                                                                  0, 0, 5, 0),
                                                       child: FFButtonWidget(
                                                         onPressed: () async {
                                                           var _shouldSetState =
@@ -2087,7 +2076,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                           FFAppState()
                                                                   .nonePackageOldVmiFlag =
                                                               false;
-                                                          setState(() {});
+                                                          safeSetState(() {});
                                                           _model.getDetailAPIEdit =
                                                               await InsuranceRequestDetailAPICall
                                                                   .call(
@@ -2145,7 +2134,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                               },
                                                             );
                                                             if (_shouldSetState)
-                                                              setState(() {});
+                                                              safeSetState(
+                                                                  () {});
                                                             return;
                                                           }
                                                           if (InsuranceRequestDetailAPICall
@@ -2186,7 +2176,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                               },
                                                             );
                                                             if (_shouldSetState)
-                                                              setState(() {});
+                                                              safeSetState(
+                                                                  () {});
                                                             return;
                                                           }
                                                           FFAppState()
@@ -2542,7 +2533,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                       '1'
                                                                   ? true
                                                                   : false;
-                                                          setState(() {});
+                                                          safeSetState(() {});
                                                           FFAppState()
                                                                   .nonePackageImageOther =
                                                               getJsonField(
@@ -2797,7 +2788,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                   .toList()
                                                                   .cast<
                                                                       String>();
-                                                          setState(() {});
+                                                          safeSetState(() {});
                                                           Navigator.pop(
                                                               context);
 
@@ -2805,27 +2796,21 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                               'NonePackageEditPage1');
 
                                                           if (_shouldSetState)
-                                                            setState(() {});
+                                                            safeSetState(() {});
                                                         },
                                                         text: 'แก้ไข',
                                                         options:
                                                             FFButtonOptions(
-                                                          width: 110.0,
-                                                          height: 35.0,
+                                                          width: 110,
+                                                          height: 35,
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      24.0,
-                                                                      0.0,
-                                                                      24.0,
-                                                                      0.0),
+                                                                  .fromSTEB(24,
+                                                                      0, 24, 0),
                                                           iconPadding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                                  .fromSTEB(0,
+                                                                      0, 0, 0),
                                                           color: Colors.white,
                                                           textStyle:
                                                               FlutterFlowTheme.of(
@@ -2838,24 +2823,23 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                             context)
                                                                         .black600,
                                                                     fontSize:
-                                                                        15.0,
+                                                                        15,
                                                                     letterSpacing:
                                                                         0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w600,
                                                                   ),
-                                                          elevation: 3.0,
+                                                          elevation: 3,
                                                           borderSide:
                                                               BorderSide(
                                                             color: Color(
                                                                 0xFFA19AAC),
-                                                            width: 1.0,
+                                                            width: 1,
                                                           ),
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(
-                                                                      10.0),
+                                                                  .circular(10),
                                                         ),
                                                       ),
                                                     ),
@@ -2884,10 +2868,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  5.0,
-                                                                  0.0,
-                                                                  5.0,
-                                                                  0.0),
+                                                                  5, 0, 5, 0),
                                                       child: FFButtonWidget(
                                                         onPressed: () async {
                                                           var _shouldSetState =
@@ -3199,7 +3180,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                               .nonePackageBranchName = '';
                                                           FFAppState()
                                                               .nonePackageInsurerShortNameDupList = [];
-                                                          setState(() {});
+                                                          safeSetState(() {});
                                                           _model.getDetailApiDup =
                                                               await InsuranceRequestDetailAPICall
                                                                   .call(
@@ -3257,7 +3238,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                               },
                                                             );
                                                             if (_shouldSetState)
-                                                              setState(() {});
+                                                              safeSetState(
+                                                                  () {});
                                                             return;
                                                           }
                                                           if (InsuranceRequestDetailAPICall
@@ -3298,7 +3280,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                               },
                                                             );
                                                             if (_shouldSetState)
-                                                              setState(() {});
+                                                              safeSetState(
+                                                                  () {});
                                                             return;
                                                           }
                                                           FFAppState()
@@ -3978,7 +3961,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                           ?.jsonBody ??
                                                                       ''),
                                                                 )}');
-                                                          setState(() {});
+                                                          safeSetState(() {});
                                                           FFAppState()
                                                               .updateNonePackageReasonAtIndex(
                                                             () {
@@ -4004,7 +3987,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                             }(),
                                                             (_) => true,
                                                           );
-                                                          setState(() {});
+                                                          safeSetState(() {});
                                                           Navigator.pop(
                                                               context);
 
@@ -4263,27 +4246,21 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                           );
 
                                                           if (_shouldSetState)
-                                                            setState(() {});
+                                                            safeSetState(() {});
                                                         },
                                                         text: 'คัดลอก',
                                                         options:
                                                             FFButtonOptions(
-                                                          width: 110.0,
-                                                          height: 35.0,
+                                                          width: 110,
+                                                          height: 35,
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      24.0,
-                                                                      0.0,
-                                                                      24.0,
-                                                                      0.0),
+                                                                  .fromSTEB(24,
+                                                                      0, 24, 0),
                                                           iconPadding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                                  .fromSTEB(0,
+                                                                      0, 0, 0),
                                                           color:
                                                               Color(0xFFF3C5A2),
                                                           textStyle:
@@ -4297,24 +4274,23 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                             context)
                                                                         .black600,
                                                                     fontSize:
-                                                                        15.0,
+                                                                        15,
                                                                     letterSpacing:
                                                                         0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w600,
                                                                   ),
-                                                          elevation: 3.0,
+                                                          elevation: 3,
                                                           borderSide:
                                                               BorderSide(
                                                             color: Color(
                                                                 0xFFD9761A),
-                                                            width: 1.0,
+                                                            width: 1,
                                                           ),
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(
-                                                                      10.0),
+                                                                  .circular(10),
                                                         ),
                                                       ),
                                                     ),
@@ -4331,10 +4307,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  5.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                                  5, 0, 0, 0),
                                                       child: FFButtonWidget(
                                                         onPressed: () async {
                                                           var _shouldSetState =
@@ -4638,7 +4611,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                 .nonePackageBranchName = '';
                                                             FFAppState()
                                                                 .nonePackageInsurerShortNameDupList = [];
-                                                            setState(() {});
+                                                            safeSetState(() {});
                                                             _model.listFromDash =
                                                                 await InsuranceRequestListAPIDashBoardCall
                                                                     .call(
@@ -4700,7 +4673,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                   },
                                                                 );
                                                                 if (_shouldSetState)
-                                                                  setState(
+                                                                  safeSetState(
                                                                       () {});
                                                                 return;
                                                               }
@@ -4777,7 +4750,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                       ''),
                                                                 )!
                                                                         .first;
-                                                                setState(() {});
+                                                                safeSetState(
+                                                                    () {});
                                                                 await showModalBottomSheet(
                                                                   isScrollControlled:
                                                                       true,
@@ -4847,37 +4821,33 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                 },
                                                               );
                                                               if (_shouldSetState)
-                                                                setState(() {});
+                                                                safeSetState(
+                                                                    () {});
                                                               return;
                                                             }
                                                           } else {
                                                             if (_shouldSetState)
-                                                              setState(() {});
+                                                              safeSetState(
+                                                                  () {});
                                                             return;
                                                           }
 
                                                           if (_shouldSetState)
-                                                            setState(() {});
+                                                            safeSetState(() {});
                                                         },
                                                         text: 'ทำประกัน',
                                                         options:
                                                             FFButtonOptions(
-                                                          width: 110.0,
-                                                          height: 35.0,
+                                                          width: 110,
+                                                          height: 35,
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      24.0,
-                                                                      0.0,
-                                                                      24.0,
-                                                                      0.0),
+                                                                  .fromSTEB(24,
+                                                                      0, 24, 0),
                                                           iconPadding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                                  .fromSTEB(0,
+                                                                      0, 0, 0),
                                                           color:
                                                               Color(0xFFD9761A),
                                                           textStyle:
@@ -4890,24 +4860,23 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                     color: Colors
                                                                         .white,
                                                                     fontSize:
-                                                                        15.0,
+                                                                        15,
                                                                     letterSpacing:
                                                                         0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w600,
                                                                   ),
-                                                          elevation: 3.0,
+                                                          elevation: 3,
                                                           borderSide:
                                                               BorderSide(
                                                             color: Colors
                                                                 .transparent,
-                                                            width: 0.0,
+                                                            width: 0,
                                                           ),
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(
-                                                                      10.0),
+                                                                  .circular(10),
                                                         ),
                                                       ),
                                                     ),
@@ -4935,22 +4904,21 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                     ? true
                     : false)
                   Align(
-                    alignment: AlignmentDirectional(0.0, 0.0),
+                    alignment: AlignmentDirectional(0, 0),
                     child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
                       child: Container(
                         constraints: BoxConstraints(
                           minWidth: MediaQuery.sizeOf(context).width * 0.9,
-                          minHeight: 100.0,
+                          minHeight: 100,
                           maxWidth: MediaQuery.sizeOf(context).width * 0.95,
-                          maxHeight: 100.0,
+                          maxHeight: 100,
                         ),
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20.0),
+                          borderRadius: BorderRadius.circular(20),
                         ),
                         child: Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
+                          alignment: AlignmentDirectional(0, 0),
                           child: Text(
                             'ไม่พบข้อมูลในระบบ',
                             style: FlutterFlowTheme.of(context)
