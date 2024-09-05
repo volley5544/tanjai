@@ -13,20 +13,21 @@ import 'package:flutter/material.dart';
 import '../../components/text_field_component_widget.dart';
 
 class RangeSliderWidget extends StatefulWidget {
-  const RangeSliderWidget({
-    super.key,
-    this.width,
-    this.height,
-    this.minRange,
-    this.maxRange,
-    this.activeColor,
-    this.inactiveColors,
-    this.overlayColor,
-    this.startValue,
-    this.endValue,
-    this.step,
-    this.typeName,
-  });
+  const RangeSliderWidget(
+      {super.key,
+      this.width,
+      this.height,
+      this.minRange,
+      this.maxRange,
+      this.activeColor,
+      this.inactiveColors,
+      this.overlayColor,
+      this.startValue,
+      this.endValue,
+      this.step,
+      this.typeName,
+      this.currentMinValue,
+      this.currentMaxValue});
 
   final double? width;
   final double? height;
@@ -39,17 +40,20 @@ class RangeSliderWidget extends StatefulWidget {
   final String? endValue;
   final String? step;
   final String? typeName;
+  final String? currentMinValue;
+  final String? currentMaxValue;
 
   @override
   State<RangeSliderWidget> createState() => _RangeSliderWidgetState();
 }
 
 class _RangeSliderWidgetState extends State<RangeSliderWidget> {
-  late dynamic _sliderValue = RangeValues(
-      double.parse(widget.startValue!), double.parse(widget.endValue!));
+  late dynamic _sliderValue = RangeValues(double.parse(widget.currentMinValue!),
+      double.parse(widget.currentMaxValue!));
   late dynamic _startValue =
-      double.parse(widget.startValue!).toStringAsFixed(2);
-  late dynamic _endValue = double.parse(widget.endValue!).toStringAsFixed(2);
+      double.parse(widget.currentMinValue!).toStringAsFixed(2);
+  late dynamic _endValue =
+      double.parse(widget.currentMaxValue!).toStringAsFixed(2);
 
   @override
   Widget build(BuildContext context) {
@@ -57,18 +61,46 @@ class _RangeSliderWidgetState extends State<RangeSliderWidget> {
       RangeSlider(
         onChanged: (newValue) {
           newValue = newValue;
-          setState(() {
-            _sliderValue = newValue;
-            _startValue = newValue.start.toStringAsFixed(2);
-            _endValue = newValue.end.toStringAsFixed(2);
-            if (widget.typeName! == 'ราคาเบี้ย') {
-              FFAppState().sliderMinGrossTotal = '${_startValue}';
-              FFAppState().sliderMaxGrossTotal = '${_endValue}';
-            } else {
-              FFAppState().sliderMinSumInsured = '${_startValue}';
-              FFAppState().sliderMaxSumInsured = '${_endValue}';
-            }
-          });
+          setState(() {});
+          _sliderValue = newValue;
+          _startValue = newValue.start.toStringAsFixed(2);
+          _endValue = newValue.end.toStringAsFixed(2);
+          if (widget.typeName! == 'ราคาเบี้ย') {
+            FFAppState().sliderCurrentMinValueGross = '${_startValue}';
+            FFAppState().sliderCurrentMaxValueGross = '${_endValue}';
+          } else {
+            FFAppState().sliderCurrentMinSumInsured = '${_startValue}';
+            FFAppState().sliderCurrentMaxSumInsured = '${_endValue}';
+          }
+          safeSetState(() {});
+        },
+        onChangeEnd: (newValue) {
+          newValue = newValue;
+          setState(() {});
+          _sliderValue = newValue;
+          _startValue = newValue.start.toStringAsFixed(2);
+          _endValue = newValue.end.toStringAsFixed(2);
+          safeSetState(() {});
+          if (widget.typeName! == 'ราคาเบี้ย') {
+            FFAppState().sliderCurrentMinValueGross = '${_startValue}';
+            FFAppState().sliderCurrentMaxValueGross = '${_endValue}';
+          } else {
+            FFAppState().sliderCurrentMinSumInsured = '${_startValue}';
+            FFAppState().sliderCurrentMaxSumInsured = '${_endValue}';
+          }
+          safeSetState(() {});
+          FFAppState().isShowPackageCardList1 = checkPackageInRangePage2(
+            FFAppState().searchShortName.toList(),
+            FFAppState().searchNetPremium.toList(),
+            FFAppState().searchInsurerInsurershortname.toList(),
+            '${_startValue}',
+            '${_endValue}',
+          )!
+              .toList()
+              .cast<bool>();
+          safeSetState(() {});
+          print(
+              'FFAppState().isShowPackageCardList1 : ${FFAppState().isShowPackageCardList1}');
         },
         activeColor: Color.fromRGBO(widget.activeColor!.red,
             widget.activeColor!.green, widget.activeColor!.blue, 1.0),

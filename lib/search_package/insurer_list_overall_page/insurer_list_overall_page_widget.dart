@@ -472,6 +472,15 @@ class _InsurerListOverallPageWidgetState
       FFAppState().sliderMaxGrossTotal = functions.getMinMaxValueFromList(
           FFAppState().searchInsurerMaxnetpremium.toList(), 'max')!;
       safeSetState(() {});
+      FFAppState().sliderMinGrossTotal = functions.getMinMaxValueFromList(
+          FFAppState().searchInsurerMinnetpremium.toList(), 'min')!;
+      FFAppState().sliderMaxGrossTotal = functions.getMinMaxValueFromList(
+          FFAppState().searchInsurerMaxnetpremium.toList(), 'max')!;
+      FFAppState().sliderCurrentMinValueGross =
+          FFAppState().sliderMinGrossTotal;
+      FFAppState().sliderCurrentMaxValueGross =
+          FFAppState().sliderMaxGrossTotal;
+      safeSetState(() {});
       FFAppState().isShowPackageCardList1 = functions
           .checkPackageInRangePage2(
               FFAppState().searchShortName.toList(),
