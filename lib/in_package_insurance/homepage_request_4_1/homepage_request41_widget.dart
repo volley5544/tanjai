@@ -65,13 +65,13 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
             automaticallyImplyLeading: false,
             leading: FlutterFlowIconButton(
               borderColor: Colors.transparent,
-              borderRadius: 30,
-              borderWidth: 1,
-              buttonSize: 60,
+              borderRadius: 30.0,
+              borderWidth: 1.0,
+              buttonSize: 60.0,
               icon: Icon(
                 Icons.arrow_back,
                 color: Color(0xFFDB771A),
-                size: 30,
+                size: 30.0,
               ),
               onPressed: () async {
                 context.pop();
@@ -82,18 +82,18 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF204A77),
-                    fontSize: 18,
+                    fontSize: 18.0,
                     letterSpacing: 0.0,
                   ),
             ),
             actions: [],
             centerTitle: true,
-            elevation: 2,
+            elevation: 2.0,
           ),
           body: SafeArea(
             top: true,
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
+              padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
               child: FutureBuilder<List<InsurerConfig2Record>>(
                 future: queryInsurerConfig2RecordOnce(
                   singleRecord: true,
@@ -103,8 +103,8 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                   if (!snapshot.hasData) {
                     return Center(
                       child: SizedBox(
-                        width: 50,
-                        height: 50,
+                        width: 50.0,
+                        height: 50.0,
                         child: CircularProgressIndicator(
                           valueColor: AlwaysStoppedAnimation<Color>(
                             FlutterFlowTheme.of(context).primary,
@@ -132,17 +132,17 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 5.0, 0.0, 0.0),
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width,
+                                width: MediaQuery.sizeOf(context).width * 1.0,
                                 decoration: BoxDecoration(),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          12, 0, 12, 0),
+                                          12.0, 0.0, 12.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
@@ -153,7 +153,7 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF1D4774),
-                                                  fontSize: 15,
+                                                  fontSize: 15.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
@@ -161,7 +161,7 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10, 0, 0, 0),
+                                                    10.0, 0.0, 0.0, 0.0),
                                             child: Text(
                                               '(บังคับเลือก)',
                                               style: FlutterFlowTheme.of(
@@ -171,7 +171,7 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                                                     fontFamily:
                                                         'Noto Sans Thai',
                                                     color: Color(0xFFFB0606),
-                                                    fontSize: 12,
+                                                    fontSize: 12.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
@@ -186,7 +186,7 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                                             FFAppState().insuranceInfoCompayId))
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 5, 0, 0),
+                                            0.0, 5.0, 0.0, 0.0),
                                         child: InkWell(
                                           splashColor: Colors.transparent,
                                           focusColor: Colors.transparent,
@@ -201,14 +201,15 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                                           },
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
-                                                .width,
-                                            height: 60,
+                                                    .width *
+                                                1.0,
+                                            height: 60.0,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
                                               borderRadius:
-                                                  BorderRadius.circular(8),
+                                                  BorderRadius.circular(8.0),
                                               border: Border.all(
                                                 color: Color(0xFFB3B3B3),
                                               ),
@@ -221,7 +222,8 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                                               children: [
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(10, 0, 0, 0),
+                                                      .fromSTEB(
+                                                          10.0, 0.0, 0.0, 0.0),
                                                   child: Text(
                                                     'ชำระเต็มจำนวน',
                                                     style: FlutterFlowTheme.of(
@@ -232,7 +234,7 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFFB3B3B3),
-                                                          fontSize: 15,
+                                                          fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
@@ -244,11 +246,11 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 10, 0),
+                                                            .fromSTEB(0.0, 0.0,
+                                                                10.0, 0.0),
                                                     child: Container(
-                                                      width: 25,
-                                                      height: 25,
+                                                      width: 25.0,
+                                                      height: 25.0,
                                                       decoration: BoxDecoration(
                                                         color: FlutterFlowTheme
                                                                 .of(context)
@@ -257,7 +259,7 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                                                         border: Border.all(
                                                           color:
                                                               Color(0xFF9F9F9F),
-                                                          width: 1,
+                                                          width: 1.0,
                                                         ),
                                                       ),
                                                     ),
@@ -267,11 +269,11 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 10, 0),
+                                                            .fromSTEB(0.0, 0.0,
+                                                                10.0, 0.0),
                                                     child: Container(
-                                                      width: 25,
-                                                      height: 25,
+                                                      width: 25.0,
+                                                      height: 25.0,
                                                       decoration: BoxDecoration(
                                                         color:
                                                             FlutterFlowTheme.of(
@@ -282,11 +284,11 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0, 0),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.check,
                                                           color: Colors.white,
-                                                          size: 18,
+                                                          size: 18.0,
                                                         ),
                                                       ),
                                                     ),
@@ -313,12 +315,12 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                                   safeSetState(() {});
                                 },
                                 child: Container(
-                                  width: MediaQuery.sizeOf(context).width,
-                                  height: 60,
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
+                                  height: 60.0,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(8),
+                                    borderRadius: BorderRadius.circular(8.0),
                                     border: Border.all(
                                       color: Color(0xFFB3B3B3),
                                     ),
@@ -330,7 +332,7 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            10, 0, 0, 0),
+                                            10.0, 0.0, 0.0, 0.0),
                                         child: Text(
                                           'ผ่อนชำระ (เป้า ง)',
                                           style: FlutterFlowTheme.of(context)
@@ -338,7 +340,7 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Color(0xFFB3B3B3),
-                                                fontSize: 15,
+                                                fontSize: 15.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
@@ -348,10 +350,10 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 10, 0),
+                                                  0.0, 0.0, 10.0, 0.0),
                                           child: Container(
-                                            width: 25,
-                                            height: 25,
+                                            width: 25.0,
+                                            height: 25.0,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -359,7 +361,7 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                                               shape: BoxShape.circle,
                                               border: Border.all(
                                                 color: Color(0xFF9F9F9F),
-                                                width: 1,
+                                                width: 1.0,
                                               ),
                                             ),
                                           ),
@@ -368,10 +370,10 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 10, 0),
+                                                  0.0, 0.0, 10.0, 0.0),
                                           child: Container(
-                                            width: 25,
-                                            height: 25,
+                                            width: 25.0,
+                                            height: 25.0,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -379,12 +381,12 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                                               shape: BoxShape.circle,
                                             ),
                                             child: Align(
-                                              alignment:
-                                                  AlignmentDirectional(0, 0),
+                                              alignment: AlignmentDirectional(
+                                                  0.0, 0.0),
                                               child: Icon(
                                                 Icons.check,
                                                 color: Colors.white,
-                                                size: 18,
+                                                size: 18.0,
                                               ),
                                             ),
                                           ),
@@ -394,18 +396,18 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                                 ),
                               ),
                           ]
-                              .divide(SizedBox(height: 12))
-                              .addToStart(SizedBox(height: 12))
-                              .addToEnd(SizedBox(height: 24)),
+                              .divide(SizedBox(height: 12.0))
+                              .addToStart(SizedBox(height: 12.0))
+                              .addToEnd(SizedBox(height: 24.0)),
                         ),
                       ),
                       Expanded(
                         flex: 1,
                         child: Align(
-                          alignment: AlignmentDirectional(0, 0.75),
+                          alignment: AlignmentDirectional(0.0, 0.75),
                           child: Container(
                             width: double.infinity,
-                            height: 100,
+                            height: 100.0,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
@@ -416,7 +418,7 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      8, 0, 8, 50),
+                                      8.0, 0.0, 8.0, 50.0),
                                   child: FFButtonWidget(
                                     onPressed: () async {
                                       var _shouldSetState = false;
@@ -736,31 +738,31 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                                     text: 'ตกลง',
                                     options: FFButtonOptions(
                                       width: double.infinity,
-                                      height: 60,
+                                      height: 60.0,
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          24, 0, 24, 0),
+                                          24.0, 0.0, 24.0, 0.0),
                                       iconPadding:
                                           EdgeInsetsDirectional.fromSTEB(
-                                              0, 0, 0, 0),
+                                              0.0, 0.0, 0.0, 0.0),
                                       color: Color(0xFFDB771B),
                                       textStyle: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Colors.white,
-                                            fontSize: 15,
+                                            fontSize: 15.0,
                                             letterSpacing: 0.0,
                                           ),
-                                      elevation: 3,
+                                      elevation: 3.0,
                                       borderSide: BorderSide(
                                         color: Colors.transparent,
-                                        width: 1,
+                                        width: 1.0,
                                       ),
-                                      borderRadius: BorderRadius.circular(16),
+                                      borderRadius: BorderRadius.circular(16.0),
                                     ),
                                   ),
                                 ),
-                              ].addToStart(SizedBox(height: 16)),
+                              ].addToStart(SizedBox(height: 16.0)),
                             ),
                           ),
                         ),

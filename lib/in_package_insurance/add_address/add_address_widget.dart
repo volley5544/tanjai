@@ -199,13 +199,13 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
             automaticallyImplyLeading: false,
             leading: FlutterFlowIconButton(
               borderColor: Colors.transparent,
-              borderRadius: 30,
-              borderWidth: 1,
-              buttonSize: 60,
+              borderRadius: 30.0,
+              borderWidth: 1.0,
+              buttonSize: 60.0,
               icon: Icon(
                 Icons.arrow_back,
                 color: Color(0xFFDB771A),
-                size: 30,
+                size: 30.0,
               ),
               onPressed: () async {
                 context.pop();
@@ -216,13 +216,13 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF204A77),
-                    fontSize: 18,
+                    fontSize: 18.0,
                     letterSpacing: 0.0,
                   ),
             ),
             actions: [],
             centerTitle: true,
-            elevation: 2,
+            elevation: 2.0,
           ),
           body: SafeArea(
             top: true,
@@ -231,19 +231,20 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Container(
-                          width: MediaQuery.sizeOf(context).width,
+                          width: MediaQuery.sizeOf(context).width * 1.0,
                           decoration: BoxDecoration(),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    24, 0, 24, 4),
+                                    24.0, 0.0, 24.0, 4.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -254,14 +255,14 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF1D4774),
-                                            fontSize: 15,
+                                            fontSize: 15.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          10, 0, 0, 0),
+                                          10.0, 0.0, 0.0, 0.0),
                                       child: Text(
                                         'บังคับกรอกตำบล/อำเภอ/จังหวัด/ไปรษณีย์)',
                                         style: FlutterFlowTheme.of(context)
@@ -269,7 +270,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFFFB0606),
-                                              fontSize: 12,
+                                              fontSize: 12.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -280,7 +281,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    16, 0, 16, 0),
+                                    16.0, 0.0, 16.0, 0.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,
@@ -319,12 +320,13 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                     );
                                   },
                                   child: Container(
-                                    width: MediaQuery.sizeOf(context).width,
-                                    height: 60,
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 1.0,
+                                    height: 60.0,
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
-                                      borderRadius: BorderRadius.circular(8),
+                                      borderRadius: BorderRadius.circular(8.0),
                                       border: Border.all(
                                         color: Color(0xFFB3B3B3),
                                       ),
@@ -337,7 +339,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 0, 0),
+                                                  10.0, 0.0, 0.0, 0.0),
                                           child: AutoSizeText(
                                             FFAppState().addAddressAtIdCard !=
                                                         null &&
@@ -352,7 +354,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Colors.black,
-                                                  fontSize: 15,
+                                                  fontSize: 15.0,
                                                   letterSpacing: 0.0,
                                                 ),
                                           ),
@@ -360,12 +362,12 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 10, 0),
+                                                  0.0, 0.0, 10.0, 0.0),
                                           child: Icon(
                                             Icons.navigate_next,
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryText,
-                                            size: 24,
+                                            size: 24.0,
                                           ),
                                         ),
                                       ],
@@ -377,16 +379,17 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 5.0, 0.0, 0.0),
                           child: Container(
-                            width: MediaQuery.sizeOf(context).width,
+                            width: MediaQuery.sizeOf(context).width * 1.0,
                             decoration: BoxDecoration(),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      24, 0, 24, 4),
+                                      24.0, 0.0, 24.0, 4.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
@@ -396,14 +399,14 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
-                                              fontSize: 15,
+                                              fontSize: 15.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
                                             ),
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            10, 0, 0, 0),
+                                            10.0, 0.0, 0.0, 0.0),
                                         child: Text(
                                           '(บังคับกรอกเลขที่/หมู่บ้าน/อาคาร/ซอย/ถนน)',
                                           style: FlutterFlowTheme.of(context)
@@ -411,7 +414,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Color(0xFFFB0606),
-                                                fontSize: 12,
+                                                fontSize: 12.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
@@ -422,7 +425,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      16, 0, 16, 0),
+                                      16.0, 0.0, 16.0, 0.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
                                     focusColor: Colors.transparent,
@@ -430,22 +433,25 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                     highlightColor: Colors.transparent,
                                     onTap: () async {},
                                     child: Container(
-                                      width: MediaQuery.sizeOf(context).width,
-                                      height: 60,
+                                      width: MediaQuery.sizeOf(context).width *
+                                          1.0,
+                                      height: 60.0,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
-                                        borderRadius: BorderRadius.circular(8),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
                                         border: Border.all(
                                           color: Color(0xFFB3B3B3),
                                         ),
                                       ),
                                       child: Align(
-                                        alignment: AlignmentDirectional(0, 0),
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 10, 0),
+                                                  10.0, 0.0, 10.0, 0.0),
                                           child: TextFormField(
                                             controller:
                                                 _model.address2TextController,
@@ -462,7 +468,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .secondaryText,
-                                                    fontSize: 15,
+                                                    fontSize: 15.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
@@ -474,7 +480,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                     fontFamily:
                                                         'Noto Sans Thai',
                                                     color: Color(0xFFB3B3B3),
-                                                    fontSize: 15,
+                                                    fontSize: 15.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
@@ -491,7 +497,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primaryText,
-                                                  fontSize: 15,
+                                                  fontSize: 15.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
@@ -509,16 +515,17 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 5.0, 0.0, 0.0),
                           child: Container(
-                            width: MediaQuery.sizeOf(context).width,
+                            width: MediaQuery.sizeOf(context).width * 1.0,
                             decoration: BoxDecoration(),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      24, 0, 24, 4),
+                                      24.0, 0.0, 24.0, 4.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
@@ -528,7 +535,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
-                                              fontSize: 15,
+                                              fontSize: 15.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
                                             ),
@@ -538,23 +545,24 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      16, 0, 16, 0),
+                                      16.0, 0.0, 16.0, 0.0),
                                   child: Container(
-                                    width: MediaQuery.sizeOf(context).width,
-                                    height: 60,
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 1.0,
+                                    height: 60.0,
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
-                                      borderRadius: BorderRadius.circular(8),
+                                      borderRadius: BorderRadius.circular(8.0),
                                       border: Border.all(
                                         color: Color(0xFFB3B3B3),
                                       ),
                                     ),
                                     child: Align(
-                                      alignment: AlignmentDirectional(0, 0),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            10, 0, 10, 0),
+                                            10.0, 0.0, 10.0, 0.0),
                                         child: TextFormField(
                                           controller:
                                               _model.address3TextController,
@@ -570,7 +578,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondaryText,
-                                                  fontSize: 15,
+                                                  fontSize: 15.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
@@ -581,7 +589,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFFB3B3B3),
-                                                  fontSize: 15,
+                                                  fontSize: 15.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
@@ -598,7 +606,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryText,
-                                                fontSize: 15,
+                                                fontSize: 15.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
@@ -615,16 +623,17 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 5.0, 0.0, 0.0),
                           child: Container(
-                            width: MediaQuery.sizeOf(context).width,
+                            width: MediaQuery.sizeOf(context).width * 1.0,
                             decoration: BoxDecoration(),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      24, 0, 24, 4),
+                                      24.0, 0.0, 24.0, 4.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
@@ -635,14 +644,14 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF1D4774),
-                                              fontSize: 15,
+                                              fontSize: 15.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            10, 0, 0, 0),
+                                            10.0, 0.0, 0.0, 0.0),
                                         child: Text(
                                           '(บังคับเลือก)',
                                           style: FlutterFlowTheme.of(context)
@@ -650,7 +659,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Color(0xFFFB0606),
-                                                fontSize: 12,
+                                                fontSize: 12.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
@@ -661,7 +670,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      16, 0, 16, 0),
+                                      16.0, 0.0, 16.0, 0.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
                                     focusColor: Colors.transparent,
@@ -679,12 +688,14 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                       );
                                     },
                                     child: Container(
-                                      width: MediaQuery.sizeOf(context).width,
-                                      height: 60,
+                                      width: MediaQuery.sizeOf(context).width *
+                                          1.0,
+                                      height: 60.0,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
-                                        borderRadius: BorderRadius.circular(8),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
                                         border: Border.all(
                                           color: Color(0xFFB3B3B3),
                                         ),
@@ -697,7 +708,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10, 0, 0, 0),
+                                                    10.0, 0.0, 0.0, 0.0),
                                             child: Text(
                                               'ที่อยู่ตามบัตรประชาชน',
                                               style: FlutterFlowTheme.of(
@@ -707,7 +718,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                     fontFamily:
                                                         'Noto Sans Thai',
                                                     color: Color(0xFFB3B3B3),
-                                                    fontSize: 15,
+                                                    fontSize: 15.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
@@ -716,10 +727,11 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                           if (false)
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 10, 0),
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 10.0, 0.0),
                                               child: Container(
-                                                width: 25,
-                                                height: 25,
+                                                width: 25.0,
+                                                height: 25.0,
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
                                                           context)
@@ -727,7 +739,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                   shape: BoxShape.circle,
                                                   border: Border.all(
                                                     color: Color(0xFF9F9F9F),
-                                                    width: 1,
+                                                    width: 1.0,
                                                   ),
                                                 ),
                                               ),
@@ -735,10 +747,11 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                           if (false)
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 10, 0),
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 10.0, 0.0),
                                               child: Container(
-                                                width: 25,
-                                                height: 25,
+                                                width: 25.0,
+                                                height: 25.0,
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
                                                           context)
@@ -748,11 +761,11 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                 child: Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0, 0),
+                                                          0.0, 0.0),
                                                   child: Icon(
                                                     Icons.check,
                                                     color: Colors.white,
-                                                    size: 18,
+                                                    size: 18.0,
                                                   ),
                                                 ),
                                               ),
@@ -760,7 +773,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0, 0, 10, 0),
+                                                    0.0, 0.0, 10.0, 0.0),
                                             child: Theme(
                                               data: ThemeData(
                                                 checkboxTheme:
@@ -843,16 +856,17 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 15.0, 0.0, 0.0),
                           child: Container(
-                            width: MediaQuery.sizeOf(context).width,
+                            width: MediaQuery.sizeOf(context).width * 1.0,
                             decoration: BoxDecoration(),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      16, 0, 16, 0),
+                                      16.0, 0.0, 16.0, 0.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
                                     focusColor: Colors.transparent,
@@ -870,12 +884,14 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                       );
                                     },
                                     child: Container(
-                                      width: MediaQuery.sizeOf(context).width,
-                                      height: 60,
+                                      width: MediaQuery.sizeOf(context).width *
+                                          1.0,
+                                      height: 60.0,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
-                                        borderRadius: BorderRadius.circular(8),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
                                         border: Border.all(
                                           color: Color(0xFFB3B3B3),
                                         ),
@@ -888,7 +904,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10, 0, 0, 0),
+                                                    10.0, 0.0, 0.0, 0.0),
                                             child: Text(
                                               'ที่อยู่จัดส่งเอกสาร',
                                               style: FlutterFlowTheme.of(
@@ -898,7 +914,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                     fontFamily:
                                                         'Noto Sans Thai',
                                                     color: Color(0xFFB3B3B3),
-                                                    fontSize: 15,
+                                                    fontSize: 15.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
@@ -907,16 +923,17 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                           if (false)
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 10, 0),
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 10.0, 0.0),
                                               child: Container(
-                                                width: 25,
-                                                height: 25,
+                                                width: 25.0,
+                                                height: 25.0,
                                                 decoration: BoxDecoration(
                                                   color: Colors.white,
                                                   shape: BoxShape.circle,
                                                   border: Border.all(
                                                     color: Color(0xFF9F9F9F),
-                                                    width: 1,
+                                                    width: 1.0,
                                                   ),
                                                 ),
                                               ),
@@ -924,10 +941,11 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                           if (false)
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 10, 0),
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 10.0, 0.0),
                                               child: Container(
-                                                width: 25,
-                                                height: 25,
+                                                width: 25.0,
+                                                height: 25.0,
                                                 decoration: BoxDecoration(
                                                   color: Color(0xFF04A24C),
                                                   shape: BoxShape.circle,
@@ -938,14 +956,14 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                 child: Icon(
                                                   Icons.check,
                                                   color: Colors.white,
-                                                  size: 18,
+                                                  size: 18.0,
                                                 ),
                                               ),
                                             ),
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0, 0, 10, 0),
+                                                    0.0, 0.0, 10.0, 0.0),
                                             child: Theme(
                                               data: ThemeData(
                                                 checkboxTheme:
@@ -1023,16 +1041,17 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                         ),
                         if (_model.addressForDocValue ?? true)
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 5.0, 0.0, 0.0),
                             child: Container(
-                              width: MediaQuery.sizeOf(context).width,
+                              width: MediaQuery.sizeOf(context).width * 1.0,
                               decoration: BoxDecoration(),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        24, 0, 24, 4),
+                                        24.0, 0.0, 24.0, 4.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -1043,7 +1062,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Color(0xFF1D4774),
-                                                fontSize: 15,
+                                                fontSize: 15.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
@@ -1051,7 +1070,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 0, 0),
+                                                  10.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             '(บังคับกรอกตำบล/อำเภอ/จังหวัด/ไปรษณีย์)',
                                             style: FlutterFlowTheme.of(context)
@@ -1059,7 +1078,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFFFB0606),
-                                                  fontSize: 12,
+                                                  fontSize: 12.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
@@ -1070,7 +1089,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        16, 0, 16, 0),
+                                        16.0, 0.0, 16.0, 0.0),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
                                       focusColor: Colors.transparent,
@@ -1109,13 +1128,15 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                         );
                                       },
                                       child: Container(
-                                        width: MediaQuery.sizeOf(context).width,
-                                        height: 60,
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                1.0,
+                                        height: 60.0,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                           borderRadius:
-                                              BorderRadius.circular(8),
+                                              BorderRadius.circular(8.0),
                                           border: Border.all(
                                             color: Color(0xFFB3B3B3),
                                           ),
@@ -1127,7 +1148,8 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                           children: [
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(10, 0, 0, 0),
+                                                  .fromSTEB(
+                                                      10.0, 0.0, 0.0, 0.0),
                                               child: AutoSizeText(
                                                 FFAppState().addAddressForDoc !=
                                                             null &&
@@ -1146,20 +1168,21 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryText,
-                                                          fontSize: 15,
+                                                          fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                         ),
                                               ),
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 10, 0),
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 10.0, 0.0),
                                               child: Icon(
                                                 Icons.navigate_next,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryText,
-                                                size: 24,
+                                                size: 24.0,
                                               ),
                                             ),
                                           ],
@@ -1173,16 +1196,17 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                           ),
                         if (_model.addressForDocValue ?? true)
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 5.0, 0.0, 0.0),
                             child: Container(
-                              width: MediaQuery.sizeOf(context).width,
+                              width: MediaQuery.sizeOf(context).width * 1.0,
                               decoration: BoxDecoration(),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        24, 0, 24, 4),
+                                        24.0, 0.0, 24.0, 4.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -1192,7 +1216,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
-                                                fontSize: 15,
+                                                fontSize: 15.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
                                               ),
@@ -1200,7 +1224,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 0, 0),
+                                                  10.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             '(บังคับกรอกเลขที่/หมู่บ้าน/อาคาร/ซอย/ถนน)',
                                             style: FlutterFlowTheme.of(context)
@@ -1208,7 +1232,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFFFB0606),
-                                                  fontSize: 12,
+                                                  fontSize: 12.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
@@ -1219,7 +1243,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        16, 0, 16, 0),
+                                        16.0, 0.0, 16.0, 0.0),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
                                       focusColor: Colors.transparent,
@@ -1227,23 +1251,26 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                       highlightColor: Colors.transparent,
                                       onTap: () async {},
                                       child: Container(
-                                        width: MediaQuery.sizeOf(context).width,
-                                        height: 60,
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                1.0,
+                                        height: 60.0,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                           borderRadius:
-                                              BorderRadius.circular(8),
+                                              BorderRadius.circular(8.0),
                                           border: Border.all(
                                             color: Color(0xFFB3B3B3),
                                           ),
                                         ),
                                         child: Align(
-                                          alignment: AlignmentDirectional(0, 0),
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10, 0, 10, 0),
+                                                    10.0, 0.0, 10.0, 0.0),
                                             child: TextFormField(
                                               controller:
                                                   _model.address4TextController,
@@ -1261,7 +1288,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryText,
-                                                          fontSize: 15,
+                                                          fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -1276,7 +1303,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .secondaryText,
-                                                          fontSize: 15,
+                                                          fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
@@ -1296,7 +1323,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primaryText,
-                                                    fontSize: 15,
+                                                    fontSize: 15.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
@@ -1315,16 +1342,17 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                           ),
                         if (_model.addressForDocValue ?? true)
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 5.0, 0.0, 0.0),
                             child: Container(
-                              width: MediaQuery.sizeOf(context).width,
+                              width: MediaQuery.sizeOf(context).width * 1.0,
                               decoration: BoxDecoration(),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        24, 0, 24, 4),
+                                        24.0, 0.0, 24.0, 4.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -1334,7 +1362,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
-                                                fontSize: 15,
+                                                fontSize: 15.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
                                               ),
@@ -1344,7 +1372,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        16, 0, 16, 0),
+                                        16.0, 0.0, 16.0, 0.0),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
                                       focusColor: Colors.transparent,
@@ -1352,23 +1380,26 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                       highlightColor: Colors.transparent,
                                       onTap: () async {},
                                       child: Container(
-                                        width: MediaQuery.sizeOf(context).width,
-                                        height: 60,
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                1.0,
+                                        height: 60.0,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                           borderRadius:
-                                              BorderRadius.circular(8),
+                                              BorderRadius.circular(8.0),
                                           border: Border.all(
                                             color: Color(0xFFB3B3B3),
                                           ),
                                         ),
                                         child: Align(
-                                          alignment: AlignmentDirectional(0, 0),
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10, 0, 10, 0),
+                                                    10.0, 0.0, 10.0, 0.0),
                                             child: TextFormField(
                                               controller:
                                                   _model.address5TextController,
@@ -1386,7 +1417,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryText,
-                                                          fontSize: 15,
+                                                          fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -1401,7 +1432,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .secondaryText,
-                                                          fontSize: 15,
+                                                          fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
@@ -1421,7 +1452,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primaryText,
-                                                    fontSize: 15,
+                                                    fontSize: 15.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
@@ -1442,19 +1473,20 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 20),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 20.0),
                     child: Container(
-                      width: MediaQuery.sizeOf(context).width,
-                      height: 65,
+                      width: MediaQuery.sizeOf(context).width * 1.0,
+                      height: 65.0,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
+                        borderRadius: BorderRadius.circular(8.0),
                       ),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                16.0, 0.0, 16.0, 0.0),
                             child: FFButtonWidget(
                               onPressed: () async {
                                 if ((FFAppState().addAddressAtIdCard !=
@@ -1551,12 +1583,12 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                               },
                               text: 'บันทึก',
                               options: FFButtonOptions(
-                                width: MediaQuery.sizeOf(context).width,
-                                height: 60,
+                                width: MediaQuery.sizeOf(context).width * 1.0,
+                                height: 60.0,
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    24, 0, 24, 0),
-                                iconPadding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                    24.0, 0.0, 24.0, 0.0),
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
                                 color: Color(0xFFD9761A),
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
@@ -1567,12 +1599,12 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
                                     ),
-                                elevation: 3,
+                                elevation: 3.0,
                                 borderSide: BorderSide(
                                   color: Colors.transparent,
-                                  width: 1,
+                                  width: 1.0,
                                 ),
-                                borderRadius: BorderRadius.circular(16),
+                                borderRadius: BorderRadius.circular(16.0),
                               ),
                             ),
                           ),

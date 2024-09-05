@@ -54,13 +54,13 @@ class _SearchAddressPageWidgetState extends State<SearchAddressPageWidget> {
             automaticallyImplyLeading: false,
             leading: FlutterFlowIconButton(
               borderColor: Colors.transparent,
-              borderRadius: 30,
-              borderWidth: 1,
-              buttonSize: 60,
+              borderRadius: 30.0,
+              borderWidth: 1.0,
+              buttonSize: 60.0,
               icon: Icon(
                 Icons.arrow_back,
                 color: Color(0xFFDB771A),
-                size: 30,
+                size: 30.0,
               ),
               onPressed: () async {
                 context.pop();
@@ -71,18 +71,18 @@ class _SearchAddressPageWidgetState extends State<SearchAddressPageWidget> {
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF204A77),
-                    fontSize: 18,
+                    fontSize: 18.0,
                     letterSpacing: 0.0,
                   ),
             ),
             actions: [],
             centerTitle: true,
-            elevation: 2,
+            elevation: 2.0,
           ),
           body: SafeArea(
             top: true,
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
+              padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -92,7 +92,8 @@ class _SearchAddressPageWidgetState extends State<SearchAddressPageWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              12.0, 0.0, 12.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -112,11 +113,11 @@ class _SearchAddressPageWidgetState extends State<SearchAddressPageWidget> {
                         ),
                         Container(
                           width: double.infinity,
-                          height: 60,
+                          height: 60.0,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(10.0),
                             border: Border.all(
                               width: 0.5,
                             ),
@@ -126,17 +127,17 @@ class _SearchAddressPageWidgetState extends State<SearchAddressPageWidget> {
                             children: [
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    10, 0, 10, 1.3),
+                                    10.0, 0.0, 10.0, 1.3),
                                 child: Icon(
                                   Icons.search,
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryText,
-                                  size: 18,
+                                  size: 18.0,
                                 ),
                               ),
                               Expanded(
                                 child: Align(
-                                  alignment: AlignmentDirectional(0, 0),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: TextFormField(
                                     controller: _model.textController,
                                     focusNode: _model.textFieldFocusNode,
@@ -194,7 +195,7 @@ class _SearchAddressPageWidgetState extends State<SearchAddressPageWidget> {
                               children: [
                                 Container(
                                   width: double.infinity,
-                                  height: 60,
+                                  height: 60.0,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
@@ -204,7 +205,7 @@ class _SearchAddressPageWidgetState extends State<SearchAddressPageWidget> {
                                     children: [
                                       Container(
                                         width: double.infinity,
-                                        height: 50,
+                                        height: 50.0,
                                         decoration: BoxDecoration(),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -213,7 +214,8 @@ class _SearchAddressPageWidgetState extends State<SearchAddressPageWidget> {
                                           children: [
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(12, 0, 0, 0),
+                                                  .fromSTEB(
+                                                      12.0, 0.0, 0.0, 0.0),
                                               child: Text(
                                                 'บางบัวทอง>บางบัวทอง>นนทบุรี>11110',
                                                 style:
@@ -222,7 +224,7 @@ class _SearchAddressPageWidgetState extends State<SearchAddressPageWidget> {
                                                         .override(
                                                           fontFamily:
                                                               'Noto Sans Thai',
-                                                          fontSize: 15,
+                                                          fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -231,20 +233,21 @@ class _SearchAddressPageWidgetState extends State<SearchAddressPageWidget> {
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 12, 0),
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 12.0, 0.0),
                                               child: Icon(
                                                 Icons.check_rounded,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .success,
-                                                size: 24,
+                                                size: 24.0,
                                               ),
                                             ),
                                           ],
                                         ),
                                       ),
                                       Divider(
-                                        thickness: 1,
+                                        thickness: 1.0,
                                         color: FlutterFlowTheme.of(context)
                                             .accent4,
                                       ),
@@ -256,16 +259,16 @@ class _SearchAddressPageWidgetState extends State<SearchAddressPageWidget> {
                           ),
                         ),
                       ]
-                          .divide(SizedBox(height: 12))
-                          .addToStart(SizedBox(height: 12))
-                          .addToEnd(SizedBox(height: 24)),
+                          .divide(SizedBox(height: 12.0))
+                          .addToStart(SizedBox(height: 12.0))
+                          .addToEnd(SizedBox(height: 24.0)),
                     ),
                   ),
                   Expanded(
                     flex: 1,
                     child: Container(
                       width: double.infinity,
-                      height: 100,
+                      height: 100.0,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                       ),
@@ -274,7 +277,8 @@ class _SearchAddressPageWidgetState extends State<SearchAddressPageWidget> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                8.0, 0.0, 8.0, 0.0),
                             child: FFButtonWidget(
                               onPressed: () {
                                 print('Button pressed ...');
@@ -282,30 +286,30 @@ class _SearchAddressPageWidgetState extends State<SearchAddressPageWidget> {
                               text: 'ตกลง',
                               options: FFButtonOptions(
                                 width: double.infinity,
-                                height: 60,
+                                height: 60.0,
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    24, 0, 24, 0),
-                                iconPadding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                    24.0, 0.0, 24.0, 0.0),
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
                                 color: Color(0xFFDB771B),
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       color: Colors.white,
-                                      fontSize: 15,
+                                      fontSize: 15.0,
                                       letterSpacing: 0.0,
                                     ),
-                                elevation: 3,
+                                elevation: 3.0,
                                 borderSide: BorderSide(
                                   color: Colors.transparent,
-                                  width: 1,
+                                  width: 1.0,
                                 ),
-                                borderRadius: BorderRadius.circular(16),
+                                borderRadius: BorderRadius.circular(16.0),
                               ),
                             ),
                           ),
-                        ].addToStart(SizedBox(height: 16)),
+                        ].addToStart(SizedBox(height: 16.0)),
                       ),
                     ),
                   ),

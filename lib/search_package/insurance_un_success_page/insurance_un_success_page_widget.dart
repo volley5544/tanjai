@@ -53,7 +53,8 @@ class _InsuranceUnSuccessPageWidgetState
               mainAxisSize: MainAxisSize.max,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(16, 80, 16, 0),
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(16.0, 80.0, 16.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -64,7 +65,7 @@ class _InsuranceUnSuccessPageWidgetState
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Noto Sans Thai',
                               color: Colors.white,
-                              fontSize: 24,
+                              fontSize: 24.0,
                               letterSpacing: 0.0,
                             ),
                       ),
@@ -75,17 +76,18 @@ class _InsuranceUnSuccessPageWidgetState
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(16, 50, 16, 0),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(16.0, 50.0, 16.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Lottie.network(
                             'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/Animation%20-%201698771320385.json?alt=media&token=8e61f335-9935-46f9-b970-2f647a602810&_gl=1*1rz4em4*_ga*NzgzNjkyNzQzLjE2NTU0MDg4ODg.*_ga_CW55HF8NVT*MTY5ODc3MDY4Ny42NS4xLjE2OTg3NzE0MjAuMzUuMC4w',
-                            width: 200,
-                            height: 200,
+                            width: 200.0,
+                            height: 200.0,
                             fit: BoxFit.cover,
-                            frameRate: FrameRate(60),
+                            frameRate: FrameRate(60.0),
                             repeat: false,
                             animate: true,
                           ),
@@ -98,7 +100,8 @@ class _InsuranceUnSuccessPageWidgetState
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(16, 70, 16, 0),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(16.0, 70.0, 16.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -111,7 +114,7 @@ class _InsuranceUnSuccessPageWidgetState
                                 .override(
                                   fontFamily: 'Noto Sans Thai',
                                   color: Colors.white,
-                                  fontSize: 15,
+                                  fontSize: 15.0,
                                   letterSpacing: 0.0,
                                 ),
                           ),
@@ -123,17 +126,19 @@ class _InsuranceUnSuccessPageWidgetState
                 Expanded(
                   flex: 2,
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 55, 0, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 55.0, 0.0, 0.0),
                     child: Container(
                       width: double.infinity,
-                      height: 69,
+                      height: 69.0,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(10.0),
                       ),
                       child: Align(
-                        alignment: AlignmentDirectional(0, 0),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              24.0, 0.0, 24.0, 0.0),
                           child: FFButtonWidget(
                             onPressed: () async {
                               context.goNamed('SuperAppPage');
@@ -141,11 +146,11 @@ class _InsuranceUnSuccessPageWidgetState
                             text: 'ปิด',
                             options: FFButtonOptions(
                               width: double.infinity,
-                              height: 60,
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
-                              iconPadding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                              height: 60.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  24.0, 0.0, 24.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
                               color: Colors.white,
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
@@ -156,12 +161,12 @@ class _InsuranceUnSuccessPageWidgetState
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                   ),
-                              elevation: 3,
+                              elevation: 3.0,
                               borderSide: BorderSide(
                                 color: Colors.transparent,
-                                width: 1,
+                                width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(16),
+                              borderRadius: BorderRadius.circular(16.0),
                             ),
                           ),
                         ),

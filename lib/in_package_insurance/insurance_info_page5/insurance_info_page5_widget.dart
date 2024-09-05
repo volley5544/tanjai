@@ -483,7 +483,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
           appBar: PreferredSize(
-            preferredSize: Size.fromHeight(100),
+            preferredSize: Size.fromHeight(100.0),
             child: AppBar(
               backgroundColor: Colors.white,
               automaticallyImplyLeading: false,
@@ -491,13 +491,13 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                 visible: false,
                 child: FlutterFlowIconButton(
                   borderColor: Colors.transparent,
-                  borderRadius: 30,
-                  borderWidth: 1,
-                  buttonSize: 60,
+                  borderRadius: 30.0,
+                  borderWidth: 1.0,
+                  buttonSize: 60.0,
                   icon: Icon(
                     Icons.arrow_back_rounded,
                     color: Color(0xFFDB771A),
-                    size: 30,
+                    size: 30.0,
                   ),
                   onPressed: () async {
                     context.pop();
@@ -509,20 +509,20 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
                       fontFamily: 'Noto Sans Thai',
                       color: Color(0xFF003063),
-                      fontSize: 18,
+                      fontSize: 18.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.w600,
                     ),
               ),
               actions: [
                 FlutterFlowIconButton(
-                  borderRadius: 30,
-                  borderWidth: 1,
-                  buttonSize: 60,
+                  borderRadius: 30.0,
+                  borderWidth: 1.0,
+                  buttonSize: 60.0,
                   icon: Icon(
                     Icons.file_download_outlined,
                     color: Color(0xFFDB771A),
-                    size: 30,
+                    size: 30.0,
                   ),
                   onPressed: () async {
                     await showModalBottomSheet(
@@ -550,13 +550,13 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                 ),
               ],
               centerTitle: true,
-              elevation: 2,
+              elevation: 2.0,
             ),
           ),
           body: SafeArea(
             top: true,
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(12, 12, 12, 0),
+              padding: EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 0.0),
               child: FutureBuilder<List<RoleMenuRecord>>(
                 future: queryRoleMenuRecordOnce(
                   singleRecord: true,
@@ -566,8 +566,8 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                   if (!snapshot.hasData) {
                     return Center(
                       child: SizedBox(
-                        width: 50,
-                        height: 50,
+                        width: 50.0,
+                        height: 50.0,
                         child: CircularProgressIndicator(
                           valueColor: AlwaysStoppedAnimation<Color>(
                             FlutterFlowTheme.of(context).primary,
@@ -593,16 +593,16 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                             if (FFAppState().insuranceinfoActType != 'CMI')
                               Material(
                                 color: Colors.transparent,
-                                elevation: 1,
+                                elevation: 1.0,
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 child: Container(
-                                  width: MediaQuery.sizeOf(context).width,
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(8),
+                                    borderRadius: BorderRadius.circular(8.0),
                                     border: Border.all(
                                       color: Color(0xFFE6E6E6),
                                     ),
@@ -614,9 +614,10 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                     scrollDirection: Axis.vertical,
                                     children: [
                                       Align(
-                                        alignment: AlignmentDirectional(0, 0),
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
-                                          padding: EdgeInsets.all(15),
+                                          padding: EdgeInsets.all(15.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -664,14 +665,15 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize: 15,
+                                                                  fontSize:
+                                                                      15.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
                                                           ),
                                                         ),
                                                         Container(
-                                                          width: 10,
+                                                          width: 10.0,
                                                           decoration:
                                                               BoxDecoration(
                                                             color: FlutterFlowTheme
@@ -707,7 +709,8 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize: 15,
+                                                                  fontSize:
+                                                                      15.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -739,14 +742,15 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize: 15,
+                                                                  fontSize:
+                                                                      15.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
                                                           ),
                                                         ),
                                                         Container(
-                                                          width: 10,
+                                                          width: 10.0,
                                                           decoration:
                                                               BoxDecoration(
                                                             color: FlutterFlowTheme
@@ -782,7 +786,8 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize: 15,
+                                                                  fontSize:
+                                                                      15.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -814,14 +819,15 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize: 15,
+                                                                  fontSize:
+                                                                      15.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
                                                           ),
                                                         ),
                                                         Container(
-                                                          width: 10,
+                                                          width: 10.0,
                                                           decoration:
                                                               BoxDecoration(
                                                             color: FlutterFlowTheme
@@ -856,7 +862,8 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize: 15,
+                                                                  fontSize:
+                                                                      15.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -888,14 +895,15 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize: 15,
+                                                                  fontSize:
+                                                                      15.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
                                                           ),
                                                         ),
                                                         Container(
-                                                          width: 10,
+                                                          width: 10.0,
                                                           decoration:
                                                               BoxDecoration(
                                                             color: FlutterFlowTheme
@@ -931,7 +939,8 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize: 15,
+                                                                  fontSize:
+                                                                      15.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -963,14 +972,15 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize: 15,
+                                                                  fontSize:
+                                                                      15.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
                                                           ),
                                                         ),
                                                         Container(
-                                                          width: 10,
+                                                          width: 10.0,
                                                           decoration:
                                                               BoxDecoration(
                                                             color: FlutterFlowTheme
@@ -1006,7 +1016,8 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize: 15,
+                                                                  fontSize:
+                                                                      15.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -1038,14 +1049,15 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize: 15,
+                                                                  fontSize:
+                                                                      15.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
                                                           ),
                                                         ),
                                                         Container(
-                                                          width: 10,
+                                                          width: 10.0,
                                                           decoration:
                                                               BoxDecoration(
                                                             color: FlutterFlowTheme
@@ -1081,7 +1093,8 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize: 15,
+                                                                  fontSize:
+                                                                      15.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -1117,14 +1130,14 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                     fontFamily:
                                                                         'Noto Sans Thai',
                                                                     fontSize:
-                                                                        15,
+                                                                        15.0,
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
                                                             ),
                                                           ),
                                                           Container(
-                                                            width: 10,
+                                                            width: 10.0,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color: FlutterFlowTheme
@@ -1170,7 +1183,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                     fontFamily:
                                                                         'Noto Sans Thai',
                                                                     fontSize:
-                                                                        15,
+                                                                        15.0,
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -1202,14 +1215,15 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize: 15,
+                                                                  fontSize:
+                                                                      15.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
                                                           ),
                                                         ),
                                                         Container(
-                                                          width: 10,
+                                                          width: 10.0,
                                                           decoration:
                                                               BoxDecoration(
                                                             color: FlutterFlowTheme
@@ -1250,7 +1264,8 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryText,
-                                                                  fontSize: 15,
+                                                                  fontSize:
+                                                                      15.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -1289,14 +1304,14 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                     fontFamily:
                                                                         'Noto Sans Thai',
                                                                     fontSize:
-                                                                        15,
+                                                                        15.0,
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
                                                             ),
                                                           ),
                                                           Container(
-                                                            width: 10,
+                                                            width: 10.0,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color: FlutterFlowTheme
@@ -1340,7 +1355,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                             context)
                                                                         .primaryText,
                                                                     fontSize:
-                                                                        15,
+                                                                        15.0,
                                                                     letterSpacing:
                                                                         0.0,
                                                                     fontWeight:
@@ -1379,14 +1394,14 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                     fontFamily:
                                                                         'Noto Sans Thai',
                                                                     fontSize:
-                                                                        15,
+                                                                        15.0,
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
                                                             ),
                                                           ),
                                                           Container(
-                                                            width: 10,
+                                                            width: 10.0,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color: FlutterFlowTheme
@@ -1430,7 +1445,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                             context)
                                                                         .primaryText,
                                                                     fontSize:
-                                                                        15,
+                                                                        15.0,
                                                                     letterSpacing:
                                                                         0.0,
                                                                     fontWeight:
@@ -1465,14 +1480,15 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize: 15,
+                                                                  fontSize:
+                                                                      15.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
                                                           ),
                                                         ),
                                                         Container(
-                                                          width: 10,
+                                                          width: 10.0,
                                                           decoration:
                                                               BoxDecoration(
                                                             color: FlutterFlowTheme
@@ -1516,7 +1532,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                               context)
                                                                           .primaryText,
                                                                       fontSize:
-                                                                          15,
+                                                                          15.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                       fontWeight:
@@ -1544,7 +1560,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryText,
                                                                         fontSize:
-                                                                            15,
+                                                                            15.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
@@ -1580,14 +1596,15 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize: 15,
+                                                                  fontSize:
+                                                                      15.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
                                                           ),
                                                         ),
                                                         Container(
-                                                          width: 10,
+                                                          width: 10.0,
                                                           decoration:
                                                               BoxDecoration(
                                                             color: FlutterFlowTheme
@@ -1631,7 +1648,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                               context)
                                                                           .primaryText,
                                                                       fontSize:
-                                                                          15,
+                                                                          15.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                       fontWeight:
@@ -1659,7 +1676,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryText,
                                                                         fontSize:
-                                                                            15,
+                                                                            15.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
@@ -1695,14 +1712,15 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize: 15,
+                                                                  fontSize:
+                                                                      15.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
                                                           ),
                                                         ),
                                                         Container(
-                                                          width: 10,
+                                                          width: 10.0,
                                                           decoration:
                                                               BoxDecoration(
                                                             color: FlutterFlowTheme
@@ -1746,7 +1764,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                               context)
                                                                           .primaryText,
                                                                       fontSize:
-                                                                          15,
+                                                                          15.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                       fontWeight:
@@ -1774,7 +1792,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryText,
                                                                         fontSize:
-                                                                            15,
+                                                                            15.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
@@ -1793,13 +1811,13 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                 child: Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          1, 0),
+                                                          1.0, 0.0),
                                                   child: Column(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
                                                     children: [
                                                       Container(
-                                                        height: 75,
+                                                        height: 75.0,
                                                         decoration:
                                                             BoxDecoration(
                                                           color: FlutterFlowTheme
@@ -1807,12 +1825,14 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                               .secondaryBackground,
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(0),
+                                                                  .circular(
+                                                                      0.0),
                                                         ),
                                                         child: ClipRRect(
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(0),
+                                                                  .circular(
+                                                                      0.0),
                                                           child: Image.network(
                                                             valueOrDefault<
                                                                 String>(
@@ -1824,16 +1844,16 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                   : 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37'),
                                                               'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37',
                                                             ),
-                                                            width: 300,
-                                                            height: 200,
+                                                            width: 300.0,
+                                                            height: 200.0,
                                                             fit: BoxFit.cover,
                                                             errorBuilder: (context,
                                                                     error,
                                                                     stackTrace) =>
                                                                 Image.asset(
                                                               'assets/images/error_image.png',
-                                                              width: 300,
-                                                              height: 200,
+                                                              width: 300.0,
+                                                              height: 200.0,
                                                               fit: BoxFit.cover,
                                                             ),
                                                           ),
@@ -1858,29 +1878,29 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                 child: InfomationCustomerActWidget(),
                               ),
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 10.0, 0.0, 0.0),
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width,
+                                width: MediaQuery.sizeOf(context).width * 1.0,
                                 height: MediaQuery.sizeOf(context).height * 0.1,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
                                   boxShadow: [
                                     BoxShadow(
-                                      blurRadius: 1,
+                                      blurRadius: 1.0,
                                       color: Color(0x33000000),
                                     )
                                   ],
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                   border: Border.all(
                                     color: Color(0xFFE6E6E6),
                                   ),
                                 ),
-                                alignment: AlignmentDirectional(0, 0),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      5, 0, 5, 0),
+                                      5.0, 0.0, 5.0, 0.0),
                                   child: SingleChildScrollView(
                                     scrollDirection: Axis.horizontal,
                                     child: Row(
@@ -1889,7 +1909,8 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                           MainAxisAlignment.center,
                                       children: [
                                         Align(
-                                          alignment: AlignmentDirectional(0, 0),
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
@@ -1905,7 +1926,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                               ),
                                             ),
                                             alignment:
-                                                AlignmentDirectional(0, 0),
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Text(
                                               '1',
                                               style:
@@ -1916,7 +1937,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                             'Noto Sans Thai',
                                                         color:
                                                             Color(0xFFFAFAFA),
-                                                        fontSize: 15,
+                                                        fontSize: 15.0,
                                                         letterSpacing: 0.0,
                                                       ),
                                             ),
@@ -1926,7 +1947,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                           width:
                                               MediaQuery.sizeOf(context).width *
                                                   0.06,
-                                          height: 100,
+                                          height: 100.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
@@ -1937,9 +1958,9 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                 MainAxisAlignment.center,
                                             children: [
                                               SizedBox(
-                                                width: 32,
+                                                width: 32.0,
                                                 child: Divider(
-                                                  thickness: 1,
+                                                  thickness: 1.0,
                                                   color: Color(0xFFD9761A),
                                                 ),
                                               ),
@@ -1960,7 +1981,8 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                               color: Color(0xFFB3B3B3),
                                             ),
                                           ),
-                                          alignment: AlignmentDirectional(0, 0),
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Text(
                                             '2',
                                             style: FlutterFlowTheme.of(context)
@@ -1968,7 +1990,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFFFAFAFA),
-                                                  fontSize: 15,
+                                                  fontSize: 15.0,
                                                   letterSpacing: 0.0,
                                                 ),
                                           ),
@@ -1977,7 +1999,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                           width:
                                               MediaQuery.sizeOf(context).width *
                                                   0.06,
-                                          height: 100,
+                                          height: 100.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
@@ -1988,9 +2010,9 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                 MainAxisAlignment.center,
                                             children: [
                                               SizedBox(
-                                                width: 32,
+                                                width: 32.0,
                                                 child: Divider(
-                                                  thickness: 1,
+                                                  thickness: 1.0,
                                                   color: Color(0xFFD9761A),
                                                 ),
                                               ),
@@ -2011,7 +2033,8 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                               color: Color(0xFFB3B3B3),
                                             ),
                                           ),
-                                          alignment: AlignmentDirectional(0, 0),
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Text(
                                             '3',
                                             style: FlutterFlowTheme.of(context)
@@ -2027,7 +2050,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                           width:
                                               MediaQuery.sizeOf(context).width *
                                                   0.06,
-                                          height: 100,
+                                          height: 100.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
@@ -2038,9 +2061,9 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                 MainAxisAlignment.center,
                                             children: [
                                               SizedBox(
-                                                width: 32,
+                                                width: 32.0,
                                                 child: Divider(
-                                                  thickness: 1,
+                                                  thickness: 1.0,
                                                   color: Color(0xFFD9761A),
                                                 ),
                                               ),
@@ -2061,7 +2084,8 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                               color: Color(0xFFB3B3B3),
                                             ),
                                           ),
-                                          alignment: AlignmentDirectional(0, 0),
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Text(
                                             '4',
                                             style: FlutterFlowTheme.of(context)
@@ -2069,7 +2093,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFFFAFAFA),
-                                                  fontSize: 15,
+                                                  fontSize: 15.0,
                                                   letterSpacing: 0.0,
                                                 ),
                                           ),
@@ -2078,7 +2102,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                           width:
                                               MediaQuery.sizeOf(context).width *
                                                   0.06,
-                                          height: 100,
+                                          height: 100.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
@@ -2089,9 +2113,9 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                 MainAxisAlignment.center,
                                             children: [
                                               SizedBox(
-                                                width: 32,
+                                                width: 32.0,
                                                 child: Divider(
-                                                  thickness: 1,
+                                                  thickness: 1.0,
                                                   color: Color(0xFFD9761A),
                                                 ),
                                               ),
@@ -2112,7 +2136,8 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                               color: Color(0xFFB3B3B3),
                                             ),
                                           ),
-                                          alignment: AlignmentDirectional(0, 0),
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Text(
                                             '5',
                                             style: FlutterFlowTheme.of(context)
@@ -2120,7 +2145,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFFF1F4F8),
-                                                  fontSize: 15,
+                                                  fontSize: 15.0,
                                                   letterSpacing: 0.0,
                                                 ),
                                           ),
@@ -2132,11 +2157,11 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                               ),
                             ),
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 5.0, 0.0, 0.0),
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width,
-                                height: 100,
+                                width: MediaQuery.sizeOf(context).width * 1.0,
+                                height: 100.0,
                                 decoration: BoxDecoration(
                                   color: Color(0xFFFAFAFA),
                                 ),
@@ -2145,7 +2170,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          12, 0, 12, 0),
+                                          12.0, 0.0, 12.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
@@ -2155,7 +2180,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
-                                                  fontSize: 15,
+                                                  fontSize: 15.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
@@ -2165,15 +2190,17 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 5, 0, 0),
+                                          0.0, 5.0, 0.0, 0.0),
                                       child: Container(
-                                        width: MediaQuery.sizeOf(context).width,
-                                        height: 60,
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                1.0,
+                                        height: 60.0,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                           borderRadius:
-                                              BorderRadius.circular(8),
+                                              BorderRadius.circular(8.0),
                                           border: Border.all(
                                             color: Color(0xFFB3B3B3),
                                           ),
@@ -2185,7 +2212,8 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                           children: [
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(10, 0, 0, 0),
+                                                  .fromSTEB(
+                                                      10.0, 0.0, 0.0, 0.0),
                                               child: Text(
                                                 FFAppState()
                                                     .page5QuotationStatus,
@@ -2213,7 +2241,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                   0xFFDB771A);
                                                             }
                                                           }(),
-                                                          fontSize: 15,
+                                                          fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
@@ -2223,7 +2251,8 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                             if (!FFAppState().isProcessing)
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(0, 0, 10, 0),
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 10.0, 0.0),
                                                 child: InkWell(
                                                   splashColor:
                                                       Colors.transparent,
@@ -2661,7 +2690,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .secondaryText,
-                                                    size: 24,
+                                                    size: 24.0,
                                                   ),
                                                 ),
                                               ),
@@ -2674,11 +2703,11 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                               ),
                             ),
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 5.0, 0.0, 0.0),
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width,
-                                height: 100,
+                                width: MediaQuery.sizeOf(context).width * 1.0,
+                                height: 100.0,
                                 decoration: BoxDecoration(
                                   color: Color(0xFFFAFAFA),
                                 ),
@@ -2687,7 +2716,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          12, 0, 0, 0),
+                                          12.0, 0.0, 0.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
@@ -2697,7 +2726,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
-                                                  fontSize: 15,
+                                                  fontSize: 15.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
@@ -2707,15 +2736,17 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 5, 0, 0),
+                                          0.0, 5.0, 0.0, 0.0),
                                       child: Container(
-                                        width: MediaQuery.sizeOf(context).width,
-                                        height: 60,
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                1.0,
+                                        height: 60.0,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .lineColor,
                                           borderRadius:
-                                              BorderRadius.circular(8),
+                                              BorderRadius.circular(8.0),
                                           border: Border.all(
                                             color: Color(0xFFB3B3B3),
                                           ),
@@ -2723,7 +2754,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 10, 0),
+                                                  10.0, 0.0, 10.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -2737,7 +2768,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                         .override(
                                                           fontFamily:
                                                               'Noto Sans Thai',
-                                                          fontSize: 15,
+                                                          fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                         ),
                                               ),
@@ -2751,11 +2782,11 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                               ),
                             ),
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 5.0, 0.0, 0.0),
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width,
-                                height: 100,
+                                width: MediaQuery.sizeOf(context).width * 1.0,
+                                height: 100.0,
                                 decoration: BoxDecoration(
                                   color: Color(0xFFFAFAFA),
                                 ),
@@ -2764,7 +2795,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          12, 0, 12, 0),
+                                          12.0, 0.0, 12.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
@@ -2774,7 +2805,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
-                                                  fontSize: 15,
+                                                  fontSize: 15.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
@@ -2784,15 +2815,17 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 5, 0, 0),
+                                          0.0, 5.0, 0.0, 0.0),
                                       child: Container(
-                                        width: MediaQuery.sizeOf(context).width,
-                                        height: 60,
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                1.0,
+                                        height: 60.0,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .lineColor,
                                           borderRadius:
-                                              BorderRadius.circular(8),
+                                              BorderRadius.circular(8.0),
                                           border: Border.all(
                                             color: Color(0xFFB3B3B3),
                                           ),
@@ -2800,7 +2833,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 10, 0),
+                                                  10.0, 0.0, 10.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -2812,7 +2845,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                         .override(
                                                           fontFamily:
                                                               'Noto Sans Thai',
-                                                          fontSize: 15,
+                                                          fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                         ),
                                               ),
@@ -2827,11 +2860,11 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                             ),
                             if (FFAppState().page5QuotationStatus == 'อนุมัติ')
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 5.0, 0.0, 0.0),
                                 child: Container(
-                                  width: MediaQuery.sizeOf(context).width,
-                                  height: 100,
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
+                                  height: 100.0,
                                   decoration: BoxDecoration(
                                     color: Color(0xFFFAFAFA),
                                   ),
@@ -2840,7 +2873,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            12, 0, 12, 0),
+                                            12.0, 0.0, 12.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
@@ -2852,7 +2885,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                       .override(
                                                         fontFamily:
                                                             'Noto Sans Thai',
-                                                        fontSize: 15,
+                                                        fontSize: 15.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -2863,16 +2896,17 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 5, 0, 0),
+                                            0.0, 5.0, 0.0, 0.0),
                                         child: Container(
                                           width:
-                                              MediaQuery.sizeOf(context).width,
-                                          height: 60,
+                                              MediaQuery.sizeOf(context).width *
+                                                  1.0,
+                                          height: 60.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .lineColor,
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(8.0),
                                             border: Border.all(
                                               color: Color(0xFFB3B3B3),
                                             ),
@@ -2880,7 +2914,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10, 0, 10, 0),
+                                                    10.0, 0.0, 10.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -2895,7 +2929,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                       .override(
                                                         fontFamily:
                                                             'Noto Sans Thai',
-                                                        fontSize: 15,
+                                                        fontSize: 15.0,
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -2910,10 +2944,10 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                               ),
                             if (FFAppState().page5QuotationStatus == 'อนุมัติ')
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 5.0, 0.0, 0.0),
                                 child: Container(
-                                  width: MediaQuery.sizeOf(context).width,
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
                                   decoration: BoxDecoration(
                                     color: Color(0xFFFAFAFA),
                                   ),
@@ -2922,7 +2956,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            12, 0, 12, 0),
+                                            12.0, 0.0, 12.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
@@ -2934,7 +2968,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                       .override(
                                                         fontFamily:
                                                             'Noto Sans Thai',
-                                                        fontSize: 15,
+                                                        fontSize: 15.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -2945,19 +2979,20 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 5, 0, 0),
+                                            0.0, 5.0, 0.0, 0.0),
                                         child: Container(
                                           width:
-                                              MediaQuery.sizeOf(context).width,
-                                          height: 45,
+                                              MediaQuery.sizeOf(context).width *
+                                                  1.0,
+                                          height: 45.0,
                                           constraints: BoxConstraints(
-                                            minHeight: 60,
+                                            minHeight: 60.0,
                                           ),
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .lineColor,
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(8.0),
                                             border: Border.all(
                                               color: Color(0xFFB3B3B3),
                                             ),
@@ -2965,7 +3000,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10, 0, 10, 0),
+                                                    10.0, 0.0, 10.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
@@ -2977,7 +3012,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                       .override(
                                                         fontFamily:
                                                             'Noto Sans Thai',
-                                                        fontSize: 15,
+                                                        fontSize: 15.0,
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -2993,10 +3028,10 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                             if (FFAppState().page5QuotationStatus !=
                                 'ขอคืนเงิน')
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 5.0, 0.0, 0.0),
                                 child: Container(
-                                  width: MediaQuery.sizeOf(context).width,
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
                                   decoration: BoxDecoration(
                                     color: Color(0xFFFAFAFA),
                                   ),
@@ -3005,7 +3040,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            12, 0, 12, 0),
+                                            12.0, 0.0, 12.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
@@ -3017,7 +3052,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                       .override(
                                                         fontFamily:
                                                             'Noto Sans Thai',
-                                                        fontSize: 15,
+                                                        fontSize: 15.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -3028,21 +3063,22 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 5, 0, 0),
+                                            0.0, 5.0, 0.0, 0.0),
                                         child: Container(
                                           width:
-                                              MediaQuery.sizeOf(context).width,
+                                              MediaQuery.sizeOf(context).width *
+                                                  1.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .lineColor,
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(8.0),
                                             border: Border.all(
                                               color: Color(0xFFB3B3B3),
                                             ),
                                           ),
                                           child: Padding(
-                                            padding: EdgeInsets.all(10),
+                                            padding: EdgeInsets.all(10.0),
                                             child: Text(
                                               FFAppState().page5Reason,
                                               style:
@@ -3051,7 +3087,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                       .override(
                                                         fontFamily:
                                                             'Noto Sans Thai',
-                                                        fontSize: 15,
+                                                        fontSize: 15.0,
                                                         letterSpacing: 0.0,
                                                       ),
                                             ),
@@ -3065,10 +3101,10 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                             if (FFAppState().page5QuotationStatus ==
                                 'ขอคืนเงิน')
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 5.0, 0.0, 0.0),
                                 child: Container(
-                                  width: MediaQuery.sizeOf(context).width,
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
                                   decoration: BoxDecoration(
                                     color: Color(0xFFFAFAFA),
                                   ),
@@ -3077,7 +3113,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            12, 0, 12, 0),
+                                            12.0, 0.0, 12.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
@@ -3089,7 +3125,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                       .override(
                                                         fontFamily:
                                                             'Noto Sans Thai',
-                                                        fontSize: 15,
+                                                        fontSize: 15.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -3100,21 +3136,22 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 5, 0, 0),
+                                            0.0, 5.0, 0.0, 0.0),
                                         child: Container(
                                           width:
-                                              MediaQuery.sizeOf(context).width,
+                                              MediaQuery.sizeOf(context).width *
+                                                  1.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .lineColor,
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(8.0),
                                             border: Border.all(
                                               color: Color(0xFFB3B3B3),
                                             ),
                                           ),
                                           child: Padding(
-                                            padding: EdgeInsets.all(10),
+                                            padding: EdgeInsets.all(10.0),
                                             child: Text(
                                               FFAppState().page5RefundRemark,
                                               style:
@@ -3123,7 +3160,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                       .override(
                                                         fontFamily:
                                                             'Noto Sans Thai',
-                                                        fontSize: 15,
+                                                        fontSize: 15.0,
                                                         letterSpacing: 0.0,
                                                       ),
                                             ),
@@ -3136,10 +3173,10 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                               ),
                             if (FFAppState().page5QuotationStatus == 'อนุมัติ')
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 5.0, 0.0, 0.0),
                                 child: Container(
-                                  width: MediaQuery.sizeOf(context).width,
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
                                   decoration: BoxDecoration(
                                     color: Color(0xFFFAFAFA),
                                   ),
@@ -3148,7 +3185,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            12, 0, 12, 0),
+                                            12.0, 0.0, 12.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
@@ -3160,7 +3197,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                       .override(
                                                         fontFamily:
                                                             'Noto Sans Thai',
-                                                        fontSize: 15,
+                                                        fontSize: 15.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -3171,16 +3208,17 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 5, 0, 0),
+                                            0.0, 5.0, 0.0, 0.0),
                                         child: Container(
                                           width:
-                                              MediaQuery.sizeOf(context).width,
-                                          height: 60,
+                                              MediaQuery.sizeOf(context).width *
+                                                  1.0,
+                                          height: 60.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .lineColor,
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(8.0),
                                             border: Border.all(
                                               color: Color(0xFFB3B3B3),
                                             ),
@@ -3188,7 +3226,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10, 0, 10, 0),
+                                                    10.0, 0.0, 10.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -3204,7 +3242,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                       .override(
                                                         fontFamily:
                                                             'Noto Sans Thai',
-                                                        fontSize: 15,
+                                                        fontSize: 15.0,
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -3219,10 +3257,10 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                               ),
                             if (FFAppState().page5QuotationStatus == 'อนุมัติ')
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 5.0, 0.0, 0.0),
                                 child: Container(
-                                  width: MediaQuery.sizeOf(context).width,
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
                                   decoration: BoxDecoration(
                                     color: Color(0xFFFAFAFA),
                                   ),
@@ -3231,7 +3269,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            12, 0, 12, 0),
+                                            12.0, 0.0, 12.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
@@ -3243,7 +3281,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                       .override(
                                                         fontFamily:
                                                             'Noto Sans Thai',
-                                                        fontSize: 15,
+                                                        fontSize: 15.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -3254,16 +3292,17 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 5, 0, 0),
+                                            0.0, 5.0, 0.0, 0.0),
                                         child: Container(
                                           width:
-                                              MediaQuery.sizeOf(context).width,
-                                          height: 60,
+                                              MediaQuery.sizeOf(context).width *
+                                                  1.0,
+                                          height: 60.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .lineColor,
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(8.0),
                                             border: Border.all(
                                               color: Color(0xFFB3B3B3),
                                             ),
@@ -3271,7 +3310,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10, 0, 10, 0),
+                                                    10.0, 0.0, 10.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -3286,7 +3325,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                       .override(
                                                         fontFamily:
                                                             'Noto Sans Thai',
-                                                        fontSize: 15,
+                                                        fontSize: 15.0,
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -3301,10 +3340,10 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                               ),
                             if (FFAppState().page5QuotationStatus == 'อนุมัติ')
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 5.0, 0.0, 0.0),
                                 child: Container(
-                                  width: MediaQuery.sizeOf(context).width,
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
                                   decoration: BoxDecoration(
                                     color: Color(0xFFFAFAFA),
                                   ),
@@ -3313,7 +3352,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            12, 0, 12, 0),
+                                            12.0, 0.0, 12.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
@@ -3325,7 +3364,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                       .override(
                                                         fontFamily:
                                                             'Noto Sans Thai',
-                                                        fontSize: 15,
+                                                        fontSize: 15.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -3336,16 +3375,17 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 5, 0, 0),
+                                            0.0, 5.0, 0.0, 0.0),
                                         child: Container(
                                           width:
-                                              MediaQuery.sizeOf(context).width,
-                                          height: 60,
+                                              MediaQuery.sizeOf(context).width *
+                                                  1.0,
+                                          height: 60.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .lineColor,
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(8.0),
                                             border: Border.all(
                                               color: Color(0xFFB3B3B3),
                                             ),
@@ -3353,7 +3393,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10, 0, 10, 0),
+                                                    10.0, 0.0, 10.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -3369,7 +3409,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                       .override(
                                                         fontFamily:
                                                             'Noto Sans Thai',
-                                                        fontSize: 15,
+                                                        fontSize: 15.0,
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -3386,10 +3426,10 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                     'อนุมัติ') &&
                                 (FFAppState().insuranceinfoActType != 'CMI'))
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 5.0, 0.0, 0.0),
                                 child: Container(
-                                  width: MediaQuery.sizeOf(context).width,
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
                                   decoration: BoxDecoration(
                                     color: Color(0xFFFAFAFA),
                                   ),
@@ -3398,7 +3438,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            12, 0, 12, 0),
+                                            12.0, 0.0, 12.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
@@ -3410,7 +3450,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                       .override(
                                                         fontFamily:
                                                             'Noto Sans Thai',
-                                                        fontSize: 15,
+                                                        fontSize: 15.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -3421,16 +3461,17 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 5, 0, 0),
+                                            0.0, 5.0, 0.0, 0.0),
                                         child: Container(
                                           width:
-                                              MediaQuery.sizeOf(context).width,
-                                          height: 60,
+                                              MediaQuery.sizeOf(context).width *
+                                                  1.0,
+                                          height: 60.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .lineColor,
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(8.0),
                                             border: Border.all(
                                               color: Color(0xFFB3B3B3),
                                             ),
@@ -3438,7 +3479,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10, 0, 10, 0),
+                                                    10.0, 0.0, 10.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -3458,7 +3499,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                       .override(
                                                         fontFamily:
                                                             'Noto Sans Thai',
-                                                        fontSize: 15,
+                                                        fontSize: 15.0,
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -3475,10 +3516,10 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                     'อนุมัติ') &&
                                 (FFAppState().insuranceinfoActType != 'CMI'))
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 5.0, 0.0, 0.0),
                                 child: Container(
-                                  width: MediaQuery.sizeOf(context).width,
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
                                   decoration: BoxDecoration(
                                     color: Color(0xFFFAFAFA),
                                   ),
@@ -3487,7 +3528,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            12, 0, 12, 0),
+                                            12.0, 0.0, 12.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
@@ -3499,7 +3540,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                       .override(
                                                         fontFamily:
                                                             'Noto Sans Thai',
-                                                        fontSize: 15,
+                                                        fontSize: 15.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -3510,16 +3551,17 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 5, 0, 0),
+                                            0.0, 5.0, 0.0, 0.0),
                                         child: Container(
                                           width:
-                                              MediaQuery.sizeOf(context).width,
-                                          height: 60,
+                                              MediaQuery.sizeOf(context).width *
+                                                  1.0,
+                                          height: 60.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .lineColor,
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(8.0),
                                             border: Border.all(
                                               color: Color(0xFFB3B3B3),
                                             ),
@@ -3527,7 +3569,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10, 0, 10, 0),
+                                                    10.0, 0.0, 10.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -3548,7 +3590,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                       .override(
                                                         fontFamily:
                                                             'Noto Sans Thai',
-                                                        fontSize: 15,
+                                                        fontSize: 15.0,
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -3563,10 +3605,10 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                               ),
                             if (FFAppState().page5QuotationStatus == 'อนุมัติ')
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 5.0, 0.0, 0.0),
                                 child: Container(
-                                  width: MediaQuery.sizeOf(context).width,
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
                                   decoration: BoxDecoration(
                                     color: Color(0xFFFAFAFA),
                                   ),
@@ -3575,7 +3617,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            12, 0, 12, 0),
+                                            12.0, 0.0, 12.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
@@ -3587,7 +3629,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                       .override(
                                                         fontFamily:
                                                             'Noto Sans Thai',
-                                                        fontSize: 15,
+                                                        fontSize: 15.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -3598,16 +3640,17 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 5, 0, 0),
+                                            0.0, 5.0, 0.0, 0.0),
                                         child: Container(
                                           width:
-                                              MediaQuery.sizeOf(context).width,
-                                          height: 60,
+                                              MediaQuery.sizeOf(context).width *
+                                                  1.0,
+                                          height: 60.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .lineColor,
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(8.0),
                                             border: Border.all(
                                               color: Color(0xFFB3B3B3),
                                             ),
@@ -3615,7 +3658,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10, 0, 10, 0),
+                                                    10.0, 0.0, 10.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -3635,7 +3678,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                       .override(
                                                         fontFamily:
                                                             'Noto Sans Thai',
-                                                        fontSize: 15,
+                                                        fontSize: 15.0,
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -3652,17 +3695,17 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                     'อนุมัติ') &&
                                 (FFAppState().page5PaymentType == 'ผ่อนชำระ'))
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 5.0, 0.0, 0.0),
                                 child: Container(
-                                  width: MediaQuery.sizeOf(context).width,
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
                                   decoration: BoxDecoration(),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            12, 0, 12, 0),
+                                            12.0, 0.0, 12.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
@@ -3674,7 +3717,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                       .override(
                                                         fontFamily:
                                                             'Noto Sans Thai',
-                                                        fontSize: 15,
+                                                        fontSize: 15.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -3685,16 +3728,17 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 5, 0, 0),
+                                            0.0, 5.0, 0.0, 0.0),
                                         child: Container(
                                           width:
-                                              MediaQuery.sizeOf(context).width,
-                                          height: 60,
+                                              MediaQuery.sizeOf(context).width *
+                                                  1.0,
+                                          height: 60.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .lineColor,
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(8.0),
                                             border: Border.all(
                                               color: Color(0xFFB3B3B3),
                                             ),
@@ -3702,7 +3746,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10, 0, 10, 0),
+                                                    10.0, 0.0, 10.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -3711,7 +3755,8 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                               children: [
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(10, 0, 0, 0),
+                                                      .fromSTEB(
+                                                          10.0, 0.0, 0.0, 0.0),
                                                   child: Text(
                                                     FFAppState().page5Tenor,
                                                     style: FlutterFlowTheme.of(
@@ -3721,7 +3766,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                           fontFamily:
                                                               'Noto Sans Thai',
                                                           color: Colors.black,
-                                                          fontSize: 15,
+                                                          fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
@@ -3741,10 +3786,10 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                     'อนุมัติ') &&
                                 (FFAppState().page5PaymentStatus == 'ผ่อนชำระ'))
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 5.0, 0.0, 0.0),
                                 child: Container(
-                                  width: MediaQuery.sizeOf(context).width,
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
                                   decoration: BoxDecoration(
                                     color: Color(0xFFFAFAFA),
                                   ),
@@ -3753,7 +3798,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            12, 0, 12, 0),
+                                            12.0, 0.0, 12.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
@@ -3765,7 +3810,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                       .override(
                                                         fontFamily:
                                                             'Noto Sans Thai',
-                                                        fontSize: 15,
+                                                        fontSize: 15.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -3776,16 +3821,17 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 5, 0, 0),
+                                            0.0, 5.0, 0.0, 0.0),
                                         child: Container(
                                           width:
-                                              MediaQuery.sizeOf(context).width,
-                                          height: 60,
+                                              MediaQuery.sizeOf(context).width *
+                                                  1.0,
+                                          height: 60.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .lineColor,
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(8.0),
                                             border: Border.all(
                                               color: Color(0xFFB3B3B3),
                                             ),
@@ -3793,7 +3839,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10, 0, 10, 0),
+                                                    10.0, 0.0, 10.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -3814,7 +3860,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                       .override(
                                                         fontFamily:
                                                             'Noto Sans Thai',
-                                                        fontSize: 15,
+                                                        fontSize: 15.0,
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -3831,10 +3877,10 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                     'อนุมัติ') &&
                                 (FFAppState().page5PaymentType == 'ผ่อนชำระ'))
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 5.0, 0.0, 0.0),
                                 child: Container(
-                                  width: MediaQuery.sizeOf(context).width,
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
                                   decoration: BoxDecoration(
                                     color: Color(0xFFFAFAFA),
                                   ),
@@ -3843,7 +3889,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            12, 0, 12, 0),
+                                            12.0, 0.0, 12.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
@@ -3855,7 +3901,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                       .override(
                                                         fontFamily:
                                                             'Noto Sans Thai',
-                                                        fontSize: 15,
+                                                        fontSize: 15.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -3866,16 +3912,17 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 5, 0, 0),
+                                            0.0, 5.0, 0.0, 0.0),
                                         child: Container(
                                           width:
-                                              MediaQuery.sizeOf(context).width,
-                                          height: 60,
+                                              MediaQuery.sizeOf(context).width *
+                                                  1.0,
+                                          height: 60.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .lineColor,
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(8.0),
                                             border: Border.all(
                                               color: Color(0xFFB3B3B3),
                                             ),
@@ -3883,7 +3930,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10, 0, 10, 0),
+                                                    10.0, 0.0, 10.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -3904,7 +3951,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                       .override(
                                                         fontFamily:
                                                             'Noto Sans Thai',
-                                                        fontSize: 15,
+                                                        fontSize: 15.0,
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -3921,10 +3968,10 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                     'อนุมัติ') &&
                                 (FFAppState().page5PaymentType == 'ผ่อนชำระ'))
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 12.0, 0.0, 0.0),
                                 child: Container(
-                                  width: MediaQuery.sizeOf(context).width,
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
@@ -3934,7 +3981,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            12, 0, 12, 0),
+                                            12.0, 0.0, 12.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
@@ -3946,7 +3993,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                       .override(
                                                         fontFamily:
                                                             'Noto Sans Thai',
-                                                        fontSize: 15,
+                                                        fontSize: 15.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -3957,21 +4004,22 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 12, 0, 0),
+                                            0.0, 12.0, 0.0, 0.0),
                                         child: Container(
                                           width:
-                                              MediaQuery.sizeOf(context).width,
+                                              MediaQuery.sizeOf(context).width *
+                                                  1.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             boxShadow: [
                                               BoxShadow(
-                                                blurRadius: 1,
+                                                blurRadius: 1.0,
                                                 color: Color(0x33000000),
                                               )
                                             ],
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(8.0),
                                             border: Border.all(
                                               color: Color(0xFFE6E6E6),
                                             ),
@@ -3983,10 +4031,10 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                             scrollDirection: Axis.vertical,
                                             children: [
                                               Align(
-                                                alignment:
-                                                    AlignmentDirectional(0, 0),
+                                                alignment: AlignmentDirectional(
+                                                    0.0, 0.0),
                                                 child: Padding(
-                                                  padding: EdgeInsets.all(15),
+                                                  padding: EdgeInsets.all(15.0),
                                                   child: Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -4031,14 +4079,14 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                         fontFamily:
                                                                             'Noto Sans Thai',
                                                                         fontSize:
-                                                                            15,
+                                                                            15.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                       ),
                                                                 ),
                                                               ),
                                                               Container(
-                                                                width: 10,
+                                                                width: 10.0,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   color: FlutterFlowTheme.of(
@@ -4075,7 +4123,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                         fontFamily:
                                                                             'Noto Sans Thai',
                                                                         fontSize:
-                                                                            15,
+                                                                            15.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                       ),
@@ -4111,14 +4159,14 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                         fontFamily:
                                                                             'Noto Sans Thai',
                                                                         fontSize:
-                                                                            15,
+                                                                            15.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                       ),
                                                                 ),
                                                               ),
                                                               Container(
-                                                                width: 10,
+                                                                width: 10.0,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   color: FlutterFlowTheme.of(
@@ -4155,7 +4203,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                         fontFamily:
                                                                             'Noto Sans Thai',
                                                                         fontSize:
-                                                                            15,
+                                                                            15.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                       ),
@@ -4191,14 +4239,14 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                         fontFamily:
                                                                             'Noto Sans Thai',
                                                                         fontSize:
-                                                                            15,
+                                                                            15.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                       ),
                                                                 ),
                                                               ),
                                                               Container(
-                                                                width: 10,
+                                                                width: 10.0,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   color: FlutterFlowTheme.of(
@@ -4235,7 +4283,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                         fontFamily:
                                                                             'Noto Sans Thai',
                                                                         fontSize:
-                                                                            15,
+                                                                            15.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                       ),
@@ -4271,14 +4319,14 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                         fontFamily:
                                                                             'Noto Sans Thai',
                                                                         fontSize:
-                                                                            15,
+                                                                            15.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                       ),
                                                                 ),
                                                               ),
                                                               Container(
-                                                                width: 10,
+                                                                width: 10.0,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   color: FlutterFlowTheme.of(
@@ -4320,7 +4368,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                         fontFamily:
                                                                             'Noto Sans Thai',
                                                                         fontSize:
-                                                                            15,
+                                                                            15.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                       ),
@@ -4356,14 +4404,14 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                         fontFamily:
                                                                             'Noto Sans Thai',
                                                                         fontSize:
-                                                                            15,
+                                                                            15.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                       ),
                                                                 ),
                                                               ),
                                                               Container(
-                                                                width: 10,
+                                                                width: 10.0,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   color: FlutterFlowTheme.of(
@@ -4407,7 +4455,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryText,
                                                                         fontSize:
-                                                                            15,
+                                                                            15.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
@@ -4437,8 +4485,8 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                 (FFAppState().page5VloneContNo != '') &&
                                 (FFAppState().page5VloneContNo != '-'))
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(8, 12, 8, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    8.0, 12.0, 8.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -4452,19 +4500,19 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                         text: 'การ์ดค่างวด',
                                         icon: Icon(
                                           Icons.qr_code,
-                                          size: 15,
+                                          size: 15.0,
                                         ),
                                         options: FFButtonOptions(
                                           width:
                                               MediaQuery.sizeOf(context).width *
                                                   0.42,
-                                          height: 60,
+                                          height: 60.0,
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 10, 0),
+                                                  10.0, 0.0, 10.0, 0.0),
                                           iconPadding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 0, 0),
+                                                  0.0, 0.0, 0.0, 0.0),
                                           color: Color(0xFF1A73E7),
                                           textStyle: FlutterFlowTheme.of(
                                                   context)
@@ -4477,17 +4525,17 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
-                                          elevation: 3,
+                                          elevation: 3.0,
                                           borderSide: BorderSide(
                                             color: Color(0xFF204A77),
-                                            width: 1,
+                                            width: 1.0,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(16),
+                                              BorderRadius.circular(16.0),
                                         ),
                                       ),
                                     ),
-                                  ].divide(SizedBox(width: 12)),
+                                  ].divide(SizedBox(width: 12.0)),
                                 ),
                               ),
                             if ((GetInsurancePolicyApiCall.quotationStatus(
@@ -4499,18 +4547,18 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                     ) ==
                                     'ยกเลิก'))
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 16.0, 0.0, 0.0),
                                 child: Container(
-                                  height: 60,
+                                  height: 60.0,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(0),
+                                    borderRadius: BorderRadius.circular(0.0),
                                   ),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        8, 0, 8, 0),
+                                        8.0, 0.0, 8.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
                                         context.goNamed(
@@ -4525,13 +4573,15 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                       },
                                       text: 'ทำรายการใหม่',
                                       options: FFButtonOptions(
-                                        width: MediaQuery.sizeOf(context).width,
-                                        height: 60,
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                1.0,
+                                        height: 60.0,
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            24, 0, 24, 0),
+                                            24.0, 0.0, 24.0, 0.0),
                                         iconPadding:
                                             EdgeInsetsDirectional.fromSTEB(
-                                                0, 0, 0, 0),
+                                                0.0, 0.0, 0.0, 0.0),
                                         color: Color(0xFFFCEFE4),
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
@@ -4540,22 +4590,23 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                               color: Color(0xFFD9761A),
                                               letterSpacing: 0.0,
                                             ),
-                                        elevation: 3,
+                                        elevation: 3.0,
                                         borderSide: BorderSide(
                                           color: Color(0xFFFCEFE4),
-                                          width: 1,
+                                          width: 1.0,
                                         ),
-                                        borderRadius: BorderRadius.circular(16),
+                                        borderRadius:
+                                            BorderRadius.circular(16.0),
                                       ),
                                     ),
                                   ),
                                 ),
                               ),
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 16.0, 0.0, 0.0),
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width,
+                                width: MediaQuery.sizeOf(context).width * 1.0,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -4566,7 +4617,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            8, 0, 8, 0),
+                                            8.0, 0.0, 8.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -4612,15 +4663,15 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                 context)
                                                             .width *
                                                         0.42,
-                                                    height: 60,
+                                                    height: 60.0,
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                10, 0, 10, 0),
+                                                            .fromSTEB(10.0, 0.0,
+                                                                10.0, 0.0),
                                                     iconPadding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 0, 0),
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 0.0),
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primaryBackground,
@@ -4636,18 +4687,18 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
-                                                    elevation: 3,
+                                                    elevation: 3.0,
                                                     borderSide: BorderSide(
                                                       color: Color(0xFF204A77),
-                                                      width: 1,
+                                                      width: 1.0,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            16),
+                                                            16.0),
                                                   ),
                                                 ),
                                               ),
-                                          ].divide(SizedBox(width: 12)),
+                                          ].divide(SizedBox(width: 12.0)),
                                         ),
                                       ),
                                       if ((FFAppState().page5QuotationStatus ==
@@ -4658,7 +4709,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  8, 12, 8, 0),
+                                                  8.0, 12.0, 8.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -4723,22 +4774,28 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                     text: 'บันทึก พ.ร.บ.',
                                                     icon: Icon(
                                                       Icons.save_as_sharp,
-                                                      size: 15,
+                                                      size: 15.0,
                                                     ),
                                                     options: FFButtonOptions(
                                                       width: MediaQuery.sizeOf(
                                                                   context)
                                                               .width *
                                                           0.42,
-                                                      height: 60,
+                                                      height: 60.0,
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  10, 0, 10, 0),
+                                                                  10.0,
+                                                                  0.0,
+                                                                  10.0,
+                                                                  0.0),
                                                       iconPadding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0, 0, 0, 0),
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
                                                       color: Color(0xFFE7B71A),
                                                       textStyle:
                                                           FlutterFlowTheme.of(
@@ -4756,19 +4813,19 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                     FontWeight
                                                                         .w600,
                                                               ),
-                                                      elevation: 3,
+                                                      elevation: 3.0,
                                                       borderSide: BorderSide(
                                                         color:
                                                             Color(0xFFFCEFE4),
-                                                        width: 1,
+                                                        width: 1.0,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              16),
+                                                              16.0),
                                                     ),
                                                   ),
                                                 ),
-                                            ].divide(SizedBox(width: 12)),
+                                            ].divide(SizedBox(width: 12.0)),
                                           ),
                                         ),
                                       if ((FFAppState().page5QuotationStatus ==
@@ -4779,7 +4836,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  8, 0, 8, 0),
+                                                  8.0, 0.0, 8.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -4790,8 +4847,8 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                   builder: (context) => Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 20, 0, 0),
+                                                            .fromSTEB(0.0, 20.0,
+                                                                0.0, 0.0),
                                                     child: FFButtonWidget(
                                                       onPressed: () async {
                                                         var _shouldSetState =
@@ -4909,7 +4966,8 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                       Colors
                                                                           .transparent,
                                                                   alignment: AlignmentDirectional(
-                                                                          0, 0)
+                                                                          0.0,
+                                                                          0.0)
                                                                       .resolve(
                                                                           Directionality.of(
                                                                               context)),
@@ -4955,17 +5013,24 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                       options: FFButtonOptions(
                                                         width:
                                                             MediaQuery.sizeOf(
-                                                                    context)
-                                                                .width,
-                                                        height: 60,
+                                                                        context)
+                                                                    .width *
+                                                                1.0,
+                                                        height: 60.0,
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(24, 0,
-                                                                    24, 0),
+                                                                .fromSTEB(
+                                                                    24.0,
+                                                                    0.0,
+                                                                    24.0,
+                                                                    0.0),
                                                         iconPadding:
                                                             EdgeInsetsDirectional
                                                                 .fromSTEB(
-                                                                    0, 0, 0, 0),
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
                                                         color:
                                                             Color(0xFFD9761A),
                                                         textStyle:
@@ -4978,19 +5043,20 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryBackground,
-                                                                  fontSize: 14,
+                                                                  fontSize:
+                                                                      14.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
-                                                        elevation: 3,
+                                                        elevation: 3.0,
                                                         borderSide: BorderSide(
                                                           color:
                                                               Color(0xFFFCEFE4),
-                                                          width: 1,
+                                                          width: 1.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(16),
+                                                                .circular(16.0),
                                                       ),
                                                     ),
                                                   ),
@@ -4999,7 +5065,8 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                               Expanded(
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(0, 20, 0, 0),
+                                                      .fromSTEB(
+                                                          0.0, 20.0, 0.0, 0.0),
                                                   child: FFButtonWidget(
                                                     onPressed: () async {
                                                       var _shouldSetState =
@@ -5127,18 +5194,24 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                         'คัดลอกลิ้งค์กรมธรรม์',
                                                     icon: Icon(
                                                       Icons.content_copy,
-                                                      size: 15,
+                                                      size: 15.0,
                                                     ),
                                                     options: FFButtonOptions(
-                                                      height: 60,
+                                                      height: 60.0,
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  24, 0, 24, 0),
+                                                                  24.0,
+                                                                  0.0,
+                                                                  24.0,
+                                                                  0.0),
                                                       iconPadding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0, 0, 0, 0),
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -5155,20 +5228,20 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
-                                                      elevation: 3,
+                                                      elevation: 3.0,
                                                       borderSide: BorderSide(
                                                         color:
                                                             Colors.transparent,
-                                                        width: 1,
+                                                        width: 1.0,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              16),
+                                                              16.0),
                                                     ),
                                                   ),
                                                 ),
                                               ),
-                                            ].divide(SizedBox(width: 12)),
+                                            ].divide(SizedBox(width: 12.0)),
                                           ),
                                         ),
                                       if ((FFAppState().page5QuotationStatus ==
@@ -5179,7 +5252,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  8, 0, 8, 0),
+                                                  8.0, 0.0, 8.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -5188,7 +5261,8 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                               Expanded(
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(0, 20, 0, 0),
+                                                      .fromSTEB(
+                                                          0.0, 20.0, 0.0, 0.0),
                                                   child: FFButtonWidget(
                                                     onPressed: () async {
                                                       var _shouldSetState =
@@ -5291,17 +5365,24 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                     text: 'ดู พ.ร.บ',
                                                     options: FFButtonOptions(
                                                       width: MediaQuery.sizeOf(
-                                                              context)
-                                                          .width,
-                                                      height: 60,
+                                                                  context)
+                                                              .width *
+                                                          1.0,
+                                                      height: 60.0,
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  24, 0, 24, 0),
+                                                                  24.0,
+                                                                  0.0,
+                                                                  24.0,
+                                                                  0.0),
                                                       iconPadding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0, 0, 0, 0),
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
                                                       color: Color(0xFF5D78FF),
                                                       textStyle:
                                                           FlutterFlowTheme.of(
@@ -5313,19 +5394,19 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryBackground,
-                                                                fontSize: 14,
+                                                                fontSize: 14.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
-                                                      elevation: 3,
+                                                      elevation: 3.0,
                                                       borderSide: BorderSide(
                                                         color:
                                                             Color(0xFFFCEFE4),
-                                                        width: 1,
+                                                        width: 1.0,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              16),
+                                                              16.0),
                                                     ),
                                                   ),
                                                 ),
@@ -5333,7 +5414,8 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                               Expanded(
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(0, 20, 0, 0),
+                                                      .fromSTEB(
+                                                          0.0, 20.0, 0.0, 0.0),
                                                   child: FFButtonWidget(
                                                     onPressed: () async {
                                                       var _shouldSetState =
@@ -5466,18 +5548,24 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                     text: 'คัดลอกลิ้งค์ พ.ร.บ',
                                                     icon: Icon(
                                                       Icons.content_copy,
-                                                      size: 15,
+                                                      size: 15.0,
                                                     ),
                                                     options: FFButtonOptions(
-                                                      height: 60,
+                                                      height: 60.0,
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  24, 0, 24, 0),
+                                                                  24.0,
+                                                                  0.0,
+                                                                  24.0,
+                                                                  0.0),
                                                       iconPadding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0, 0, 0, 0),
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -5491,24 +5579,24 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                     'Noto Sans Thai',
                                                                 color: Colors
                                                                     .white,
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
-                                                      elevation: 3,
+                                                      elevation: 3.0,
                                                       borderSide: BorderSide(
                                                         color:
                                                             Colors.transparent,
-                                                        width: 1,
+                                                        width: 1.0,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              16),
+                                                              16.0),
                                                     ),
                                                   ),
                                                 ),
                                               ),
-                                            ].divide(SizedBox(width: 12)),
+                                            ].divide(SizedBox(width: 12.0)),
                                           ),
                                         ),
                                     ],
@@ -5516,7 +5604,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                 ),
                               ),
                             ),
-                          ].addToEnd(SizedBox(height: 100)),
+                          ].addToEnd(SizedBox(height: 100.0)),
                         ),
                       ],
                     ),

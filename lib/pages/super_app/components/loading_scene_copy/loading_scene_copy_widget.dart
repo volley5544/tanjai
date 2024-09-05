@@ -46,25 +46,25 @@ class _LoadingSceneCopyWidgetState extends State<LoadingSceneCopyWidget> {
       child: Stack(
         children: [
           Align(
-            alignment: AlignmentDirectional(0, 0),
+            alignment: AlignmentDirectional(0.0, 0.0),
             child: Image.asset(
               'assets/images/Spin-1s-200px_(1).gif',
-              width: 120,
-              height: 120,
+              width: 120.0,
+              height: 120.0,
               fit: BoxFit.scaleDown,
             ),
           ),
           Align(
-            alignment: AlignmentDirectional(0, 0),
+            alignment: AlignmentDirectional(0.0, 0.0),
             child: Image.asset(
               'assets/images/Load-54x54-02.gif',
-              width: 50,
-              height: 50,
+              width: 50.0,
+              height: 50.0,
               fit: BoxFit.cover,
             ),
           ),
           Align(
-            alignment: AlignmentDirectional(0, 0.3),
+            alignment: AlignmentDirectional(0.0, 0.3),
             child: SelectionArea(
                 child: Text(
               'กำลังบันทึกรูปลง Gallery เครื่อง\nกรุณารอซักครู่',
@@ -72,7 +72,7 @@ class _LoadingSceneCopyWidgetState extends State<LoadingSceneCopyWidget> {
               style: FlutterFlowTheme.of(context).bodyMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Colors.white,
-                    fontSize: 18,
+                    fontSize: 18.0,
                     letterSpacing: 0.0,
                   ),
             )),

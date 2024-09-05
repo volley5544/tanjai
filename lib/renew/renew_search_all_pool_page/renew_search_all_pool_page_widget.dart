@@ -175,13 +175,13 @@ class _RenewSearchAllPoolPageWidgetState
           automaticallyImplyLeading: false,
           leading: FlutterFlowIconButton(
             borderColor: Colors.transparent,
-            borderRadius: 30,
-            borderWidth: 1,
-            buttonSize: 60,
+            borderRadius: 30.0,
+            borderWidth: 1.0,
+            buttonSize: 60.0,
             icon: Icon(
               Icons.arrow_back_rounded,
               color: Color(0xFFDB771A),
-              size: 30,
+              size: 30.0,
             ),
             onPressed: () async {
               context.safePop();
@@ -192,33 +192,33 @@ class _RenewSearchAllPoolPageWidgetState
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Noto Sans Thai',
                   color: Color(0xFF003063),
-                  fontSize: 18,
+                  fontSize: 18.0,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.w600,
                 ),
           ),
           actions: [],
           centerTitle: true,
-          elevation: 2,
+          elevation: 2.0,
         ),
         body: SafeArea(
           top: true,
           child: Column(
             children: [
               Align(
-                alignment: Alignment(0, 0),
+                alignment: Alignment(0.0, 0),
                 child: TabBar(
                   labelColor: FlutterFlowTheme.of(context).primaryText,
                   unselectedLabelColor:
                       FlutterFlowTheme.of(context).secondaryText,
                   labelStyle: FlutterFlowTheme.of(context).titleMedium.override(
                         fontFamily: 'Noto Sans Thai',
-                        fontSize: 16,
+                        fontSize: 16.0,
                         letterSpacing: 0.0,
                       ),
                   unselectedLabelStyle: TextStyle(),
                   indicatorColor: FlutterFlowTheme.of(context).primary,
-                  padding: EdgeInsets.all(4),
+                  padding: EdgeInsets.all(4.0),
                   tabs: [
                     Tab(
                       text: 'ลูกค้าสาขา',
@@ -252,14 +252,15 @@ class _RenewSearchAllPoolPageWidgetState
                                 if (false)
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        20, 10, 20, 8),
+                                        20.0, 10.0, 20.0, 8.0),
                                     child: Container(
                                       width: double.infinity,
-                                      height: 40,
+                                      height: 40.0,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
-                                        borderRadius: BorderRadius.circular(10),
+                                        borderRadius:
+                                            BorderRadius.circular(10.0),
                                         border: Border.all(
                                           color: FlutterFlowTheme.of(context)
                                               .grayIcon,
@@ -274,7 +275,7 @@ class _RenewSearchAllPoolPageWidgetState
                                             flex: 3,
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(4, 0, 0, 0),
+                                                  .fromSTEB(4.0, 0.0, 0.0, 0.0),
                                               child: TextFormField(
                                                 controller:
                                                     _model.textController1,
@@ -312,8 +313,8 @@ class _RenewSearchAllPoolPageWidgetState
                                                       InputBorder.none,
                                                   contentPadding:
                                                       EdgeInsetsDirectional
-                                                          .fromSTEB(
-                                                              0, 0, 0, 10),
+                                                          .fromSTEB(0.0, 0.0,
+                                                              0.0, 10.0),
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -336,7 +337,7 @@ class _RenewSearchAllPoolPageWidgetState
                                 Expanded(
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 5, 0, 0),
+                                        0.0, 5.0, 0.0, 0.0),
                                     child: FutureBuilder<ApiCallResponse>(
                                       future: (_model.apiRequestCompleter2 ??=
                                               Completer<ApiCallResponse>()
@@ -357,8 +358,8 @@ class _RenewSearchAllPoolPageWidgetState
                                         if (!snapshot.hasData) {
                                           return Center(
                                             child: SizedBox(
-                                              width: 50,
-                                              height: 50,
+                                              width: 50.0,
+                                              height: 50.0,
                                               child: CircularProgressIndicator(
                                                 valueColor:
                                                     AlwaysStoppedAnimation<
@@ -407,12 +408,15 @@ class _RenewSearchAllPoolPageWidgetState
                                                   return Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0, 0),
+                                                            0.0, 0.0),
                                                     child: Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  5, 5, 5, 5),
+                                                                  5.0,
+                                                                  5.0,
+                                                                  5.0,
+                                                                  5.0),
                                                       child: Container(
                                                         width: double.infinity,
                                                         decoration:
@@ -434,27 +438,28 @@ class _RenewSearchAllPoolPageWidgetState
                                                                   .secondaryBackground,
                                                           boxShadow: [
                                                             BoxShadow(
-                                                              blurRadius: 4,
+                                                              blurRadius: 4.0,
                                                               color: Color(
                                                                   0x33000000),
                                                               offset: Offset(
-                                                                0,
-                                                                2,
+                                                                0.0,
+                                                                2.0,
                                                               ),
                                                             )
                                                           ],
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(20),
+                                                                  .circular(
+                                                                      20.0),
                                                         ),
                                                         child: Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
                                                                   .fromSTEB(
-                                                                      10,
-                                                                      10,
-                                                                      10,
-                                                                      0),
+                                                                      10.0,
+                                                                      10.0,
+                                                                      10.0,
+                                                                      0.0),
                                                           child: Column(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -464,10 +469,10 @@ class _RenewSearchAllPoolPageWidgetState
                                                                 padding:
                                                                     EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            0,
-                                                                            12),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            12.0),
                                                                 child: Stack(
                                                                   children: [
                                                                     Container(
@@ -496,7 +501,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                                     'ชื่อลูกค้า',
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'Noto Sans Thai',
-                                                                                          fontSize: 14,
+                                                                                          fontSize: 14.0,
                                                                                           letterSpacing: 0.0,
                                                                                         ),
                                                                                   ),
@@ -505,7 +510,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               Expanded(
                                                                                 flex: 1,
                                                                                 child: Container(
-                                                                                  width: 10,
+                                                                                  width: 10.0,
                                                                                   decoration: BoxDecoration(),
                                                                                   child: Text(
                                                                                     ':',
@@ -539,7 +544,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                                     )}',
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'Noto Sans Thai',
-                                                                                          fontSize: 14,
+                                                                                          fontSize: 14.0,
                                                                                           letterSpacing: 0.0,
                                                                                         ),
                                                                                   ),
@@ -560,7 +565,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                                     'ทะเบียนรถ',
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'Noto Sans Thai',
-                                                                                          fontSize: 14,
+                                                                                          fontSize: 14.0,
                                                                                           letterSpacing: 0.0,
                                                                                         ),
                                                                                   ),
@@ -569,7 +574,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               Expanded(
                                                                                 flex: 1,
                                                                                 child: Container(
-                                                                                  width: 10,
+                                                                                  width: 10.0,
                                                                                   decoration: BoxDecoration(),
                                                                                   child: Text(
                                                                                     ':',
@@ -593,7 +598,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                                     ),
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'Noto Sans Thai',
-                                                                                          fontSize: 14,
+                                                                                          fontSize: 14.0,
                                                                                           letterSpacing: 0.0,
                                                                                         ),
                                                                                   ),
@@ -614,7 +619,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                                     'ยี่ห้อ/รุ่น',
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'Noto Sans Thai',
-                                                                                          fontSize: 14,
+                                                                                          fontSize: 14.0,
                                                                                           letterSpacing: 0.0,
                                                                                         ),
                                                                                   ),
@@ -623,7 +628,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               Expanded(
                                                                                 flex: 1,
                                                                                 child: Container(
-                                                                                  width: 10,
+                                                                                  width: 10.0,
                                                                                   decoration: BoxDecoration(),
                                                                                   child: Text(
                                                                                     ':',
@@ -652,7 +657,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                                     )}',
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'Noto Sans Thai',
-                                                                                          fontSize: 14,
+                                                                                          fontSize: 14.0,
                                                                                           letterSpacing: 0.0,
                                                                                         ),
                                                                                   ),
@@ -673,7 +678,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                                     'ชั้นประกัน',
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'Noto Sans Thai',
-                                                                                          fontSize: 14,
+                                                                                          fontSize: 14.0,
                                                                                           letterSpacing: 0.0,
                                                                                         ),
                                                                                   ),
@@ -682,7 +687,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               Expanded(
                                                                                 flex: 1,
                                                                                 child: Container(
-                                                                                  width: 10,
+                                                                                  width: 10.0,
                                                                                   decoration: BoxDecoration(),
                                                                                   child: Text(
                                                                                     ':',
@@ -706,7 +711,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                                     ),
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'Noto Sans Thai',
-                                                                                          fontSize: 14,
+                                                                                          fontSize: 14.0,
                                                                                           letterSpacing: 0.0,
                                                                                         ),
                                                                                   ),
@@ -727,7 +732,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                                     'ประเภทการซ่อม',
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'Noto Sans Thai',
-                                                                                          fontSize: 14,
+                                                                                          fontSize: 14.0,
                                                                                           letterSpacing: 0.0,
                                                                                         ),
                                                                                   ),
@@ -736,7 +741,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               Expanded(
                                                                                 flex: 1,
                                                                                 child: Container(
-                                                                                  width: 10,
+                                                                                  width: 10.0,
                                                                                   decoration: BoxDecoration(),
                                                                                   child: Text(
                                                                                     ':',
@@ -760,7 +765,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                                     ),
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'Noto Sans Thai',
-                                                                                          fontSize: 14,
+                                                                                          fontSize: 14.0,
                                                                                           letterSpacing: 0.0,
                                                                                         ),
                                                                                   ),
@@ -782,7 +787,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                                     maxLines: 1,
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'Noto Sans Thai',
-                                                                                          fontSize: 14,
+                                                                                          fontSize: 14.0,
                                                                                           letterSpacing: 0.0,
                                                                                         ),
                                                                                   ),
@@ -791,7 +796,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               Expanded(
                                                                                 flex: 1,
                                                                                 child: Container(
-                                                                                  width: 10,
+                                                                                  width: 10.0,
                                                                                   decoration: BoxDecoration(),
                                                                                   child: Text(
                                                                                     ':',
@@ -818,7 +823,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                                     ),
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'Noto Sans Thai',
-                                                                                          fontSize: 14,
+                                                                                          fontSize: 14.0,
                                                                                           letterSpacing: 0.0,
                                                                                         ),
                                                                                   ),
@@ -839,7 +844,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                                     'สถานะ',
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'Noto Sans Thai',
-                                                                                          fontSize: 14,
+                                                                                          fontSize: 14.0,
                                                                                           letterSpacing: 0.0,
                                                                                         ),
                                                                                   ),
@@ -848,7 +853,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               Expanded(
                                                                                 flex: 1,
                                                                                 child: Container(
-                                                                                  width: 10,
+                                                                                  width: 10.0,
                                                                                   decoration: BoxDecoration(),
                                                                                   child: Text(
                                                                                     ':',
@@ -875,7 +880,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                                         : 'ปฏิเสธ',
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'Noto Sans Thai',
-                                                                                          fontSize: 14,
+                                                                                          fontSize: 14.0,
                                                                                           letterSpacing: 0.0,
                                                                                         ),
                                                                                   ),
@@ -889,8 +894,8 @@ class _RenewSearchAllPoolPageWidgetState
                                                                     Align(
                                                                       alignment:
                                                                           AlignmentDirectional(
-                                                                              1,
-                                                                              0),
+                                                                              1.0,
+                                                                              0.0),
                                                                       child:
                                                                           Column(
                                                                         mainAxisSize:
@@ -909,13 +914,13 @@ class _RenewSearchAllPoolPageWidgetState
                                                                                   ) !=
                                                                                   'ตกลงทำประกัน'))
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                                                                               child: Container(
-                                                                                width: 50,
-                                                                                height: 50,
+                                                                                width: 50.0,
+                                                                                height: 50.0,
                                                                                 decoration: BoxDecoration(
                                                                                   color: Colors.white,
-                                                                                  borderRadius: BorderRadius.circular(60),
+                                                                                  borderRadius: BorderRadius.circular(60.0),
                                                                                   border: Border.all(
                                                                                     color: Colors.black,
                                                                                   ),
@@ -1003,7 +1008,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                                   child: Icon(
                                                                                     Icons.phone_in_talk_outlined,
                                                                                     color: Color(0xFFD9761A),
-                                                                                    size: 24,
+                                                                                    size: 24.0,
                                                                                   ),
                                                                                 ),
                                                                               ),
@@ -1028,12 +1033,11 @@ class _RenewSearchAllPoolPageWidgetState
                                                                   Flexible(
                                                                     child:
                                                                         Padding(
-                                                                      padding: EdgeInsetsDirectional
-                                                                          .fromSTEB(
-                                                                              10,
-                                                                              0,
-                                                                              10,
-                                                                              15),
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          10.0,
+                                                                          0.0,
+                                                                          10.0,
+                                                                          15.0),
                                                                       child:
                                                                           FFButtonWidget(
                                                                         onPressed:
@@ -1060,19 +1064,19 @@ class _RenewSearchAllPoolPageWidgetState
                                                                         options:
                                                                             FFButtonOptions(
                                                                           width:
-                                                                              110,
+                                                                              110.0,
                                                                           height:
-                                                                              35,
+                                                                              35.0,
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0,
-                                                                              0,
-                                                                              0,
-                                                                              0),
+                                                                              0.0,
+                                                                              0.0,
+                                                                              0.0,
+                                                                              0.0),
                                                                           iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0,
-                                                                              0,
-                                                                              0,
-                                                                              0),
+                                                                              0.0,
+                                                                              0.0,
+                                                                              0.0,
+                                                                              0.0),
                                                                           color:
                                                                               Color(0xFFD9761A),
                                                                           textStyle: FlutterFlowTheme.of(context)
@@ -1080,19 +1084,19 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               .override(
                                                                                 fontFamily: 'Noto Sans Thai',
                                                                                 color: Colors.white,
-                                                                                fontSize: 14,
+                                                                                fontSize: 14.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w500,
                                                                               ),
                                                                           elevation:
-                                                                              3,
+                                                                              3.0,
                                                                           borderSide:
                                                                               BorderSide(
                                                                             width:
-                                                                                0,
+                                                                                0.0,
                                                                           ),
                                                                           borderRadius:
-                                                                              BorderRadius.circular(15),
+                                                                              BorderRadius.circular(15.0),
                                                                         ),
                                                                       ),
                                                                     ),
@@ -1100,10 +1104,10 @@ class _RenewSearchAllPoolPageWidgetState
                                                                   Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            10,
-                                                                            0,
-                                                                            0,
-                                                                            0),
+                                                                            10.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                     child:
                                                                         FFButtonWidget(
                                                                       onPressed:
@@ -1231,19 +1235,19 @@ class _RenewSearchAllPoolPageWidgetState
                                                                       options:
                                                                           FFButtonOptions(
                                                                         width:
-                                                                            115,
+                                                                            115.0,
                                                                         height:
-                                                                            35,
+                                                                            35.0,
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                         iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                         color: Color(
                                                                             0xFF089B70),
                                                                         textStyle: FlutterFlowTheme.of(context)
@@ -1251,33 +1255,32 @@ class _RenewSearchAllPoolPageWidgetState
                                                                             .override(
                                                                               fontFamily: 'Noto Sans Thai',
                                                                               color: Colors.white,
-                                                                              fontSize: 14,
+                                                                              fontSize: 14.0,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.w500,
                                                                             ),
                                                                         elevation:
-                                                                            3,
+                                                                            3.0,
                                                                         borderSide:
                                                                             BorderSide(
                                                                           color:
                                                                               Colors.transparent,
                                                                           width:
-                                                                              1,
+                                                                              1.0,
                                                                         ),
                                                                         borderRadius:
-                                                                            BorderRadius.circular(14),
+                                                                            BorderRadius.circular(14.0),
                                                                       ),
                                                                     ),
                                                                   ),
                                                                   Flexible(
                                                                     child:
                                                                         Padding(
-                                                                      padding: EdgeInsetsDirectional
-                                                                          .fromSTEB(
-                                                                              10,
-                                                                              0,
-                                                                              10,
-                                                                              15),
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          10.0,
+                                                                          0.0,
+                                                                          10.0,
+                                                                          15.0),
                                                                       child:
                                                                           FFButtonWidget(
                                                                         onPressed:
@@ -1304,19 +1307,19 @@ class _RenewSearchAllPoolPageWidgetState
                                                                         options:
                                                                             FFButtonOptions(
                                                                           width:
-                                                                              110,
+                                                                              110.0,
                                                                           height:
-                                                                              35,
+                                                                              35.0,
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0,
-                                                                              0,
-                                                                              0,
-                                                                              0),
+                                                                              0.0,
+                                                                              0.0,
+                                                                              0.0,
+                                                                              0.0),
                                                                           iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0,
-                                                                              0,
-                                                                              0,
-                                                                              0),
+                                                                              0.0,
+                                                                              0.0,
+                                                                              0.0,
+                                                                              0.0),
                                                                           color:
                                                                               Color(0xFF004984),
                                                                           textStyle: FlutterFlowTheme.of(context)
@@ -1324,19 +1327,19 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               .override(
                                                                                 fontFamily: 'Noto Sans Thai',
                                                                                 color: Colors.white,
-                                                                                fontSize: 14,
+                                                                                fontSize: 14.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w500,
                                                                               ),
                                                                           elevation:
-                                                                              3,
+                                                                              3.0,
                                                                           borderSide:
                                                                               BorderSide(
                                                                             width:
-                                                                                0,
+                                                                                0.0,
                                                                           ),
                                                                           borderRadius:
-                                                                              BorderRadius.circular(15),
+                                                                              BorderRadius.circular(15.0),
                                                                         ),
                                                                       ),
                                                                     ),
@@ -1364,7 +1367,7 @@ class _RenewSearchAllPoolPageWidgetState
                         if (FFAppState().profileLevel == 'HO')
                           Expanded(
                             child: Align(
-                              alignment: AlignmentDirectional(0, 0),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -1377,7 +1380,7 @@ class _RenewSearchAllPoolPageWidgetState
                                           fontFamily: 'Noto Sans Thai',
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryText,
-                                          fontSize: 24,
+                                          fontSize: 24.0,
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -1399,14 +1402,15 @@ class _RenewSearchAllPoolPageWidgetState
                                 if (false)
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        20, 10, 20, 8),
+                                        20.0, 10.0, 20.0, 8.0),
                                     child: Container(
                                       width: double.infinity,
-                                      height: 40,
+                                      height: 40.0,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
-                                        borderRadius: BorderRadius.circular(10),
+                                        borderRadius:
+                                            BorderRadius.circular(10.0),
                                         border: Border.all(
                                           color: FlutterFlowTheme.of(context)
                                               .grayIcon,
@@ -1420,7 +1424,7 @@ class _RenewSearchAllPoolPageWidgetState
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10, 0, 0, 0),
+                                                    10.0, 0.0, 0.0, 0.0),
                                             child: Text(
                                               'ค้นหารายการต่ออายุ',
                                               style:
@@ -1433,7 +1437,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .secondaryText,
-                                                        fontSize: 14,
+                                                        fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                       ),
                                             ),
@@ -1441,13 +1445,13 @@ class _RenewSearchAllPoolPageWidgetState
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0, 0, 10, 0),
+                                                    0.0, 0.0, 10.0, 0.0),
                                             child: Icon(
                                               Icons.arrow_forward_ios,
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryText,
-                                              size: 18,
+                                              size: 18.0,
                                             ),
                                           ),
                                         ],
@@ -1457,7 +1461,7 @@ class _RenewSearchAllPoolPageWidgetState
                                 Expanded(
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 5, 0, 0),
+                                        0.0, 5.0, 0.0, 0.0),
                                     child: RefreshIndicator(
                                       onRefresh: () async {
                                         safeSetState(() => _model
@@ -1495,8 +1499,8 @@ class _RenewSearchAllPoolPageWidgetState
                                           firstPageProgressIndicatorBuilder:
                                               (_) => Center(
                                             child: SizedBox(
-                                              width: 50,
-                                              height: 50,
+                                              width: 50.0,
+                                              height: 50.0,
                                               child: CircularProgressIndicator(
                                                 valueColor:
                                                     AlwaysStoppedAnimation<
@@ -1511,8 +1515,8 @@ class _RenewSearchAllPoolPageWidgetState
                                           newPageProgressIndicatorBuilder:
                                               (_) => Center(
                                             child: SizedBox(
-                                              width: 50,
-                                              height: 50,
+                                              width: 50.0,
+                                              height: 50.0,
                                               child: CircularProgressIndicator(
                                                 valueColor:
                                                     AlwaysStoppedAnimation<
@@ -1533,11 +1537,12 @@ class _RenewSearchAllPoolPageWidgetState
                                                 .poolAllListviewPagingController!
                                                 .itemList![listItemIndex];
                                             return Align(
-                                              alignment:
-                                                  AlignmentDirectional(0, 0),
+                                              alignment: AlignmentDirectional(
+                                                  0.0, 0.0),
                                               child: Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(5, 5, 5, 5),
+                                                    .fromSTEB(
+                                                        5.0, 5.0, 5.0, 5.0),
                                                 child: Container(
                                                   width: double.infinity,
                                                   decoration: BoxDecoration(
@@ -1556,24 +1561,27 @@ class _RenewSearchAllPoolPageWidgetState
                                                             .secondaryBackground,
                                                     boxShadow: [
                                                       BoxShadow(
-                                                        blurRadius: 4,
+                                                        blurRadius: 4.0,
                                                         color:
                                                             Color(0x33000000),
                                                         offset: Offset(
-                                                          0,
-                                                          2,
+                                                          0.0,
+                                                          2.0,
                                                         ),
                                                       )
                                                     ],
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            20),
+                                                            20.0),
                                                   ),
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
                                                             .fromSTEB(
-                                                                10, 10, 10, 0),
+                                                                10.0,
+                                                                10.0,
+                                                                10.0,
+                                                                0.0),
                                                     child: Column(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -1581,8 +1589,11 @@ class _RenewSearchAllPoolPageWidgetState
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(0,
-                                                                      0, 0, 12),
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      12.0),
                                                           child: Stack(
                                                             children: [
                                                               Container(
@@ -1619,7 +1630,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               'ชื่อลูกค้า',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
@@ -1631,7 +1642,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                           child:
                                                                               Container(
                                                                             width:
-                                                                                10,
+                                                                                10.0,
                                                                             decoration:
                                                                                 BoxDecoration(),
                                                                             child:
@@ -1665,7 +1676,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               ).toString()}',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
@@ -1692,7 +1703,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               'ทะเบียนรถ',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
@@ -1704,7 +1715,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                           child:
                                                                               Container(
                                                                             width:
-                                                                                10,
+                                                                                10.0,
                                                                             decoration:
                                                                                 BoxDecoration(),
                                                                             child:
@@ -1732,7 +1743,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               ).toString()}',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
@@ -1759,7 +1770,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               'ยี่ห้อ/รุ่น',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
@@ -1771,7 +1782,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                           child:
                                                                               Container(
                                                                             width:
-                                                                                10,
+                                                                                10.0,
                                                                             decoration:
                                                                                 BoxDecoration(),
                                                                             child:
@@ -1802,7 +1813,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               ).toString()}',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
@@ -1829,7 +1840,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               'ชั้นประกัน',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
@@ -1841,7 +1852,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                           child:
                                                                               Container(
                                                                             width:
-                                                                                10,
+                                                                                10.0,
                                                                             decoration:
                                                                                 BoxDecoration(),
                                                                             child:
@@ -1872,7 +1883,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               ),
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
@@ -1899,7 +1910,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               'ประเภทการซ่อม',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
@@ -1911,7 +1922,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                           child:
                                                                               Container(
                                                                             width:
-                                                                                10,
+                                                                                10.0,
                                                                             decoration:
                                                                                 BoxDecoration(),
                                                                             child:
@@ -1942,7 +1953,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               ),
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
@@ -1969,7 +1980,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               'วันหมดอายุประกันเดิม',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
@@ -1981,7 +1992,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                           child:
                                                                               Container(
                                                                             width:
-                                                                                10,
+                                                                                10.0,
                                                                             decoration:
                                                                                 BoxDecoration(),
                                                                             child:
@@ -2012,7 +2023,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               ),
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
@@ -2039,7 +2050,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               'สถานะ',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
@@ -2051,7 +2062,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                           child:
                                                                               Container(
                                                                             width:
-                                                                                10,
+                                                                                10.0,
                                                                             decoration:
                                                                                 BoxDecoration(),
                                                                             child:
@@ -2082,7 +2093,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                                   : 'ปฏิเสธ',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
@@ -2096,7 +2107,8 @@ class _RenewSearchAllPoolPageWidgetState
                                                               Align(
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        1, 0),
+                                                                        1.0,
+                                                                        0.0),
                                                                 child: Column(
                                                                   mainAxisSize:
                                                                       MainAxisSize
@@ -2117,22 +2129,22 @@ class _RenewSearchAllPoolPageWidgetState
                                                                             'ตกลงทำประกัน'))
                                                                       Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            10,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            10.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                         child:
                                                                             Container(
                                                                           width:
-                                                                              50,
+                                                                              50.0,
                                                                           height:
-                                                                              50,
+                                                                              50.0,
                                                                           decoration:
                                                                               BoxDecoration(
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).secondaryBackground,
                                                                             borderRadius:
-                                                                                BorderRadius.circular(60),
+                                                                                BorderRadius.circular(60.0),
                                                                             border:
                                                                                 Border.all(
                                                                               color: Colors.black,
@@ -2230,7 +2242,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                                 Icon(
                                                                               Icons.phone_in_talk_outlined,
                                                                               color: Color(0xFFD9761A),
-                                                                              size: 24,
+                                                                              size: 24.0,
                                                                             ),
                                                                           ),
                                                                         ),
@@ -2253,13 +2265,12 @@ class _RenewSearchAllPoolPageWidgetState
                                                           children: [
                                                             Flexible(
                                                               child: Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            10,
-                                                                            0,
-                                                                            10,
-                                                                            15),
+                                                                padding: EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        10.0,
+                                                                        0.0,
+                                                                        10.0,
+                                                                        15.0),
                                                                 child:
                                                                     FFButtonWidget(
                                                                   onPressed:
@@ -2285,20 +2296,22 @@ class _RenewSearchAllPoolPageWidgetState
                                                                       'รายละเอียด',
                                                                   options:
                                                                       FFButtonOptions(
-                                                                    width: 110,
-                                                                    height: 35,
+                                                                    width:
+                                                                        110.0,
+                                                                    height:
+                                                                        35.0,
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                     iconPadding:
                                                                         EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                     color: Color(
                                                                         0xFFD9761A),
                                                                     textStyle: FlutterFlowTheme.of(
@@ -2310,21 +2323,22 @@ class _RenewSearchAllPoolPageWidgetState
                                                                           color:
                                                                               Colors.white,
                                                                           fontSize:
-                                                                              14,
+                                                                              14.0,
                                                                           letterSpacing:
                                                                               0.0,
                                                                           fontWeight:
                                                                               FontWeight.w500,
                                                                         ),
                                                                     elevation:
-                                                                        3,
+                                                                        3.0,
                                                                     borderSide:
                                                                         BorderSide(
-                                                                      width: 0,
+                                                                      width:
+                                                                          0.0,
                                                                     ),
                                                                     borderRadius:
                                                                         BorderRadius.circular(
-                                                                            15),
+                                                                            15.0),
                                                                   ),
                                                                 ),
                                                               ),
@@ -2333,10 +2347,10 @@ class _RenewSearchAllPoolPageWidgetState
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          10,
-                                                                          0,
-                                                                          0,
-                                                                          0),
+                                                                          10.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
                                                               child:
                                                                   FFButtonWidget(
                                                                 onPressed:
@@ -2460,21 +2474,20 @@ class _RenewSearchAllPoolPageWidgetState
                                                                     'บันทึกการโทร',
                                                                 options:
                                                                     FFButtonOptions(
-                                                                  width: 115,
-                                                                  height: 35,
+                                                                  width: 115.0,
+                                                                  height: 35.0,
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0,
-                                                                          0,
-                                                                          0,
-                                                                          0),
-                                                                  iconPadding:
-                                                                      EdgeInsetsDirectional
-                                                                          .fromSTEB(
-                                                                              0,
-                                                                              0,
-                                                                              0,
-                                                                              0),
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                  iconPadding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
                                                                   color: Color(
                                                                       0xFF089B70),
                                                                   textStyle: FlutterFlowTheme.of(
@@ -2486,35 +2499,35 @@ class _RenewSearchAllPoolPageWidgetState
                                                                         color: Colors
                                                                             .white,
                                                                         fontSize:
-                                                                            14,
+                                                                            14.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
                                                                             FontWeight.w500,
                                                                       ),
-                                                                  elevation: 3,
+                                                                  elevation:
+                                                                      3.0,
                                                                   borderSide:
                                                                       BorderSide(
                                                                     color: Colors
                                                                         .transparent,
-                                                                    width: 1,
+                                                                    width: 1.0,
                                                                   ),
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .circular(
-                                                                              14),
+                                                                              14.0),
                                                                 ),
                                                               ),
                                                             ),
                                                             Flexible(
                                                               child: Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            10,
-                                                                            0,
-                                                                            10,
-                                                                            15),
+                                                                padding: EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        10.0,
+                                                                        0.0,
+                                                                        10.0,
+                                                                        15.0),
                                                                 child:
                                                                     FFButtonWidget(
                                                                   onPressed:
@@ -2540,20 +2553,22 @@ class _RenewSearchAllPoolPageWidgetState
                                                                       'ประวัติ',
                                                                   options:
                                                                       FFButtonOptions(
-                                                                    width: 110,
-                                                                    height: 35,
+                                                                    width:
+                                                                        110.0,
+                                                                    height:
+                                                                        35.0,
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                     iconPadding:
                                                                         EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                     color: Color(
                                                                         0xFF004984),
                                                                     textStyle: FlutterFlowTheme.of(
@@ -2565,21 +2580,22 @@ class _RenewSearchAllPoolPageWidgetState
                                                                           color:
                                                                               Colors.white,
                                                                           fontSize:
-                                                                              14,
+                                                                              14.0,
                                                                           letterSpacing:
                                                                               0.0,
                                                                           fontWeight:
                                                                               FontWeight.w500,
                                                                         ),
                                                                     elevation:
-                                                                        3,
+                                                                        3.0,
                                                                     borderSide:
                                                                         BorderSide(
-                                                                      width: 0,
+                                                                      width:
+                                                                          0.0,
                                                                     ),
                                                                     borderRadius:
                                                                         BorderRadius.circular(
-                                                                            15),
+                                                                            15.0),
                                                                   ),
                                                                 ),
                                                               ),
@@ -2604,7 +2620,7 @@ class _RenewSearchAllPoolPageWidgetState
                         if (FFAppState().profileLevel == 'HO')
                           Expanded(
                             child: Align(
-                              alignment: AlignmentDirectional(0, 0),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -2617,7 +2633,7 @@ class _RenewSearchAllPoolPageWidgetState
                                           fontFamily: 'Noto Sans Thai',
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryText,
-                                          fontSize: 24,
+                                          fontSize: 24.0,
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -2632,15 +2648,15 @@ class _RenewSearchAllPoolPageWidgetState
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
-                          padding:
-                              EdgeInsetsDirectional.fromSTEB(20, 10, 20, 8),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              20.0, 10.0, 20.0, 8.0),
                           child: Container(
                             width: double.infinity,
-                            height: 40,
+                            height: 40.0,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
-                              borderRadius: BorderRadius.circular(10),
+                              borderRadius: BorderRadius.circular(10.0),
                               border: Border.all(
                                 color: FlutterFlowTheme.of(context).grayIcon,
                               ),
@@ -2672,8 +2688,8 @@ class _RenewSearchAllPoolPageWidgetState
                                       ],
                                       onChanged: (val) => safeSetState(
                                           () => _model.dropDownValue = val),
-                                      width: 300,
-                                      height: 50,
+                                      width: 300.0,
+                                      height: 50.0,
                                       textStyle: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
@@ -2685,17 +2701,17 @@ class _RenewSearchAllPoolPageWidgetState
                                         Icons.keyboard_arrow_down_rounded,
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
-                                        size: 24,
+                                        size: 24.0,
                                       ),
                                       fillColor: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
-                                      elevation: 2,
+                                      elevation: 2.0,
                                       borderColor: FlutterFlowTheme.of(context)
                                           .secondaryText,
-                                      borderWidth: 1,
-                                      borderRadius: 8,
+                                      borderWidth: 1.0,
+                                      borderRadius: 8.0,
                                       margin: EdgeInsetsDirectional.fromSTEB(
-                                          16, 4, 16, 4),
+                                          16.0, 4.0, 16.0, 4.0),
                                       hidesUnderline: true,
                                       isOverButton: true,
                                       isSearchable: false,
@@ -2706,7 +2722,7 @@ class _RenewSearchAllPoolPageWidgetState
                                   flex: 3,
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        4, 0, 0, 0),
+                                        4.0, 0.0, 0.0, 0.0),
                                     child: TextFormField(
                                       controller: _model.textController2,
                                       focusNode: _model.textFieldFocusNode2,
@@ -2733,7 +2749,7 @@ class _RenewSearchAllPoolPageWidgetState
                                         focusedErrorBorder: InputBorder.none,
                                         contentPadding:
                                             EdgeInsetsDirectional.fromSTEB(
-                                                0, 0, 0, 10),
+                                                0.0, 0.0, 0.0, 10.0),
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
@@ -2756,7 +2772,7 @@ class _RenewSearchAllPoolPageWidgetState
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 10, 0),
+                                      0.0, 0.0, 10.0, 0.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
                                     focusColor: Colors.transparent,
@@ -2916,7 +2932,7 @@ class _RenewSearchAllPoolPageWidgetState
                                       Icons.search_sharp,
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryText,
-                                      size: 30,
+                                      size: 30.0,
                                     ),
                                   ),
                                 ),
@@ -2932,8 +2948,8 @@ class _RenewSearchAllPoolPageWidgetState
                                 200))
                           Expanded(
                             child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 5.0, 0.0, 0.0),
                               child: Builder(
                                 builder: (context) {
                                   final poolList = RenewCheckRenewCall.datajson(
@@ -2956,11 +2972,12 @@ class _RenewSearchAllPoolPageWidgetState
                                       final poolListItem =
                                           poolList[poolListIndex];
                                       return Align(
-                                        alignment: AlignmentDirectional(0, 0),
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  5, 5, 5, 5),
+                                                  5.0, 5.0, 5.0, 5.0),
                                           child: Container(
                                             width: double.infinity,
                                             decoration: BoxDecoration(
@@ -2976,28 +2993,29 @@ class _RenewSearchAllPoolPageWidgetState
                                                       .secondaryBackground,
                                               boxShadow: [
                                                 BoxShadow(
-                                                  blurRadius: 4,
+                                                  blurRadius: 4.0,
                                                   color: Color(0x33000000),
                                                   offset: Offset(
-                                                    0,
-                                                    2,
+                                                    0.0,
+                                                    2.0,
                                                   ),
                                                 )
                                               ],
                                               borderRadius:
-                                                  BorderRadius.circular(20),
+                                                  BorderRadius.circular(20.0),
                                             ),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(10, 10, 10, 0),
+                                                  .fromSTEB(
+                                                      10.0, 10.0, 10.0, 0.0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 0, 10),
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 10.0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -3045,7 +3063,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               'ชื่อลูกค้า',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
@@ -3057,7 +3075,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                           child:
                                                                               Container(
                                                                             width:
-                                                                                10,
+                                                                                10.0,
                                                                             decoration:
                                                                                 BoxDecoration(),
                                                                             child:
@@ -3088,7 +3106,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               )?[poolListIndex]}',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
@@ -3115,7 +3133,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               'ทะเบียนรถ',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
@@ -3127,7 +3145,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                           child:
                                                                               Container(
                                                                             width:
-                                                                                10,
+                                                                                10.0,
                                                                             decoration:
                                                                                 BoxDecoration(),
                                                                             child:
@@ -3154,7 +3172,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               )![poolListIndex],
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
@@ -3181,7 +3199,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               'ยี่ห้อ/รุ่น',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
@@ -3193,7 +3211,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                           child:
                                                                               Container(
                                                                             width:
-                                                                                10,
+                                                                                10.0,
                                                                             decoration:
                                                                                 BoxDecoration(),
                                                                             child:
@@ -3222,7 +3240,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               )?[poolListIndex]}',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
@@ -3249,7 +3267,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               'ชั้นประกัน',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
@@ -3261,7 +3279,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                           child:
                                                                               Container(
                                                                             width:
-                                                                                10,
+                                                                                10.0,
                                                                             decoration:
                                                                                 BoxDecoration(),
                                                                             child:
@@ -3288,7 +3306,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               )![poolListIndex],
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
@@ -3315,7 +3333,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               'ประเภทการซ่อม',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
@@ -3327,7 +3345,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                           child:
                                                                               Container(
                                                                             width:
-                                                                                10,
+                                                                                10.0,
                                                                             decoration:
                                                                                 BoxDecoration(),
                                                                             child:
@@ -3354,7 +3372,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               )![poolListIndex],
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
@@ -3381,7 +3399,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               'วันหมดอายุประกันเดิม',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
@@ -3393,7 +3411,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                           child:
                                                                               Container(
                                                                             width:
-                                                                                10,
+                                                                                10.0,
                                                                             decoration:
                                                                                 BoxDecoration(),
                                                                             child:
@@ -3423,7 +3441,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               ),
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
@@ -3450,7 +3468,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               'สถานะ',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
@@ -3462,7 +3480,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                           child:
                                                                               Container(
                                                                             width:
-                                                                                10,
+                                                                                10.0,
                                                                             decoration:
                                                                                 BoxDecoration(),
                                                                             child:
@@ -3492,7 +3510,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                                   : 'ปฏิเสธ',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
@@ -3506,7 +3524,8 @@ class _RenewSearchAllPoolPageWidgetState
                                                               Align(
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        1, -1),
+                                                                        1.0,
+                                                                        -1.0),
                                                                 child: Column(
                                                                   mainAxisSize:
                                                                       MainAxisSize
@@ -3526,22 +3545,22 @@ class _RenewSearchAllPoolPageWidgetState
                                                                             'ตกลงทำประกัน'))
                                                                       Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            10,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            10.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                         child:
                                                                             Container(
                                                                           width:
-                                                                              50,
+                                                                              50.0,
                                                                           height:
-                                                                              50,
+                                                                              50.0,
                                                                           decoration:
                                                                               BoxDecoration(
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).secondaryBackground,
                                                                             borderRadius:
-                                                                                BorderRadius.circular(60),
+                                                                                BorderRadius.circular(60.0),
                                                                             border:
                                                                                 Border.all(
                                                                               color: Colors.black,
@@ -3637,7 +3656,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                                 Icon(
                                                                               Icons.phone_in_talk_outlined,
                                                                               color: Color(0xFFD9761A),
-                                                                              size: 24,
+                                                                              size: 24.0,
                                                                             ),
                                                                           ),
                                                                         ),
@@ -3666,10 +3685,10 @@ class _RenewSearchAllPoolPageWidgetState
                                                           padding:
                                                               EdgeInsetsDirectional
                                                                   .fromSTEB(
-                                                                      10,
-                                                                      0,
-                                                                      10,
-                                                                      15),
+                                                                      10.0,
+                                                                      0.0,
+                                                                      10.0,
+                                                                      15.0),
                                                           child: FFButtonWidget(
                                                             onPressed:
                                                                 () async {
@@ -3694,22 +3713,22 @@ class _RenewSearchAllPoolPageWidgetState
                                                             text: 'รายละเอียด',
                                                             options:
                                                                 FFButtonOptions(
-                                                              width: 110,
-                                                              height: 35,
+                                                              width: 110.0,
+                                                              height: 35.0,
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0,
-                                                                          0,
-                                                                          0,
-                                                                          0),
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
                                                               iconPadding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0,
-                                                                          0,
-                                                                          0,
-                                                                          0),
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
                                                               color: Color(
                                                                   0xFFD9761A),
                                                               textStyle:
@@ -3722,21 +3741,21 @@ class _RenewSearchAllPoolPageWidgetState
                                                                         color: Colors
                                                                             .white,
                                                                         fontSize:
-                                                                            14,
+                                                                            14.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
                                                                             FontWeight.w500,
                                                                       ),
-                                                              elevation: 3,
+                                                              elevation: 3.0,
                                                               borderSide:
                                                                   BorderSide(
-                                                                width: 0,
+                                                                width: 0.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          15),
+                                                                          15.0),
                                                             ),
                                                           ),
                                                         ),
@@ -3744,8 +3763,11 @@ class _RenewSearchAllPoolPageWidgetState
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(10, 0,
-                                                                    0, 0),
+                                                                .fromSTEB(
+                                                                    10.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
                                                         child: FFButtonWidget(
                                                           onPressed: () async {
                                                             context.pushNamed(
@@ -3878,22 +3900,22 @@ class _RenewSearchAllPoolPageWidgetState
                                                           text: 'บันทึกการโทร',
                                                           options:
                                                               FFButtonOptions(
-                                                            width: 115,
-                                                            height: 35,
+                                                            width: 115.0,
+                                                            height: 35.0,
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        0,
-                                                                        0,
-                                                                        0,
-                                                                        0),
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
                                                             iconPadding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        0,
-                                                                        0,
-                                                                        0,
-                                                                        0),
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
                                                             color: Color(
                                                                 0xFF089B70),
                                                             textStyle:
@@ -3906,24 +3928,24 @@ class _RenewSearchAllPoolPageWidgetState
                                                                       color: Colors
                                                                           .white,
                                                                       fontSize:
-                                                                          14,
+                                                                          14.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w500,
                                                                     ),
-                                                            elevation: 3,
+                                                            elevation: 3.0,
                                                             borderSide:
                                                                 BorderSide(
                                                               color: Colors
                                                                   .transparent,
-                                                              width: 1,
+                                                              width: 1.0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        14),
+                                                                        14.0),
                                                           ),
                                                         ),
                                                       ),
@@ -3932,10 +3954,10 @@ class _RenewSearchAllPoolPageWidgetState
                                                           padding:
                                                               EdgeInsetsDirectional
                                                                   .fromSTEB(
-                                                                      10,
-                                                                      0,
-                                                                      10,
-                                                                      15),
+                                                                      10.0,
+                                                                      0.0,
+                                                                      10.0,
+                                                                      15.0),
                                                           child: FFButtonWidget(
                                                             onPressed:
                                                                 () async {
@@ -3960,22 +3982,22 @@ class _RenewSearchAllPoolPageWidgetState
                                                             text: 'ประวัติ',
                                                             options:
                                                                 FFButtonOptions(
-                                                              width: 110,
-                                                              height: 35,
+                                                              width: 110.0,
+                                                              height: 35.0,
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0,
-                                                                          0,
-                                                                          0,
-                                                                          0),
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
                                                               iconPadding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0,
-                                                                          0,
-                                                                          0,
-                                                                          0),
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
                                                               color: Color(
                                                                   0xFF004984),
                                                               textStyle:
@@ -3988,21 +4010,21 @@ class _RenewSearchAllPoolPageWidgetState
                                                                         color: Colors
                                                                             .white,
                                                                         fontSize:
-                                                                            14,
+                                                                            14.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
                                                                             FontWeight.w500,
                                                                       ),
-                                                              elevation: 3,
+                                                              elevation: 3.0,
                                                               borderSide:
                                                                   BorderSide(
-                                                                width: 0,
+                                                                width: 0.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          15),
+                                                                          15.0),
                                                             ),
                                                           ),
                                                         ),
@@ -4030,25 +4052,25 @@ class _RenewSearchAllPoolPageWidgetState
                                     ) ==
                                     404)))
                           Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(20, 12, 20, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                20.0, 12.0, 20.0, 0.0),
                             child: Container(
-                              width: MediaQuery.sizeOf(context).width,
-                              height: 60,
+                              width: MediaQuery.sizeOf(context).width * 1.0,
+                              height: 60.0,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
                                 boxShadow: [
                                   BoxShadow(
-                                    blurRadius: 4,
+                                    blurRadius: 4.0,
                                     color: Color(0x33000000),
                                     offset: Offset(
-                                      0,
-                                      2,
+                                      0.0,
+                                      2.0,
                                     ),
                                   )
                                 ],
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(8.0),
                                 border: Border.all(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryText,
@@ -4062,13 +4084,13 @@ class _RenewSearchAllPoolPageWidgetState
                                   Expanded(
                                     flex: 2,
                                     child: Align(
-                                      alignment: AlignmentDirectional(0, 0),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            12, 0, 0, 0),
+                                            12.0, 0.0, 0.0, 0.0),
                                         child: Container(
-                                          width: 50,
-                                          height: 50,
+                                          width: 50.0,
+                                          height: 50.0,
                                           decoration: BoxDecoration(
                                             shape: BoxShape.circle,
                                             border: Border.all(
@@ -4079,11 +4101,11 @@ class _RenewSearchAllPoolPageWidgetState
                                           ),
                                           child: Align(
                                             alignment:
-                                                AlignmentDirectional(0, 0),
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: FaIcon(
                                               FontAwesomeIcons.carSide,
                                               color: Color(0xB0FF9936),
-                                              size: 24,
+                                              size: 24.0,
                                             ),
                                           ),
                                         ),
@@ -4094,14 +4116,14 @@ class _RenewSearchAllPoolPageWidgetState
                                     flex: 4,
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          45, 0, 0, 0),
+                                          45.0, 0.0, 0.0, 0.0),
                                       child: Text(
                                         'งานต่ออายุ',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
-                                              fontSize: 16,
+                                              fontSize: 16.0,
                                               letterSpacing: 0.0,
                                             ),
                                       ),
@@ -4111,7 +4133,7 @@ class _RenewSearchAllPoolPageWidgetState
                                     flex: 3,
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 12, 0),
+                                          0.0, 0.0, 12.0, 0.0),
                                       child: FFButtonWidget(
                                         onPressed: () async {
                                           FFAppState().nonePackageFlagCarrier =
@@ -4525,13 +4547,13 @@ class _RenewSearchAllPoolPageWidgetState
                                         },
                                         text: 'ต่ออายุ',
                                         options: FFButtonOptions(
-                                          height: 40,
+                                          height: 40.0,
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  24, 0, 24, 0),
+                                                  24.0, 0.0, 24.0, 0.0),
                                           iconPadding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 0, 0),
+                                                  0.0, 0.0, 0.0, 0.0),
                                           color: Color(0xFFEFE2D8),
                                           textStyle:
                                               FlutterFlowTheme.of(context)
@@ -4542,13 +4564,13 @@ class _RenewSearchAllPoolPageWidgetState
                                                     color: Color(0xFFDB771A),
                                                     letterSpacing: 0.0,
                                                   ),
-                                          elevation: 3,
+                                          elevation: 3.0,
                                           borderSide: BorderSide(
                                             color: Colors.transparent,
-                                            width: 1,
+                                            width: 1.0,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(8),
+                                              BorderRadius.circular(8.0),
                                         ),
                                       ),
                                     ),

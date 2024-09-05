@@ -46,20 +46,20 @@ class _LoadingSceneWidgetState extends State<LoadingSceneWidget> {
       child: Stack(
         children: [
           Align(
-            alignment: AlignmentDirectional(0, 0),
+            alignment: AlignmentDirectional(0.0, 0.0),
             child: Image.asset(
               'assets/images/Spin-1s-200px_(1).gif',
-              width: 120,
-              height: 120,
+              width: 120.0,
+              height: 120.0,
               fit: BoxFit.scaleDown,
             ),
           ),
           Align(
-            alignment: AlignmentDirectional(0, 0),
+            alignment: AlignmentDirectional(0.0, 0.0),
             child: Image.asset(
               'assets/images/Load-54x54-02.gif',
-              width: 50,
-              height: 50,
+              width: 50.0,
+              height: 50.0,
               fit: BoxFit.cover,
             ),
           ),

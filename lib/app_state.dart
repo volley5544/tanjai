@@ -13818,6 +13818,30 @@ class FFAppState extends ChangeNotifier {
   void insertAtIndexInIsShowPackageCardList1(int index, bool value) {
     isShowPackageCardList1.insert(index, value);
   }
+
+  String _sliderCurrentMinValueGross = '1000';
+  String get sliderCurrentMinValueGross => _sliderCurrentMinValueGross;
+  set sliderCurrentMinValueGross(String value) {
+    _sliderCurrentMinValueGross = value;
+  }
+
+  String _sliderCurrentMaxValueGross = '50000';
+  String get sliderCurrentMaxValueGross => _sliderCurrentMaxValueGross;
+  set sliderCurrentMaxValueGross(String value) {
+    _sliderCurrentMaxValueGross = value;
+  }
+
+  String _sliderCurrentMinSumInsured = '0';
+  String get sliderCurrentMinSumInsured => _sliderCurrentMinSumInsured;
+  set sliderCurrentMinSumInsured(String value) {
+    _sliderCurrentMinSumInsured = value;
+  }
+
+  String _sliderCurrentMaxSumInsured = '1000000';
+  String get sliderCurrentMaxSumInsured => _sliderCurrentMaxSumInsured;
+  set sliderCurrentMaxSumInsured(String value) {
+    _sliderCurrentMaxSumInsured = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

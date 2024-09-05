@@ -70,30 +70,30 @@ class _SavedLeadCalledStatusWidgetState
     context.watch<FFAppState>();
 
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(0, 44, 0, 0),
+      padding: EdgeInsetsDirectional.fromSTEB(0.0, 44.0, 0.0, 0.0),
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondaryBackground,
           boxShadow: [
             BoxShadow(
-              blurRadius: 4,
+              blurRadius: 4.0,
               color: Color(0x25090F13),
               offset: Offset(
                 0.0,
-                2,
+                2.0,
               ),
             )
           ],
           borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(0),
-            bottomRight: Radius.circular(0),
-            topLeft: Radius.circular(12),
-            topRight: Radius.circular(12),
+            bottomLeft: Radius.circular(0.0),
+            bottomRight: Radius.circular(0.0),
+            topLeft: Radius.circular(12.0),
+            topRight: Radius.circular(12.0),
           ),
         ),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(16, 4, 16, 16),
+          padding: EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 16.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -103,31 +103,32 @@ class _SavedLeadCalledStatusWidgetState
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    width: 60,
-                    height: 4,
+                    width: 60.0,
+                    height: 4.0,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).primaryBackground,
-                      borderRadius: BorderRadius.circular(2),
+                      borderRadius: BorderRadius.circular(2.0),
                     ),
                   ),
                 ],
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 12, 0),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
                       child: FlutterFlowIconButton(
                         borderColor: Colors.transparent,
-                        borderRadius: 30,
-                        borderWidth: 1,
-                        buttonSize: 44,
+                        borderRadius: 30.0,
+                        borderWidth: 1.0,
+                        buttonSize: 44.0,
                         icon: Icon(
                           Icons.arrow_back_rounded,
                           color: FlutterFlowTheme.of(context).secondaryText,
-                          size: 24,
+                          size: 24.0,
                         ),
                         onPressed: () async {
                           Navigator.pop(context);
@@ -149,7 +150,8 @@ class _SavedLeadCalledStatusWidgetState
                                 ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 4.0, 0.0, 0.0),
                             child: Text(
                               valueOrDefault<String>(
                                 'กรุณากรอกสถานะการโทรของ ${widget!.leadChannel} Lead ID ${widget!.leadId}',
@@ -170,8 +172,8 @@ class _SavedLeadCalledStatusWidgetState
                 ),
               ),
               Divider(
-                height: 24,
-                thickness: 2,
+                height: 24.0,
+                thickness: 2.0,
                 color: FlutterFlowTheme.of(context).primaryBackground,
               ),
               Column(
@@ -181,7 +183,8 @@ class _SavedLeadCalledStatusWidgetState
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            12.0, 0.0, 12.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -232,8 +235,8 @@ class _SavedLeadCalledStatusWidgetState
 
                                   safeSetState(() {});
                                 },
-                                width: 180,
-                                height: 50,
+                                width: 180.0,
+                                height: 50.0,
                                 textStyle: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -243,12 +246,12 @@ class _SavedLeadCalledStatusWidgetState
                                     ),
                                 hintText: 'สถานะการโทร...',
                                 fillColor: Colors.white,
-                                elevation: 2,
+                                elevation: 2.0,
                                 borderColor: Colors.transparent,
-                                borderWidth: 1,
-                                borderRadius: 0,
+                                borderWidth: 1.0,
+                                borderRadius: 0.0,
                                 margin: EdgeInsetsDirectional.fromSTEB(
-                                    12, 4, 12, 4),
+                                    12.0, 4.0, 12.0, 4.0),
                                 isSearchable: false,
                                 isMultiSelect: false,
                               ),
@@ -257,7 +260,8 @@ class _SavedLeadCalledStatusWidgetState
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            12.0, 0.0, 12.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -289,8 +293,8 @@ class _SavedLeadCalledStatusWidgetState
                                         () => _model.reasonDropDownValue = val);
                                     HapticFeedback.mediumImpact();
                                   },
-                                  width: 180,
-                                  height: 50,
+                                  width: 180.0,
+                                  height: 50.0,
                                   textStyle: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -300,12 +304,12 @@ class _SavedLeadCalledStatusWidgetState
                                       ),
                                   hintText: 'เหตุผล...',
                                   fillColor: Colors.white,
-                                  elevation: 2,
+                                  elevation: 2.0,
                                   borderColor: Colors.transparent,
-                                  borderWidth: 1,
-                                  borderRadius: 0,
+                                  borderWidth: 1.0,
+                                  borderRadius: 0.0,
                                   margin: EdgeInsetsDirectional.fromSTEB(
-                                      12, 4, 12, 4),
+                                      12.0, 4.0, 12.0, 4.0),
                                   isSearchable: false,
                                   isMultiSelect: false,
                                 ),
@@ -314,10 +318,11 @@ class _SavedLeadCalledStatusWidgetState
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(14, 5, 14, 0),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            14.0, 5.0, 14.0, 0.0),
                         child: Container(
                           width: double.infinity,
-                          height: 130,
+                          height: 130.0,
                           decoration: BoxDecoration(
                             color: Color(0xFFEEEEEE),
                           ),
@@ -395,7 +400,8 @@ class _SavedLeadCalledStatusWidgetState
                     ],
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                     child: FFButtonWidget(
                       onPressed: () async {
                         var _shouldSetState = false;
@@ -547,24 +553,26 @@ class _SavedLeadCalledStatusWidgetState
                       },
                       text: 'บันทึกการโทร',
                       options: FFButtonOptions(
-                        width: 270,
-                        height: 50,
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                        iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                        width: 270.0,
+                        height: 50.0,
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        iconPadding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         color: Color(0xFF24D200),
                         textStyle:
                             FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Outfit',
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
-                                  fontSize: 16,
+                                  fontSize: 16.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
                                 ),
-                        elevation: 2,
+                        elevation: 2.0,
                         borderSide: BorderSide(
                           color: Colors.transparent,
-                          width: 1,
+                          width: 1.0,
                         ),
                       ),
                     ),

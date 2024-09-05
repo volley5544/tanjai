@@ -52,10 +52,10 @@ class _PlanningKPIComponentWidgetState
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
         borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(8),
-          bottomRight: Radius.circular(8),
-          topLeft: Radius.circular(0),
-          topRight: Radius.circular(0),
+          bottomLeft: Radius.circular(8.0),
+          bottomRight: Radius.circular(8.0),
+          topLeft: Radius.circular(0.0),
+          topRight: Radius.circular(0.0),
         ),
       ),
       child: Column(
@@ -77,7 +77,7 @@ class _PlanningKPIComponentWidgetState
             locale: FFLocalizations.of(context).languageCode,
           ),
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               children: [
@@ -88,7 +88,8 @@ class _PlanningKPIComponentWidgetState
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -105,9 +106,9 @@ class _PlanningKPIComponentWidgetState
                               ),
                             ),
                             SizedBox(
-                              height: 40,
+                              height: 40.0,
                               child: VerticalDivider(
-                                thickness: 2,
+                                thickness: 2.0,
                                 color: FlutterFlowTheme.of(context).grayIcon,
                               ),
                             ),
@@ -194,9 +195,9 @@ class _PlanningKPIComponentWidgetState
                             ),
                           ),
                           SizedBox(
-                            height: 40,
+                            height: 40.0,
                             child: VerticalDivider(
-                              thickness: 2,
+                              thickness: 2.0,
                               color: FlutterFlowTheme.of(context).grayIcon,
                             ),
                           ),
@@ -282,23 +283,25 @@ class _PlanningKPIComponentWidgetState
                       icon: Icon(
                         Icons.add_rounded,
                         color: Colors.white,
-                        size: 15,
+                        size: 15.0,
                       ),
                       options: FFButtonOptions(
-                        width: 120,
-                        height: 40,
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                        iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                        width: 120.0,
+                        height: 40.0,
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        iconPadding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         color: Color(0xFF39D2C0),
                         textStyle: GoogleFonts.getFont(
                           'Lexend Deca',
                           color: Colors.white,
-                          fontSize: 14,
+                          fontSize: 14.0,
                         ),
-                        elevation: 3,
+                        elevation: 3.0,
                         borderSide: BorderSide(
                           color: Colors.transparent,
-                          width: 1,
+                          width: 1.0,
                         ),
                       ),
                     ),

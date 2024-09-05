@@ -138,13 +138,13 @@ class _RenewHistoryWidgetState extends State<RenewHistoryWidget> {
           automaticallyImplyLeading: false,
           leading: FlutterFlowIconButton(
             borderColor: Colors.transparent,
-            borderRadius: 30,
-            borderWidth: 1,
-            buttonSize: 48,
+            borderRadius: 30.0,
+            borderWidth: 1.0,
+            buttonSize: 48.0,
             icon: Icon(
               Icons.arrow_back_rounded,
               color: Color(0xFFD9761A),
-              size: 30,
+              size: 30.0,
             ),
             onPressed: () async {
               context.safePop();
@@ -155,14 +155,14 @@ class _RenewHistoryWidgetState extends State<RenewHistoryWidget> {
             style: FlutterFlowTheme.of(context).headlineSmall.override(
                   fontFamily: 'Noto Sans Thai',
                   color: Color(0xFF003063),
-                  fontSize: 18,
+                  fontSize: 18.0,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.w600,
                 ),
           ),
           actions: [],
           centerTitle: true,
-          elevation: 2,
+          elevation: 2.0,
         ),
         body: SafeArea(
           top: true,
@@ -173,7 +173,7 @@ class _RenewHistoryWidgetState extends State<RenewHistoryWidget> {
               color: FlutterFlowTheme.of(context).secondaryBackground,
             ),
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
@@ -211,16 +211,16 @@ class _RenewHistoryWidgetState extends State<RenewHistoryWidget> {
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Container(
-                                        width: 25,
-                                        height: 25,
+                                        width: 25.0,
+                                        height: 25.0,
                                         decoration: BoxDecoration(
                                           color: Color(0xFF24D200),
                                           shape: BoxShape.circle,
                                         ),
                                       ),
                                       Container(
-                                        width: 5,
-                                        height: 150,
+                                        width: 5.0,
+                                        height: 150.0,
                                         decoration: BoxDecoration(
                                           color: Color(0xFF24D200),
                                         ),
@@ -238,7 +238,7 @@ class _RenewHistoryWidgetState extends State<RenewHistoryWidget> {
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  15, 0, 0, 0),
+                                                  15.0, 0.0, 0.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -248,10 +248,11 @@ class _RenewHistoryWidgetState extends State<RenewHistoryWidget> {
                                             children: [
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(0, 0, 0, 10),
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 0.0, 10.0),
                                                 child: Container(
-                                                  width: 3,
-                                                  height: 150,
+                                                  width: 3.0,
+                                                  height: 150.0,
                                                   decoration: BoxDecoration(
                                                     color: random_data
                                                         .randomColor(),
@@ -261,7 +262,8 @@ class _RenewHistoryWidgetState extends State<RenewHistoryWidget> {
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(5, 0, 0, 10),
+                                                    .fromSTEB(
+                                                        5.0, 0.0, 0.0, 10.0),
                                                 child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -278,8 +280,11 @@ class _RenewHistoryWidgetState extends State<RenewHistoryWidget> {
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(0,
-                                                                      0, 6, 0),
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      6.0,
+                                                                      0.0),
                                                           child: Text(
                                                             'สถานะการโทร :',
                                                             style: FlutterFlowTheme
@@ -326,8 +331,11 @@ class _RenewHistoryWidgetState extends State<RenewHistoryWidget> {
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(0,
-                                                                      0, 6, 0),
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      6.0,
+                                                                      0.0),
                                                           child: Text(
                                                             'เวลาบันทึก :',
                                                             style: FlutterFlowTheme
@@ -374,8 +382,11 @@ class _RenewHistoryWidgetState extends State<RenewHistoryWidget> {
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(0,
-                                                                      0, 6, 0),
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      6.0,
+                                                                      0.0),
                                                           child: Text(
                                                             'วันที่บันทึก:',
                                                             style: FlutterFlowTheme
@@ -427,8 +438,11 @@ class _RenewHistoryWidgetState extends State<RenewHistoryWidget> {
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(0,
-                                                                      0, 6, 0),
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      6.0,
+                                                                      0.0),
                                                           child: Text(
                                                             'รหัสผู้บันทึก:',
                                                             style: FlutterFlowTheme
@@ -475,8 +489,11 @@ class _RenewHistoryWidgetState extends State<RenewHistoryWidget> {
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(0,
-                                                                      0, 6, 0),
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      6.0,
+                                                                      0.0),
                                                           child: Text(
                                                             'ชื่อผู้บันทึก:',
                                                             style: FlutterFlowTheme
@@ -523,8 +540,11 @@ class _RenewHistoryWidgetState extends State<RenewHistoryWidget> {
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(0,
-                                                                      0, 6, 0),
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      6.0,
+                                                                      0.0),
                                                           child: Text(
                                                             'สาขา:',
                                                             style: FlutterFlowTheme
@@ -578,8 +598,11 @@ class _RenewHistoryWidgetState extends State<RenewHistoryWidget> {
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(0,
-                                                                      0, 6, 0),
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      6.0,
+                                                                      0.0),
                                                           child: Text(
                                                             'รายละเอียดการโทร :',
                                                             style: FlutterFlowTheme
@@ -594,7 +617,7 @@ class _RenewHistoryWidgetState extends State<RenewHistoryWidget> {
                                                           ),
                                                         ),
                                                         Container(
-                                                          width: 190,
+                                                          width: 190.0,
                                                           decoration:
                                                               BoxDecoration(),
                                                           child: Text(

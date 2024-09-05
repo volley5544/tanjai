@@ -176,12 +176,12 @@ class _NavBarPageState extends State<NavBarPage> {
         selectedItemColor: Color(0xFFEF9939),
         unselectedItemColor: Colors.black,
         selectedBackgroundColor: Color(0x00000000),
-        borderRadius: 10,
-        itemBorderRadius: 8,
-        margin: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+        borderRadius: 10.0,
+        itemBorderRadius: 8.0,
+        margin: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+        padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
         width: double.infinity,
-        elevation: 0,
+        elevation: 0.0,
         items: [
           FloatingNavbarItem(
             customWidget: Column(
@@ -190,14 +190,14 @@ class _NavBarPageState extends State<NavBarPage> {
                 Icon(
                   currentIndex == 0 ? Icons.home_rounded : Icons.home_outlined,
                   color: currentIndex == 0 ? Color(0xFFEF9939) : Colors.black,
-                  size: currentIndex == 0 ? 30 : 30,
+                  size: currentIndex == 0 ? 30.0 : 30.0,
                 ),
                 Text(
                   'Home',
                   overflow: TextOverflow.ellipsis,
                   style: GoogleFonts.getFont(
                     'Noto Sans Thai',
-                    fontSize: 13,
+                    fontSize: 13.0,
                   ),
                 ),
               ],
@@ -210,14 +210,14 @@ class _NavBarPageState extends State<NavBarPage> {
                 Icon(
                   currentIndex == 1 ? Icons.person : Icons.perm_identity,
                   color: currentIndex == 1 ? Color(0xFFEF9939) : Colors.black,
-                  size: currentIndex == 1 ? 30 : 30,
+                  size: currentIndex == 1 ? 30.0 : 30.0,
                 ),
                 Text(
                   'Profile',
                   overflow: TextOverflow.ellipsis,
                   style: GoogleFonts.getFont(
                     'Noto Sans Thai',
-                    fontSize: 13,
+                    fontSize: 13.0,
                   ),
                 ),
               ],

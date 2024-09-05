@@ -51,26 +51,26 @@ class _LoadingSceneInsuranceWidgetState
         children: [
           Expanded(
             child: Align(
-              alignment: AlignmentDirectional(0, 0),
+              alignment: AlignmentDirectional(0.0, 0.0),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 100, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 100.0, 0.0, 0.0),
                 child: Stack(
                   children: [
                     Align(
-                      alignment: AlignmentDirectional(0, 0),
+                      alignment: AlignmentDirectional(0.0, 0.0),
                       child: Image.asset(
                         'assets/images/Spin-1s-200px_(1).gif',
-                        width: 120,
-                        height: 120,
+                        width: 120.0,
+                        height: 120.0,
                         fit: BoxFit.scaleDown,
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0, 0),
+                      alignment: AlignmentDirectional(0.0, 0.0),
                       child: Image.asset(
                         'assets/images/Load-54x54-02.gif',
-                        width: 50,
-                        height: 50,
+                        width: 50.0,
+                        height: 50.0,
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -81,14 +81,14 @@ class _LoadingSceneInsuranceWidgetState
           ),
           Expanded(
             child: Align(
-              alignment: AlignmentDirectional(0, -1),
+              alignment: AlignmentDirectional(0.0, -1.0),
               child: Text(
                 'กำลังอัพโหลดรูปภาพและส่งอีเมลไปยังบริษัทประกัน กระบวนการนี้อาจใช้เวลาสักครู่\nกรุณาอย่าปิดหน้านี้',
                 textAlign: TextAlign.center,
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Noto Sans Thai',
                       color: Colors.white,
-                      fontSize: 16,
+                      fontSize: 16.0,
                       letterSpacing: 0.0,
                     ),
               ),

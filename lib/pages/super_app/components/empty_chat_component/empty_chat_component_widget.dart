@@ -47,27 +47,27 @@ class _EmptyChatComponentWidgetState extends State<EmptyChatComponentWidget> {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+          padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
           child: Row(
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
-                width: 80,
-                height: 80,
+                width: 80.0,
+                height: 80.0,
                 decoration: BoxDecoration(
                   color: Color(0xFFFF6500),
                   shape: BoxShape.circle,
                   border: Border.all(
                     color: Color(0xFFFF6500),
-                    width: 1,
+                    width: 1.0,
                   ),
                 ),
                 child: Padding(
-                  padding: EdgeInsets.all(1),
+                  padding: EdgeInsets.all(1.0),
                   child: Container(
-                    width: 80,
-                    height: 80,
+                    width: 80.0,
+                    height: 80.0,
                     clipBehavior: Clip.antiAlias,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
@@ -80,7 +80,7 @@ class _EmptyChatComponentWidgetState extends State<EmptyChatComponentWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -103,31 +103,32 @@ class _EmptyChatComponentWidgetState extends State<EmptyChatComponentWidget> {
                   },
                   child: Container(
                     constraints: BoxConstraints(
-                      minHeight: 40,
+                      minHeight: 40.0,
                       maxWidth: MediaQuery.sizeOf(context).width * 0.65,
                     ),
                     decoration: BoxDecoration(
                       color: Color(0xFF3F37FF),
                       boxShadow: [
                         BoxShadow(
-                          blurRadius: 4,
+                          blurRadius: 4.0,
                           color: Color(0x33000000),
                           offset: Offset(
-                            0,
-                            2,
+                            0.0,
+                            2.0,
                           ),
                         )
                       ],
-                      borderRadius: BorderRadius.circular(16),
+                      borderRadius: BorderRadius.circular(16.0),
                     ),
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(12, 8, 12, 8),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 12.0, 8.0),
                       child: Text(
                         'โฮ่ง, โฮ่ง!',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Noto Sans Thai',
                               color: Colors.white,
-                              fontSize: 18,
+                              fontSize: 18.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.w500,
                             ),
@@ -140,41 +141,42 @@ class _EmptyChatComponentWidgetState extends State<EmptyChatComponentWidget> {
           ),
         ),
         Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+          padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
           child: Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.end,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 12, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
                 child: Container(
                   constraints: BoxConstraints(
-                    minHeight: 40,
+                    minHeight: 40.0,
                     maxWidth: MediaQuery.sizeOf(context).width * 0.65,
                   ),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     boxShadow: [
                       BoxShadow(
-                        blurRadius: 4,
+                        blurRadius: 4.0,
                         color: Color(0x33000000),
                         offset: Offset(
-                          0,
-                          2,
+                          0.0,
+                          2.0,
                         ),
                       )
                     ],
-                    borderRadius: BorderRadius.circular(16),
+                    borderRadius: BorderRadius.circular(16.0),
                   ),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(12, 8, 12, 8),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 12.0, 8.0),
                     child: Text(
                       'เมี้ยว, เมี้ยว, เมี้ยว...',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Noto Sans Thai',
                             color: FlutterFlowTheme.of(context).black600,
-                            fontSize: 18,
+                            fontSize: 18.0,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w500,
                           ),
@@ -183,8 +185,8 @@ class _EmptyChatComponentWidgetState extends State<EmptyChatComponentWidget> {
                 ),
               ),
               Container(
-                width: 80,
-                height: 80,
+                width: 80.0,
+                height: 80.0,
                 clipBehavior: Clip.antiAlias,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
@@ -198,12 +200,12 @@ class _EmptyChatComponentWidgetState extends State<EmptyChatComponentWidget> {
           ),
         ),
         Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+          padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
           child: Text(
             'ไม่พบการแชท',
             style: FlutterFlowTheme.of(context).bodyMedium.override(
                   fontFamily: 'Noto Sans Thai',
-                  fontSize: 20,
+                  fontSize: 20.0,
                   letterSpacing: 0.0,
                 ),
           ),
@@ -214,7 +216,7 @@ class _EmptyChatComponentWidgetState extends State<EmptyChatComponentWidget> {
           style: FlutterFlowTheme.of(context).bodyMedium.override(
                 fontFamily: 'Noto Sans Thai',
                 color: FlutterFlowTheme.of(context).grayIcon,
-                fontSize: 16,
+                fontSize: 16.0,
                 letterSpacing: 0.0,
                 fontWeight: FontWeight.normal,
               ),
@@ -225,7 +227,7 @@ class _EmptyChatComponentWidgetState extends State<EmptyChatComponentWidget> {
           style: FlutterFlowTheme.of(context).bodyMedium.override(
                 fontFamily: 'Noto Sans Thai',
                 color: FlutterFlowTheme.of(context).grayIcon,
-                fontSize: 16,
+                fontSize: 16.0,
                 letterSpacing: 0.0,
                 fontWeight: FontWeight.normal,
               ),

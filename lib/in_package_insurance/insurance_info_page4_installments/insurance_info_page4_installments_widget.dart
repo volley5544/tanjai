@@ -72,14 +72,14 @@ class _InsuranceInfoPage4InstallmentsWidgetState
             leading: Icon(
               Icons.arrow_back,
               color: Color(0xFFDB7619),
-              size: 30,
+              size: 30.0,
             ),
             title: Text(
               'จำนวนงวด',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF123063),
-                    fontSize: 16,
+                    fontSize: 16.0,
                     letterSpacing: 0.0,
                   ),
             ),
@@ -89,7 +89,7 @@ class _InsuranceInfoPage4InstallmentsWidgetState
           body: SafeArea(
             top: true,
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
+              padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -116,7 +116,7 @@ class _InsuranceInfoPage4InstallmentsWidgetState
                                         dataList[dataListIndex];
                                     return Container(
                                       width: double.infinity,
-                                      height: 60,
+                                      height: 60.0,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
@@ -126,7 +126,7 @@ class _InsuranceInfoPage4InstallmentsWidgetState
                                         children: [
                                           Container(
                                             width: double.infinity,
-                                            height: 50,
+                                            height: 50.0,
                                             decoration: BoxDecoration(),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -136,7 +136,8 @@ class _InsuranceInfoPage4InstallmentsWidgetState
                                               children: [
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(12, 0, 0, 0),
+                                                      .fromSTEB(
+                                                          12.0, 0.0, 0.0, 0.0),
                                                   child: Text(
                                                     '1',
                                                     style: FlutterFlowTheme.of(
@@ -155,22 +156,22 @@ class _InsuranceInfoPage4InstallmentsWidgetState
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 12, 0),
+                                                            .fromSTEB(0.0, 0.0,
+                                                                12.0, 0.0),
                                                     child: Icon(
                                                       Icons.check_rounded,
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .success,
-                                                      size: 24,
+                                                      size: 24.0,
                                                     ),
                                                   ),
                                               ],
                                             ),
                                           ),
                                           Divider(
-                                            thickness: 1,
+                                            thickness: 1.0,
                                             color: FlutterFlowTheme.of(context)
                                                 .accent4,
                                           ),
@@ -184,16 +185,16 @@ class _InsuranceInfoPage4InstallmentsWidgetState
                           ),
                         ),
                       ]
-                          .divide(SizedBox(height: 12))
-                          .addToStart(SizedBox(height: 12))
-                          .addToEnd(SizedBox(height: 24)),
+                          .divide(SizedBox(height: 12.0))
+                          .addToStart(SizedBox(height: 12.0))
+                          .addToEnd(SizedBox(height: 24.0)),
                     ),
                   ),
                   Expanded(
                     flex: 1,
                     child: Container(
                       width: double.infinity,
-                      height: 100,
+                      height: 100.0,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                       ),
@@ -202,7 +203,8 @@ class _InsuranceInfoPage4InstallmentsWidgetState
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                8.0, 0.0, 8.0, 0.0),
                             child: FFButtonWidget(
                               onPressed: () {
                                 print('Button pressed ...');
@@ -210,30 +212,30 @@ class _InsuranceInfoPage4InstallmentsWidgetState
                               text: 'ตกลง',
                               options: FFButtonOptions(
                                 width: double.infinity,
-                                height: 60,
+                                height: 60.0,
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    24, 0, 24, 0),
-                                iconPadding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                    24.0, 0.0, 24.0, 0.0),
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
                                 color: Color(0xFFDB771B),
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       color: Colors.white,
-                                      fontSize: 15,
+                                      fontSize: 15.0,
                                       letterSpacing: 0.0,
                                     ),
-                                elevation: 3,
+                                elevation: 3.0,
                                 borderSide: BorderSide(
                                   color: Colors.transparent,
-                                  width: 1,
+                                  width: 1.0,
                                 ),
-                                borderRadius: BorderRadius.circular(16),
+                                borderRadius: BorderRadius.circular(16.0),
                               ),
                             ),
                           ),
-                        ].addToStart(SizedBox(height: 16)),
+                        ].addToStart(SizedBox(height: 16.0)),
                       ),
                     ),
                   ),

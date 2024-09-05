@@ -59,23 +59,23 @@ class _LicenseSelectComponentWidgetState
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0, 0),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+        padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
         child: Container(
           width: double.infinity,
-          height: 220,
+          height: 220.0,
           decoration: BoxDecoration(
             color: FlutterFlowTheme.of(context).secondaryBackground,
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(12.0),
           ),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -90,7 +90,7 @@ class _LicenseSelectComponentWidgetState
                         child: Icon(
                           Icons.close_outlined,
                           color: Color(0xFFFF0000),
-                          size: 30,
+                          size: 30.0,
                         ),
                       ),
                     ],
@@ -104,14 +104,14 @@ class _LicenseSelectComponentWidgetState
                       children: [
                         Expanded(
                           child: Align(
-                            alignment: AlignmentDirectional(0, -1),
+                            alignment: AlignmentDirectional(0.0, -1.0),
                             child: Text(
                               'กรุณากรอกเลขผู้มีบัตรนายหน้าประกัน',
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Noto Sans Thai',
-                                    fontSize: 18,
+                                    fontSize: 18.0,
                                     letterSpacing: 0.0,
                                   ),
                             ),
@@ -128,7 +128,8 @@ class _LicenseSelectComponentWidgetState
                       Expanded(
                         flex: 3,
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              8.0, 0.0, 0.0, 0.0),
                           child: TextFormField(
                             controller: _model.textController,
                             focusNode: _model.textFieldFocusNode,
@@ -154,30 +155,30 @@ class _LicenseSelectComponentWidgetState
                                 borderSide: BorderSide(
                                   color:
                                       FlutterFlowTheme.of(context).primaryText,
-                                  width: 1,
+                                  width: 1.0,
                                 ),
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(8.0),
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
                                   color: Color(0x00000000),
-                                  width: 1,
+                                  width: 1.0,
                                 ),
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(8.0),
                               ),
                               errorBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
                                   color: Color(0x00000000),
-                                  width: 1,
+                                  width: 1.0,
                                 ),
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(8.0),
                               ),
                               focusedErrorBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
                                   color: Color(0x00000000),
-                                  width: 1,
+                                  width: 1.0,
                                 ),
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(8.0),
                               ),
                             ),
                             style: FlutterFlowTheme.of(context)
@@ -372,11 +373,11 @@ class _LicenseSelectComponentWidgetState
                             },
                             text: 'บักทึก',
                             options: FFButtonOptions(
-                              height: 50,
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
-                              iconPadding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                              height: 50.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  24.0, 0.0, 24.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
                               color: Color(0xFFFCEFE4),
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
@@ -385,12 +386,12 @@ class _LicenseSelectComponentWidgetState
                                     color: Color(0xFFD9761A),
                                     letterSpacing: 0.0,
                                   ),
-                              elevation: 3,
+                              elevation: 3.0,
                               borderSide: BorderSide(
                                 color: Color(0xFFFCEFE4),
-                                width: 1,
+                                width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(8.0),
                             ),
                           ),
                         ),
@@ -486,11 +487,11 @@ class _LicenseSelectComponentWidgetState
                             },
                             text: 'ยกเลิก',
                             options: FFButtonOptions(
-                              height: 50,
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
-                              iconPadding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                              height: 50.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  24.0, 0.0, 24.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context)
                                   .primaryBackground,
                               textStyle: FlutterFlowTheme.of(context)
@@ -501,19 +502,21 @@ class _LicenseSelectComponentWidgetState
                                         .primaryText,
                                     letterSpacing: 0.0,
                                   ),
-                              elevation: 3,
+                              elevation: 3.0,
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).primaryText,
-                                width: 1,
+                                width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(8.0),
                             ),
                           ),
                         ),
-                    ].divide(SizedBox(width: 24)),
+                    ].divide(SizedBox(width: 24.0)),
                   ),
                 ),
-              ].addToStart(SizedBox(height: 12)).addToEnd(SizedBox(height: 24)),
+              ]
+                  .addToStart(SizedBox(height: 12.0))
+                  .addToEnd(SizedBox(height: 24.0)),
             ),
           ),
         ),

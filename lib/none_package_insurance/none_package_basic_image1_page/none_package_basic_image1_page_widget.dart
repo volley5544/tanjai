@@ -66,8 +66,8 @@ class _NonePackageBasicImage1PageWidgetState
             backgroundColor: Colors.white,
             body: Center(
               child: SizedBox(
-                width: 50,
-                height: 50,
+                width: 50.0,
+                height: 50.0,
                 child: CircularProgressIndicator(
                   valueColor: AlwaysStoppedAnimation<Color>(
                     FlutterFlowTheme.of(context).primary,
@@ -96,13 +96,13 @@ class _NonePackageBasicImage1PageWidgetState
                 automaticallyImplyLeading: false,
                 leading: FlutterFlowIconButton(
                   borderColor: Colors.transparent,
-                  borderRadius: 30,
-                  borderWidth: 1,
-                  buttonSize: 60,
+                  borderRadius: 30.0,
+                  borderWidth: 1.0,
+                  buttonSize: 60.0,
                   icon: Icon(
                     Icons.arrow_back_rounded,
                     color: Color(0xFFDB771A),
-                    size: 30,
+                    size: 30.0,
                   ),
                   onPressed: () async {
                     context.pop();
@@ -121,14 +121,14 @@ class _NonePackageBasicImage1PageWidgetState
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
                         fontFamily: 'Noto Sans Thai',
                         color: Color(0xFF003063),
-                        fontSize: 18,
+                        fontSize: 18.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w600,
                       ),
                 ),
                 actions: [],
                 centerTitle: true,
-                elevation: 2,
+                elevation: 2.0,
               ),
               body: SafeArea(
                 top: true,
@@ -157,7 +157,7 @@ class _NonePackageBasicImage1PageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12, 15, 12, 0),
+                                                  12.0, 15.0, 12.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -169,7 +169,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                         .override(
                                                           fontFamily:
                                                               'Noto Sans Thai',
-                                                          fontSize: 20,
+                                                          fontSize: 20.0,
                                                           letterSpacing: 0.0,
                                                         ),
                                               ),
@@ -184,7 +184,7 @@ class _NonePackageBasicImage1PageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12, 0, 12, 0),
+                                                  12.0, 0.0, 12.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -208,14 +208,14 @@ class _NonePackageBasicImage1PageWidgetState
                                     ),
                                     Container(
                                       width: double.infinity,
-                                      height: 315,
+                                      height: 315.0,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
                                       ),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 12, 0, 0),
+                                            0.0, 12.0, 0.0, 0.0),
                                         child: Container(
                                           width: double.infinity,
                                           child: Stack(
@@ -428,8 +428,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                     }
                                                   },
                                                   child: Container(
-                                                    width: 100,
-                                                    height: 70,
+                                                    width: 100.0,
+                                                    height: 70.0,
                                                     decoration: BoxDecoration(
                                                       color: Color(0x00FFFFFF),
                                                     ),
@@ -616,8 +616,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                     }
                                                   },
                                                   child: Container(
-                                                    width: 110,
-                                                    height: 80,
+                                                    width: 110.0,
+                                                    height: 80.0,
                                                     decoration: BoxDecoration(
                                                       color: Color(0x00FFFFFF),
                                                     ),
@@ -626,7 +626,7 @@ class _NonePackageBasicImage1PageWidgetState
                                               ),
                                               Align(
                                                 alignment: AlignmentDirectional(
-                                                    0, -0.8),
+                                                    0.0, -0.8),
                                                 child: InkWell(
                                                   splashColor:
                                                       Colors.transparent,
@@ -804,8 +804,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                     }
                                                   },
                                                   child: Container(
-                                                    width: 110,
-                                                    height: 80,
+                                                    width: 110.0,
+                                                    height: 80.0,
                                                     decoration: BoxDecoration(
                                                       color: Color(0x00FFFFFF),
                                                     ),
@@ -992,8 +992,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                     }
                                                   },
                                                   child: Container(
-                                                    width: 110,
-                                                    height: 80,
+                                                    width: 110.0,
+                                                    height: 80.0,
                                                     decoration: BoxDecoration(
                                                       color: Color(0x00FFFFFF),
                                                     ),
@@ -1180,8 +1180,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                     }
                                                   },
                                                   child: Container(
-                                                    width: 110,
-                                                    height: 70,
+                                                    width: 110.0,
+                                                    height: 70.0,
                                                     decoration: BoxDecoration(
                                                       color: Color(0x00FFFFFF),
                                                     ),
@@ -1190,7 +1190,7 @@ class _NonePackageBasicImage1PageWidgetState
                                               ),
                                               Align(
                                                 alignment: AlignmentDirectional(
-                                                    0.87, 1),
+                                                    0.87, 1.0),
                                                 child: InkWell(
                                                   splashColor:
                                                       Colors.transparent,
@@ -1368,8 +1368,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                     }
                                                   },
                                                   child: Container(
-                                                    width: 100,
-                                                    height: 80,
+                                                    width: 100.0,
+                                                    height: 80.0,
                                                     decoration: BoxDecoration(
                                                       color: Color(0x00FFFFFF),
                                                     ),
@@ -1556,8 +1556,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                     }
                                                   },
                                                   child: Container(
-                                                    width: 100,
-                                                    height: 80,
+                                                    width: 100.0,
+                                                    height: 80.0,
                                                     decoration: BoxDecoration(
                                                       color: Color(0x00FFFFFF),
                                                     ),
@@ -1744,8 +1744,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                     }
                                                   },
                                                   child: Container(
-                                                    width: 100,
-                                                    height: 80,
+                                                    width: 100.0,
+                                                    height: 80.0,
                                                     decoration: BoxDecoration(
                                                       color: Color(0x00FFFFFF),
                                                     ),
@@ -1758,7 +1758,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                 Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0, 0),
+                                                          0.0, 0.0),
                                                   child: InkWell(
                                                     splashColor:
                                                         Colors.transparent,
@@ -1943,8 +1943,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                       }
                                                     },
                                                     child: Container(
-                                                      width: 160,
-                                                      height: 70,
+                                                      width: 160.0,
+                                                      height: 70.0,
                                                       decoration: BoxDecoration(
                                                         color:
                                                             Color(0x00FFFFFF),
@@ -1962,8 +1962,8 @@ class _NonePackageBasicImage1PageWidgetState
                               ),
                             ),
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 8.0),
                               child: Container(
                                 width: double.infinity,
                                 decoration: BoxDecoration(
@@ -1972,7 +1972,7 @@ class _NonePackageBasicImage1PageWidgetState
                                 ),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      14, 0, 0, 0),
+                                      14.0, 0.0, 0.0, 0.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     crossAxisAlignment:
@@ -1980,7 +1980,7 @@ class _NonePackageBasicImage1PageWidgetState
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            12, 15, 12, 0),
+                                            12.0, 15.0, 12.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -1996,13 +1996,14 @@ class _NonePackageBasicImage1PageWidgetState
                                                             'Noto Sans Thai',
                                                         color:
                                                             Color(0xFF002D5E),
-                                                        fontSize: 18,
+                                                        fontSize: 18.0,
                                                         letterSpacing: 0.0,
                                                       ),
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(10, 0, 0, 0),
+                                                  .fromSTEB(
+                                                      10.0, 0.0, 0.0, 0.0),
                                               child: Text(
                                                 FFAppState().nonePackageVehicleType ==
                                                         'รถบรรทุก หัวลาก หางพ่วง'
@@ -2028,10 +2029,10 @@ class _NonePackageBasicImage1PageWidgetState
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 12, 0, 0),
+                                            0.0, 12.0, 0.0, 0.0),
                                         child: Container(
                                           width: double.infinity,
-                                          height: 20,
+                                          height: 20.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
@@ -2039,7 +2040,7 @@ class _NonePackageBasicImage1PageWidgetState
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0, 0, 5, 0),
+                                                    0.0, 0.0, 5.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               crossAxisAlignment:
@@ -2054,8 +2055,11 @@ class _NonePackageBasicImage1PageWidgetState
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(12, 0,
-                                                                    0, 0),
+                                                                .fromSTEB(
+                                                                    12.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
                                                         child: Text(
                                                           FFAppState().nonePackageImageFrontUploaded !=
                                                                       null &&
@@ -2070,7 +2074,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                fontSize: 12,
+                                                                fontSize: 12.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -2090,12 +2094,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0, 0),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.check,
                                                         color:
                                                             Color(0xFF2EDD78),
-                                                        size: 18,
+                                                        size: 18.0,
                                                       ),
                                                     ),
                                                   ),
@@ -2110,12 +2114,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0, 0),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.close,
                                                         color:
                                                             Color(0xFFFF2B2B),
-                                                        size: 18,
+                                                        size: 18.0,
                                                       ),
                                                     ),
                                                   ),
@@ -2126,10 +2130,10 @@ class _NonePackageBasicImage1PageWidgetState
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 4, 0, 0),
+                                            0.0, 4.0, 0.0, 0.0),
                                         child: Container(
                                           width: double.infinity,
-                                          height: 20,
+                                          height: 20.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
@@ -2137,7 +2141,7 @@ class _NonePackageBasicImage1PageWidgetState
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0, 0, 5, 0),
+                                                    0.0, 0.0, 5.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               crossAxisAlignment:
@@ -2152,8 +2156,11 @@ class _NonePackageBasicImage1PageWidgetState
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(12, 0,
-                                                                    0, 0),
+                                                                .fromSTEB(
+                                                                    12.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
                                                         child: Text(
                                                           FFAppState().nonePackageImageRightFrontUploaded !=
                                                                       null &&
@@ -2168,7 +2175,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                fontSize: 12,
+                                                                fontSize: 12.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -2188,12 +2195,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0, 0),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.check,
                                                         color:
                                                             Color(0xFF2EDD78),
-                                                        size: 18,
+                                                        size: 18.0,
                                                       ),
                                                     ),
                                                   ),
@@ -2208,12 +2215,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0, 0),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.close,
                                                         color:
                                                             Color(0xFFFF2B2B),
-                                                        size: 18,
+                                                        size: 18.0,
                                                       ),
                                                     ),
                                                   ),
@@ -2224,10 +2231,10 @@ class _NonePackageBasicImage1PageWidgetState
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 4, 0, 0),
+                                            0.0, 4.0, 0.0, 0.0),
                                         child: Container(
                                           width: double.infinity,
-                                          height: 20,
+                                          height: 20.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
@@ -2235,7 +2242,7 @@ class _NonePackageBasicImage1PageWidgetState
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0, 0, 5, 0),
+                                                    0.0, 0.0, 5.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               crossAxisAlignment:
@@ -2250,8 +2257,11 @@ class _NonePackageBasicImage1PageWidgetState
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(12, 0,
-                                                                    0, 0),
+                                                                .fromSTEB(
+                                                                    12.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
                                                         child: Text(
                                                           FFAppState().nonePackageImageRightUploaded !=
                                                                       null &&
@@ -2266,7 +2276,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                fontSize: 12,
+                                                                fontSize: 12.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -2286,12 +2296,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0, 0),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.check,
                                                         color:
                                                             Color(0xFF2EDD78),
-                                                        size: 18,
+                                                        size: 18.0,
                                                       ),
                                                     ),
                                                   ),
@@ -2306,12 +2316,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0, 0),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.close,
                                                         color:
                                                             Color(0xFFFF2B2B),
-                                                        size: 18,
+                                                        size: 18.0,
                                                       ),
                                                     ),
                                                   ),
@@ -2322,10 +2332,10 @@ class _NonePackageBasicImage1PageWidgetState
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 4, 0, 0),
+                                            0.0, 4.0, 0.0, 0.0),
                                         child: Container(
                                           width: double.infinity,
-                                          height: 20,
+                                          height: 20.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
@@ -2333,7 +2343,7 @@ class _NonePackageBasicImage1PageWidgetState
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0, 0, 5, 0),
+                                                    0.0, 0.0, 5.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               crossAxisAlignment:
@@ -2348,8 +2358,11 @@ class _NonePackageBasicImage1PageWidgetState
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(12, 0,
-                                                                    0, 0),
+                                                                .fromSTEB(
+                                                                    12.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
                                                         child: Text(
                                                           FFAppState().nonePackageImageRightRearUploaded !=
                                                                       null &&
@@ -2364,7 +2377,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                fontSize: 12,
+                                                                fontSize: 12.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -2384,12 +2397,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0, 0),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.check,
                                                         color:
                                                             Color(0xFF2EDD78),
-                                                        size: 18,
+                                                        size: 18.0,
                                                       ),
                                                     ),
                                                   ),
@@ -2404,12 +2417,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0, 0),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.close,
                                                         color:
                                                             Color(0xFFFF2B2B),
-                                                        size: 18,
+                                                        size: 18.0,
                                                       ),
                                                     ),
                                                   ),
@@ -2420,10 +2433,10 @@ class _NonePackageBasicImage1PageWidgetState
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 4, 0, 0),
+                                            0.0, 4.0, 0.0, 0.0),
                                         child: Container(
                                           width: double.infinity,
-                                          height: 20,
+                                          height: 20.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
@@ -2431,7 +2444,7 @@ class _NonePackageBasicImage1PageWidgetState
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0, 0, 5, 0),
+                                                    0.0, 0.0, 5.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               crossAxisAlignment:
@@ -2446,8 +2459,11 @@ class _NonePackageBasicImage1PageWidgetState
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(12, 0,
-                                                                    0, 0),
+                                                                .fromSTEB(
+                                                                    12.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
                                                         child: Text(
                                                           FFAppState().nonePackageImageRearUploaded !=
                                                                       null &&
@@ -2462,7 +2478,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                fontSize: 12,
+                                                                fontSize: 12.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -2482,12 +2498,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0, 0),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.check,
                                                         color:
                                                             Color(0xFF2EDD78),
-                                                        size: 18,
+                                                        size: 18.0,
                                                       ),
                                                     ),
                                                   ),
@@ -2502,12 +2518,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0, 0),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.close,
                                                         color:
                                                             Color(0xFFFF2B2B),
-                                                        size: 18,
+                                                        size: 18.0,
                                                       ),
                                                     ),
                                                   ),
@@ -2518,10 +2534,10 @@ class _NonePackageBasicImage1PageWidgetState
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 4, 0, 0),
+                                            0.0, 4.0, 0.0, 0.0),
                                         child: Container(
                                           width: double.infinity,
-                                          height: 20,
+                                          height: 20.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
@@ -2529,7 +2545,7 @@ class _NonePackageBasicImage1PageWidgetState
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0, 0, 5, 0),
+                                                    0.0, 0.0, 5.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               crossAxisAlignment:
@@ -2544,8 +2560,11 @@ class _NonePackageBasicImage1PageWidgetState
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(12, 0,
-                                                                    0, 0),
+                                                                .fromSTEB(
+                                                                    12.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
                                                         child: Text(
                                                           FFAppState().nonePackageImageLeftRearUploaded !=
                                                                       null &&
@@ -2560,7 +2579,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                fontSize: 12,
+                                                                fontSize: 12.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -2580,12 +2599,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0, 0),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.check,
                                                         color:
                                                             Color(0xFF2EDD78),
-                                                        size: 18,
+                                                        size: 18.0,
                                                       ),
                                                     ),
                                                   ),
@@ -2600,12 +2619,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0, 0),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.close,
                                                         color:
                                                             Color(0xFFFF2B2B),
-                                                        size: 18,
+                                                        size: 18.0,
                                                       ),
                                                     ),
                                                   ),
@@ -2616,10 +2635,10 @@ class _NonePackageBasicImage1PageWidgetState
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 4, 0, 0),
+                                            0.0, 4.0, 0.0, 0.0),
                                         child: Container(
                                           width: double.infinity,
-                                          height: 20,
+                                          height: 20.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
@@ -2627,7 +2646,7 @@ class _NonePackageBasicImage1PageWidgetState
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0, 0, 5, 0),
+                                                    0.0, 0.0, 5.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               crossAxisAlignment:
@@ -2642,8 +2661,11 @@ class _NonePackageBasicImage1PageWidgetState
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(12, 0,
-                                                                    0, 0),
+                                                                .fromSTEB(
+                                                                    12.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
                                                         child: Text(
                                                           FFAppState().nonePackageImageLeftUploaded !=
                                                                       null &&
@@ -2658,7 +2680,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                fontSize: 12,
+                                                                fontSize: 12.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -2678,12 +2700,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0, 0),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.check,
                                                         color:
                                                             Color(0xFF2EDD78),
-                                                        size: 18,
+                                                        size: 18.0,
                                                       ),
                                                     ),
                                                   ),
@@ -2698,12 +2720,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0, 0),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.close,
                                                         color:
                                                             Color(0xFFFF2B2B),
-                                                        size: 18,
+                                                        size: 18.0,
                                                       ),
                                                     ),
                                                   ),
@@ -2714,10 +2736,10 @@ class _NonePackageBasicImage1PageWidgetState
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 4, 0, 0),
+                                            0.0, 4.0, 0.0, 0.0),
                                         child: Container(
                                           width: double.infinity,
-                                          height: 20,
+                                          height: 20.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
@@ -2725,7 +2747,7 @@ class _NonePackageBasicImage1PageWidgetState
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0, 0, 5, 0),
+                                                    0.0, 0.0, 5.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               crossAxisAlignment:
@@ -2740,8 +2762,11 @@ class _NonePackageBasicImage1PageWidgetState
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(12, 0,
-                                                                    0, 0),
+                                                                .fromSTEB(
+                                                                    12.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
                                                         child: Text(
                                                           FFAppState().nonePackageImageLeftFrontUploaded !=
                                                                       null &&
@@ -2756,7 +2781,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                fontSize: 12,
+                                                                fontSize: 12.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -2776,12 +2801,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0, 0),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.check,
                                                         color:
                                                             Color(0xFF2EDD78),
-                                                        size: 18,
+                                                        size: 18.0,
                                                       ),
                                                     ),
                                                   ),
@@ -2796,12 +2821,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0, 0),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.close,
                                                         color:
                                                             Color(0xFFFF2B2B),
-                                                        size: 18,
+                                                        size: 18.0,
                                                       ),
                                                     ),
                                                   ),
@@ -2815,10 +2840,10 @@ class _NonePackageBasicImage1PageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 4, 0, 0),
+                                                  0.0, 4.0, 0.0, 0.0),
                                           child: Container(
                                             width: double.infinity,
-                                            height: 20,
+                                            height: 20.0,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -2826,7 +2851,7 @@ class _NonePackageBasicImage1PageWidgetState
                                             ),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 5, 0),
+                                                  .fromSTEB(0.0, 0.0, 5.0, 0.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -2841,8 +2866,11 @@ class _NonePackageBasicImage1PageWidgetState
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(12,
-                                                                      0, 0, 0),
+                                                                  .fromSTEB(
+                                                                      12.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
                                                           child: Text(
                                                             FFAppState().nonePackageImageRoofUploaded !=
                                                                         null &&
@@ -2857,7 +2885,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize: 12,
+                                                                  fontSize:
+                                                                      12.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -2877,12 +2906,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0, 0),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.check,
                                                           color:
                                                               Color(0xFF2EDD78),
-                                                          size: 18,
+                                                          size: 18.0,
                                                         ),
                                                       ),
                                                     ),
@@ -2897,12 +2926,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0, 0),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.close,
                                                           color:
                                                               Color(0xFFFF2B2B),
-                                                          size: 18,
+                                                          size: 18.0,
                                                         ),
                                                       ),
                                                     ),
@@ -2922,14 +2951,14 @@ class _NonePackageBasicImage1PageWidgetState
                                     'หัวลาก + หางพ่วง'))
                               Container(
                                 width: double.infinity,
-                                height: 315,
+                                height: 315.0,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
                                 ),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 12, 0, 0),
+                                      0.0, 12.0, 0.0, 0.0),
                                   child: Container(
                                     width: double.infinity,
                                     child: Stack(
@@ -3107,8 +3136,8 @@ class _NonePackageBasicImage1PageWidgetState
                                               }
                                             },
                                             child: Container(
-                                              width: 100,
-                                              height: 70,
+                                              width: 100.0,
+                                              height: 70.0,
                                               decoration: BoxDecoration(
                                                 color: Color(0x00FFFFFF),
                                               ),
@@ -3277,8 +3306,8 @@ class _NonePackageBasicImage1PageWidgetState
                                               }
                                             },
                                             child: Container(
-                                              width: 110,
-                                              height: 80,
+                                              width: 110.0,
+                                              height: 80.0,
                                               decoration: BoxDecoration(
                                                 color: Color(0x00FFFFFF),
                                               ),
@@ -3287,7 +3316,7 @@ class _NonePackageBasicImage1PageWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0, -0.8),
+                                              AlignmentDirectional(0.0, -0.8),
                                           child: InkWell(
                                             splashColor: Colors.transparent,
                                             focusColor: Colors.transparent,
@@ -3447,8 +3476,8 @@ class _NonePackageBasicImage1PageWidgetState
                                               }
                                             },
                                             child: Container(
-                                              width: 110,
-                                              height: 80,
+                                              width: 110.0,
+                                              height: 80.0,
                                               decoration: BoxDecoration(
                                                 color: Color(0x00FFFFFF),
                                               ),
@@ -3617,8 +3646,8 @@ class _NonePackageBasicImage1PageWidgetState
                                               }
                                             },
                                             child: Container(
-                                              width: 110,
-                                              height: 60,
+                                              width: 110.0,
+                                              height: 60.0,
                                               decoration: BoxDecoration(
                                                 color: Color(0x00FFFFFF),
                                               ),
@@ -3627,7 +3656,7 @@ class _NonePackageBasicImage1PageWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(1, 0.06),
+                                              AlignmentDirectional(1.0, 0.06),
                                           child: InkWell(
                                             splashColor: Colors.transparent,
                                             focusColor: Colors.transparent,
@@ -3787,8 +3816,8 @@ class _NonePackageBasicImage1PageWidgetState
                                               }
                                             },
                                             child: Container(
-                                              width: 110,
-                                              height: 60,
+                                              width: 110.0,
+                                              height: 60.0,
                                               decoration: BoxDecoration(
                                                 color: Color(0x00FFFFFF),
                                               ),
@@ -3957,8 +3986,8 @@ class _NonePackageBasicImage1PageWidgetState
                                               }
                                             },
                                             child: Container(
-                                              width: 100,
-                                              height: 80,
+                                              width: 100.0,
+                                              height: 80.0,
                                               decoration: BoxDecoration(
                                                 color: Color(0x00FFFFFF),
                                               ),
@@ -3967,7 +3996,7 @@ class _NonePackageBasicImage1PageWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0, 1.03),
+                                              AlignmentDirectional(0.0, 1.03),
                                           child: InkWell(
                                             splashColor: Colors.transparent,
                                             focusColor: Colors.transparent,
@@ -4127,8 +4156,8 @@ class _NonePackageBasicImage1PageWidgetState
                                               }
                                             },
                                             child: Container(
-                                              width: 100,
-                                              height: 80,
+                                              width: 100.0,
+                                              height: 80.0,
                                               decoration: BoxDecoration(
                                                 color: Color(0x00FFFFFF),
                                               ),
@@ -4297,8 +4326,8 @@ class _NonePackageBasicImage1PageWidgetState
                                               }
                                             },
                                             child: Container(
-                                              width: 100,
-                                              height: 80,
+                                              width: 100.0,
+                                              height: 80.0,
                                               decoration: BoxDecoration(
                                                 color: Color(0x00FFFFFF),
                                               ),
@@ -4315,8 +4344,8 @@ class _NonePackageBasicImage1PageWidgetState
                                 (FFAppState().nonePackageTruckPart ==
                                     'หัวลาก + หางพ่วง'))
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 8.0),
                                 child: Container(
                                   width: double.infinity,
                                   decoration: BoxDecoration(
@@ -4325,7 +4354,7 @@ class _NonePackageBasicImage1PageWidgetState
                                   ),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        14, 0, 0, 0),
+                                        14.0, 0.0, 0.0, 0.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       crossAxisAlignment:
@@ -4334,7 +4363,7 @@ class _NonePackageBasicImage1PageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12, 15, 12, 0),
+                                                  12.0, 15.0, 12.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -4350,14 +4379,15 @@ class _NonePackageBasicImage1PageWidgetState
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFF002D5E),
-                                                          fontSize: 18,
+                                                          fontSize: 18.0,
                                                           letterSpacing: 0.0,
                                                         ),
                                               ),
                                               if (false)
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(10, 0, 0, 0),
+                                                      .fromSTEB(
+                                                          10.0, 0.0, 0.0, 0.0),
                                                   child: Text(
                                                     'บังคับถ่ายรูปให้ครบ 8 รูป',
                                                     style: FlutterFlowTheme.of(
@@ -4381,10 +4411,10 @@ class _NonePackageBasicImage1PageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 12, 0, 0),
+                                                  0.0, 12.0, 0.0, 0.0),
                                           child: Container(
                                             width: double.infinity,
-                                            height: 20,
+                                            height: 20.0,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -4392,7 +4422,7 @@ class _NonePackageBasicImage1PageWidgetState
                                             ),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 5, 0),
+                                                  .fromSTEB(0.0, 0.0, 5.0, 0.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -4407,8 +4437,11 @@ class _NonePackageBasicImage1PageWidgetState
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(12,
-                                                                      0, 0, 0),
+                                                                  .fromSTEB(
+                                                                      12.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
                                                           child: Text(
                                                             FFAppState().nonePackageTrailerImageFrontUploaded !=
                                                                         null &&
@@ -4423,7 +4456,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize: 12,
+                                                                  fontSize:
+                                                                      12.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -4443,12 +4477,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0, 0),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.check,
                                                           color:
                                                               Color(0xFF2EDD78),
-                                                          size: 18,
+                                                          size: 18.0,
                                                         ),
                                                       ),
                                                     ),
@@ -4463,12 +4497,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0, 0),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.close,
                                                           color:
                                                               Color(0xFFFF2B2B),
-                                                          size: 18,
+                                                          size: 18.0,
                                                         ),
                                                       ),
                                                     ),
@@ -4480,10 +4514,10 @@ class _NonePackageBasicImage1PageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 4, 0, 0),
+                                                  0.0, 4.0, 0.0, 0.0),
                                           child: Container(
                                             width: double.infinity,
-                                            height: 20,
+                                            height: 20.0,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -4491,7 +4525,7 @@ class _NonePackageBasicImage1PageWidgetState
                                             ),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 5, 0),
+                                                  .fromSTEB(0.0, 0.0, 5.0, 0.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -4506,8 +4540,11 @@ class _NonePackageBasicImage1PageWidgetState
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(12,
-                                                                      0, 0, 0),
+                                                                  .fromSTEB(
+                                                                      12.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
                                                           child: Text(
                                                             FFAppState().nonePackageTrailerImageRightFrontUploaded !=
                                                                         null &&
@@ -4522,7 +4559,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize: 12,
+                                                                  fontSize:
+                                                                      12.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -4542,12 +4580,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0, 0),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.check,
                                                           color:
                                                               Color(0xFF2EDD78),
-                                                          size: 18,
+                                                          size: 18.0,
                                                         ),
                                                       ),
                                                     ),
@@ -4562,12 +4600,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0, 0),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.close,
                                                           color:
                                                               Color(0xFFFF2B2B),
-                                                          size: 18,
+                                                          size: 18.0,
                                                         ),
                                                       ),
                                                     ),
@@ -4579,10 +4617,10 @@ class _NonePackageBasicImage1PageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 4, 0, 0),
+                                                  0.0, 4.0, 0.0, 0.0),
                                           child: Container(
                                             width: double.infinity,
-                                            height: 20,
+                                            height: 20.0,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -4590,7 +4628,7 @@ class _NonePackageBasicImage1PageWidgetState
                                             ),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 5, 0),
+                                                  .fromSTEB(0.0, 0.0, 5.0, 0.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -4605,8 +4643,11 @@ class _NonePackageBasicImage1PageWidgetState
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(12,
-                                                                      0, 0, 0),
+                                                                  .fromSTEB(
+                                                                      12.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
                                                           child: Text(
                                                             FFAppState().nonePackageTrailerImageRightUploaded !=
                                                                         null &&
@@ -4621,7 +4662,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize: 12,
+                                                                  fontSize:
+                                                                      12.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -4641,12 +4683,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0, 0),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.check,
                                                           color:
                                                               Color(0xFF2EDD78),
-                                                          size: 18,
+                                                          size: 18.0,
                                                         ),
                                                       ),
                                                     ),
@@ -4661,12 +4703,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0, 0),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.close,
                                                           color:
                                                               Color(0xFFFF2B2B),
-                                                          size: 18,
+                                                          size: 18.0,
                                                         ),
                                                       ),
                                                     ),
@@ -4678,10 +4720,10 @@ class _NonePackageBasicImage1PageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 4, 0, 0),
+                                                  0.0, 4.0, 0.0, 0.0),
                                           child: Container(
                                             width: double.infinity,
-                                            height: 20,
+                                            height: 20.0,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -4689,7 +4731,7 @@ class _NonePackageBasicImage1PageWidgetState
                                             ),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 5, 0),
+                                                  .fromSTEB(0.0, 0.0, 5.0, 0.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -4704,8 +4746,11 @@ class _NonePackageBasicImage1PageWidgetState
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(12,
-                                                                      0, 0, 0),
+                                                                  .fromSTEB(
+                                                                      12.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
                                                           child: Text(
                                                             FFAppState().nonePackageTrailerImageRightRearUploaded !=
                                                                         null &&
@@ -4720,7 +4765,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize: 12,
+                                                                  fontSize:
+                                                                      12.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -4740,12 +4786,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0, 0),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.check,
                                                           color:
                                                               Color(0xFF2EDD78),
-                                                          size: 18,
+                                                          size: 18.0,
                                                         ),
                                                       ),
                                                     ),
@@ -4760,12 +4806,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0, 0),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.close,
                                                           color:
                                                               Color(0xFFFF2B2B),
-                                                          size: 18,
+                                                          size: 18.0,
                                                         ),
                                                       ),
                                                     ),
@@ -4777,10 +4823,10 @@ class _NonePackageBasicImage1PageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 4, 0, 0),
+                                                  0.0, 4.0, 0.0, 0.0),
                                           child: Container(
                                             width: double.infinity,
-                                            height: 20,
+                                            height: 20.0,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -4788,7 +4834,7 @@ class _NonePackageBasicImage1PageWidgetState
                                             ),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 5, 0),
+                                                  .fromSTEB(0.0, 0.0, 5.0, 0.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -4803,8 +4849,11 @@ class _NonePackageBasicImage1PageWidgetState
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(12,
-                                                                      0, 0, 0),
+                                                                  .fromSTEB(
+                                                                      12.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
                                                           child: Text(
                                                             FFAppState().nonePackageTrailerImageRearUploaded !=
                                                                         null &&
@@ -4819,7 +4868,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize: 12,
+                                                                  fontSize:
+                                                                      12.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -4839,12 +4889,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0, 0),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.check,
                                                           color:
                                                               Color(0xFF2EDD78),
-                                                          size: 18,
+                                                          size: 18.0,
                                                         ),
                                                       ),
                                                     ),
@@ -4859,12 +4909,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0, 0),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.close,
                                                           color:
                                                               Color(0xFFFF2B2B),
-                                                          size: 18,
+                                                          size: 18.0,
                                                         ),
                                                       ),
                                                     ),
@@ -4876,10 +4926,10 @@ class _NonePackageBasicImage1PageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 4, 0, 0),
+                                                  0.0, 4.0, 0.0, 0.0),
                                           child: Container(
                                             width: double.infinity,
-                                            height: 20,
+                                            height: 20.0,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -4887,7 +4937,7 @@ class _NonePackageBasicImage1PageWidgetState
                                             ),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 5, 0),
+                                                  .fromSTEB(0.0, 0.0, 5.0, 0.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -4902,8 +4952,11 @@ class _NonePackageBasicImage1PageWidgetState
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(12,
-                                                                      0, 0, 0),
+                                                                  .fromSTEB(
+                                                                      12.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
                                                           child: Text(
                                                             FFAppState().nonePackageTrailerImageLeftRearUploaded !=
                                                                         null &&
@@ -4918,7 +4971,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize: 12,
+                                                                  fontSize:
+                                                                      12.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -4938,12 +4992,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0, 0),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.check,
                                                           color:
                                                               Color(0xFF2EDD78),
-                                                          size: 18,
+                                                          size: 18.0,
                                                         ),
                                                       ),
                                                     ),
@@ -4958,12 +5012,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0, 0),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.close,
                                                           color:
                                                               Color(0xFFFF2B2B),
-                                                          size: 18,
+                                                          size: 18.0,
                                                         ),
                                                       ),
                                                     ),
@@ -4975,10 +5029,10 @@ class _NonePackageBasicImage1PageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 4, 0, 0),
+                                                  0.0, 4.0, 0.0, 0.0),
                                           child: Container(
                                             width: double.infinity,
-                                            height: 20,
+                                            height: 20.0,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -4986,7 +5040,7 @@ class _NonePackageBasicImage1PageWidgetState
                                             ),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 5, 0),
+                                                  .fromSTEB(0.0, 0.0, 5.0, 0.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -5001,8 +5055,11 @@ class _NonePackageBasicImage1PageWidgetState
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(12,
-                                                                      0, 0, 0),
+                                                                  .fromSTEB(
+                                                                      12.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
                                                           child: Text(
                                                             FFAppState().nonePackageTrailerImageLeftUploaded !=
                                                                         null &&
@@ -5017,7 +5074,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize: 12,
+                                                                  fontSize:
+                                                                      12.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -5037,12 +5095,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0, 0),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.check,
                                                           color:
                                                               Color(0xFF2EDD78),
-                                                          size: 18,
+                                                          size: 18.0,
                                                         ),
                                                       ),
                                                     ),
@@ -5057,12 +5115,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0, 0),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.close,
                                                           color:
                                                               Color(0xFFFF2B2B),
-                                                          size: 18,
+                                                          size: 18.0,
                                                         ),
                                                       ),
                                                     ),
@@ -5074,10 +5132,10 @@ class _NonePackageBasicImage1PageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 4, 0, 0),
+                                                  0.0, 4.0, 0.0, 0.0),
                                           child: Container(
                                             width: double.infinity,
-                                            height: 20,
+                                            height: 20.0,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -5085,7 +5143,7 @@ class _NonePackageBasicImage1PageWidgetState
                                             ),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 5, 0),
+                                                  .fromSTEB(0.0, 0.0, 5.0, 0.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -5100,8 +5158,11 @@ class _NonePackageBasicImage1PageWidgetState
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(12,
-                                                                      0, 0, 0),
+                                                                  .fromSTEB(
+                                                                      12.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
                                                           child: Text(
                                                             FFAppState().nonePackageTrailerImageLeftFrontUploaded !=
                                                                         null &&
@@ -5116,7 +5177,8 @@ class _NonePackageBasicImage1PageWidgetState
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize: 12,
+                                                                  fontSize:
+                                                                      12.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -5136,12 +5198,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0, 0),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.check,
                                                           color:
                                                               Color(0xFF2EDD78),
-                                                          size: 18,
+                                                          size: 18.0,
                                                         ),
                                                       ),
                                                     ),
@@ -5156,12 +5218,12 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0, 0),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.close,
                                                           color:
                                                               Color(0xFFFF2B2B),
-                                                          size: 18,
+                                                          size: 18.0,
                                                         ),
                                                       ),
                                                     ),
@@ -5183,15 +5245,15 @@ class _NonePackageBasicImage1PageWidgetState
                       flex: 2,
                       child: Container(
                         width: double.infinity,
-                        height: 69,
+                        height: 69.0,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(10.0),
                         ),
                         child: Align(
-                          alignment: AlignmentDirectional(0, 0),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                12.0, 0.0, 12.0, 0.0),
                             child: FFButtonWidget(
                               onPressed: () async {
                                 if (!((FFAppState()
@@ -5351,11 +5413,11 @@ class _NonePackageBasicImage1PageWidgetState
                               text: 'ถัดไป',
                               options: FFButtonOptions(
                                 width: double.infinity,
-                                height: 60,
+                                height: 60.0,
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    24, 0, 24, 0),
-                                iconPadding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                    24.0, 0.0, 24.0, 0.0),
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
                                 color: Color(0xFFDB771A),
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
@@ -5365,12 +5427,12 @@ class _NonePackageBasicImage1PageWidgetState
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
                                     ),
-                                elevation: 3,
+                                elevation: 3.0,
                                 borderSide: BorderSide(
                                   color: Colors.transparent,
-                                  width: 1,
+                                  width: 1.0,
                                 ),
-                                borderRadius: BorderRadius.circular(16),
+                                borderRadius: BorderRadius.circular(16.0),
                               ),
                             ),
                           ),

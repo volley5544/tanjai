@@ -52,9 +52,9 @@ class _InputWidgetState extends State<InputWidget> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Align(
-          alignment: AlignmentDirectional(0, 0),
+          alignment: AlignmentDirectional(0.0, 0.0),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(50, 20, 50, 20),
+            padding: EdgeInsetsDirectional.fromSTEB(50.0, 20.0, 50.0, 20.0),
             child: TextFormField(
               controller: _model.textController,
               focusNode: _model.textFieldFocusNode,
@@ -121,7 +121,7 @@ class _InputWidgetState extends State<InputWidget> {
                         child: Icon(
                           Icons.clear,
                           color: Color(0xFF757575),
-                          size: 22,
+                          size: 22.0,
                         ),
                       )
                     : null,
@@ -136,29 +136,29 @@ class _InputWidgetState extends State<InputWidget> {
           ),
         ),
         Padding(
-          padding: EdgeInsets.all(20),
+          padding: EdgeInsets.all(20.0),
           child: FFButtonWidget(
             onPressed: () {
               print('Button pressed ...');
             },
             text: 'ตกลง',
             options: FFButtonOptions(
-              width: 130,
-              height: 40,
-              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-              iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+              width: 130.0,
+              height: 40.0,
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
               color: Color(0xFF00CB10),
               textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Colors.white,
                     letterSpacing: 0.0,
                   ),
-              elevation: 2,
+              elevation: 2.0,
               borderSide: BorderSide(
                 color: Colors.transparent,
-                width: 1,
+                width: 1.0,
               ),
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(8.0),
             ),
           ),
         ),

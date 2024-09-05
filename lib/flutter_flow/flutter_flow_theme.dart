@@ -206,84 +206,84 @@ class ThemeTypography extends Typography {
         'Noto Sans Thai',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
-        fontSize: 57,
+        fontSize: 57.0,
       );
   String get displayMediumFamily => 'Noto Sans Thai';
   TextStyle get displayMedium => GoogleFonts.getFont(
         'Noto Sans Thai',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
-        fontSize: 45,
+        fontSize: 45.0,
       );
   String get displaySmallFamily => 'Noto Sans Thai';
   TextStyle get displaySmall => GoogleFonts.getFont(
         'Noto Sans Thai',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
-        fontSize: 24,
+        fontSize: 24.0,
       );
   String get headlineLargeFamily => 'Noto Sans Thai';
   TextStyle get headlineLarge => GoogleFonts.getFont(
         'Noto Sans Thai',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
-        fontSize: 32,
+        fontSize: 32.0,
       );
   String get headlineMediumFamily => 'Noto Sans Thai';
   TextStyle get headlineMedium => GoogleFonts.getFont(
         'Noto Sans Thai',
         color: theme.secondaryText,
         fontWeight: FontWeight.w600,
-        fontSize: 22,
+        fontSize: 22.0,
       );
   String get headlineSmallFamily => 'Noto Sans Thai';
   TextStyle get headlineSmall => GoogleFonts.getFont(
         'Noto Sans Thai',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
-        fontSize: 20,
+        fontSize: 20.0,
       );
   String get titleLargeFamily => 'Noto Sans Thai';
   TextStyle get titleLarge => GoogleFonts.getFont(
         'Noto Sans Thai',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
-        fontSize: 22,
+        fontSize: 22.0,
       );
   String get titleMediumFamily => 'Noto Sans Thai';
   TextStyle get titleMedium => GoogleFonts.getFont(
         'Noto Sans Thai',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
-        fontSize: 18,
+        fontSize: 18.0,
       );
   String get titleSmallFamily => 'Noto Sans Thai';
   TextStyle get titleSmall => GoogleFonts.getFont(
         'Noto Sans Thai',
         color: theme.secondaryText,
         fontWeight: FontWeight.w600,
-        fontSize: 16,
+        fontSize: 16.0,
       );
   String get labelLargeFamily => 'Noto Sans Thai';
   TextStyle get labelLarge => GoogleFonts.getFont(
         'Noto Sans Thai',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
-        fontSize: 14,
+        fontSize: 14.0,
       );
   String get labelMediumFamily => 'Noto Sans Thai';
   TextStyle get labelMedium => GoogleFonts.getFont(
         'Noto Sans Thai',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
-        fontSize: 12,
+        fontSize: 12.0,
       );
   String get labelSmallFamily => 'Noto Sans Thai';
   TextStyle get labelSmall => GoogleFonts.getFont(
         'Noto Sans Thai',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
-        fontSize: 11,
+        fontSize: 11.0,
       );
   String get bodyLargeFamily => '';
   TextStyle get bodyLarge => GoogleFonts.getFont(
@@ -294,14 +294,14 @@ class ThemeTypography extends Typography {
         'Noto Sans Thai',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
-        fontSize: 14,
+        fontSize: 14.0,
       );
   String get bodySmallFamily => 'Noto Sans Thai';
   TextStyle get bodySmall => GoogleFonts.getFont(
         'Noto Sans Thai',
         color: theme.secondaryText,
         fontWeight: FontWeight.w600,
-        fontSize: 14,
+        fontSize: 14.0,
       );
 }
 

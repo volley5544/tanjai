@@ -50,19 +50,19 @@ class _SearchOldVmiWidgetState extends State<SearchOldVmiWidget> {
     context.watch<FFAppState>();
 
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
+      padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(0),
-            bottomRight: Radius.circular(0),
-            topLeft: Radius.circular(12),
-            topRight: Radius.circular(12),
+            bottomLeft: Radius.circular(0.0),
+            bottomRight: Radius.circular(0.0),
+            topLeft: Radius.circular(12.0),
+            topRight: Radius.circular(12.0),
           ),
         ),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
+          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
           child: Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -72,23 +72,24 @@ class _SearchOldVmiWidgetState extends State<SearchOldVmiWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(20, 4, 20, 12),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(20.0, 4.0, 20.0, 12.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           SizedBox(
-                            height: 18,
+                            height: 18.0,
                             child: VerticalDivider(
-                              thickness: 3,
+                              thickness: 3.0,
                               color: Color(0xFFE8903E),
                             ),
                           ),
                           Expanded(
                             child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(4, 0, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  4.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 'ค้นหากรมธรรม์ย้อนหลัง',
                                 style: FlutterFlowTheme.of(context)
@@ -96,7 +97,7 @@ class _SearchOldVmiWidgetState extends State<SearchOldVmiWidget> {
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       color: Color(0xFF003063),
-                                      fontSize: 16,
+                                      fontSize: 16.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -108,10 +109,10 @@ class _SearchOldVmiWidgetState extends State<SearchOldVmiWidget> {
                     ),
                     Container(
                       width: MediaQuery.sizeOf(context).width * 0.9,
-                      height: 50,
+                      height: 50.0,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
-                        borderRadius: BorderRadius.circular(8),
+                        borderRadius: BorderRadius.circular(8.0),
                         border: Border.all(
                           color: Colors.black,
                           width: 0.1,
@@ -123,20 +124,20 @@ class _SearchOldVmiWidgetState extends State<SearchOldVmiWidget> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                10.0, 0.0, 0.0, 0.0),
                             child: Icon(
                               Icons.search,
                               color: Color(0xFF878787),
-                              size: 24,
+                              size: 24.0,
                             ),
                           ),
                           Expanded(
                             child: Align(
-                              alignment: AlignmentDirectional(0, 0),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    8, 0.5, 8, 0.5),
+                                    8.0, 0.5, 8.0, 0.5),
                                 child: TextFormField(
                                   controller:
                                       _model.searchFirstnameTextController,
@@ -153,7 +154,7 @@ class _SearchOldVmiWidgetState extends State<SearchOldVmiWidget> {
                                         .labelMedium
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
-                                          fontSize: 14,
+                                          fontSize: 14.0,
                                           letterSpacing: 0.0,
                                         ),
                                     hintText: 'ค้นหาทะเบียนรถลูกค้า',
@@ -161,7 +162,7 @@ class _SearchOldVmiWidgetState extends State<SearchOldVmiWidget> {
                                         .labelMedium
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
-                                          fontSize: 14,
+                                          fontSize: 14.0,
                                           letterSpacing: 0.0,
                                         ),
                                     enabledBorder: InputBorder.none,
@@ -173,7 +174,7 @@ class _SearchOldVmiWidgetState extends State<SearchOldVmiWidget> {
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
-                                        fontSize: 15,
+                                        fontSize: 15.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
@@ -185,8 +186,8 @@ class _SearchOldVmiWidgetState extends State<SearchOldVmiWidget> {
                             ),
                           ),
                           Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 0, 12, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 12.0, 0.0),
                             child: FFButtonWidget(
                               onPressed: () async {
                                 var _shouldSetState = false;
@@ -323,11 +324,11 @@ class _SearchOldVmiWidgetState extends State<SearchOldVmiWidget> {
                               },
                               text: 'ค้นหา',
                               options: FFButtonOptions(
-                                height: 40,
+                                height: 40.0,
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    24, 0, 24, 0),
-                                iconPadding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                    24.0, 0.0, 24.0, 0.0),
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
                                 color: Color(0xFFD9761A),
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
@@ -336,19 +337,19 @@ class _SearchOldVmiWidgetState extends State<SearchOldVmiWidget> {
                                       color: Colors.white,
                                       letterSpacing: 0.0,
                                     ),
-                                elevation: 3,
+                                elevation: 3.0,
                                 borderSide: BorderSide(
                                   color: Colors.transparent,
-                                  width: 1,
+                                  width: 1.0,
                                 ),
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(8.0),
                               ),
                             ),
                           ),
                         ],
                       ),
                     ),
-                  ].addToStart(SizedBox(height: 24)),
+                  ].addToStart(SizedBox(height: 24.0)),
                 ),
               ),
             ],

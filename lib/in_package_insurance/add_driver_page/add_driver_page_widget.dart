@@ -73,13 +73,13 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget> {
           automaticallyImplyLeading: false,
           leading: FlutterFlowIconButton(
             borderColor: Colors.transparent,
-            borderRadius: 30,
-            borderWidth: 1,
-            buttonSize: 60,
+            borderRadius: 30.0,
+            borderWidth: 1.0,
+            buttonSize: 60.0,
             icon: Icon(
               Icons.arrow_back,
               color: Color(0xFFDB771A),
-              size: 30,
+              size: 30.0,
             ),
             onPressed: () async {
               if (!widget!.isEditing!) {
@@ -122,13 +122,13 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget> {
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Noto Sans Thai',
                   color: Color(0xFF204A77),
-                  fontSize: 18,
+                  fontSize: 18.0,
                   letterSpacing: 0.0,
                 ),
           ),
           actions: [],
           centerTitle: true,
-          elevation: 2,
+          elevation: 2.0,
         ),
         body: SafeArea(
           top: true,
@@ -139,9 +139,9 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget> {
                 child: ListView(
                   padding: EdgeInsets.fromLTRB(
                     0,
-                    12,
+                    12.0,
                     0,
-                    30,
+                    30.0,
                   ),
                   shrinkWrap: true,
                   scrollDirection: Axis.vertical,
@@ -165,18 +165,19 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget> {
               ),
               if (FFAppState().DriverList.length > 0)
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 20),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 20.0),
                   child: Container(
-                    width: MediaQuery.sizeOf(context).width,
-                    height: 65,
+                    width: MediaQuery.sizeOf(context).width * 1.0,
+                    height: 65.0,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(8.0),
                     ),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              16.0, 0.0, 16.0, 0.0),
                           child: FFButtonWidget(
                             onPressed: () async {
                               if (!((_model.driverInfomationFormComponentModel.firstnameTextfieldTextController.text != null &&
@@ -285,12 +286,12 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget> {
                             },
                             text: 'บันทึก',
                             options: FFButtonOptions(
-                              width: MediaQuery.sizeOf(context).width,
-                              height: 60,
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
-                              iconPadding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                              width: MediaQuery.sizeOf(context).width * 1.0,
+                              height: 60.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  24.0, 0.0, 24.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
                               color: Color(0xFFD9761A),
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
@@ -301,12 +302,12 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget> {
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                   ),
-                              elevation: 3,
+                              elevation: 3.0,
                               borderSide: BorderSide(
                                 color: Colors.transparent,
-                                width: 1,
+                                width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(16),
+                              borderRadius: BorderRadius.circular(16.0),
                             ),
                           ),
                         ),
@@ -314,7 +315,7 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget> {
                     ),
                   ),
                 ),
-            ].addToStart(SizedBox(height: 12)),
+            ].addToStart(SizedBox(height: 12.0)),
           ),
         ),
       ),

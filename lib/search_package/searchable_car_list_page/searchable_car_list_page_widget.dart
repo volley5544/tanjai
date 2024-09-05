@@ -109,7 +109,7 @@ class _SearchableCarListPageWidgetState
               child: Icon(
                 Icons.arrow_back,
                 color: Color(0xFFDB7619),
-                size: 30,
+                size: 30.0,
               ),
             ),
             title: Text(
@@ -117,7 +117,7 @@ class _SearchableCarListPageWidgetState
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF123063),
-                    fontSize: 16,
+                    fontSize: 16.0,
                     letterSpacing: 0.0,
                   ),
             ),
@@ -127,7 +127,7 @@ class _SearchableCarListPageWidgetState
           body: SafeArea(
             top: true,
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
+              padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -138,8 +138,8 @@ class _SearchableCarListPageWidgetState
                       children: [
                         if (false)
                           Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                12.0, 0.0, 12.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -164,11 +164,11 @@ class _SearchableCarListPageWidgetState
                         if ((widget!.dataList!.length > 5) && false)
                           Container(
                             width: double.infinity,
-                            height: 50,
+                            height: 50.0,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
-                              borderRadius: BorderRadius.circular(10),
+                              borderRadius: BorderRadius.circular(10.0),
                               border: Border.all(
                                 width: 0.5,
                               ),
@@ -179,7 +179,7 @@ class _SearchableCarListPageWidgetState
                                 Expanded(
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        8, 0, 8, 0),
+                                        8.0, 0.0, 8.0, 0.0),
                                     child: TextFormField(
                                       controller: _model.textController,
                                       focusNode: _model.textFieldFocusNode,
@@ -247,7 +247,7 @@ class _SearchableCarListPageWidgetState
                                           'รถเก๋ง')!)
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 0, 7),
+                                          0.0, 0.0, 0.0, 7.0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
                                         focusColor: Colors.transparent,
@@ -460,12 +460,12 @@ class _SearchableCarListPageWidgetState
                                         },
                                         child: Container(
                                           width: double.infinity,
-                                          height: 65,
+                                          height: 65.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             borderRadius:
-                                                BorderRadius.circular(10),
+                                                BorderRadius.circular(10.0),
                                             border: Border.all(
                                               width: 0.5,
                                             ),
@@ -475,7 +475,7 @@ class _SearchableCarListPageWidgetState
                                             children: [
                                               Container(
                                                 width: double.infinity,
-                                                height: 60,
+                                                height: 60.0,
                                                 decoration: BoxDecoration(),
                                                 child: Row(
                                                   mainAxisSize:
@@ -488,7 +488,10 @@ class _SearchableCarListPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  12, 0, 0, 0),
+                                                                  12.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
                                                       child: Text(
                                                         'รถเก๋ง',
                                                         style:
@@ -507,14 +510,17 @@ class _SearchableCarListPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0, 0, 20, 0),
+                                                                  0.0,
+                                                                  0.0,
+                                                                  20.0,
+                                                                  0.0),
                                                       child: ClipRRect(
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8),
+                                                                .circular(8.0),
                                                         child: Image.asset(
                                                           'assets/images/0a22b_.png',
-                                                          width: 90,
+                                                          width: 90.0,
                                                           fit: BoxFit.cover,
                                                         ),
                                                       ),
@@ -523,7 +529,7 @@ class _SearchableCarListPageWidgetState
                                                 ),
                                               ),
                                               Divider(
-                                                thickness: 1,
+                                                thickness: 1.0,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .accent4,
@@ -541,7 +547,7 @@ class _SearchableCarListPageWidgetState
                                           'รถเก๋ง')!)
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 0, 7),
+                                          0.0, 0.0, 0.0, 7.0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
                                         focusColor: Colors.transparent,
@@ -760,12 +766,12 @@ class _SearchableCarListPageWidgetState
                                         },
                                         child: Container(
                                           width: double.infinity,
-                                          height: 65,
+                                          height: 65.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             borderRadius:
-                                                BorderRadius.circular(10),
+                                                BorderRadius.circular(10.0),
                                             border: Border.all(
                                               width: 0.5,
                                             ),
@@ -775,7 +781,7 @@ class _SearchableCarListPageWidgetState
                                             children: [
                                               Container(
                                                 width: double.infinity,
-                                                height: 60,
+                                                height: 60.0,
                                                 decoration: BoxDecoration(),
                                                 child: Row(
                                                   mainAxisSize:
@@ -788,7 +794,10 @@ class _SearchableCarListPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  12, 0, 0, 0),
+                                                                  12.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
                                                       child: Text(
                                                         'รถตู้',
                                                         style:
@@ -807,14 +816,17 @@ class _SearchableCarListPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0, 0, 20, 0),
+                                                                  0.0,
+                                                                  0.0,
+                                                                  20.0,
+                                                                  0.0),
                                                       child: ClipRRect(
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8),
+                                                                .circular(8.0),
                                                         child: Image.asset(
                                                           'assets/images/8h5d5_.png',
-                                                          width: 90,
+                                                          width: 90.0,
                                                           fit: BoxFit.cover,
                                                         ),
                                                       ),
@@ -823,7 +835,7 @@ class _SearchableCarListPageWidgetState
                                                 ),
                                               ),
                                               Divider(
-                                                thickness: 1,
+                                                thickness: 1.0,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .accent4,
@@ -841,7 +853,7 @@ class _SearchableCarListPageWidgetState
                                           'รถเก๋ง')!)
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 0, 7),
+                                          0.0, 0.0, 0.0, 7.0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
                                         focusColor: Colors.transparent,
@@ -2174,12 +2186,12 @@ class _SearchableCarListPageWidgetState
                                         },
                                         child: Container(
                                           width: double.infinity,
-                                          height: 65,
+                                          height: 65.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             borderRadius:
-                                                BorderRadius.circular(10),
+                                                BorderRadius.circular(10.0),
                                             border: Border.all(
                                               width: 0.5,
                                             ),
@@ -2189,7 +2201,7 @@ class _SearchableCarListPageWidgetState
                                             children: [
                                               Container(
                                                 width: double.infinity,
-                                                height: 60,
+                                                height: 60.0,
                                                 decoration: BoxDecoration(),
                                                 child: Row(
                                                   mainAxisSize:
@@ -2202,7 +2214,10 @@ class _SearchableCarListPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  12, 0, 0, 0),
+                                                                  12.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
                                                       child: Text(
                                                         'รถกระบะ 2 ประตู',
                                                         style:
@@ -2221,14 +2236,17 @@ class _SearchableCarListPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0, 0, 20, 0),
+                                                                  0.0,
+                                                                  0.0,
+                                                                  20.0,
+                                                                  0.0),
                                                       child: ClipRRect(
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8),
+                                                                .circular(8.0),
                                                         child: Image.asset(
                                                           'assets/images/__().png',
-                                                          width: 90,
+                                                          width: 90.0,
                                                           fit: BoxFit.cover,
                                                         ),
                                                       ),
@@ -2237,7 +2255,7 @@ class _SearchableCarListPageWidgetState
                                                 ),
                                               ),
                                               Divider(
-                                                thickness: 1,
+                                                thickness: 1.0,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .accent4,
@@ -2255,7 +2273,7 @@ class _SearchableCarListPageWidgetState
                                           'รถเก๋ง')!)
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 0, 7),
+                                          0.0, 0.0, 0.0, 7.0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
                                         focusColor: Colors.transparent,
@@ -2474,12 +2492,12 @@ class _SearchableCarListPageWidgetState
                                         },
                                         child: Container(
                                           width: double.infinity,
-                                          height: 65,
+                                          height: 65.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             borderRadius:
-                                                BorderRadius.circular(10),
+                                                BorderRadius.circular(10.0),
                                             border: Border.all(
                                               width: 0.5,
                                             ),
@@ -2489,7 +2507,7 @@ class _SearchableCarListPageWidgetState
                                             children: [
                                               Container(
                                                 width: double.infinity,
-                                                height: 60,
+                                                height: 60.0,
                                                 decoration: BoxDecoration(),
                                                 child: Row(
                                                   mainAxisSize:
@@ -2502,7 +2520,10 @@ class _SearchableCarListPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  12, 0, 0, 0),
+                                                                  12.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
                                                       child: Text(
                                                         'รถกระบะ 4 ประตู',
                                                         style:
@@ -2521,14 +2542,17 @@ class _SearchableCarListPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0, 0, 20, 0),
+                                                                  0.0,
+                                                                  0.0,
+                                                                  20.0,
+                                                                  0.0),
                                                       child: ClipRRect(
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8),
+                                                                .circular(8.0),
                                                         child: Image.asset(
                                                           'assets/images/_4_.png',
-                                                          width: 90,
+                                                          width: 90.0,
                                                           fit: BoxFit.cover,
                                                         ),
                                                       ),
@@ -2537,7 +2561,7 @@ class _SearchableCarListPageWidgetState
                                                 ),
                                               ),
                                               Divider(
-                                                thickness: 1,
+                                                thickness: 1.0,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .accent4,
@@ -2550,7 +2574,7 @@ class _SearchableCarListPageWidgetState
                                   if (widget!.fromPage != 'act')
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 0, 7),
+                                          0.0, 0.0, 0.0, 7.0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
                                         focusColor: Colors.transparent,
@@ -3729,12 +3753,12 @@ class _SearchableCarListPageWidgetState
                                         },
                                         child: Container(
                                           width: double.infinity,
-                                          height: 65,
+                                          height: 65.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             borderRadius:
-                                                BorderRadius.circular(10),
+                                                BorderRadius.circular(10.0),
                                             border: Border.all(
                                               width: 0.5,
                                             ),
@@ -3744,7 +3768,7 @@ class _SearchableCarListPageWidgetState
                                             children: [
                                               Container(
                                                 width: double.infinity,
-                                                height: 60,
+                                                height: 60.0,
                                                 decoration: BoxDecoration(),
                                                 child: Row(
                                                   mainAxisSize:
@@ -3757,7 +3781,10 @@ class _SearchableCarListPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  12, 0, 0, 0),
+                                                                  12.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
                                                       child: Text(
                                                         'รถบรรทุก หัวลาก หางพ่วง',
                                                         style:
@@ -3776,14 +3803,17 @@ class _SearchableCarListPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0, 0, 20, 0),
+                                                                  0.0,
+                                                                  0.0,
+                                                                  20.0,
+                                                                  0.0),
                                                       child: ClipRRect(
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8),
+                                                                .circular(8.0),
                                                         child: Image.asset(
                                                           'assets/images/__.png',
-                                                          width: 140,
+                                                          width: 140.0,
                                                           fit: BoxFit.cover,
                                                         ),
                                                       ),
@@ -3792,7 +3822,7 @@ class _SearchableCarListPageWidgetState
                                                 ),
                                               ),
                                               Divider(
-                                                thickness: 1,
+                                                thickness: 1.0,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .accent4,
@@ -3805,7 +3835,7 @@ class _SearchableCarListPageWidgetState
                                   if (widget!.fromPage != 'act')
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 0, 7),
+                                          0.0, 0.0, 0.0, 7.0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
                                         focusColor: Colors.transparent,
@@ -4931,12 +4961,12 @@ class _SearchableCarListPageWidgetState
                                         },
                                         child: Container(
                                           width: double.infinity,
-                                          height: 65,
+                                          height: 65.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             borderRadius:
-                                                BorderRadius.circular(10),
+                                                BorderRadius.circular(10.0),
                                             border: Border.all(
                                               width: 0.5,
                                             ),
@@ -4946,7 +4976,7 @@ class _SearchableCarListPageWidgetState
                                             children: [
                                               Container(
                                                 width: double.infinity,
-                                                height: 60,
+                                                height: 60.0,
                                                 decoration: BoxDecoration(),
                                                 child: Row(
                                                   mainAxisSize:
@@ -4959,7 +4989,10 @@ class _SearchableCarListPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  12, 0, 0, 0),
+                                                                  12.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
                                                       child: Text(
                                                         'รถเเต่ง',
                                                         style:
@@ -4978,14 +5011,17 @@ class _SearchableCarListPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0, 0, 20, 0),
+                                                                  0.0,
+                                                                  0.0,
+                                                                  20.0,
+                                                                  0.0),
                                                       child: ClipRRect(
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8),
+                                                                .circular(8.0),
                                                         child: Image.asset(
                                                           'assets/images/hy5n2_.png',
-                                                          width: 90,
+                                                          width: 90.0,
                                                           fit: BoxFit.cover,
                                                         ),
                                                       ),
@@ -4994,7 +5030,7 @@ class _SearchableCarListPageWidgetState
                                                 ),
                                               ),
                                               Divider(
-                                                thickness: 1,
+                                                thickness: 1.0,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .accent4,
@@ -5007,7 +5043,7 @@ class _SearchableCarListPageWidgetState
                                   if (widget!.fromPage != 'act')
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 0, 7),
+                                          0.0, 0.0, 0.0, 7.0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
                                         focusColor: Colors.transparent,
@@ -6133,12 +6169,12 @@ class _SearchableCarListPageWidgetState
                                         },
                                         child: Container(
                                           width: double.infinity,
-                                          height: 65,
+                                          height: 65.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             borderRadius:
-                                                BorderRadius.circular(10),
+                                                BorderRadius.circular(10.0),
                                             border: Border.all(
                                               width: 0.5,
                                             ),
@@ -6148,7 +6184,7 @@ class _SearchableCarListPageWidgetState
                                             children: [
                                               Container(
                                                 width: double.infinity,
-                                                height: 60,
+                                                height: 60.0,
                                                 decoration: BoxDecoration(),
                                                 child: Row(
                                                   mainAxisSize:
@@ -6161,7 +6197,10 @@ class _SearchableCarListPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  12, 0, 0, 0),
+                                                                  12.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
                                                       child: Text(
                                                         'รถโดยสารประจำทาง',
                                                         style:
@@ -6179,10 +6218,10 @@ class _SearchableCarListPageWidgetState
                                                     ClipRRect(
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              8),
+                                                              8.0),
                                                       child: Image.asset(
                                                         'assets/images/Screenshot_2567-03-22_at_10.16.17-.png',
-                                                        width: 130,
+                                                        width: 130.0,
                                                         fit: BoxFit.cover,
                                                       ),
                                                     ),
@@ -6190,7 +6229,7 @@ class _SearchableCarListPageWidgetState
                                                 ),
                                               ),
                                               Divider(
-                                                thickness: 1,
+                                                thickness: 1.0,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .accent4,
@@ -7348,12 +7387,12 @@ class _SearchableCarListPageWidgetState
                                       },
                                       child: Container(
                                         width: double.infinity,
-                                        height: 65,
+                                        height: 65.0,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                           borderRadius:
-                                              BorderRadius.circular(10),
+                                              BorderRadius.circular(10.0),
                                           border: Border.all(
                                             width: 0.5,
                                           ),
@@ -7363,7 +7402,7 @@ class _SearchableCarListPageWidgetState
                                           children: [
                                             Container(
                                               width: double.infinity,
-                                              height: 60,
+                                              height: 60.0,
                                               decoration: BoxDecoration(),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
@@ -7374,8 +7413,8 @@ class _SearchableCarListPageWidgetState
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                12, 0, 0, 0),
+                                                            .fromSTEB(12.0, 0.0,
+                                                                0.0, 0.0),
                                                     child: Text(
                                                       'รถซุปเปอร์คาร์',
                                                       style: FlutterFlowTheme
@@ -7391,15 +7430,15 @@ class _SearchableCarListPageWidgetState
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 20, 0),
+                                                            .fromSTEB(0.0, 0.0,
+                                                                20.0, 0.0),
                                                     child: ClipRRect(
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              8),
+                                                              8.0),
                                                       child: Image.asset(
                                                         'assets/images/Screenshot_2567-01-16_at_15.47(edit).png',
-                                                        width: 90,
+                                                        width: 90.0,
                                                         fit: BoxFit.cover,
                                                       ),
                                                     ),
@@ -7408,7 +7447,7 @@ class _SearchableCarListPageWidgetState
                                               ),
                                             ),
                                             Divider(
-                                              thickness: 1,
+                                              thickness: 1.0,
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .accent4,
@@ -7422,9 +7461,9 @@ class _SearchableCarListPageWidgetState
                             ),
                           ),
                       ]
-                          .divide(SizedBox(height: 12))
-                          .addToStart(SizedBox(height: 12))
-                          .addToEnd(SizedBox(height: 24)),
+                          .divide(SizedBox(height: 12.0))
+                          .addToStart(SizedBox(height: 12.0))
+                          .addToEnd(SizedBox(height: 24.0)),
                     ),
                   ),
                   if (widget!.multiSelect)
@@ -7432,7 +7471,7 @@ class _SearchableCarListPageWidgetState
                       flex: 1,
                       child: Container(
                         width: double.infinity,
-                        height: 100,
+                        height: 100.0,
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
@@ -7443,8 +7482,8 @@ class _SearchableCarListPageWidgetState
                           children: [
                             if (false)
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    8.0, 0.0, 8.0, 0.0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
                                     if (functions.countTrueInBoolList(FFAppState()
@@ -8339,30 +8378,30 @@ class _SearchableCarListPageWidgetState
                                   text: 'ตกลง',
                                   options: FFButtonOptions(
                                     width: double.infinity,
-                                    height: 60,
+                                    height: 60.0,
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        24, 0, 24, 0),
+                                        24.0, 0.0, 24.0, 0.0),
                                     iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 0, 0, 0),
+                                        0.0, 0.0, 0.0, 0.0),
                                     color: Color(0xFFDB771B),
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Colors.white,
-                                          fontSize: 15,
+                                          fontSize: 15.0,
                                           letterSpacing: 0.0,
                                         ),
-                                    elevation: 3,
+                                    elevation: 3.0,
                                     borderSide: BorderSide(
                                       color: Colors.transparent,
-                                      width: 1,
+                                      width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(16),
+                                    borderRadius: BorderRadius.circular(16.0),
                                   ),
                                 ),
                               ),
-                          ].addToStart(SizedBox(height: 16)),
+                          ].addToStart(SizedBox(height: 16.0)),
                         ),
                       ),
                     ),

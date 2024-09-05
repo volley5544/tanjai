@@ -38,12 +38,12 @@ class _BlankListComWidgetState extends State<BlankListComWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: AlignmentDirectional(0, 0),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: Text(
         'ไม่พบข้อมูลที่ค้นหา',
         style: FlutterFlowTheme.of(context).bodyMedium.override(
               fontFamily: 'Noto Sans Thai',
-              fontSize: 18,
+              fontSize: 18.0,
               letterSpacing: 0.0,
             ),
       ),

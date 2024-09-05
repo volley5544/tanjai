@@ -150,13 +150,13 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
             automaticallyImplyLeading: false,
             leading: FlutterFlowIconButton(
               borderColor: Colors.transparent,
-              borderRadius: 30,
-              borderWidth: 1,
-              buttonSize: 60,
+              borderRadius: 30.0,
+              borderWidth: 1.0,
+              buttonSize: 60.0,
               icon: Icon(
                 Icons.arrow_back_rounded,
                 color: Color(0xFFDB771A),
-                size: 30,
+                size: 30.0,
               ),
               onPressed: () async {
                 context.pop();
@@ -167,14 +167,14 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF003063),
-                    fontSize: 18,
+                    fontSize: 18.0,
                     letterSpacing: 0.0,
                     fontWeight: FontWeight.w600,
                   ),
             ),
             actions: [],
             centerTitle: true,
-            elevation: 2,
+            elevation: 2.0,
           ),
           body: SafeArea(
             top: true,
@@ -190,17 +190,17 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                   ))
                     Container(
                       width: double.infinity,
-                      height: 120,
+                      height: 120.0,
                       child: Stack(
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(0, 0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 10.0, 0.0, 10.0),
                               child: Container(
-                                width: 100,
-                                height: 100,
+                                width: 100.0,
+                                height: 100.0,
                                 decoration: BoxDecoration(
                                   color: Color(0xFFDB771A),
                                   shape: BoxShape.circle,
@@ -209,7 +209,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                   ),
                                 ),
                                 child: Padding(
-                                  padding: EdgeInsets.all(2),
+                                  padding: EdgeInsets.all(2.0),
                                   child: StreamBuilder<UserCustomRecord>(
                                     stream: UserCustomRecord.getDocument(
                                         FFAppState().userRef!),
@@ -218,8 +218,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                       if (!snapshot.hasData) {
                                         return Center(
                                           child: SizedBox(
-                                            width: 50,
-                                            height: 50,
+                                            width: 50.0,
+                                            height: 50.0,
                                             child: CircularProgressIndicator(
                                               valueColor:
                                                   AlwaysStoppedAnimation<Color>(
@@ -264,10 +264,10 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                           transitionOnUserGestures: true,
                                           child: ClipRRect(
                                             borderRadius:
-                                                BorderRadius.circular(60),
+                                                BorderRadius.circular(60.0),
                                             child: Image.network(
                                               imageUserCustomRecord.imgProfile,
-                                              width: 100,
+                                              width: 100.0,
                                               fit: BoxFit.cover,
                                             ),
                                           ),
@@ -283,8 +283,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                           Align(
                             alignment: AlignmentDirectional(0.17, 0.92),
                             child: Container(
-                              width: 40,
-                              height: 40,
+                              width: 40.0,
+                              height: 40.0,
                               decoration: BoxDecoration(
                                 color: Color(0xFFDB771A),
                                 shape: BoxShape.circle,
@@ -377,7 +377,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                 child: Icon(
                                   Icons.photo_camera,
                                   color: Color(0xFFF0F0F0),
-                                  size: 30,
+                                  size: 30.0,
                                 ),
                               ),
                             ),
@@ -392,17 +392,17 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                   ))
                     Container(
                       width: double.infinity,
-                      height: 120,
+                      height: 120.0,
                       child: Stack(
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(0, 0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 10.0, 0.0, 10.0),
                               child: Container(
-                                width: 100,
-                                height: 100,
+                                width: 100.0,
+                                height: 100.0,
                                 decoration: BoxDecoration(
                                   color: Color(0xFFDB771A),
                                   shape: BoxShape.circle,
@@ -411,12 +411,12 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                   ),
                                 ),
                                 child: Padding(
-                                  padding: EdgeInsets.all(2),
+                                  padding: EdgeInsets.all(2.0),
                                   child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(60),
+                                    borderRadius: BorderRadius.circular(60.0),
                                     child: Image.network(
                                       'https://picsum.photos/seed/470/600',
-                                      width: 100,
+                                      width: 100.0,
                                       fit: BoxFit.cover,
                                     ),
                                   ),
@@ -428,8 +428,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                           Align(
                             alignment: AlignmentDirectional(0.1, 0.79),
                             child: Container(
-                              width: 40,
-                              height: 40,
+                              width: 40.0,
+                              height: 40.0,
                               decoration: BoxDecoration(
                                 color: Color(0xFFDB771A),
                                 shape: BoxShape.circle,
@@ -437,7 +437,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                               child: Icon(
                                 Icons.photo_camera,
                                 color: Color(0xFFF0F0F0),
-                                size: 30,
+                                size: 30.0,
                               ),
                             ),
                           ),
@@ -448,11 +448,11 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Container(
-                        width: MediaQuery.sizeOf(context).width,
+                        width: MediaQuery.sizeOf(context).width * 1.0,
                         height: MediaQuery.sizeOf(context).height * 0.75,
                         decoration: BoxDecoration(
                           color: Colors.white,
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(12.0),
                           shape: BoxShape.rectangle,
                         ),
                         child: SingleChildScrollView(
@@ -460,15 +460,15 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(8, 0, 8, 5),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    8.0, 0.0, 8.0, 5.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     SizedBox(
-                                      height: 18,
+                                      height: 18.0,
                                       child: VerticalDivider(
-                                        thickness: 3,
+                                        thickness: 3.0,
                                         color: Color(0xFFDB771A),
                                       ),
                                     ),
@@ -479,7 +479,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF003063),
-                                            fontSize: 15,
+                                            fontSize: 15.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
@@ -488,8 +488,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                 ),
                               ),
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(28, 0, 8, 8),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    28.0, 0.0, 8.0, 8.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -500,7 +500,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF646464),
-                                            fontSize: 15,
+                                            fontSize: 15.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
                                           ),
@@ -509,8 +509,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                 ),
                               ),
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(28, 0, 8, 8),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    28.0, 0.0, 8.0, 8.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -521,7 +521,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF003063),
-                                            fontSize: 15,
+                                            fontSize: 15.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
@@ -530,8 +530,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                 ),
                               ),
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(28, 0, 8, 8),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    28.0, 0.0, 8.0, 8.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -542,7 +542,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF646464),
-                                            fontSize: 15,
+                                            fontSize: 15.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
                                           ),
@@ -551,8 +551,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                 ),
                               ),
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(28, 0, 8, 8),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    28.0, 0.0, 8.0, 8.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -563,7 +563,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF003063),
-                                            fontSize: 15,
+                                            fontSize: 15.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
@@ -572,8 +572,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                 ),
                               ),
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(28, 0, 8, 8),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    28.0, 0.0, 8.0, 8.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -584,7 +584,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF646464),
-                                            fontSize: 15,
+                                            fontSize: 15.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
                                           ),
@@ -593,8 +593,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                 ),
                               ),
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(28, 0, 8, 8),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    28.0, 0.0, 8.0, 8.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -605,7 +605,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF003063),
-                                            fontSize: 15,
+                                            fontSize: 15.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
@@ -614,8 +614,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                 ),
                               ),
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(28, 0, 8, 8),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    28.0, 0.0, 8.0, 8.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -626,7 +626,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF646464),
-                                            fontSize: 15,
+                                            fontSize: 15.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
                                           ),
@@ -635,8 +635,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                 ),
                               ),
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(28, 0, 8, 8),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    28.0, 0.0, 8.0, 8.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -653,7 +653,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF003063),
-                                            fontSize: 15,
+                                            fontSize: 15.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
@@ -664,14 +664,14 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                               if (false)
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      8, 0, 8, 8),
+                                      8.0, 0.0, 8.0, 8.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       SizedBox(
-                                        height: 18,
+                                        height: 18.0,
                                         child: VerticalDivider(
-                                          thickness: 3,
+                                          thickness: 3.0,
                                           color: Color(0xFFDB771A),
                                         ),
                                       ),
@@ -682,7 +682,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF003063),
-                                              fontSize: 15,
+                                              fontSize: 15.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -693,40 +693,40 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                               if (false)
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      16, 0, 16, 0),
+                                      16.0, 0.0, 16.0, 0.0),
                                   child: Container(
                                     width: double.infinity,
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
-                                      borderRadius: BorderRadius.circular(12),
+                                      borderRadius: BorderRadius.circular(12.0),
                                       border: Border.all(
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
-                                        width: 2,
+                                        width: 2.0,
                                       ),
                                     ),
                                     child: Padding(
-                                      padding: EdgeInsets.all(5),
+                                      padding: EdgeInsets.all(5.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    8, 0, 0, 0),
+                                                    8.0, 0.0, 0.0, 0.0),
                                             child: Icon(
                                               Icons.home_outlined,
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryText,
-                                              size: 40,
+                                              size: 40.0,
                                             ),
                                           ),
                                           Expanded(
                                             child: Container(
-                                              width: 100,
-                                              height: 90,
+                                              width: 100.0,
+                                              height: 90.0,
                                               decoration: BoxDecoration(
                                                 color:
                                                     FlutterFlowTheme.of(context)
@@ -734,7 +734,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                               ),
                                               child: Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(10, 0, 0, 0),
+                                                    .fromSTEB(
+                                                        10.0, 0.0, 0.0, 0.0),
                                                 child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -743,7 +744,10 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0, 5, 0, 0),
+                                                                  0.0,
+                                                                  5.0,
+                                                                  0.0,
+                                                                  0.0),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -758,7 +762,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                                       'Noto Sans Thai',
                                                                   color: Color(
                                                                       0xFF003063),
-                                                                  fontSize: 15,
+                                                                  fontSize:
+                                                                      15.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -773,7 +778,10 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0, 5, 0, 0),
+                                                                  0.0,
+                                                                  5.0,
+                                                                  0.0,
+                                                                  0.0),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -788,7 +796,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                                       'Noto Sans Thai',
                                                                   color: Color(
                                                                       0xFF003063),
-                                                                  fontSize: 15,
+                                                                  fontSize:
+                                                                      15.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -803,7 +812,10 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0, 5, 0, 0),
+                                                                  0.0,
+                                                                  5.0,
+                                                                  0.0,
+                                                                  0.0),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -818,7 +830,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                                       'Noto Sans Thai',
                                                                   color: Color(
                                                                       0xFF003063),
-                                                                  fontSize: 15,
+                                                                  fontSize:
+                                                                      15.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -843,24 +856,25 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                               if (FFAppState().profileIsHaveInsuranceCard)
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 10, 0, 0),
+                                      0.0, 10.0, 0.0, 0.0),
                                   child: Container(
-                                    width: MediaQuery.sizeOf(context).width,
-                                    height: 36,
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 1.0,
+                                    height: 36.0,
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
                                     ),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          8, 0, 8, 0),
+                                          8.0, 0.0, 8.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           SizedBox(
-                                            height: 18,
+                                            height: 18.0,
                                             child: VerticalDivider(
-                                              thickness: 3,
+                                              thickness: 3.0,
                                               color: Color(0xFFDB771A),
                                             ),
                                           ),
@@ -871,7 +885,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF003063),
-                                                  fontSize: 15,
+                                                  fontSize: 15.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
@@ -884,40 +898,41 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                               if (FFAppState().profileIsHaveInsuranceCard)
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      16, 0, 16, 0),
+                                      16.0, 0.0, 16.0, 0.0),
                                   child: Container(
                                     width: double.infinity,
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
-                                      borderRadius: BorderRadius.circular(12),
+                                      borderRadius: BorderRadius.circular(12.0),
                                       border: Border.all(
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
-                                        width: 2,
+                                        width: 2.0,
                                       ),
                                     ),
                                     child: Padding(
-                                      padding: EdgeInsets.all(5),
+                                      padding: EdgeInsets.all(5.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    8, 0, 0, 0),
+                                                    8.0, 0.0, 0.0, 0.0),
                                             child: FaIcon(
                                               FontAwesomeIcons.addressCard,
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryText,
-                                              size: 30,
+                                              size: 30.0,
                                             ),
                                           ),
                                           Expanded(
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
-                                                  .width,
+                                                      .width *
+                                                  1.0,
                                               decoration: BoxDecoration(
                                                 color:
                                                     FlutterFlowTheme.of(context)
@@ -925,7 +940,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                               ),
                                               child: Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(10, 0, 0, 0),
+                                                    .fromSTEB(
+                                                        10.0, 0.0, 0.0, 0.0),
                                                 child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -936,7 +952,10 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0, 5, 0, 0),
+                                                                  0.0,
+                                                                  5.0,
+                                                                  0.0,
+                                                                  0.0),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -951,7 +970,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                                       'Noto Sans Thai',
                                                                   color: Color(
                                                                       0xFF003063),
-                                                                  fontSize: 15,
+                                                                  fontSize:
+                                                                      15.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -966,7 +986,10 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0, 5, 0, 0),
+                                                                  0.0,
+                                                                  5.0,
+                                                                  0.0,
+                                                                  0.0),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -982,7 +1005,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                                       'Noto Sans Thai',
                                                                   color: Color(
                                                                       0xFF003063),
-                                                                  fontSize: 15,
+                                                                  fontSize:
+                                                                      15.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -997,7 +1021,10 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0, 5, 0, 0),
+                                                                  0.0,
+                                                                  5.0,
+                                                                  0.0,
+                                                                  0.0),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -1012,7 +1039,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                                       'Noto Sans Thai',
                                                                   color: Color(
                                                                       0xFF003063),
-                                                                  fontSize: 15,
+                                                                  fontSize:
+                                                                      15.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -1031,7 +1059,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0, 5, 2, 0),
+                                                    0.0, 5.0, 2.0, 0.0),
                                             child: FFButtonWidget(
                                               onPressed: () async {
                                                 context.goNamed(
@@ -1039,12 +1067,14 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                               },
                                               text: 'ดูบัตร',
                                               options: FFButtonOptions(
-                                                height: 40,
+                                                height: 40.0,
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(24, 0, 24, 0),
+                                                    .fromSTEB(
+                                                        24.0, 0.0, 24.0, 0.0),
                                                 iconPadding:
                                                     EdgeInsetsDirectional
-                                                        .fromSTEB(0, 0, 0, 0),
+                                                        .fromSTEB(
+                                                            0.0, 0.0, 0.0, 0.0),
                                                 color: Color(0xFFFCEFE4),
                                                 textStyle:
                                                     FlutterFlowTheme.of(context)
@@ -1054,16 +1084,16 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFFDB771A),
-                                                          fontSize: 10,
+                                                          fontSize: 10.0,
                                                           letterSpacing: 0.0,
                                                         ),
-                                                elevation: 3,
+                                                elevation: 3.0,
                                                 borderSide: BorderSide(
                                                   color: Colors.transparent,
-                                                  width: 1,
+                                                  width: 1.0,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(8),
+                                                    BorderRadius.circular(8.0),
                                               ),
                                             ),
                                           ),

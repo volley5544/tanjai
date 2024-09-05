@@ -75,7 +75,7 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(8, 8, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 0.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -87,7 +87,7 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                   child: Icon(
                     Icons.arrow_back_sharp,
                     color: Colors.black,
-                    size: 35,
+                    size: 35.0,
                   ),
                 ),
               ),
@@ -128,16 +128,16 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Container(
-                                        width: 25,
-                                        height: 25,
+                                        width: 25.0,
+                                        height: 25.0,
                                         decoration: BoxDecoration(
                                           color: Color(0xFF24D200),
                                           shape: BoxShape.circle,
                                         ),
                                       ),
                                       Container(
-                                        width: 5,
-                                        height: 150,
+                                        width: 5.0,
+                                        height: 150.0,
                                         decoration: BoxDecoration(
                                           color: Color(0xFF24D200),
                                         ),
@@ -151,12 +151,12 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                         width:
                                             MediaQuery.sizeOf(context).width *
                                                 0.7,
-                                        height: 170,
+                                        height: 170.0,
                                         decoration: BoxDecoration(),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  15, 0, 0, 0),
+                                                  15.0, 0.0, 0.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             crossAxisAlignment:
@@ -164,10 +164,11 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                             children: [
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(0, 0, 0, 10),
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 0.0, 10.0),
                                                 child: Container(
-                                                  width: 3,
-                                                  height: 150,
+                                                  width: 3.0,
+                                                  height: 150.0,
                                                   decoration: BoxDecoration(
                                                     color: random_data
                                                         .randomColor(),
@@ -177,7 +178,8 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(16, 0, 0, 0),
+                                                    .fromSTEB(
+                                                        16.0, 0.0, 0.0, 0.0),
                                                 child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -202,7 +204,7 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                             fontFamily:
                                                                 'Noto Sans Thai',
                                                             color: Colors.black,
-                                                            fontSize: 18,
+                                                            fontSize: 18.0,
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
@@ -285,7 +287,7 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                                           color:
                                                                               Colors.black,
                                                                           fontSize:
-                                                                              12,
+                                                                              12.0,
                                                                           letterSpacing:
                                                                               0.0,
                                                                         ),
@@ -311,7 +313,7 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                                           color:
                                                                               Colors.black,
                                                                           fontSize:
-                                                                              12,
+                                                                              12.0,
                                                                           letterSpacing:
                                                                               0.0,
                                                                         ),
@@ -336,10 +338,10 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        0,
-                                                                        8,
-                                                                        0,
-                                                                        0),
+                                                                        0.0,
+                                                                        8.0,
+                                                                        0.0,
+                                                                        0.0),
                                                             child: Text(
                                                               '${functions.showMatNameInList(widget!.reasonNameList?.toList(), callStatusListViewIndex)}',
                                                               style: FlutterFlowTheme
@@ -392,7 +394,8 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                       },
                     ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 30),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 30.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -405,8 +408,8 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Container(
-                                  width: 25,
-                                  height: 25,
+                                  width: 25.0,
+                                  height: 25.0,
                                   decoration: BoxDecoration(
                                     color: Color(0xFF24D200),
                                     shape: BoxShape.circle,
@@ -422,7 +425,7 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                   decoration: BoxDecoration(),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        15, 0, 0, 0),
+                                        15.0, 0.0, 0.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       crossAxisAlignment:
@@ -431,10 +434,10 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 0, 10),
+                                                  0.0, 0.0, 0.0, 10.0),
                                           child: Container(
-                                            width: 3,
-                                            height: 100,
+                                            width: 3.0,
+                                            height: 100.0,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -447,7 +450,7 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    15, 0, 0, 0),
+                                                    15.0, 0.0, 0.0, 0.0),
                                             child: Container(
                                               width: double.infinity,
                                               color: Colors.white,
@@ -464,14 +467,15 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                           fontFamily:
                                                               'Noto Sans Thai',
                                                           color: Colors.black,
-                                                          fontSize: 18,
+                                                          fontSize: 18.0,
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                   collapsed: Container(
                                                     width: MediaQuery.sizeOf(
-                                                            context)
-                                                        .width,
+                                                                context)
+                                                            .width *
+                                                        1.0,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
@@ -487,8 +491,11 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(0,
-                                                                      8, 0, 0),
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      8.0,
+                                                                      0.0,
+                                                                      0.0),
                                                           child: Text(
                                                             'ลีดถูกสร้าง',
                                                             style: FlutterFlowTheme
@@ -529,7 +536,7 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                                     color: Color(
                                                                         0x8A000000),
                                                                     fontSize:
-                                                                        12,
+                                                                        12.0,
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -552,7 +559,7 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                                     color: Color(
                                                                         0x8A000000),
                                                                     fontSize:
-                                                                        12,
+                                                                        12.0,
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -564,8 +571,9 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                   ),
                                                   expanded: Container(
                                                     width: MediaQuery.sizeOf(
-                                                            context)
-                                                        .width,
+                                                                context)
+                                                            .width *
+                                                        1.0,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
@@ -581,8 +589,11 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(0,
-                                                                      8, 0, 0),
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      8.0,
+                                                                      0.0,
+                                                                      0.0),
                                                           child: Text(
                                                             'ลีดถูกสร้าง',
                                                             style: FlutterFlowTheme
@@ -623,7 +634,7 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                                     color: Color(
                                                                         0x8A000000),
                                                                     fontSize:
-                                                                        12,
+                                                                        12.0,
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -646,7 +657,7 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                                     color: Color(
                                                                         0x8A000000),
                                                                     fontSize:
-                                                                        12,
+                                                                        12.0,
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),

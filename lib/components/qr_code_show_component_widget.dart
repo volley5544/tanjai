@@ -50,7 +50,7 @@ class _QrCodeShowComponentWidgetState extends State<QrCodeShowComponentWidget> {
         mainAxisSize: MainAxisSize.max,
         children: [
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 24),
+            padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 24.0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               children: [
@@ -65,49 +65,49 @@ class _QrCodeShowComponentWidgetState extends State<QrCodeShowComponentWidget> {
                   child: FaIcon(
                     FontAwesomeIcons.timesCircle,
                     color: Color(0xFFFF0000),
-                    size: 30,
+                    size: 30.0,
                   ),
                 ),
               ],
             ),
           ),
           ClipRRect(
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(8.0),
             child: Image.asset(
               'assets/images/S__14966814.jpg',
-              width: 200,
-              height: 200,
+              width: 200.0,
+              height: 200.0,
               fit: BoxFit.cover,
             ),
           ),
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0, 36, 0, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 36.0, 0.0, 0.0),
             child: FFButtonWidget(
               onPressed: () async {
                 await launchURL('https://line.me/ti/g/Vnu3qGS_XY');
               },
               text: 'เปิดไลน์',
               options: FFButtonOptions(
-                width: 180,
-                height: 40,
-                padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
-                iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                width: 180.0,
+                height: 40.0,
+                padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                 color: Color(0xFFDB771B),
                 textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                       fontFamily: 'Noto Sans Thai',
                       color: Colors.white,
                       letterSpacing: 0.0,
                     ),
-                elevation: 3,
+                elevation: 3.0,
                 borderSide: BorderSide(
                   color: Colors.transparent,
-                  width: 1,
+                  width: 1.0,
                 ),
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(8.0),
               ),
             ),
           ),
-        ].addToStart(SizedBox(height: 24)).addToEnd(SizedBox(height: 24)),
+        ].addToStart(SizedBox(height: 24.0)).addToEnd(SizedBox(height: 24.0)),
       ),
     );
   }

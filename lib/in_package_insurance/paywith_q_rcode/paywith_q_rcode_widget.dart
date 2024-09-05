@@ -82,8 +82,8 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
             backgroundColor: Colors.white,
             body: Center(
               child: SizedBox(
-                width: 50,
-                height: 50,
+                width: 50.0,
+                height: 50.0,
                 child: CircularProgressIndicator(
                   valueColor: AlwaysStoppedAnimation<Color>(
                     FlutterFlowTheme.of(context).primary,
@@ -108,7 +108,7 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
               key: scaffoldKey,
               backgroundColor: Colors.white,
               appBar: PreferredSize(
-                preferredSize: Size.fromHeight(70),
+                preferredSize: Size.fromHeight(70.0),
                 child: AppBar(
                   backgroundColor: Colors.white,
                   automaticallyImplyLeading: false,
@@ -123,7 +123,7 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                     child: Icon(
                       Icons.arrow_back,
                       color: Color(0xFFDB771A),
-                      size: 30,
+                      size: 30.0,
                     ),
                   ),
                   title: Text(
@@ -132,21 +132,21 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                     style: FlutterFlowTheme.of(context).headlineMedium.override(
                           fontFamily: 'Noto Sans Thai',
                           color: Color(0xFF002D5E),
-                          fontSize: 18,
+                          fontSize: 18.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w600,
                         ),
                   ),
                   actions: [],
                   centerTitle: true,
-                  toolbarHeight: 70,
-                  elevation: 0,
+                  toolbarHeight: 70.0,
+                  elevation: 0.0,
                 ),
               ),
               body: SafeArea(
                 top: true,
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -157,8 +157,8 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Container(
-                              width: MediaQuery.sizeOf(context).width,
-                              height: MediaQuery.sizeOf(context).height * 1,
+                              width: MediaQuery.sizeOf(context).width * 1.0,
+                              height: MediaQuery.sizeOf(context).height * 1.0,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
@@ -168,9 +168,10 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                 children: [
                                   Expanded(
                                     child: Container(
-                                      width: 100,
+                                      width: 100.0,
                                       height:
-                                          MediaQuery.sizeOf(context).height * 1,
+                                          MediaQuery.sizeOf(context).height *
+                                              1.0,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
@@ -182,8 +183,8 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                               CrossAxisAlignment.center,
                                           children: [
                                             Container(
-                                              width: 300,
-                                              height: 60,
+                                              width: 300.0,
+                                              height: 60.0,
                                               decoration: BoxDecoration(
                                                 color:
                                                     FlutterFlowTheme.of(context)
@@ -210,7 +211,7 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                                 'Noto Sans Thai',
                                                             color: Color(
                                                                 0xFFCC0000),
-                                                            fontSize: 16,
+                                                            fontSize: 16.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight
@@ -235,7 +236,7 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                                 'Noto Sans Thai',
                                                             color: Color(
                                                                 0xFFCC0000),
-                                                            fontSize: 16,
+                                                            fontSize: 16.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight
@@ -261,13 +262,13 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                             Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      1, 0),
+                                                                      1.0, 0.0),
                                                               child: Container(
                                                                 width: MediaQuery.sizeOf(
                                                                             context)
                                                                         .width *
                                                                     0.5,
-                                                                height: 50,
+                                                                height: 50.0,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   color: Color(
@@ -277,22 +278,23 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                                           .only(
                                                                     bottomLeft:
                                                                         Radius.circular(
-                                                                            0),
+                                                                            0.0),
                                                                     bottomRight:
                                                                         Radius.circular(
-                                                                            35),
+                                                                            35.0),
                                                                     topLeft: Radius
                                                                         .circular(
-                                                                            0),
+                                                                            0.0),
                                                                     topRight: Radius
                                                                         .circular(
-                                                                            35),
+                                                                            35.0),
                                                                   ),
                                                                 ),
                                                                 child: Align(
                                                                   alignment:
                                                                       AlignmentDirectional(
-                                                                          0, 0),
+                                                                          0.0,
+                                                                          0.0),
                                                                   child: Text(
                                                                     'บาร์โค้ด',
                                                                     style: FlutterFlowTheme.of(
@@ -304,7 +306,7 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                                           color:
                                                                               Color(0xFF1D4774),
                                                                           fontSize:
-                                                                              15,
+                                                                              15.0,
                                                                           letterSpacing:
                                                                               0.0,
                                                                           fontWeight:
@@ -317,21 +319,21 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                           Align(
                                                             alignment:
                                                                 AlignmentDirectional(
-                                                                    0, 0),
+                                                                    0.0, 0.0),
                                                             child: Padding(
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0,
-                                                                          10,
-                                                                          0,
-                                                                          0),
+                                                                          0.0,
+                                                                          10.0,
+                                                                          0.0,
+                                                                          0.0),
                                                               child: Container(
                                                                 width: MediaQuery.sizeOf(
                                                                             context)
                                                                         .width *
                                                                     0.5,
-                                                                height: 50,
+                                                                height: 50.0,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   color: Color(
@@ -339,12 +341,13 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .circular(
-                                                                              35),
+                                                                              35.0),
                                                                 ),
                                                                 child: Align(
                                                                   alignment:
                                                                       AlignmentDirectional(
-                                                                          0, 0),
+                                                                          0.0,
+                                                                          0.0),
                                                                   child: Text(
                                                                     'คิวอาร์โค้ด',
                                                                     style: FlutterFlowTheme.of(
@@ -356,7 +359,7 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                                           color:
                                                                               FlutterFlowTheme.of(context).secondaryBackground,
                                                                           fontSize:
-                                                                              15,
+                                                                              15.0,
                                                                           letterSpacing:
                                                                               0.0,
                                                                         ),
@@ -374,7 +377,8 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 20, 0, 0),
+                                                  .fromSTEB(
+                                                      0.0, 20.0, 0.0, 0.0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 mainAxisAlignment:
@@ -385,13 +389,13 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0, -1),
+                                                            0.0, -1.0),
                                                     child: Container(
                                                       width: MediaQuery.sizeOf(
                                                                   context)
                                                               .width *
                                                           0.7,
-                                                      height: 200,
+                                                      height: 200.0,
                                                       decoration: BoxDecoration(
                                                         color: FlutterFlowTheme
                                                                 .of(context)
@@ -407,8 +411,8 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                                 widget!.taxId)!,
                                                         barcode:
                                                             Barcode.qrCode(),
-                                                        width: 300,
-                                                        height: 90,
+                                                        width: 300.0,
+                                                        height: 90.0,
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -418,8 +422,8 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                         errorBuilder: (_context,
                                                                 _error) =>
                                                             SizedBox(
-                                                          width: 300,
-                                                          height: 90,
+                                                          width: 300.0,
+                                                          height: 90.0,
                                                         ),
                                                         drawText: false,
                                                       ),
@@ -429,14 +433,14 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                     Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0, -1),
+                                                              0.0, -1.0),
                                                       child: Container(
                                                         width:
                                                             MediaQuery.sizeOf(
                                                                         context)
                                                                     .width *
                                                                 0.7,
-                                                        height: 230,
+                                                        height: 230.0,
                                                         decoration:
                                                             BoxDecoration(
                                                           color: FlutterFlowTheme
@@ -456,8 +460,8 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                                       .taxId)!,
                                                           barcode:
                                                               Barcode.code128(),
-                                                          width: 300,
-                                                          height: 90,
+                                                          width: 300.0,
+                                                          height: 90.0,
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryText,
@@ -468,8 +472,8 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                               (_context,
                                                                       _error) =>
                                                                   SizedBox(
-                                                            width: 300,
-                                                            height: 90,
+                                                            width: 300.0,
+                                                            height: 90.0,
                                                           ),
                                                           drawText: false,
                                                         ),
@@ -478,12 +482,15 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0, 0),
+                                                            0.0, 0.0),
                                                     child: Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0, 12, 0, 0),
+                                                                  0.0,
+                                                                  12.0,
+                                                                  0.0,
+                                                                  0.0),
                                                       child: Text(
                                                         '฿ ${functions.showNumberWithComma(widget!.amount)}',
                                                         style:
@@ -496,7 +503,8 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .error,
-                                                                  fontSize: 16,
+                                                                  fontSize:
+                                                                      16.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -509,7 +517,7 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0, 0),
+                                                            0.0, 0.0),
                                                     child: Text(
                                                       'R1: ${widget!.ref1}',
                                                       style: FlutterFlowTheme
@@ -518,7 +526,7 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                           .override(
                                                             fontFamily:
                                                                 'Noto Sans Thai',
-                                                            fontSize: 16,
+                                                            fontSize: 16.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight
@@ -534,7 +542,7 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                         .override(
                                                           fontFamily:
                                                               'Noto Sans Thai',
-                                                          fontSize: 16,
+                                                          fontSize: 16.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
@@ -548,7 +556,7 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                         .override(
                                                           fontFamily:
                                                               'Noto Sans Thai',
-                                                          fontSize: 16,
+                                                          fontSize: 16.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
@@ -571,10 +579,10 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0,
-                                                                          4,
-                                                                          0,
-                                                                          0),
+                                                                          0.0,
+                                                                          4.0,
+                                                                          0.0,
+                                                                          0.0),
                                                               child:
                                                                   AutoSizeText(
                                                                 'คุณสามารถสแกนชำระค่าเบี้ยประกันผ่านโมบายแบงค์กิ้งของทุกธนาคาร',
@@ -588,7 +596,7 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                                       fontFamily:
                                                                           'Noto Sans Thai',
                                                                       fontSize:
-                                                                          14,
+                                                                          14.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                       fontWeight:
@@ -621,10 +629,10 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0,
-                                                                          4,
-                                                                          0,
-                                                                          0),
+                                                                          0.0,
+                                                                          4.0,
+                                                                          0.0,
+                                                                          0.0),
                                                               child:
                                                                   AutoSizeText(
                                                                 'ใช้สำหรับชำระค่า พ.ร.บ เท่านั้น',
@@ -638,7 +646,7 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                                       fontFamily:
                                                                           'Noto Sans Thai',
                                                                       fontSize:
-                                                                          14,
+                                                                          14.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                       fontWeight:
@@ -665,15 +673,16 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                             child: Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      -1, 0),
+                                                                      -1.0,
+                                                                      0.0),
                                                               child: Padding(
                                                                 padding:
                                                                     EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0,
-                                                                            4,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            4.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                 child: Text(
                                                                   '1.หากท่านขําระค่างวดไม่ตรงกําหนด บริษัทฯ จะนําเงินไปหักค่าเบี้ย ปรับติดตามก่อนค่างวด',
                                                                   textAlign:
@@ -686,7 +695,7 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                                         fontFamily:
                                                                             'Noto Sans Thai',
                                                                         fontSize:
-                                                                            14,
+                                                                            14.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
@@ -713,15 +722,16 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                             child: Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      -1, 0),
+                                                                      -1.0,
+                                                                      0.0),
                                                               child: Padding(
                                                                 padding:
                                                                     EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0,
-                                                                            4,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            4.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                 child: Text(
                                                                   '2.ค้างชําระเกิน 3 งวดโปรดติดต่อบริษัทโทร 1652',
                                                                   textAlign:
@@ -734,7 +744,7 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                                         fontFamily:
                                                                             'Noto Sans Thai',
                                                                         fontSize:
-                                                                            14,
+                                                                            14.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
@@ -761,15 +771,16 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                             child: Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      -1, 0),
+                                                                      -1.0,
+                                                                      0.0),
                                                               child: Padding(
                                                                 padding:
                                                                     EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0,
-                                                                            4,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            4.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                 child: Text(
                                                                   '3.การให้บริการชําระเงินผ่านบัตรเป็นการอํานวย ความสะดวกให้แก่ลูกค้าเท่าน้ัน ลูกค้าต้องปฏิบัติตามข้อตกลงและเงื่อนไขที่ระบุไว้ในสัญญา',
                                                                   textAlign:
@@ -782,7 +793,7 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                                         fontFamily:
                                                                             'Noto Sans Thai',
                                                                         fontSize:
-                                                                            14,
+                                                                            14.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
@@ -804,27 +815,29 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0, 10, 0, 0),
+                                                                  0.0,
+                                                                  10.0,
+                                                                  0.0,
+                                                                  0.0),
                                                       child: AutoSizeText(
                                                         '***กรณีวันหยุด เสาร์-อาทิตย์ และนักขัตฤกษ์\nจะออกกรมธรรม์ในวันทำการถัดไป',
                                                         textAlign:
                                                             TextAlign.center,
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  color: Color(
-                                                                      0xFFCC0000),
-                                                                  fontSize: 16,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                ),
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Noto Sans Thai',
+                                                              color: Color(
+                                                                  0xFFCC0000),
+                                                              fontSize: 16.0,
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .normal,
+                                                            ),
                                                       ),
                                                     ),
                                                   if (widget!.fromPage ==
@@ -845,10 +858,10 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0,
-                                                                          10,
-                                                                          0,
-                                                                          0),
+                                                                          0.0,
+                                                                          10.0,
+                                                                          0.0,
+                                                                          0.0),
                                                               child:
                                                                   AutoSizeText(
                                                                 'การชําระค่างวด ต้องขอหลักฐานการชําระจากผู้รับชําระ และเก็บไว้เป็นหลักฐานทุกครั้ง',
@@ -864,7 +877,7 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                                       color: Color(
                                                                           0xFFCC0000),
                                                                       fontSize:
-                                                                          16,
+                                                                          16.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                       fontWeight:
@@ -882,15 +895,18 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0, 5, 0, 0),
+                                                                  0.0,
+                                                                  5.0,
+                                                                  0.0,
+                                                                  0.0),
                                                       child: ClipRRect(
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8),
+                                                                .circular(8.0),
                                                         child: Image.asset(
                                                           'assets/images/Screenshot_2566-10-18_at_15.27.05.png',
-                                                          width: 300,
-                                                          height: 37,
+                                                          width: 300.0,
+                                                          height: 37.0,
                                                           fit: BoxFit.contain,
                                                         ),
                                                       ),
@@ -913,7 +929,7 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                         flex: 2,
                         child: Container(
                           width: double.infinity,
-                          height: 100,
+                          height: 100.0,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
@@ -923,8 +939,8 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    8.0, 0.0, 8.0, 0.0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
                                     if (await getPermissionStatus(
@@ -989,30 +1005,30 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                   text: 'บันทึกรูปภาพ',
                                   options: FFButtonOptions(
                                     width: double.infinity,
-                                    height: 60,
+                                    height: 60.0,
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        24, 0, 24, 0),
+                                        24.0, 0.0, 24.0, 0.0),
                                     iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 0, 0, 0),
+                                        0.0, 0.0, 0.0, 0.0),
                                     color: Color(0xFFDB771B),
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Colors.white,
-                                          fontSize: 15,
+                                          fontSize: 15.0,
                                           letterSpacing: 0.0,
                                         ),
-                                    elevation: 3,
+                                    elevation: 3.0,
                                     borderSide: BorderSide(
                                       color: Colors.transparent,
-                                      width: 1,
+                                      width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(16),
+                                    borderRadius: BorderRadius.circular(16.0),
                                   ),
                                 ),
                               ),
-                            ].addToStart(SizedBox(height: 16)),
+                            ].addToStart(SizedBox(height: 16.0)),
                           ),
                         ),
                       ),

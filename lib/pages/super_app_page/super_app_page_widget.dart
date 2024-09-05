@@ -463,7 +463,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    width: MediaQuery.sizeOf(context).width,
+                    width: MediaQuery.sizeOf(context).width * 1.0,
                     decoration: BoxDecoration(
                       color: Color(0xFFF1F4F8),
                     ),
@@ -471,7 +471,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Container(
-                          width: MediaQuery.sizeOf(context).width,
+                          width: MediaQuery.sizeOf(context).width * 1.0,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
@@ -482,15 +482,15 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                               ).image,
                             ),
                             borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(30),
-                              bottomRight: Radius.circular(30),
-                              topLeft: Radius.circular(0),
-                              topRight: Radius.circular(0),
+                              bottomLeft: Radius.circular(30.0),
+                              bottomRight: Radius.circular(30.0),
+                              topLeft: Radius.circular(0.0),
+                              topRight: Radius.circular(0.0),
                             ),
                           ),
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(15, 25, 15, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                15.0, 25.0, 15.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -519,25 +519,25 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .error,
-                                                        fontSize: 50,
+                                                        fontSize: 50.0,
                                                         letterSpacing: 0.0,
                                                       ),
                                             ),
                                           if (FFAppState().isProduction)
                                             VerticalDivider(
-                                              thickness: 1,
+                                              thickness: 1.0,
                                             ),
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0, 10, 0, 0),
+                                                    0.0, 10.0, 0.0, 0.0),
                                             child: ClipRRect(
                                               borderRadius:
-                                                  BorderRadius.circular(5),
+                                                  BorderRadius.circular(5.0),
                                               child: Image.asset(
                                                 'assets/images/logo__1_-removebg-preview.png',
-                                                width: 130,
-                                                height: 40,
+                                                width: 130.0,
+                                                height: 40.0,
                                                 fit: BoxFit.cover,
                                               ),
                                             ),
@@ -547,7 +547,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                             children: [
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(0, 0, 4, 0),
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 4.0, 0.0),
                                                 child: StreamBuilder<
                                                     List<NotificationRecord>>(
                                                   stream:
@@ -567,8 +568,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                     if (!snapshot.hasData) {
                                                       return Center(
                                                         child: SizedBox(
-                                                          width: 50,
-                                                          height: 50,
+                                                          width: 50.0,
+                                                          height: 50.0,
                                                           child:
                                                               CircularProgressIndicator(
                                                             valueColor:
@@ -660,7 +661,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                     'Noto Sans Thai',
                                                                 color: Colors
                                                                     .white,
-                                                                fontSize: 8,
+                                                                fontSize: 8.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -673,9 +674,9 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                             .BadgeShape.circle,
                                                         badgeColor:
                                                             Color(0xFFFF0000),
-                                                        elevation: 4,
+                                                        elevation: 4.0,
                                                         padding:
-                                                            EdgeInsets.all(8),
+                                                            EdgeInsets.all(8.0),
                                                         position:
                                                             badges.BadgePosition
                                                                 .topStart(),
@@ -688,7 +689,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                               .solidBell,
                                                           color:
                                                               Color(0xFFDB771A),
-                                                          size: 30,
+                                                          size: 30.0,
                                                         ),
                                                       ),
                                                     );
@@ -696,23 +697,24 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                 ),
                                               ),
                                               Align(
-                                                alignment:
-                                                    AlignmentDirectional(1, -1),
+                                                alignment: AlignmentDirectional(
+                                                    1.0, -1.0),
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(5, 0, 0, 0),
+                                                      .fromSTEB(
+                                                          5.0, 0.0, 0.0, 0.0),
                                                   child: Container(
-                                                    width: 40,
-                                                    height: 40,
+                                                    width: 40.0,
+                                                    height: 40.0,
                                                     decoration: BoxDecoration(
                                                       color: Color(0x48FFFFFF),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              60),
+                                                              60.0),
                                                       border: Border.all(
                                                         color:
                                                             Color(0xFFDB771A),
-                                                        width: 1,
+                                                        width: 1.0,
                                                       ),
                                                     ),
                                                     child: StreamBuilder<
@@ -727,8 +729,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                         if (!snapshot.hasData) {
                                                           return Center(
                                                             child: SizedBox(
-                                                              width: 50,
-                                                              height: 50,
+                                                              width: 50.0,
+                                                              height: 50.0,
                                                               child:
                                                                   CircularProgressIndicator(
                                                                 valueColor:
@@ -749,11 +751,12 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                         return ClipRRect(
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(60),
+                                                                  .circular(
+                                                                      60.0),
                                                           child: Image.network(
                                                             imageUserCustomRecord
                                                                 .imgProfile,
-                                                            width: 100,
+                                                            width: 100.0,
                                                             fit: BoxFit.cover,
                                                           ),
                                                         );
@@ -768,7 +771,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 20, 0, 0),
+                                            0.0, 20.0, 0.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
@@ -777,11 +780,12 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryText,
-                                              size: 24,
+                                              size: 24.0,
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(10, 0, 0, 0),
+                                                  .fromSTEB(
+                                                      10.0, 0.0, 0.0, 0.0),
                                               child: Text(
                                                 'สวัสดี คุณ${FFAppState().profileFirstName}',
                                                 style:
@@ -792,7 +796,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFF003063),
-                                                          fontSize: 18,
+                                                          fontSize: 18.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.bold,
@@ -804,21 +808,21 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 15, 0, 0),
+                                            0.0, 15.0, 0.0, 0.0),
                                         child: Container(
                                           width:
                                               MediaQuery.sizeOf(context).width *
                                                   0.95,
-                                          height: 63,
+                                          height: 63.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             borderRadius:
-                                                BorderRadius.circular(17),
+                                                BorderRadius.circular(17.0),
                                           ),
                                           child: Align(
                                             alignment:
-                                                AlignmentDirectional(0, 0),
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
@@ -845,10 +849,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          20,
-                                                                          5,
-                                                                          0,
-                                                                          0),
+                                                                          20.0,
+                                                                          5.0,
+                                                                          0.0,
+                                                                          0.0),
                                                               child: Text(
                                                                 GetVMICall
                                                                     .monthText(
@@ -863,7 +867,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                       fontFamily:
                                                                           'Noto Sans Thai',
                                                                       fontSize:
-                                                                          12,
+                                                                          12.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -873,10 +877,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          5,
-                                                                          5,
-                                                                          0,
-                                                                          0),
+                                                                          5.0,
+                                                                          5.0,
+                                                                          0.0,
+                                                                          0.0),
                                                               child: Text(
                                                                 GetVMICall
                                                                     .dateFullText(
@@ -891,7 +895,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                       fontFamily:
                                                                           'Noto Sans Thai',
                                                                       fontSize:
-                                                                          10,
+                                                                          10.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                       fontWeight:
@@ -905,7 +909,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                         Align(
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  0, 0),
+                                                                  0.0, 0.0),
                                                           child: Row(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -918,10 +922,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                 padding:
                                                                     EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            20,
-                                                                            0,
-                                                                            0,
-                                                                            0),
+                                                                            20.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                 child: Text(
                                                                   'จำนวนกรมธรรม์',
                                                                   style: FlutterFlowTheme.of(
@@ -931,7 +935,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                         fontFamily:
                                                                             'Noto Sans Thai',
                                                                         fontSize:
-                                                                            16,
+                                                                            16.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
@@ -943,10 +947,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                 padding:
                                                                     EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            20,
-                                                                            0),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            20.0,
+                                                                            0.0),
                                                                 child: Text(
                                                                   GetVMICall
                                                                           .total(
@@ -964,7 +968,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                         color: Color(
                                                                             0xFF003063),
                                                                         fontSize:
-                                                                            16,
+                                                                            16.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
@@ -1022,8 +1026,11 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(0,
-                                                                      8, 0, 0),
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      8.0,
+                                                                      0.0,
+                                                                      0.0),
                                                           child: Text(
                                                             FFAppState()
                                                                     .homeMenuIsExpanded
@@ -1037,7 +1044,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                       'Noto Sans Thai',
                                                                   color: Color(
                                                                       0xFFEDA44C),
-                                                                  fontSize: 16,
+                                                                  fontSize:
+                                                                      16.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -1058,8 +1066,11 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(0,
-                                                                      8, 0, 0),
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      8.0,
+                                                                      0.0,
+                                                                      0.0),
                                                           child: Row(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -1071,7 +1082,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                               Align(
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        0, 0),
+                                                                        0.0,
+                                                                        0.0),
                                                                 child: InkWell(
                                                                   splashColor:
                                                                       Colors
@@ -1113,21 +1125,22 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                     width: MediaQuery.sizeOf(context)
                                                                             .width *
                                                                         0.28,
-                                                                    height: 100,
+                                                                    height:
+                                                                        100.0,
                                                                     decoration:
                                                                         BoxDecoration(
                                                                       color: Colors
                                                                           .white,
                                                                       borderRadius:
                                                                           BorderRadius.circular(
-                                                                              15),
+                                                                              15.0),
                                                                     ),
                                                                     child:
                                                                         Align(
                                                                       alignment:
                                                                           AlignmentDirectional(
-                                                                              0,
-                                                                              0),
+                                                                              0.0,
+                                                                              0.0),
                                                                       child:
                                                                           Column(
                                                                         mainAxisSize:
@@ -1139,30 +1152,30 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                         children: [
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0,
-                                                                                6,
-                                                                                0,
-                                                                                0),
+                                                                                0.0,
+                                                                                6.0,
+                                                                                0.0,
+                                                                                0.0),
                                                                             child:
                                                                                 Icon(
                                                                               Icons.search,
                                                                               color: Color(0xFFDB771A),
-                                                                              size: 30,
+                                                                              size: 30.0,
                                                                             ),
                                                                           ),
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0,
-                                                                                7,
-                                                                                0,
-                                                                                0),
+                                                                                0.0,
+                                                                                7.0,
+                                                                                0.0,
+                                                                                0.0),
                                                                             child:
                                                                                 Text(
                                                                               'ค้นหาประกันรถ',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     color: Colors.black,
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.w600,
                                                                                   ),
@@ -1177,7 +1190,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                               Align(
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        0, 0),
+                                                                        0.0,
+                                                                        0.0),
                                                                 child: Builder(
                                                                   builder:
                                                                       (context) =>
@@ -1216,7 +1230,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                             backgroundColor:
                                                                                 Colors.transparent,
                                                                             alignment:
-                                                                                AlignmentDirectional(0, 0).resolve(Directionality.of(context)),
+                                                                                AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
                                                                             child:
                                                                                 WebViewAware(
                                                                               child: GestureDetector(
@@ -1301,13 +1315,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                               .width *
                                                                           0.28,
                                                                       height:
-                                                                          100,
+                                                                          100.0,
                                                                       decoration:
                                                                           BoxDecoration(
                                                                         color: Colors
                                                                             .white,
                                                                         borderRadius:
-                                                                            BorderRadius.circular(15),
+                                                                            BorderRadius.circular(15.0),
                                                                       ),
                                                                       child:
                                                                           Column(
@@ -1321,21 +1335,21 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                             color:
                                                                                 Color(0xFFDB771A),
                                                                             size:
-                                                                                38,
+                                                                                38.0,
                                                                           ),
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0,
-                                                                                5,
-                                                                                0,
-                                                                                0),
+                                                                                0.0,
+                                                                                5.0,
+                                                                                0.0,
+                                                                                0.0),
                                                                             child:
                                                                                 Text(
                                                                               'จำนวนกรมธรรม์',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     color: Colors.black,
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.w600,
                                                                                   ),
@@ -1368,14 +1382,14 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                               context)
                                                                           .width *
                                                                       0.28,
-                                                                  height: 100,
+                                                                  height: 100.0,
                                                                   decoration:
                                                                       BoxDecoration(
                                                                     color: Colors
                                                                         .white,
                                                                     borderRadius:
                                                                         BorderRadius.circular(
-                                                                            15),
+                                                                            15.0),
                                                                     shape: BoxShape
                                                                         .rectangle,
                                                                   ),
@@ -1393,14 +1407,14 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                         color: Color(
                                                                             0xFFDF8633),
                                                                         size:
-                                                                            35,
+                                                                            35.0,
                                                                       ),
                                                                       Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            6,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            6.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                         child:
                                                                             Text(
                                                                           'ติดตามสถานะ',
@@ -1409,7 +1423,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                               .override(
                                                                                 fontFamily: 'Noto Sans Thai',
                                                                                 color: Colors.black,
-                                                                                fontSize: 14,
+                                                                                fontSize: 14.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w600,
                                                                               ),
@@ -1431,12 +1445,15 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0, 0),
+                                                                0.0, 0.0),
                                                         child: Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(0,
-                                                                      4, 0, 0),
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      4.0,
+                                                                      0.0,
+                                                                      0.0),
                                                           child: FutureBuilder<
                                                               HideInAppContentRecord>(
                                                             future: HideInAppContentRecord
@@ -1451,8 +1468,9 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                 return Center(
                                                                   child:
                                                                       SizedBox(
-                                                                    width: 50,
-                                                                    height: 50,
+                                                                    width: 50.0,
+                                                                    height:
+                                                                        50.0,
                                                                     child:
                                                                         CircularProgressIndicator(
                                                                       valueColor:
@@ -1471,8 +1489,9 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                       .data!;
 
                                                               return Wrap(
-                                                                spacing: 12,
-                                                                runSpacing: 12,
+                                                                spacing: 12.0,
+                                                                runSpacing:
+                                                                    12.0,
                                                                 alignment:
                                                                     WrapAlignment
                                                                         .start,
@@ -1533,19 +1552,19 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                               .width *
                                                                           0.28,
                                                                       height:
-                                                                          100,
+                                                                          100.0,
                                                                       decoration:
                                                                           BoxDecoration(
                                                                         color: Colors
                                                                             .white,
                                                                         borderRadius:
-                                                                            BorderRadius.circular(15),
+                                                                            BorderRadius.circular(15.0),
                                                                       ),
                                                                       child:
                                                                           Align(
                                                                         alignment: AlignmentDirectional(
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            0.0),
                                                                         child:
                                                                             Column(
                                                                           mainAxisSize:
@@ -1556,21 +1575,21 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                               CrossAxisAlignment.center,
                                                                           children: [
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 6, 0, 0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
                                                                               child: Icon(
                                                                                 Icons.search,
                                                                                 color: Color(0xFFDB771A),
-                                                                                size: 30,
+                                                                                size: 30.0,
                                                                               ),
                                                                             ),
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 7, 0, 0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 7.0, 0.0, 0.0),
                                                                               child: Text(
                                                                                 'ค้นหาประกันรถ',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                       fontFamily: 'Noto Sans Thai',
                                                                                       color: Colors.black,
-                                                                                      fontSize: 14,
+                                                                                      fontSize: 14.0,
                                                                                       letterSpacing: 0.0,
                                                                                       fontWeight: FontWeight.w600,
                                                                                     ),
@@ -1614,7 +1633,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                               elevation: 0,
                                                                               insetPadding: EdgeInsets.zero,
                                                                               backgroundColor: Colors.transparent,
-                                                                              alignment: AlignmentDirectional(0, 0).resolve(Directionality.of(context)),
+                                                                              alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
                                                                               child: WebViewAware(
                                                                                 child: GestureDetector(
                                                                                   onTap: () => FocusScope.of(dialogContext).unfocus(),
@@ -1693,13 +1712,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                         width: MediaQuery.sizeOf(context).width *
                                                                             0.28,
                                                                         height:
-                                                                            100,
+                                                                            100.0,
                                                                         decoration:
                                                                             BoxDecoration(
                                                                           color:
                                                                               Colors.white,
                                                                           borderRadius:
-                                                                              BorderRadius.circular(15),
+                                                                              BorderRadius.circular(15.0),
                                                                         ),
                                                                         child:
                                                                             Column(
@@ -1711,16 +1730,16 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                             Icon(
                                                                               Icons.library_books,
                                                                               color: Color(0xFFDB771A),
-                                                                              size: 38,
+                                                                              size: 38.0,
                                                                             ),
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                                                                               child: Text(
                                                                                 'จำนวนกรมธรรม์',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                       fontFamily: 'Noto Sans Thai',
                                                                                       color: Colors.black,
-                                                                                      fontSize: 14,
+                                                                                      fontSize: 14.0,
                                                                                       letterSpacing: 0.0,
                                                                                       fontWeight: FontWeight.w600,
                                                                                     ),
@@ -1755,13 +1774,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                               .width *
                                                                           0.28,
                                                                       height:
-                                                                          100,
+                                                                          100.0,
                                                                       decoration:
                                                                           BoxDecoration(
                                                                         color: Colors
                                                                             .white,
                                                                         borderRadius:
-                                                                            BorderRadius.circular(15),
+                                                                            BorderRadius.circular(15.0),
                                                                         shape: BoxShape
                                                                             .rectangle,
                                                                       ),
@@ -1777,21 +1796,21 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                             color:
                                                                                 Color(0xFFDF8633),
                                                                             size:
-                                                                                35,
+                                                                                35.0,
                                                                           ),
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0,
-                                                                                6,
-                                                                                0,
-                                                                                0),
+                                                                                0.0,
+                                                                                6.0,
+                                                                                0.0,
+                                                                                0.0),
                                                                             child:
                                                                                 Text(
                                                                               'ติดตามสถานะ',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     color: Colors.black,
-                                                                                    fontSize: 14,
+                                                                                    fontSize: 14.0,
                                                                                     letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.w600,
                                                                                   ),
@@ -1834,19 +1853,19 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                               .width *
                                                                           0.28,
                                                                       height:
-                                                                          100,
+                                                                          100.0,
                                                                       decoration:
                                                                           BoxDecoration(
                                                                         color: Colors
                                                                             .white,
                                                                         borderRadius:
-                                                                            BorderRadius.circular(15),
+                                                                            BorderRadius.circular(15.0),
                                                                       ),
                                                                       child:
                                                                           Align(
                                                                         alignment: AlignmentDirectional(
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            0.0),
                                                                         child:
                                                                             Column(
                                                                           mainAxisSize:
@@ -1857,21 +1876,21 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                               CrossAxisAlignment.center,
                                                                           children: [
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 6, 0, 0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
                                                                               child: Icon(
                                                                                 Icons.edit_document,
                                                                                 color: Color(0xFFDB771A),
-                                                                                size: 30,
+                                                                                size: 30.0,
                                                                               ),
                                                                             ),
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 7, 0, 0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 7.0, 0.0, 0.0),
                                                                               child: Text(
                                                                                 'ลูกค้าต่ออายุ',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                       fontFamily: 'Noto Sans Thai',
                                                                                       color: Colors.black,
-                                                                                      fontSize: 14,
+                                                                                      fontSize: 14.0,
                                                                                       letterSpacing: 0.0,
                                                                                       fontWeight: FontWeight.w600,
                                                                                     ),
@@ -2349,19 +2368,19 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                               .width *
                                                                           0.28,
                                                                       height:
-                                                                          100,
+                                                                          100.0,
                                                                       decoration:
                                                                           BoxDecoration(
                                                                         color: Colors
                                                                             .white,
                                                                         borderRadius:
-                                                                            BorderRadius.circular(15),
+                                                                            BorderRadius.circular(15.0),
                                                                       ),
                                                                       child:
                                                                           Align(
                                                                         alignment: AlignmentDirectional(
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            0.0),
                                                                         child:
                                                                             Column(
                                                                           mainAxisSize:
@@ -2372,21 +2391,21 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                               CrossAxisAlignment.center,
                                                                           children: [
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 6, 0, 0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
                                                                               child: Icon(
                                                                                 Icons.transfer_within_a_station_rounded,
                                                                                 color: Color(0xFFDB771A),
-                                                                                size: 30,
+                                                                                size: 30.0,
                                                                               ),
                                                                             ),
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 7, 0, 0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 7.0, 0.0, 0.0),
                                                                               child: Text(
                                                                                 'งานโอนโค้ด',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                       fontFamily: 'Noto Sans Thai',
                                                                                       color: Colors.black,
-                                                                                      fontSize: 14,
+                                                                                      fontSize: 14.0,
                                                                                       letterSpacing: 0.0,
                                                                                       fontWeight: FontWeight.w600,
                                                                                     ),
@@ -2487,19 +2506,19 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                         width: MediaQuery.sizeOf(context).width *
                                                                             0.28,
                                                                         height:
-                                                                            100,
+                                                                            100.0,
                                                                         decoration:
                                                                             BoxDecoration(
                                                                           color:
                                                                               Colors.white,
                                                                           borderRadius:
-                                                                              BorderRadius.circular(15),
+                                                                              BorderRadius.circular(15.0),
                                                                         ),
                                                                         child:
                                                                             Align(
                                                                           alignment: AlignmentDirectional(
-                                                                              0,
-                                                                              0),
+                                                                              0.0,
+                                                                              0.0),
                                                                           child:
                                                                               Column(
                                                                             mainAxisSize:
@@ -2510,21 +2529,21 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                                 CrossAxisAlignment.center,
                                                                             children: [
                                                                               Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0, 6, 0, 0),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
                                                                                 child: Icon(
                                                                                   Icons.fact_check_outlined,
                                                                                   color: Color(0xFFDB771A),
-                                                                                  size: 30,
+                                                                                  size: 30.0,
                                                                                 ),
                                                                               ),
                                                                               Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0, 7, 0, 0),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 7.0, 0.0, 0.0),
                                                                                 child: Text(
                                                                                   'ขาย พ.ร.บ.',
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Noto Sans Thai',
                                                                                         color: Colors.black,
-                                                                                        fontSize: 14,
+                                                                                        fontSize: 14.0,
                                                                                         letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.w600,
                                                                                       ),
@@ -2578,19 +2597,19 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                               .width *
                                                                           0.28,
                                                                       height:
-                                                                          100,
+                                                                          100.0,
                                                                       decoration:
                                                                           BoxDecoration(
                                                                         color: Colors
                                                                             .white,
                                                                         borderRadius:
-                                                                            BorderRadius.circular(15),
+                                                                            BorderRadius.circular(15.0),
                                                                       ),
                                                                       child:
                                                                           Align(
                                                                         alignment: AlignmentDirectional(
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            0.0),
                                                                         child:
                                                                             Column(
                                                                           mainAxisSize:
@@ -2601,25 +2620,25 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                               CrossAxisAlignment.center,
                                                                           children: [
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 6, 0, 0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
                                                                               child: Icon(
                                                                                 Icons.motorcycle,
                                                                                 color: Color(0xFFDB771A),
-                                                                                size: 30,
+                                                                                size: 30.0,
                                                                               ),
                                                                             ),
                                                                             Container(
-                                                                              width: 100,
+                                                                              width: 100.0,
                                                                               decoration: BoxDecoration(),
                                                                               child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0, 7, 0, 0),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 7.0, 0.0, 0.0),
                                                                                 child: Text(
                                                                                   'ค้นหาประกันมอเตอร์ไซค์',
                                                                                   textAlign: TextAlign.center,
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Noto Sans Thai',
                                                                                         color: Colors.black,
-                                                                                        fontSize: 14,
+                                                                                        fontSize: 14.0,
                                                                                         letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.w600,
                                                                                       ),
@@ -2672,19 +2691,19 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                         width: MediaQuery.sizeOf(context).width *
                                                                             0.28,
                                                                         height:
-                                                                            100,
+                                                                            100.0,
                                                                         decoration:
                                                                             BoxDecoration(
                                                                           color:
                                                                               Colors.white,
                                                                           borderRadius:
-                                                                              BorderRadius.circular(15),
+                                                                              BorderRadius.circular(15.0),
                                                                         ),
                                                                         child:
                                                                             Align(
                                                                           alignment: AlignmentDirectional(
-                                                                              0,
-                                                                              0),
+                                                                              0.0,
+                                                                              0.0),
                                                                           child:
                                                                               Column(
                                                                             mainAxisSize:
@@ -2695,25 +2714,25 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                                 CrossAxisAlignment.center,
                                                                             children: [
                                                                               Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0, 6, 0, 0),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
                                                                                 child: Icon(
                                                                                   Icons.electric_car,
                                                                                   color: Color(0xFFDB771A),
-                                                                                  size: 30,
+                                                                                  size: 30.0,
                                                                                 ),
                                                                               ),
                                                                               Container(
-                                                                                width: 100,
+                                                                                width: 100.0,
                                                                                 decoration: BoxDecoration(),
                                                                                 child: Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0, 7, 0, 0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 7.0, 0.0, 0.0),
                                                                                   child: Text(
                                                                                     'ค้นหาประกัน\nรถ EV',
                                                                                     textAlign: TextAlign.center,
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'Noto Sans Thai',
                                                                                           color: Colors.black,
-                                                                                          fontSize: 14,
+                                                                                          fontSize: 14.0,
                                                                                           letterSpacing: 0.0,
                                                                                           fontWeight: FontWeight.w600,
                                                                                         ),
@@ -2746,19 +2765,19 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                         width: MediaQuery.sizeOf(context).width *
                                                                             0.28,
                                                                         height:
-                                                                            100,
+                                                                            100.0,
                                                                         decoration:
                                                                             BoxDecoration(
                                                                           color:
                                                                               Colors.white,
                                                                           borderRadius:
-                                                                              BorderRadius.circular(15),
+                                                                              BorderRadius.circular(15.0),
                                                                         ),
                                                                         child:
                                                                             Align(
                                                                           alignment: AlignmentDirectional(
-                                                                              0,
-                                                                              0),
+                                                                              0.0,
+                                                                              0.0),
                                                                           child:
                                                                               Column(
                                                                             mainAxisSize:
@@ -2769,25 +2788,25 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                                 CrossAxisAlignment.center,
                                                                             children: [
                                                                               Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0, 6, 0, 0),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
                                                                                 child: FaIcon(
                                                                                   FontAwesomeIcons.android,
                                                                                   color: Color(0xFFDB771A),
-                                                                                  size: 30,
+                                                                                  size: 30.0,
                                                                                 ),
                                                                               ),
                                                                               Container(
-                                                                                width: 100,
+                                                                                width: 100.0,
                                                                                 decoration: BoxDecoration(),
                                                                                 child: Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0, 7, 0, 0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 7.0, 0.0, 0.0),
                                                                                   child: Text(
                                                                                     'คุยกับ Gemini',
                                                                                     textAlign: TextAlign.center,
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'Noto Sans Thai',
                                                                                           color: Colors.black,
-                                                                                          fontSize: 14,
+                                                                                          fontSize: 14.0,
                                                                                           letterSpacing: 0.0,
                                                                                           fontWeight: FontWeight.w600,
                                                                                         ),
@@ -2834,19 +2853,19 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                         width: MediaQuery.sizeOf(context).width *
                                                                             0.28,
                                                                         height:
-                                                                            100,
+                                                                            100.0,
                                                                         decoration:
                                                                             BoxDecoration(
                                                                           color:
                                                                               Colors.white,
                                                                           borderRadius:
-                                                                              BorderRadius.circular(15),
+                                                                              BorderRadius.circular(15.0),
                                                                         ),
                                                                         child:
                                                                             Align(
                                                                           alignment: AlignmentDirectional(
-                                                                              0,
-                                                                              0),
+                                                                              0.0,
+                                                                              0.0),
                                                                           child:
                                                                               Column(
                                                                             mainAxisSize:
@@ -2857,25 +2876,25 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                                 CrossAxisAlignment.center,
                                                                             children: [
                                                                               Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0, 6, 0, 0),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
                                                                                 child: Icon(
                                                                                   Icons.videocam_sharp,
                                                                                   color: Color(0xFFDB771A),
-                                                                                  size: 30,
+                                                                                  size: 30.0,
                                                                                 ),
                                                                               ),
                                                                               Container(
-                                                                                width: 100,
+                                                                                width: 100.0,
                                                                                 decoration: BoxDecoration(),
                                                                                 child: Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0, 7, 0, 0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 7.0, 0.0, 0.0),
                                                                                   child: Text(
                                                                                     'ลูกค้าประกัน',
                                                                                     textAlign: TextAlign.center,
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'Noto Sans Thai',
                                                                                           color: Colors.black,
-                                                                                          fontSize: 14,
+                                                                                          fontSize: 14.0,
                                                                                           letterSpacing: 0.0,
                                                                                           fontWeight: FontWeight.w600,
                                                                                         ),
@@ -2893,19 +2912,19 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                               .width *
                                                                           0.28,
                                                                       height:
-                                                                          100,
+                                                                          100.0,
                                                                       decoration:
                                                                           BoxDecoration(
                                                                         color: Colors
                                                                             .white,
                                                                         borderRadius:
-                                                                            BorderRadius.circular(15),
+                                                                            BorderRadius.circular(15.0),
                                                                       ),
                                                                       child:
                                                                           Align(
                                                                         alignment: AlignmentDirectional(
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            0.0),
                                                                         child:
                                                                             Column(
                                                                           mainAxisSize:
@@ -2916,25 +2935,25 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                               CrossAxisAlignment.center,
                                                                           children: [
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 6, 0, 0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
                                                                               child: Icon(
                                                                                 Icons.save_as_sharp,
                                                                                 color: Color(0xFFDB771A),
-                                                                                size: 30,
+                                                                                size: 30.0,
                                                                               ),
                                                                             ),
                                                                             Container(
-                                                                              width: 100,
+                                                                              width: 100.0,
                                                                               decoration: BoxDecoration(),
                                                                               child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0, 7, 0, 0),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 7.0, 0.0, 0.0),
                                                                                 child: Text(
                                                                                   'บันทึก พ.ร.บ.',
                                                                                   textAlign: TextAlign.center,
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Noto Sans Thai',
                                                                                         color: Colors.black,
-                                                                                        fontSize: 14,
+                                                                                        fontSize: 14.0,
                                                                                         letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.w600,
                                                                                       ),
@@ -2968,7 +2987,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                           ],
                                         ),
                                       ),
-                                    ].addToEnd(SizedBox(height: 16)),
+                                    ].addToEnd(SizedBox(height: 16.0)),
                                   ),
                                 ),
                               ],
@@ -2979,22 +2998,24 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 8, 20, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(20.0, 8.0, 20.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(
-                          height: 18,
+                          height: 18.0,
                           child: VerticalDivider(
-                            thickness: 3,
+                            thickness: 3.0,
                             color: Color(0xFFDB771A),
                           ),
                         ),
                         Expanded(
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(4, 0, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                4.0, 0.0, 0.0, 0.0),
                             child: Text(
                               'ใบเสนอราคาของฉัน',
                               style: FlutterFlowTheme.of(context)
@@ -3002,7 +3023,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                   .override(
                                     fontFamily: 'Noto Sans Thai',
                                     color: Color(0xFF003063),
-                                    fontSize: 16,
+                                    fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -3010,7 +3031,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 3, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 3.0, 0.0, 0.0),
                           child: InkWell(
                             splashColor: Colors.transparent,
                             focusColor: Colors.transparent,
@@ -3026,7 +3048,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                   .override(
                                     fontFamily: 'Noto Sans Thai',
                                     color: Color(0xFFEDA44C),
-                                    fontSize: 16,
+                                    fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                     decoration: TextDecoration.underline,
@@ -3038,8 +3060,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                     ),
                   ),
                   Container(
-                    width: MediaQuery.sizeOf(context).width,
-                    height: 300,
+                    width: MediaQuery.sizeOf(context).width * 1.0,
+                    height: 300.0,
                     decoration: BoxDecoration(),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
@@ -3053,7 +3075,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                             : false)
                           Expanded(
                             child: Align(
-                              alignment: AlignmentDirectional(0, 0),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Builder(
                                 builder: (context) {
                                   final leadList = (GetVMICall.leadIdList(
@@ -3068,7 +3090,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                     child: Stack(
                                       children: [
                                         Padding(
-                                          padding: EdgeInsets.all(4),
+                                          padding: EdgeInsets.all(4.0),
                                           child: PageView.builder(
                                             controller: _model
                                                     .pageViewController1 ??=
@@ -3086,15 +3108,15 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                               final leadListItem =
                                                   leadList[leadListIndex];
                                               return Align(
-                                                alignment:
-                                                    AlignmentDirectional(0, -1),
+                                                alignment: AlignmentDirectional(
+                                                    0.0, -1.0),
                                                 child: Container(
                                                   width:
                                                       MediaQuery.sizeOf(context)
                                                               .width *
                                                           0.9,
                                                   constraints: BoxConstraints(
-                                                    maxHeight: 260,
+                                                    maxHeight: 260.0,
                                                   ),
                                                   decoration: BoxDecoration(
                                                     color: FlutterFlowTheme.of(
@@ -3102,31 +3124,31 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                         .secondaryBackground,
                                                     boxShadow: [
                                                       BoxShadow(
-                                                        blurRadius: 4,
+                                                        blurRadius: 4.0,
                                                         color:
                                                             Color(0x33000000),
                                                         offset: Offset(
-                                                          0,
-                                                          2,
+                                                          0.0,
+                                                          2.0,
                                                         ),
                                                       )
                                                     ],
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            20),
+                                                            20.0),
                                                     border: Border.all(
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .grayIcon,
-                                                      width: 2,
+                                                      width: 2.0,
                                                     ),
                                                   ),
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                12, 0, 12, 0),
+                                                            .fromSTEB(12.0, 0.0,
+                                                                12.0, 0.0),
                                                     child: Column(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -3141,10 +3163,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                           padding:
                                                               EdgeInsetsDirectional
                                                                   .fromSTEB(
-                                                                      12,
-                                                                      12,
-                                                                      12,
-                                                                      0),
+                                                                      12.0,
+                                                                      12.0,
+                                                                      12.0,
+                                                                      0.0),
                                                           child: Column(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -3178,14 +3200,14 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                             .override(
                                                                               fontFamily: 'Noto Sans Thai',
                                                                               color: FlutterFlowTheme.of(context).black600,
-                                                                              fontSize: 14,
+                                                                              fontSize: 14.0,
                                                                               letterSpacing: 0.0,
                                                                             ),
                                                                       ),
                                                                     ),
                                                                   ),
                                                                   Container(
-                                                                    width: 10,
+                                                                    width: 10.0,
                                                                     decoration:
                                                                         BoxDecoration(),
                                                                     child: Text(
@@ -3225,7 +3247,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                             .override(
                                                                               fontFamily: 'Noto Sans Thai',
                                                                               color: FlutterFlowTheme.of(context).black600,
-                                                                              fontSize: 14,
+                                                                              fontSize: 14.0,
                                                                               letterSpacing: 0.0,
                                                                             ),
                                                                       ),
@@ -3255,14 +3277,14 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                             .override(
                                                                               fontFamily: 'Noto Sans Thai',
                                                                               color: FlutterFlowTheme.of(context).black600,
-                                                                              fontSize: 14,
+                                                                              fontSize: 14.0,
                                                                               letterSpacing: 0.0,
                                                                             ),
                                                                       ),
                                                                     ),
                                                                   ),
                                                                   Container(
-                                                                    width: 10,
+                                                                    width: 10.0,
                                                                     decoration:
                                                                         BoxDecoration(),
                                                                     child: Text(
@@ -3298,7 +3320,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                             .override(
                                                                               fontFamily: 'Noto Sans Thai',
                                                                               color: FlutterFlowTheme.of(context).black600,
-                                                                              fontSize: 14,
+                                                                              fontSize: 14.0,
                                                                               letterSpacing: 0.0,
                                                                             ),
                                                                       ),
@@ -3328,14 +3350,14 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                             .override(
                                                                               fontFamily: 'Noto Sans Thai',
                                                                               color: FlutterFlowTheme.of(context).black600,
-                                                                              fontSize: 14,
+                                                                              fontSize: 14.0,
                                                                               letterSpacing: 0.0,
                                                                             ),
                                                                       ),
                                                                     ),
                                                                   ),
                                                                   Container(
-                                                                    width: 10,
+                                                                    width: 10.0,
                                                                     decoration:
                                                                         BoxDecoration(),
                                                                     child: Text(
@@ -3371,7 +3393,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                             .override(
                                                                               fontFamily: 'Noto Sans Thai',
                                                                               color: FlutterFlowTheme.of(context).black600,
-                                                                              fontSize: 14,
+                                                                              fontSize: 14.0,
                                                                               letterSpacing: 0.0,
                                                                             ),
                                                                       ),
@@ -3401,14 +3423,14 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                             .override(
                                                                               fontFamily: 'Noto Sans Thai',
                                                                               color: FlutterFlowTheme.of(context).black600,
-                                                                              fontSize: 14,
+                                                                              fontSize: 14.0,
                                                                               letterSpacing: 0.0,
                                                                             ),
                                                                       ),
                                                                     ),
                                                                   ),
                                                                   Container(
-                                                                    width: 10,
+                                                                    width: 10.0,
                                                                     decoration:
                                                                         BoxDecoration(),
                                                                     child: Text(
@@ -3444,7 +3466,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                             .override(
                                                                               fontFamily: 'Noto Sans Thai',
                                                                               color: FlutterFlowTheme.of(context).black600,
-                                                                              fontSize: 14,
+                                                                              fontSize: 14.0,
                                                                               letterSpacing: 0.0,
                                                                             ),
                                                                       ),
@@ -3474,14 +3496,14 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                             .override(
                                                                               fontFamily: 'Noto Sans Thai',
                                                                               color: FlutterFlowTheme.of(context).black600,
-                                                                              fontSize: 14,
+                                                                              fontSize: 14.0,
                                                                               letterSpacing: 0.0,
                                                                             ),
                                                                       ),
                                                                     ),
                                                                   ),
                                                                   Container(
-                                                                    width: 10,
+                                                                    width: 10.0,
                                                                     decoration:
                                                                         BoxDecoration(),
                                                                     child: Text(
@@ -3517,7 +3539,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                             .override(
                                                                               fontFamily: 'Noto Sans Thai',
                                                                               color: FlutterFlowTheme.of(context).black600,
-                                                                              fontSize: 14,
+                                                                              fontSize: 14.0,
                                                                               letterSpacing: 0.0,
                                                                             ),
                                                                       ),
@@ -3547,14 +3569,14 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                             .override(
                                                                               fontFamily: 'Noto Sans Thai',
                                                                               color: FlutterFlowTheme.of(context).black600,
-                                                                              fontSize: 14,
+                                                                              fontSize: 14.0,
                                                                               letterSpacing: 0.0,
                                                                             ),
                                                                       ),
                                                                     ),
                                                                   ),
                                                                   Container(
-                                                                    width: 10,
+                                                                    width: 10.0,
                                                                     decoration:
                                                                         BoxDecoration(),
                                                                     child: Text(
@@ -3590,7 +3612,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                             .override(
                                                                               fontFamily: 'Noto Sans Thai',
                                                                               color: FlutterFlowTheme.of(context).black600,
-                                                                              fontSize: 14,
+                                                                              fontSize: 14.0,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.bold,
                                                                             ),
@@ -3600,14 +3622,17 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                 ],
                                                               ),
                                                             ].divide(SizedBox(
-                                                                height: 6)),
+                                                                height: 6.0)),
                                                           ),
                                                         ),
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(0,
-                                                                      0, 0, 20),
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      20.0),
                                                           child: Row(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -3622,7 +3647,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                               Align(
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        -1, 0),
+                                                                        -1.0,
+                                                                        0.0),
                                                                 child:
                                                                     FFButtonWidget(
                                                                   onPressed:
@@ -3838,20 +3864,22 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                       'ทำประกัน',
                                                                   options:
                                                                       FFButtonOptions(
-                                                                    width: 100,
-                                                                    height: 35,
+                                                                    width:
+                                                                        100.0,
+                                                                    height:
+                                                                        35.0,
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            24,
-                                                                            0,
-                                                                            24,
-                                                                            0),
+                                                                            24.0,
+                                                                            0.0,
+                                                                            24.0,
+                                                                            0.0),
                                                                     iconPadding:
                                                                         EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                     color: Color(
                                                                         0xFFD9761A),
                                                                     textStyle: FlutterFlowTheme.of(
@@ -3863,23 +3891,24 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                           color:
                                                                               Colors.white,
                                                                           fontSize:
-                                                                              15,
+                                                                              15.0,
                                                                           letterSpacing:
                                                                               0.0,
                                                                           fontWeight:
                                                                               FontWeight.w600,
                                                                         ),
                                                                     elevation:
-                                                                        3,
+                                                                        3.0,
                                                                     borderSide:
                                                                         BorderSide(
                                                                       color: Colors
                                                                           .transparent,
-                                                                      width: 0,
+                                                                      width:
+                                                                          0.0,
                                                                     ),
                                                                     borderRadius:
                                                                         BorderRadius.circular(
-                                                                            10),
+                                                                            10.0),
                                                                   ),
                                                                 ),
                                                               ),
@@ -3895,7 +3924,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                           ),
                                         ),
                                         Align(
-                                          alignment: AlignmentDirectional(0, 1),
+                                          alignment:
+                                              AlignmentDirectional(0.0, 1.0),
                                           child: smooth_page_indicator
                                               .SmoothPageIndicator(
                                             controller: _model
@@ -3921,11 +3951,11 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                             },
                                             effect: smooth_page_indicator
                                                 .ExpandingDotsEffect(
-                                              expansionFactor: 2,
-                                              spacing: 8,
-                                              radius: 16,
-                                              dotWidth: 16,
-                                              dotHeight: 8,
+                                              expansionFactor: 2.0,
+                                              spacing: 8.0,
+                                              radius: 16.0,
+                                              dotWidth: 16.0,
+                                              dotHeight: 8.0,
                                               dotColor: Color(0xFFF3C5A2),
                                               activeDotColor: Color(0xFFD9761A),
                                               paintStyle: PaintingStyle.fill,
@@ -3951,7 +3981,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Align(
-                                  alignment: AlignmentDirectional(0, 0),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     'ไม่พบข้อมูล',
                                     style: FlutterFlowTheme.of(context)
@@ -3960,7 +3990,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                           fontFamily: 'Noto Sans Thai',
                                           color: FlutterFlowTheme.of(context)
                                               .primaryText,
-                                          fontSize: 14,
+                                          fontSize: 14.0,
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -3973,29 +4003,30 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                   ),
                   if (false)
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(20, 4, 20, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                20.0, 4.0, 20.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 SizedBox(
-                                  height: 18,
+                                  height: 18.0,
                                   child: VerticalDivider(
-                                    thickness: 3,
+                                    thickness: 3.0,
                                     color: Color(0xFFE8903E),
                                   ),
                                 ),
                                 Expanded(
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        4, 0, 0, 0),
+                                        4.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       'โปรโมชั่นพิเศษ!!',
                                       style: FlutterFlowTheme.of(context)
@@ -4003,7 +4034,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF003063),
-                                            fontSize: 16,
+                                            fontSize: 16.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.bold,
                                           ),
@@ -4014,11 +4045,11 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                             ),
                           ),
                           Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 15.0, 0.0, 0.0),
                             child: Container(
-                              width: MediaQuery.sizeOf(context).width,
-                              height: 200,
+                              width: MediaQuery.sizeOf(context).width * 1.0,
+                              height: 200.0,
                               decoration: BoxDecoration(),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -4026,7 +4057,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        24, 0, 0, 0),
+                                        24.0, 0.0, 0.0, 0.0),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
                                       focusColor: Colors.transparent,
@@ -4038,10 +4069,11 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                         context.goNamed('webViewPromotionPage');
                                       },
                                       child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(8),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
                                         child: Image.asset(
                                           'assets/images/6yzu7_.jpg',
-                                          height: 200,
+                                          height: 200.0,
                                           fit: BoxFit.cover,
                                         ),
                                       ),
@@ -4055,28 +4087,30 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                       ),
                     ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(20, 4, 20, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              20.0, 4.0, 20.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               SizedBox(
-                                height: 18,
+                                height: 18.0,
                                 child: VerticalDivider(
-                                  thickness: 3,
+                                  thickness: 3.0,
                                   color: Color(0xFFE8903E),
                                 ),
                               ),
                               Expanded(
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      4, 0, 0, 0),
+                                      4.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     'ตรวจสอบอู่บริษัทประกัน',
                                     style: FlutterFlowTheme.of(context)
@@ -4084,7 +4118,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFF003063),
-                                          fontSize: 16,
+                                          fontSize: 16.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
                                         ),
@@ -4095,10 +4129,11 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 15.0, 0.0, 0.0),
                           child: Container(
-                            width: MediaQuery.sizeOf(context).width,
-                            height: 200,
+                            width: MediaQuery.sizeOf(context).width * 1.0,
+                            height: 200.0,
                             decoration: BoxDecoration(),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -4113,12 +4148,12 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                     context.goNamed('InsurerInfomationPage');
                                   },
                                   child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(20),
+                                    borderRadius: BorderRadius.circular(20.0),
                                     child: Image.asset(
                                       'assets/images/garage-02_0.png',
                                       width: MediaQuery.sizeOf(context).width *
                                           0.9,
-                                      height: 200,
+                                      height: 200.0,
                                       fit: BoxFit.cover,
                                     ),
                                   ),
@@ -4144,8 +4179,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                       if (!snapshot.hasData) {
                         return Center(
                           child: SizedBox(
-                            width: 50,
-                            height: 50,
+                            width: 50.0,
+                            height: 50.0,
                             child: CircularProgressIndicator(
                               valueColor: AlwaysStoppedAnimation<Color>(
                                 FlutterFlowTheme.of(context).primary,
@@ -4167,14 +4202,14 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                           if (columnHideInAppContentRecord?.isShowContent ??
                               true)
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 12.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        20, 4, 20, 0),
+                                        20.0, 4.0, 20.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -4183,9 +4218,9 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         SizedBox(
-                                          height: 18,
+                                          height: 18.0,
                                           child: VerticalDivider(
-                                            thickness: 3,
+                                            thickness: 3.0,
                                             color: Color(0xFFE8903E),
                                           ),
                                         ),
@@ -4193,7 +4228,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    4, 0, 0, 0),
+                                                    4.0, 0.0, 0.0, 0.0),
                                             child: Text(
                                               'ตารางแสดงประกันในเรท',
                                               style: FlutterFlowTheme.of(
@@ -4203,7 +4238,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                     fontFamily:
                                                         'Noto Sans Thai',
                                                     color: Color(0xFF003063),
-                                                    fontSize: 16,
+                                                    fontSize: 16.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.bold,
                                                   ),
@@ -4215,10 +4250,11 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 15, 0, 0),
+                                        0.0, 15.0, 0.0, 0.0),
                                     child: Container(
-                                      width: MediaQuery.sizeOf(context).width,
-                                      height: 200,
+                                      width: MediaQuery.sizeOf(context).width *
+                                          1.0,
+                                      height: 200.0,
                                       decoration: BoxDecoration(),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -4269,7 +4305,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                               transitionOnUserGestures: true,
                                               child: ClipRRect(
                                                 borderRadius:
-                                                    BorderRadius.circular(20),
+                                                    BorderRadius.circular(20.0),
                                                 child: OctoImage(
                                                   placeholderBuilder: (_) =>
                                                       SizedBox.expand(
@@ -4288,7 +4324,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                       MediaQuery.sizeOf(context)
                                                               .width *
                                                           0.9,
-                                                  height: 200,
+                                                  height: 200.0,
                                                   fit: BoxFit.cover,
                                                 ),
                                               ),
@@ -4306,28 +4342,30 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                     },
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(20, 4, 20, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              20.0, 4.0, 20.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               SizedBox(
-                                height: 18,
+                                height: 18.0,
                                 child: VerticalDivider(
-                                  thickness: 3,
+                                  thickness: 3.0,
                                   color: Color(0xFFE8903E),
                                 ),
                               ),
                               Expanded(
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      4, 0, 0, 0),
+                                      4.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     'ตามงานกลุ่มประกัน',
                                     style: FlutterFlowTheme.of(context)
@@ -4335,7 +4373,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFF003063),
-                                          fontSize: 16,
+                                          fontSize: 16.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
                                         ),
@@ -4346,10 +4384,11 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 15.0, 0.0, 0.0),
                           child: Container(
-                            width: MediaQuery.sizeOf(context).width,
-                            height: 200,
+                            width: MediaQuery.sizeOf(context).width * 1.0,
+                            height: 200.0,
                             decoration: BoxDecoration(),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -4365,11 +4404,11 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                         'https://line.me/ti/g/Vnu3qGS_XY');
                                   },
                                   child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(8),
+                                    borderRadius: BorderRadius.circular(8.0),
                                     child: Image.asset(
                                       'assets/images/S__14966814.jpg',
-                                      width: 200,
-                                      height: 200,
+                                      width: 200.0,
+                                      height: 200.0,
                                       fit: BoxFit.cover,
                                     ),
                                   ),
@@ -4385,23 +4424,24 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(20, 4, 20, 0),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            20.0, 4.0, 20.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             SizedBox(
-                              height: 18,
+                              height: 18.0,
                               child: VerticalDivider(
-                                thickness: 3,
+                                thickness: 3.0,
                                 color: Color(0xFFE8903E),
                               ),
                             ),
                             Expanded(
                               child: Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(4, 0, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    4.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   'ประกันอุบัติเหตุ',
                                   style: FlutterFlowTheme.of(context)
@@ -4409,7 +4449,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFF003063),
-                                        fontSize: 16,
+                                        fontSize: 16.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.bold,
                                       ),
@@ -4420,7 +4460,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                         child: FutureBuilder<List<AuthorizationRecord>>(
                           future: queryAuthorizationRecordOnce(
                             queryBuilder: (authorizationRecord) =>
@@ -4435,8 +4476,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                             if (!snapshot.hasData) {
                               return Center(
                                 child: SizedBox(
-                                  width: 50,
-                                  height: 50,
+                                  width: 50.0,
+                                  height: 50.0,
                                   child: CircularProgressIndicator(
                                     valueColor: AlwaysStoppedAnimation<Color>(
                                       FlutterFlowTheme.of(context).primary,
@@ -4456,8 +4497,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                     : null;
 
                             return Container(
-                              width: MediaQuery.sizeOf(context).width,
-                              height: 200,
+                              width: MediaQuery.sizeOf(context).width * 1.0,
+                              height: 200.0,
                               decoration: BoxDecoration(),
                               child: FutureBuilder<HideInAppContentRecord>(
                                 future: HideInAppContentRecord.getDocumentOnce(
@@ -4467,8 +4508,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                   if (!snapshot.hasData) {
                                     return Center(
                                       child: SizedBox(
-                                        width: 50,
-                                        height: 50,
+                                        width: 50.0,
+                                        height: 50.0,
                                         child: CircularProgressIndicator(
                                           valueColor:
                                               AlwaysStoppedAnimation<Color>(
@@ -4504,8 +4545,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                             if (!snapshot.hasData) {
                                               return Center(
                                                 child: SizedBox(
-                                                  width: 50,
-                                                  height: 50,
+                                                  width: 50.0,
+                                                  height: 50.0,
                                                   child:
                                                       CircularProgressIndicator(
                                                     valueColor:
@@ -4531,7 +4572,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
 
                                             return Container(
                                               width: double.infinity,
-                                              height: 200,
+                                              height: 200.0,
                                               child: CarouselSlider(
                                                 items: [
                                                   Column(
@@ -4551,10 +4592,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        0,
-                                                                        0,
-                                                                        5,
-                                                                        0),
+                                                                        0.0,
+                                                                        0.0,
+                                                                        5.0,
+                                                                        0.0),
                                                             child: FutureBuilder<
                                                                 List<
                                                                     UrlLinkStorageRecord>>(
@@ -4579,9 +4620,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                   return Center(
                                                                     child:
                                                                         SizedBox(
-                                                                      width: 50,
+                                                                      width:
+                                                                          50.0,
                                                                       height:
-                                                                          50,
+                                                                          50.0,
                                                                       child:
                                                                           CircularProgressIndicator(
                                                                         valueColor:
@@ -4625,7 +4667,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                       Container(
                                                                     width: double
                                                                         .infinity,
-                                                                    height: 170,
+                                                                    height:
+                                                                        170.0,
                                                                     decoration:
                                                                         BoxDecoration(
                                                                       color: FlutterFlowTheme.of(
@@ -4634,57 +4677,57 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                       boxShadow: [
                                                                         BoxShadow(
                                                                           blurRadius:
-                                                                              4,
+                                                                              4.0,
                                                                           color:
                                                                               Color(0x33000000),
                                                                           offset:
                                                                               Offset(
-                                                                            0,
-                                                                            2,
+                                                                            0.0,
+                                                                            2.0,
                                                                           ),
                                                                         )
                                                                       ],
                                                                       borderRadius:
                                                                           BorderRadius.circular(
-                                                                              20),
+                                                                              20.0),
                                                                       border:
                                                                           Border
                                                                               .all(
                                                                         color: Color(
                                                                             0xFFFFA361),
                                                                         width:
-                                                                            1,
+                                                                            1.0,
                                                                       ),
                                                                     ),
                                                                     child:
                                                                         Padding(
                                                                       padding:
                                                                           EdgeInsets.all(
-                                                                              4),
+                                                                              4.0),
                                                                       child:
                                                                           Container(
                                                                         width:
-                                                                            280,
+                                                                            280.0,
                                                                         height:
-                                                                            155,
+                                                                            155.0,
                                                                         decoration:
                                                                             BoxDecoration(
                                                                           color:
                                                                               Color(0xFFF2EAE5),
                                                                           borderRadius:
-                                                                              BorderRadius.circular(20),
+                                                                              BorderRadius.circular(20.0),
                                                                         ),
                                                                         child:
                                                                             ClipRRect(
                                                                           borderRadius:
-                                                                              BorderRadius.circular(20),
+                                                                              BorderRadius.circular(20.0),
                                                                           child:
                                                                               Image.asset(
                                                                             'assets/images/Banner_800x550_px..png',
                                                                             width:
-                                                                                300,
+                                                                                300.0,
                                                                             height:
-                                                                                200,
+                                                                                200.0,
                                                                             fit:
                                                                                 BoxFit.cover,
                                                                           ),
@@ -4704,10 +4747,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        0,
-                                                                        0,
-                                                                        5,
-                                                                        0),
+                                                                        0.0,
+                                                                        0.0,
+                                                                        5.0,
+                                                                        0.0),
                                                             child: InkWell(
                                                               splashColor: Colors
                                                                   .transparent,
@@ -4726,7 +4769,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                               child: Container(
                                                                 width: double
                                                                     .infinity,
-                                                                height: 180,
+                                                                height: 180.0,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   color: FlutterFlowTheme.of(
@@ -4735,56 +4778,58 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                   boxShadow: [
                                                                     BoxShadow(
                                                                       blurRadius:
-                                                                          4,
+                                                                          4.0,
                                                                       color: Color(
                                                                           0x33000000),
                                                                       offset:
                                                                           Offset(
-                                                                        0,
-                                                                        2,
+                                                                        0.0,
+                                                                        2.0,
                                                                       ),
                                                                     )
                                                                   ],
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .circular(
-                                                                              20),
+                                                                              20.0),
                                                                   border: Border
                                                                       .all(
                                                                     color: Color(
                                                                         0xFFFFA361),
-                                                                    width: 1,
+                                                                    width: 1.0,
                                                                   ),
                                                                 ),
                                                                 child: Padding(
                                                                   padding:
                                                                       EdgeInsets
                                                                           .all(
-                                                                              4),
+                                                                              4.0),
                                                                   child:
                                                                       Container(
-                                                                    width: 280,
-                                                                    height: 155,
+                                                                    width:
+                                                                        280.0,
+                                                                    height:
+                                                                        155.0,
                                                                     decoration:
                                                                         BoxDecoration(
                                                                       color: Color(
                                                                           0xFFF2EAE5),
                                                                       borderRadius:
                                                                           BorderRadius.circular(
-                                                                              20),
+                                                                              20.0),
                                                                     ),
                                                                     child:
                                                                         ClipRRect(
                                                                       borderRadius:
                                                                           BorderRadius.circular(
-                                                                              20),
+                                                                              20.0),
                                                                       child: Image
                                                                           .asset(
                                                                         'assets/images/Card-line-Final1_0.png',
                                                                         width:
-                                                                            300,
+                                                                            300.0,
                                                                         height:
-                                                                            200,
+                                                                            200.0,
                                                                         fit: BoxFit
                                                                             .cover,
                                                                       ),
@@ -4800,8 +4845,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 5, 0),
+                                                            .fromSTEB(0.0, 0.0,
+                                                                5.0, 0.0),
                                                     child: InkWell(
                                                       splashColor:
                                                           Colors.transparent,
@@ -4817,8 +4862,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                 .urlLink);
                                                       },
                                                       child: Container(
-                                                        width: 280,
-                                                        height: 170,
+                                                        width: 280.0,
+                                                        height: 170.0,
                                                         decoration:
                                                             BoxDecoration(
                                                           color: FlutterFlowTheme
@@ -4826,30 +4871,32 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                               .secondaryBackground,
                                                           boxShadow: [
                                                             BoxShadow(
-                                                              blurRadius: 4,
+                                                              blurRadius: 4.0,
                                                               color: Color(
                                                                   0x33000000),
                                                               offset: Offset(
-                                                                0,
-                                                                2,
+                                                                0.0,
+                                                                2.0,
                                                               ),
                                                             )
                                                           ],
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(20),
+                                                                  .circular(
+                                                                      20.0),
                                                           border: Border.all(
                                                             color: Color(
                                                                 0xFFFFA361),
-                                                            width: 1,
+                                                            width: 1.0,
                                                           ),
                                                         ),
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsets.all(4),
+                                                              EdgeInsets.all(
+                                                                  4.0),
                                                           child: Container(
-                                                            width: 280,
-                                                            height: 155,
+                                                            width: 280.0,
+                                                            height: 155.0,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color: Color(
@@ -4857,18 +4904,18 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          20),
+                                                                          20.0),
                                                             ),
                                                             child: ClipRRect(
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          20),
+                                                                          20.0),
                                                               child:
                                                                   Image.asset(
                                                                 'assets/images/Card-line-Final1_0.png',
-                                                                width: 300,
-                                                                height: 200,
+                                                                width: 300.0,
+                                                                height: 200.0,
                                                                 fit: BoxFit
                                                                     .cover,
                                                               ),
@@ -4881,8 +4928,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 5, 0),
+                                                            .fromSTEB(0.0, 0.0,
+                                                                5.0, 0.0),
                                                     child: FutureBuilder<
                                                         List<
                                                             UrlLinkStorageRecord>>(
@@ -4920,8 +4967,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                         if (!snapshot.hasData) {
                                                           return Center(
                                                             child: SizedBox(
-                                                              width: 50,
-                                                              height: 50,
+                                                              width: 50.0,
+                                                              height: 50.0,
                                                               child:
                                                                   CircularProgressIndicator(
                                                                 valueColor:
@@ -5013,8 +5060,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                             }
                                                           },
                                                           child: Container(
-                                                            width: 280,
-                                                            height: 170,
+                                                            width: 280.0,
+                                                            height: 170.0,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color: FlutterFlowTheme
@@ -5022,34 +5069,35 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                   .secondaryBackground,
                                                               boxShadow: [
                                                                 BoxShadow(
-                                                                  blurRadius: 4,
+                                                                  blurRadius:
+                                                                      4.0,
                                                                   color: Color(
                                                                       0x33000000),
                                                                   offset:
                                                                       Offset(
-                                                                    0,
-                                                                    2,
+                                                                    0.0,
+                                                                    2.0,
                                                                   ),
                                                                 )
                                                               ],
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          20),
+                                                                          20.0),
                                                               border:
                                                                   Border.all(
                                                                 color: Color(
                                                                     0xFFFFA361),
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                             ),
                                                             child: Padding(
                                                               padding:
                                                                   EdgeInsets
-                                                                      .all(4),
+                                                                      .all(4.0),
                                                               child: Container(
-                                                                width: 280,
-                                                                height: 155,
+                                                                width: 280.0,
+                                                                height: 155.0,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   color: Color(
@@ -5057,19 +5105,21 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .circular(
-                                                                              20),
+                                                                              20.0),
                                                                 ),
                                                                 child:
                                                                     ClipRRect(
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .circular(
-                                                                              20),
+                                                                              20.0),
                                                                   child: Image
                                                                       .asset(
                                                                     'assets/images/Card-line-Final2_0.png',
-                                                                    width: 300,
-                                                                    height: 200,
+                                                                    width:
+                                                                        300.0,
+                                                                    height:
+                                                                        200.0,
                                                                     fit: BoxFit
                                                                         .cover,
                                                                   ),
@@ -5134,22 +5184,24 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                     ],
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 24, 20, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 20.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(
-                          height: 18,
+                          height: 18.0,
                           child: VerticalDivider(
-                            thickness: 3,
+                            thickness: 3.0,
                             color: Color(0xFFDB771A),
                           ),
                         ),
                         Expanded(
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(4, 0, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                4.0, 0.0, 0.0, 0.0),
                             child: Text(
                               'ผลิตภัณฑ์อื่น ๆ',
                               style: FlutterFlowTheme.of(context)
@@ -5157,7 +5209,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                   .override(
                                     fontFamily: 'Noto Sans Thai',
                                     color: Color(0xFF003063),
-                                    fontSize: 16,
+                                    fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -5168,18 +5220,19 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                     ),
                   ),
                   Align(
-                    alignment: AlignmentDirectional(0, 0),
+                    alignment: AlignmentDirectional(0.0, 0.0),
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                       child: Container(
-                        width: MediaQuery.sizeOf(context).width,
-                        height: 300,
+                        width: MediaQuery.sizeOf(context).width * 1.0,
+                        height: 300.0,
                         decoration: BoxDecoration(
                           color: Color(0xFFFAE4D1),
-                          borderRadius: BorderRadius.circular(0),
+                          borderRadius: BorderRadius.circular(0.0),
                         ),
                         child: Align(
-                          alignment: AlignmentDirectional(0, -1),
+                          alignment: AlignmentDirectional(0.0, -1.0),
                           child: FutureBuilder<List<TanjaiBannerRecord>>(
                             future: queryTanjaiBannerRecordOnce(
                               singleRecord: true,
@@ -5189,8 +5242,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                               if (!snapshot.hasData) {
                                 return Center(
                                   child: SizedBox(
-                                    width: 50,
-                                    height: 50,
+                                    width: 50.0,
+                                    height: 50.0,
                                     child: CircularProgressIndicator(
                                       valueColor: AlwaysStoppedAnimation<Color>(
                                         FlutterFlowTheme.of(context).primary,
@@ -5216,13 +5269,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
 
                                   return Container(
                                     width: double.infinity,
-                                    height: 220,
+                                    height: 220.0,
                                     child: Stack(
                                       children: [
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 0, 40),
+                                                  0.0, 0.0, 0.0, 40.0),
                                           child: PageView.builder(
                                             controller: _model
                                                     .pageViewController2 ??=
@@ -5243,17 +5296,18 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                       imageListItemIndex];
                                               return Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(15, 15, 15, 0),
+                                                    .fromSTEB(
+                                                        15.0, 15.0, 15.0, 0.0),
                                                 child: Container(
-                                                  width: 100,
-                                                  height: 100,
+                                                  width: 100.0,
+                                                  height: 100.0,
                                                   decoration: BoxDecoration(
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .secondaryBackground,
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8),
+                                                            8.0),
                                                   ),
                                                   child: InkWell(
                                                     splashColor:
@@ -5351,7 +5405,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                       child: ClipRRect(
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8),
+                                                                .circular(8.0),
                                                         child: OctoImage(
                                                           placeholderBuilder:
                                                               (_) => SizedBox
@@ -5377,8 +5431,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                     imageListItemIndex +
                                                                         1)],
                                                           ),
-                                                          width: 300,
-                                                          height: 227,
+                                                          width: 300.0,
+                                                          height: 227.0,
                                                           fit: BoxFit.cover,
                                                         ),
                                                       ),
@@ -5390,11 +5444,12 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                           ),
                                         ),
                                         Align(
-                                          alignment: AlignmentDirectional(0, 1),
+                                          alignment:
+                                              AlignmentDirectional(0.0, 1.0),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    16, 0, 0, 16),
+                                                    16.0, 0.0, 0.0, 16.0),
                                             child: smooth_page_indicator
                                                 .SmoothPageIndicator(
                                               controller: _model
@@ -5422,11 +5477,11 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                               },
                                               effect: smooth_page_indicator
                                                   .ExpandingDotsEffect(
-                                                expansionFactor: 2,
-                                                spacing: 8,
-                                                radius: 16,
-                                                dotWidth: 16,
-                                                dotHeight: 8,
+                                                expansionFactor: 2.0,
+                                                spacing: 8.0,
+                                                radius: 16.0,
+                                                dotWidth: 16.0,
+                                                dotHeight: 8.0,
                                                 dotColor: Color(0xFFF3C5A2),
                                                 activeDotColor:
                                                     Color(0xFFD9761A),
@@ -5446,7 +5501,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                       ),
                     ),
                   ),
-                ].addToEnd(SizedBox(height: 50)),
+                ].addToEnd(SizedBox(height: 50.0)),
               ),
             ),
           ),

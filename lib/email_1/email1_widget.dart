@@ -95,7 +95,7 @@ class _Email1WidgetState extends State<Email1Widget>
           key: scaffoldKey,
           backgroundColor: Colors.white,
           appBar: PreferredSize(
-            preferredSize: Size.fromHeight(70),
+            preferredSize: Size.fromHeight(70.0),
             child: AppBar(
               backgroundColor: Colors.white,
               automaticallyImplyLeading: false,
@@ -110,7 +110,7 @@ class _Email1WidgetState extends State<Email1Widget>
                 child: Icon(
                   Icons.arrow_back,
                   color: Color(0xFFDB771A),
-                  size: 30,
+                  size: 30.0,
                 ),
               ),
               title: Text(
@@ -119,15 +119,15 @@ class _Email1WidgetState extends State<Email1Widget>
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
                       fontFamily: 'Noto Sans Thai',
                       color: Color(0xFF002D5E),
-                      fontSize: 18,
+                      fontSize: 18.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.w600,
                     ),
               ),
               actions: [],
               centerTitle: true,
-              toolbarHeight: 70,
-              elevation: 0,
+              toolbarHeight: 70.0,
+              elevation: 0.0,
             ),
           ),
           body: SafeArea(
@@ -137,17 +137,17 @@ class _Email1WidgetState extends State<Email1Widget>
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
                         width: MediaQuery.sizeOf(context).width * 0.9,
-                        height: 60,
+                        height: 60.0,
                         decoration: BoxDecoration(
                           color: Colors.white,
-                          borderRadius: BorderRadius.circular(8),
+                          borderRadius: BorderRadius.circular(8.0),
                           border: Border.all(
                             color: Colors.black,
                             width: 0.1,
@@ -159,20 +159,20 @@ class _Email1WidgetState extends State<Email1Widget>
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 0.0, 0.0, 0.0),
                               child: Icon(
                                 Icons.search,
                                 color: Color(0xFF878787),
-                                size: 24,
+                                size: 24.0,
                               ),
                             ),
                             Expanded(
                               child: Align(
-                                alignment: AlignmentDirectional(0, 0),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      8, 0.5, 8, 0.5),
+                                      8.0, 0.5, 8.0, 0.5),
                                   child: TextFormField(
                                     controller: _model.textController,
                                     focusNode: _model.textFieldFocusNode,
@@ -184,7 +184,7 @@ class _Email1WidgetState extends State<Email1Widget>
                                           .labelMedium
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
-                                            fontSize: 15,
+                                            fontSize: 15.0,
                                             letterSpacing: 0.0,
                                           ),
                                       hintStyle: FlutterFlowTheme.of(context)
@@ -196,39 +196,43 @@ class _Email1WidgetState extends State<Email1Widget>
                                       enabledBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(
                                           color: Color(0x00000000),
-                                          width: 2,
+                                          width: 2.0,
                                         ),
-                                        borderRadius: BorderRadius.circular(8),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
                                       ),
                                       focusedBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(
                                           color: Color(0x00000000),
-                                          width: 2,
+                                          width: 2.0,
                                         ),
-                                        borderRadius: BorderRadius.circular(8),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
                                       ),
                                       errorBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(
                                           color: FlutterFlowTheme.of(context)
                                               .error,
-                                          width: 2,
+                                          width: 2.0,
                                         ),
-                                        borderRadius: BorderRadius.circular(8),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
                                       ),
                                       focusedErrorBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(
                                           color: FlutterFlowTheme.of(context)
                                               .error,
-                                          width: 2,
+                                          width: 2.0,
                                         ),
-                                        borderRadius: BorderRadius.circular(8),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
                                       ),
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
-                                          fontSize: 15,
+                                          fontSize: 15.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
                                         ),
@@ -245,18 +249,18 @@ class _Email1WidgetState extends State<Email1Widget>
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                   child: Container(
-                    width: MediaQuery.sizeOf(context).width,
+                    width: MediaQuery.sizeOf(context).width * 1.0,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                       boxShadow: [
                         BoxShadow(
-                          blurRadius: 1,
+                          blurRadius: 1.0,
                           color: Color(0xFF646464),
                         )
                       ],
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(8.0),
                     ),
                     child: Builder(
                       builder: (context) {
@@ -266,14 +270,14 @@ class _Email1WidgetState extends State<Email1Widget>
                         return ListView.separated(
                           padding: EdgeInsets.fromLTRB(
                             0,
-                            12,
+                            12.0,
                             0,
-                            12,
+                            12.0,
                           ),
                           shrinkWrap: true,
                           scrollDirection: Axis.vertical,
                           itemCount: leadListItem.length,
-                          separatorBuilder: (_, __) => SizedBox(height: 16),
+                          separatorBuilder: (_, __) => SizedBox(height: 16.0),
                           itemBuilder: (context, leadListItemIndex) {
                             final leadListItemItem =
                                 leadListItem[leadListItemIndex];
@@ -284,7 +288,7 @@ class _Email1WidgetState extends State<Email1Widget>
                                           leadListItemIndex])! ||
                                   (_model.textController.text == ''),
                               child: Align(
-                                alignment: AlignmentDirectional(0, 0),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Container(
                                   width: double.infinity,
                                   decoration: BoxDecoration(
@@ -292,17 +296,17 @@ class _Email1WidgetState extends State<Email1Widget>
                                         .secondaryBackground,
                                     boxShadow: [
                                       BoxShadow(
-                                        blurRadius: 4,
+                                        blurRadius: 4.0,
                                         color: Color(0x33000000),
                                         offset: Offset(
-                                          0,
-                                          2,
+                                          0.0,
+                                          2.0,
                                         ),
                                       )
                                     ],
                                   ),
                                   child: Padding(
-                                    padding: EdgeInsets.all(20),
+                                    padding: EdgeInsets.all(20.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -313,17 +317,18 @@ class _Email1WidgetState extends State<Email1Widget>
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 4, 0, 0),
+                                                  0.0, 4.0, 0.0, 0.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Container(
-                                                width: 15,
-                                                height: 15,
+                                                width: 15.0,
+                                                height: 15.0,
                                                 decoration: BoxDecoration(
                                                   color: Color(0xFF3478F6),
                                                   borderRadius:
-                                                      BorderRadius.circular(60),
+                                                      BorderRadius.circular(
+                                                          60.0),
                                                 ),
                                               ),
                                             ],
@@ -332,7 +337,7 @@ class _Email1WidgetState extends State<Email1Widget>
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 0, 0),
+                                                  10.0, 0.0, 0.0, 0.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             crossAxisAlignment:
@@ -350,7 +355,7 @@ class _Email1WidgetState extends State<Email1Widget>
                                                         .override(
                                                           fontFamily:
                                                               'Noto Sans Thai',
-                                                          fontSize: 15,
+                                                          fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                         ),
                                               ),
@@ -366,7 +371,7 @@ class _Email1WidgetState extends State<Email1Widget>
                                                         .override(
                                                           fontFamily:
                                                               'Noto Sans Thai',
-                                                          fontSize: 15,
+                                                          fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
@@ -378,7 +383,7 @@ class _Email1WidgetState extends State<Email1Widget>
                                         Flexible(
                                           child: Align(
                                             alignment:
-                                                AlignmentDirectional(1, 0),
+                                                AlignmentDirectional(1.0, 0.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -387,17 +392,18 @@ class _Email1WidgetState extends State<Email1Widget>
                                               children: [
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(0, 10, 0, 0),
+                                                      .fromSTEB(
+                                                          0.0, 10.0, 0.0, 0.0),
                                                   child: Container(
-                                                    width: 50,
-                                                    height: 50,
+                                                    width: 50.0,
+                                                    height: 50.0,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
                                                           .secondaryBackground,
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              60),
+                                                              60.0),
                                                       border: Border.all(
                                                         color: Colors.black,
                                                       ),
@@ -406,13 +412,13 @@ class _Email1WidgetState extends State<Email1Widget>
                                                       Icons
                                                           .phone_in_talk_outlined,
                                                       color: Color(0xFFD9761A),
-                                                      size: 24,
+                                                      size: 24.0,
                                                     ),
                                                   ),
                                                 ),
                                                 Container(
-                                                  width: 10,
-                                                  height: 10,
+                                                  width: 10.0,
+                                                  height: 10.0,
                                                   decoration: BoxDecoration(
                                                     color: FlutterFlowTheme.of(
                                                             context)
@@ -423,7 +429,7 @@ class _Email1WidgetState extends State<Email1Widget>
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .secondaryText,
-                                                    size: 24,
+                                                    size: 24.0,
                                                   ),
                                                 ),
                                               ],

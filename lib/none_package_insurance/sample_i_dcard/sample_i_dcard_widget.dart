@@ -53,8 +53,8 @@ class _SampleIDcardWidgetState extends State<SampleIDcardWidget> {
             backgroundColor: Colors.white,
             body: Center(
               child: SizedBox(
-                width: 50,
-                height: 50,
+                width: 50.0,
+                height: 50.0,
                 child: CircularProgressIndicator(
                   valueColor: AlwaysStoppedAnimation<Color>(
                     FlutterFlowTheme.of(context).primary,
@@ -79,7 +79,7 @@ class _SampleIDcardWidgetState extends State<SampleIDcardWidget> {
               key: scaffoldKey,
               backgroundColor: Colors.white,
               appBar: PreferredSize(
-                preferredSize: Size.fromHeight(70),
+                preferredSize: Size.fromHeight(70.0),
                 child: AppBar(
                   backgroundColor: Colors.white,
                   automaticallyImplyLeading: false,
@@ -94,7 +94,7 @@ class _SampleIDcardWidgetState extends State<SampleIDcardWidget> {
                     child: Icon(
                       Icons.arrow_back,
                       color: Color(0xFFDB771A),
-                      size: 30,
+                      size: 30.0,
                     ),
                   ),
                   title: Text(
@@ -103,21 +103,21 @@ class _SampleIDcardWidgetState extends State<SampleIDcardWidget> {
                     style: FlutterFlowTheme.of(context).headlineMedium.override(
                           fontFamily: 'Noto Sans Thai',
                           color: Color(0xFF002D5E),
-                          fontSize: 18,
+                          fontSize: 18.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w600,
                         ),
                   ),
                   actions: [],
                   centerTitle: true,
-                  toolbarHeight: 70,
-                  elevation: 0,
+                  toolbarHeight: 70.0,
+                  elevation: 0.0,
                 ),
               ),
               body: SafeArea(
                 top: true,
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -135,13 +135,13 @@ class _SampleIDcardWidgetState extends State<SampleIDcardWidget> {
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          2, 0, 0, 0),
+                                          2.0, 0.0, 0.0, 0.0),
                                       child: Material(
                                         color: Colors.transparent,
-                                        elevation: 1,
+                                        elevation: 1.0,
                                         shape: RoundedRectangleBorder(
                                           borderRadius:
-                                              BorderRadius.circular(8),
+                                              BorderRadius.circular(8.0),
                                         ),
                                         child: Container(
                                           width: double.infinity,
@@ -149,7 +149,7 @@ class _SampleIDcardWidgetState extends State<SampleIDcardWidget> {
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(8.0),
                                             border: Border.all(
                                               color: Color(0xFFE6E6E6),
                                             ),
@@ -157,7 +157,7 @@ class _SampleIDcardWidgetState extends State<SampleIDcardWidget> {
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    20, 50, 20, 30),
+                                                    20.0, 50.0, 20.0, 30.0),
                                             child: Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
@@ -167,11 +167,12 @@ class _SampleIDcardWidgetState extends State<SampleIDcardWidget> {
                                               ),
                                               child: ClipRRect(
                                                 borderRadius:
-                                                    BorderRadius.circular(8),
+                                                    BorderRadius.circular(8.0),
                                                 child: Image.asset(
                                                   'assets/images/messageImage_1697533223044.jpg',
                                                   fit: BoxFit.cover,
-                                                  alignment: Alignment(0, 0),
+                                                  alignment:
+                                                      Alignment(0.0, 0.0),
                                                 ),
                                               ),
                                             ),
@@ -184,9 +185,9 @@ class _SampleIDcardWidgetState extends State<SampleIDcardWidget> {
                               ),
                             ),
                           ]
-                              .divide(SizedBox(height: 12))
-                              .addToStart(SizedBox(height: 12))
-                              .addToEnd(SizedBox(height: 24)),
+                              .divide(SizedBox(height: 12.0))
+                              .addToStart(SizedBox(height: 12.0))
+                              .addToEnd(SizedBox(height: 24.0)),
                         ),
                       ),
                     ],

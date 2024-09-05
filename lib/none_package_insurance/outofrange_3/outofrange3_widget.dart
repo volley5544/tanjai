@@ -56,8 +56,8 @@ class _Outofrange3WidgetState extends State<Outofrange3Widget> {
             backgroundColor: Colors.white,
             body: Center(
               child: SizedBox(
-                width: 50,
-                height: 50,
+                width: 50.0,
+                height: 50.0,
                 child: CircularProgressIndicator(
                   valueColor: AlwaysStoppedAnimation<Color>(
                     FlutterFlowTheme.of(context).primary,
@@ -82,7 +82,7 @@ class _Outofrange3WidgetState extends State<Outofrange3Widget> {
               key: scaffoldKey,
               backgroundColor: Colors.white,
               appBar: PreferredSize(
-                preferredSize: Size.fromHeight(70),
+                preferredSize: Size.fromHeight(70.0),
                 child: AppBar(
                   backgroundColor: Colors.white,
                   automaticallyImplyLeading: false,
@@ -97,7 +97,7 @@ class _Outofrange3WidgetState extends State<Outofrange3Widget> {
                     child: Icon(
                       Icons.arrow_back,
                       color: Color(0xFFDB771A),
-                      size: 30,
+                      size: 30.0,
                     ),
                   ),
                   title: Text(
@@ -106,21 +106,21 @@ class _Outofrange3WidgetState extends State<Outofrange3Widget> {
                     style: FlutterFlowTheme.of(context).headlineMedium.override(
                           fontFamily: 'Noto Sans Thai',
                           color: Color(0xFF002D5E),
-                          fontSize: 18,
+                          fontSize: 18.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w600,
                         ),
                   ),
                   actions: [],
                   centerTitle: true,
-                  toolbarHeight: 70,
-                  elevation: 0,
+                  toolbarHeight: 70.0,
+                  elevation: 0.0,
                 ),
               ),
               body: SafeArea(
                 top: true,
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -140,21 +140,21 @@ class _Outofrange3WidgetState extends State<Outofrange3Widget> {
                                     Expanded(
                                       flex: 1,
                                       child: Padding(
-                                        padding: EdgeInsets.all(10),
+                                        padding: EdgeInsets.all(10.0),
                                         child: Material(
                                           color: Colors.transparent,
-                                          elevation: 1,
+                                          elevation: 1.0,
                                           shape: RoundedRectangleBorder(
                                             borderRadius:
-                                                BorderRadius.circular(16),
+                                                BorderRadius.circular(16.0),
                                           ),
                                           child: Container(
-                                            width: 100,
-                                            height: 120,
+                                            width: 100.0,
+                                            height: 120.0,
                                             decoration: BoxDecoration(
                                               color: Color(0xFFD9D9D9),
                                               borderRadius:
-                                                  BorderRadius.circular(16),
+                                                  BorderRadius.circular(16.0),
                                             ),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
@@ -166,16 +166,16 @@ class _Outofrange3WidgetState extends State<Outofrange3Widget> {
                                                   child: Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0, 0),
+                                                            0.0, 0.0),
                                                     child: Container(
-                                                      width: 50,
-                                                      height: 50,
+                                                      width: 50.0,
+                                                      height: 50.0,
                                                       decoration: BoxDecoration(
                                                         color:
                                                             Color(0xFFD9D9D9),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(60),
+                                                                .circular(60.0),
                                                         border: Border.all(
                                                           color: Colors.black,
                                                           width: 1.5,
@@ -184,7 +184,7 @@ class _Outofrange3WidgetState extends State<Outofrange3Widget> {
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0, 0),
+                                                                0.0, 0.0),
                                                         child: FaIcon(
                                                           FontAwesomeIcons
                                                               .userCheck,
@@ -207,7 +207,7 @@ class _Outofrange3WidgetState extends State<Outofrange3Widget> {
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFF204A77),
-                                                          fontSize: 18,
+                                                          fontSize: 18.0,
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -221,17 +221,17 @@ class _Outofrange3WidgetState extends State<Outofrange3Widget> {
                                     Expanded(
                                       flex: 1,
                                       child: Padding(
-                                        padding: EdgeInsets.all(10),
+                                        padding: EdgeInsets.all(10.0),
                                         child: Material(
                                           color: Colors.transparent,
-                                          elevation: 1,
+                                          elevation: 1.0,
                                           shape: RoundedRectangleBorder(
                                             borderRadius:
-                                                BorderRadius.circular(16),
+                                                BorderRadius.circular(16.0),
                                           ),
                                           child: Container(
-                                            width: 100,
-                                            height: 120,
+                                            width: 100.0,
+                                            height: 120.0,
                                             decoration: BoxDecoration(
                                               color: valueOrDefault<Color>(
                                                 FFAppState().buttonCorporation ==
@@ -241,7 +241,7 @@ class _Outofrange3WidgetState extends State<Outofrange3Widget> {
                                                 Colors.white,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(16),
+                                                  BorderRadius.circular(16.0),
                                             ),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
@@ -251,14 +251,14 @@ class _Outofrange3WidgetState extends State<Outofrange3Widget> {
                                                   child: Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0, 0),
+                                                            0.0, 0.0),
                                                     child: Container(
-                                                      width: 50,
-                                                      height: 50,
+                                                      width: 50.0,
+                                                      height: 50.0,
                                                       decoration: BoxDecoration(
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(60),
+                                                                .circular(60.0),
                                                         border: Border.all(
                                                           color: Colors.black,
                                                           width: 1.5,
@@ -267,14 +267,14 @@ class _Outofrange3WidgetState extends State<Outofrange3Widget> {
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0, 0),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons
                                                               .person_add_outlined,
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryText,
-                                                          size: 30,
+                                                          size: 30.0,
                                                         ),
                                                       ),
                                                     ),
@@ -292,7 +292,7 @@ class _Outofrange3WidgetState extends State<Outofrange3Widget> {
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFF204A77),
-                                                          fontSize: 18,
+                                                          fontSize: 18.0,
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -308,16 +308,16 @@ class _Outofrange3WidgetState extends State<Outofrange3Widget> {
                               ),
                             ),
                           ]
-                              .divide(SizedBox(height: 12))
-                              .addToStart(SizedBox(height: 12))
-                              .addToEnd(SizedBox(height: 24)),
+                              .divide(SizedBox(height: 12.0))
+                              .addToStart(SizedBox(height: 12.0))
+                              .addToEnd(SizedBox(height: 24.0)),
                         ),
                       ),
                       Expanded(
                         flex: 1,
                         child: Container(
                           width: double.infinity,
-                          height: 100,
+                          height: 100.0,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
@@ -327,8 +327,8 @@ class _Outofrange3WidgetState extends State<Outofrange3Widget> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    8.0, 0.0, 8.0, 0.0),
                                 child: FFButtonWidget(
                                   onPressed: () {
                                     print('Button pressed ...');
@@ -336,30 +336,30 @@ class _Outofrange3WidgetState extends State<Outofrange3Widget> {
                                   text: 'ถัดไป',
                                   options: FFButtonOptions(
                                     width: double.infinity,
-                                    height: 60,
+                                    height: 60.0,
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        24, 0, 24, 0),
+                                        24.0, 0.0, 24.0, 0.0),
                                     iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 0, 0, 0),
+                                        0.0, 0.0, 0.0, 0.0),
                                     color: Color(0xFFDB771B),
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Colors.white,
-                                          fontSize: 15,
+                                          fontSize: 15.0,
                                           letterSpacing: 0.0,
                                         ),
-                                    elevation: 3,
+                                    elevation: 3.0,
                                     borderSide: BorderSide(
                                       color: Colors.transparent,
-                                      width: 1,
+                                      width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(16),
+                                    borderRadius: BorderRadius.circular(16.0),
                                   ),
                                 ),
                               ),
-                            ].addToStart(SizedBox(height: 16)),
+                            ].addToStart(SizedBox(height: 16.0)),
                           ),
                         ),
                       ),

@@ -59,13 +59,13 @@ class _ShowImageListComponentWidgetState
           decoration: BoxDecoration(),
         ),
         Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
+          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
           child: Container(
             width: double.infinity,
-            height: 40,
+            height: 40.0,
             decoration: BoxDecoration(),
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
+              padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -80,7 +80,7 @@ class _ShowImageListComponentWidgetState
                     child: Icon(
                       Icons.close_outlined,
                       color: Colors.white,
-                      size: 40,
+                      size: 40.0,
                     ),
                   ),
                 ],
@@ -102,12 +102,12 @@ class _ShowImageListComponentWidgetState
 
                     return Container(
                       width: double.infinity,
-                      height: 500,
+                      height: 500.0,
                       child: Stack(
                         children: [
                           Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 0, 0, 40),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 40.0),
                             child: PageView.builder(
                               controller: _model.pageViewController ??=
                                   PageController(
@@ -148,7 +148,7 @@ class _ShowImageListComponentWidgetState
                                         widget!.imageUrl?[imageListItemIndex])!,
                                     transitionOnUserGestures: true,
                                     child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(8),
+                                      borderRadius: BorderRadius.circular(8.0),
                                       child: Image.network(
                                         functions.stringToImgPath(widget!
                                             .imageUrl?[imageListItemIndex])!,
@@ -162,10 +162,10 @@ class _ShowImageListComponentWidgetState
                             ),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(0, 1),
+                            alignment: AlignmentDirectional(0.0, 1.0),
                             child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(16, 0, 0, 16),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 0.0, 0.0, 16.0),
                               child: smooth_page_indicator.SmoothPageIndicator(
                                 controller: _model.pageViewController ??=
                                     PageController(
@@ -184,11 +184,11 @@ class _ShowImageListComponentWidgetState
                                 },
                                 effect:
                                     smooth_page_indicator.ExpandingDotsEffect(
-                                  expansionFactor: 2,
-                                  spacing: 8,
-                                  radius: 16,
-                                  dotWidth: 16,
-                                  dotHeight: 8,
+                                  expansionFactor: 2.0,
+                                  spacing: 8.0,
+                                  radius: 16.0,
+                                  dotWidth: 16.0,
+                                  dotHeight: 8.0,
                                   dotColor:
                                       FlutterFlowTheme.of(context).accent1,
                                   activeDotColor:

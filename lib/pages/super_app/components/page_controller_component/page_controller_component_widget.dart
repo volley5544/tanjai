@@ -58,7 +58,7 @@ class _PageControllerComponentWidgetState
             Expanded(
               flex: 1,
               child: Align(
-                alignment: AlignmentDirectional(0, 0),
+                alignment: AlignmentDirectional(0.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -83,7 +83,7 @@ class _PageControllerComponentWidgetState
                   child: FaIcon(
                     FontAwesomeIcons.fastBackward,
                     color: Color(0xFF2555FF),
-                    size: 24,
+                    size: 24.0,
                   ),
                 ),
               ),
@@ -92,7 +92,7 @@ class _PageControllerComponentWidgetState
             Expanded(
               flex: 1,
               child: Align(
-                alignment: AlignmentDirectional(0, 0),
+                alignment: AlignmentDirectional(0.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -121,7 +121,7 @@ class _PageControllerComponentWidgetState
                   child: Icon(
                     Icons.arrow_back_ios_rounded,
                     color: FlutterFlowTheme.of(context).secondaryText,
-                    size: 24,
+                    size: 24.0,
                   ),
                 ),
               ),
@@ -130,7 +130,7 @@ class _PageControllerComponentWidgetState
             Expanded(
               flex: 6,
               child: Align(
-                alignment: AlignmentDirectional(0, 0),
+                alignment: AlignmentDirectional(0.0, 0.0),
                 child: FlutterFlowChoiceChips(
                   options: FFAppState()
                       .pageSelectionList
@@ -170,9 +170,9 @@ class _PageControllerComponentWidgetState
                           letterSpacing: 0.0,
                         ),
                     iconColor: FlutterFlowTheme.of(context).primaryText,
-                    iconSize: 8,
-                    elevation: 4,
-                    borderRadius: BorderRadius.circular(16),
+                    iconSize: 8.0,
+                    elevation: 4.0,
+                    borderRadius: BorderRadius.circular(16.0),
                   ),
                   unselectedChipStyle: ChipStyle(
                     backgroundColor: FlutterFlowTheme.of(context).secondary,
@@ -182,12 +182,12 @@ class _PageControllerComponentWidgetState
                           letterSpacing: 0.0,
                         ),
                     iconColor: FlutterFlowTheme.of(context).secondaryText,
-                    iconSize: 18,
-                    elevation: 0,
-                    borderRadius: BorderRadius.circular(16),
+                    iconSize: 18.0,
+                    elevation: 0.0,
+                    borderRadius: BorderRadius.circular(16.0),
                   ),
-                  chipSpacing: 5,
-                  rowSpacing: 5,
+                  chipSpacing: 5.0,
+                  rowSpacing: 5.0,
                   multiselect: false,
                   initialized: _model.choiceChipsValue != null,
                   alignment: WrapAlignment.start,
@@ -203,7 +203,7 @@ class _PageControllerComponentWidgetState
             Expanded(
               flex: 1,
               child: Align(
-                alignment: AlignmentDirectional(0, 0),
+                alignment: AlignmentDirectional(0.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -232,7 +232,7 @@ class _PageControllerComponentWidgetState
                   child: Icon(
                     Icons.arrow_forward_ios_rounded,
                     color: FlutterFlowTheme.of(context).secondaryText,
-                    size: 24,
+                    size: 24.0,
                   ),
                 ),
               ),
@@ -241,7 +241,7 @@ class _PageControllerComponentWidgetState
             Expanded(
               flex: 1,
               child: Align(
-                alignment: AlignmentDirectional(0, 0),
+                alignment: AlignmentDirectional(0.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -268,7 +268,7 @@ class _PageControllerComponentWidgetState
                   child: FaIcon(
                     FontAwesomeIcons.fastForward,
                     color: Color(0xFF2555FF),
-                    size: 24,
+                    size: 24.0,
                   ),
                 ),
               ),

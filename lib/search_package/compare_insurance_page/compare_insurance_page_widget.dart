@@ -169,7 +169,7 @@ class _CompareInsurancePageWidgetState
               child: Icon(
                 Icons.arrow_back,
                 color: Color(0xFFDB771A),
-                size: 30,
+                size: 30.0,
               ),
             ),
             title: Text(
@@ -179,13 +179,13 @@ class _CompareInsurancePageWidgetState
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF002D5E),
-                    fontSize: 19,
+                    fontSize: 19.0,
                     letterSpacing: 0.0,
                   ),
             ),
             actions: [],
             centerTitle: true,
-            elevation: 0,
+            elevation: 0.0,
           ),
           body: SafeArea(
             top: true,
@@ -203,8 +203,8 @@ class _CompareInsurancePageWidgetState
                 if (!snapshot.hasData) {
                   return Center(
                     child: SizedBox(
-                      width: 50,
-                      height: 50,
+                      width: 50.0,
+                      height: 50.0,
                       child: CircularProgressIndicator(
                         valueColor: AlwaysStoppedAnimation<Color>(
                           FlutterFlowTheme.of(context).primary,
@@ -231,14 +231,14 @@ class _CompareInsurancePageWidgetState
                     children: [
                       Container(
                         width: double.infinity,
-                        height: 16,
+                        height: 16.0,
                         decoration: BoxDecoration(
                           color: FlutterFlowTheme.of(context).primaryBackground,
                         ),
                       ),
                       Container(
                         width: double.infinity,
-                        height: 160,
+                        height: 160.0,
                         decoration: BoxDecoration(
                           color: FlutterFlowTheme.of(context).primaryBackground,
                         ),
@@ -251,15 +251,15 @@ class _CompareInsurancePageWidgetState
 
                             return ListView.separated(
                               padding: EdgeInsets.fromLTRB(
-                                10,
+                                10.0,
                                 0,
-                                10,
+                                10.0,
                                 0,
                               ),
                               shrinkWrap: true,
                               scrollDirection: Axis.horizontal,
                               itemCount: insurerListItem.length,
-                              separatorBuilder: (_, __) => SizedBox(width: 8),
+                              separatorBuilder: (_, __) => SizedBox(width: 8.0),
                               itemBuilder: (context, insurerListItemIndex) {
                                 final insurerListItemItem =
                                     insurerListItem[insurerListItemIndex];
@@ -274,24 +274,25 @@ class _CompareInsurancePageWidgetState
                                     safeSetState(() {});
                                   },
                                   child: Container(
-                                    width: 130,
-                                    height: 122,
+                                    width: 130.0,
+                                    height: 122.0,
                                     decoration: BoxDecoration(
                                       color: _model.indexDataCompare ==
                                               insurerListItemIndex
                                           ? Color(0xFFE5E5E5)
                                           : Colors.white,
                                       borderRadius: BorderRadius.only(
-                                        bottomLeft: Radius.circular(0),
-                                        bottomRight: Radius.circular(0),
-                                        topLeft: Radius.circular(10),
-                                        topRight: Radius.circular(10),
+                                        bottomLeft: Radius.circular(0.0),
+                                        bottomRight: Radius.circular(0.0),
+                                        topLeft: Radius.circular(10.0),
+                                        topRight: Radius.circular(10.0),
                                       ),
                                     ),
                                     child: Align(
-                                      alignment: AlignmentDirectional(0, 0),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(0),
+                                        borderRadius:
+                                            BorderRadius.circular(0.0),
                                         child: Image.network(
                                           valueOrDefault<String>(
                                             functions.stringToImgPath(
@@ -299,7 +300,7 @@ class _CompareInsurancePageWidgetState
                                                     insurerListItemIndex]),
                                             'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                           ),
-                                          height: 100,
+                                          height: 100.0,
                                           fit: BoxFit.cover,
                                         ),
                                       ),
@@ -312,7 +313,7 @@ class _CompareInsurancePageWidgetState
                         ),
                       ),
                       Divider(
-                        thickness: 1,
+                        thickness: 1.0,
                         color: Color(0xFFE5E5E5),
                       ),
                       Container(
@@ -325,13 +326,13 @@ class _CompareInsurancePageWidgetState
                           children: [
                             Container(
                               width: double.infinity,
-                              height: 108,
+                              height: 108.0,
                               decoration: BoxDecoration(
                                 color: Color(0xFFE5E5E5),
                               ),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    0, 17, 0, 10),
+                                    0.0, 17.0, 0.0, 10.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.start,
@@ -341,10 +342,10 @@ class _CompareInsurancePageWidgetState
                                       flex: 1,
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            20, 0, 0, 0),
+                                            20.0, 0.0, 0.0, 0.0),
                                         child: ClipRRect(
                                           borderRadius:
-                                              BorderRadius.circular(0),
+                                              BorderRadius.circular(0.0),
                                           child: Image.network(
                                             functions.stringToImgPath(
                                                 valueOrDefault<String>(
@@ -352,8 +353,8 @@ class _CompareInsurancePageWidgetState
                                                   _model.indexDataCompare!],
                                               'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                             ))!,
-                                            width: 59,
-                                            height: 60,
+                                            width: 59.0,
+                                            height: 60.0,
                                             fit: BoxFit.contain,
                                           ),
                                         ),
@@ -363,13 +364,13 @@ class _CompareInsurancePageWidgetState
                                       flex: 3,
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 0, 24, 0),
+                                            0.0, 0.0, 24.0, 0.0),
                                         child: Container(
                                           decoration: BoxDecoration(),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    12, 0, 0, 0),
+                                                    12.0, 0.0, 0.0, 0.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               crossAxisAlignment:
@@ -408,7 +409,7 @@ class _CompareInsurancePageWidgetState
                                                                 'Noto Sans Thai',
                                                             color: Color(
                                                                 0xFF002D5E),
-                                                            fontSize: 15,
+                                                            fontSize: 15.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.bold,
@@ -442,7 +443,8 @@ class _CompareInsurancePageWidgetState
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .alternate,
-                                                                  fontSize: 14,
+                                                                  fontSize:
+                                                                      14.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -471,7 +473,7 @@ class _CompareInsurancePageWidgetState
                                                                 'Noto Sans Thai',
                                                             color: Color(
                                                                 0xFF646464),
-                                                            fontSize: 13,
+                                                            fontSize: 13.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w500,
@@ -505,7 +507,7 @@ class _CompareInsurancePageWidgetState
                                                                 'Noto Sans Thai',
                                                             color: Color(
                                                                 0xFF646464),
-                                                            fontSize: 13,
+                                                            fontSize: 13.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w500,
@@ -530,7 +532,7 @@ class _CompareInsurancePageWidgetState
                                                                 'Noto Sans Thai',
                                                             color: Color(
                                                                 0xFF646464),
-                                                            fontSize: 13,
+                                                            fontSize: 13.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w500,
@@ -562,7 +564,7 @@ class _CompareInsurancePageWidgetState
                                                                 'Noto Sans Thai',
                                                             color: Color(
                                                                 0xFF646464),
-                                                            fontSize: 13,
+                                                            fontSize: 13.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w500,
@@ -581,7 +583,7 @@ class _CompareInsurancePageWidgetState
                               ),
                             ),
                             Divider(
-                              thickness: 1,
+                              thickness: 1.0,
                               color: Color(0xFFB9B9B9),
                             ),
                             Column(
@@ -591,7 +593,7 @@ class _CompareInsurancePageWidgetState
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      20, 10, 20, 10),
+                                      20.0, 10.0, 20.0, 10.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment:
@@ -639,7 +641,7 @@ class _CompareInsurancePageWidgetState
                                 ) !=
                                 '')
                               Divider(
-                                thickness: 1,
+                                thickness: 1.0,
                                 color: Color(0xFFB9B9B9),
                               ),
                             if (valueOrDefault<String>(
@@ -654,23 +656,23 @@ class _CompareInsurancePageWidgetState
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        20, 10, 20, 10),
+                                        20.0, 10.0, 20.0, 10.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
                                       children: [
                                         SizedBox(
-                                          height: 18,
+                                          height: 18.0,
                                           child: VerticalDivider(
-                                            thickness: 3,
+                                            thickness: 3.0,
                                             color: Color(0xFFEDBB8D),
                                           ),
                                         ),
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  4, 0, 0, 0),
+                                                  4.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             'เงื่อนไขบริษัทประกัน',
                                             style: FlutterFlowTheme.of(context)
@@ -678,7 +680,7 @@ class _CompareInsurancePageWidgetState
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF002D5E),
-                                                  fontSize: 15,
+                                                  fontSize: 15.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.bold,
                                                 ),
@@ -689,7 +691,7 @@ class _CompareInsurancePageWidgetState
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        30, 0, 0, 0),
+                                        30.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       widget!.insurerCondition![
                                           _model.indexDataCompare!],
@@ -705,7 +707,7 @@ class _CompareInsurancePageWidgetState
                                 ],
                               ),
                             Divider(
-                              thickness: 1,
+                              thickness: 1.0,
                               color: Color(0xFFB9B9B9),
                             ),
                             Column(
@@ -713,21 +715,21 @@ class _CompareInsurancePageWidgetState
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      20, 10, 20, 10),
+                                      20.0, 10.0, 20.0, 10.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       SizedBox(
-                                        height: 18,
+                                        height: 18.0,
                                         child: VerticalDivider(
-                                          thickness: 3,
+                                          thickness: 3.0,
                                           color: Color(0xFFEDBB8D),
                                         ),
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            4, 0, 0, 0),
+                                            4.0, 0.0, 0.0, 0.0),
                                         child: Text(
                                           'รายละเอียด',
                                           style: FlutterFlowTheme.of(context)
@@ -735,7 +737,7 @@ class _CompareInsurancePageWidgetState
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Color(0xFF002D5E),
-                                                fontSize: 15,
+                                                fontSize: 15.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.bold,
                                               ),
@@ -751,7 +753,7 @@ class _CompareInsurancePageWidgetState
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      20, 10, 20, 10),
+                                      20.0, 10.0, 20.0, 10.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment:
@@ -789,7 +791,7 @@ class _CompareInsurancePageWidgetState
                               ],
                             ),
                             Divider(
-                              thickness: 1,
+                              thickness: 1.0,
                               color: Color(0xFFB9B9B9),
                             ),
                             Column(
@@ -797,7 +799,7 @@ class _CompareInsurancePageWidgetState
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      20, 10, 20, 10),
+                                      20.0, 10.0, 20.0, 10.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment:
@@ -835,7 +837,7 @@ class _CompareInsurancePageWidgetState
                               ],
                             ),
                             Divider(
-                              thickness: 1,
+                              thickness: 1.0,
                               color: Color(0xFFB9B9B9),
                             ),
                             Column(
@@ -843,7 +845,7 @@ class _CompareInsurancePageWidgetState
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      20, 10, 20, 10),
+                                      20.0, 10.0, 20.0, 10.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment:
@@ -886,7 +888,7 @@ class _CompareInsurancePageWidgetState
                               ],
                             ),
                             Divider(
-                              thickness: 1,
+                              thickness: 1.0,
                               color: Color(0xFFB9B9B9),
                             ),
                             Column(
@@ -894,7 +896,7 @@ class _CompareInsurancePageWidgetState
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      20, 10, 20, 10),
+                                      20.0, 10.0, 20.0, 10.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment:
@@ -935,7 +937,7 @@ class _CompareInsurancePageWidgetState
                               ],
                             ),
                             Divider(
-                              thickness: 1,
+                              thickness: 1.0,
                               color: Color(0xFFB9B9B9),
                             ),
                             Column(
@@ -943,7 +945,7 @@ class _CompareInsurancePageWidgetState
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      20, 10, 20, 10),
+                                      20.0, 10.0, 20.0, 10.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment:
@@ -993,7 +995,7 @@ class _CompareInsurancePageWidgetState
                               ],
                             ),
                             Divider(
-                              thickness: 1,
+                              thickness: 1.0,
                               color: Color(0xFFB9B9B9),
                             ),
                             Column(
@@ -1001,7 +1003,7 @@ class _CompareInsurancePageWidgetState
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      20, 10, 20, 10),
+                                      20.0, 10.0, 20.0, 10.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment:
@@ -1055,7 +1057,7 @@ class _CompareInsurancePageWidgetState
                               ],
                             ),
                             Divider(
-                              thickness: 1,
+                              thickness: 1.0,
                               color: Color(0xFFB9B9B9),
                             ),
                             Column(
@@ -1063,7 +1065,7 @@ class _CompareInsurancePageWidgetState
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      20, 10, 20, 10),
+                                      20.0, 10.0, 20.0, 10.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment:
@@ -1113,7 +1115,7 @@ class _CompareInsurancePageWidgetState
                               ],
                             ),
                             Divider(
-                              thickness: 1,
+                              thickness: 1.0,
                               color: Color(0xFFB9B9B9),
                             ),
                             Column(
@@ -1121,7 +1123,7 @@ class _CompareInsurancePageWidgetState
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      20, 10, 20, 10),
+                                      20.0, 10.0, 20.0, 10.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment:
@@ -1171,7 +1173,7 @@ class _CompareInsurancePageWidgetState
                               ],
                             ),
                             Divider(
-                              thickness: 1,
+                              thickness: 1.0,
                               color: Color(0xFFB9B9B9),
                             ),
                             Column(
@@ -1179,7 +1181,7 @@ class _CompareInsurancePageWidgetState
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      20, 10, 20, 10),
+                                      20.0, 10.0, 20.0, 10.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment:
@@ -1223,7 +1225,7 @@ class _CompareInsurancePageWidgetState
                               ],
                             ),
                             Divider(
-                              thickness: 1,
+                              thickness: 1.0,
                               color: Color(0xFFB9B9B9),
                             ),
                             Column(
@@ -1231,7 +1233,7 @@ class _CompareInsurancePageWidgetState
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      20, 10, 20, 10),
+                                      20.0, 10.0, 20.0, 10.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment:
@@ -1281,7 +1283,7 @@ class _CompareInsurancePageWidgetState
                               ],
                             ),
                             Divider(
-                              thickness: 1,
+                              thickness: 1.0,
                               color: Color(0xFFB9B9B9),
                             ),
                             Column(
@@ -1289,7 +1291,7 @@ class _CompareInsurancePageWidgetState
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      20, 10, 20, 10),
+                                      20.0, 10.0, 20.0, 10.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment:
@@ -1339,7 +1341,7 @@ class _CompareInsurancePageWidgetState
                               ],
                             ),
                             Divider(
-                              thickness: 1,
+                              thickness: 1.0,
                               color: Color(0xFFB9B9B9),
                             ),
                             if (false)
@@ -1348,7 +1350,7 @@ class _CompareInsurancePageWidgetState
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        20, 10, 20, 10),
+                                        20.0, 10.0, 20.0, 10.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -1404,17 +1406,17 @@ class _CompareInsurancePageWidgetState
                                     .secondaryBackground,
                               ),
                               child: Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 50),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 50.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Divider(
-                                      thickness: 1,
+                                      thickness: 1.0,
                                       color: Color(0xFFB9B9B9),
                                     ),
                                     Padding(
-                                      padding: EdgeInsets.all(20),
+                                      padding: EdgeInsets.all(20.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
@@ -1429,8 +1431,8 @@ class _CompareInsurancePageWidgetState
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 10, 0),
+                                                            .fromSTEB(0.0, 0.0,
+                                                                10.0, 0.0),
                                                     child: FFButtonWidget(
                                                       onPressed: () async {
                                                         context.pushNamed(
@@ -1755,15 +1757,21 @@ class _CompareInsurancePageWidgetState
                                                       text: 'ออกใบเสนอราคา',
                                                       options: FFButtonOptions(
                                                         width: double.infinity,
-                                                        height: 60,
+                                                        height: 60.0,
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(24, 0,
-                                                                    24, 0),
+                                                                .fromSTEB(
+                                                                    24.0,
+                                                                    0.0,
+                                                                    24.0,
+                                                                    0.0),
                                                         iconPadding:
                                                             EdgeInsetsDirectional
                                                                 .fromSTEB(
-                                                                    0, 0, 0, 0),
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
                                                         color:
                                                             Color(0xFFFCEFE4),
                                                         textStyle:
@@ -1775,22 +1783,23 @@ class _CompareInsurancePageWidgetState
                                                                       'Noto Sans Thai',
                                                                   color: Color(
                                                                       0xFFDB771A),
-                                                                  fontSize: 14,
+                                                                  fontSize:
+                                                                      14.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w500,
                                                                 ),
-                                                        elevation: 3,
+                                                        elevation: 3.0,
                                                         borderSide: BorderSide(
                                                           color: Colors
                                                               .transparent,
-                                                          width: 1,
+                                                          width: 1.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(14),
+                                                                .circular(14.0),
                                                       ),
                                                     ),
                                                   ),
@@ -1799,8 +1808,8 @@ class _CompareInsurancePageWidgetState
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 10, 0),
+                                                            .fromSTEB(0.0, 0.0,
+                                                                10.0, 0.0),
                                                     child: FFButtonWidget(
                                                       onPressed: () async {
                                                         context.pushNamed(
@@ -1809,15 +1818,21 @@ class _CompareInsurancePageWidgetState
                                                       text: 'ดูใบเสนอราคา',
                                                       options: FFButtonOptions(
                                                         width: double.infinity,
-                                                        height: 60,
+                                                        height: 60.0,
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(24, 0,
-                                                                    24, 0),
+                                                                .fromSTEB(
+                                                                    24.0,
+                                                                    0.0,
+                                                                    24.0,
+                                                                    0.0),
                                                         iconPadding:
                                                             EdgeInsetsDirectional
                                                                 .fromSTEB(
-                                                                    0, 0, 0, 0),
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
                                                         color:
                                                             Color(0xFFFCEFE4),
                                                         textStyle:
@@ -1829,22 +1844,23 @@ class _CompareInsurancePageWidgetState
                                                                       'Noto Sans Thai',
                                                                   color: Color(
                                                                       0xFFDB771A),
-                                                                  fontSize: 14,
+                                                                  fontSize:
+                                                                      14.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w500,
                                                                 ),
-                                                        elevation: 3,
+                                                        elevation: 3.0,
                                                         borderSide: BorderSide(
                                                           color: Colors
                                                               .transparent,
-                                                          width: 1,
+                                                          width: 1.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(14),
+                                                                .circular(14.0),
                                                       ),
                                                     ),
                                                   ),
@@ -1854,7 +1870,8 @@ class _CompareInsurancePageWidgetState
                                           Expanded(
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(10, 0, 0, 0),
+                                                  .fromSTEB(
+                                                      10.0, 0.0, 0.0, 0.0),
                                               child: FFButtonWidget(
                                                 onPressed: () async {
                                                   var _shouldSetState = false;
@@ -2255,13 +2272,15 @@ class _CompareInsurancePageWidgetState
                                                 },
                                                 text: 'ตกลงทำประกัน',
                                                 options: FFButtonOptions(
-                                                  width: 160,
-                                                  height: 60,
+                                                  width: 160.0,
+                                                  height: 60.0,
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(24, 0, 24, 0),
+                                                      .fromSTEB(
+                                                          24.0, 0.0, 24.0, 0.0),
                                                   iconPadding:
                                                       EdgeInsetsDirectional
-                                                          .fromSTEB(0, 0, 0, 0),
+                                                          .fromSTEB(0.0, 0.0,
+                                                              0.0, 0.0),
                                                   color: Color(0xFFD37319),
                                                   textStyle:
                                                       FlutterFlowTheme.of(
@@ -2271,18 +2290,19 @@ class _CompareInsurancePageWidgetState
                                                             fontFamily:
                                                                 'Noto Sans Thai',
                                                             color: Colors.white,
-                                                            fontSize: 14,
+                                                            fontSize: 14.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w500,
                                                           ),
-                                                  elevation: 3,
+                                                  elevation: 3.0,
                                                   borderSide: BorderSide(
                                                     color: Colors.transparent,
-                                                    width: 1,
+                                                    width: 1.0,
                                                   ),
                                                   borderRadius:
-                                                      BorderRadius.circular(14),
+                                                      BorderRadius.circular(
+                                                          14.0),
                                                 ),
                                               ),
                                             ),

@@ -51,7 +51,7 @@ class _InsuranceTypeColorWidgetState extends State<InsuranceTypeColorWidget> {
             color: FlutterFlowTheme.of(context).secondaryBackground,
           ),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 24),
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 24.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -66,7 +66,8 @@ class _InsuranceTypeColorWidgetState extends State<InsuranceTypeColorWidget> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                         child: Text(
                           'สถานะทั้งหมด',
                           style: FlutterFlowTheme.of(context)
@@ -78,18 +79,19 @@ class _InsuranceTypeColorWidgetState extends State<InsuranceTypeColorWidget> {
                         ),
                       ),
                       Align(
-                        alignment: AlignmentDirectional(0, 0),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 8.0, 0.0),
                           child: FlutterFlowIconButton(
                             borderColor: Colors.transparent,
-                            borderRadius: 30,
-                            borderWidth: 1,
-                            buttonSize: 40,
+                            borderRadius: 30.0,
+                            borderWidth: 1.0,
+                            buttonSize: 40.0,
                             icon: FaIcon(
                               FontAwesomeIcons.times,
                               color: Color(0xFFFF0000),
-                              size: 30,
+                              size: 30.0,
                             ),
                             onPressed: () async {
                               FFAppState().searchList1 = '0';
@@ -103,7 +105,7 @@ class _InsuranceTypeColorWidgetState extends State<InsuranceTypeColorWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(16, 4, 0, 8),
+                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 0.0, 8.0),
                   child: Text(
                     'เเถบสีเเสดงสถานะดังนี้',
                     style: FlutterFlowTheme.of(context).bodySmall.override(
@@ -114,16 +116,17 @@ class _InsuranceTypeColorWidgetState extends State<InsuranceTypeColorWidget> {
                 ),
                 Container(
                   width: double.infinity,
-                  height: 60,
+                  height: 60.0,
                   decoration: BoxDecoration(),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(12, 8, 12, 8),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 12.0, 8.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Container(
-                          width: 30,
-                          height: 30,
+                          width: 30.0,
+                          height: 30.0,
                           decoration: BoxDecoration(
                             color: Color(0xFFD9D9D9),
                             shape: BoxShape.circle,
@@ -134,8 +137,8 @@ class _InsuranceTypeColorWidgetState extends State<InsuranceTypeColorWidget> {
                         ),
                         Expanded(
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                12.0, 0.0, 0.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -147,7 +150,7 @@ class _InsuranceTypeColorWidgetState extends State<InsuranceTypeColorWidget> {
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Colors.black,
-                                        fontSize: 14,
+                                        fontSize: 14.0,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -156,7 +159,8 @@ class _InsuranceTypeColorWidgetState extends State<InsuranceTypeColorWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 12, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 12.0, 0.0),
                           child: Theme(
                             data: ThemeData(
                               checkboxTheme: CheckboxThemeData(
@@ -199,16 +203,17 @@ class _InsuranceTypeColorWidgetState extends State<InsuranceTypeColorWidget> {
                 ),
                 Container(
                   width: double.infinity,
-                  height: 60,
+                  height: 60.0,
                   decoration: BoxDecoration(),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(12, 8, 12, 8),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 12.0, 8.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Container(
-                          width: 30,
-                          height: 30,
+                          width: 30.0,
+                          height: 30.0,
                           decoration: BoxDecoration(
                             color: Color(0xFFF9DCC3),
                             shape: BoxShape.circle,
@@ -219,8 +224,8 @@ class _InsuranceTypeColorWidgetState extends State<InsuranceTypeColorWidget> {
                         ),
                         Expanded(
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                12.0, 0.0, 0.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -232,7 +237,7 @@ class _InsuranceTypeColorWidgetState extends State<InsuranceTypeColorWidget> {
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Colors.black,
-                                        fontSize: 14,
+                                        fontSize: 14.0,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -241,7 +246,8 @@ class _InsuranceTypeColorWidgetState extends State<InsuranceTypeColorWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 12, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 12.0, 0.0),
                           child: Theme(
                             data: ThemeData(
                               checkboxTheme: CheckboxThemeData(

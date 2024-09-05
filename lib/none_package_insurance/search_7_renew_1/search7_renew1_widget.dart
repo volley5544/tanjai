@@ -63,13 +63,13 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
             automaticallyImplyLeading: false,
             leading: FlutterFlowIconButton(
               borderColor: Colors.transparent,
-              borderRadius: 30,
-              borderWidth: 1,
-              buttonSize: 60,
+              borderRadius: 30.0,
+              borderWidth: 1.0,
+              buttonSize: 60.0,
               icon: Icon(
                 Icons.arrow_back_rounded,
                 color: Color(0xFFDB771A),
-                size: 30,
+                size: 30.0,
               ),
               onPressed: () async {
                 context.pop();
@@ -80,14 +80,14 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF003063),
-                    fontSize: 18,
+                    fontSize: 18.0,
                     letterSpacing: 0.0,
                     fontWeight: FontWeight.w600,
                   ),
             ),
             actions: [],
             centerTitle: true,
-            elevation: 2,
+            elevation: 2.0,
           ),
           body: SafeArea(
             top: true,
@@ -97,9 +97,10 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 5, 20, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
                     child: Container(
-                      width: MediaQuery.sizeOf(context).width,
+                      width: MediaQuery.sizeOf(context).width * 1.0,
                       decoration: BoxDecoration(),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -113,14 +114,14 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
-                                      fontSize: 15,
+                                      fontSize: 15.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   '(บังคับเลือก)',
                                   style: FlutterFlowTheme.of(context)
@@ -128,7 +129,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFFB0606),
-                                        fontSize: 12,
+                                        fontSize: 12.0,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -136,14 +137,15 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                             ],
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 5.0, 0.0, 0.0),
                             child: Container(
-                              width: MediaQuery.sizeOf(context).width,
-                              height: 60,
+                              width: MediaQuery.sizeOf(context).width * 1.0,
+                              height: 60.0,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(8.0),
                                 border: Border.all(
                                   color: Color(0xFFB3B3B3),
                                 ),
@@ -155,7 +157,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        10, 0, 0, 0),
+                                        10.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       'เลือกประเภทรถ',
                                       style: FlutterFlowTheme.of(context)
@@ -163,7 +165,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFFB3B3B3),
-                                            fontSize: 15,
+                                            fontSize: 15.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
@@ -171,12 +173,12 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 0, 10, 0),
+                                        0.0, 0.0, 10.0, 0.0),
                                     child: Icon(
                                       Icons.navigate_next,
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryText,
-                                      size: 24,
+                                      size: 24.0,
                                     ),
                                   ),
                                 ],
@@ -188,9 +190,10 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 5, 20, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
                     child: Container(
-                      width: MediaQuery.sizeOf(context).width,
+                      width: MediaQuery.sizeOf(context).width * 1.0,
                       decoration: BoxDecoration(),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -204,14 +207,14 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
-                                      fontSize: 15,
+                                      fontSize: 15.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   '(บังคับเลือก)',
                                   style: FlutterFlowTheme.of(context)
@@ -219,7 +222,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFFB0606),
-                                        fontSize: 12,
+                                        fontSize: 12.0,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -227,7 +230,8 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                             ],
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 5.0, 0.0, 0.0),
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
@@ -266,12 +270,12 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                 );
                               },
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width,
-                                height: 60,
+                                width: MediaQuery.sizeOf(context).width * 1.0,
+                                height: 60.0,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                   border: Border.all(
                                     color: Color(0xFFB3B3B3),
                                   ),
@@ -283,7 +287,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          10, 0, 0, 0),
+                                          10.0, 0.0, 0.0, 0.0),
                                       child: Text(
                                         'เลือกยี่ห้อรถ',
                                         style: FlutterFlowTheme.of(context)
@@ -291,7 +295,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFFB3B3B3),
-                                              fontSize: 15,
+                                              fontSize: 15.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -299,12 +303,12 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 10, 0),
+                                          0.0, 0.0, 10.0, 0.0),
                                       child: Icon(
                                         Icons.navigate_next,
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
-                                        size: 24,
+                                        size: 24.0,
                                       ),
                                     ),
                                   ],
@@ -317,9 +321,10 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 5, 20, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
                     child: Container(
-                      width: MediaQuery.sizeOf(context).width,
+                      width: MediaQuery.sizeOf(context).width * 1.0,
                       decoration: BoxDecoration(),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -333,14 +338,14 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
-                                      fontSize: 15,
+                                      fontSize: 15.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   '(บังคับกรอก)',
                                   style: FlutterFlowTheme.of(context)
@@ -348,7 +353,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFFB0606),
-                                        fontSize: 12,
+                                        fontSize: 12.0,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -356,21 +361,22 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                             ],
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 5.0, 0.0, 0.0),
                             child: Container(
-                              width: MediaQuery.sizeOf(context).width,
-                              height: 60,
+                              width: MediaQuery.sizeOf(context).width * 1.0,
+                              height: 60.0,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(8.0),
                                 border: Border.all(
                                   color: Color(0xFFB3B3B3),
                                 ),
                               ),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    10, 0, 10, 0),
+                                    10.0, 0.0, 10.0, 0.0),
                                 child: TextFormField(
                                   controller:
                                       _model.cusNameTextFieldTextController1,
@@ -382,7 +388,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                         .labelMedium
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
-                                          fontSize: 15,
+                                          fontSize: 15.0,
                                           letterSpacing: 0.0,
                                         ),
                                     hintStyle: FlutterFlowTheme.of(context)
@@ -390,7 +396,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFFB3B3B3),
-                                          fontSize: 15,
+                                          fontSize: 15.0,
                                           letterSpacing: 0.0,
                                         ),
                                     enabledBorder: InputBorder.none,
@@ -403,7 +409,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFB3B3B3),
-                                        fontSize: 15,
+                                        fontSize: 15.0,
                                         letterSpacing: 0.0,
                                       ),
                                   validator: _model
@@ -418,9 +424,10 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 5, 20, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
                     child: Container(
-                      width: MediaQuery.sizeOf(context).width,
+                      width: MediaQuery.sizeOf(context).width * 1.0,
                       decoration: BoxDecoration(),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -434,14 +441,14 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
-                                      fontSize: 15,
+                                      fontSize: 15.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   '(บังคับกรอก)',
                                   style: FlutterFlowTheme.of(context)
@@ -449,7 +456,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFFB0606),
-                                        fontSize: 12,
+                                        fontSize: 12.0,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -457,21 +464,22 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                             ],
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 5.0, 0.0, 0.0),
                             child: Container(
-                              width: MediaQuery.sizeOf(context).width,
-                              height: 60,
+                              width: MediaQuery.sizeOf(context).width * 1.0,
+                              height: 60.0,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(8.0),
                                 border: Border.all(
                                   color: Color(0xFFB3B3B3),
                                 ),
                               ),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    10, 0, 10, 0),
+                                    10.0, 0.0, 10.0, 0.0),
                                 child: TextFormField(
                                   controller:
                                       _model.cusNameTextFieldTextController2,
@@ -483,7 +491,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                         .labelMedium
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
-                                          fontSize: 15,
+                                          fontSize: 15.0,
                                           letterSpacing: 0.0,
                                         ),
                                     hintStyle: FlutterFlowTheme.of(context)
@@ -491,7 +499,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFFB3B3B3),
-                                          fontSize: 15,
+                                          fontSize: 15.0,
                                           letterSpacing: 0.0,
                                         ),
                                     enabledBorder: InputBorder.none,
@@ -504,7 +512,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFB3B3B3),
-                                        fontSize: 15,
+                                        fontSize: 15.0,
                                         letterSpacing: 0.0,
                                       ),
                                   validator: _model
@@ -519,9 +527,10 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 5, 20, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
                     child: Container(
-                      width: MediaQuery.sizeOf(context).width,
+                      width: MediaQuery.sizeOf(context).width * 1.0,
                       decoration: BoxDecoration(),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -535,14 +544,14 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
-                                      fontSize: 15,
+                                      fontSize: 15.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   '(บังคับเลือก)',
                                   style: FlutterFlowTheme.of(context)
@@ -550,7 +559,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFFB0606),
-                                        fontSize: 12,
+                                        fontSize: 12.0,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -558,14 +567,15 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                             ],
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 5.0, 0.0, 0.0),
                             child: Container(
-                              width: MediaQuery.sizeOf(context).width,
-                              height: 60,
+                              width: MediaQuery.sizeOf(context).width * 1.0,
+                              height: 60.0,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(8.0),
                                 border: Border.all(
                                   color: Color(0xFFB3B3B3),
                                 ),
@@ -577,7 +587,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        10, 0, 0, 0),
+                                        10.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       'เลือกจังหวัด',
                                       style: FlutterFlowTheme.of(context)
@@ -585,7 +595,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFFB3B3B3),
-                                            fontSize: 15,
+                                            fontSize: 15.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
@@ -593,12 +603,12 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 0, 10, 0),
+                                        0.0, 0.0, 10.0, 0.0),
                                     child: Icon(
                                       Icons.navigate_next,
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryText,
-                                      size: 24,
+                                      size: 24.0,
                                     ),
                                   ),
                                 ],
@@ -610,9 +620,10 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 5, 20, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
                     child: Container(
-                      width: MediaQuery.sizeOf(context).width,
+                      width: MediaQuery.sizeOf(context).width * 1.0,
                       decoration: BoxDecoration(),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -626,7 +637,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
-                                      fontSize: 15,
+                                      fontSize: 15.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
@@ -637,15 +648,15 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
-                                      fontSize: 15,
+                                      fontSize: 15.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w800,
                                       decoration: TextDecoration.underline,
                                     ),
                               ),
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   '(บังคับกรอก)',
                                   style: FlutterFlowTheme.of(context)
@@ -653,7 +664,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFFB0606),
-                                        fontSize: 12,
+                                        fontSize: 12.0,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -661,21 +672,22 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                             ],
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 5.0, 0.0, 0.0),
                             child: Container(
-                              width: MediaQuery.sizeOf(context).width,
-                              height: 60,
+                              width: MediaQuery.sizeOf(context).width * 1.0,
+                              height: 60.0,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(8.0),
                                 border: Border.all(
                                   color: Color(0xFFB3B3B3),
                                 ),
                               ),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    10, 0, 10, 0),
+                                    10.0, 0.0, 10.0, 0.0),
                                 child: TextFormField(
                                   controller:
                                       _model.cusNameTextFieldTextController3,
@@ -687,7 +699,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                         .labelMedium
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
-                                          fontSize: 15,
+                                          fontSize: 15.0,
                                           letterSpacing: 0.0,
                                         ),
                                     hintStyle: FlutterFlowTheme.of(context)
@@ -695,7 +707,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFFB3B3B3),
-                                          fontSize: 15,
+                                          fontSize: 15.0,
                                           letterSpacing: 0.0,
                                         ),
                                     enabledBorder: InputBorder.none,
@@ -708,7 +720,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFB3B3B3),
-                                        fontSize: 15,
+                                        fontSize: 15.0,
                                         letterSpacing: 0.0,
                                       ),
                                   validator: _model
@@ -723,9 +735,10 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 5, 20, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
                     child: Container(
-                      width: MediaQuery.sizeOf(context).width,
+                      width: MediaQuery.sizeOf(context).width * 1.0,
                       decoration: BoxDecoration(),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -739,7 +752,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
-                                      fontSize: 15,
+                                      fontSize: 15.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
@@ -750,15 +763,15 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
-                                      fontSize: 15,
+                                      fontSize: 15.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w800,
                                       decoration: TextDecoration.underline,
                                     ),
                               ),
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   '(บังคับเลือก)',
                                   style: FlutterFlowTheme.of(context)
@@ -766,7 +779,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFFB0606),
-                                        fontSize: 12,
+                                        fontSize: 12.0,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -774,14 +787,15 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                             ],
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 5.0, 0.0, 0.0),
                             child: Container(
-                              width: MediaQuery.sizeOf(context).width,
-                              height: 60,
+                              width: MediaQuery.sizeOf(context).width * 1.0,
+                              height: 60.0,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(8.0),
                                 border: Border.all(
                                   color: Color(0xFFB3B3B3),
                                 ),
@@ -792,12 +806,12 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 0, 15, 0),
+                                        0.0, 0.0, 15.0, 0.0),
                                     child: Icon(
                                       Icons.edit_calendar_outlined,
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryText,
-                                      size: 24,
+                                      size: 24.0,
                                     ),
                                   ),
                                 ],
@@ -809,9 +823,10 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 5, 20, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
                     child: Container(
-                      width: MediaQuery.sizeOf(context).width,
+                      width: MediaQuery.sizeOf(context).width * 1.0,
                       decoration: BoxDecoration(),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -825,7 +840,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
-                                      fontSize: 15,
+                                      fontSize: 15.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
@@ -836,15 +851,15 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
-                                      fontSize: 15,
+                                      fontSize: 15.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w800,
                                       decoration: TextDecoration.underline,
                                     ),
                               ),
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   '(บังคับเลือก)',
                                   style: FlutterFlowTheme.of(context)
@@ -852,7 +867,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFFB0606),
-                                        fontSize: 12,
+                                        fontSize: 12.0,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -860,14 +875,15 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                             ],
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 5.0, 0.0, 0.0),
                             child: Container(
-                              width: MediaQuery.sizeOf(context).width,
-                              height: 60,
+                              width: MediaQuery.sizeOf(context).width * 1.0,
+                              height: 60.0,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(8.0),
                                 border: Border.all(
                                   color: Color(0xFFB3B3B3),
                                 ),
@@ -879,7 +895,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        10, 0, 0, 0),
+                                        10.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       'เลือกชื่อบริษัท',
                                       style: FlutterFlowTheme.of(context)
@@ -887,7 +903,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFFB3B3B3),
-                                            fontSize: 15,
+                                            fontSize: 15.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
@@ -895,12 +911,12 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 0, 10, 0),
+                                        0.0, 0.0, 10.0, 0.0),
                                     child: Icon(
                                       Icons.navigate_next,
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryText,
-                                      size: 24,
+                                      size: 24.0,
                                     ),
                                   ),
                                 ],
@@ -912,9 +928,10 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 5, 20, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
                     child: Container(
-                      width: MediaQuery.sizeOf(context).width,
+                      width: MediaQuery.sizeOf(context).width * 1.0,
                       decoration: BoxDecoration(),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -928,7 +945,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
-                                      fontSize: 15,
+                                      fontSize: 15.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
@@ -939,15 +956,15 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
-                                      fontSize: 15,
+                                      fontSize: 15.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w800,
                                       decoration: TextDecoration.underline,
                                     ),
                               ),
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   '(บังคับเลือก)',
                                   style: FlutterFlowTheme.of(context)
@@ -955,7 +972,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFFB0606),
-                                        fontSize: 12,
+                                        fontSize: 12.0,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -963,14 +980,15 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                             ],
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 5.0, 0.0, 0.0),
                             child: Container(
-                              width: MediaQuery.sizeOf(context).width,
-                              height: 60,
+                              width: MediaQuery.sizeOf(context).width * 1.0,
+                              height: 60.0,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(8.0),
                                 border: Border.all(
                                   color: Color(0xFFB3B3B3),
                                 ),
@@ -982,7 +1000,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        10, 0, 0, 0),
+                                        10.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       'เลือกชั้นประกัน',
                                       style: FlutterFlowTheme.of(context)
@@ -990,7 +1008,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFFB3B3B3),
-                                            fontSize: 15,
+                                            fontSize: 15.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
@@ -998,12 +1016,12 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 0, 10, 0),
+                                        0.0, 0.0, 10.0, 0.0),
                                     child: Icon(
                                       Icons.navigate_next,
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryText,
-                                      size: 24,
+                                      size: 24.0,
                                     ),
                                   ),
                                 ],
@@ -1015,9 +1033,10 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 5, 20, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
                     child: Container(
-                      width: MediaQuery.sizeOf(context).width,
+                      width: MediaQuery.sizeOf(context).width * 1.0,
                       decoration: BoxDecoration(),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -1031,7 +1050,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
-                                      fontSize: 15,
+                                      fontSize: 15.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
@@ -1042,15 +1061,15 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
-                                      fontSize: 15,
+                                      fontSize: 15.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w800,
                                       decoration: TextDecoration.underline,
                                     ),
                               ),
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   '(บังคับเลือก)',
                                   style: FlutterFlowTheme.of(context)
@@ -1058,7 +1077,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFFB0606),
-                                        fontSize: 12,
+                                        fontSize: 12.0,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -1066,14 +1085,15 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                             ],
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 5.0, 0.0, 0.0),
                             child: Container(
-                              width: MediaQuery.sizeOf(context).width,
-                              height: 60,
+                              width: MediaQuery.sizeOf(context).width * 1.0,
+                              height: 60.0,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(8.0),
                                 border: Border.all(
                                   color: Color(0xFFB3B3B3),
                                 ),
@@ -1085,7 +1105,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        10, 0, 0, 0),
+                                        10.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       'เลือกประเภทการซ่อม',
                                       style: FlutterFlowTheme.of(context)
@@ -1093,7 +1113,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFFB3B3B3),
-                                            fontSize: 15,
+                                            fontSize: 15.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
@@ -1101,12 +1121,12 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 0, 10, 0),
+                                        0.0, 0.0, 10.0, 0.0),
                                     child: Icon(
                                       Icons.navigate_next,
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryText,
-                                      size: 24,
+                                      size: 24.0,
                                     ),
                                   ),
                                 ],
@@ -1118,9 +1138,10 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 5, 20, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
                     child: Container(
-                      width: MediaQuery.sizeOf(context).width,
+                      width: MediaQuery.sizeOf(context).width * 1.0,
                       decoration: BoxDecoration(),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -1134,14 +1155,14 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
-                                      fontSize: 15,
+                                      fontSize: 15.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   '(บังคับเลือก)',
                                   style: FlutterFlowTheme.of(context)
@@ -1149,7 +1170,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFFB0606),
-                                        fontSize: 12,
+                                        fontSize: 12.0,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -1157,14 +1178,15 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                             ],
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 5.0, 0.0, 0.0),
                             child: Container(
-                              width: MediaQuery.sizeOf(context).width,
-                              height: 60,
+                              width: MediaQuery.sizeOf(context).width * 1.0,
+                              height: 60.0,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(8.0),
                                 border: Border.all(
                                   color: Color(0xFFB3B3B3),
                                 ),
@@ -1176,7 +1198,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        10, 0, 0, 0),
+                                        10.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       'เลือกปี',
                                       style: FlutterFlowTheme.of(context)
@@ -1184,7 +1206,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFFB3B3B3),
-                                            fontSize: 15,
+                                            fontSize: 15.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
@@ -1192,12 +1214,12 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 0, 10, 0),
+                                        0.0, 0.0, 10.0, 0.0),
                                     child: Icon(
                                       Icons.navigate_next,
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryText,
-                                      size: 24,
+                                      size: 24.0,
                                     ),
                                   ),
                                 ],
@@ -1209,9 +1231,10 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 5, 20, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
                     child: Container(
-                      width: MediaQuery.sizeOf(context).width,
+                      width: MediaQuery.sizeOf(context).width * 1.0,
                       decoration: BoxDecoration(),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -1225,14 +1248,14 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
-                                      fontSize: 15,
+                                      fontSize: 15.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   '(บังคับเลือก)',
                                   style: FlutterFlowTheme.of(context)
@@ -1240,7 +1263,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFFB0606),
-                                        fontSize: 12,
+                                        fontSize: 12.0,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -1248,14 +1271,15 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                             ],
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 5.0, 0.0, 0.0),
                             child: Container(
-                              width: MediaQuery.sizeOf(context).width,
-                              height: 60,
+                              width: MediaQuery.sizeOf(context).width * 1.0,
+                              height: 60.0,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(8.0),
                                 border: Border.all(
                                   color: Color(0xFFB3B3B3),
                                 ),
@@ -1267,7 +1291,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        10, 0, 0, 0),
+                                        10.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       'เลือกการใช้งาน',
                                       style: FlutterFlowTheme.of(context)
@@ -1275,7 +1299,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFFB3B3B3),
-                                            fontSize: 15,
+                                            fontSize: 15.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
@@ -1283,12 +1307,12 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 0, 10, 0),
+                                        0.0, 0.0, 10.0, 0.0),
                                     child: Icon(
                                       Icons.navigate_next,
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryText,
-                                      size: 24,
+                                      size: 24.0,
                                     ),
                                   ),
                                 ],
@@ -1300,9 +1324,10 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 5, 20, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
                     child: Container(
-                      width: MediaQuery.sizeOf(context).width,
+                      width: MediaQuery.sizeOf(context).width * 1.0,
                       decoration: BoxDecoration(),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -1316,14 +1341,14 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
-                                      fontSize: 15,
+                                      fontSize: 15.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   '(กรอกตัวเลขเท่านั้น)',
                                   style: FlutterFlowTheme.of(context)
@@ -1332,7 +1357,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                         fontFamily: 'Noto Sans Thai',
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
-                                        fontSize: 12,
+                                        fontSize: 12.0,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -1340,21 +1365,22 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                             ],
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 5.0, 0.0, 0.0),
                             child: Container(
-                              width: MediaQuery.sizeOf(context).width,
-                              height: 60,
+                              width: MediaQuery.sizeOf(context).width * 1.0,
+                              height: 60.0,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(8.0),
                                 border: Border.all(
                                   color: Color(0xFFB3B3B3),
                                 ),
                               ),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    10, 0, 10, 0),
+                                    10.0, 0.0, 10.0, 0.0),
                                 child: TextFormField(
                                   controller: _model.textFieldTextController,
                                   focusNode: _model.textFieldFocusNode,
@@ -1365,7 +1391,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                         .labelMedium
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
-                                          fontSize: 15,
+                                          fontSize: 15.0,
                                           letterSpacing: 0.0,
                                         ),
                                     hintStyle: FlutterFlowTheme.of(context)
@@ -1373,7 +1399,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFFB3B3B3),
-                                          fontSize: 15,
+                                          fontSize: 15.0,
                                           letterSpacing: 0.0,
                                         ),
                                     enabledBorder: InputBorder.none,
@@ -1386,7 +1412,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFB3B3B3),
-                                        fontSize: 15,
+                                        fontSize: 15.0,
                                         letterSpacing: 0.0,
                                       ),
                                   keyboardType: TextInputType.emailAddress,
@@ -1410,11 +1436,11 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding:
-                              EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              20.0, 10.0, 20.0, 0.0),
                           child: Container(
-                            width: MediaQuery.sizeOf(context).width,
-                            height: 33,
+                            width: MediaQuery.sizeOf(context).width * 1.0,
+                            height: 33.0,
                             decoration: BoxDecoration(),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -1426,14 +1452,14 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFF003063),
-                                        fontSize: 15,
+                                        fontSize: 15.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      10, 0, 0, 0),
+                                      10.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     '(งานโอนโค้ด)',
                                     style: FlutterFlowTheme.of(context)
@@ -1441,7 +1467,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFFFB0606),
-                                          fontSize: 12,
+                                          fontSize: 12.0,
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -1451,11 +1477,11 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                           ),
                         ),
                         Padding(
-                          padding:
-                              EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              20.0, 10.0, 20.0, 0.0),
                           child: Container(
-                            width: MediaQuery.sizeOf(context).width,
-                            height: 80,
+                            width: MediaQuery.sizeOf(context).width * 1.0,
+                            height: 80.0,
                             decoration: BoxDecoration(
                               color: Color(0xFFFAFAFA),
                             ),
@@ -1471,7 +1497,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
-                                            fontSize: 15,
+                                            fontSize: 15.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
                                           ),
@@ -1480,12 +1506,13 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 5, 0, 0),
+                                      0.0, 5.0, 0.0, 0.0),
                                   child: Container(
-                                    width: MediaQuery.sizeOf(context).width,
-                                    height: 45,
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 1.0,
+                                    height: 45.0,
                                     decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(8),
+                                      borderRadius: BorderRadius.circular(8.0),
                                     ),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -1493,15 +1520,16 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Align(
-                                          alignment: AlignmentDirectional(0, 0),
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
                                                 0.74,
-                                            height: 100,
+                                            height: 100.0,
                                             decoration: BoxDecoration(),
                                             alignment:
-                                                AlignmentDirectional(0, 0),
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
@@ -1515,12 +1543,13 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                                                 context)
                                                             .width *
                                                         0.35,
-                                                    height: 40,
-                                                    padding: EdgeInsets.all(0),
+                                                    height: 40.0,
+                                                    padding:
+                                                        EdgeInsets.all(0.0),
                                                     iconPadding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 0, 0),
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 0.0),
                                                     color: Color(0xFFFCEFE4),
                                                     textStyle: FlutterFlowTheme
                                                             .of(context)
@@ -1534,19 +1563,20 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
-                                                    elevation: 3,
+                                                    elevation: 3.0,
                                                     borderSide: BorderSide(
                                                       color: Colors.transparent,
-                                                      width: 1,
+                                                      width: 1.0,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8),
+                                                            8.0),
                                                   ),
                                                 ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(10, 0, 5, 0),
+                                                      .fromSTEB(
+                                                          10.0, 0.0, 5.0, 0.0),
                                                   child: Text(
                                                     'สถานะ :',
                                                     style: FlutterFlowTheme.of(
@@ -1555,7 +1585,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                                         .override(
                                                           fontFamily:
                                                               'Noto Sans Thai',
-                                                          fontSize: 14,
+                                                          fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -1568,7 +1598,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                                       .override(
                                                         fontFamily:
                                                             'Noto Sans Thai',
-                                                        fontSize: 14,
+                                                        fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -1577,17 +1607,17 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                           ),
                                         ),
                                         Container(
-                                          height: 100,
+                                          height: 100.0,
                                           decoration: BoxDecoration(),
                                         ),
                                         Flexible(
                                           child: Container(
-                                            height: 100,
+                                            height: 100.0,
                                             decoration: BoxDecoration(),
                                             child: Icon(
                                               Icons.close,
                                               color: Color(0xFFFC0A0A),
-                                              size: 24,
+                                              size: 24.0,
                                             ),
                                           ),
                                         ),
@@ -1600,11 +1630,11 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                           ),
                         ),
                         Padding(
-                          padding:
-                              EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              20.0, 10.0, 20.0, 0.0),
                           child: Container(
-                            width: MediaQuery.sizeOf(context).width,
-                            height: 80,
+                            width: MediaQuery.sizeOf(context).width * 1.0,
+                            height: 80.0,
                             decoration: BoxDecoration(
                               color: Color(0xFFFAFAFA),
                             ),
@@ -1620,30 +1650,30 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
-                                            fontSize: 15,
+                                            fontSize: 15.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
                                           ),
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          5, 0, 0, 0),
+                                          5.0, 0.0, 0.0, 0.0),
                                       child: Icon(
                                         Icons.content_paste_search_rounded,
                                         color: Color(0xFF354052),
-                                        size: 24,
+                                        size: 24.0,
                                       ),
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          5, 0, 0, 0),
+                                          5.0, 0.0, 0.0, 0.0),
                                       child: Text(
                                         'ดูตัวอย่าง',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
-                                              fontSize: 15,
+                                              fontSize: 15.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                               decoration:
@@ -1655,12 +1685,13 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 5, 0, 0),
+                                      0.0, 5.0, 0.0, 0.0),
                                   child: Container(
-                                    width: MediaQuery.sizeOf(context).width,
-                                    height: 45,
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 1.0,
+                                    height: 45.0,
                                     decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(8),
+                                      borderRadius: BorderRadius.circular(8.0),
                                     ),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -1668,15 +1699,16 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Align(
-                                          alignment: AlignmentDirectional(0, 0),
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
                                                 0.74,
-                                            height: 100,
+                                            height: 100.0,
                                             decoration: BoxDecoration(),
                                             alignment:
-                                                AlignmentDirectional(0, 0),
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
@@ -1690,12 +1722,13 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                                                 context)
                                                             .width *
                                                         0.35,
-                                                    height: 40,
-                                                    padding: EdgeInsets.all(0),
+                                                    height: 40.0,
+                                                    padding:
+                                                        EdgeInsets.all(0.0),
                                                     iconPadding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 0, 0),
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 0.0),
                                                     color: Color(0xFFFCEFE4),
                                                     textStyle: FlutterFlowTheme
                                                             .of(context)
@@ -1709,19 +1742,20 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
-                                                    elevation: 3,
+                                                    elevation: 3.0,
                                                     borderSide: BorderSide(
                                                       color: Colors.transparent,
-                                                      width: 1,
+                                                      width: 1.0,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8),
+                                                            8.0),
                                                   ),
                                                 ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(10, 0, 5, 0),
+                                                      .fromSTEB(
+                                                          10.0, 0.0, 5.0, 0.0),
                                                   child: Text(
                                                     'สถานะ :',
                                                     style: FlutterFlowTheme.of(
@@ -1730,7 +1764,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                                         .override(
                                                           fontFamily:
                                                               'Noto Sans Thai',
-                                                          fontSize: 14,
+                                                          fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -1743,7 +1777,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                                       .override(
                                                         fontFamily:
                                                             'Noto Sans Thai',
-                                                        fontSize: 14,
+                                                        fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -1752,17 +1786,17 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                           ),
                                         ),
                                         Container(
-                                          height: 100,
+                                          height: 100.0,
                                           decoration: BoxDecoration(),
                                         ),
                                         Flexible(
                                           child: Container(
-                                            height: 100,
+                                            height: 100.0,
                                             decoration: BoxDecoration(),
                                             child: Icon(
                                               Icons.close,
                                               color: Color(0xFFFC0A0A),
-                                              size: 24,
+                                              size: 24.0,
                                             ),
                                           ),
                                         ),
@@ -1778,12 +1812,13 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 20),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 20.0),
                     child: Container(
-                      width: MediaQuery.sizeOf(context).width,
-                      height: 65,
+                      width: MediaQuery.sizeOf(context).width * 1.0,
+                      height: 65.0,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
+                        borderRadius: BorderRadius.circular(8.0),
                       ),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -1796,11 +1831,11 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                             text: 'บันทึก',
                             options: FFButtonOptions(
                               width: MediaQuery.sizeOf(context).width * 0.9,
-                              height: 40,
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
-                              iconPadding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                              height: 40.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  24.0, 0.0, 24.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
                               color: Color(0xFFD9761A),
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
@@ -1811,12 +1846,12 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                   ),
-                              elevation: 3,
+                              elevation: 3.0,
                               borderSide: BorderSide(
                                 color: Colors.transparent,
-                                width: 1,
+                                width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(8.0),
                             ),
                           ),
                         ],

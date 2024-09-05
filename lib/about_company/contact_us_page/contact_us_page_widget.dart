@@ -58,8 +58,8 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Container(
-                          width: MediaQuery.sizeOf(context).width,
-                          height: 338,
+                          width: MediaQuery.sizeOf(context).width * 1.0,
+                          height: 338.0,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
@@ -69,8 +69,8 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Container(
-                                width: MediaQuery.sizeOf(context).width,
-                                height: 334,
+                                width: MediaQuery.sizeOf(context).width * 1.0,
+                                height: 334.0,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -83,10 +83,11 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                         Image.asset(
                                           'assets/images/header-background2.png',
                                           width:
-                                              MediaQuery.sizeOf(context).width,
+                                              MediaQuery.sizeOf(context).width *
+                                                  1.0,
                                           height: MediaQuery.sizeOf(context)
                                                   .height *
-                                              1,
+                                              1.0,
                                           fit: BoxFit.cover,
                                         ),
                                       ],
@@ -101,14 +102,14 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 0, 70),
+                                                  0.0, 0.0, 0.0, 70.0),
                                           child: ClipRRect(
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(8.0),
                                             child: Image.asset(
                                               'assets/images/srisawad-home-logo.png',
-                                              width: 200,
-                                              height: 150,
+                                              width: 200.0,
+                                              height: 150.0,
                                               fit: BoxFit.contain,
                                             ),
                                           ),
@@ -124,13 +125,13 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                       ],
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0, 0),
+                      alignment: AlignmentDirectional(0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                20.0, 0.0, 0.0, 0.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.start,
@@ -138,7 +139,7 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 10, 0, 0),
+                                      0.0, 10.0, 0.0, 0.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
                                     focusColor: Colors.transparent,
@@ -150,7 +151,7 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                     child: Icon(
                                       Icons.arrow_back,
                                       color: Color(0xFFDB771A),
-                                      size: 27,
+                                      size: 27.0,
                                     ),
                                   ),
                                 ),
@@ -166,7 +167,8 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 10.0, 0.0, 0.0),
                           child: Text(
                             'ติดต่อเรา',
                             style: FlutterFlowTheme.of(context)
@@ -174,7 +176,7 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                 .override(
                                   fontFamily: 'Noto Sans Thai',
                                   color: Color(0xFF002D5E),
-                                  fontSize: 18,
+                                  fontSize: 18.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
                                 ),
@@ -183,21 +185,22 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                       ],
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 250, 0, 0),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 250.0, 0.0, 0.0),
                       child: Container(
-                        width: MediaQuery.sizeOf(context).width,
+                        width: MediaQuery.sizeOf(context).width * 1.0,
                         decoration: BoxDecoration(
                           color: FlutterFlowTheme.of(context).primaryBackground,
                           borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(0),
-                            bottomRight: Radius.circular(0),
-                            topLeft: Radius.circular(30),
-                            topRight: Radius.circular(30),
+                            bottomLeft: Radius.circular(0.0),
+                            bottomRight: Radius.circular(0.0),
+                            topLeft: Radius.circular(30.0),
+                            topRight: Radius.circular(30.0),
                           ),
                         ),
                         child: Padding(
-                          padding:
-                              EdgeInsetsDirectional.fromSTEB(20, 30, 20, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              20.0, 30.0, 20.0, 0.0),
                           child: SingleChildScrollView(
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
@@ -221,9 +224,9 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               SizedBox(
-                                                height: 18,
+                                                height: 18.0,
                                                 child: VerticalDivider(
-                                                  thickness: 3,
+                                                  thickness: 3.0,
                                                   color: Color(0xFFEDBB8D),
                                                 ),
                                               ),
@@ -237,7 +240,7 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFF002D5E),
-                                                          fontSize: 18,
+                                                          fontSize: 18.0,
                                                           letterSpacing: 0.0,
                                                         ),
                                               ),
@@ -250,14 +253,14 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                 ),
                                 Container(
                                   width: double.infinity,
-                                  height: 100,
+                                  height: 100.0,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
                                   ),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        20, 0, 0, 0),
+                                        20.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       'ศรีสวัสดิ์ เงินสดทันใจ ซอยแจ้งวัฒนะ 10 แยก 3 (เบญจมิตร) ถนนแจ้งวัฒนะ เลขที่ 99/392 ศรีสวัสดิ์   ชั้นที่ 4,6  แขวงทุ่งสองห้อง เขตหลักสี่ กรุงเทพมหานคร 10210',
                                       style: FlutterFlowTheme.of(context)
@@ -265,7 +268,7 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF002D5E),
-                                            fontSize: 15,
+                                            fontSize: 15.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
                                           ),
@@ -274,14 +277,14 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 20, 0, 0),
+                                      0.0, 20.0, 0.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       SizedBox(
-                                        height: 18,
+                                        height: 18.0,
                                         child: VerticalDivider(
-                                          thickness: 3,
+                                          thickness: 3.0,
                                           color: Color(0xFFEDBB8D),
                                         ),
                                       ),
@@ -292,7 +295,7 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF002D5E),
-                                              fontSize: 18,
+                                              fontSize: 18.0,
                                               letterSpacing: 0.0,
                                             ),
                                       ),
@@ -301,7 +304,7 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      20, 0, 15, 0),
+                                      20.0, 0.0, 15.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
@@ -309,11 +312,11 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                         flex: 1,
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(-1, 0),
+                                              AlignmentDirectional(-1.0, 0.0),
                                           child: Icon(
                                             Icons.perm_phone_msg_rounded,
                                             color: Color(0xFFDB771A),
-                                            size: 25,
+                                            size: 25.0,
                                           ),
                                         ),
                                       ),
@@ -321,7 +324,7 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                         flex: 3,
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(-1, 0),
+                                              AlignmentDirectional(-1.0, 0.0),
                                           child: Text(
                                             '1652',
                                             style: FlutterFlowTheme.of(context)
@@ -329,7 +332,7 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF002D5E),
-                                                  fontSize: 19,
+                                                  fontSize: 19.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w900,
                                                 ),
@@ -339,7 +342,8 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                       Expanded(
                                         flex: 4,
                                         child: Align(
-                                          alignment: AlignmentDirectional(1, 0),
+                                          alignment:
+                                              AlignmentDirectional(1.0, 0.0),
                                           child: FFButtonWidget(
                                             onPressed: () async {
                                               await launchUrl(Uri(
@@ -349,12 +353,13 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                             },
                                             text: 'โทร',
                                             options: FFButtonOptions(
-                                              width: 100,
-                                              height: 45,
+                                              width: 100.0,
+                                              height: 45.0,
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(24, 0, 24, 0),
+                                                  .fromSTEB(
+                                                      24.0, 0.0, 24.0, 0.0),
                                               iconPadding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 0, 0),
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
                                               color: Color(0xFFEFE2D8),
                                               textStyle:
                                                   FlutterFlowTheme.of(context)
@@ -366,13 +371,13 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                                             Color(0xFFDB771A),
                                                         letterSpacing: 0.0,
                                                       ),
-                                              elevation: 3,
+                                              elevation: 3.0,
                                               borderSide: BorderSide(
                                                 color: Colors.transparent,
-                                                width: 1,
+                                                width: 1.0,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(10),
+                                                  BorderRadius.circular(10.0),
                                             ),
                                           ),
                                         ),
@@ -382,14 +387,14 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 15, 0, 0),
+                                      0.0, 15.0, 0.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       SizedBox(
-                                        height: 18,
+                                        height: 18.0,
                                         child: VerticalDivider(
-                                          thickness: 3,
+                                          thickness: 3.0,
                                           color: Color(0xFFEDBB8D),
                                         ),
                                       ),
@@ -400,7 +405,7 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF002D5E),
-                                              fontSize: 18,
+                                              fontSize: 18.0,
                                               letterSpacing: 0.0,
                                             ),
                                       ),
@@ -412,7 +417,7 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          20, 20, 0, 0),
+                                          20.0, 20.0, 0.0, 0.0),
                                       child: Text(
                                         'อีเมล',
                                         style: FlutterFlowTheme.of(context)
@@ -420,7 +425,7 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF646464),
-                                              fontSize: 15,
+                                              fontSize: 15.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
@@ -433,17 +438,17 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          20, 0, 0, 0),
+                                          20.0, 0.0, 0.0, 0.0),
                                       child: AutoSizeText(
                                         'callcenter.sawad@srisawadpower.com',
                                         textAlign: TextAlign.start,
-                                        minFontSize: 14,
+                                        minFontSize: 14.0,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF002D5E),
-                                              fontSize: 15,
+                                              fontSize: 15.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
                                             ),
@@ -453,7 +458,7 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 20, 0, 0),
+                                      0.0, 20.0, 0.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
@@ -468,12 +473,12 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                                 'https://lin.ee/djY93t6');
                                           },
                                           child: Container(
-                                            width: 366,
-                                            height: 62,
+                                            width: 366.0,
+                                            height: 62.0,
                                             decoration: BoxDecoration(
                                               color: Color(0xFFF1F4F8),
                                               borderRadius:
-                                                  BorderRadius.circular(14),
+                                                  BorderRadius.circular(14.0),
                                               border: Border.all(
                                                 color: Color(0xFFD1D1D1),
                                               ),
@@ -483,16 +488,18 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                               children: [
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(30, 0, 0, 0),
+                                                      .fromSTEB(
+                                                          30.0, 0.0, 0.0, 0.0),
                                                   child: FaIcon(
                                                     FontAwesomeIcons.line,
                                                     color: Color(0xFF00B900),
-                                                    size: 28,
+                                                    size: 28.0,
                                                   ),
                                                 ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(40, 0, 0, 0),
+                                                      .fromSTEB(
+                                                          40.0, 0.0, 0.0, 0.0),
                                                   child: Text(
                                                     'แจ้งปัญหาการใช้งานระบบ',
                                                     style: FlutterFlowTheme.of(
@@ -503,7 +510,7 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFF002D5E),
-                                                          fontSize: 18,
+                                                          fontSize: 18.0,
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -518,18 +525,18 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 12, 0, 0),
+                                      0.0, 12.0, 0.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Expanded(
                                         child: Container(
-                                          width: 366,
-                                          height: 62,
+                                          width: 366.0,
+                                          height: 62.0,
                                           decoration: BoxDecoration(
                                             color: Color(0xFFF1F4F8),
                                             borderRadius:
-                                                BorderRadius.circular(14),
+                                                BorderRadius.circular(14.0),
                                             border: Border.all(
                                               color: Color(0xFFD1D1D1),
                                             ),
@@ -548,10 +555,11 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                               children: [
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(30, 0, 0, 0),
+                                                      .fromSTEB(
+                                                          30.0, 0.0, 0.0, 0.0),
                                                   child: Container(
-                                                    width: 30,
-                                                    height: 30,
+                                                    width: 30.0,
+                                                    height: 30.0,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
@@ -561,11 +569,11 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                                     child: ClipRRect(
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              8),
+                                                              8.0),
                                                       child: Image.asset(
                                                         'assets/images/true-logo.png',
-                                                        width: 300,
-                                                        height: 200,
+                                                        width: 300.0,
+                                                        height: 200.0,
                                                         fit: BoxFit.cover,
                                                       ),
                                                     ),
@@ -573,7 +581,8 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                                 ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(40, 0, 0, 0),
+                                                      .fromSTEB(
+                                                          40.0, 0.0, 0.0, 0.0),
                                                   child: Text(
                                                     'เว็บไซต์',
                                                     style: FlutterFlowTheme.of(
@@ -584,7 +593,7 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFF002D5E),
-                                                          fontSize: 18,
+                                                          fontSize: 18.0,
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),

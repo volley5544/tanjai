@@ -43,11 +43,11 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
     context.watch<FFAppState>();
 
     return ClipRRect(
-      borderRadius: BorderRadius.circular(0),
+      borderRadius: BorderRadius.circular(0.0),
       child: BackdropFilter(
         filter: ImageFilter.blur(
-          sigmaX: 10,
-          sigmaY: 8,
+          sigmaX: 10.0,
+          sigmaY: 8.0,
         ),
         child: Container(
           width: double.infinity,
@@ -60,29 +60,29 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Align(
-                alignment: AlignmentDirectional(0, 0),
+                alignment: AlignmentDirectional(0.0, 0.0),
                 child: Container(
                   width: double.infinity,
-                  height: MediaQuery.sizeOf(context).height * 1,
+                  height: MediaQuery.sizeOf(context).height * 1.0,
                   constraints: BoxConstraints(
-                    maxWidth: 700,
+                    maxWidth: 700.0,
                   ),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     boxShadow: [
                       BoxShadow(
-                        blurRadius: 12,
+                        blurRadius: 12.0,
                         color: Color(0x33000000),
                         offset: Offset(
-                          0,
-                          5,
+                          0.0,
+                          5.0,
                         ),
                       )
                     ],
-                    borderRadius: BorderRadius.circular(16),
+                    borderRadius: BorderRadius.circular(16.0),
                   ),
                   child: Padding(
-                    padding: EdgeInsets.all(20),
+                    padding: EdgeInsets.all(20.0),
                     child: SingleChildScrollView(
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -90,8 +90,8 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 12.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -103,11 +103,12 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Align(
-                                        alignment: AlignmentDirectional(0.5, 0),
+                                        alignment:
+                                            AlignmentDirectional(0.5, 0.0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 20, 0, 0),
+                                                  0.0, 20.0, 0.0, 0.0),
                                           child: Text(
                                             'ประกาศรายชื่อผู้ชนะ กิจกรรม TIKTOK STAR 2023',
                                             textAlign: TextAlign.center,
@@ -116,7 +117,7 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
                                                 .override(
                                                   fontFamily: 'Outfit',
                                                   color: Color(0xFF101213),
-                                                  fontSize: 22,
+                                                  fontSize: 22.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
@@ -129,12 +130,12 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
                                 Expanded(
                                   flex: 1,
                                   child: FlutterFlowIconButton(
-                                    borderRadius: 30,
-                                    buttonSize: 44,
+                                    borderRadius: 30.0,
+                                    buttonSize: 44.0,
                                     icon: Icon(
                                       Icons.close_rounded,
                                       color: Color(0xFFFF0000),
-                                      size: 30,
+                                      size: 30.0,
                                     ),
                                     onPressed: () async {
                                       Navigator.pop(context);
@@ -147,12 +148,12 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
                           Image.network(
                             'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/ArunSawad%20Banner%20Img%2FAD2-tiktok-%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%81%E0%B8%B2%E0%B8%A8%E0%B8%A3%E0%B8%B2%E0%B8%87%E0%B8%A7%E0%B8%B1%E0%B8%A5-1920x1020.jpg?alt=media&token=06afd233-1869-4582-8511-52409f5d634e',
                             width: double.infinity,
-                            height: 200,
+                            height: 200.0,
                             fit: BoxFit.contain,
                           ),
                           Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 10.0, 0.0, 0.0),
                             child: Text(
                               '       ทางแผนกการตลาด ขอขอบคุณเพื่อนๆพนักงานสาขาที่ให้ความร่วมมือ ส่งคลิปเข้ามาร่วมการประกวด TIKTOK STAR 2023\nหลังจากที่คณะกรรมการพิจารณาคลิปวีดีโอทั้งหมดแล้ว ตัดสินจากผู้เข้าร่วมที่ทำถูกต้องตามกติกา และมีความคิดสร้างสรรค์ กล้าคิด กล้าแสดงออก\nมีความยินดีที่จะประกาศรายชื่อผู้ชนะทั้ง 8 คน ที่ได้รับเงินรางวัลคนละ 3,000 บาท\nมีรายชื่อดังต่อไปนี้',
                               textAlign: TextAlign.start,
@@ -160,15 +161,15 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Noto Sans Thai',
-                                    fontSize: 16,
+                                    fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
                                   ),
                             ),
                           ),
                           Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 16.0, 0.0, 0.0),
                             child: Container(
                               width: double.infinity,
                               decoration: BoxDecoration(
@@ -183,7 +184,7 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
 
                                   return Container(
                                     width: double.infinity,
-                                    height: 400,
+                                    height: 400.0,
                                     child: DataTable2(
                                       columns: [
                                         DataColumn2(
@@ -197,7 +198,7 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
                                                       .override(
                                                         fontFamily:
                                                             'Noto Sans Thai',
-                                                        fontSize: 16,
+                                                        fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
@@ -216,7 +217,7 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
                                                       .override(
                                                         fontFamily:
                                                             'Noto Sans Thai',
-                                                        fontSize: 16,
+                                                        fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
@@ -235,7 +236,7 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
                                                       .override(
                                                         fontFamily:
                                                             'Noto Sans Thai',
-                                                        fontSize: 16,
+                                                        fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
@@ -296,19 +297,20 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
                                         FlutterFlowTheme.of(context)
                                             .primaryBackground,
                                       ),
-                                      headingRowHeight: 56,
+                                      headingRowHeight: 56.0,
                                       dataRowColor: MaterialStateProperty.all(
                                         FlutterFlowTheme.of(context)
                                             .secondaryBackground,
                                       ),
-                                      dataRowHeight: 40,
+                                      dataRowHeight: 40.0,
                                       border: TableBorder(
-                                        borderRadius: BorderRadius.circular(0),
+                                        borderRadius:
+                                            BorderRadius.circular(0.0),
                                       ),
-                                      dividerThickness: 1,
-                                      columnSpacing: 0,
+                                      dividerThickness: 1.0,
+                                      columnSpacing: 0.0,
                                       showBottomBorder: false,
-                                      minWidth: 49,
+                                      minWidth: 49.0,
                                     ),
                                   );
                                 },
@@ -316,8 +318,8 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
                             ),
                           ),
                           Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 20.0, 0.0, 0.0),
                             child: Text(
                               'ขั้นตอนการยืนยันรับเงินรางวัล',
                               textAlign: TextAlign.start,
@@ -326,7 +328,7 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
                                   .override(
                                     fontFamily: 'Outfit',
                                     color: Color(0xFF101213),
-                                    fontSize: 20,
+                                    fontSize: 20.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                     decoration: TextDecoration.underline,
@@ -334,8 +336,8 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
                             ),
                           ),
                           Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 10.0, 0.0, 0.0),
                             child: Text(
                               '1. เตรียมสำเนาบัตรประจำตัวประชน,สำเนาหน้าสมุดบัญชีธนาคาร (Book Bank),บัตรพนักงาน พร้อมคาดคำว่า “ใช้เพื่อรับเงินประกวด Tiktok Star 2023 เท่านั้น”\n2. ส่งเอกสารมาที่ e-mail tanus.a@srisawadpower.com พร้อม cc กรุ๊ปการตลาด mrk@srisawadpower.com\nโดยใช้หัวข้ออีเมลว่า “ส่งเอกสารยืนยันรับเงินรางวัลกิจกรรม Tiktok Star 2023”\n3. ส่งเอกสารดังกล่าวกลับมาภายในวันที่ 14 ก.ค. 2566 มิเช่นนั้นจะถือว่าท่านสละสิทธิ์ในการรับเงินรางวัล',
                               textAlign: TextAlign.start,
@@ -343,15 +345,15 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Noto Sans Thai',
-                                    fontSize: 16,
+                                    fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
                                   ),
                             ),
                           ),
                           Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 0, 0, 50),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 50.0),
                             child: Text(
                               '4. ท่านจะได้รับเงินโดยการโอนเงินเข้าบัญชีธนาคารภายใน 31 สิงหาคม 2566*เงินรางวัล 3,000 บาท จะถูกหักภาษี ณ ที่จ่าย 3% เป็นจำนวน 90 บาท ท่านจะได้รับยอดเงิน 2,910 บาทถ้วน',
                               textAlign: TextAlign.start,
@@ -359,7 +361,7 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Noto Sans Thai',
-                                    fontSize: 16,
+                                    fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
                                   ),

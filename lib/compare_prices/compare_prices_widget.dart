@@ -48,13 +48,13 @@ class _ComparePricesWidgetState extends State<ComparePricesWidget> {
           automaticallyImplyLeading: false,
           leading: FlutterFlowIconButton(
             borderColor: Colors.transparent,
-            borderRadius: 30,
-            borderWidth: 1,
-            buttonSize: 60,
+            borderRadius: 30.0,
+            borderWidth: 1.0,
+            buttonSize: 60.0,
             icon: Icon(
               Icons.arrow_back_rounded,
               color: Color(0xFFDB771A),
-              size: 30,
+              size: 30.0,
             ),
             onPressed: () {
               print('IconButton pressed ...');
@@ -65,14 +65,14 @@ class _ComparePricesWidgetState extends State<ComparePricesWidget> {
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Noto Sans Thai',
                   color: Color(0xFF003063),
-                  fontSize: 18,
+                  fontSize: 18.0,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.w600,
                 ),
           ),
           actions: [],
           centerTitle: true,
-          elevation: 2,
+          elevation: 2.0,
         ),
         body: SafeArea(
           top: true,
@@ -81,7 +81,7 @@ class _ComparePricesWidgetState extends State<ComparePricesWidget> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -93,13 +93,15 @@ class _ComparePricesWidgetState extends State<ComparePricesWidget> {
                       text: 'ดาวน์โหลด',
                       icon: Icon(
                         Icons.file_download_outlined,
-                        size: 15,
+                        size: 15.0,
                       ),
                       options: FFButtonOptions(
-                        width: 100,
-                        height: 34,
-                        padding: EdgeInsetsDirectional.fromSTEB(5, 0, 5, 0),
-                        iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                        width: 100.0,
+                        height: 34.0,
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
+                        iconPadding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         color: Color(0xFFFCEFE4),
                         textStyle:
                             FlutterFlowTheme.of(context).titleSmall.override(
@@ -108,31 +110,31 @@ class _ComparePricesWidgetState extends State<ComparePricesWidget> {
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
                                 ),
-                        elevation: 3,
+                        elevation: 3.0,
                         borderSide: BorderSide(
                           color: Colors.transparent,
-                          width: 1,
+                          width: 1.0,
                         ),
-                        borderRadius: BorderRadius.circular(8),
+                        borderRadius: BorderRadius.circular(8.0),
                       ),
                     ),
                   ],
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
                 child: Container(
-                  width: MediaQuery.sizeOf(context).width,
-                  height: 220,
+                  width: MediaQuery.sizeOf(context).width * 1.0,
+                  height: 220.0,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondaryBackground,
                   ),
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(0),
+                    borderRadius: BorderRadius.circular(0.0),
                     child: Image.asset(
                       'assets/images/1694573422618.jpg',
-                      width: 300,
-                      height: 145,
+                      width: 300.0,
+                      height: 145.0,
                       fit: BoxFit.fill,
                     ),
                   ),

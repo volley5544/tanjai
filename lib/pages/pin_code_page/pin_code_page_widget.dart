@@ -222,8 +222,8 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                 if (!snapshot.hasData) {
                   return Center(
                     child: SizedBox(
-                      width: 50,
-                      height: 50,
+                      width: 50.0,
+                      height: 50.0,
                       child: CircularProgressIndicator(
                         valueColor: AlwaysStoppedAnimation<Color>(
                           FlutterFlowTheme.of(context).primary,
@@ -251,8 +251,8 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                         if (!snapshot.hasData) {
                           return Center(
                             child: SizedBox(
-                              width: 50,
-                              height: 50,
+                              width: 50.0,
+                              height: 50.0,
                               child: CircularProgressIndicator(
                                 valueColor: AlwaysStoppedAnimation<Color>(
                                   FlutterFlowTheme.of(context).primary,
@@ -286,8 +286,8 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                   if (!snapshot.hasData) {
                                     return Center(
                                       child: SizedBox(
-                                        width: 50,
-                                        height: 50,
+                                        width: 50.0,
+                                        height: 50.0,
                                         child: CircularProgressIndicator(
                                           valueColor:
                                               AlwaysStoppedAnimation<Color>(
@@ -326,8 +326,8 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                           if (!snapshot.hasData) {
                                             return Center(
                                               child: SizedBox(
-                                                width: 50,
-                                                height: 50,
+                                                width: 50.0,
+                                                height: 50.0,
                                                 child:
                                                     CircularProgressIndicator(
                                                   valueColor:
@@ -355,7 +355,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                             children: [
                                               Container(
                                                 width: double.infinity,
-                                                height: 50,
+                                                height: 50.0,
                                                 decoration: BoxDecoration(),
                                                 child: Row(
                                                   mainAxisSize:
@@ -371,21 +371,24 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(12,
-                                                                      0, 0, 0),
+                                                                  .fromSTEB(
+                                                                      12.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
                                                           child:
                                                               FlutterFlowIconButton(
                                                             borderColor: Colors
                                                                 .transparent,
-                                                            borderRadius: 30,
-                                                            borderWidth: 1,
-                                                            buttonSize: 55,
+                                                            borderRadius: 30.0,
+                                                            borderWidth: 1.0,
+                                                            buttonSize: 55.0,
                                                             icon: Icon(
                                                               Icons.logout,
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .primaryText,
-                                                              size: 35,
+                                                              size: 35.0,
                                                             ),
                                                             onPressed:
                                                                 () async {
@@ -748,7 +751,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                fontSize: 14,
+                                                                fontSize: 14.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -762,22 +765,25 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(12,
-                                                                      0, 0, 0),
+                                                                  .fromSTEB(
+                                                                      12.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
                                                           child:
                                                               FlutterFlowIconButton(
                                                             borderColor: Colors
                                                                 .transparent,
-                                                            borderRadius: 30,
-                                                            borderWidth: 1,
-                                                            buttonSize: 55,
+                                                            borderRadius: 30.0,
+                                                            borderWidth: 1.0,
+                                                            buttonSize: 55.0,
                                                             icon: Icon(
                                                               Icons
                                                                   .app_blocking_rounded,
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .primaryText,
-                                                              size: 33,
+                                                              size: 33.0,
                                                             ),
                                                             onPressed:
                                                                 () async {
@@ -844,8 +850,11 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(0,
-                                                                      0, 20, 0),
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      20.0,
+                                                                      0.0),
                                                           child: SelectionArea(
                                                               child: Text(
                                                             'ล้างข้อมูลแอพ',
@@ -855,7 +864,8 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize: 14,
+                                                                  fontSize:
+                                                                      14.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -877,8 +887,8 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                   if (!snapshot.hasData) {
                                                     return Center(
                                                       child: SizedBox(
-                                                        width: 50,
-                                                        height: 50,
+                                                        width: 50.0,
+                                                        height: 50.0,
                                                         child:
                                                             CircularProgressIndicator(
                                                           valueColor:
@@ -907,7 +917,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                     height: MediaQuery.sizeOf(
                                                                 context)
                                                             .height *
-                                                        1,
+                                                        1.0,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
@@ -917,7 +927,10 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0, 50, 0, 0),
+                                                                  0.0,
+                                                                  50.0,
+                                                                  0.0,
+                                                                  0.0),
                                                       child: Column(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -929,11 +942,11 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        16),
+                                                                        16.0),
                                                             child: Image.asset(
                                                               'assets/images/PrakunTunjai-icon_(12).jpg',
-                                                              width: 100,
-                                                              height: 100,
+                                                              width: 100.0,
+                                                              height: 100.0,
                                                               fit: BoxFit
                                                                   .fitHeight,
                                                             ),
@@ -944,24 +957,23 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        0,
-                                                                        12,
-                                                                        0,
-                                                                        0),
+                                                                        0.0,
+                                                                        12.0,
+                                                                        0.0,
+                                                                        0.0),
                                                             child: Container(
                                                               width: double
                                                                   .infinity,
-                                                              height: 50,
+                                                              height: 50.0,
                                                               decoration:
                                                                   BoxDecoration(),
                                                               child: Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            10,
-                                                                            0,
-                                                                            10,
-                                                                            0),
+                                                                padding: EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        10.0,
+                                                                        0.0,
+                                                                        10.0,
+                                                                        0.0),
                                                                 child: Text(
                                                                   'ใส่รหัสผ่าน',
                                                                   textAlign:
@@ -976,7 +988,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                         color: Color(
                                                                             0xFF1D4774),
                                                                         fontSize:
-                                                                            28,
+                                                                            28.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                       ),
@@ -1021,10 +1033,10 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                       children: [
                                                                         Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              40,
-                                                                              32,
-                                                                              40,
-                                                                              0),
+                                                                              40.0,
+                                                                              32.0,
+                                                                              40.0,
+                                                                              0.0),
                                                                           child:
                                                                               PinCodeTextField(
                                                                             autoDisposeControllers:
@@ -1047,7 +1059,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                             enablePinAutofill:
                                                                                 false,
                                                                             errorTextSpace:
-                                                                                16,
+                                                                                16.0,
                                                                             showCursor:
                                                                                 false,
                                                                             cursorColor:
@@ -1062,14 +1074,14 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                 TextInputType.number,
                                                                             pinTheme:
                                                                                 PinTheme(
-                                                                              fieldHeight: 55,
-                                                                              fieldWidth: 50,
-                                                                              borderWidth: 2,
+                                                                              fieldHeight: 55.0,
+                                                                              fieldWidth: 50.0,
+                                                                              borderWidth: 2.0,
                                                                               borderRadius: BorderRadius.only(
-                                                                                bottomLeft: Radius.circular(12),
-                                                                                bottomRight: Radius.circular(12),
-                                                                                topLeft: Radius.circular(12),
-                                                                                topRight: Radius.circular(12),
+                                                                                bottomLeft: Radius.circular(12.0),
+                                                                                bottomRight: Radius.circular(12.0),
+                                                                                topLeft: Radius.circular(12.0),
+                                                                                topRight: Radius.circular(12.0),
                                                                               ),
                                                                               shape: PinCodeFieldShape.box,
                                                                               activeColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -1388,13 +1400,13 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                         if (false)
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                70,
-                                                                                0,
-                                                                                80,
-                                                                                0),
+                                                                                70.0,
+                                                                                0.0,
+                                                                                80.0,
+                                                                                0.0),
                                                                             child:
                                                                                 Container(
-                                                                              width: MediaQuery.sizeOf(context).width,
+                                                                              width: MediaQuery.sizeOf(context).width * 1.0,
                                                                               decoration: BoxDecoration(
                                                                                 color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                               ),
@@ -1407,27 +1419,27 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                       padding: EdgeInsets.zero,
                                                                                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                                                                                         crossAxisCount: 3,
-                                                                                        crossAxisSpacing: 10,
-                                                                                        mainAxisSpacing: 10,
-                                                                                        childAspectRatio: 1,
+                                                                                        crossAxisSpacing: 10.0,
+                                                                                        mainAxisSpacing: 10.0,
+                                                                                        childAspectRatio: 1.0,
                                                                                       ),
                                                                                       shrinkWrap: true,
                                                                                       scrollDirection: Axis.vertical,
                                                                                       children: [
                                                                                         Container(
-                                                                                          width: 100,
-                                                                                          height: 100,
+                                                                                          width: 100.0,
+                                                                                          height: 100.0,
                                                                                           decoration: BoxDecoration(
                                                                                             color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                           ),
                                                                                           child: Align(
-                                                                                            alignment: AlignmentDirectional(0, 0),
+                                                                                            alignment: AlignmentDirectional(0.0, 0.0),
                                                                                             child: Text(
                                                                                               '1',
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                                     color: Color(0xFF1D4774),
-                                                                                                    fontSize: 20,
+                                                                                                    fontSize: 20.0,
                                                                                                     letterSpacing: 0.0,
                                                                                                     fontWeight: FontWeight.w800,
                                                                                                   ),
@@ -1435,19 +1447,19 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                           ),
                                                                                         ),
                                                                                         Container(
-                                                                                          width: 100,
-                                                                                          height: 100,
+                                                                                          width: 100.0,
+                                                                                          height: 100.0,
                                                                                           decoration: BoxDecoration(
                                                                                             color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                           ),
                                                                                           child: Align(
-                                                                                            alignment: AlignmentDirectional(0, 0),
+                                                                                            alignment: AlignmentDirectional(0.0, 0.0),
                                                                                             child: Text(
                                                                                               '2',
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                                     color: Color(0xFF1D4774),
-                                                                                                    fontSize: 20,
+                                                                                                    fontSize: 20.0,
                                                                                                     letterSpacing: 0.0,
                                                                                                     fontWeight: FontWeight.w800,
                                                                                                   ),
@@ -1455,19 +1467,19 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                           ),
                                                                                         ),
                                                                                         Container(
-                                                                                          width: 100,
-                                                                                          height: 100,
+                                                                                          width: 100.0,
+                                                                                          height: 100.0,
                                                                                           decoration: BoxDecoration(
                                                                                             color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                           ),
                                                                                           child: Align(
-                                                                                            alignment: AlignmentDirectional(0, 0),
+                                                                                            alignment: AlignmentDirectional(0.0, 0.0),
                                                                                             child: Text(
                                                                                               '3',
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                                     color: Color(0xFF1D4774),
-                                                                                                    fontSize: 20,
+                                                                                                    fontSize: 20.0,
                                                                                                     letterSpacing: 0.0,
                                                                                                     fontWeight: FontWeight.w800,
                                                                                                   ),
@@ -1475,19 +1487,19 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                           ),
                                                                                         ),
                                                                                         Container(
-                                                                                          width: 100,
-                                                                                          height: 100,
+                                                                                          width: 100.0,
+                                                                                          height: 100.0,
                                                                                           decoration: BoxDecoration(
                                                                                             color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                           ),
                                                                                           child: Align(
-                                                                                            alignment: AlignmentDirectional(0, 0),
+                                                                                            alignment: AlignmentDirectional(0.0, 0.0),
                                                                                             child: Text(
                                                                                               '4',
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                                     color: Color(0xFF1D4774),
-                                                                                                    fontSize: 20,
+                                                                                                    fontSize: 20.0,
                                                                                                     letterSpacing: 0.0,
                                                                                                     fontWeight: FontWeight.w800,
                                                                                                   ),
@@ -1495,19 +1507,19 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                           ),
                                                                                         ),
                                                                                         Container(
-                                                                                          width: 100,
-                                                                                          height: 100,
+                                                                                          width: 100.0,
+                                                                                          height: 100.0,
                                                                                           decoration: BoxDecoration(
                                                                                             color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                           ),
                                                                                           child: Align(
-                                                                                            alignment: AlignmentDirectional(0, 0),
+                                                                                            alignment: AlignmentDirectional(0.0, 0.0),
                                                                                             child: Text(
                                                                                               '5',
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                                     color: Color(0xFF1D4774),
-                                                                                                    fontSize: 20,
+                                                                                                    fontSize: 20.0,
                                                                                                     letterSpacing: 0.0,
                                                                                                     fontWeight: FontWeight.w800,
                                                                                                   ),
@@ -1515,19 +1527,19 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                           ),
                                                                                         ),
                                                                                         Container(
-                                                                                          width: 100,
-                                                                                          height: 100,
+                                                                                          width: 100.0,
+                                                                                          height: 100.0,
                                                                                           decoration: BoxDecoration(
                                                                                             color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                           ),
                                                                                           child: Align(
-                                                                                            alignment: AlignmentDirectional(0, 0),
+                                                                                            alignment: AlignmentDirectional(0.0, 0.0),
                                                                                             child: Text(
                                                                                               '6',
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                                     color: Color(0xFF1D4774),
-                                                                                                    fontSize: 20,
+                                                                                                    fontSize: 20.0,
                                                                                                     letterSpacing: 0.0,
                                                                                                     fontWeight: FontWeight.w800,
                                                                                                   ),
@@ -1535,19 +1547,19 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                           ),
                                                                                         ),
                                                                                         Container(
-                                                                                          width: 100,
-                                                                                          height: 100,
+                                                                                          width: 100.0,
+                                                                                          height: 100.0,
                                                                                           decoration: BoxDecoration(
                                                                                             color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                           ),
                                                                                           child: Align(
-                                                                                            alignment: AlignmentDirectional(0, 0),
+                                                                                            alignment: AlignmentDirectional(0.0, 0.0),
                                                                                             child: Text(
                                                                                               '7',
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                                     color: Color(0xFF1D4774),
-                                                                                                    fontSize: 20,
+                                                                                                    fontSize: 20.0,
                                                                                                     letterSpacing: 0.0,
                                                                                                     fontWeight: FontWeight.w800,
                                                                                                   ),
@@ -1555,19 +1567,19 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                           ),
                                                                                         ),
                                                                                         Container(
-                                                                                          width: 100,
-                                                                                          height: 100,
+                                                                                          width: 100.0,
+                                                                                          height: 100.0,
                                                                                           decoration: BoxDecoration(
                                                                                             color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                           ),
                                                                                           child: Align(
-                                                                                            alignment: AlignmentDirectional(0, 0),
+                                                                                            alignment: AlignmentDirectional(0.0, 0.0),
                                                                                             child: Text(
                                                                                               '8',
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                                     color: Color(0xFF1D4774),
-                                                                                                    fontSize: 20,
+                                                                                                    fontSize: 20.0,
                                                                                                     letterSpacing: 0.0,
                                                                                                     fontWeight: FontWeight.w800,
                                                                                                   ),
@@ -1575,19 +1587,19 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                           ),
                                                                                         ),
                                                                                         Container(
-                                                                                          width: 100,
-                                                                                          height: 100,
+                                                                                          width: 100.0,
+                                                                                          height: 100.0,
                                                                                           decoration: BoxDecoration(
                                                                                             color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                           ),
                                                                                           child: Align(
-                                                                                            alignment: AlignmentDirectional(0, 0),
+                                                                                            alignment: AlignmentDirectional(0.0, 0.0),
                                                                                             child: Text(
                                                                                               '9',
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                                     color: Color(0xFF1D4774),
-                                                                                                    fontSize: 20,
+                                                                                                    fontSize: 20.0,
                                                                                                     letterSpacing: 0.0,
                                                                                                     fontWeight: FontWeight.w800,
                                                                                                   ),
@@ -1595,42 +1607,42 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                           ),
                                                                                         ),
                                                                                         Container(
-                                                                                          width: 100,
-                                                                                          height: 100,
+                                                                                          width: 100.0,
+                                                                                          height: 100.0,
                                                                                           decoration: BoxDecoration(
                                                                                             color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                           ),
                                                                                         ),
                                                                                         Container(
-                                                                                          width: 100,
-                                                                                          height: 100,
+                                                                                          width: 100.0,
+                                                                                          height: 100.0,
                                                                                           decoration: BoxDecoration(
                                                                                             color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                           ),
                                                                                           child: Align(
-                                                                                            alignment: AlignmentDirectional(0, 0),
+                                                                                            alignment: AlignmentDirectional(0.0, 0.0),
                                                                                             child: Text(
                                                                                               '0',
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                     fontFamily: 'Noto Sans Thai',
-                                                                                                    fontSize: 20,
+                                                                                                    fontSize: 20.0,
                                                                                                     letterSpacing: 0.0,
                                                                                                   ),
                                                                                             ),
                                                                                           ),
                                                                                         ),
                                                                                         Container(
-                                                                                          width: 100,
-                                                                                          height: 100,
+                                                                                          width: 100.0,
+                                                                                          height: 100.0,
                                                                                           decoration: BoxDecoration(
                                                                                             color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                           ),
                                                                                           child: Align(
-                                                                                            alignment: AlignmentDirectional(0, 0),
+                                                                                            alignment: AlignmentDirectional(0.0, 0.0),
                                                                                             child: Icon(
                                                                                               Icons.backspace_outlined,
                                                                                               color: Color(0xFFDF8633),
-                                                                                              size: 24,
+                                                                                              size: 24.0,
                                                                                             ),
                                                                                           ),
                                                                                         ),
@@ -1638,13 +1650,13 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                     ),
                                                                                   ),
                                                                                   Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                                                                                     child: Text(
                                                                                       'ลืมรหัสผ่าน?',
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Noto Sans Thai',
                                                                                             color: Color(0xFFDF8633),
-                                                                                            fontSize: 15,
+                                                                                            fontSize: 15.0,
                                                                                             letterSpacing: 0.0,
                                                                                             decoration: TextDecoration.underline,
                                                                                           ),
@@ -1664,15 +1676,15 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                           Align(
                                                             alignment:
                                                                 AlignmentDirectional(
-                                                                    0, 0),
+                                                                    0.0, 0.0),
                                                             child: Padding(
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0,
-                                                                          30,
-                                                                          0,
-                                                                          0),
+                                                                          0.0,
+                                                                          30.0,
+                                                                          0.0,
+                                                                          0.0),
                                                               child: InkWell(
                                                                 splashColor: Colors
                                                                     .transparent,
@@ -2284,7 +2296,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                       .fingerprint_sharp,
                                                                   color: Color(
                                                                       0xFFDF8633),
-                                                                  size: 55,
+                                                                  size: 55.0,
                                                                 ),
                                                               ),
                                                             ),

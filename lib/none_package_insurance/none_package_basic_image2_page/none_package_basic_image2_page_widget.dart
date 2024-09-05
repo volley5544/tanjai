@@ -61,13 +61,13 @@ class _NonePackageBasicImage2PageWidgetState
             automaticallyImplyLeading: false,
             leading: FlutterFlowIconButton(
               borderColor: Colors.transparent,
-              borderRadius: 30,
-              borderWidth: 1,
-              buttonSize: 60,
+              borderRadius: 30.0,
+              borderWidth: 1.0,
+              buttonSize: 60.0,
               icon: Icon(
                 Icons.arrow_back_rounded,
                 color: Color(0xFFDB771A),
-                size: 30,
+                size: 30.0,
               ),
               onPressed: () async {
                 context.pop();
@@ -86,14 +86,14 @@ class _NonePackageBasicImage2PageWidgetState
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF003063),
-                    fontSize: 18,
+                    fontSize: 18.0,
                     letterSpacing: 0.0,
                     fontWeight: FontWeight.w600,
                   ),
             ),
             actions: [],
             centerTitle: true,
-            elevation: 2,
+            elevation: 2.0,
           ),
           body: SafeArea(
             top: true,
@@ -107,7 +107,7 @@ class _NonePackageBasicImage2PageWidgetState
                     children: [
                       Expanded(
                         child: Container(
-                          width: MediaQuery.sizeOf(context).width,
+                          width: MediaQuery.sizeOf(context).width * 1.0,
                           decoration: BoxDecoration(
                             color: Color(0xFFFAFAFA),
                           ),
@@ -118,7 +118,7 @@ class _NonePackageBasicImage2PageWidgetState
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      12, 12, 12, 0),
+                                      12.0, 12.0, 12.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
@@ -129,7 +129,7 @@ class _NonePackageBasicImage2PageWidgetState
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF002D5E),
-                                              fontSize: 16,
+                                              fontSize: 16.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -146,7 +146,7 @@ class _NonePackageBasicImage2PageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12, 16, 12, 0),
+                                                  12.0, 16.0, 12.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -163,7 +163,8 @@ class _NonePackageBasicImage2PageWidgetState
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(5, 0, 0, 0),
+                                                    .fromSTEB(
+                                                        5.0, 0.0, 0.0, 0.0),
                                                 child: Text(
                                                   'บังคับถ่ายรูป',
                                                   style: FlutterFlowTheme.of(
@@ -174,7 +175,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                             'Noto Sans Thai',
                                                         color:
                                                             Color(0xFFFC0D0D),
-                                                        fontSize: 13,
+                                                        fontSize: 13.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -193,7 +194,7 @@ class _NonePackageBasicImage2PageWidgetState
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          12, 12, 12, 0),
+                                          12.0, 12.0, 12.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
@@ -322,12 +323,12 @@ class _NonePackageBasicImage2PageWidgetState
                                               );
                                             },
                                             child: Container(
-                                              width: 125,
-                                              height: 45,
+                                              width: 125.0,
+                                              height: 45.0,
                                               decoration: BoxDecoration(
                                                 color: Color(0xFFFCEFE4),
                                                 borderRadius:
-                                                    BorderRadius.circular(12),
+                                                    BorderRadius.circular(12.0),
                                               ),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
@@ -344,7 +345,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFFDB771A),
-                                                          fontSize: 15,
+                                                          fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -355,7 +356,7 @@ class _NonePackageBasicImage2PageWidgetState
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    12, 0, 0, 0),
+                                                    12.0, 0.0, 0.0, 0.0),
                                             child: Text(
                                               _model.uploadedFileUrl1 != null &&
                                                       _model.uploadedFileUrl1 !=
@@ -377,14 +378,14 @@ class _NonePackageBasicImage2PageWidgetState
                                             Icon(
                                               Icons.check,
                                               color: Color(0xFF2EDD78),
-                                              size: 24,
+                                              size: 24.0,
                                             ),
                                           if (_model.uploadedFileUrl1 == null ||
                                               _model.uploadedFileUrl1 == '')
                                             Icon(
                                               Icons.close,
                                               color: Color(0xFFFC0A0A),
-                                              size: 24,
+                                              size: 24.0,
                                             ),
                                         ],
                                       ),
@@ -395,7 +396,7 @@ class _NonePackageBasicImage2PageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12, 16, 12, 0),
+                                                  12.0, 16.0, 12.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -413,7 +414,8 @@ class _NonePackageBasicImage2PageWidgetState
                                               if (false)
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(5, 0, 0, 0),
+                                                      .fromSTEB(
+                                                          5.0, 0.0, 0.0, 0.0),
                                                   child: Text(
                                                     'บังคับถ่ายรูป',
                                                     style: FlutterFlowTheme.of(
@@ -424,7 +426,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFFFC0D0D),
-                                                          fontSize: 13,
+                                                          fontSize: 13.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -439,7 +441,8 @@ class _NonePackageBasicImage2PageWidgetState
                                           children: [
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(12, 12, 12, 0),
+                                                  .fromSTEB(
+                                                      12.0, 12.0, 12.0, 0.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 mainAxisAlignment:
@@ -592,14 +595,14 @@ class _NonePackageBasicImage2PageWidgetState
                                                       );
                                                     },
                                                     child: Container(
-                                                      width: 125,
-                                                      height: 45,
+                                                      width: 125.0,
+                                                      height: 45.0,
                                                       decoration: BoxDecoration(
                                                         color:
                                                             Color(0xFFFCEFE4),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(12),
+                                                                .circular(12.0),
                                                       ),
                                                       child: Row(
                                                         mainAxisSize:
@@ -618,7 +621,8 @@ class _NonePackageBasicImage2PageWidgetState
                                                                       'Noto Sans Thai',
                                                                   color: Color(
                                                                       0xFFDB771A),
-                                                                  fontSize: 15,
+                                                                  fontSize:
+                                                                      15.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -630,8 +634,8 @@ class _NonePackageBasicImage2PageWidgetState
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                12, 0, 0, 0),
+                                                            .fromSTEB(12.0, 0.0,
+                                                                0.0, 0.0),
                                                     child: Text(
                                                       _model.uploadedFileUrl2 !=
                                                                   null &&
@@ -656,7 +660,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                     Icon(
                                                       Icons.check,
                                                       color: Color(0xFF2EDD78),
-                                                      size: 24,
+                                                      size: 24.0,
                                                     ),
                                                   if (_model.uploadedFileUrl2 ==
                                                           null ||
@@ -665,7 +669,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                     Icon(
                                                       Icons.close,
                                                       color: Color(0xFFFC0A0A),
-                                                      size: 24,
+                                                      size: 24.0,
                                                     ),
                                                 ],
                                               ),
@@ -682,7 +686,7 @@ class _NonePackageBasicImage2PageWidgetState
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          12, 16, 12, 0),
+                                          12.0, 16.0, 12.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
@@ -698,7 +702,7 @@ class _NonePackageBasicImage2PageWidgetState
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    5, 0, 0, 0),
+                                                    5.0, 0.0, 0.0, 0.0),
                                             child: Text(
                                               '(ถ่ายได้ไม่เกิน 5 รูป)',
                                               style: FlutterFlowTheme.of(
@@ -708,7 +712,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                     fontFamily:
                                                         'Noto Sans Thai',
                                                     color: Color(0xFF101213),
-                                                    fontSize: 14,
+                                                    fontSize: 14.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
@@ -724,7 +728,7 @@ class _NonePackageBasicImage2PageWidgetState
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          12, 12, 12, 0),
+                                          12.0, 12.0, 12.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
@@ -853,12 +857,12 @@ class _NonePackageBasicImage2PageWidgetState
                                               );
                                             },
                                             child: Container(
-                                              width: 125,
-                                              height: 45,
+                                              width: 125.0,
+                                              height: 45.0,
                                               decoration: BoxDecoration(
                                                 color: Color(0xFFFCEFE4),
                                                 borderRadius:
-                                                    BorderRadius.circular(12),
+                                                    BorderRadius.circular(12.0),
                                               ),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
@@ -875,7 +879,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFFDB771A),
-                                                          fontSize: 15,
+                                                          fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -886,7 +890,7 @@ class _NonePackageBasicImage2PageWidgetState
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    12, 0, 0, 0),
+                                                    12.0, 0.0, 0.0, 0.0),
                                             child: Text(
                                               _model.uploadedFileUrl3 != null &&
                                                       _model.uploadedFileUrl3 !=
@@ -908,14 +912,14 @@ class _NonePackageBasicImage2PageWidgetState
                                             Icon(
                                               Icons.check,
                                               color: Color(0xFF2EDD78),
-                                              size: 24,
+                                              size: 24.0,
                                             ),
                                           if (_model.uploadedFileUrl3 == null ||
                                               _model.uploadedFileUrl3 == '')
                                             Icon(
                                               Icons.close,
                                               color: Color(0xFFFC0A0A),
-                                              size: 24,
+                                              size: 24.0,
                                             ),
                                         ],
                                       ),
@@ -924,7 +928,7 @@ class _NonePackageBasicImage2PageWidgetState
                                         _model.uploadedFileUrl3 != '')
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            12, 12, 12, 0),
+                                            12.0, 12.0, 12.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -1057,12 +1061,13 @@ class _NonePackageBasicImage2PageWidgetState
                                                 );
                                               },
                                               child: Container(
-                                                width: 125,
-                                                height: 45,
+                                                width: 125.0,
+                                                height: 45.0,
                                                 decoration: BoxDecoration(
                                                   color: Color(0xFFFCEFE4),
                                                   borderRadius:
-                                                      BorderRadius.circular(12),
+                                                      BorderRadius.circular(
+                                                          12.0),
                                                 ),
                                                 child: Row(
                                                   mainAxisSize:
@@ -1080,7 +1085,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                                 'Noto Sans Thai',
                                                             color: Color(
                                                                 0xFFDB771A),
-                                                            fontSize: 15,
+                                                            fontSize: 15.0,
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
@@ -1090,7 +1095,8 @@ class _NonePackageBasicImage2PageWidgetState
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(12, 0, 0, 0),
+                                                  .fromSTEB(
+                                                      12.0, 0.0, 0.0, 0.0),
                                               child: Text(
                                                 _model.uploadedFileUrl4 !=
                                                             null &&
@@ -1114,7 +1120,7 @@ class _NonePackageBasicImage2PageWidgetState
                                               Icon(
                                                 Icons.check,
                                                 color: Color(0xFF2EDD78),
-                                                size: 24,
+                                                size: 24.0,
                                               ),
                                             if (_model.uploadedFileUrl4 ==
                                                     null ||
@@ -1122,7 +1128,7 @@ class _NonePackageBasicImage2PageWidgetState
                                               Icon(
                                                 Icons.close,
                                                 color: Color(0xFFFC0A0A),
-                                                size: 24,
+                                                size: 24.0,
                                               ),
                                           ],
                                         ),
@@ -1131,7 +1137,7 @@ class _NonePackageBasicImage2PageWidgetState
                                         _model.uploadedFileUrl4 != '')
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            12, 12, 12, 0),
+                                            12.0, 12.0, 12.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -1264,12 +1270,13 @@ class _NonePackageBasicImage2PageWidgetState
                                                 );
                                               },
                                               child: Container(
-                                                width: 125,
-                                                height: 45,
+                                                width: 125.0,
+                                                height: 45.0,
                                                 decoration: BoxDecoration(
                                                   color: Color(0xFFFCEFE4),
                                                   borderRadius:
-                                                      BorderRadius.circular(12),
+                                                      BorderRadius.circular(
+                                                          12.0),
                                                 ),
                                                 child: Row(
                                                   mainAxisSize:
@@ -1287,7 +1294,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                                 'Noto Sans Thai',
                                                             color: Color(
                                                                 0xFFDB771A),
-                                                            fontSize: 15,
+                                                            fontSize: 15.0,
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
@@ -1297,7 +1304,8 @@ class _NonePackageBasicImage2PageWidgetState
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(12, 0, 0, 0),
+                                                  .fromSTEB(
+                                                      12.0, 0.0, 0.0, 0.0),
                                               child: Text(
                                                 _model.uploadedFileUrl5 !=
                                                             null &&
@@ -1321,7 +1329,7 @@ class _NonePackageBasicImage2PageWidgetState
                                               Icon(
                                                 Icons.check,
                                                 color: Color(0xFF2EDD78),
-                                                size: 24,
+                                                size: 24.0,
                                               ),
                                             if (_model.uploadedFileUrl5 ==
                                                     null ||
@@ -1329,7 +1337,7 @@ class _NonePackageBasicImage2PageWidgetState
                                               Icon(
                                                 Icons.close,
                                                 color: Color(0xFFFC0A0A),
-                                                size: 24,
+                                                size: 24.0,
                                               ),
                                           ],
                                         ),
@@ -1338,7 +1346,7 @@ class _NonePackageBasicImage2PageWidgetState
                                         _model.uploadedFileUrl5 != '')
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            12, 12, 12, 0),
+                                            12.0, 12.0, 12.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -1471,12 +1479,13 @@ class _NonePackageBasicImage2PageWidgetState
                                                 );
                                               },
                                               child: Container(
-                                                width: 125,
-                                                height: 45,
+                                                width: 125.0,
+                                                height: 45.0,
                                                 decoration: BoxDecoration(
                                                   color: Color(0xFFFCEFE4),
                                                   borderRadius:
-                                                      BorderRadius.circular(12),
+                                                      BorderRadius.circular(
+                                                          12.0),
                                                 ),
                                                 child: Row(
                                                   mainAxisSize:
@@ -1494,7 +1503,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                                 'Noto Sans Thai',
                                                             color: Color(
                                                                 0xFFDB771A),
-                                                            fontSize: 15,
+                                                            fontSize: 15.0,
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
@@ -1504,7 +1513,8 @@ class _NonePackageBasicImage2PageWidgetState
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(12, 0, 0, 0),
+                                                  .fromSTEB(
+                                                      12.0, 0.0, 0.0, 0.0),
                                               child: Text(
                                                 _model.uploadedFileUrl6 !=
                                                             null &&
@@ -1528,7 +1538,7 @@ class _NonePackageBasicImage2PageWidgetState
                                               Icon(
                                                 Icons.check,
                                                 color: Color(0xFF2EDD78),
-                                                size: 24,
+                                                size: 24.0,
                                               ),
                                             if (_model.uploadedFileUrl6 ==
                                                     null ||
@@ -1536,7 +1546,7 @@ class _NonePackageBasicImage2PageWidgetState
                                               Icon(
                                                 Icons.close,
                                                 color: Color(0xFFFC0A0A),
-                                                size: 24,
+                                                size: 24.0,
                                               ),
                                           ],
                                         ),
@@ -1545,7 +1555,7 @@ class _NonePackageBasicImage2PageWidgetState
                                         _model.uploadedFileUrl6 != '')
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            12, 12, 12, 0),
+                                            12.0, 12.0, 12.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -1678,12 +1688,13 @@ class _NonePackageBasicImage2PageWidgetState
                                                 );
                                               },
                                               child: Container(
-                                                width: 125,
-                                                height: 45,
+                                                width: 125.0,
+                                                height: 45.0,
                                                 decoration: BoxDecoration(
                                                   color: Color(0xFFFCEFE4),
                                                   borderRadius:
-                                                      BorderRadius.circular(12),
+                                                      BorderRadius.circular(
+                                                          12.0),
                                                 ),
                                                 child: Row(
                                                   mainAxisSize:
@@ -1701,7 +1712,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                                 'Noto Sans Thai',
                                                             color: Color(
                                                                 0xFFDB771A),
-                                                            fontSize: 15,
+                                                            fontSize: 15.0,
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
@@ -1711,7 +1722,8 @@ class _NonePackageBasicImage2PageWidgetState
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(12, 0, 0, 0),
+                                                  .fromSTEB(
+                                                      12.0, 0.0, 0.0, 0.0),
                                               child: Text(
                                                 _model.uploadedFileUrl7 !=
                                                             null &&
@@ -1735,7 +1747,7 @@ class _NonePackageBasicImage2PageWidgetState
                                               Icon(
                                                 Icons.check,
                                                 color: Color(0xFF2EDD78),
-                                                size: 24,
+                                                size: 24.0,
                                               ),
                                             if (_model.uploadedFileUrl7 ==
                                                     null ||
@@ -1743,7 +1755,7 @@ class _NonePackageBasicImage2PageWidgetState
                                               Icon(
                                                 Icons.close,
                                                 color: Color(0xFFFC0A0A),
-                                                size: 24,
+                                                size: 24.0,
                                               ),
                                           ],
                                         ),
@@ -1752,9 +1764,10 @@ class _NonePackageBasicImage2PageWidgetState
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      12, 20, 12, 0),
+                                      12.0, 20.0, 12.0, 0.0),
                                   child: Container(
-                                    width: MediaQuery.sizeOf(context).width,
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 1.0,
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
@@ -1767,14 +1780,14 @@ class _NonePackageBasicImage2PageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 0, 12),
+                                                  0.0, 0.0, 0.0, 12.0),
                                           child: Text(
                                             'รายละเอียดความยินยอม',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
-                                                  fontSize: 16,
+                                                  fontSize: 16.0,
                                                   letterSpacing: 0.0,
                                                 ),
                                           ),
@@ -1782,7 +1795,7 @@ class _NonePackageBasicImage2PageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12, 0, 12, 0),
+                                                  12.0, 0.0, 12.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -1798,7 +1811,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFFFF0000),
-                                                          fontSize: 16,
+                                                          fontSize: 16.0,
                                                           letterSpacing: 0.0,
                                                         ),
                                               ),
@@ -1817,13 +1830,13 @@ class _NonePackageBasicImage2PageWidgetState
                                               Expanded(
                                                 flex: 1,
                                                 child: Container(
-                                                  height: 250,
+                                                  height: 250.0,
                                                   decoration: BoxDecoration(),
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 10, 0, 0),
+                                                            .fromSTEB(0.0, 10.0,
+                                                                0.0, 0.0),
                                                     child: Column(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -1846,7 +1859,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
-                                                                            4),
+                                                                            4.0),
                                                               ),
                                                             ),
                                                             unselectedWidgetColor:
@@ -1881,8 +1894,11 @@ class _NonePackageBasicImage2PageWidgetState
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(0,
-                                                                      40, 0, 0),
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      40.0,
+                                                                      0.0,
+                                                                      0.0),
                                                           child: Theme(
                                                             data: ThemeData(
                                                               checkboxTheme:
@@ -1898,7 +1914,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .circular(
-                                                                              4),
+                                                                              4.0),
                                                                 ),
                                                               ),
                                                               unselectedWidgetColor:
@@ -1934,8 +1950,11 @@ class _NonePackageBasicImage2PageWidgetState
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(0,
-                                                                      40, 0, 0),
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      40.0,
+                                                                      0.0,
+                                                                      0.0),
                                                           child: Theme(
                                                             data: ThemeData(
                                                               checkboxTheme:
@@ -1951,7 +1970,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .circular(
-                                                                              4),
+                                                                              4.0),
                                                                 ),
                                                               ),
                                                               unselectedWidgetColor:
@@ -2018,7 +2037,7 @@ class _NonePackageBasicImage2PageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 12, 0, 0),
+                                                  0.0, 12.0, 0.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -2037,7 +2056,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                         RoundedRectangleBorder(
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              4),
+                                                              4.0),
                                                     ),
                                                   ),
                                                   unselectedWidgetColor:
@@ -2113,7 +2132,7 @@ class _NonePackageBasicImage2PageWidgetState
                                   ),
                                 ),
                                 Divider(
-                                  thickness: 1,
+                                  thickness: 1.0,
                                   color: FlutterFlowTheme.of(context).accent4,
                                 ),
                               ],
@@ -2127,10 +2146,10 @@ class _NonePackageBasicImage2PageWidgetState
                 Expanded(
                   flex: 1,
                   child: Align(
-                    alignment: AlignmentDirectional(0, 0.75),
+                    alignment: AlignmentDirectional(0.0, 0.75),
                     child: Container(
                       width: double.infinity,
-                      height: 100,
+                      height: 100.0,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                       ),
@@ -2139,8 +2158,8 @@ class _NonePackageBasicImage2PageWidgetState
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(12, 0, 12, 50),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                12.0, 0.0, 12.0, 50.0),
                             child: FFButtonWidget(
                               onPressed: () async {
                                 if (!(FFAppState()
@@ -2205,30 +2224,30 @@ class _NonePackageBasicImage2PageWidgetState
                               text: 'ถัดไป',
                               options: FFButtonOptions(
                                 width: double.infinity,
-                                height: 60,
+                                height: 60.0,
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    24, 0, 24, 0),
-                                iconPadding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                    24.0, 0.0, 24.0, 0.0),
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
                                 color: Color(0xFFDB771B),
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       color: Colors.white,
-                                      fontSize: 16,
+                                      fontSize: 16.0,
                                       letterSpacing: 0.0,
                                     ),
-                                elevation: 3,
+                                elevation: 3.0,
                                 borderSide: BorderSide(
                                   color: Colors.transparent,
-                                  width: 1,
+                                  width: 1.0,
                                 ),
-                                borderRadius: BorderRadius.circular(16),
+                                borderRadius: BorderRadius.circular(16.0),
                               ),
                             ),
                           ),
-                        ].addToStart(SizedBox(height: 16)),
+                        ].addToStart(SizedBox(height: 16.0)),
                       ),
                     ),
                   ),

@@ -173,7 +173,7 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
               child: Icon(
                 Icons.arrow_back,
                 color: Color(0xFFDB7619),
-                size: 30,
+                size: 30.0,
               ),
             ),
             title: Text(
@@ -181,7 +181,7 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF123063),
-                    fontSize: 16,
+                    fontSize: 16.0,
                     letterSpacing: 0.0,
                   ),
             ),
@@ -191,7 +191,7 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
           body: SafeArea(
             top: true,
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
+              padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -202,7 +202,7 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
                       children: [
                         Container(
                           width: double.infinity,
-                          height: 50,
+                          height: 50.0,
                           decoration: BoxDecoration(
                             color: Color(0x00FFFFFF),
                           ),
@@ -212,11 +212,11 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
                               Expanded(
                                 child: Container(
                                   width: double.infinity,
-                                  height: 50,
+                                  height: 50.0,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(10),
+                                    borderRadius: BorderRadius.circular(10.0),
                                     border: Border.all(
                                       width: 0.5,
                                     ),
@@ -228,7 +228,7 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  8, 0, 8, 0),
+                                                  8.0, 0.0, 8.0, 0.0),
                                           child: TextFormField(
                                             controller: _model.textController,
                                             focusNode:
@@ -452,12 +452,12 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
                                   },
                                   text: 'ค้นหา',
                                   options: FFButtonOptions(
-                                    width: 110,
-                                    height: 40,
+                                    width: 110.0,
+                                    height: 40.0,
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        24, 0, 24, 0),
+                                        24.0, 0.0, 24.0, 0.0),
                                     iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 0, 0, 0),
+                                        0.0, 0.0, 0.0, 0.0),
                                     color: Color(0xFFDB771B),
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
@@ -466,15 +466,15 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
                                           color: Colors.white,
                                           letterSpacing: 0.0,
                                         ),
-                                    elevation: 3,
+                                    elevation: 3.0,
                                     borderSide: BorderSide(
                                       color: Colors.transparent,
-                                      width: 1,
+                                      width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(8),
+                                    borderRadius: BorderRadius.circular(8.0),
                                   ),
                                 ),
-                            ].divide(SizedBox(width: 12)),
+                            ].divide(SizedBox(width: 12.0)),
                           ),
                         ),
                         Expanded(
@@ -605,7 +605,7 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
                                           },
                                           child: Container(
                                             width: double.infinity,
-                                            height: 60,
+                                            height: 60.0,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -616,7 +616,7 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
                                               children: [
                                                 Container(
                                                   width: double.infinity,
-                                                  height: 50,
+                                                  height: 50.0,
                                                   decoration: BoxDecoration(),
                                                   child: Row(
                                                     mainAxisSize:
@@ -628,8 +628,11 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(12, 0,
-                                                                    0, 0),
+                                                                .fromSTEB(
+                                                                    12.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
                                                         child: Text(
                                                           '(${GetlocationAPICall.branchCode(
                                                             (_model.getBranchSearched
@@ -655,7 +658,7 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
                                                   ),
                                                 ),
                                                 Divider(
-                                                  thickness: 1,
+                                                  thickness: 1.0,
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .accent4,
@@ -673,9 +676,9 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
                           ),
                         ),
                       ]
-                          .divide(SizedBox(height: 12))
-                          .addToStart(SizedBox(height: 12))
-                          .addToEnd(SizedBox(height: 24)),
+                          .divide(SizedBox(height: 12.0))
+                          .addToStart(SizedBox(height: 12.0))
+                          .addToEnd(SizedBox(height: 24.0)),
                     ),
                   ),
                 ],

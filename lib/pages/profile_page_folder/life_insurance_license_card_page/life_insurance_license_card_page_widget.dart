@@ -68,7 +68,7 @@ class _LifeInsuranceLicenseCardPageWidgetState
               mainAxisSize: MainAxisSize.max,
               children: [
                 Container(
-                  width: 100,
+                  width: 100.0,
                   height: double.infinity,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -77,7 +77,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -87,8 +88,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                             context.goNamed('MyProfilePage');
                           },
                           child: Container(
-                            width: 50,
-                            height: 50,
+                            width: 50.0,
+                            height: 50.0,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
@@ -105,7 +106,7 @@ class _LifeInsuranceLicenseCardPageWidgetState
                               child: Icon(
                                 Icons.arrow_back,
                                 color: Colors.black,
-                                size: 30,
+                                size: 30.0,
                               ),
                             ),
                           ),
@@ -115,28 +116,29 @@ class _LifeInsuranceLicenseCardPageWidgetState
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(0, 0),
+                  alignment: AlignmentDirectional(0.0, 0.0),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
                     child: Card(
                       clipBehavior: Clip.antiAliasWithSaveLayer,
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(16),
+                        borderRadius: BorderRadius.circular(16.0),
                       ),
                       child: Container(
                         width: MediaQuery.sizeOf(context).width * 0.8,
                         height: double.infinity,
                         decoration: BoxDecoration(
                           color: Colors.white,
-                          borderRadius: BorderRadius.circular(0),
+                          borderRadius: BorderRadius.circular(0.0),
                         ),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 12.0, 0.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -148,7 +150,7 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFF9D50CF),
-                                          fontSize: 20,
+                                          fontSize: 20.0,
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -157,7 +159,7 @@ class _LifeInsuranceLicenseCardPageWidgetState
                             ),
                             Container(
                               width: double.infinity,
-                              height: MediaQuery.sizeOf(context).height * 1,
+                              height: MediaQuery.sizeOf(context).height * 1.0,
                               decoration: BoxDecoration(
                                 color: Color(0xFF38B6FF),
                               ),
@@ -166,7 +168,7 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        30, 5, 30, 0),
+                                        30.0, 5.0, 30.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -175,7 +177,7 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  1, 0, 0, 0),
+                                                  1.0, 0.0, 0.0, 0.0),
                                           child: Image.asset(
                                             'assets/images/insurance-logo.png',
                                             width: MediaQuery.sizeOf(context)
@@ -187,7 +189,7 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                         Expanded(
                                           child: Align(
                                             alignment:
-                                                AlignmentDirectional(-0.2, 0),
+                                                AlignmentDirectional(-0.2, 0.0),
                                             child: Text(
                                               'ประเภท การจัดการประกันวินาศภัยโดยตรง',
                                               style:
@@ -196,7 +198,7 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                       .override(
                                                         fontFamily:
                                                             'Noto Sans Thai',
-                                                        fontSize: 16,
+                                                        fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
@@ -216,19 +218,19 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0, 8, 0, 0),
+                                                    0.0, 8.0, 0.0, 0.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Container(
                                                   width: double.infinity,
-                                                  height: 30,
+                                                  height: 30.0,
                                                   decoration: BoxDecoration(),
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                24, 0, 0, 0),
+                                                            .fromSTEB(24.0, 0.0,
+                                                                0.0, 0.0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -247,7 +249,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize: 14,
+                                                                  fontSize:
+                                                                      14.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -270,7 +273,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize: 16,
+                                                                  fontSize:
+                                                                      16.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -282,13 +286,13 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                 ),
                                                 Container(
                                                   width: double.infinity,
-                                                  height: 30,
+                                                  height: 30.0,
                                                   decoration: BoxDecoration(),
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                24, 0, 0, 0),
+                                                            .fromSTEB(24.0, 0.0,
+                                                                0.0, 0.0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -306,7 +310,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize: 14,
+                                                                  fontSize:
+                                                                      14.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -329,7 +334,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize: 16,
+                                                                  fontSize:
+                                                                      16.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -341,16 +347,20 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                 ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(0, 12, 0, 0),
+                                                      .fromSTEB(
+                                                          0.0, 12.0, 0.0, 0.0),
                                                   child: Container(
                                                     width: double.infinity,
-                                                    height: 30,
+                                                    height: 30.0,
                                                     decoration: BoxDecoration(),
                                                     child: Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  16, 0, 0, 0),
+                                                                  16.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -369,7 +379,7 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                     fontFamily:
                                                                         'Noto Sans Thai',
                                                                     fontSize:
-                                                                        14,
+                                                                        14.0,
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -387,7 +397,7 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                     fontFamily:
                                                                         'Noto Sans Thai',
                                                                     fontSize:
-                                                                        16,
+                                                                        16.0,
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -400,13 +410,13 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                 ),
                                                 Container(
                                                   width: double.infinity,
-                                                  height: 30,
+                                                  height: 30.0,
                                                   decoration: BoxDecoration(),
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                16, 0, 0, 0),
+                                                            .fromSTEB(16.0, 0.0,
+                                                                0.0, 0.0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -423,7 +433,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize: 14,
+                                                                  fontSize:
+                                                                      14.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -440,7 +451,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  fontSize: 16,
+                                                                  fontSize:
+                                                                      16.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -452,7 +464,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                 ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(0, 20, 0, 0),
+                                                      .fromSTEB(
+                                                          0.0, 20.0, 0.0, 0.0),
                                                   child: Container(
                                                     width: double.infinity,
                                                     decoration: BoxDecoration(),
@@ -480,7 +493,7 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                     fontFamily:
                                                                         'Noto Sans Thai',
                                                                     fontSize:
-                                                                        12,
+                                                                        12.0,
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -494,7 +507,7 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                     fontFamily:
                                                                         'Noto Sans Thai',
                                                                     fontSize:
-                                                                        12,
+                                                                        12.0,
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -518,7 +531,7 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                     fontFamily:
                                                                         'Noto Sans Thai',
                                                                     fontSize:
-                                                                        12,
+                                                                        12.0,
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -532,7 +545,7 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                     fontFamily:
                                                                         'Noto Sans Thai',
                                                                     fontSize:
-                                                                        12,
+                                                                        12.0,
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -556,7 +569,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                             children: [
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(0, 0, 12, 0),
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 12.0, 0.0),
                                                 child: FutureBuilder<
                                                     List<UserCustomRecord>>(
                                                   future:
@@ -580,8 +594,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                     if (!snapshot.hasData) {
                                                       return Center(
                                                         child: SizedBox(
-                                                          width: 50,
-                                                          height: 50,
+                                                          width: 50.0,
+                                                          height: 50.0,
                                                           child:
                                                               CircularProgressIndicator(
                                                             valueColor:

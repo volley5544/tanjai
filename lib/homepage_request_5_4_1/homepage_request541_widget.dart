@@ -89,7 +89,7 @@ class _HomepageRequest541WidgetState extends State<HomepageRequest541Widget> {
                       'Roboto',
                       color: Colors.white,
                       fontWeight: FontWeight.w600,
-                      fontSize: 16,
+                      fontSize: 16.0,
                     ),
                   ),
                   duration: Duration(milliseconds: 5000),
@@ -167,13 +167,13 @@ class _HomepageRequest541WidgetState extends State<HomepageRequest541Widget> {
           automaticallyImplyLeading: false,
           leading: FlutterFlowIconButton(
             borderColor: Colors.transparent,
-            borderRadius: 30,
-            borderWidth: 1,
-            buttonSize: 60,
+            borderRadius: 30.0,
+            borderWidth: 1.0,
+            buttonSize: 60.0,
             icon: Icon(
               Icons.arrow_back,
               color: Color(0xFFDB771A),
-              size: 30,
+              size: 30.0,
             ),
             onPressed: () async {
               context.pop();
@@ -184,13 +184,13 @@ class _HomepageRequest541WidgetState extends State<HomepageRequest541Widget> {
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Noto Sans Thai',
                   color: Color(0xFF204A77),
-                  fontSize: 18,
+                  fontSize: 18.0,
                   letterSpacing: 0.0,
                 ),
           ),
           actions: [],
           centerTitle: true,
-          elevation: 2,
+          elevation: 2.0,
         ),
         body: SafeArea(
           top: true,
@@ -199,7 +199,8 @@ class _HomepageRequest541WidgetState extends State<HomepageRequest541Widget> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -211,14 +212,15 @@ class _HomepageRequest541WidgetState extends State<HomepageRequest541Widget> {
                         text: 'ดาวน์โหลด',
                         icon: Icon(
                           Icons.file_download_outlined,
-                          size: 15,
+                          size: 15.0,
                         ),
                         options: FFButtonOptions(
-                          width: 100,
-                          height: 34,
-                          padding: EdgeInsetsDirectional.fromSTEB(5, 0, 5, 0),
-                          iconPadding:
-                              EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                          width: 100.0,
+                          height: 34.0,
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              5.0, 0.0, 5.0, 0.0),
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
                           color: Color(0xFFFCEFE4),
                           textStyle:
                               FlutterFlowTheme.of(context).titleSmall.override(
@@ -227,40 +229,41 @@ class _HomepageRequest541WidgetState extends State<HomepageRequest541Widget> {
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                   ),
-                          elevation: 3,
+                          elevation: 3.0,
                           borderSide: BorderSide(
                             color: Colors.transparent,
-                            width: 1,
+                            width: 1.0,
                           ),
-                          borderRadius: BorderRadius.circular(8),
+                          borderRadius: BorderRadius.circular(8.0),
                         ),
                       ),
                     ],
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
                   child: Container(
-                    width: MediaQuery.sizeOf(context).width,
-                    height: 120,
+                    width: MediaQuery.sizeOf(context).width * 1.0,
+                    height: 120.0,
                     decoration: BoxDecoration(
                       border: Border.all(
                         color: FlutterFlowTheme.of(context).primaryText,
                       ),
                     ),
                     child: ClipRRect(
-                      borderRadius: BorderRadius.circular(0),
+                      borderRadius: BorderRadius.circular(0.0),
                       child: Image.network(
                         'https://picsum.photos/seed/985/600',
-                        width: 300,
-                        height: 200,
+                        width: 300.0,
+                        height: 200.0,
                         fit: BoxFit.cover,
                       ),
                     ),
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
                   child: Text(
                     'Event Name : ${_model.eventName}',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -270,7 +273,7 @@ class _HomepageRequest541WidgetState extends State<HomepageRequest541Widget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
                   child: Text(
                     'Message Text : ${FFAppState().tempVariable}',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -280,7 +283,7 @@ class _HomepageRequest541WidgetState extends State<HomepageRequest541Widget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
                   child: InkWell(
                     splashColor: Colors.transparent,
                     focusColor: Colors.transparent,
@@ -299,7 +302,7 @@ class _HomepageRequest541WidgetState extends State<HomepageRequest541Widget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
                   child: Text(
                     'Event ID : ',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -309,7 +312,7 @@ class _HomepageRequest541WidgetState extends State<HomepageRequest541Widget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
                   child: Text(
                     'Event Retry : ',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -319,7 +322,7 @@ class _HomepageRequest541WidgetState extends State<HomepageRequest541Widget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
                   child: Text(
                     'Event JSON1 : ${_model.eventJson?.toString()}',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -329,7 +332,7 @@ class _HomepageRequest541WidgetState extends State<HomepageRequest541Widget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
                   child: Text(
                     'Event JSON2 : ',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -341,15 +344,15 @@ class _HomepageRequest541WidgetState extends State<HomepageRequest541Widget> {
                 ClipRect(
                   child: ImageFiltered(
                     imageFilter: ImageFilter.blur(
-                      sigmaX: 5,
-                      sigmaY: 5,
+                      sigmaX: 5.0,
+                      sigmaY: 5.0,
                     ),
                     child: ClipRRect(
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(8.0),
                       child: Image.network(
                         'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=4189e142-826e-4b26-b278-914c39bfac74',
-                        width: 300,
-                        height: 200,
+                        width: 300.0,
+                        height: 200.0,
                         fit: BoxFit.cover,
                       ),
                     ),

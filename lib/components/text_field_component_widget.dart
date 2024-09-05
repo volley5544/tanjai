@@ -64,7 +64,7 @@ class _TextFieldComponentWidgetState extends State<TextFieldComponentWidget> {
         color: FlutterFlowTheme.of(context).secondaryBackground,
       ),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
+        padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
@@ -75,7 +75,7 @@ class _TextFieldComponentWidgetState extends State<TextFieldComponentWidget> {
                   'กรอกจำนวน${widget!.title}',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Noto Sans Thai',
-                        fontSize: 16,
+                        fontSize: 16.0,
                         letterSpacing: 0.0,
                       ),
                 ),
@@ -85,7 +85,7 @@ class _TextFieldComponentWidgetState extends State<TextFieldComponentWidget> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -93,7 +93,7 @@ class _TextFieldComponentWidgetState extends State<TextFieldComponentWidget> {
                         'กรอก${widget!.title}ต่ำสุดที่ต้องการ',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Noto Sans Thai',
-                              fontSize: 14,
+                              fontSize: 14.0,
                               letterSpacing: 0.0,
                             ),
                       ),
@@ -101,21 +101,22 @@ class _TextFieldComponentWidgetState extends State<TextFieldComponentWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                   child: Container(
-                    width: MediaQuery.sizeOf(context).width,
-                    height: 60,
+                    width: MediaQuery.sizeOf(context).width * 1.0,
+                    height: 60.0,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(8.0),
                       border: Border.all(
                         color: Color(0xFFB3B3B3),
                       ),
                     ),
                     child: Align(
-                      alignment: AlignmentDirectional(0, 0),
+                      alignment: AlignmentDirectional(0.0, 0.0),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            10.0, 0.0, 10.0, 0.0),
                         child: TextFormField(
                           controller:
                               _model.carryPurposeTextFieldTextController1,
@@ -127,7 +128,7 @@ class _TextFieldComponentWidgetState extends State<TextFieldComponentWidget> {
                                 .labelMedium
                                 .override(
                                   fontFamily: 'Noto Sans Thai',
-                                  fontSize: 15,
+                                  fontSize: 15.0,
                                   letterSpacing: 0.0,
                                 ),
                             hintText: 'กรุณากรอกรถใช้บรรทุกอะไร',
@@ -136,7 +137,7 @@ class _TextFieldComponentWidgetState extends State<TextFieldComponentWidget> {
                                 .override(
                                   fontFamily: 'Noto Sans Thai',
                                   color: Color(0xFFB3B3B3),
-                                  fontSize: 15,
+                                  fontSize: 15.0,
                                   letterSpacing: 0.0,
                                 ),
                             enabledBorder: InputBorder.none,
@@ -148,7 +149,7 @@ class _TextFieldComponentWidgetState extends State<TextFieldComponentWidget> {
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Noto Sans Thai',
                                     color: Colors.black,
-                                    fontSize: 15,
+                                    fontSize: 15.0,
                                     letterSpacing: 0.0,
                                   ),
                           keyboardType: const TextInputType.numberWithOptions(
@@ -167,7 +168,7 @@ class _TextFieldComponentWidgetState extends State<TextFieldComponentWidget> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -175,7 +176,7 @@ class _TextFieldComponentWidgetState extends State<TextFieldComponentWidget> {
                         'กรอก${widget!.title}สูงสุดที่ต้องการ',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Noto Sans Thai',
-                              fontSize: 14,
+                              fontSize: 14.0,
                               letterSpacing: 0.0,
                             ),
                       ),
@@ -183,21 +184,22 @@ class _TextFieldComponentWidgetState extends State<TextFieldComponentWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                   child: Container(
-                    width: MediaQuery.sizeOf(context).width,
-                    height: 60,
+                    width: MediaQuery.sizeOf(context).width * 1.0,
+                    height: 60.0,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(8.0),
                       border: Border.all(
                         color: Color(0xFFB3B3B3),
                       ),
                     ),
                     child: Align(
-                      alignment: AlignmentDirectional(0, 0),
+                      alignment: AlignmentDirectional(0.0, 0.0),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            10.0, 0.0, 10.0, 0.0),
                         child: TextFormField(
                           controller:
                               _model.carryPurposeTextFieldTextController2,
@@ -209,7 +211,7 @@ class _TextFieldComponentWidgetState extends State<TextFieldComponentWidget> {
                                 .labelMedium
                                 .override(
                                   fontFamily: 'Noto Sans Thai',
-                                  fontSize: 15,
+                                  fontSize: 15.0,
                                   letterSpacing: 0.0,
                                 ),
                             hintText: 'กรุณากรอกรถใช้บรรทุกอะไร',
@@ -218,7 +220,7 @@ class _TextFieldComponentWidgetState extends State<TextFieldComponentWidget> {
                                 .override(
                                   fontFamily: 'Noto Sans Thai',
                                   color: Color(0xFFB3B3B3),
-                                  fontSize: 15,
+                                  fontSize: 15.0,
                                   letterSpacing: 0.0,
                                 ),
                             enabledBorder: InputBorder.none,
@@ -230,7 +232,7 @@ class _TextFieldComponentWidgetState extends State<TextFieldComponentWidget> {
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Noto Sans Thai',
                                     color: Colors.black,
-                                    fontSize: 15,
+                                    fontSize: 15.0,
                                     letterSpacing: 0.0,
                                   ),
                           keyboardType: const TextInputType.numberWithOptions(
@@ -246,14 +248,15 @@ class _TextFieldComponentWidgetState extends State<TextFieldComponentWidget> {
               ],
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Expanded(
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                       child: FFButtonWidget(
                         onPressed: () async {
                           if (!() {
@@ -342,10 +345,11 @@ class _TextFieldComponentWidgetState extends State<TextFieldComponentWidget> {
                         },
                         text: 'ถัดไป',
                         options: FFButtonOptions(
-                          height: 60,
-                          padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
-                          iconPadding:
-                              EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                          height: 60.0,
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              24.0, 0.0, 24.0, 0.0),
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
                           color: Color(0xFFD9761A),
                           textStyle: FlutterFlowTheme.of(context)
                               .titleSmall
@@ -356,12 +360,12 @@ class _TextFieldComponentWidgetState extends State<TextFieldComponentWidget> {
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.w600,
                               ),
-                          elevation: 3,
+                          elevation: 3.0,
                           borderSide: BorderSide(
                             color: Colors.transparent,
-                            width: 1,
+                            width: 1.0,
                           ),
-                          borderRadius: BorderRadius.circular(16),
+                          borderRadius: BorderRadius.circular(16.0),
                         ),
                       ),
                     ),
@@ -369,7 +373,7 @@ class _TextFieldComponentWidgetState extends State<TextFieldComponentWidget> {
                 ],
               ),
             ),
-          ].addToStart(SizedBox(height: 12)).addToEnd(SizedBox(height: 12)),
+          ].addToStart(SizedBox(height: 12.0)).addToEnd(SizedBox(height: 12.0)),
         ),
       ),
     );

@@ -97,11 +97,11 @@ class _InboxEmailWidgetState extends State<InboxEmailWidget> {
             backgroundColor: Color(0xFFFF6500),
             automaticallyImplyLeading: false,
             leading: Align(
-              alignment: AlignmentDirectional(0, 0),
+              alignment: AlignmentDirectional(0.0, 0.0),
               child: Icon(
                 Icons.arrow_back_sharp,
                 color: Colors.white,
-                size: 40,
+                size: 40.0,
               ),
             ),
             title: Text(
@@ -109,13 +109,13 @@ class _InboxEmailWidgetState extends State<InboxEmailWidget> {
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Colors.white,
-                    fontSize: 22,
+                    fontSize: 22.0,
                     letterSpacing: 0.0,
                   ),
             ),
             actions: [],
             centerTitle: true,
-            elevation: 10,
+            elevation: 10.0,
           ),
           body: SafeArea(
             top: true,
@@ -124,48 +124,50 @@ class _InboxEmailWidgetState extends State<InboxEmailWidget> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                   child: Text(
                     'อีเมลล์ทั้งหมด ${_model.subjectEmailOutput?.length?.toString()}ฉบับ',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Noto Sans Thai',
-                          fontSize: 16,
+                          fontSize: 16.0,
                           letterSpacing: 0.0,
                         ),
                   ),
                 ),
                 Container(
                   width: MediaQuery.sizeOf(context).width * 0.9,
-                  height: 50,
+                  height: 50.0,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondaryBackground,
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(8.0),
                     border: Border.all(
                       color: Colors.black,
                       width: 0.1,
                     ),
                   ),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              10.0, 0.0, 0.0, 0.0),
                           child: Icon(
                             Icons.search,
                             color: Color(0xFF878787),
-                            size: 24,
+                            size: 24.0,
                           ),
                         ),
                         Expanded(
                           child: Align(
-                            alignment: AlignmentDirectional(0, 0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  8, 0.5, 8, 0.5),
+                                  8.0, 0.5, 8.0, 0.5),
                               child: TextFormField(
                                 controller:
                                     _model.searchFirstnameTextController,
@@ -182,7 +184,7 @@ class _InboxEmailWidgetState extends State<InboxEmailWidget> {
                                       .labelMedium
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
-                                        fontSize: 14,
+                                        fontSize: 14.0,
                                         letterSpacing: 0.0,
                                       ),
                                   hintText: 'ค้นหาชื่อลูกค้า',
@@ -190,7 +192,7 @@ class _InboxEmailWidgetState extends State<InboxEmailWidget> {
                                       .labelMedium
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
-                                        fontSize: 14,
+                                        fontSize: 14.0,
                                         letterSpacing: 0.0,
                                       ),
                                   enabledBorder: InputBorder.none,
@@ -202,7 +204,7 @@ class _InboxEmailWidgetState extends State<InboxEmailWidget> {
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
-                                      fontSize: 15,
+                                      fontSize: 15.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
                                     ),
@@ -219,7 +221,8 @@ class _InboxEmailWidgetState extends State<InboxEmailWidget> {
                 ),
                 Expanded(
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 0.0),
                     child: Container(
                       width: double.infinity,
                       height: double.infinity,
@@ -236,8 +239,8 @@ class _InboxEmailWidgetState extends State<InboxEmailWidget> {
                           if (!snapshot.hasData) {
                             return Center(
                               child: SizedBox(
-                                width: 50,
-                                height: 50,
+                                width: 50.0,
+                                height: 50.0,
                                 child: CircularProgressIndicator(
                                   valueColor: AlwaysStoppedAnimation<Color>(
                                     FlutterFlowTheme.of(context).primary,
@@ -274,7 +277,7 @@ class _InboxEmailWidgetState extends State<InboxEmailWidget> {
                                     child: Container(
                                       width: double.infinity,
                                       constraints: BoxConstraints(
-                                        minHeight: 80,
+                                        minHeight: 80.0,
                                       ),
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
@@ -285,7 +288,7 @@ class _InboxEmailWidgetState extends State<InboxEmailWidget> {
                                       ),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 10, 0, 10),
+                                            0.0, 10.0, 0.0, 10.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -303,12 +306,15 @@ class _InboxEmailWidgetState extends State<InboxEmailWidget> {
                                                   child: Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            -1, 0),
+                                                            -1.0, 0.0),
                                                     child: Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  10, 0, 0, 0),
+                                                                  10.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
                                                       child: Text(
                                                         valueOrDefault<String>(
                                                           _model.subjectEmailOutput?[
@@ -325,7 +331,8 @@ class _InboxEmailWidgetState extends State<InboxEmailWidget> {
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .black600,
-                                                                  fontSize: 12,
+                                                                  fontSize:
+                                                                      12.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -338,12 +345,15 @@ class _InboxEmailWidgetState extends State<InboxEmailWidget> {
                                                   child: Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            1, 0),
+                                                            1.0, 0.0),
                                                     child: Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0, 0, 20, 0),
+                                                                  0.0,
+                                                                  0.0,
+                                                                  20.0,
+                                                                  0.0),
                                                       child: FaIcon(
                                                         FontAwesomeIcons
                                                             .angleRight,
@@ -351,7 +361,7 @@ class _InboxEmailWidgetState extends State<InboxEmailWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .grayIcon,
-                                                        size: 24,
+                                                        size: 24.0,
                                                       ),
                                                     ),
                                                   ),

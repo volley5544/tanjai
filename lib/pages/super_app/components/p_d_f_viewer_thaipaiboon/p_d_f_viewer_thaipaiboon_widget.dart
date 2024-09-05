@@ -58,13 +58,13 @@ class _PDFViewerThaipaiboonWidgetState
             children: [
               FlutterFlowIconButton(
                 borderColor: Colors.transparent,
-                borderRadius: 30,
-                borderWidth: 1,
-                buttonSize: 50,
+                borderRadius: 30.0,
+                borderWidth: 1.0,
+                buttonSize: 50.0,
                 icon: FaIcon(
                   FontAwesomeIcons.times,
                   color: Color(0xFFFF0000),
-                  size: 30,
+                  size: 30.0,
                 ),
                 onPressed: () async {
                   Navigator.pop(context);
@@ -77,7 +77,7 @@ class _PDFViewerThaipaiboonWidgetState
               FlutterFlowPdfViewer(
                 networkPath: widget!.thaipaiboonPdfLink!,
                 width: double.infinity,
-                height: 600,
+                height: 600.0,
                 horizontalScroll: true,
               ),
             ],

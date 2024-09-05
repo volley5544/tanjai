@@ -77,19 +77,19 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Noto Sans Thai',
                   color: Color(0xFF003063),
-                  fontSize: 18,
+                  fontSize: 18.0,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.w600,
                 ),
           ),
           actions: [],
           centerTitle: true,
-          elevation: 2,
+          elevation: 2.0,
         ),
         body: SafeArea(
           top: true,
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(16, 13, 16, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(16.0, 13.0, 16.0, 0.0),
             child: SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.max,
@@ -99,16 +99,17 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                         child: Container(
-                          width: MediaQuery.sizeOf(context).width,
+                          width: MediaQuery.sizeOf(context).width * 1.0,
                           decoration: BoxDecoration(),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    12, 0, 12, 0),
+                                    12.0, 0.0, 12.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -119,7 +120,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF404040),
-                                            fontSize: 14,
+                                            fontSize: 14.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
                                           ),
@@ -128,15 +129,15 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                 ),
                               ),
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 5.0, 0.0, 0.0),
                                 child: Container(
-                                  width: MediaQuery.sizeOf(context).width,
-                                  height: 60,
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
+                                  height: 60.0,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(10),
+                                    borderRadius: BorderRadius.circular(10.0),
                                     border: Border.all(
                                       color: Color(0xFFB3B3B3),
                                       width: 0.5,
@@ -144,7 +145,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                   ),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        10, 0, 10, 0),
+                                        10.0, 0.0, 10.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -154,7 +155,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    8, 0, 8, 0),
+                                                    8.0, 0.0, 8.0, 0.0),
                                             child: TextFormField(
                                               controller:
                                                   _model.textController1,
@@ -184,10 +185,11 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                     UnderlineInputBorder(
                                                   borderSide: BorderSide(
                                                     color: Color(0x00000000),
-                                                    width: 2,
+                                                    width: 2.0,
                                                   ),
                                                   borderRadius:
-                                                      BorderRadius.circular(8),
+                                                      BorderRadius.circular(
+                                                          8.0),
                                                 ),
                                                 focusedBorder:
                                                     UnderlineInputBorder(
@@ -195,10 +197,11 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primary,
-                                                    width: 2,
+                                                    width: 2.0,
                                                   ),
                                                   borderRadius:
-                                                      BorderRadius.circular(8),
+                                                      BorderRadius.circular(
+                                                          8.0),
                                                 ),
                                                 errorBorder:
                                                     UnderlineInputBorder(
@@ -206,10 +209,11 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .error,
-                                                    width: 2,
+                                                    width: 2.0,
                                                   ),
                                                   borderRadius:
-                                                      BorderRadius.circular(8),
+                                                      BorderRadius.circular(
+                                                          8.0),
                                                 ),
                                                 focusedErrorBorder:
                                                     UnderlineInputBorder(
@@ -217,10 +221,11 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .error,
-                                                    width: 2,
+                                                    width: 2.0,
                                                   ),
                                                   borderRadius:
-                                                      BorderRadius.circular(8),
+                                                      BorderRadius.circular(
+                                                          8.0),
                                                 ),
                                               ),
                                               style:
@@ -247,22 +252,23 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 5.0, 0.0, 0.0),
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width,
+                                width: MediaQuery.sizeOf(context).width * 1.0,
                                 decoration: BoxDecoration(),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          12, 0, 12, 0),
+                                          12.0, 0.0, 12.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
@@ -273,7 +279,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF404040),
-                                                  fontSize: 14,
+                                                  fontSize: 14.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
@@ -281,7 +287,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10, 0, 0, 0),
+                                                    10.0, 0.0, 0.0, 0.0),
                                             child: Text(
                                               '(บังคับเลือก)',
                                               style: FlutterFlowTheme.of(
@@ -291,7 +297,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                     fontFamily:
                                                         'Noto Sans Thai',
                                                     color: Color(0xFFF40606),
-                                                    fontSize: 10,
+                                                    fontSize: 10.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
@@ -302,15 +308,17 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 5, 0, 0),
+                                          0.0, 5.0, 0.0, 0.0),
                                       child: Container(
-                                        width: MediaQuery.sizeOf(context).width,
-                                        height: 60,
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                1.0,
+                                        height: 60.0,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                           borderRadius:
-                                              BorderRadius.circular(10),
+                                              BorderRadius.circular(10.0),
                                           border: Border.all(
                                             color: Color(0xFFB3B3B3),
                                             width: 0.5,
@@ -319,7 +327,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 10, 0),
+                                                  10.0, 0.0, 10.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -328,7 +336,8 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                               Expanded(
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(8, 0, 8, 0),
+                                                      .fromSTEB(
+                                                          8.0, 0.0, 8.0, 0.0),
                                                   child: TextFormField(
                                                     controller:
                                                         _model.textController2,
@@ -363,11 +372,11 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                         borderSide: BorderSide(
                                                           color:
                                                               Color(0x00000000),
-                                                          width: 2,
+                                                          width: 2.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8),
+                                                                .circular(8.0),
                                                       ),
                                                       focusedBorder:
                                                           UnderlineInputBorder(
@@ -375,11 +384,11 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primary,
-                                                          width: 2,
+                                                          width: 2.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8),
+                                                                .circular(8.0),
                                                       ),
                                                       errorBorder:
                                                           UnderlineInputBorder(
@@ -387,11 +396,11 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .error,
-                                                          width: 2,
+                                                          width: 2.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8),
+                                                                .circular(8.0),
                                                       ),
                                                       focusedErrorBorder:
                                                           UnderlineInputBorder(
@@ -399,11 +408,11 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .error,
-                                                          width: 2,
+                                                          width: 2.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8),
+                                                                .circular(8.0),
                                                       ),
                                                     ),
                                                     style: FlutterFlowTheme.of(
@@ -423,7 +432,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                               Icon(
                                                 Icons.calendar_month,
                                                 color: Color(0xFFA9A8A8),
-                                                size: 24,
+                                                size: 24.0,
                                               ),
                                             ],
                                           ),
@@ -438,22 +447,23 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 5.0, 0.0, 0.0),
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width,
+                                width: MediaQuery.sizeOf(context).width * 1.0,
                                 decoration: BoxDecoration(),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          12, 0, 12, 0),
+                                          12.0, 0.0, 12.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
@@ -464,7 +474,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF404040),
-                                                  fontSize: 14,
+                                                  fontSize: 14.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
@@ -472,7 +482,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10, 0, 0, 0),
+                                                    10.0, 0.0, 0.0, 0.0),
                                             child: Text(
                                               '(บังคับเลือก)',
                                               style: FlutterFlowTheme.of(
@@ -482,7 +492,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                     fontFamily:
                                                         'Noto Sans Thai',
                                                     color: Color(0xFFF40606),
-                                                    fontSize: 10,
+                                                    fontSize: 10.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
@@ -493,15 +503,17 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 5, 0, 0),
+                                          0.0, 5.0, 0.0, 0.0),
                                       child: Container(
-                                        width: MediaQuery.sizeOf(context).width,
-                                        height: 60,
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                1.0,
+                                        height: 60.0,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                           borderRadius:
-                                              BorderRadius.circular(10),
+                                              BorderRadius.circular(10.0),
                                           border: Border.all(
                                             color: Color(0xFFB3B3B3),
                                             width: 0.5,
@@ -510,7 +522,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 10, 0),
+                                                  10.0, 0.0, 10.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -519,7 +531,8 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                               Expanded(
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(8, 0, 8, 0),
+                                                      .fromSTEB(
+                                                          8.0, 0.0, 8.0, 0.0),
                                                   child: TextFormField(
                                                     controller:
                                                         _model.textController3,
@@ -554,11 +567,11 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                         borderSide: BorderSide(
                                                           color:
                                                               Color(0x00000000),
-                                                          width: 2,
+                                                          width: 2.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8),
+                                                                .circular(8.0),
                                                       ),
                                                       focusedBorder:
                                                           UnderlineInputBorder(
@@ -566,11 +579,11 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primary,
-                                                          width: 2,
+                                                          width: 2.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8),
+                                                                .circular(8.0),
                                                       ),
                                                       errorBorder:
                                                           UnderlineInputBorder(
@@ -578,11 +591,11 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .error,
-                                                          width: 2,
+                                                          width: 2.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8),
+                                                                .circular(8.0),
                                                       ),
                                                       focusedErrorBorder:
                                                           UnderlineInputBorder(
@@ -590,11 +603,11 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .error,
-                                                          width: 2,
+                                                          width: 2.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8),
+                                                                .circular(8.0),
                                                       ),
                                                     ),
                                                     style: FlutterFlowTheme.of(
@@ -616,7 +629,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryText,
-                                                size: 24,
+                                                size: 24.0,
                                               ),
                                             ],
                                           ),
@@ -631,22 +644,23 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 5.0, 0.0, 0.0),
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width,
+                                width: MediaQuery.sizeOf(context).width * 1.0,
                                 decoration: BoxDecoration(),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          12, 0, 12, 0),
+                                          12.0, 0.0, 12.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
@@ -657,7 +671,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF404040),
-                                                  fontSize: 14,
+                                                  fontSize: 14.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
@@ -665,7 +679,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10, 0, 0, 0),
+                                                    10.0, 0.0, 0.0, 0.0),
                                             child: Text(
                                               '(บังคับเลือก)',
                                               style: FlutterFlowTheme.of(
@@ -675,7 +689,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                     fontFamily:
                                                         'Noto Sans Thai',
                                                     color: Color(0xFFF40606),
-                                                    fontSize: 10,
+                                                    fontSize: 10.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
@@ -686,15 +700,17 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 5, 0, 0),
+                                          0.0, 5.0, 0.0, 0.0),
                                       child: Container(
-                                        width: MediaQuery.sizeOf(context).width,
-                                        height: 60,
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                1.0,
+                                        height: 60.0,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                           borderRadius:
-                                              BorderRadius.circular(10),
+                                              BorderRadius.circular(10.0),
                                           border: Border.all(
                                             color: Color(0xFFB3B3B3),
                                             width: 0.5,
@@ -703,7 +719,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 10, 0),
+                                                  10.0, 0.0, 10.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -712,7 +728,8 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                               Expanded(
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(8, 0, 8, 0),
+                                                      .fromSTEB(
+                                                          8.0, 0.0, 8.0, 0.0),
                                                   child: TextFormField(
                                                     controller:
                                                         _model.textController4,
@@ -747,11 +764,11 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                         borderSide: BorderSide(
                                                           color:
                                                               Color(0x00000000),
-                                                          width: 2,
+                                                          width: 2.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8),
+                                                                .circular(8.0),
                                                       ),
                                                       focusedBorder:
                                                           UnderlineInputBorder(
@@ -759,11 +776,11 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primary,
-                                                          width: 2,
+                                                          width: 2.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8),
+                                                                .circular(8.0),
                                                       ),
                                                       errorBorder:
                                                           UnderlineInputBorder(
@@ -771,11 +788,11 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .error,
-                                                          width: 2,
+                                                          width: 2.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8),
+                                                                .circular(8.0),
                                                       ),
                                                       focusedErrorBorder:
                                                           UnderlineInputBorder(
@@ -783,11 +800,11 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .error,
-                                                          width: 2,
+                                                          width: 2.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8),
+                                                                .circular(8.0),
                                                       ),
                                                     ),
                                                     style: FlutterFlowTheme.of(
@@ -809,7 +826,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryText,
-                                                size: 24,
+                                                size: 24.0,
                                               ),
                                             ],
                                           ),
@@ -824,22 +841,23 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 5.0, 0.0, 0.0),
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width,
+                                width: MediaQuery.sizeOf(context).width * 1.0,
                                 decoration: BoxDecoration(),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          12, 0, 12, 0),
+                                          12.0, 0.0, 12.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
@@ -850,7 +868,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF404040),
-                                                  fontSize: 14,
+                                                  fontSize: 14.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
@@ -858,7 +876,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10, 0, 0, 0),
+                                                    10.0, 0.0, 0.0, 0.0),
                                             child: Text(
                                               '(บังคับเลือก)',
                                               style: FlutterFlowTheme.of(
@@ -868,7 +886,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                     fontFamily:
                                                         'Noto Sans Thai',
                                                     color: Color(0xFFF40606),
-                                                    fontSize: 10,
+                                                    fontSize: 10.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
@@ -879,15 +897,17 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 5, 0, 0),
+                                          0.0, 5.0, 0.0, 0.0),
                                       child: Container(
-                                        width: MediaQuery.sizeOf(context).width,
-                                        height: 60,
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                1.0,
+                                        height: 60.0,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                           borderRadius:
-                                              BorderRadius.circular(10),
+                                              BorderRadius.circular(10.0),
                                           border: Border.all(
                                             color: Color(0xFFB3B3B3),
                                             width: 0.5,
@@ -896,7 +916,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 10, 0),
+                                                  10.0, 0.0, 10.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -905,7 +925,8 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                               Expanded(
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(8, 0, 8, 0),
+                                                      .fromSTEB(
+                                                          8.0, 0.0, 8.0, 0.0),
                                                   child: TextFormField(
                                                     controller:
                                                         _model.textController5,
@@ -940,11 +961,11 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                         borderSide: BorderSide(
                                                           color:
                                                               Color(0x00000000),
-                                                          width: 2,
+                                                          width: 2.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8),
+                                                                .circular(8.0),
                                                       ),
                                                       focusedBorder:
                                                           UnderlineInputBorder(
@@ -952,11 +973,11 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primary,
-                                                          width: 2,
+                                                          width: 2.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8),
+                                                                .circular(8.0),
                                                       ),
                                                       errorBorder:
                                                           UnderlineInputBorder(
@@ -964,11 +985,11 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .error,
-                                                          width: 2,
+                                                          width: 2.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8),
+                                                                .circular(8.0),
                                                       ),
                                                       focusedErrorBorder:
                                                           UnderlineInputBorder(
@@ -976,11 +997,11 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .error,
-                                                          width: 2,
+                                                          width: 2.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8),
+                                                                .circular(8.0),
                                                       ),
                                                     ),
                                                     style: FlutterFlowTheme.of(
@@ -1002,7 +1023,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryText,
-                                                size: 24,
+                                                size: 24.0,
                                               ),
                                             ],
                                           ),
@@ -1017,22 +1038,23 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 5.0, 0.0, 0.0),
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width,
+                                width: MediaQuery.sizeOf(context).width * 1.0,
                                 decoration: BoxDecoration(),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          12, 0, 12, 0),
+                                          12.0, 0.0, 12.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
@@ -1043,7 +1065,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF404040),
-                                                  fontSize: 14,
+                                                  fontSize: 14.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
@@ -1051,7 +1073,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10, 0, 0, 0),
+                                                    10.0, 0.0, 0.0, 0.0),
                                             child: Text(
                                               '(บังคับเลือก)',
                                               style: FlutterFlowTheme.of(
@@ -1061,7 +1083,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                     fontFamily:
                                                         'Noto Sans Thai',
                                                     color: Color(0xFFF40606),
-                                                    fontSize: 10,
+                                                    fontSize: 10.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
@@ -1072,15 +1094,17 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 5, 0, 0),
+                                          0.0, 5.0, 0.0, 0.0),
                                       child: Container(
-                                        width: MediaQuery.sizeOf(context).width,
-                                        height: 60,
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                1.0,
+                                        height: 60.0,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                           borderRadius:
-                                              BorderRadius.circular(10),
+                                              BorderRadius.circular(10.0),
                                           border: Border.all(
                                             color: Color(0xFFB3B3B3),
                                             width: 0.5,
@@ -1089,7 +1113,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 10, 0),
+                                                  10.0, 0.0, 10.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -1098,7 +1122,8 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                               Expanded(
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(8, 0, 8, 0),
+                                                      .fromSTEB(
+                                                          8.0, 0.0, 8.0, 0.0),
                                                   child: TextFormField(
                                                     controller:
                                                         _model.textController6,
@@ -1133,11 +1158,11 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                         borderSide: BorderSide(
                                                           color:
                                                               Color(0x00000000),
-                                                          width: 2,
+                                                          width: 2.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8),
+                                                                .circular(8.0),
                                                       ),
                                                       focusedBorder:
                                                           UnderlineInputBorder(
@@ -1145,11 +1170,11 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primary,
-                                                          width: 2,
+                                                          width: 2.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8),
+                                                                .circular(8.0),
                                                       ),
                                                       errorBorder:
                                                           UnderlineInputBorder(
@@ -1157,11 +1182,11 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .error,
-                                                          width: 2,
+                                                          width: 2.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8),
+                                                                .circular(8.0),
                                                       ),
                                                       focusedErrorBorder:
                                                           UnderlineInputBorder(
@@ -1169,11 +1194,11 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .error,
-                                                          width: 2,
+                                                          width: 2.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8),
+                                                                .circular(8.0),
                                                       ),
                                                     ),
                                                     style: FlutterFlowTheme.of(
@@ -1195,7 +1220,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryText,
-                                                size: 24,
+                                                size: 24.0,
                                               ),
                                             ],
                                           ),
@@ -1213,16 +1238,17 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 5.0, 0.0, 0.0),
                             child: Container(
-                              width: MediaQuery.sizeOf(context).width,
+                              width: MediaQuery.sizeOf(context).width * 1.0,
                               decoration: BoxDecoration(),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        12, 0, 12, 0),
+                                        12.0, 0.0, 12.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -1233,7 +1259,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Color(0xFF404040),
-                                                fontSize: 14,
+                                                fontSize: 14.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
                                               ),
@@ -1241,7 +1267,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 0, 0),
+                                                  10.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             '(บังคับกรอก)',
                                             style: FlutterFlowTheme.of(context)
@@ -1249,7 +1275,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFFF40606),
-                                                  fontSize: 10,
+                                                  fontSize: 10.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
@@ -1260,14 +1286,16 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 5, 0, 0),
+                                        0.0, 5.0, 0.0, 0.0),
                                     child: Container(
-                                      width: MediaQuery.sizeOf(context).width,
-                                      height: 60,
+                                      width: MediaQuery.sizeOf(context).width *
+                                          1.0,
+                                      height: 60.0,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
-                                        borderRadius: BorderRadius.circular(10),
+                                        borderRadius:
+                                            BorderRadius.circular(10.0),
                                         border: Border.all(
                                           color: Color(0xFFB3B3B3),
                                           width: 0.5,
@@ -1275,7 +1303,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                       ),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            10, 0, 10, 0),
+                                            10.0, 0.0, 10.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -1284,7 +1312,8 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                             Expanded(
                                               child: Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(8, 0, 8, 0),
+                                                    .fromSTEB(
+                                                        8.0, 0.0, 8.0, 0.0),
                                                 child: TextFormField(
                                                   controller:
                                                       _model.textController7,
@@ -1315,11 +1344,11 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                       borderSide: BorderSide(
                                                         color:
                                                             Color(0x00000000),
-                                                        width: 2,
+                                                        width: 2.0,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              8),
+                                                              8.0),
                                                     ),
                                                     focusedBorder:
                                                         UnderlineInputBorder(
@@ -1328,11 +1357,11 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primary,
-                                                        width: 2,
+                                                        width: 2.0,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              8),
+                                                              8.0),
                                                     ),
                                                     errorBorder:
                                                         UnderlineInputBorder(
@@ -1341,11 +1370,11 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .error,
-                                                        width: 2,
+                                                        width: 2.0,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              8),
+                                                              8.0),
                                                     ),
                                                     focusedErrorBorder:
                                                         UnderlineInputBorder(
@@ -1354,11 +1383,11 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .error,
-                                                        width: 2,
+                                                        width: 2.0,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              8),
+                                                              8.0),
                                                     ),
                                                   ),
                                                   style: FlutterFlowTheme.of(
@@ -1387,22 +1416,23 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                         ],
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 5.0, 0.0, 0.0),
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width,
+                                width: MediaQuery.sizeOf(context).width * 1.0,
                                 decoration: BoxDecoration(),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          12, 0, 12, 0),
+                                          12.0, 0.0, 12.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
@@ -1413,7 +1443,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF404040),
-                                                  fontSize: 14,
+                                                  fontSize: 14.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
@@ -1421,7 +1451,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10, 0, 0, 0),
+                                                    10.0, 0.0, 0.0, 0.0),
                                             child: Text(
                                               '(บังคับกรอก)',
                                               style: FlutterFlowTheme.of(
@@ -1431,7 +1461,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                     fontFamily:
                                                         'Noto Sans Thai',
                                                     color: Color(0xFFF40606),
-                                                    fontSize: 10,
+                                                    fontSize: 10.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
@@ -1442,15 +1472,17 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 5, 0, 0),
+                                          0.0, 5.0, 0.0, 0.0),
                                       child: Container(
-                                        width: MediaQuery.sizeOf(context).width,
-                                        height: 60,
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                1.0,
+                                        height: 60.0,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                           borderRadius:
-                                              BorderRadius.circular(10),
+                                              BorderRadius.circular(10.0),
                                           border: Border.all(
                                             color: Color(0xFFB3B3B3),
                                             width: 0.5,
@@ -1459,7 +1491,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 10, 0),
+                                                  10.0, 0.0, 10.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -1468,7 +1500,8 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                               Expanded(
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(8, 0, 8, 0),
+                                                      .fromSTEB(
+                                                          8.0, 0.0, 8.0, 0.0),
                                                   child: TextFormField(
                                                     controller:
                                                         _model.textController8,
@@ -1503,11 +1536,11 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                         borderSide: BorderSide(
                                                           color:
                                                               Color(0x00000000),
-                                                          width: 2,
+                                                          width: 2.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8),
+                                                                .circular(8.0),
                                                       ),
                                                       focusedBorder:
                                                           UnderlineInputBorder(
@@ -1515,11 +1548,11 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primary,
-                                                          width: 2,
+                                                          width: 2.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8),
+                                                                .circular(8.0),
                                                       ),
                                                       errorBorder:
                                                           UnderlineInputBorder(
@@ -1527,11 +1560,11 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .error,
-                                                          width: 2,
+                                                          width: 2.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8),
+                                                                .circular(8.0),
                                                       ),
                                                       focusedErrorBorder:
                                                           UnderlineInputBorder(
@@ -1539,11 +1572,11 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .error,
-                                                          width: 2,
+                                                          width: 2.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8),
+                                                                .circular(8.0),
                                                       ),
                                                     ),
                                                     style: FlutterFlowTheme.of(
@@ -1573,22 +1606,23 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 5.0, 0.0, 0.0),
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width,
+                                width: MediaQuery.sizeOf(context).width * 1.0,
                                 decoration: BoxDecoration(),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          12, 0, 12, 0),
+                                          12.0, 0.0, 12.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
@@ -1599,7 +1633,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF404040),
-                                                  fontSize: 14,
+                                                  fontSize: 14.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
@@ -1607,7 +1641,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10, 0, 0, 0),
+                                                    10.0, 0.0, 0.0, 0.0),
                                             child: Text(
                                               '(บังคับกรอก ตัวอย่าง 1ฒต 3333)',
                                               style: FlutterFlowTheme.of(
@@ -1617,7 +1651,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                     fontFamily:
                                                         'Noto Sans Thai',
                                                     color: Color(0xFFF40606),
-                                                    fontSize: 10,
+                                                    fontSize: 10.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
@@ -1628,15 +1662,17 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 5, 0, 0),
+                                          0.0, 5.0, 0.0, 0.0),
                                       child: Container(
-                                        width: MediaQuery.sizeOf(context).width,
-                                        height: 60,
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                1.0,
+                                        height: 60.0,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                           borderRadius:
-                                              BorderRadius.circular(10),
+                                              BorderRadius.circular(10.0),
                                           border: Border.all(
                                             color: Color(0xFFB3B3B3),
                                             width: 0.5,
@@ -1645,7 +1681,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 10, 0),
+                                                  10.0, 0.0, 10.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -1654,7 +1690,8 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                               Expanded(
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(8, 0, 8, 0),
+                                                      .fromSTEB(
+                                                          8.0, 0.0, 8.0, 0.0),
                                                   child: TextFormField(
                                                     controller:
                                                         _model.textController9,
@@ -1689,11 +1726,11 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                         borderSide: BorderSide(
                                                           color:
                                                               Color(0x00000000),
-                                                          width: 2,
+                                                          width: 2.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8),
+                                                                .circular(8.0),
                                                       ),
                                                       focusedBorder:
                                                           UnderlineInputBorder(
@@ -1701,11 +1738,11 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primary,
-                                                          width: 2,
+                                                          width: 2.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8),
+                                                                .circular(8.0),
                                                       ),
                                                       errorBorder:
                                                           UnderlineInputBorder(
@@ -1713,11 +1750,11 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .error,
-                                                          width: 2,
+                                                          width: 2.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8),
+                                                                .circular(8.0),
                                                       ),
                                                       focusedErrorBorder:
                                                           UnderlineInputBorder(
@@ -1725,11 +1762,11 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .error,
-                                                          width: 2,
+                                                          width: 2.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8),
+                                                                .circular(8.0),
                                                       ),
                                                     ),
                                                     style: FlutterFlowTheme.of(
@@ -1761,21 +1798,22 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                     ],
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 25, 0, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
-                          width: 113,
-                          height: 44,
+                          width: 113.0,
+                          height: 44.0,
                           decoration: BoxDecoration(
                             color: Color(0xFFC7F7D7),
                             borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(12),
-                              bottomRight: Radius.circular(12),
-                              topLeft: Radius.circular(12),
-                              topRight: Radius.circular(12),
+                              bottomLeft: Radius.circular(12.0),
+                              bottomRight: Radius.circular(12.0),
+                              topLeft: Radius.circular(12.0),
+                              topRight: Radius.circular(12.0),
                             ),
                           ),
                           child: Row(
@@ -1789,7 +1827,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       color: Color(0xFF2C2925),
-                                      fontSize: 14,
+                                      fontSize: 14.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
@@ -1800,7 +1838,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                       ],
                     ),
                   ),
-                ].addToEnd(SizedBox(height: 50)),
+                ].addToEnd(SizedBox(height: 50.0)),
               ),
             ),
           ),

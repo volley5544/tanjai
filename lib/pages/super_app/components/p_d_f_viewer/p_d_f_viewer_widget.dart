@@ -56,18 +56,18 @@ class _PDFViewerWidgetState extends State<PDFViewerWidget> {
               FlutterFlowPdfViewer(
                 networkPath: widget!.pdfUrl!,
                 width: double.infinity,
-                height: 700,
+                height: 700.0,
                 horizontalScroll: false,
               ),
               FlutterFlowIconButton(
                 borderColor: Colors.transparent,
-                borderRadius: 30,
-                borderWidth: 1,
-                buttonSize: 50,
+                borderRadius: 30.0,
+                borderWidth: 1.0,
+                buttonSize: 50.0,
                 icon: FaIcon(
                   FontAwesomeIcons.times,
                   color: Color(0xFFFF0000),
-                  size: 30,
+                  size: 30.0,
                 ),
                 onPressed: () async {
                   Navigator.pop(context);

@@ -57,22 +57,22 @@ class _ReasonGivePointWidgetState extends State<ReasonGivePointWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(0, 80, 0, 0),
+      padding: EdgeInsetsDirectional.fromSTEB(0.0, 80.0, 0.0, 0.0),
       child: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
+              padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
               child: Container(
                 width: MediaQuery.sizeOf(context).width * 0.9,
-                height: 350,
+                height: 350.0,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).primaryBackground,
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(8.0),
                 ),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 10),
+                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 10.0),
                   child: SingleChildScrollView(
                     primary: false,
                     child: Column(
@@ -80,7 +80,8 @@ class _ReasonGivePointWidgetState extends State<ReasonGivePointWidget> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 10.0, 0.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -98,8 +99,8 @@ class _ReasonGivePointWidgetState extends State<ReasonGivePointWidget> {
                                   ],
                                   onChanged: (val) => safeSetState(
                                       () => _model.dropDownValue = val),
-                                  width: 180,
-                                  height: 50,
+                                  width: 180.0,
+                                  height: 50.0,
                                   textStyle: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -109,12 +110,12 @@ class _ReasonGivePointWidgetState extends State<ReasonGivePointWidget> {
                                       ),
                                   hintText: 'กรุณาเลือกเหตุผลที่ให้พอยท์',
                                   fillColor: Colors.white,
-                                  elevation: 2,
+                                  elevation: 2.0,
                                   borderColor: Colors.transparent,
-                                  borderWidth: 0,
-                                  borderRadius: 0,
+                                  borderWidth: 0.0,
+                                  borderRadius: 0.0,
                                   margin: EdgeInsetsDirectional.fromSTEB(
-                                      12, 4, 12, 4),
+                                      12.0, 4.0, 12.0, 4.0),
                                   hidesUnderline: true,
                                   isSearchable: false,
                                   isMultiSelect: false,
@@ -124,7 +125,8 @@ class _ReasonGivePointWidgetState extends State<ReasonGivePointWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 10.0, 0.0, 10.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -132,7 +134,7 @@ class _ReasonGivePointWidgetState extends State<ReasonGivePointWidget> {
                               Expanded(
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 0, 5),
+                                      0.0, 0.0, 0.0, 5.0),
                                   child: TextFormField(
                                     controller: _model.textController,
                                     focusNode: _model.textFieldFocusNode,
@@ -149,43 +151,47 @@ class _ReasonGivePointWidgetState extends State<ReasonGivePointWidget> {
                                       enabledBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(
                                           color: Color(0x00000000),
-                                          width: 2,
+                                          width: 2.0,
                                         ),
-                                        borderRadius: BorderRadius.circular(8),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
                                       ),
                                       focusedBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(
                                           color: Color(0x00000000),
-                                          width: 2,
+                                          width: 2.0,
                                         ),
-                                        borderRadius: BorderRadius.circular(8),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
                                       ),
                                       errorBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(
                                           color: Color(0x00000000),
-                                          width: 2,
+                                          width: 2.0,
                                         ),
-                                        borderRadius: BorderRadius.circular(8),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
                                       ),
                                       focusedErrorBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(
                                           color: Color(0x00000000),
-                                          width: 2,
+                                          width: 2.0,
                                         ),
-                                        borderRadius: BorderRadius.circular(8),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
                                       ),
                                       filled: true,
                                       fillColor: FlutterFlowTheme.of(context)
                                           .primaryBtnText,
                                       contentPadding:
                                           EdgeInsetsDirectional.fromSTEB(
-                                              20, 40, 24, 0),
+                                              20.0, 40.0, 24.0, 0.0),
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
-                                          fontSize: 15,
+                                          fontSize: 15.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
                                         ),
@@ -199,24 +205,25 @@ class _ReasonGivePointWidgetState extends State<ReasonGivePointWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 10.0),
                           child: Container(
                             width: double.infinity,
-                            height: 50,
+                            height: 50.0,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
                             ),
                             child: Container(
-                              width: 160,
-                              height: 50,
+                              width: 160.0,
+                              height: 50.0,
                               decoration: BoxDecoration(
                                 color: Colors.white,
-                                borderRadius: BorderRadius.circular(25),
+                                borderRadius: BorderRadius.circular(25.0),
                                 shape: BoxShape.rectangle,
                                 border: Border.all(
                                   color: Color(0xFF9E9E9E),
-                                  width: 1,
+                                  width: 1.0,
                                 ),
                               ),
                               child: FlutterFlowCountController(
@@ -225,13 +232,13 @@ class _ReasonGivePointWidgetState extends State<ReasonGivePointWidget> {
                                   color: enabled
                                       ? Color(0xDD000000)
                                       : Color(0xFFEEEEEE),
-                                  size: 20,
+                                  size: 20.0,
                                 ),
                                 incrementIconBuilder: (enabled) => FaIcon(
                                   FontAwesomeIcons.plus,
                                   color:
                                       enabled ? Colors.blue : Color(0xFFEEEEEE),
-                                  size: 20,
+                                  size: 20.0,
                                 ),
                                 countBuilder: (count) => Text(
                                   count.toString(),
@@ -239,7 +246,7 @@ class _ReasonGivePointWidgetState extends State<ReasonGivePointWidget> {
                                     'Roboto',
                                     color: Colors.black,
                                     fontWeight: FontWeight.w600,
-                                    fontSize: 16,
+                                    fontSize: 16.0,
                                   ),
                                 ),
                                 count: _model.countControllerValue ??= 0,
@@ -259,36 +266,37 @@ class _ReasonGivePointWidgetState extends State<ReasonGivePointWidget> {
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        10, 0, 10, 0),
+                                        10.0, 0.0, 10.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: () {
                                         print('Button pressed ...');
                                       },
                                       text: 'ยกเลิก',
                                       options: FFButtonOptions(
-                                        width: 130,
-                                        height: 40,
+                                        width: 130.0,
+                                        height: 40.0,
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 0, 0, 0),
+                                            0.0, 0.0, 0.0, 0.0),
                                         iconPadding:
                                             EdgeInsetsDirectional.fromSTEB(
-                                                0, 0, 0, 0),
+                                                0.0, 0.0, 0.0, 0.0),
                                         color: Color(0xFFB32A33),
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Colors.white,
-                                              fontSize: 15,
+                                              fontSize: 15.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
                                             ),
-                                        elevation: 2,
+                                        elevation: 2.0,
                                         borderSide: BorderSide(
                                           color: Colors.transparent,
-                                          width: 2,
+                                          width: 2.0,
                                         ),
-                                        borderRadius: BorderRadius.circular(8),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
                                       ),
                                     ),
                                   ),
@@ -297,28 +305,28 @@ class _ReasonGivePointWidgetState extends State<ReasonGivePointWidget> {
                             ),
                             Expanded(
                               child: Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    20.0, 0.0, 0.0, 0.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 10, 0),
+                                          0.0, 0.0, 10.0, 0.0),
                                       child: FFButtonWidget(
                                         onPressed: () {
                                           print('Button pressed ...');
                                         },
                                         text: 'ตกลง',
                                         options: FFButtonOptions(
-                                          width: 130,
-                                          height: 40,
+                                          width: 130.0,
+                                          height: 40.0,
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 0, 0),
+                                                  0.0, 0.0, 0.0, 0.0),
                                           iconPadding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 0, 0),
+                                                  0.0, 0.0, 0.0, 0.0),
                                           color: Color(0xFF00968A),
                                           textStyle: FlutterFlowTheme.of(
                                                   context)
@@ -326,17 +334,17 @@ class _ReasonGivePointWidgetState extends State<ReasonGivePointWidget> {
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Colors.white,
-                                                fontSize: 15,
+                                                fontSize: 15.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
                                               ),
-                                          elevation: 2,
+                                          elevation: 2.0,
                                           borderSide: BorderSide(
                                             color: Colors.transparent,
-                                            width: 1,
+                                            width: 1.0,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(8),
+                                              BorderRadius.circular(8.0),
                                         ),
                                       ),
                                     ),

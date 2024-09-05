@@ -77,8 +77,8 @@ class _NonePackageEditPage1WidgetState
             backgroundColor: Colors.white,
             body: Center(
               child: SizedBox(
-                width: 50,
-                height: 50,
+                width: 50.0,
+                height: 50.0,
                 child: CircularProgressIndicator(
                   valueColor: AlwaysStoppedAnimation<Color>(
                     FlutterFlowTheme.of(context).primary,
@@ -107,13 +107,13 @@ class _NonePackageEditPage1WidgetState
                 automaticallyImplyLeading: false,
                 leading: FlutterFlowIconButton(
                   borderColor: Colors.transparent,
-                  borderRadius: 30,
-                  borderWidth: 1,
-                  buttonSize: 60,
+                  borderRadius: 30.0,
+                  borderWidth: 1.0,
+                  buttonSize: 60.0,
                   icon: Icon(
                     Icons.arrow_back_rounded,
                     color: Color(0xFFDB771A),
-                    size: 30,
+                    size: 30.0,
                   ),
                   onPressed: () async {
                     context.goNamed('insuranceListPage');
@@ -124,14 +124,14 @@ class _NonePackageEditPage1WidgetState
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
                         fontFamily: 'Noto Sans Thai',
                         color: Color(0xFF003063),
-                        fontSize: 18,
+                        fontSize: 18.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w600,
                       ),
                 ),
                 actions: [],
                 centerTitle: true,
-                elevation: 2,
+                elevation: 2.0,
               ),
               body: SafeArea(
                 top: true,
@@ -141,16 +141,17 @@ class _NonePackageEditPage1WidgetState
                     if (!functions.checkIsStringLengthInLength(
                         FFAppState().branchCode, 2)!)
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(12, 5, 12, 0),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            12.0, 5.0, 12.0, 0.0),
                         child: Container(
-                          width: MediaQuery.sizeOf(context).width,
+                          width: MediaQuery.sizeOf(context).width * 1.0,
                           decoration: BoxDecoration(),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    12, 0, 12, 0),
+                                    12.0, 0.0, 12.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -161,14 +162,14 @@ class _NonePackageEditPage1WidgetState
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF002D5E),
-                                            fontSize: 16,
+                                            fontSize: 16.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          10, 0, 0, 0),
+                                          10.0, 0.0, 0.0, 0.0),
                                       child: Text(
                                         '(บังคับเลือก)',
                                         style: FlutterFlowTheme.of(context)
@@ -176,7 +177,7 @@ class _NonePackageEditPage1WidgetState
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFFFB0606),
-                                              fontSize: 12,
+                                              fontSize: 12.0,
                                               letterSpacing: 0.0,
                                             ),
                                       ),
@@ -185,8 +186,8 @@ class _NonePackageEditPage1WidgetState
                                 ),
                               ),
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 5.0, 0.0, 0.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,
@@ -208,17 +209,18 @@ class _NonePackageEditPage1WidgetState
                                     );
                                   },
                                   child: Container(
-                                    width: MediaQuery.sizeOf(context).width,
-                                    height: 60,
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 1.0,
+                                    height: 60.0,
                                     decoration: BoxDecoration(
                                       color: Color(0xFFF0F0F0),
-                                      borderRadius: BorderRadius.circular(8),
+                                      borderRadius: BorderRadius.circular(8.0),
                                       border: Border.all(
                                         color: Color(0xFF737373),
                                       ),
                                     ),
                                     child: Align(
-                                      alignment: AlignmentDirectional(0, 0),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: ListTile(
                                         title: Text(
                                           (FFAppState().nonePackageBranchCode !=
@@ -241,7 +243,7 @@ class _NonePackageEditPage1WidgetState
                                                             '')
                                                     ? Colors.black
                                                     : Color(0xFF9F9F9F),
-                                                fontSize: 15,
+                                                fontSize: 15.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
@@ -249,14 +251,14 @@ class _NonePackageEditPage1WidgetState
                                         trailing: Icon(
                                           Icons.arrow_forward_ios,
                                           color: Color(0xFF474747),
-                                          size: 20,
+                                          size: 20.0,
                                         ),
                                         tileColor: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
                                         dense: false,
                                         shape: RoundedRectangleBorder(
                                           borderRadius:
-                                              BorderRadius.circular(10),
+                                              BorderRadius.circular(10.0),
                                         ),
                                       ),
                                     ),
@@ -270,8 +272,8 @@ class _NonePackageEditPage1WidgetState
                     Expanded(
                       flex: 6,
                       child: Container(
-                        width: MediaQuery.sizeOf(context).width,
-                        height: 682,
+                        width: MediaQuery.sizeOf(context).width * 1.0,
+                        height: 682.0,
                         decoration: BoxDecoration(
                           color: Color(0xFFFAFAFA),
                         ),
@@ -280,8 +282,8 @@ class _NonePackageEditPage1WidgetState
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(24, 12, 24, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  24.0, 12.0, 24.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
@@ -292,7 +294,7 @@ class _NonePackageEditPage1WidgetState
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFF002D5E),
-                                          fontSize: 16,
+                                          fontSize: 16.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
                                         ),
@@ -305,18 +307,18 @@ class _NonePackageEditPage1WidgetState
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      12, 10, 12, 0),
+                                      12.0, 10.0, 12.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Expanded(
                                         child: Container(
-                                          width: 100,
-                                          height: 60,
+                                          width: 100.0,
+                                          height: 60.0,
                                           decoration: BoxDecoration(
                                             color: Color(0xFFF0F0F0),
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(8.0),
                                             border: Border.all(
                                               color: Color(0xFF737373),
                                             ),
@@ -327,7 +329,8 @@ class _NonePackageEditPage1WidgetState
                                               Expanded(
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(10, 0, 10, 0),
+                                                      .fromSTEB(
+                                                          10.0, 0.0, 10.0, 0.0),
                                                   child: TextFormField(
                                                     controller:
                                                         _model.textController,
@@ -361,7 +364,7 @@ class _NonePackageEditPage1WidgetState
                                                                     'Noto Sans Thai',
                                                                 color: Color(
                                                                     0xFF565656),
-                                                                fontSize: 15,
+                                                                fontSize: 15.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -383,7 +386,7 @@ class _NonePackageEditPage1WidgetState
                                                         .override(
                                                           fontFamily:
                                                               'Noto Sans Thai',
-                                                          fontSize: 14,
+                                                          fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                         ),
                                                     validator: _model
@@ -406,7 +409,7 @@ class _NonePackageEditPage1WidgetState
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      24, 12, 24, 0),
+                                      24.0, 12.0, 24.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
@@ -417,7 +420,7 @@ class _NonePackageEditPage1WidgetState
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF002D5E),
-                                              fontSize: 16,
+                                              fontSize: 16.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -432,18 +435,18 @@ class _NonePackageEditPage1WidgetState
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      12, 10, 12, 0),
+                                      12.0, 10.0, 12.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Expanded(
                                         child: Container(
-                                          width: 100,
-                                          height: 60,
+                                          width: 100.0,
+                                          height: 60.0,
                                           decoration: BoxDecoration(
                                             color: Color(0xFFF0F0F0),
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(8.0),
                                             border: Border.all(
                                               color: Color(0xFF737373),
                                             ),
@@ -453,7 +456,8 @@ class _NonePackageEditPage1WidgetState
                                             children: [
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(10, 0, 0, 0),
+                                                    .fromSTEB(
+                                                        10.0, 0.0, 0.0, 0.0),
                                                 child: Text(
                                                   FFAppState().nonePackageCoverTypeName ==
                                                           '-'
@@ -484,7 +488,7 @@ class _NonePackageEditPage1WidgetState
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      24, 19, 24, 0),
+                                      24.0, 19.0, 24.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
@@ -495,7 +499,7 @@ class _NonePackageEditPage1WidgetState
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF002D5E),
-                                              fontSize: 16,
+                                              fontSize: 16.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -517,7 +521,7 @@ class _NonePackageEditPage1WidgetState
                                       0,
                                       0,
                                       0,
-                                      12,
+                                      12.0,
                                     ),
                                     shrinkWrap: true,
                                     scrollDirection: Axis.vertical,
@@ -527,17 +531,19 @@ class _NonePackageEditPage1WidgetState
                                           dataList[dataListIndex];
                                       return Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            12, 5, 12, 0),
+                                            12.0, 5.0, 12.0, 0.0),
                                         child: Container(
                                           width:
-                                              MediaQuery.sizeOf(context).width,
+                                              MediaQuery.sizeOf(context).width *
+                                                  1.0,
                                           decoration: BoxDecoration(),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(0, 5, 0, 0),
+                                                    .fromSTEB(
+                                                        0.0, 5.0, 0.0, 0.0),
                                                 child: InkWell(
                                                   splashColor:
                                                       Colors.transparent,
@@ -564,16 +570,17 @@ class _NonePackageEditPage1WidgetState
                                                   },
                                                   child: Container(
                                                     width: MediaQuery.sizeOf(
-                                                            context)
-                                                        .width,
-                                                    height: 60,
+                                                                context)
+                                                            .width *
+                                                        1.0,
+                                                    height: 60.0,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
                                                           .secondaryBackground,
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              8),
+                                                              8.0),
                                                       border: Border.all(
                                                         color:
                                                             Color(0xFFB3B3B3),
@@ -589,8 +596,11 @@ class _NonePackageEditPage1WidgetState
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
-                                                                  .fromSTEB(10,
-                                                                      0, 0, 0),
+                                                                  .fromSTEB(
+                                                                      10.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
                                                           child: Text(
                                                             FFAppState()
                                                                     .nonePackageInsurerDisplayName[
@@ -603,7 +613,8 @@ class _NonePackageEditPage1WidgetState
                                                                       'Noto Sans Thai',
                                                                   color: Color(
                                                                       0xFFB3B3B3),
-                                                                  fontSize: 15,
+                                                                  fontSize:
+                                                                      15.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -619,13 +630,13 @@ class _NonePackageEditPage1WidgetState
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        0,
-                                                                        0,
-                                                                        10,
-                                                                        0),
+                                                                        0.0,
+                                                                        0.0,
+                                                                        10.0,
+                                                                        0.0),
                                                             child: Container(
-                                                              width: 25,
-                                                              height: 25,
+                                                              width: 25.0,
+                                                              height: 25.0,
                                                               decoration:
                                                                   BoxDecoration(
                                                                 color: FlutterFlowTheme.of(
@@ -637,7 +648,7 @@ class _NonePackageEditPage1WidgetState
                                                                     Border.all(
                                                                   color: Color(
                                                                       0xFF9F9F9F),
-                                                                  width: 1,
+                                                                  width: 1.0,
                                                                 ),
                                                               ),
                                                             ),
@@ -649,13 +660,13 @@ class _NonePackageEditPage1WidgetState
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        0,
-                                                                        0,
-                                                                        10,
-                                                                        0),
+                                                                        0.0,
+                                                                        0.0,
+                                                                        10.0,
+                                                                        0.0),
                                                             child: Container(
-                                                              width: 25,
-                                                              height: 25,
+                                                              width: 25.0,
+                                                              height: 25.0,
                                                               decoration:
                                                                   BoxDecoration(
                                                                 color: FlutterFlowTheme.of(
@@ -667,12 +678,13 @@ class _NonePackageEditPage1WidgetState
                                                               child: Align(
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        0, 0),
+                                                                        0.0,
+                                                                        0.0),
                                                                 child: Icon(
                                                                   Icons.check,
                                                                   color: Colors
                                                                       .white,
-                                                                  size: 18,
+                                                                  size: 18.0,
                                                                 ),
                                                               ),
                                                             ),
@@ -692,24 +704,24 @@ class _NonePackageEditPage1WidgetState
                               ),
                             ),
                             Align(
-                              alignment: AlignmentDirectional(0, 1),
+                              alignment: AlignmentDirectional(0.0, 1.0),
                               child: Container(
                                 width: double.infinity,
-                                height: 69,
+                                height: 69.0,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
                                   boxShadow: [
                                     BoxShadow(
-                                      blurRadius: 5,
+                                      blurRadius: 5.0,
                                       color: Color(0x34111417),
                                       offset: Offset(
                                         0.0,
-                                        2,
+                                        2.0,
                                       ),
                                     )
                                   ],
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
@@ -726,14 +738,15 @@ class _NonePackageEditPage1WidgetState
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Align(
-                                        alignment: AlignmentDirectional(-1, 0),
+                                        alignment:
+                                            AlignmentDirectional(-1.0, 0.0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 0, 0),
+                                                  10.0, 0.0, 0.0, 0.0),
                                           child: Container(
-                                            width: 50,
-                                            height: 50,
+                                            width: 50.0,
+                                            height: 50.0,
                                             decoration: BoxDecoration(
                                               shape: BoxShape.circle,
                                               border: Border.all(
@@ -741,12 +754,12 @@ class _NonePackageEditPage1WidgetState
                                               ),
                                             ),
                                             child: Align(
-                                              alignment:
-                                                  AlignmentDirectional(0, 0),
+                                              alignment: AlignmentDirectional(
+                                                  0.0, 0.0),
                                               child: Icon(
                                                 Icons.edit_document,
                                                 color: Color(0xFF7A848E),
-                                                size: 24,
+                                                size: 24.0,
                                               ),
                                             ),
                                           ),
@@ -759,17 +772,17 @@ class _NonePackageEditPage1WidgetState
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF002D5E),
-                                              fontSize: 16,
+                                              fontSize: 16.0,
                                               letterSpacing: 0.0,
                                             ),
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 0, 13, 0),
+                                            0.0, 0.0, 13.0, 0.0),
                                         child: Icon(
                                           Icons.arrow_forward_ios,
                                           color: Color(0xFF636366),
-                                          size: 24,
+                                          size: 24.0,
                                         ),
                                       ),
                                     ],
@@ -788,10 +801,10 @@ class _NonePackageEditPage1WidgetState
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(0, 1),
+                                    alignment: AlignmentDirectional(0.0, 1.0),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          12, 0, 12, 50),
+                                          12.0, 0.0, 12.0, 50.0),
                                       child: FFButtonWidget(
                                         onPressed: () async {
                                           if (!functions
@@ -888,13 +901,13 @@ class _NonePackageEditPage1WidgetState
                                         text: 'ถัดไป',
                                         options: FFButtonOptions(
                                           width: double.infinity,
-                                          height: 60,
+                                          height: 60.0,
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  24, 0, 24, 0),
+                                                  24.0, 0.0, 24.0, 0.0),
                                           iconPadding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 0, 0),
+                                                  0.0, 0.0, 0.0, 0.0),
                                           color: Color(0xFFDB771B),
                                           textStyle:
                                               FlutterFlowTheme.of(context)
@@ -903,30 +916,30 @@ class _NonePackageEditPage1WidgetState
                                                     fontFamily:
                                                         'Noto Sans Thai',
                                                     color: Colors.white,
-                                                    fontSize: 16,
+                                                    fontSize: 16.0,
                                                     letterSpacing: 0.0,
                                                   ),
-                                          elevation: 3,
+                                          elevation: 3.0,
                                           borderSide: BorderSide(
                                             color: Colors.transparent,
-                                            width: 1,
+                                            width: 1.0,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(16),
+                                              BorderRadius.circular(16.0),
                                         ),
                                       ),
                                     ),
                                   ),
                                 ]
-                                    .divide(SizedBox(height: 24))
-                                    .addToStart(SizedBox(height: 16)),
+                                    .divide(SizedBox(height: 24.0))
+                                    .addToStart(SizedBox(height: 16.0)),
                               ),
                             ),
                           ],
                         ),
                       ),
                     ),
-                  ].addToStart(SizedBox(height: 12)),
+                  ].addToStart(SizedBox(height: 12.0)),
                 ),
               ),
             ),

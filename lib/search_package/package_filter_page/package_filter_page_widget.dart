@@ -134,7 +134,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
               child: Icon(
                 Icons.arrow_back,
                 color: Color(0xFFDB7619),
-                size: 30,
+                size: 30.0,
               ),
             ),
             title: Text(
@@ -144,7 +144,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF123063),
-                    fontSize: 18,
+                    fontSize: 18.0,
                     letterSpacing: 0.0,
                   ),
             ),
@@ -181,7 +181,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        24, 0, 24, 4),
+                                        24.0, 0.0, 24.0, 4.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       crossAxisAlignment:
@@ -194,7 +194,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Color(0xFF404040),
-                                                fontSize: 15,
+                                                fontSize: 15.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
                                               ),
@@ -202,7 +202,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 0, 0),
+                                                  10.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             '(บังคับเลือก)',
                                             style: FlutterFlowTheme.of(context)
@@ -210,7 +210,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFFF40606),
-                                                  fontSize: 12,
+                                                  fontSize: 12.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
@@ -221,7 +221,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        16, 0, 16, 0),
+                                        16.0, 0.0, 16.0, 0.0),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
                                       focusColor: Colors.transparent,
@@ -264,12 +264,12 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                       },
                                       child: Container(
                                         width: double.infinity,
-                                        height: 50,
+                                        height: 50.0,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                           borderRadius:
-                                              BorderRadius.circular(10),
+                                              BorderRadius.circular(10.0),
                                           border: Border.all(
                                             width: 0.5,
                                           ),
@@ -277,7 +277,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  4, 0, 0, 0),
+                                                  4.0, 0.0, 0.0, 0.0),
                                           child: ListTile(
                                             title: Text(
                                               FFAppState()
@@ -298,7 +298,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                                     fontFamily:
                                                         'Noto Sans Thai',
                                                     color: Color(0xFF9F9F9F),
-                                                    fontSize: 15,
+                                                    fontSize: 15.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
@@ -306,7 +306,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                             trailing: Icon(
                                               Icons.arrow_forward_ios,
                                               color: Color(0xFF474747),
-                                              size: 20,
+                                              size: 20.0,
                                             ),
                                             tileColor:
                                                 FlutterFlowTheme.of(context)
@@ -314,7 +314,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                             dense: false,
                                             shape: RoundedRectangleBorder(
                                               borderRadius:
-                                                  BorderRadius.circular(10),
+                                                  BorderRadius.circular(10.0),
                                             ),
                                           ),
                                         ),
@@ -334,7 +334,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        24, 0, 24, 4),
+                                        24.0, 0.0, 24.0, 4.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       crossAxisAlignment:
@@ -347,7 +347,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Color(0xFF404040),
-                                                fontSize: 15,
+                                                fontSize: 15.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
                                               ),
@@ -355,7 +355,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 0, 0),
+                                                  10.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             '(บังคับเลือก) สามารถเลือกได้มากกว่า 1)',
                                             style: FlutterFlowTheme.of(context)
@@ -363,7 +363,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFFF40606),
-                                                  fontSize: 12,
+                                                  fontSize: 12.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
@@ -374,7 +374,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        16, 0, 16, 0),
+                                        16.0, 0.0, 16.0, 0.0),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
                                       focusColor: Colors.transparent,
@@ -417,12 +417,12 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                       },
                                       child: Container(
                                         width: double.infinity,
-                                        height: 50,
+                                        height: 50.0,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                           borderRadius:
-                                              BorderRadius.circular(10),
+                                              BorderRadius.circular(10.0),
                                           border: Border.all(
                                             width: 0.5,
                                           ),
@@ -430,7 +430,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  4, 0, 0, 0),
+                                                  4.0, 0.0, 0.0, 0.0),
                                           child: ListTile(
                                             title: Text(
                                               FFAppState()
@@ -451,7 +451,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                                     fontFamily:
                                                         'Noto Sans Thai',
                                                     color: Color(0xFF9F9F9F),
-                                                    fontSize: 15,
+                                                    fontSize: 15.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
@@ -459,7 +459,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                             trailing: Icon(
                                               Icons.arrow_forward_ios,
                                               color: Color(0xFF474747),
-                                              size: 20,
+                                              size: 20.0,
                                             ),
                                             tileColor:
                                                 FlutterFlowTheme.of(context)
@@ -467,7 +467,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                             dense: false,
                                             shape: RoundedRectangleBorder(
                                               borderRadius:
-                                                  BorderRadius.circular(10),
+                                                  BorderRadius.circular(10.0),
                                             ),
                                           ),
                                         ),
@@ -487,7 +487,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        24, 0, 24, 4),
+                                        24.0, 0.0, 24.0, 4.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       crossAxisAlignment:
@@ -500,7 +500,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Color(0xFF424242),
-                                                fontSize: 15,
+                                                fontSize: 15.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
                                               ),
@@ -508,7 +508,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 0, 0),
+                                                  10.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             '(บังคับเลือก สามารถเลือกได้มากกว่า 1)',
                                             style: FlutterFlowTheme.of(context)
@@ -516,7 +516,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFFF40606),
-                                                  fontSize: 12,
+                                                  fontSize: 12.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
@@ -527,7 +527,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        16, 0, 16, 0),
+                                        16.0, 0.0, 16.0, 0.0),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
                                       focusColor: Colors.transparent,
@@ -566,12 +566,12 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                       },
                                       child: Container(
                                         width: double.infinity,
-                                        height: 50,
+                                        height: 50.0,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                           borderRadius:
-                                              BorderRadius.circular(10),
+                                              BorderRadius.circular(10.0),
                                           border: Border.all(
                                             width: 0.5,
                                           ),
@@ -579,7 +579,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  4, 0, 0, 0),
+                                                  4.0, 0.0, 0.0, 0.0),
                                           child: ListTile(
                                             title: Text(
                                               FFAppState()
@@ -600,7 +600,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                                     fontFamily:
                                                         'Noto Sans Thai',
                                                     color: Color(0xFF9F9F9F),
-                                                    fontSize: 15,
+                                                    fontSize: 15.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
@@ -608,7 +608,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                             trailing: Icon(
                                               Icons.arrow_forward_ios,
                                               color: Color(0xFF143678),
-                                              size: 20,
+                                              size: 20.0,
                                             ),
                                             tileColor:
                                                 FlutterFlowTheme.of(context)
@@ -616,7 +616,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                             dense: false,
                                             shape: RoundedRectangleBorder(
                                               borderRadius:
-                                                  BorderRadius.circular(10),
+                                                  BorderRadius.circular(10.0),
                                             ),
                                           ),
                                         ),
@@ -636,7 +636,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      24, 0, 24, 4),
+                                      24.0, 0.0, 24.0, 4.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     crossAxisAlignment:
@@ -649,7 +649,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF424242),
-                                              fontSize: 15,
+                                              fontSize: 15.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
@@ -659,10 +659,10 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                 ),
                                 Container(
                                   width: double.infinity,
-                                  height: 150,
+                                  height: 150.0,
                                   child: custom_widgets.RangeSliderWidget(
                                     width: double.infinity,
-                                    height: 150,
+                                    height: 150.0,
                                     minRange: FFAppState().sliderMinGrossTotal,
                                     maxRange: FFAppState().sliderMaxGrossTotal,
                                     activeColor: Color(0xFFDB771B),
@@ -680,9 +680,9 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                             ),
                           ),
                         ]
-                            .divide(SizedBox(height: 8))
-                            .addToStart(SizedBox(height: 20))
-                            .addToEnd(SizedBox(height: 36)),
+                            .divide(SizedBox(height: 8.0))
+                            .addToStart(SizedBox(height: 20.0))
+                            .addToEnd(SizedBox(height: 36.0)),
                       ),
                     ),
                   ),
@@ -691,7 +691,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                   flex: 2,
                   child: Container(
                     width: double.infinity,
-                    height: 100,
+                    height: 100.0,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                     ),
@@ -700,7 +700,8 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              20.0, 0.0, 20.0, 0.0),
                           child: FFButtonWidget(
                             onPressed: () async {
                               FFAppState().selectInsurerList = functions
@@ -714,30 +715,30 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                             text: 'ค้นหา',
                             options: FFButtonOptions(
                               width: double.infinity,
-                              height: 60,
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
-                              iconPadding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                              height: 60.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  24.0, 0.0, 24.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
                               color: Color(0xFFDB771B),
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
                                     fontFamily: 'Noto Sans Thai',
                                     color: Colors.white,
-                                    fontSize: 15,
+                                    fontSize: 15.0,
                                     letterSpacing: 0.0,
                                   ),
-                              elevation: 3,
+                              elevation: 3.0,
                               borderSide: BorderSide(
                                 color: Colors.transparent,
-                                width: 1,
+                                width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(16),
+                              borderRadius: BorderRadius.circular(16.0),
                             ),
                           ),
                         ),
-                      ].addToStart(SizedBox(height: 16)),
+                      ].addToStart(SizedBox(height: 16.0)),
                     ),
                   ),
                 ),

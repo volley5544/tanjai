@@ -62,13 +62,13 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
             automaticallyImplyLeading: false,
             leading: FlutterFlowIconButton(
               borderColor: Colors.transparent,
-              borderRadius: 30,
-              borderWidth: 1,
-              buttonSize: 60,
+              borderRadius: 30.0,
+              borderWidth: 1.0,
+              buttonSize: 60.0,
               icon: Icon(
                 Icons.arrow_back_rounded,
                 color: Color(0xCAFF6500),
-                size: 30,
+                size: 30.0,
               ),
               onPressed: () async {
                 context.safePop();
@@ -79,13 +79,13 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
               style: FlutterFlowTheme.of(context).bodyMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF1D4774),
-                    fontSize: 18,
+                    fontSize: 18.0,
                     letterSpacing: 0.0,
                   ),
             ),
             actions: [],
             centerTitle: true,
-            elevation: 0,
+            elevation: 0.0,
           ),
           body: SafeArea(
             top: true,
@@ -96,14 +96,15 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
               children: [
                 Expanded(
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
-                          padding:
-                              EdgeInsetsDirectional.fromSTEB(12, 15, 12, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              12.0, 15.0, 12.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -113,17 +114,17 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                   'Noto Sans Thai',
                                   color: Color(0xFF1D4774),
                                   fontWeight: FontWeight.w600,
-                                  fontSize: 15,
+                                  fontSize: 15.0,
                                 ),
                               ),
                             ],
                           ),
                         ),
                         Align(
-                          alignment: AlignmentDirectional(0, 0),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 12.0, 0.0, 0.0),
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
@@ -143,21 +144,21 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                               },
                               child: Container(
                                 width: double.infinity,
-                                height: 60,
+                                height: 60.0,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
                                   boxShadow: [
                                     BoxShadow(
-                                      blurRadius: 5,
+                                      blurRadius: 5.0,
                                       color: Color(0x34111417),
                                       offset: Offset(
                                         0.0,
-                                        2,
+                                        2.0,
                                       ),
                                     )
                                   ],
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -166,7 +167,7 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          12, 0, 0, 0),
+                                          12.0, 0.0, 0.0, 0.0),
                                       child: Text(
                                         'ไม่มีในเรท',
                                         style: FlutterFlowTheme.of(context)
@@ -174,7 +175,7 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF878787),
-                                              fontSize: 15,
+                                              fontSize: 15.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -183,17 +184,17 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                     if (!FFAppState().nonePackageReason.first)
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 0, 10, 0),
+                                            0.0, 0.0, 10.0, 0.0),
                                         child: Container(
-                                          width: 25,
-                                          height: 25,
+                                          width: 25.0,
+                                          height: 25.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             shape: BoxShape.circle,
                                             border: Border.all(
                                               color: Color(0xFF9F9F9F),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                           ),
                                         ),
@@ -201,10 +202,10 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                     if (FFAppState().nonePackageReason.first)
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 0, 10, 0),
+                                            0.0, 0.0, 10.0, 0.0),
                                         child: Container(
-                                          width: 25,
-                                          height: 25,
+                                          width: 25.0,
+                                          height: 25.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .success,
@@ -212,11 +213,11 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                           ),
                                           child: Align(
                                             alignment:
-                                                AlignmentDirectional(0, 0),
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Icon(
                                               Icons.check,
                                               color: Colors.white,
-                                              size: 18,
+                                              size: 18.0,
                                             ),
                                           ),
                                         ),
@@ -228,10 +229,10 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                           ),
                         ),
                         Align(
-                          alignment: AlignmentDirectional(0, 0),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 12.0, 0.0, 0.0),
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
@@ -251,21 +252,21 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                               },
                               child: Container(
                                 width: double.infinity,
-                                height: 60,
+                                height: 60.0,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
                                   boxShadow: [
                                     BoxShadow(
-                                      blurRadius: 5,
+                                      blurRadius: 5.0,
                                       color: Color(0x34111417),
                                       offset: Offset(
                                         0.0,
-                                        2,
+                                        2.0,
                                       ),
                                     )
                                   ],
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -274,7 +275,7 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          12, 0, 0, 0),
+                                          12.0, 0.0, 0.0, 0.0),
                                       child: Text(
                                         'ไม่พอใจในทุนประกัน',
                                         style: FlutterFlowTheme.of(context)
@@ -282,7 +283,7 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF878787),
-                                              fontSize: 15,
+                                              fontSize: 15.0,
                                               letterSpacing: 0.0,
                                             ),
                                       ),
@@ -290,17 +291,17 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                     if (!FFAppState().nonePackageReason[1])
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 0, 10, 0),
+                                            0.0, 0.0, 10.0, 0.0),
                                         child: Container(
-                                          width: 25,
-                                          height: 25,
+                                          width: 25.0,
+                                          height: 25.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             shape: BoxShape.circle,
                                             border: Border.all(
                                               color: Color(0xFF9F9F9F),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                           ),
                                         ),
@@ -308,10 +309,10 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                     if (FFAppState().nonePackageReason[1])
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 0, 10, 0),
+                                            0.0, 0.0, 10.0, 0.0),
                                         child: Container(
-                                          width: 25,
-                                          height: 25,
+                                          width: 25.0,
+                                          height: 25.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .success,
@@ -319,11 +320,11 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                           ),
                                           child: Align(
                                             alignment:
-                                                AlignmentDirectional(0, 0),
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Icon(
                                               Icons.check,
                                               color: Colors.white,
-                                              size: 18,
+                                              size: 18.0,
                                             ),
                                           ),
                                         ),
@@ -335,10 +336,10 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                           ),
                         ),
                         Align(
-                          alignment: AlignmentDirectional(0, 0),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 12.0, 0.0, 0.0),
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
@@ -358,21 +359,21 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                               },
                               child: Container(
                                 width: double.infinity,
-                                height: 60,
+                                height: 60.0,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
                                   boxShadow: [
                                     BoxShadow(
-                                      blurRadius: 5,
+                                      blurRadius: 5.0,
                                       color: Color(0x34111417),
                                       offset: Offset(
                                         0.0,
-                                        2,
+                                        2.0,
                                       ),
                                     )
                                   ],
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -381,7 +382,7 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          12, 0, 0, 0),
+                                          12.0, 0.0, 0.0, 0.0),
                                       child: Text(
                                         'รถแต่งหรือรถต่อคอก',
                                         style: FlutterFlowTheme.of(context)
@@ -389,7 +390,7 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF878787),
-                                              fontSize: 15,
+                                              fontSize: 15.0,
                                               letterSpacing: 0.0,
                                             ),
                                       ),
@@ -397,17 +398,17 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                     if (!FFAppState().nonePackageReason.last)
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 0, 10, 0),
+                                            0.0, 0.0, 10.0, 0.0),
                                         child: Container(
-                                          width: 25,
-                                          height: 25,
+                                          width: 25.0,
+                                          height: 25.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             shape: BoxShape.circle,
                                             border: Border.all(
                                               color: Color(0xFF9F9F9F),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                           ),
                                         ),
@@ -415,10 +416,10 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                     if (FFAppState().nonePackageReason.last)
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 0, 10, 0),
+                                            0.0, 0.0, 10.0, 0.0),
                                         child: Container(
-                                          width: 25,
-                                          height: 25,
+                                          width: 25.0,
+                                          height: 25.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .success,
@@ -426,11 +427,11 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                           ),
                                           child: Align(
                                             alignment:
-                                                AlignmentDirectional(0, 0),
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Icon(
                                               Icons.check,
                                               color: Colors.white,
-                                              size: 18,
+                                              size: 18.0,
                                             ),
                                           ),
                                         ),
@@ -444,19 +445,19 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                         Expanded(
                           flex: 7,
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 12.0, 0.0, 0.0),
                             child: Container(
                               width: double.infinity,
-                              height: 100,
+                              height: 100.0,
                               decoration: BoxDecoration(
                                 color: Color(0xFFF1F4F8),
                               ),
                               child: Align(
-                                alignment: AlignmentDirectional(0, 0),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 0, 24),
+                                      0.0, 0.0, 0.0, 24.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment:
@@ -470,7 +471,7 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                           Expanded(
                                             flex: 1,
                                             child: Padding(
-                                              padding: EdgeInsets.all(10),
+                                              padding: EdgeInsets.all(10.0),
                                               child: InkWell(
                                                 splashColor: Colors.transparent,
                                                 focusColor: Colors.transparent,
@@ -497,8 +498,8 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                                   }
                                                 },
                                                 child: Container(
-                                                  width: 100,
-                                                  height: 120,
+                                                  width: 100.0,
+                                                  height: 120.0,
                                                   decoration: BoxDecoration(
                                                     color:
                                                         valueOrDefault<Color>(
@@ -510,7 +511,7 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            16),
+                                                            16.0),
                                                   ),
                                                   child: Column(
                                                     mainAxisSize:
@@ -521,16 +522,16 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                                         child: Align(
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  0, 0),
+                                                                  0.0, 0.0),
                                                           child: Container(
-                                                            width: 50,
-                                                            height: 50,
+                                                            width: 50.0,
+                                                            height: 50.0,
                                                             decoration:
                                                                 BoxDecoration(
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          60),
+                                                                          60.0),
                                                               border:
                                                                   Border.all(
                                                                 color: Color(
@@ -541,13 +542,13 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                                             child: Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0, 0),
+                                                                      0.0, 0.0),
                                                               child: Icon(
                                                                 Icons
                                                                     .person_outline_sharp,
                                                                 color: Color(
                                                                     0xFF1D4774),
-                                                                size: 35,
+                                                                size: 35.0,
                                                               ),
                                                             ),
                                                           ),
@@ -565,7 +566,7 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                                                     'Noto Sans Thai',
                                                                 color: Color(
                                                                     0xFF1D4774),
-                                                                fontSize: 15,
+                                                                fontSize: 15.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -580,7 +581,7 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                           Expanded(
                                             flex: 1,
                                             child: Padding(
-                                              padding: EdgeInsets.all(10),
+                                              padding: EdgeInsets.all(10.0),
                                               child: InkWell(
                                                 splashColor: Colors.transparent,
                                                 focusColor: Colors.transparent,
@@ -607,8 +608,8 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                                   }
                                                 },
                                                 child: Container(
-                                                  width: 100,
-                                                  height: 120,
+                                                  width: 100.0,
+                                                  height: 120.0,
                                                   decoration: BoxDecoration(
                                                     color:
                                                         valueOrDefault<Color>(
@@ -620,7 +621,7 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            16),
+                                                            16.0),
                                                   ),
                                                   child: Column(
                                                     mainAxisSize:
@@ -631,16 +632,16 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                                         child: Align(
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  0, 0),
+                                                                  0.0, 0.0),
                                                           child: Container(
-                                                            width: 50,
-                                                            height: 50,
+                                                            width: 50.0,
+                                                            height: 50.0,
                                                             decoration:
                                                                 BoxDecoration(
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          60),
+                                                                          60.0),
                                                               border:
                                                                   Border.all(
                                                                 color: Color(
@@ -651,13 +652,13 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                                             child: Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0, 0),
+                                                                      0.0, 0.0),
                                                               child: Icon(
                                                                 Icons
                                                                     .home_work_outlined,
                                                                 color: Color(
                                                                     0xFF1D4774),
-                                                                size: 30,
+                                                                size: 30.0,
                                                               ),
                                                             ),
                                                           ),
@@ -675,7 +676,7 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                                                     'Noto Sans Thai',
                                                                 color: Color(
                                                                     0xFF1D4774),
-                                                                fontSize: 15,
+                                                                fontSize: 15.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -691,7 +692,7 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            8, 0, 8, 20),
+                                            8.0, 0.0, 8.0, 20.0),
                                         child: FFButtonWidget(
                                           onPressed: () async {
                                             if (functions.countTrueInBoolList(
@@ -760,14 +761,15 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                           text: 'ถัดไป',
                                           options: FFButtonOptions(
                                             width: MediaQuery.sizeOf(context)
-                                                .width,
-                                            height: 50,
+                                                    .width *
+                                                1.0,
+                                            height: 50.0,
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0, 0, 0, 0),
+                                                    0.0, 0.0, 0.0, 0.0),
                                             iconPadding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0, 0, 0, 0),
+                                                    0.0, 0.0, 0.0, 0.0),
                                             color: Color(0xB6FF6500),
                                             textStyle: FlutterFlowTheme.of(
                                                     context)
@@ -779,13 +781,13 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                                       .primaryBackground,
                                                   letterSpacing: 0.0,
                                                 ),
-                                            elevation: 2,
+                                            elevation: 2.0,
                                             borderSide: BorderSide(
                                               color: Colors.transparent,
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(12),
+                                                BorderRadius.circular(12.0),
                                           ),
                                         ),
                                       ),

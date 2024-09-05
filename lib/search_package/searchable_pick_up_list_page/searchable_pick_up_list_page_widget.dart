@@ -109,7 +109,7 @@ class _SearchablePickUpListPageWidgetState
               child: Icon(
                 Icons.arrow_back,
                 color: Color(0xFFDB7619),
-                size: 30,
+                size: 30.0,
               ),
             ),
             title: Text(
@@ -117,7 +117,7 @@ class _SearchablePickUpListPageWidgetState
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF123063),
-                    fontSize: 16,
+                    fontSize: 16.0,
                     letterSpacing: 0.0,
                   ),
             ),
@@ -127,7 +127,7 @@ class _SearchablePickUpListPageWidgetState
           body: SafeArea(
             top: true,
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
+              padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -138,8 +138,8 @@ class _SearchablePickUpListPageWidgetState
                       children: [
                         if (widget!.multiSelect)
                           Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                12.0, 0.0, 12.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -164,11 +164,11 @@ class _SearchablePickUpListPageWidgetState
                         if (widget!.dataList!.length > 5)
                           Container(
                             width: double.infinity,
-                            height: 50,
+                            height: 50.0,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
-                              borderRadius: BorderRadius.circular(10),
+                              borderRadius: BorderRadius.circular(10.0),
                               border: Border.all(
                                 width: 0.5,
                               ),
@@ -179,7 +179,7 @@ class _SearchablePickUpListPageWidgetState
                                 Expanded(
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        8, 0, 8, 0),
+                                        8.0, 0.0, 8.0, 0.0),
                                     child: TextFormField(
                                       controller: _model.textController,
                                       focusNode: _model.textFieldFocusNode,
@@ -247,7 +247,7 @@ class _SearchablePickUpListPageWidgetState
                                           'รถเก๋ง')!)
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 0, 7),
+                                          0.0, 0.0, 0.0, 7.0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
                                         focusColor: Colors.transparent,
@@ -525,12 +525,12 @@ class _SearchablePickUpListPageWidgetState
                                         },
                                         child: Container(
                                           width: double.infinity,
-                                          height: 65,
+                                          height: 65.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             borderRadius:
-                                                BorderRadius.circular(10),
+                                                BorderRadius.circular(10.0),
                                             border: Border.all(
                                               width: 0.5,
                                             ),
@@ -540,7 +540,7 @@ class _SearchablePickUpListPageWidgetState
                                             children: [
                                               Container(
                                                 width: double.infinity,
-                                                height: 60,
+                                                height: 60.0,
                                                 decoration: BoxDecoration(),
                                                 child: Row(
                                                   mainAxisSize:
@@ -553,7 +553,10 @@ class _SearchablePickUpListPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  12, 0, 0, 0),
+                                                                  12.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
                                                       child: Text(
                                                         'กระบะไม่ต่อเติม',
                                                         style:
@@ -572,14 +575,17 @@ class _SearchablePickUpListPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0, 0, 16, 0),
+                                                                  0.0,
+                                                                  0.0,
+                                                                  16.0,
+                                                                  0.0),
                                                       child: ClipRRect(
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(8),
+                                                                .circular(8.0),
                                                         child: Image.asset(
                                                           'assets/images/_2_.png',
-                                                          width: 100,
+                                                          width: 100.0,
                                                           fit: BoxFit.cover,
                                                         ),
                                                       ),
@@ -588,7 +594,7 @@ class _SearchablePickUpListPageWidgetState
                                                 ),
                                               ),
                                               Divider(
-                                                thickness: 1,
+                                                thickness: 1.0,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .accent4,
@@ -606,7 +612,7 @@ class _SearchablePickUpListPageWidgetState
                                           'รถเก๋ง')!)
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 0, 7),
+                                          0.0, 0.0, 0.0, 7.0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
                                         focusColor: Colors.transparent,
@@ -1752,12 +1758,12 @@ class _SearchablePickUpListPageWidgetState
                                         },
                                         child: Container(
                                           width: double.infinity,
-                                          height: 65,
+                                          height: 65.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             borderRadius:
-                                                BorderRadius.circular(10),
+                                                BorderRadius.circular(10.0),
                                             border: Border.all(
                                               width: 0.5,
                                             ),
@@ -1767,7 +1773,7 @@ class _SearchablePickUpListPageWidgetState
                                             children: [
                                               Container(
                                                 width: double.infinity,
-                                                height: 60,
+                                                height: 60.0,
                                                 decoration: BoxDecoration(),
                                                 child: Row(
                                                   mainAxisSize:
@@ -1780,7 +1786,10 @@ class _SearchablePickUpListPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  12, 0, 0, 0),
+                                                                  12.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
                                                       child: Text(
                                                         'กระบะต่อเติมเกินหัวเก๋ง',
                                                         style:
@@ -1798,10 +1807,10 @@ class _SearchablePickUpListPageWidgetState
                                                     ClipRRect(
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              8),
+                                                              8.0),
                                                       child: Image.asset(
                                                         'assets/images/ik1p2_.png',
-                                                        width: 130,
+                                                        width: 130.0,
                                                         fit: BoxFit.cover,
                                                       ),
                                                     ),
@@ -1809,7 +1818,7 @@ class _SearchablePickUpListPageWidgetState
                                                 ),
                                               ),
                                               Divider(
-                                                thickness: 1,
+                                                thickness: 1.0,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .accent4,
@@ -1827,7 +1836,7 @@ class _SearchablePickUpListPageWidgetState
                                           'รถเก๋ง')!)
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 0, 7),
+                                          0.0, 0.0, 0.0, 7.0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
                                         focusColor: Colors.transparent,
@@ -2973,12 +2982,12 @@ class _SearchablePickUpListPageWidgetState
                                         },
                                         child: Container(
                                           width: double.infinity,
-                                          height: 65,
+                                          height: 65.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             borderRadius:
-                                                BorderRadius.circular(10),
+                                                BorderRadius.circular(10.0),
                                             border: Border.all(
                                               width: 0.5,
                                             ),
@@ -2988,7 +2997,7 @@ class _SearchablePickUpListPageWidgetState
                                             children: [
                                               Container(
                                                 width: double.infinity,
-                                                height: 60,
+                                                height: 60.0,
                                                 decoration: BoxDecoration(),
                                                 child: Row(
                                                   mainAxisSize:
@@ -3001,7 +3010,10 @@ class _SearchablePickUpListPageWidgetState
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  12, 0, 0, 0),
+                                                                  12.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
                                                       child: Text(
                                                         'กระบะต่อเติมไม่เกินหัวเก๋ง',
                                                         style:
@@ -3019,10 +3031,10 @@ class _SearchablePickUpListPageWidgetState
                                                     ClipRRect(
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              8),
+                                                              8.0),
                                                       child: Image.asset(
                                                         'assets/images/_1.png',
-                                                        width: 130,
+                                                        width: 130.0,
                                                         fit: BoxFit.cover,
                                                       ),
                                                     ),
@@ -3030,7 +3042,7 @@ class _SearchablePickUpListPageWidgetState
                                                 ),
                                               ),
                                               Divider(
-                                                thickness: 1,
+                                                thickness: 1.0,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .accent4,
@@ -4183,11 +4195,12 @@ class _SearchablePickUpListPageWidgetState
                                     },
                                     child: Container(
                                       width: double.infinity,
-                                      height: 65,
+                                      height: 65.0,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
-                                        borderRadius: BorderRadius.circular(10),
+                                        borderRadius:
+                                            BorderRadius.circular(10.0),
                                         border: Border.all(
                                           width: 0.5,
                                         ),
@@ -4197,7 +4210,7 @@ class _SearchablePickUpListPageWidgetState
                                         children: [
                                           Container(
                                             width: double.infinity,
-                                            height: 60,
+                                            height: 60.0,
                                             decoration: BoxDecoration(),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -4207,7 +4220,8 @@ class _SearchablePickUpListPageWidgetState
                                               children: [
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(12, 0, 0, 0),
+                                                      .fromSTEB(
+                                                          12.0, 0.0, 0.0, 0.0),
                                                   child: Text(
                                                     'กระบะตู้ทึบ/ตู้แห้ง',
                                                     style: FlutterFlowTheme.of(
@@ -4222,14 +4236,15 @@ class _SearchablePickUpListPageWidgetState
                                                 ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(0, 0, 16, 0),
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 16.0, 0.0),
                                                   child: ClipRRect(
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8),
+                                                            8.0),
                                                     child: Image.asset(
                                                       'assets/images/2__.png',
-                                                      width: 100,
+                                                      width: 100.0,
                                                       fit: BoxFit.cover,
                                                     ),
                                                   ),
@@ -4238,7 +4253,7 @@ class _SearchablePickUpListPageWidgetState
                                             ),
                                           ),
                                           Divider(
-                                            thickness: 1,
+                                            thickness: 1.0,
                                             color: FlutterFlowTheme.of(context)
                                                 .accent4,
                                           ),
@@ -4251,9 +4266,9 @@ class _SearchablePickUpListPageWidgetState
                             ),
                           ),
                       ]
-                          .divide(SizedBox(height: 12))
-                          .addToStart(SizedBox(height: 12))
-                          .addToEnd(SizedBox(height: 24)),
+                          .divide(SizedBox(height: 12.0))
+                          .addToStart(SizedBox(height: 12.0))
+                          .addToEnd(SizedBox(height: 24.0)),
                     ),
                   ),
                   if (widget!.multiSelect)
@@ -4261,7 +4276,7 @@ class _SearchablePickUpListPageWidgetState
                       flex: 1,
                       child: Container(
                         width: double.infinity,
-                        height: 100,
+                        height: 100.0,
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
@@ -4272,8 +4287,8 @@ class _SearchablePickUpListPageWidgetState
                           children: [
                             if (false)
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    8.0, 0.0, 8.0, 0.0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
                                     if (functions.countTrueInBoolList(FFAppState()
@@ -5168,30 +5183,30 @@ class _SearchablePickUpListPageWidgetState
                                   text: 'ตกลง',
                                   options: FFButtonOptions(
                                     width: double.infinity,
-                                    height: 60,
+                                    height: 60.0,
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        24, 0, 24, 0),
+                                        24.0, 0.0, 24.0, 0.0),
                                     iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 0, 0, 0),
+                                        0.0, 0.0, 0.0, 0.0),
                                     color: Color(0xFFDB771B),
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Colors.white,
-                                          fontSize: 15,
+                                          fontSize: 15.0,
                                           letterSpacing: 0.0,
                                         ),
-                                    elevation: 3,
+                                    elevation: 3.0,
                                     borderSide: BorderSide(
                                       color: Colors.transparent,
-                                      width: 1,
+                                      width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(16),
+                                    borderRadius: BorderRadius.circular(16.0),
                                   ),
                                 ),
                               ),
-                          ].addToStart(SizedBox(height: 16)),
+                          ].addToStart(SizedBox(height: 16.0)),
                         ),
                       ),
                     ),
