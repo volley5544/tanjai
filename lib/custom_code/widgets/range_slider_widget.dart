@@ -27,7 +27,8 @@ class RangeSliderWidget extends StatefulWidget {
       this.step,
       this.typeName,
       this.currentMinValue,
-      this.currentMaxValue});
+      this.currentMaxValue,
+      this.fromPage});
 
   final double? width;
   final double? height;
@@ -42,6 +43,7 @@ class RangeSliderWidget extends StatefulWidget {
   final String? typeName;
   final String? currentMinValue;
   final String? currentMaxValue;
+  final String? fromPage;
 
   @override
   State<RangeSliderWidget> createState() => _RangeSliderWidgetState();

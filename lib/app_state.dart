@@ -13842,6 +13842,106 @@ class FFAppState extends ChangeNotifier {
   set sliderCurrentMaxSumInsured(String value) {
     _sliderCurrentMaxSumInsured = value;
   }
+
+  String _sliderMinGrossPage2 = '1000';
+  String get sliderMinGrossPage2 => _sliderMinGrossPage2;
+  set sliderMinGrossPage2(String value) {
+    _sliderMinGrossPage2 = value;
+  }
+
+  String _sliderMaxGrossPage2 = '10000';
+  String get sliderMaxGrossPage2 => _sliderMaxGrossPage2;
+  set sliderMaxGrossPage2(String value) {
+    _sliderMaxGrossPage2 = value;
+  }
+
+  String _sliderMinSumInsuredPage2 = '0';
+  String get sliderMinSumInsuredPage2 => _sliderMinSumInsuredPage2;
+  set sliderMinSumInsuredPage2(String value) {
+    _sliderMinSumInsuredPage2 = value;
+  }
+
+  String _sliderMaxSumInsuredPage2 = '1000000';
+  String get sliderMaxSumInsuredPage2 => _sliderMaxSumInsuredPage2;
+  set sliderMaxSumInsuredPage2(String value) {
+    _sliderMaxSumInsuredPage2 = value;
+  }
+
+  String _sliderCurrentMinGrossPage2 = '1000';
+  String get sliderCurrentMinGrossPage2 => _sliderCurrentMinGrossPage2;
+  set sliderCurrentMinGrossPage2(String value) {
+    _sliderCurrentMinGrossPage2 = value;
+  }
+
+  String _sliderCurrentMaxGrossPage2 = '10000';
+  String get sliderCurrentMaxGrossPage2 => _sliderCurrentMaxGrossPage2;
+  set sliderCurrentMaxGrossPage2(String value) {
+    _sliderCurrentMaxGrossPage2 = value;
+  }
+
+  String _sliderCurrentMinSumInsuredPage2 = '0';
+  String get sliderCurrentMinSumInsuredPage2 =>
+      _sliderCurrentMinSumInsuredPage2;
+  set sliderCurrentMinSumInsuredPage2(String value) {
+    _sliderCurrentMinSumInsuredPage2 = value;
+  }
+
+  String _sliderCurrentMaxSumInsuredPage2 = '1000000';
+  String get sliderCurrentMaxSumInsuredPage2 =>
+      _sliderCurrentMaxSumInsuredPage2;
+  set sliderCurrentMaxSumInsuredPage2(String value) {
+    _sliderCurrentMaxSumInsuredPage2 = value;
+  }
+
+  String _sliderMinGrossPage3 = '1000';
+  String get sliderMinGrossPage3 => _sliderMinGrossPage3;
+  set sliderMinGrossPage3(String value) {
+    _sliderMinGrossPage3 = value;
+  }
+
+  String _sliderMaxGrossPage3 = '10000';
+  String get sliderMaxGrossPage3 => _sliderMaxGrossPage3;
+  set sliderMaxGrossPage3(String value) {
+    _sliderMaxGrossPage3 = value;
+  }
+
+  String _sliderMinSumInsuredPage3 = '0';
+  String get sliderMinSumInsuredPage3 => _sliderMinSumInsuredPage3;
+  set sliderMinSumInsuredPage3(String value) {
+    _sliderMinSumInsuredPage3 = value;
+  }
+
+  String _sliderMaxSumInsuredPage3 = '1000000';
+  String get sliderMaxSumInsuredPage3 => _sliderMaxSumInsuredPage3;
+  set sliderMaxSumInsuredPage3(String value) {
+    _sliderMaxSumInsuredPage3 = value;
+  }
+
+  String _sliderCurrentMinGrossPage3 = '1000';
+  String get sliderCurrentMinGrossPage3 => _sliderCurrentMinGrossPage3;
+  set sliderCurrentMinGrossPage3(String value) {
+    _sliderCurrentMinGrossPage3 = value;
+  }
+
+  String _sliderCurrentMaxGrossPage3 = '10000';
+  String get sliderCurrentMaxGrossPage3 => _sliderCurrentMaxGrossPage3;
+  set sliderCurrentMaxGrossPage3(String value) {
+    _sliderCurrentMaxGrossPage3 = value;
+  }
+
+  String _sliderCurrentMinSumInsuredPage3 = '0';
+  String get sliderCurrentMinSumInsuredPage3 =>
+      _sliderCurrentMinSumInsuredPage3;
+  set sliderCurrentMinSumInsuredPage3(String value) {
+    _sliderCurrentMinSumInsuredPage3 = value;
+  }
+
+  String _sliderCurrentMaxSumInsuredPage3 = '1000000';
+  String get sliderCurrentMaxSumInsuredPage3 =>
+      _sliderCurrentMaxSumInsuredPage3;
+  set sliderCurrentMaxSumInsuredPage3(String value) {
+    _sliderCurrentMaxSumInsuredPage3 = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

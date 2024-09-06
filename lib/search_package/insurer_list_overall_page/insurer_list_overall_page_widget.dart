@@ -472,32 +472,22 @@ class _InsurerListOverallPageWidgetState
       FFAppState().sliderMaxGrossTotal = functions.getMinMaxValueFromList(
           FFAppState().searchInsurerMaxnetpremium.toList(), 'max')!;
       safeSetState(() {});
-      FFAppState().sliderMinGrossTotal = functions.getMinMaxValueFromList(
+      FFAppState().sliderMinGrossPage2 = functions.getMinMaxValueFromList(
           FFAppState().searchInsurerMinnetpremium.toList(), 'min')!;
-      FFAppState().sliderMaxGrossTotal = functions.getMinMaxValueFromList(
+      FFAppState().sliderMaxGrossPage2 = functions.getMinMaxValueFromList(
           FFAppState().searchInsurerMaxnetpremium.toList(), 'max')!;
-      FFAppState().sliderCurrentMinValueGross =
-          FFAppState().sliderMinGrossTotal;
-      FFAppState().sliderCurrentMaxValueGross =
-          FFAppState().sliderMaxGrossTotal;
-      FFAppState().sliderMinSumInsured = functions.getMinMaxValueFromList(
+      FFAppState().sliderMinSumInsuredPage2 = functions.getMinMaxValueFromList(
           FFAppState().searchInsurerMinsuminsured.toList(), 'min')!;
-      FFAppState().sliderMaxSumInsured = functions.getMinMaxValueFromList(
+      FFAppState().sliderMaxSumInsuredPage2 = functions.getMinMaxValueFromList(
           FFAppState().searchInsurerMaxsuminsured.toList(), 'max')!;
-      FFAppState().sliderCurrentMinSumInsured =
-          FFAppState().sliderMinSumInsured;
-      FFAppState().sliderCurrentMaxSumInsured =
-          FFAppState().sliderMaxSumInsured;
-      safeSetState(() {});
-      FFAppState().isShowPackageCardList1 = functions
-          .checkPackageInRangePage2(
-              FFAppState().searchShortName.toList(),
-              FFAppState().searchNetPremium.toList(),
-              FFAppState().searchInsurerInsurershortname.toList(),
-              FFAppState().sliderMinGrossTotal,
-              FFAppState().sliderMaxGrossTotal)!
-          .toList()
-          .cast<bool>();
+      FFAppState().sliderCurrentMinGrossPage2 =
+          FFAppState().sliderMinGrossPage2;
+      FFAppState().sliderCurrentMaxGrossPage2 =
+          FFAppState().sliderMaxGrossPage2;
+      FFAppState().sliderCurrentMinSumInsuredPage2 =
+          FFAppState().sliderMinSumInsuredPage2;
+      FFAppState().sliderCurrentMaxSumInsuredPage2 =
+          FFAppState().sliderMaxSumInsuredPage2;
       safeSetState(() {});
       Navigator.pop(context);
     });
@@ -959,9 +949,9 @@ class _InsurerListOverallPageWidgetState
                                                                           FFAppState().searchInsurerInsurershortname[
                                                                               listinsuranceIndex],
                                                                           FFAppState()
-                                                                              .sliderCurrentMinValueGross,
+                                                                              .sliderCurrentMinGrossPage2,
                                                                           FFAppState()
-                                                                              .sliderCurrentMaxValueGross,
+                                                                              .sliderCurrentMaxGrossPage2,
                                                                           FFAppState().searchInsurerCovertypelist[
                                                                               listinsuranceIndex],
                                                                           FFAppState()
@@ -973,8 +963,8 @@ class _InsurerListOverallPageWidgetState
                                                                               .toList(),
                                                                           FFAppState().searchSumInsured.toList(),
                                                                           FFAppState().searchInsurerInsurershortname[listinsuranceIndex],
-                                                                          FFAppState().sliderCurrentMinSumInsured,
-                                                                          FFAppState().sliderCurrentMaxSumInsured,
+                                                                          FFAppState().sliderCurrentMinSumInsuredPage2,
+                                                                          FFAppState().sliderCurrentMaxSumInsuredPage2,
                                                                           FFAppState().searchInsurerCovertypelist[listinsuranceIndex],
                                                                           FFAppState().searchCoverType.toList())!),
                                                               child: Padding(

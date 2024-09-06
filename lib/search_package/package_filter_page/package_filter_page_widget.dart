@@ -663,21 +663,41 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                   child: custom_widgets.RangeSliderWidget(
                                     width: double.infinity,
                                     height: 150.0,
-                                    minRange: FFAppState().sliderMinGrossTotal,
-                                    maxRange: FFAppState().sliderMaxGrossTotal,
+                                    minRange:
+                                        widget!.fromPage == 'SearchPackage2'
+                                            ? FFAppState().sliderMinGrossPage2
+                                            : FFAppState().sliderMinGrossPage3,
+                                    maxRange:
+                                        widget!.fromPage == 'SearchPackage2'
+                                            ? FFAppState().sliderMaxGrossPage2
+                                            : FFAppState().sliderMaxGrossPage3,
                                     activeColor: Color(0xFFDB771B),
                                     inactiveColors: FlutterFlowTheme.of(context)
                                         .secondaryText,
                                     overlayColor: Color(0xFFFFBB7C),
                                     startValue:
-                                        FFAppState().sliderMinGrossTotal,
-                                    endValue: FFAppState().sliderMaxGrossTotal,
-                                    step: '100',
+                                        widget!.fromPage == 'SearchPackage2'
+                                            ? FFAppState().sliderMinGrossPage2
+                                            : FFAppState().sliderMinGrossPage3,
+                                    endValue:
+                                        widget!.fromPage == 'SearchPackage2'
+                                            ? FFAppState().sliderMaxGrossPage2
+                                            : FFAppState().sliderMaxGrossPage3,
+                                    step: '20',
                                     typeName: 'ราคาเบี้ย',
                                     currentMinValue:
-                                        FFAppState().sliderCurrentMinValueGross,
+                                        widget!.fromPage == 'SearchPackage2'
+                                            ? FFAppState()
+                                                .sliderCurrentMinGrossPage2
+                                            : FFAppState()
+                                                .sliderCurrentMinGrossPage3,
                                     currentMaxValue:
-                                        FFAppState().sliderCurrentMaxValueGross,
+                                        widget!.fromPage == 'SearchPackage2'
+                                            ? FFAppState()
+                                                .sliderCurrentMaxGrossPage2
+                                            : FFAppState()
+                                                .sliderCurrentMaxGrossPage3,
+                                    fromPage: widget!.fromPage,
                                   ),
                                 ),
                               ],
@@ -718,21 +738,41 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                   child: custom_widgets.RangeSliderWidget(
                                     width: double.infinity,
                                     height: 150.0,
-                                    minRange: FFAppState().sliderMinSumInsured,
-                                    maxRange: FFAppState().sliderMaxSumInsured,
+                                    minRange: widget!.fromPage ==
+                                            'SearchPackage2'
+                                        ? FFAppState().sliderMinSumInsuredPage2
+                                        : FFAppState().sliderMinSumInsuredPage3,
+                                    maxRange: widget!.fromPage ==
+                                            'SearchPackage2'
+                                        ? FFAppState().sliderMaxSumInsuredPage2
+                                        : FFAppState().sliderMaxSumInsuredPage3,
                                     activeColor: Color(0xFFDB771B),
                                     inactiveColors: FlutterFlowTheme.of(context)
                                         .secondaryText,
                                     overlayColor: Color(0xFFFFBB7C),
-                                    startValue:
-                                        FFAppState().sliderMinSumInsured,
-                                    endValue: FFAppState().sliderMaxSumInsured,
+                                    startValue: widget!.fromPage ==
+                                            'SearchPackage2'
+                                        ? FFAppState().sliderMinSumInsuredPage2
+                                        : FFAppState().sliderMinSumInsuredPage3,
+                                    endValue: widget!.fromPage ==
+                                            'SearchPackage2'
+                                        ? FFAppState().sliderMaxSumInsuredPage2
+                                        : FFAppState().sliderMaxSumInsuredPage3,
                                     step: '100',
                                     typeName: 'ทุนประกัน',
-                                    currentMinValue:
-                                        FFAppState().sliderCurrentMinSumInsured,
-                                    currentMaxValue:
-                                        FFAppState().sliderCurrentMaxSumInsured,
+                                    currentMinValue: widget!.fromPage ==
+                                            'SearchPackage2'
+                                        ? FFAppState()
+                                            .sliderCurrentMinSumInsuredPage2
+                                        : FFAppState()
+                                            .sliderCurrentMinSumInsuredPage3,
+                                    currentMaxValue: widget!.fromPage ==
+                                            'SearchPackage2'
+                                        ? FFAppState()
+                                            .sliderCurrentMaxSumInsuredPage2
+                                        : FFAppState()
+                                            .sliderCurrentMaxSumInsuredPage3,
+                                    fromPage: widget!.fromPage,
                                   ),
                                 ),
                               ],
