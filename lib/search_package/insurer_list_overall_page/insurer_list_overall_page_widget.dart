@@ -480,6 +480,14 @@ class _InsurerListOverallPageWidgetState
           FFAppState().sliderMinGrossTotal;
       FFAppState().sliderCurrentMaxValueGross =
           FFAppState().sliderMaxGrossTotal;
+      FFAppState().sliderMinSumInsured = functions.getMinMaxValueFromList(
+          FFAppState().searchInsurerMinsuminsured.toList(), 'min')!;
+      FFAppState().sliderMaxSumInsured = functions.getMinMaxValueFromList(
+          FFAppState().searchInsurerMaxsuminsured.toList(), 'max')!;
+      FFAppState().sliderCurrentMinSumInsured =
+          FFAppState().sliderMinSumInsured;
+      FFAppState().sliderCurrentMaxSumInsured =
+          FFAppState().sliderMaxSumInsured;
       safeSetState(() {});
       FFAppState().isShowPackageCardList1 = functions
           .checkPackageInRangePage2(
