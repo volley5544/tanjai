@@ -784,19 +784,19 @@ bool? checkPackageInRangePage2Copy(
     //check price is between max min
     if (selectedInsurerShortName! == insurerShortNameList![i]) {
       if (selectedCoverType!.contains('1')) {
-        if (coverTypeList!.contains('1')) {
-          if (double.parse(removeCommaFromNumText(minValue!)) <
+        if (coverTypeList![i].contains('1')) {
+          if (double.parse(removeCommaFromNumText(minValue!)) <=
                   double.parse(removeCommaFromNumText(priceList![i])) &&
-              double.parse(removeCommaFromNumText(maxValue!)) >
+              double.parse(removeCommaFromNumText(maxValue!)) >=
                   double.parse(removeCommaFromNumText(priceList![i]))) {
             return true;
           }
         }
       } else {
-        if (!coverTypeList!.contains('1')) {
-          if (double.parse(removeCommaFromNumText(minValue!)) <
+        if (!coverTypeList![i].contains('1')) {
+          if (double.parse(removeCommaFromNumText(minValue!)) <=
                   double.parse(removeCommaFromNumText(priceList![i])) &&
-              double.parse(removeCommaFromNumText(maxValue!)) >
+              double.parse(removeCommaFromNumText(maxValue!)) >=
                   double.parse(removeCommaFromNumText(priceList![i]))) {
             return true;
           }

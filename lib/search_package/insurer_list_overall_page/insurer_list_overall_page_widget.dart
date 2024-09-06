@@ -940,33 +940,35 @@ class _InsurerListOverallPageWidgetState
                                                                 listinsurance[
                                                                     listinsuranceIndex];
                                                             return Visibility(
-                                                              visible: (FFAppState().filterInsurerList.length > 0
-                                                                      ? (FFAppState().filterInsurerList.length >
-                                                                              0
-                                                                          ? FFAppState().filterInsurerList.contains(FFAppState().searchInsurerInsurercode[
-                                                                              listinsuranceIndex])
-                                                                          : true)
-                                                                      : true) &&
-                                                                  functions.checkPackageInRangePage2Copy(
-                                                                      FFAppState()
-                                                                          .searchShortName
-                                                                          .toList(),
-                                                                      FFAppState()
-                                                                          .searchGrossTotal
-                                                                          .toList(),
-                                                                      FFAppState()
-                                                                              .searchInsurerInsurershortname[
-                                                                          listinsuranceIndex],
-                                                                      FFAppState()
-                                                                          .sliderCurrentMinValueGross,
-                                                                      FFAppState()
-                                                                          .sliderCurrentMaxValueGross,
-                                                                      FFAppState()
-                                                                              .searchInsurerCovertypelist[
-                                                                          listinsuranceIndex],
-                                                                      FFAppState()
-                                                                          .searchCoverType
-                                                                          .toList())!,
+                                                              visible: (FFAppState().filterInsurerList.length > 0 ? (FFAppState().filterInsurerList.length > 0 ? FFAppState().filterInsurerList.contains(FFAppState().searchInsurerInsurercode[listinsuranceIndex]) : true) : true) &&
+                                                                  (functions.checkPackageInRangePage2Copy(
+                                                                          FFAppState()
+                                                                              .searchShortName
+                                                                              .toList(),
+                                                                          FFAppState()
+                                                                              .searchGrossTotal
+                                                                              .toList(),
+                                                                          FFAppState().searchInsurerInsurershortname[
+                                                                              listinsuranceIndex],
+                                                                          FFAppState()
+                                                                              .sliderCurrentMinValueGross,
+                                                                          FFAppState()
+                                                                              .sliderCurrentMaxValueGross,
+                                                                          FFAppState().searchInsurerCovertypelist[
+                                                                              listinsuranceIndex],
+                                                                          FFAppState()
+                                                                              .searchCoverType
+                                                                              .toList())! &&
+                                                                      functions.checkPackageInRangePage2Copy(
+                                                                          FFAppState()
+                                                                              .searchShortName
+                                                                              .toList(),
+                                                                          FFAppState().searchSumInsured.toList(),
+                                                                          FFAppState().searchInsurerInsurershortname[listinsuranceIndex],
+                                                                          FFAppState().sliderCurrentMinSumInsured,
+                                                                          FFAppState().sliderCurrentMaxSumInsured,
+                                                                          FFAppState().searchInsurerCovertypelist[listinsuranceIndex],
+                                                                          FFAppState().searchCoverType.toList())!),
                                                               child: Padding(
                                                                 padding: EdgeInsetsDirectional
                                                                     .fromSTEB(
