@@ -13761,7 +13761,7 @@ class FFAppState extends ChangeNotifier {
     listNonType1.insert(index, value);
   }
 
-  List<String> _listType1 = [];
+  List<String> _listType1 = ['VMI1'];
   List<String> get listType1 => _listType1;
   set listType1(List<String> value) {
     _listType1 = value;

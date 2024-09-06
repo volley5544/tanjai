@@ -940,19 +940,33 @@ class _InsurerListOverallPageWidgetState
                                                                 listinsurance[
                                                                     listinsuranceIndex];
                                                             return Visibility(
-                                                              visible: (FFAppState()
-                                                                              .filterInsurerList
-                                                                              .length >
-                                                                          0
+                                                              visible: (FFAppState().filterInsurerList.length > 0
                                                                       ? (FFAppState().filterInsurerList.length >
                                                                               0
                                                                           ? FFAppState().filterInsurerList.contains(FFAppState().searchInsurerInsurercode[
                                                                               listinsuranceIndex])
                                                                           : true)
                                                                       : true) &&
-                                                                  FFAppState()
-                                                                          .isShowPackageCardList1[
-                                                                      listinsuranceIndex],
+                                                                  functions.checkPackageInRangePage2Copy(
+                                                                      FFAppState()
+                                                                          .searchShortName
+                                                                          .toList(),
+                                                                      FFAppState()
+                                                                          .searchGrossTotal
+                                                                          .toList(),
+                                                                      FFAppState()
+                                                                              .searchInsurerInsurershortname[
+                                                                          listinsuranceIndex],
+                                                                      FFAppState()
+                                                                          .sliderCurrentMinValueGross,
+                                                                      FFAppState()
+                                                                          .sliderCurrentMaxValueGross,
+                                                                      FFAppState()
+                                                                              .searchInsurerCovertypelist[
+                                                                          listinsuranceIndex],
+                                                                      FFAppState()
+                                                                          .searchCoverType
+                                                                          .toList())!,
                                                               child: Padding(
                                                                 padding: EdgeInsetsDirectional
                                                                     .fromSTEB(

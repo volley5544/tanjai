@@ -770,6 +770,43 @@ String checkDateWeekDay(DateTime? date) {
   /// e.g Thursday
 }
 
+bool? checkPackageInRangePage2Copy(
+  List<String>? insurerShortNameList,
+  List<String>? priceList,
+  String? selectedInsurerShortName,
+  String? minValue,
+  String? maxValue,
+  String? selectedCoverType,
+  List<String>? coverTypeList,
+) {
+  //loop for all package
+  for (int i = 0; i < insurerShortNameList!.length; i++) {
+    //check price is between max min
+    if (selectedInsurerShortName! == insurerShortNameList![i]) {
+      if (selectedCoverType!.contains('1')) {
+        if (coverTypeList!.contains('1')) {
+          if (double.parse(removeCommaFromNumText(minValue!)) <
+                  double.parse(removeCommaFromNumText(priceList![i])) &&
+              double.parse(removeCommaFromNumText(maxValue!)) >
+                  double.parse(removeCommaFromNumText(priceList![i]))) {
+            return true;
+          }
+        }
+      } else {
+        if (!coverTypeList!.contains('1')) {
+          if (double.parse(removeCommaFromNumText(minValue!)) <
+                  double.parse(removeCommaFromNumText(priceList![i])) &&
+              double.parse(removeCommaFromNumText(maxValue!)) >
+                  double.parse(removeCommaFromNumText(priceList![i]))) {
+            return true;
+          }
+        }
+      }
+    }
+  }
+  return false;
+}
+
 Color leadTimeRemainTextColor(
   int? timeRemain,
   Color? normalColor,
