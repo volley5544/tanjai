@@ -1050,7 +1050,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                 children: [
                                                   Expanded(
                                                     child: Text(
-                                                      'ราคาเบี่ยต่ำสุด:${functions.showNumberWithComma(FFAppState().sliderCurrentMinGrossPage3)}',
+                                                      'ราคาเบี้ยต่ำสุด:${functions.showNumberWithComma(FFAppState().sliderCurrentMinGrossPage3)}',
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .bodyMedium
@@ -1064,7 +1064,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                   ),
                                                   Expanded(
                                                     child: Text(
-                                                      'ราคาเบี่ยสูงสุด:${functions.showNumberWithComma(FFAppState().sliderCurrentMaxGrossPage3)}',
+                                                      'ราคาเบี้ยสูงสุด:${functions.showNumberWithComma(FFAppState().sliderCurrentMaxGrossPage3)}',
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .bodyMedium

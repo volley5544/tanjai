@@ -5239,7 +5239,7 @@ String? getMinMaxValueFromList(
       return removeCommaFromNumText(inputList![0]);
     } else {
       for (int i = 0; i < inputList!.length; i++) {
-        if (i == 1) {
+        if (i == 0) {
           minValue = double.parse(removeCommaFromNumText(inputList![i]));
         } else {
           if (double.parse(removeCommaFromNumText(inputList![i])) < minValue) {
@@ -5254,7 +5254,7 @@ String? getMinMaxValueFromList(
       return removeCommaFromNumText(inputList![0]);
     } else {
       for (int i = 0; i < inputList!.length; i++) {
-        if (i == 1) {
+        if (i == 0) {
           maxValue = double.parse(removeCommaFromNumText(inputList![i]));
         } else {
           if (double.parse(removeCommaFromNumText(inputList![i])) > maxValue) {

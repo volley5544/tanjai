@@ -875,7 +875,7 @@ class _InsurerListOverallPageWidgetState
                                                 children: [
                                                   Expanded(
                                                     child: Text(
-                                                      'ราคาเบี่ยต่ำสุด:${functions.showNumberWithComma(FFAppState().sliderCurrentMinGrossPage2)}',
+                                                      'ราคาเบี้ยต่ำสุด:${functions.showNumberWithComma(FFAppState().sliderCurrentMinGrossPage2)}',
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .bodyMedium
@@ -889,7 +889,7 @@ class _InsurerListOverallPageWidgetState
                                                   ),
                                                   Expanded(
                                                     child: Text(
-                                                      'ราคาเบี่ยสูงสุด:${functions.showNumberWithComma(FFAppState().sliderCurrentMaxGrossPage2)}',
+                                                      'ราคาเบี้ยสูงสุด:${functions.showNumberWithComma(FFAppState().sliderCurrentMaxGrossPage2)}',
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .bodyMedium
