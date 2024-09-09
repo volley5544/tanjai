@@ -668,6 +668,12 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
           FFAppState().sliderCurrentMinSumInsuredPage2;
       FFAppState().sliderCurrentMaxSumInsuredPage3 =
           FFAppState().sliderCurrentMaxSumInsuredPage2;
+      FFAppState().sliderMinGrossPage3 = FFAppState().sliderMinGrossPage2;
+      FFAppState().sliderMaxGrossPage3 = FFAppState().sliderMaxGrossPage2;
+      FFAppState().sliderMinSumInsuredPage3 =
+          FFAppState().sliderMinSumInsuredPage3;
+      FFAppState().sliderMaxSumInsuredPage3 =
+          FFAppState().sliderMaxSumInsuredPage3;
       safeSetState(() {});
     });
   }
