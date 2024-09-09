@@ -659,6 +659,16 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
           Navigator.pop(context);
         }
       }
+
+      FFAppState().sliderCurrentMinGrossPage3 =
+          FFAppState().sliderCurrentMinGrossPage2;
+      FFAppState().sliderCurrentMaxGrossPage3 =
+          FFAppState().sliderCurrentMaxGrossPage2;
+      FFAppState().sliderCurrentMinSumInsuredPage3 =
+          FFAppState().sliderCurrentMinSumInsuredPage2;
+      FFAppState().sliderCurrentMaxSumInsuredPage3 =
+          FFAppState().sliderCurrentMaxSumInsuredPage2;
+      safeSetState(() {});
     });
   }
 
@@ -1111,28 +1121,38 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                 listinsurance[
                                                                     listinsuranceIndex];
                                                             return Visibility(
-                                                              visible: (FFAppState().filterInsurerList.length > 0) ||
-                                                                      (FFAppState()
-                                                                              .filterCoverTypeList
-                                                                              .length >
-                                                                          0) ||
-                                                                      (FFAppState()
-                                                                              .filterGarageTypeList
-                                                                              .length >
-                                                                          0)
-                                                                  ? ((FFAppState().filterInsurerList.length > 0 ? FFAppState().filterInsurerList.contains(FFAppState().searchSerialName[listinsuranceIndex]) : true) &&
-                                                                      (FFAppState().filterCoverTypeList.length >
-                                                                              0
-                                                                          ? FFAppState().filterCoverTypeList.contains(FFAppState().searchCoverType[
-                                                                              listinsuranceIndex])
-                                                                          : true) &&
-                                                                      (FFAppState().filterGarageTypeList.length >
-                                                                              0
-                                                                          ? FFAppState()
-                                                                              .filterGarageTypeList
-                                                                              .contains(FFAppState().searchGarageType[listinsuranceIndex])
-                                                                          : true))
-                                                                  : true,
+                                                              visible: ((FFAppState().filterInsurerList.length > 0) || (FFAppState().filterCoverTypeList.length > 0) || (FFAppState().filterGarageTypeList.length > 0) ? ((FFAppState().filterInsurerList.length > 0 ? FFAppState().filterInsurerList.contains(FFAppState().searchSerialName[listinsuranceIndex]) : true) && (FFAppState().filterCoverTypeList.length > 0 ? FFAppState().filterCoverTypeList.contains(FFAppState().searchCoverType[listinsuranceIndex]) : true) && (FFAppState().filterGarageTypeList.length > 0 ? FFAppState().filterGarageTypeList.contains(FFAppState().searchGarageType[listinsuranceIndex]) : true)) : true) &&
+                                                                  (functions.checkPackageInRangePage2Copy(
+                                                                          FFAppState()
+                                                                              .searchShortName
+                                                                              .toList(),
+                                                                          FFAppState()
+                                                                              .searchGrossTotal
+                                                                              .toList(),
+                                                                          FFAppState().searchShortName[
+                                                                              listinsuranceIndex],
+                                                                          FFAppState()
+                                                                              .sliderCurrentMinGrossPage3,
+                                                                          FFAppState()
+                                                                              .sliderCurrentMaxGrossPage3,
+                                                                          FFAppState().searchCoverType[
+                                                                              listinsuranceIndex],
+                                                                          FFAppState()
+                                                                              .searchCoverType
+                                                                              .toList())! &&
+                                                                      functions.checkPackageInRangePage2Copy(
+                                                                          FFAppState()
+                                                                              .searchShortName
+                                                                              .toList(),
+                                                                          FFAppState()
+                                                                              .searchSumInsured
+                                                                              .toList(),
+                                                                          FFAppState()
+                                                                              .searchShortName[listinsuranceIndex],
+                                                                          FFAppState().sliderCurrentMinSumInsuredPage3,
+                                                                          FFAppState().sliderCurrentMaxSumInsuredPage3,
+                                                                          FFAppState().searchCoverType[listinsuranceIndex],
+                                                                          FFAppState().searchCoverType.toList())!),
                                                               child: Padding(
                                                                 padding: EdgeInsetsDirectional
                                                                     .fromSTEB(
