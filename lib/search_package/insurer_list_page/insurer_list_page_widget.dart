@@ -360,6 +360,22 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
         )!
             .toList()
             .cast<String>();
+        FFAppState().searchCarlost = TelePackageSearchMCAPICall.carLost(
+          (_model.packageAPIMCOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchMotoraddon = TelePackageSearchMCAPICall.motorAddOn(
+          (_model.packageAPIMCOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchDriverbehavior =
+            TelePackageSearchMCAPICall.driverBehavior(
+          (_model.packageAPIMCOutput?.jsonBody ?? ''),
+        )!
+                .toList()
+                .cast<String>();
         safeSetState(() {});
         FFAppState().selectInsurerList = functions
             .createFalseListByItemNumber(
@@ -369,15 +385,15 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
         FFAppState().addCustomerQuotationSaveSuccess = false;
         safeSetState(() {});
         FFAppState().sliderMinGrossPage3 = functions.getMinMaxValueFromList(
-            FFAppState().searchInsurerMinnetpremium.toList(), 'min')!;
+            FFAppState().searchGrossTotal.toList(), 'min')!;
         FFAppState().sliderMaxGrossPage3 = functions.getMinMaxValueFromList(
-            FFAppState().searchInsurerMaxnetpremium.toList(), 'max')!;
+            FFAppState().searchGrossTotal.toList(), 'max')!;
         FFAppState().sliderMinSumInsuredPage3 =
             functions.getMinMaxValueFromList(
-                FFAppState().searchInsurerMinsuminsured.toList(), 'min')!;
+                FFAppState().searchSumInsured.toList(), 'min')!;
         FFAppState().sliderMaxSumInsuredPage3 =
             functions.getMinMaxValueFromList(
-                FFAppState().searchInsurerMaxsuminsured.toList(), 'max')!;
+                FFAppState().searchSumInsured.toList(), 'max')!;
         safeSetState(() {});
         FFAppState().sliderCurrentMinGrossPage3 =
             FFAppState().sliderMinGrossPage3;

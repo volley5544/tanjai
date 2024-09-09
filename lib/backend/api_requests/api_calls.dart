@@ -5450,6 +5450,33 @@ class TelePackageSearchMCAPICall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
+  static List<String>? carLost(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].car_lost''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? motorAddOn(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].motor_add_on''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? driverBehavior(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].driver_behavior''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class TelePackageSearchAPICopyCall {
