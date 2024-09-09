@@ -91,6 +91,31 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
       FFAppState().sliderCurrentMinSumInsured = '0';
       FFAppState().sliderCurrentMaxSumInsured = '1000000';
       safeSetState(() {});
+      FFAppState().sliderMinGrossTotal = '1000';
+      FFAppState().sliderMaxGrossTotal = '50000';
+      FFAppState().sliderMinSumInsured = '0';
+      FFAppState().sliderMaxSumInsured = '1000000';
+      FFAppState().sliderCurrentMinValueGross = '1000';
+      FFAppState().sliderCurrentMaxValueGross = '50000';
+      FFAppState().sliderCurrentMinSumInsured = '0';
+      FFAppState().sliderCurrentMaxSumInsured = '1000000';
+      FFAppState().sliderMinGrossPage2 = '1000';
+      FFAppState().sliderMaxGrossPage2 = '10000';
+      FFAppState().sliderMinSumInsuredPage2 = '0';
+      FFAppState().sliderMaxSumInsuredPage2 = '1000000';
+      FFAppState().sliderCurrentMinGrossPage2 = '1000';
+      FFAppState().sliderCurrentMaxGrossPage2 = '10000';
+      FFAppState().sliderCurrentMinSumInsuredPage2 = '0';
+      FFAppState().sliderCurrentMaxSumInsuredPage2 = '1000000';
+      FFAppState().sliderMinGrossPage3 = '1000';
+      FFAppState().sliderMaxGrossPage3 = '10000';
+      FFAppState().sliderMinSumInsuredPage3 = '0';
+      FFAppState().sliderCurrentMinGrossPage3 = '1000';
+      FFAppState().sliderMaxSumInsuredPage3 = '1000000';
+      FFAppState().sliderCurrentMaxGrossPage3 = '10000';
+      FFAppState().sliderCurrentMinSumInsuredPage3 = '0';
+      FFAppState().sliderCurrentMaxSumInsuredPage3 = '1000000';
+      safeSetState(() {});
       _model.adminVersionQuery = await queryAuthorizationRecordOnce(
         queryBuilder: (authorizationRecord) => authorizationRecord.where(
           'content_name',
