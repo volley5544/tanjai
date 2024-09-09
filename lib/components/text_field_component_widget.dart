@@ -14,11 +14,15 @@ class TextFieldComponentWidget extends StatefulWidget {
     required this.title,
     required this.minValue,
     required this.maxValue,
+    required this.sliderMinValue,
+    required this.sliderMaxValue,
   });
 
   final String? title;
   final String? minValue;
   final String? maxValue;
+  final String? sliderMinValue;
+  final String? sliderMaxValue;
 
   @override
   State<TextFieldComponentWidget> createState() =>
@@ -259,7 +263,7 @@ class _TextFieldComponentWidgetState extends State<TextFieldComponentWidget> {
                           EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                       child: FFButtonWidget(
                         onPressed: () async {
-                          if (!() {
+                          if (() {
                             if ((_model.carryPurposeTextFieldTextController1.text != null &&
                                     _model.carryPurposeTextFieldTextController1.text !=
                                         '') &&
@@ -302,6 +306,35 @@ class _TextFieldComponentWidgetState extends State<TextFieldComponentWidget> {
                               return true;
                             }
                           }()) {
+                            if (double.parse((widget!.minValue!)) <
+                                double.parse((widget!.sliderMinValue!))) {
+                              safeSetState(() {
+                                _model.carryPurposeTextFieldTextController1
+                                    ?.text = widget!.sliderMinValue!;
+                                _model.carryPurposeTextFieldTextController1
+                                        ?.selection =
+                                    TextSelection.collapsed(
+                                        offset: _model
+                                            .carryPurposeTextFieldTextController1!
+                                            .text
+                                            .length);
+                              });
+                            }
+                            if (double.parse((widget!.maxValue!)) >
+                                double.parse((widget!.sliderMaxValue!))) {
+                              safeSetState(() {
+                                _model.carryPurposeTextFieldTextController2
+                                    ?.text = widget!.sliderMaxValue!;
+                                _model.carryPurposeTextFieldTextController2
+                                        ?.selection =
+                                    TextSelection.collapsed(
+                                        offset: _model
+                                            .carryPurposeTextFieldTextController2!
+                                            .text
+                                            .length);
+                              });
+                            }
+                          } else {
                             await showDialog(
                               context: context,
                               builder: (alertDialogContext) {
@@ -322,6 +355,7 @@ class _TextFieldComponentWidgetState extends State<TextFieldComponentWidget> {
                             );
                             return;
                           }
+
                           Navigator.pop(context, <String, dynamic>{
                             'start': _model.carryPurposeTextFieldTextController1
                                             .text !=

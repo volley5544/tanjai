@@ -206,6 +206,8 @@ class _RangeSliderWidgetState extends State<RangeSliderWidget> {
                           title: '${widget.typeName!}',
                           minValue: '${_startValue!}',
                           maxValue: '${_endValue!}',
+                          sliderMinValue: '${widget.minRange!}',
+                          sliderMaxValue: '${widget.maxRange!}',
                         ),
                       ),
                     ),
@@ -220,13 +222,33 @@ class _RangeSliderWidgetState extends State<RangeSliderWidget> {
                     print('end value : ${_endValue}');
                     _sliderValue = RangeValues(
                         double.parse(_startValue), double.parse(_endValue));
+                    safeSetState(() {});
                     if (widget.typeName! == 'ราคาเบี้ย') {
-                      FFAppState().sliderMinGrossTotal = '${_startValue}';
-                      FFAppState().sliderMaxGrossTotal = '${_endValue}';
+                      if (widget.fromPage! == 'SearchPackage1') {
+                        FFAppState().sliderMinGrossTotal = '${_startValue}';
+                        FFAppState().sliderMaxGrossTotal = '${_endValue}';
+                      } else if (widget.fromPage! == 'SearchPackage2') {
+                        FFAppState().sliderMinGrossPage2 = '${_startValue}';
+                        FFAppState().sliderMaxGrossPage2 = '${_endValue}';
+                      } else if (widget.fromPage! == 'SearchPackage3') {
+                        FFAppState().sliderMinGrossPage3 = '${_startValue}';
+                        FFAppState().sliderMaxGrossPage3 = '${_endValue}';
+                      }
                     } else {
-                      FFAppState().sliderMinSumInsured = '${_startValue}';
-                      FFAppState().sliderMaxSumInsured = '${_endValue}';
+                      if (widget.fromPage! == 'SearchPackage1') {
+                        FFAppState().sliderMinSumInsured = '${_startValue}';
+                        FFAppState().sliderMaxSumInsured = '${_endValue}';
+                      } else if (widget.fromPage! == 'SearchPackage2') {
+                        FFAppState().sliderMinSumInsuredPage2 =
+                            '${_startValue}';
+                        FFAppState().sliderMaxSumInsuredPage2 = '${_endValue}';
+                      } else if (widget.fromPage! == 'SearchPackage3') {
+                        FFAppState().sliderMinSumInsuredPage3 =
+                            '${_startValue}';
+                        FFAppState().sliderMaxSumInsuredPage3 = '${_endValue}';
+                      }
                     }
+                    safeSetState(() {});
                     print('after');
                   }));
 

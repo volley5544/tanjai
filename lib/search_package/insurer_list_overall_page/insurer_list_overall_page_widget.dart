@@ -97,14 +97,6 @@ class _InsurerListOverallPageWidgetState
         insuranceUrl: FFAppState().apiUrlInsuranceAppState,
         garageTypeList: widget!.garageType,
         province: widget!.province,
-        maxGrossTotal:
-            double.parse(FFAppState().sliderCurrentMaxValueGross!).toInt(),
-        minGrossTotal:
-            double.parse(FFAppState().sliderCurrentMinValueGross!).toInt(),
-        maxSumInsured:
-            double.parse(FFAppState().sliderCurrentMaxSumInsured!).toInt(),
-        minSumInsured:
-            double.parse(FFAppState().sliderCurrentMinSumInsured!).toInt(),
       );
 
       if ((_model.packageAPIOutput?.statusCode ?? 200) != 200) {
@@ -470,11 +462,6 @@ class _InsurerListOverallPageWidgetState
       )!
               .toList()
               .cast<String>();
-      safeSetState(() {});
-      FFAppState().sliderMinGrossTotal = functions.getMinMaxValueFromList(
-          FFAppState().searchInsurerMinnetpremium.toList(), 'min')!;
-      FFAppState().sliderMaxGrossTotal = functions.getMinMaxValueFromList(
-          FFAppState().searchInsurerMaxnetpremium.toList(), 'max')!;
       safeSetState(() {});
       FFAppState().sliderMinGrossPage2 = functions.getMinMaxValueFromList(
           FFAppState().searchInsurerMinnetpremium.toList(), 'min')!;
@@ -875,6 +862,87 @@ class _InsurerListOverallPageWidgetState
                                               ],
                                             ),
                                           ),
+                                        ),
+                                        Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      24.0, 4.0, 24.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Expanded(
+                                                    child: Text(
+                                                      'ราคาเบี่ยต่ำสุด:${functions.showNumberWithComma(FFAppState().sliderCurrentMinGrossPage2)}',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            fontSize: 12.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                  Expanded(
+                                                    child: Text(
+                                                      'ราคาเบี่ยสูงสุด:${functions.showNumberWithComma(FFAppState().sliderCurrentMaxGrossPage2)}',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            fontSize: 12.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      24.0, 4.0, 24.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Expanded(
+                                                    child: Text(
+                                                      'ทุนประกันต่ำสุด:${functions.showNumberWithComma(FFAppState().sliderCurrentMinSumInsuredPage2)}',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            fontSize: 12.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                  Expanded(
+                                                    child: Text(
+                                                      'ทุนประกันสูงสุด:${functions.showNumberWithComma(FFAppState().sliderCurrentMaxSumInsuredPage2)}',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            fontSize: 12.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
                                         ),
                                         Padding(
                                           padding:
