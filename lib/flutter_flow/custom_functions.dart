@@ -807,6 +807,48 @@ bool? checkPackageInRangePage2Copy(
   return false;
 }
 
+List<String>? generateListByInsurer(
+  List<String>? insurerShortNameList,
+  List<String>? priceList,
+  String? selectedInsurerShortName,
+  String? selectedCoverType,
+  List<String>? coverTypeList,
+) {
+  List<String> outputList = [];
+
+  //loop for all package
+  for (int i = 0; i < insurerShortNameList!.length; i++) {
+    //check price is between max min
+    if (selectedInsurerShortName! == insurerShortNameList![i]) {
+      if (selectedCoverType!.contains('1')) {
+        if (coverTypeList![i].contains('1')) {
+          outputList.add(priceList![i]);
+        }
+      } else {
+        if (!coverTypeList![i].contains('1')) {
+          outputList.add(priceList![i]);
+        }
+      }
+    }
+  }
+  return outputList;
+}
+
+bool? checkPackageInRangePage3(
+  String? price,
+  String? minValue,
+  String? maxValue,
+) {
+  if (double.parse(removeCommaFromNumText(minValue!)) <=
+          double.parse(removeCommaFromNumText(price!)) &&
+      double.parse(removeCommaFromNumText(maxValue!)) >=
+          double.parse(removeCommaFromNumText(price!))) {
+    return true;
+  }
+
+  return false;
+}
+
 Color leadTimeRemainTextColor(
   int? timeRemain,
   Color? normalColor,
