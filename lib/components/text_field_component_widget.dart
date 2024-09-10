@@ -135,7 +135,7 @@ class _TextFieldComponentWidgetState extends State<TextFieldComponentWidget> {
                                   fontSize: 15.0,
                                   letterSpacing: 0.0,
                                 ),
-                            hintText: 'กรุณากรอกรถใช้บรรทุกอะไร',
+                            hintText: 'กรุณากรอก${widget!.title}ต่ำสุด',
                             hintStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
@@ -218,7 +218,7 @@ class _TextFieldComponentWidgetState extends State<TextFieldComponentWidget> {
                                   fontSize: 15.0,
                                   letterSpacing: 0.0,
                                 ),
-                            hintText: 'กรุณากรอกรถใช้บรรทุกอะไร',
+                            hintText: 'กรุณากรอก${widget!.title}สูงสุด',
                             hintStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
@@ -306,7 +306,9 @@ class _TextFieldComponentWidgetState extends State<TextFieldComponentWidget> {
                               return true;
                             }
                           }()) {
-                            if (double.parse((widget!.minValue!)) <
+                            if (double.parse(_model
+                                    .carryPurposeTextFieldTextController1
+                                    .text) <
                                 double.parse((widget!.sliderMinValue!))) {
                               safeSetState(() {
                                 _model.carryPurposeTextFieldTextController1
@@ -320,7 +322,9 @@ class _TextFieldComponentWidgetState extends State<TextFieldComponentWidget> {
                                             .length);
                               });
                             }
-                            if (double.parse((widget!.maxValue!)) >
+                            if (double.parse(_model
+                                    .carryPurposeTextFieldTextController2
+                                    .text) >
                                 double.parse((widget!.sliderMaxValue!))) {
                               safeSetState(() {
                                 _model.carryPurposeTextFieldTextController2
