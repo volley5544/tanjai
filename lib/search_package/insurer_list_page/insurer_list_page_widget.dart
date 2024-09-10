@@ -1268,7 +1268,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                       : true) &&
                                                                   (functions.checkPackageInRangePage3(FFAppState().searchGrossTotal[listinsuranceIndex], FFAppState().sliderCurrentMinGrossPage3, FFAppState().sliderCurrentMaxGrossPage3)! &&
                                                                       functions.checkPackageInRangePage3(
-                                                                          FFAppState().searchGrossTotal[listinsuranceIndex],
+                                                                          FFAppState().searchSumInsured[listinsuranceIndex],
                                                                           FFAppState().sliderCurrentMinSumInsuredPage3,
                                                                           FFAppState().sliderCurrentMaxSumInsuredPage3)!),
                                                               child: Padding(
