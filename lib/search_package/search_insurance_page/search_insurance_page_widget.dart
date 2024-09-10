@@ -80,6 +80,10 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
       _model.buildVersionQuery = await queryBuildVersionRecordOnce(
         singleRecord: true,
       ).then((s) => s.firstOrNull);
+      FFAppState().filterInsurerList = [];
+      FFAppState().filterCoverTypeList = [];
+      FFAppState().filterGarageTypeList = [];
+      safeSetState(() {});
       FFAppState().searchPackageEvFlag = 'N';
       safeSetState(() {});
       FFAppState().sliderMinGrossTotal = '1000';

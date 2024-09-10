@@ -66,10 +66,17 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
         },
       ).then((value) => safeSetState(() {}));
 
-      FFAppState().filterInsurerList = [];
-      FFAppState().filterCoverTypeList = [];
-      FFAppState().filterGarageTypeList = [];
-      safeSetState(() {});
+      if (widget!.fromPage == 'SearchPackage3') {
+        FFAppState().filterCoverTypeList = [];
+        FFAppState().filterGarageTypeList = [];
+        safeSetState(() {});
+      } else {
+        FFAppState().filterInsurerList = [];
+        FFAppState().filterCoverTypeList = [];
+        FFAppState().filterGarageTypeList = [];
+        safeSetState(() {});
+      }
+
       Navigator.pop(context);
     });
 
