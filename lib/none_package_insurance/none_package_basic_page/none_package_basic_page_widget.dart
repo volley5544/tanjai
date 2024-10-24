@@ -2216,6 +2216,165 @@ class _NonePackageBasicPageWidgetState
                                                   .brandNameTextFieldFocusNode!
                                                   .addListener(
                                                 () async {
+                                                  FFAppState().nonePackageSearchModelList = functions
+                                                      .returnMappedListFrom3List(
+                                                          FFAppState()
+                                                              .insuranceBasicModelNameListOriginal
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .insuranceBasicModelBrandIdListOriginal
+                                                              .toList(),
+                                                          functions.getValueWithMappedList(
+                                                              FFAppState()
+                                                                  .insuranceBasicBrandIdList
+                                                                  .toList(),
+                                                              FFAppState()
+                                                                  .insuranceBasicBrandNameList
+                                                                  .toList(),
+                                                              functions.toUpperCase(
+                                                                  _model
+                                                                      .brandNameTextFieldTextController
+                                                                      .text)),
+                                                          FFAppState()
+                                                              .insuranceBasicVehicleGroupList
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .insuranceBasicVehicleGroup,
+                                                          FFAppState()
+                                                              .insuranceBasicCarGroupDetail
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .insuranceBasicCarTypeContain,
+                                                          FFAppState()
+                                                              .insuranceBasicCarDoorList
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .insuranceBasicCarTypeDoors)
+                                                      .toList()
+                                                      .cast<String>();
+                                                  FFAppState().nonePackageSearchModelIdList = functions
+                                                      .returnMappedListFrom3List(
+                                                          FFAppState()
+                                                              .insuranceBasicModelIdListOriginal
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .insuranceBasicModelBrandIdListOriginal
+                                                              .toList(),
+                                                          functions.getValueWithMappedList(
+                                                              FFAppState()
+                                                                  .insuranceBasicBrandIdList
+                                                                  .toList(),
+                                                              FFAppState()
+                                                                  .insuranceBasicBrandNameList
+                                                                  .toList(),
+                                                              functions.toUpperCase(
+                                                                  _model
+                                                                      .brandNameTextFieldTextController
+                                                                      .text)),
+                                                          FFAppState()
+                                                              .insuranceBasicVehicleGroupList
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .insuranceBasicVehicleGroup,
+                                                          FFAppState()
+                                                              .insuranceBasicCarGroupDetail
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .insuranceBasicCarTypeContain,
+                                                          FFAppState()
+                                                              .insuranceBasicCarDoorList
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .insuranceBasicCarTypeDoors)
+                                                      .toList()
+                                                      .cast<String>();
+                                                  safeSetState(() {});
+                                                  FFAppState().insuranceBasicModelNameList = functions
+                                                      .returnMappedListFrom3List(
+                                                          FFAppState()
+                                                              .insuranceBasicModelNameListOriginal
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .insuranceBasicModelBrandIdListOriginal
+                                                              .toList(),
+                                                          FFAppState()
+                                                                  .insuranceBasicBrandIdList[
+                                                              functions.getIndexOfBoolList(
+                                                                  FFAppState()
+                                                                      .searchableListComponentSelectedList
+                                                                      .toList(),
+                                                                  true)],
+                                                          FFAppState()
+                                                              .insuranceBasicVehicleGroupList
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .insuranceBasicVehicleGroup,
+                                                          FFAppState()
+                                                              .insuranceBasicCarGroupDetail
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .insuranceBasicCarTypeContain,
+                                                          FFAppState()
+                                                              .insuranceBasicCarDoorList
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .insuranceBasicCarTypeDoors)
+                                                      .toList()
+                                                      .cast<String>();
+                                                  FFAppState().insuranceBasicModelIdList = functions
+                                                      .returnMappedListFrom3List(
+                                                          FFAppState()
+                                                              .insuranceBasicModelIdListOriginal
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .insuranceBasicModelBrandIdListOriginal
+                                                              .toList(),
+                                                          FFAppState()
+                                                                  .insuranceBasicBrandIdList[
+                                                              functions.getIndexOfBoolList(
+                                                                  FFAppState()
+                                                                      .searchableListComponentSelectedList
+                                                                      .toList(),
+                                                                  true)],
+                                                          FFAppState()
+                                                              .insuranceBasicVehicleGroupList
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .insuranceBasicVehicleGroup,
+                                                          FFAppState()
+                                                              .insuranceBasicCarGroupDetail
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .insuranceBasicCarTypeContain,
+                                                          FFAppState()
+                                                              .insuranceBasicCarDoorList
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .insuranceBasicCarTypeDoors)
+                                                      .toList()
+                                                      .cast<String>();
+                                                  FFAppState()
+                                                          .insuranceBasicModelName =
+                                                      'เลือกรุ่นรถ';
+                                                  FFAppState()
+                                                      .insuranceBasicModelId = '';
+                                                  safeSetState(() {});
+                                                },
+                                              );
+                                            }
+                                            _model.brandNameTextFieldTextController =
+                                                textEditingController;
+                                            return TextFormField(
+                                              key: _model.brandNameTextFieldKey,
+                                              controller: textEditingController,
+                                              focusNode: focusNode,
+                                              onEditingComplete:
+                                                  onEditingComplete,
+                                              onChanged: (_) =>
+                                                  EasyDebounce.debounce(
+                                                '_model.brandNameTextFieldTextController',
+                                                Duration(milliseconds: 1000),
+                                                () async {
                                                   if (FFAppState()
                                                           .insuranceBasicVehicleGroup ==
                                                       'PICKUP') {
@@ -2492,21 +2651,6 @@ class _NonePackageBasicPageWidgetState
                                                       .insuranceBasicModelId = '';
                                                   safeSetState(() {});
                                                 },
-                                              );
-                                            }
-                                            _model.brandNameTextFieldTextController =
-                                                textEditingController;
-                                            return TextFormField(
-                                              key: _model.brandNameTextFieldKey,
-                                              controller: textEditingController,
-                                              focusNode: focusNode,
-                                              onEditingComplete:
-                                                  onEditingComplete,
-                                              onChanged: (_) =>
-                                                  EasyDebounce.debounce(
-                                                '_model.brandNameTextFieldTextController',
-                                                Duration(milliseconds: 1000),
-                                                () async {},
                                               ),
                                               onFieldSubmitted: (_) async {
                                                 await actions
