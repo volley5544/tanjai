@@ -954,7 +954,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'SampleIDcard',
               path: 'SampleIDcard',
-              builder: (context, params) => SampleIDcardWidget(),
+              builder: (context, params) => SampleIDcardWidget(
+                fromPage: params.getParam(
+                  'fromPage',
+                  ParamType.String,
+                ),
+                imageUrl: params.getParam(
+                  'imageUrl',
+                  ParamType.String,
+                ),
+              ),
             ),
             FFRoute(
               name: 'NonePackageBasicPage',

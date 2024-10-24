@@ -1053,6 +1053,18 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
           '${IbsApplicationsDetailCall.imageother(
         (_model.detailAPIOutput?.jsonBody ?? ''),
       )}';
+      FFAppState().insuranceInfoPage4FileCancelLoan =
+          '${IbsApplicationsDetailCall.filecancelloan(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().InsuranceInfoPage4PowerOfAttoney =
+          '${IbsApplicationsDetailCall.powerofattorney(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoPage4IdCardPowerattorney =
+          '${IbsApplicationsDetailCall.idcardpowerofattorney(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
       safeSetState(() {});
       FFAppState().insuranceInfoPage3ImageWound = functions
           .addImgUrlToList(
@@ -2168,66 +2180,71 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(4.0, 0.0, 0.0, 0.0),
-                                              child: ListTile(
-                                                title: Text(
-                                                  () {
-                                                    if ((FFAppState()
-                                                                .insuranceInfoCardType ==
-                                                            '1') ||
-                                                        (FFAppState()
-                                                                .insuranceInfoCardType ==
-                                                            'บัตรประชาชน')) {
-                                                      return 'บัตรประชาชน';
-                                                    } else if ((FFAppState()
-                                                                .insuranceInfoCardType ==
-                                                            '2') ||
-                                                        (FFAppState()
-                                                                .insuranceInfoCardType ==
-                                                            'Passport')) {
-                                                      return 'Passport';
-                                                    } else if ((FFAppState()
-                                                                .insuranceInfoCardType ==
-                                                            '5') ||
-                                                        FFAppState()
-                                                            .isCorporate) {
-                                                      return 'TAXID';
-                                                    } else {
-                                                      return 'กรุณาเลือกประเภทบัตร';
-                                                    }
-                                                  }(),
-                                                  textAlign: TextAlign.start,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .titleLarge
-                                                      .override(
-                                                        fontFamily:
-                                                            'Noto Sans Thai',
-                                                        color: functions
-                                                                .containWordinStringUrl(
-                                                                    'เลือก',
-                                                                    FFAppState()
-                                                                        .insuranceInfoCardType)!
-                                                            ? Color(0xFF9F9F9F)
-                                                            : Colors.black,
-                                                        fontSize: 15.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                      ),
-                                                ),
-                                                trailing: Icon(
-                                                  Icons.arrow_forward_ios,
-                                                  color: Color(0xFF474747),
-                                                  size: 20.0,
-                                                ),
-                                                tileColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                                dense: false,
-                                                shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          10.0),
+                                              child: Material(
+                                                color: Colors.transparent,
+                                                child: ListTile(
+                                                  title: Text(
+                                                    () {
+                                                      if ((FFAppState()
+                                                                  .insuranceInfoCardType ==
+                                                              '1') ||
+                                                          (FFAppState()
+                                                                  .insuranceInfoCardType ==
+                                                              'บัตรประชาชน')) {
+                                                        return 'บัตรประชาชน';
+                                                      } else if ((FFAppState()
+                                                                  .insuranceInfoCardType ==
+                                                              '2') ||
+                                                          (FFAppState()
+                                                                  .insuranceInfoCardType ==
+                                                              'Passport')) {
+                                                        return 'Passport';
+                                                      } else if ((FFAppState()
+                                                                  .insuranceInfoCardType ==
+                                                              '5') ||
+                                                          FFAppState()
+                                                              .isCorporate) {
+                                                        return 'TAXID';
+                                                      } else {
+                                                        return 'กรุณาเลือกประเภทบัตร';
+                                                      }
+                                                    }(),
+                                                    textAlign: TextAlign.start,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .titleLarge
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          color: functions
+                                                                  .containWordinStringUrl(
+                                                                      'เลือก',
+                                                                      FFAppState()
+                                                                          .insuranceInfoCardType)!
+                                                              ? Color(
+                                                                  0xFF9F9F9F)
+                                                              : Colors.black,
+                                                          fontSize: 15.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                        ),
+                                                  ),
+                                                  trailing: Icon(
+                                                    Icons.arrow_forward_ios,
+                                                    color: Color(0xFF474747),
+                                                    size: 20.0,
+                                                  ),
+                                                  tileColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .secondaryBackground,
+                                                  dense: false,
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10.0),
+                                                  ),
                                                 ),
                                               ),
                                             ),
@@ -4006,62 +4023,65 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         4.0, 0.0, 0.0, 0.0),
-                                                child: ListTile(
-                                                  title: Text(
-                                                    () {
-                                                      if ((FFAppState()
-                                                                  .insuranceInfoGender ==
-                                                              'MALE') ||
-                                                          (FFAppState()
-                                                                  .insuranceInfoGender ==
-                                                              'ชาย')) {
-                                                        return 'ชาย';
-                                                      } else if ((FFAppState()
-                                                                  .insuranceInfoGender ==
-                                                              'FEMALE') ||
-                                                          (FFAppState()
-                                                                  .insuranceInfoGender ==
-                                                              'หญิง')) {
-                                                        return 'หญิง';
-                                                      } else {
-                                                        return 'กรุณาเลือกเพศ';
-                                                      }
-                                                    }(),
-                                                    textAlign: TextAlign.start,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .titleLarge
-                                                        .override(
-                                                          fontFamily:
-                                                              'Noto Sans Thai',
-                                                          color: functions
-                                                                  .containWordinStringUrl(
-                                                                      'เลือก',
-                                                                      FFAppState()
-                                                                          .insuranceInfoGender)!
-                                                              ? Color(
-                                                                  0xFF9F9F9F)
-                                                              : Colors.black,
-                                                          fontSize: 15.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                        ),
-                                                  ),
-                                                  trailing: Icon(
-                                                    Icons.arrow_forward_ios,
-                                                    color: Color(0xFF474747),
-                                                    size: 20.0,
-                                                  ),
-                                                  tileColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .secondaryBackground,
-                                                  dense: false,
-                                                  shape: RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10.0),
+                                                child: Material(
+                                                  color: Colors.transparent,
+                                                  child: ListTile(
+                                                    title: Text(
+                                                      () {
+                                                        if ((FFAppState()
+                                                                    .insuranceInfoGender ==
+                                                                'MALE') ||
+                                                            (FFAppState()
+                                                                    .insuranceInfoGender ==
+                                                                'ชาย')) {
+                                                          return 'ชาย';
+                                                        } else if ((FFAppState()
+                                                                    .insuranceInfoGender ==
+                                                                'FEMALE') ||
+                                                            (FFAppState()
+                                                                    .insuranceInfoGender ==
+                                                                'หญิง')) {
+                                                          return 'หญิง';
+                                                        } else {
+                                                          return 'กรุณาเลือกเพศ';
+                                                        }
+                                                      }(),
+                                                      textAlign:
+                                                          TextAlign.start,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .titleLarge
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            color: functions.containWordinStringUrl(
+                                                                    'เลือก',
+                                                                    FFAppState()
+                                                                        .insuranceInfoGender)!
+                                                                ? Color(
+                                                                    0xFF9F9F9F)
+                                                                : Colors.black,
+                                                            fontSize: 15.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                          ),
+                                                    ),
+                                                    trailing: Icon(
+                                                      Icons.arrow_forward_ios,
+                                                      color: Color(0xFF474747),
+                                                      size: 20.0,
+                                                    ),
+                                                    tileColor: FlutterFlowTheme
+                                                            .of(context)
+                                                        .secondaryBackground,
+                                                    dense: false,
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              10.0),
+                                                    ),
                                                   ),
                                                 ),
                                               ),
@@ -4201,51 +4221,54 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         4.0, 0.0, 0.0, 0.0),
-                                                child: ListTile(
-                                                  title: Text(
-                                                    FFAppState().insuranceInfoTitle !=
-                                                                null &&
-                                                            FFAppState()
-                                                                    .insuranceInfoTitle !=
-                                                                ''
-                                                        ? FFAppState()
-                                                            .insuranceInfoTitle
-                                                        : 'กรุณาเลือกคำนำหน้า',
-                                                    textAlign: TextAlign.start,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .titleLarge
-                                                        .override(
-                                                          fontFamily:
-                                                              'Noto Sans Thai',
-                                                          color: functions
-                                                                  .containWordinStringUrl(
-                                                                      'เลือก',
-                                                                      FFAppState()
-                                                                          .insuranceInfoTitle)!
-                                                              ? Color(
-                                                                  0xFF9F9F9F)
-                                                              : Colors.black,
-                                                          fontSize: 15.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                        ),
-                                                  ),
-                                                  trailing: Icon(
-                                                    Icons.arrow_forward_ios,
-                                                    color: Color(0xFF474747),
-                                                    size: 20.0,
-                                                  ),
-                                                  tileColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .secondaryBackground,
-                                                  dense: false,
-                                                  shape: RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10.0),
+                                                child: Material(
+                                                  color: Colors.transparent,
+                                                  child: ListTile(
+                                                    title: Text(
+                                                      FFAppState().insuranceInfoTitle !=
+                                                                  null &&
+                                                              FFAppState()
+                                                                      .insuranceInfoTitle !=
+                                                                  ''
+                                                          ? FFAppState()
+                                                              .insuranceInfoTitle
+                                                          : 'กรุณาเลือกคำนำหน้า',
+                                                      textAlign:
+                                                          TextAlign.start,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .titleLarge
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            color: functions.containWordinStringUrl(
+                                                                    'เลือก',
+                                                                    FFAppState()
+                                                                        .insuranceInfoTitle)!
+                                                                ? Color(
+                                                                    0xFF9F9F9F)
+                                                                : Colors.black,
+                                                            fontSize: 15.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                          ),
+                                                    ),
+                                                    trailing: Icon(
+                                                      Icons.arrow_forward_ios,
+                                                      color: Color(0xFF474747),
+                                                      size: 20.0,
+                                                    ),
+                                                    tileColor: FlutterFlowTheme
+                                                            .of(context)
+                                                        .secondaryBackground,
+                                                    dense: false,
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              10.0),
+                                                    ),
                                                   ),
                                                 ),
                                               ),
@@ -5056,51 +5079,54 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         4.0, 0.0, 0.0, 0.0),
-                                                child: ListTile(
-                                                  title: Text(
-                                                    FFAppState().insuranceInfoSelectOccupationName !=
-                                                                null &&
-                                                            FFAppState()
-                                                                    .insuranceInfoSelectOccupationName !=
-                                                                ''
-                                                        ? FFAppState()
-                                                            .insuranceInfoSelectOccupationName
-                                                        : 'กรุณาเลือกกลุ่มอาชีพ',
-                                                    textAlign: TextAlign.start,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .titleLarge
-                                                        .override(
-                                                          fontFamily:
-                                                              'Noto Sans Thai',
-                                                          color: functions
-                                                                  .containWordinStringUrl(
-                                                                      'เลือก',
-                                                                      FFAppState()
-                                                                          .insuranceInfoOccupationGroup)!
-                                                              ? Color(
-                                                                  0xFF9F9F9F)
-                                                              : Colors.black,
-                                                          fontSize: 15.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                        ),
-                                                  ),
-                                                  trailing: Icon(
-                                                    Icons.arrow_forward_ios,
-                                                    color: Color(0xFF474747),
-                                                    size: 20.0,
-                                                  ),
-                                                  tileColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .secondaryBackground,
-                                                  dense: false,
-                                                  shape: RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10.0),
+                                                child: Material(
+                                                  color: Colors.transparent,
+                                                  child: ListTile(
+                                                    title: Text(
+                                                      FFAppState().insuranceInfoSelectOccupationName !=
+                                                                  null &&
+                                                              FFAppState()
+                                                                      .insuranceInfoSelectOccupationName !=
+                                                                  ''
+                                                          ? FFAppState()
+                                                              .insuranceInfoSelectOccupationName
+                                                          : 'กรุณาเลือกกลุ่มอาชีพ',
+                                                      textAlign:
+                                                          TextAlign.start,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .titleLarge
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            color: functions.containWordinStringUrl(
+                                                                    'เลือก',
+                                                                    FFAppState()
+                                                                        .insuranceInfoOccupationGroup)!
+                                                                ? Color(
+                                                                    0xFF9F9F9F)
+                                                                : Colors.black,
+                                                            fontSize: 15.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                          ),
+                                                    ),
+                                                    trailing: Icon(
+                                                      Icons.arrow_forward_ios,
+                                                      color: Color(0xFF474747),
+                                                      size: 20.0,
+                                                    ),
+                                                    tileColor: FlutterFlowTheme
+                                                            .of(context)
+                                                        .secondaryBackground,
+                                                    dense: false,
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              10.0),
+                                                    ),
                                                   ),
                                                 ),
                                               ),
@@ -5239,51 +5265,54 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         4.0, 0.0, 0.0, 0.0),
-                                                child: ListTile(
-                                                  title: Text(
-                                                    FFAppState().insuranceInfoSelectOccupationSubNameChoose !=
-                                                                null &&
-                                                            FFAppState()
-                                                                    .insuranceInfoSelectOccupationSubNameChoose !=
-                                                                ''
-                                                        ? FFAppState()
-                                                            .insuranceInfoSelectOccupationSubNameChoose
-                                                        : 'กรุณาเลือกอาชีพ',
-                                                    textAlign: TextAlign.start,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .titleLarge
-                                                        .override(
-                                                          fontFamily:
-                                                              'Noto Sans Thai',
-                                                          color: functions
-                                                                  .containWordinStringUrl(
-                                                                      'เลือก',
-                                                                      FFAppState()
-                                                                          .insuranceInfoOccupationGroup)!
-                                                              ? Color(
-                                                                  0xFF9F9F9F)
-                                                              : Colors.black,
-                                                          fontSize: 15.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                        ),
-                                                  ),
-                                                  trailing: Icon(
-                                                    Icons.arrow_forward_ios,
-                                                    color: Color(0xFF474747),
-                                                    size: 20.0,
-                                                  ),
-                                                  tileColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .secondaryBackground,
-                                                  dense: false,
-                                                  shape: RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10.0),
+                                                child: Material(
+                                                  color: Colors.transparent,
+                                                  child: ListTile(
+                                                    title: Text(
+                                                      FFAppState().insuranceInfoSelectOccupationSubNameChoose !=
+                                                                  null &&
+                                                              FFAppState()
+                                                                      .insuranceInfoSelectOccupationSubNameChoose !=
+                                                                  ''
+                                                          ? FFAppState()
+                                                              .insuranceInfoSelectOccupationSubNameChoose
+                                                          : 'กรุณาเลือกอาชีพ',
+                                                      textAlign:
+                                                          TextAlign.start,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .titleLarge
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            color: functions.containWordinStringUrl(
+                                                                    'เลือก',
+                                                                    FFAppState()
+                                                                        .insuranceInfoOccupationGroup)!
+                                                                ? Color(
+                                                                    0xFF9F9F9F)
+                                                                : Colors.black,
+                                                            fontSize: 15.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                          ),
+                                                    ),
+                                                    trailing: Icon(
+                                                      Icons.arrow_forward_ios,
+                                                      color: Color(0xFF474747),
+                                                      size: 20.0,
+                                                    ),
+                                                    tileColor: FlutterFlowTheme
+                                                            .of(context)
+                                                        .secondaryBackground,
+                                                    dense: false,
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              10.0),
+                                                    ),
                                                   ),
                                                 ),
                                               ),

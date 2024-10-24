@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
-import 'backend/api_requests/api_manager.dart';
+import '/backend/api_requests/api_manager.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:csv/csv.dart';
 import 'package:synchronized/synchronized.dart';
@@ -3684,7 +3684,7 @@ class FFAppState extends ChangeNotifier {
     welfareKpiStatusTextColorList.insert(index, value);
   }
 
-  bool _isProduction = true;
+  bool _isProduction = false;
   bool get isProduction => _isProduction;
   set isProduction(bool value) {
     _isProduction = value;
@@ -13941,6 +13941,27 @@ class FFAppState extends ChangeNotifier {
       _sliderCurrentMaxSumInsuredPage3;
   set sliderCurrentMaxSumInsuredPage3(String value) {
     _sliderCurrentMaxSumInsuredPage3 = value;
+  }
+
+  String _insuranceInfoPage4FileCancelLoan = '';
+  String get insuranceInfoPage4FileCancelLoan =>
+      _insuranceInfoPage4FileCancelLoan;
+  set insuranceInfoPage4FileCancelLoan(String value) {
+    _insuranceInfoPage4FileCancelLoan = value;
+  }
+
+  String _InsuranceInfoPage4PowerOfAttoney = '';
+  String get InsuranceInfoPage4PowerOfAttoney =>
+      _InsuranceInfoPage4PowerOfAttoney;
+  set InsuranceInfoPage4PowerOfAttoney(String value) {
+    _InsuranceInfoPage4PowerOfAttoney = value;
+  }
+
+  String _insuranceInfoPage4IdCardPowerattorney = '';
+  String get insuranceInfoPage4IdCardPowerattorney =>
+      _insuranceInfoPage4IdCardPowerattorney;
+  set insuranceInfoPage4IdCardPowerattorney(String value) {
+    _insuranceInfoPage4IdCardPowerattorney = value;
   }
 }
 

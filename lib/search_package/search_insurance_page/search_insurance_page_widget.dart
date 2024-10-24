@@ -1585,42 +1585,45 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
                                                   4.0, 0.0, 0.0, 0.0),
-                                          child: ListTile(
-                                            title: Text(
-                                              FFAppState()
-                                                  .insuranceVehicleTypeDropDown,
-                                              textAlign: TextAlign.start,
-                                              style:
+                                          child: Material(
+                                            color: Colors.transparent,
+                                            child: ListTile(
+                                              title: Text(
+                                                FFAppState()
+                                                    .insuranceVehicleTypeDropDown,
+                                                textAlign: TextAlign.start,
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .titleLarge
+                                                    .override(
+                                                      fontFamily:
+                                                          'Noto Sans Thai',
+                                                      color: functions
+                                                              .containWordinStringUrl(
+                                                                  'เลือก',
+                                                                  FFAppState()
+                                                                      .insuranceVehicleTypeDropDown)!
+                                                          ? Color(0xFF9F9F9F)
+                                                          : Colors.black,
+                                                      fontSize: 15.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                    ),
+                                              ),
+                                              trailing: Icon(
+                                                Icons.arrow_forward_ios,
+                                                color: Color(0xFF474747),
+                                                size: 20.0,
+                                              ),
+                                              tileColor:
                                                   FlutterFlowTheme.of(context)
-                                                      .titleLarge
-                                                      .override(
-                                                        fontFamily:
-                                                            'Noto Sans Thai',
-                                                        color: functions
-                                                                .containWordinStringUrl(
-                                                                    'เลือก',
-                                                                    FFAppState()
-                                                                        .insuranceVehicleTypeDropDown)!
-                                                            ? Color(0xFF9F9F9F)
-                                                            : Colors.black,
-                                                        fontSize: 15.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                      ),
-                                            ),
-                                            trailing: Icon(
-                                              Icons.arrow_forward_ios,
-                                              color: Color(0xFF474747),
-                                              size: 20.0,
-                                            ),
-                                            tileColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .secondaryBackground,
-                                            dense: false,
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(10.0),
+                                                      .secondaryBackground,
+                                              dense: false,
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(10.0),
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -1729,42 +1732,45 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
                                                   4.0, 0.0, 0.0, 0.0),
-                                          child: ListTile(
-                                            title: Text(
-                                              FFAppState()
-                                                  .insuranceBasicBrandName,
-                                              textAlign: TextAlign.start,
-                                              style:
+                                          child: Material(
+                                            color: Colors.transparent,
+                                            child: ListTile(
+                                              title: Text(
+                                                FFAppState()
+                                                    .insuranceBasicBrandName,
+                                                textAlign: TextAlign.start,
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .titleLarge
+                                                    .override(
+                                                      fontFamily:
+                                                          'Noto Sans Thai',
+                                                      color: functions
+                                                              .containWordinStringUrl(
+                                                                  'เลือก',
+                                                                  FFAppState()
+                                                                      .insuranceBasicBrandName)!
+                                                          ? Color(0xFF9F9F9F)
+                                                          : Colors.black,
+                                                      fontSize: 15.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                    ),
+                                              ),
+                                              trailing: Icon(
+                                                Icons.arrow_forward_ios,
+                                                color: Color(0xFF474747),
+                                                size: 20.0,
+                                              ),
+                                              tileColor:
                                                   FlutterFlowTheme.of(context)
-                                                      .titleLarge
-                                                      .override(
-                                                        fontFamily:
-                                                            'Noto Sans Thai',
-                                                        color: functions
-                                                                .containWordinStringUrl(
-                                                                    'เลือก',
-                                                                    FFAppState()
-                                                                        .insuranceBasicBrandName)!
-                                                            ? Color(0xFF9F9F9F)
-                                                            : Colors.black,
-                                                        fontSize: 15.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                      ),
-                                            ),
-                                            trailing: Icon(
-                                              Icons.arrow_forward_ios,
-                                              color: Color(0xFF474747),
-                                              size: 20.0,
-                                            ),
-                                            tileColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .secondaryBackground,
-                                            dense: false,
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(10.0),
+                                                      .secondaryBackground,
+                                              dense: false,
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(10.0),
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -1883,42 +1889,46 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     4.0, 0.0, 0.0, 0.0),
-                                            child: ListTile(
-                                              title: Text(
-                                                FFAppState()
-                                                    .insuranceBasicModelName,
-                                                textAlign: TextAlign.start,
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .titleLarge
-                                                    .override(
-                                                      fontFamily:
-                                                          'Noto Sans Thai',
-                                                      color: functions
-                                                              .containWordinStringUrl(
-                                                                  'เลือก',
-                                                                  FFAppState()
-                                                                      .insuranceBasicModelName)!
-                                                          ? Color(0xFF9F9F9F)
-                                                          : Colors.black,
-                                                      fontSize: 15.0,
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                    ),
-                                              ),
-                                              trailing: Icon(
-                                                Icons.arrow_forward_ios,
-                                                color: Color(0xFF474747),
-                                                size: 20.0,
-                                              ),
-                                              tileColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                              dense: false,
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(10.0),
+                                            child: Material(
+                                              color: Colors.transparent,
+                                              child: ListTile(
+                                                title: Text(
+                                                  FFAppState()
+                                                      .insuranceBasicModelName,
+                                                  textAlign: TextAlign.start,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .titleLarge
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        color: functions
+                                                                .containWordinStringUrl(
+                                                                    'เลือก',
+                                                                    FFAppState()
+                                                                        .insuranceBasicModelName)!
+                                                            ? Color(0xFF9F9F9F)
+                                                            : Colors.black,
+                                                        fontSize: 15.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                      ),
+                                                ),
+                                                trailing: Icon(
+                                                  Icons.arrow_forward_ios,
+                                                  color: Color(0xFF474747),
+                                                  size: 20.0,
+                                                ),
+                                                tileColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                                dense: false,
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          10.0),
+                                                ),
                                               ),
                                             ),
                                           ),
@@ -2029,41 +2039,44 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
                                                   4.0, 0.0, 0.0, 0.0),
-                                          child: ListTile(
-                                            title: Text(
-                                              FFAppState().insuranceBasicYear,
-                                              textAlign: TextAlign.start,
-                                              style:
+                                          child: Material(
+                                            color: Colors.transparent,
+                                            child: ListTile(
+                                              title: Text(
+                                                FFAppState().insuranceBasicYear,
+                                                textAlign: TextAlign.start,
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .titleLarge
+                                                    .override(
+                                                      fontFamily:
+                                                          'Noto Sans Thai',
+                                                      color: functions
+                                                              .containWordinStringUrl(
+                                                                  'เลือก',
+                                                                  FFAppState()
+                                                                      .insuranceBasicYear)!
+                                                          ? Color(0xFF9F9F9F)
+                                                          : Colors.black,
+                                                      fontSize: 15.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                    ),
+                                              ),
+                                              trailing: Icon(
+                                                Icons.arrow_forward_ios,
+                                                color: Color(0xFF474747),
+                                                size: 20.0,
+                                              ),
+                                              tileColor:
                                                   FlutterFlowTheme.of(context)
-                                                      .titleLarge
-                                                      .override(
-                                                        fontFamily:
-                                                            'Noto Sans Thai',
-                                                        color: functions
-                                                                .containWordinStringUrl(
-                                                                    'เลือก',
-                                                                    FFAppState()
-                                                                        .insuranceBasicYear)!
-                                                            ? Color(0xFF9F9F9F)
-                                                            : Colors.black,
-                                                        fontSize: 15.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                      ),
-                                            ),
-                                            trailing: Icon(
-                                              Icons.arrow_forward_ios,
-                                              color: Color(0xFF474747),
-                                              size: 20.0,
-                                            ),
-                                            tileColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .secondaryBackground,
-                                            dense: false,
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(10.0),
+                                                      .secondaryBackground,
+                                              dense: false,
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(10.0),
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -2232,60 +2245,65 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(4.0, 0.0, 0.0, 0.0),
-                                              child: ListTile(
-                                                title: Text(
-                                                  FFAppState().insuranceBasicVehicleUsedTypeName ==
-                                                          'เลือกการใช้งาน'
-                                                      ? 'เลือกการใช้งาน'
-                                                      : (functions.generateInsuranceVehicleTypeDropdown(
-                                                          FFAppState()
-                                                              .insuranceBasicVehicleUsedTypeCodeList
-                                                              .toList(),
-                                                          FFAppState()
-                                                              .insuranceBasicVehicleUsedTypeTypeList
-                                                              .toList(),
-                                                          FFAppState()
-                                                              .insuranceBasicVehicleUsedTypeNameList
-                                                              .toList())![functions
-                                                          .getIndexOfSomethingList(
-                                                              FFAppState()
-                                                                  .insuranceBasicVehicleUsedTypeCodeList
-                                                                  .toList(),
-                                                              FFAppState()
-                                                                  .insuranceBasicVehicleUsedTypeCode)]),
-                                                  textAlign: TextAlign.start,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .titleLarge
-                                                      .override(
-                                                        fontFamily:
-                                                            'Noto Sans Thai',
-                                                        color: functions
-                                                                .containWordinStringUrl(
-                                                                    'เลือก',
-                                                                    FFAppState()
-                                                                        .insuranceBasicVehicleUsedTypeName)!
-                                                            ? Color(0xFF9F9F9F)
-                                                            : Colors.black,
-                                                        fontSize: 15.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                      ),
-                                                ),
-                                                trailing: Icon(
-                                                  Icons.arrow_forward_ios,
-                                                  color: Color(0xFF474747),
-                                                  size: 20.0,
-                                                ),
-                                                tileColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                                dense: false,
-                                                shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          10.0),
+                                              child: Material(
+                                                color: Colors.transparent,
+                                                child: ListTile(
+                                                  title: Text(
+                                                    FFAppState().insuranceBasicVehicleUsedTypeName ==
+                                                            'เลือกการใช้งาน'
+                                                        ? 'เลือกการใช้งาน'
+                                                        : (functions.generateInsuranceVehicleTypeDropdown(
+                                                            FFAppState()
+                                                                .insuranceBasicVehicleUsedTypeCodeList
+                                                                .toList(),
+                                                            FFAppState()
+                                                                .insuranceBasicVehicleUsedTypeTypeList
+                                                                .toList(),
+                                                            FFAppState()
+                                                                .insuranceBasicVehicleUsedTypeNameList
+                                                                .toList())![functions
+                                                            .getIndexOfSomethingList(
+                                                                FFAppState()
+                                                                    .insuranceBasicVehicleUsedTypeCodeList
+                                                                    .toList(),
+                                                                FFAppState()
+                                                                    .insuranceBasicVehicleUsedTypeCode)]),
+                                                    textAlign: TextAlign.start,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .titleLarge
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          color: functions
+                                                                  .containWordinStringUrl(
+                                                                      'เลือก',
+                                                                      FFAppState()
+                                                                          .insuranceBasicVehicleUsedTypeName)!
+                                                              ? Color(
+                                                                  0xFF9F9F9F)
+                                                              : Colors.black,
+                                                          fontSize: 15.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                        ),
+                                                  ),
+                                                  trailing: Icon(
+                                                    Icons.arrow_forward_ios,
+                                                    color: Color(0xFF474747),
+                                                    size: 20.0,
+                                                  ),
+                                                  tileColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .secondaryBackground,
+                                                  dense: false,
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10.0),
+                                                  ),
                                                 ),
                                               ),
                                             ),
@@ -2400,48 +2418,52 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
                                                   4.0, 0.0, 0.0, 0.0),
-                                          child: ListTile(
-                                            title: Text(
-                                              FFAppState()
-                                                          .insuranceBasicCoverTypeNameOutputList
-                                                          .length >
-                                                      0
-                                                  ? functions.combineStringFromList(
-                                                      FFAppState()
-                                                          .insuranceBasicCoverTypeNameOutputList
-                                                          .toList())!
-                                                  : 'กรุณาเลือกประเภทชั้นประกัน',
-                                              textAlign: TextAlign.start,
-                                              style:
+                                          child: Material(
+                                            color: Colors.transparent,
+                                            child: ListTile(
+                                              title: Text(
+                                                FFAppState()
+                                                            .insuranceBasicCoverTypeNameOutputList
+                                                            .length >
+                                                        0
+                                                    ? functions
+                                                        .combineStringFromList(
+                                                            FFAppState()
+                                                                .insuranceBasicCoverTypeNameOutputList
+                                                                .toList())!
+                                                    : 'กรุณาเลือกประเภทชั้นประกัน',
+                                                textAlign: TextAlign.start,
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .titleLarge
+                                                    .override(
+                                                      fontFamily:
+                                                          'Noto Sans Thai',
+                                                      color: FFAppState()
+                                                                  .insuranceBasicCoverTypeNameOutputList
+                                                                  .length >
+                                                              0
+                                                          ? Colors.black
+                                                          : Color(0xFF9F9F9F),
+                                                      fontSize: 15.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                    ),
+                                              ),
+                                              trailing: Icon(
+                                                Icons.arrow_forward_ios,
+                                                color: Color(0xFF474747),
+                                                size: 20.0,
+                                              ),
+                                              tileColor:
                                                   FlutterFlowTheme.of(context)
-                                                      .titleLarge
-                                                      .override(
-                                                        fontFamily:
-                                                            'Noto Sans Thai',
-                                                        color: FFAppState()
-                                                                    .insuranceBasicCoverTypeNameOutputList
-                                                                    .length >
-                                                                0
-                                                            ? Colors.black
-                                                            : Color(0xFF9F9F9F),
-                                                        fontSize: 15.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                      ),
-                                            ),
-                                            trailing: Icon(
-                                              Icons.arrow_forward_ios,
-                                              color: Color(0xFF474747),
-                                              size: 20.0,
-                                            ),
-                                            tileColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .secondaryBackground,
-                                            dense: false,
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(10.0),
+                                                      .secondaryBackground,
+                                              dense: false,
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(10.0),
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -2554,48 +2576,52 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
                                                   4.0, 0.0, 0.0, 0.0),
-                                          child: ListTile(
-                                            title: Text(
-                                              FFAppState()
-                                                          .insuranceBasicGarageTypeInPackage
-                                                          .length >
-                                                      0
-                                                  ? functions.combineStringFromList(
-                                                      FFAppState()
-                                                          .insuranceBasicGarageTypeInPackage
-                                                          .toList())!
-                                                  : 'กรุณาเลือกประเภทการซ่อม',
-                                              textAlign: TextAlign.start,
-                                              style:
+                                          child: Material(
+                                            color: Colors.transparent,
+                                            child: ListTile(
+                                              title: Text(
+                                                FFAppState()
+                                                            .insuranceBasicGarageTypeInPackage
+                                                            .length >
+                                                        0
+                                                    ? functions
+                                                        .combineStringFromList(
+                                                            FFAppState()
+                                                                .insuranceBasicGarageTypeInPackage
+                                                                .toList())!
+                                                    : 'กรุณาเลือกประเภทการซ่อม',
+                                                textAlign: TextAlign.start,
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .titleLarge
+                                                    .override(
+                                                      fontFamily:
+                                                          'Noto Sans Thai',
+                                                      color: FFAppState()
+                                                                  .insuranceBasicGarageTypeInPackage
+                                                                  .length >
+                                                              0
+                                                          ? Colors.black
+                                                          : Color(0xFF9F9F9F),
+                                                      fontSize: 15.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                    ),
+                                              ),
+                                              trailing: Icon(
+                                                Icons.arrow_forward_ios,
+                                                color: Color(0xFF474747),
+                                                size: 20.0,
+                                              ),
+                                              tileColor:
                                                   FlutterFlowTheme.of(context)
-                                                      .titleLarge
-                                                      .override(
-                                                        fontFamily:
-                                                            'Noto Sans Thai',
-                                                        color: FFAppState()
-                                                                    .insuranceBasicGarageTypeInPackage
-                                                                    .length >
-                                                                0
-                                                            ? Colors.black
-                                                            : Color(0xFF9F9F9F),
-                                                        fontSize: 15.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                      ),
-                                            ),
-                                            trailing: Icon(
-                                              Icons.arrow_forward_ios,
-                                              color: Color(0xFF474747),
-                                              size: 20.0,
-                                            ),
-                                            tileColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .secondaryBackground,
-                                            dense: false,
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(10.0),
+                                                      .secondaryBackground,
+                                              dense: false,
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(10.0),
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -2713,49 +2739,53 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     4.0, 0.0, 0.0, 0.0),
-                                            child: ListTile(
-                                              title: Text(
-                                                FFAppState().insuranceInfoRegistrationProvinceSelect !=
-                                                            null &&
-                                                        FFAppState()
-                                                                .insuranceInfoRegistrationProvinceSelect !=
-                                                            ''
-                                                    ? FFAppState()
-                                                        .insuranceInfoRegistrationProvinceSelect
-                                                    : 'กรุณาเลือกจังหวัดที่จดทะเบียน',
-                                                textAlign: TextAlign.start,
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .titleLarge
-                                                    .override(
-                                                      fontFamily:
-                                                          'Noto Sans Thai',
-                                                      color: FFAppState()
-                                                                      .insuranceInfoRegistrationProvinceSelect ==
-                                                                  null ||
-                                                              FFAppState()
-                                                                      .insuranceInfoRegistrationProvinceSelect ==
-                                                                  ''
-                                                          ? Color(0xFF9F9F9F)
-                                                          : Colors.black,
-                                                      fontSize: 15.0,
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                    ),
-                                              ),
-                                              trailing: Icon(
-                                                Icons.arrow_forward_ios,
-                                                color: Color(0xFF474747),
-                                                size: 20.0,
-                                              ),
-                                              tileColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                              dense: false,
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(10.0),
+                                            child: Material(
+                                              color: Colors.transparent,
+                                              child: ListTile(
+                                                title: Text(
+                                                  FFAppState().insuranceInfoRegistrationProvinceSelect !=
+                                                              null &&
+                                                          FFAppState()
+                                                                  .insuranceInfoRegistrationProvinceSelect !=
+                                                              ''
+                                                      ? FFAppState()
+                                                          .insuranceInfoRegistrationProvinceSelect
+                                                      : 'กรุณาเลือกจังหวัดที่จดทะเบียน',
+                                                  textAlign: TextAlign.start,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .titleLarge
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        color: FFAppState()
+                                                                        .insuranceInfoRegistrationProvinceSelect ==
+                                                                    null ||
+                                                                FFAppState()
+                                                                        .insuranceInfoRegistrationProvinceSelect ==
+                                                                    ''
+                                                            ? Color(0xFF9F9F9F)
+                                                            : Colors.black,
+                                                        fontSize: 15.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                      ),
+                                                ),
+                                                trailing: Icon(
+                                                  Icons.arrow_forward_ios,
+                                                  color: Color(0xFF474747),
+                                                  size: 20.0,
+                                                ),
+                                                tileColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                                dense: false,
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          10.0),
+                                                ),
                                               ),
                                             ),
                                           ),

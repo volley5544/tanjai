@@ -6511,171 +6511,12 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Expanded(
-                                        flex: 1,
-                                        child: Container(
-                                          height: 250.0,
-                                          decoration: BoxDecoration(),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            children: [
-                                              Theme(
-                                                data: ThemeData(
-                                                  checkboxTheme:
-                                                      CheckboxThemeData(
-                                                    visualDensity:
-                                                        VisualDensity.compact,
-                                                    materialTapTargetSize:
-                                                        MaterialTapTargetSize
-                                                            .shrinkWrap,
-                                                    shape:
-                                                        RoundedRectangleBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              4.0),
-                                                    ),
-                                                  ),
-                                                  unselectedWidgetColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .secondaryText,
-                                                ),
-                                                child: Checkbox(
-                                                  value: _model
-                                                          .privacyConsent1Value ??=
-                                                      false,
-                                                  onChanged: (newValue) async {
-                                                    safeSetState(() => _model
-                                                            .privacyConsent1Value =
-                                                        newValue!);
-                                                  },
-                                                  side: BorderSide(
-                                                    width: 2,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryText,
-                                                  ),
-                                                  activeColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .primaryBtnText,
-                                                  checkColor: Color(0xFF00B505),
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 40.0, 0.0, 0.0),
-                                                child: Theme(
-                                                  data: ThemeData(
-                                                    checkboxTheme:
-                                                        CheckboxThemeData(
-                                                      visualDensity:
-                                                          VisualDensity.compact,
-                                                      materialTapTargetSize:
-                                                          MaterialTapTargetSize
-                                                              .shrinkWrap,
-                                                      shape:
-                                                          RoundedRectangleBorder(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(4.0),
-                                                      ),
-                                                    ),
-                                                    unselectedWidgetColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .secondaryText,
-                                                  ),
-                                                  child: Checkbox(
-                                                    value: _model
-                                                            .privacyConsent2Value ??=
-                                                        false,
-                                                    onChanged:
-                                                        (newValue) async {
-                                                      safeSetState(() => _model
-                                                              .privacyConsent2Value =
-                                                          newValue!);
-                                                    },
-                                                    side: BorderSide(
-                                                      width: 2,
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondaryText,
-                                                    ),
-                                                    activeColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .primaryBtnText,
-                                                    checkColor:
-                                                        Color(0xFF00B505),
-                                                  ),
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 40.0, 0.0, 0.0),
-                                                child: Theme(
-                                                  data: ThemeData(
-                                                    checkboxTheme:
-                                                        CheckboxThemeData(
-                                                      visualDensity:
-                                                          VisualDensity.compact,
-                                                      materialTapTargetSize:
-                                                          MaterialTapTargetSize
-                                                              .shrinkWrap,
-                                                      shape:
-                                                          RoundedRectangleBorder(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(4.0),
-                                                      ),
-                                                    ),
-                                                    unselectedWidgetColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .secondaryText,
-                                                  ),
-                                                  child: Checkbox(
-                                                    value: _model
-                                                            .privacyConsent3Value ??=
-                                                        false,
-                                                    onChanged:
-                                                        (newValue) async {
-                                                      safeSetState(() => _model
-                                                              .privacyConsent3Value =
-                                                          newValue!);
-                                                    },
-                                                    side: BorderSide(
-                                                      width: 2,
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondaryText,
-                                                    ),
-                                                    activeColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .primaryBtnText,
-                                                    checkColor:
-                                                        Color(0xFF00B505),
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                      Expanded(
                                         flex: 10,
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Text(
-                                              '1.ข้าพเจ้ารับทราบว่า ข้อมูลส่วนบุคคลของข้าพเจ้าได้รับการเก็บรวบรวม ใช้ และเปิดเผย ตามคำชี้แจงเกี่ยวกับข้อมูลส่วนบุคคลของบริษัท\n\n2.ผู้เอาประกันภัยและผู้รับประโยชน์/ ผู้ชำระเบี้ย ไม่มีความสัมพันธ์ ไม่ว่าทางตรงหรือทางอ้อม กับประเทศอิหร่าน เกาหลีเหนือ รัสเซีย ซีเรีย ในทุกประการ\n\n3.ข้าพเจ้ายินยอมให้บริษัทจัดเก็บรวบรวม ใช้และเปิดเผยข้อมูลส่วนบุคคลของข้าพเจ้าเพื่อประชาสัมพันธ์ วิเคราะห์การตลาด และนำเสนอหรือให้ข้อมูลที่เกี่ยวข้องกับผลิตภัณฑ์ การให้บริการหรือสิทธิประโยชน์ต่างๆ ของบริษัทหรือบริษัทในกลุ่มอลิอันซ์ หรือคู่สัญญาของบริษัท',
+                                              '  1.ข้าพเจ้ารับทราบว่า ข้อมูลส่วนบุคคลของข้าพเจ้าได้รับการเก็บรวบรวม ใช้ และเปิดเผย ตามคำชี้แจงเกี่ยวกับข้อมูลส่วนบุคคลของบริษัท',
                                               textAlign: TextAlign.start,
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -6686,6 +6527,297 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                         letterSpacing: 0.0,
                                                         lineHeight: 1.3,
                                                       ),
+                                            ),
+                                            Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              children: [
+                                                Theme(
+                                                  data: ThemeData(
+                                                    checkboxTheme:
+                                                        CheckboxThemeData(
+                                                      visualDensity:
+                                                          VisualDensity.compact,
+                                                      materialTapTargetSize:
+                                                          MaterialTapTargetSize
+                                                              .shrinkWrap,
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(4.0),
+                                                      ),
+                                                    ),
+                                                    unselectedWidgetColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondaryText,
+                                                  ),
+                                                  child: Checkbox(
+                                                    value: _model
+                                                            .sensitiveConsentValue ??=
+                                                        false,
+                                                    onChanged:
+                                                        (newValue) async {
+                                                      safeSetState(() => _model
+                                                              .sensitiveConsentValue =
+                                                          newValue!);
+                                                    },
+                                                    side: BorderSide(
+                                                      width: 2,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondaryText,
+                                                    ),
+                                                    activeColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryBtnText,
+                                                    checkColor:
+                                                        Color(0xFF00B505),
+                                                  ),
+                                                ),
+                                                Text(
+                                                  'ยินยอม',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                ),
+                                              ],
+                                            ),
+                                            Text(
+                                              '  2.ผู้เอาประกันภัยและผู้รับประโยชน์/ ผู้ชำระเบี้ย ไม่มีความสัมพันธ์ ไม่ว่าทางตรงหรือทางอ้อม กับประเทศอิหร่าน เกาหลีเหนือ รัสเซีย ซีเรีย ในทุกประการ',
+                                              textAlign: TextAlign.start,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        letterSpacing: 0.0,
+                                                        lineHeight: 1.3,
+                                                      ),
+                                            ),
+                                            Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              children: [
+                                                Theme(
+                                                  data: ThemeData(
+                                                    checkboxTheme:
+                                                        CheckboxThemeData(
+                                                      visualDensity:
+                                                          VisualDensity.compact,
+                                                      materialTapTargetSize:
+                                                          MaterialTapTargetSize
+                                                              .shrinkWrap,
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(4.0),
+                                                      ),
+                                                    ),
+                                                    unselectedWidgetColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondaryText,
+                                                  ),
+                                                  child: Checkbox(
+                                                    value: _model
+                                                            .sanctionConsentValue ??=
+                                                        false,
+                                                    onChanged:
+                                                        (newValue) async {
+                                                      safeSetState(() => _model
+                                                              .sanctionConsentValue =
+                                                          newValue!);
+                                                    },
+                                                    side: BorderSide(
+                                                      width: 2,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondaryText,
+                                                    ),
+                                                    activeColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryBtnText,
+                                                    checkColor:
+                                                        Color(0xFF00B505),
+                                                  ),
+                                                ),
+                                                Text(
+                                                  'ยินยอม',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                ),
+                                              ],
+                                            ),
+                                            Text(
+                                              '3.ข้าพเจ้ายินยอมให้บริษัทจัดเก็บรวบรวม ใช้และเปิดเผยข้อมูลส่วนบุคคลของข้าพเจ้าเพื่อประชาสัมพันธ์ วิเคราะห์การตลาด และนำเสนอหรือให้ข้อมูลที่เกี่ยวข้องกับผลิตภัณฑ์ การให้บริการหรือสิทธิประโยชน์ต่างๆ ของบริษัทหรือบริษัทในกลุ่มอลิอันซ์ หรือคู่สัญญาของบริษัท',
+                                              textAlign: TextAlign.start,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        letterSpacing: 0.0,
+                                                        lineHeight: 1.3,
+                                                      ),
+                                            ),
+                                            Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              children: [
+                                                Theme(
+                                                  data: ThemeData(
+                                                    checkboxTheme:
+                                                        CheckboxThemeData(
+                                                      visualDensity:
+                                                          VisualDensity.compact,
+                                                      materialTapTargetSize:
+                                                          MaterialTapTargetSize
+                                                              .shrinkWrap,
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(4.0),
+                                                      ),
+                                                    ),
+                                                    unselectedWidgetColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondaryText,
+                                                  ),
+                                                  child: Checkbox(
+                                                    value: _model
+                                                            .privacyConsentValue ??=
+                                                        false,
+                                                    onChanged:
+                                                        (newValue) async {
+                                                      safeSetState(() => _model
+                                                              .privacyConsentValue =
+                                                          newValue!);
+                                                      if (newValue!) {
+                                                        safeSetState(() {
+                                                          _model.privacyConsentCancelValue =
+                                                              false;
+                                                        });
+                                                      }
+                                                    },
+                                                    side: BorderSide(
+                                                      width: 2,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondaryText,
+                                                    ),
+                                                    activeColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryBtnText,
+                                                    checkColor:
+                                                        Color(0xFF00B505),
+                                                  ),
+                                                ),
+                                                Text(
+                                                  'ยินยอม',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                ),
+                                                if (true)
+                                                  Theme(
+                                                    data: ThemeData(
+                                                      checkboxTheme:
+                                                          CheckboxThemeData(
+                                                        visualDensity:
+                                                            VisualDensity
+                                                                .compact,
+                                                        materialTapTargetSize:
+                                                            MaterialTapTargetSize
+                                                                .shrinkWrap,
+                                                        shape:
+                                                            RoundedRectangleBorder(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      4.0),
+                                                        ),
+                                                      ),
+                                                      unselectedWidgetColor:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondaryText,
+                                                    ),
+                                                    child: Checkbox(
+                                                      value: _model
+                                                              .privacyConsentCancelValue ??=
+                                                          false,
+                                                      onChanged:
+                                                          (newValue) async {
+                                                        safeSetState(() => _model
+                                                                .privacyConsentCancelValue =
+                                                            newValue!);
+                                                        if (newValue!) {
+                                                          safeSetState(() {
+                                                            _model.privacyConsentValue =
+                                                                false;
+                                                          });
+                                                        }
+                                                      },
+                                                      side: BorderSide(
+                                                        width: 2,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                      ),
+                                                      activeColor:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryBtnText,
+                                                      checkColor:
+                                                          Color(0xFF00B505),
+                                                    ),
+                                                  ),
+                                                if (true)
+                                                  Text(
+                                                    'ไม่ยินยอม',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                  ),
+                                              ],
                                             ),
                                           ],
                                         ),
@@ -6718,36 +6850,40 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                   .secondaryText,
                                         ),
                                         child: Checkbox(
-                                          value: _model.privacyConsentValue ??=
-                                              false,
+                                          value: _model
+                                              .privacyConsentAllValue ??= false,
                                           onChanged: (newValue) async {
                                             safeSetState(() =>
-                                                _model.privacyConsentValue =
+                                                _model.privacyConsentAllValue =
                                                     newValue!);
                                             if (newValue!) {
                                               safeSetState(() {
-                                                _model.privacyConsent1Value =
+                                                _model.sensitiveConsentValue =
                                                     true;
                                               });
                                               safeSetState(() {
-                                                _model.privacyConsent2Value =
+                                                _model.sanctionConsentValue =
                                                     true;
                                               });
                                               safeSetState(() {
-                                                _model.privacyConsent3Value =
+                                                _model.privacyConsentValue =
                                                     true;
+                                              });
+                                              safeSetState(() {
+                                                _model.privacyConsentCancelValue =
+                                                    false;
                                               });
                                             } else {
                                               safeSetState(() {
-                                                _model.privacyConsent1Value =
+                                                _model.sensitiveConsentValue =
                                                     false;
                                               });
                                               safeSetState(() {
-                                                _model.privacyConsent2Value =
+                                                _model.sanctionConsentValue =
                                                     false;
                                               });
                                               safeSetState(() {
-                                                _model.privacyConsent3Value =
+                                                _model.privacyConsentValue =
                                                     false;
                                               });
                                             }
@@ -6870,11 +7006,12 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                     ((FFAppState().insuranceInfoPage3ImageLeftFront != '') && (FFAppState().insuranceInfoPage3ImageLeftFront != '') && (FFAppState().insuranceInfoPage3ImageLeftFront != null && FFAppState().insuranceInfoPage3ImageLeftFront != '')) &&
                                                     ((FFAppState().insuranceInfoPage3ImageRoof != '') && (FFAppState().insuranceInfoPage3ImageRoof != '') && (FFAppState().insuranceInfoPage3ImageRoof != null && FFAppState().insuranceInfoPage3ImageRoof != ''))) {
                                                   if (!(_model
-                                                          .privacyConsent1Value! &&
+                                                          .sensitiveConsentValue! &&
                                                       _model
-                                                          .privacyConsent2Value! &&
-                                                      _model
-                                                          .privacyConsent3Value!)) {
+                                                          .sanctionConsentValue! &&
+                                                      (_model.privacyConsentValue! ||
+                                                          _model
+                                                              .privacyConsentCancelValue!))) {
                                                     await showDialog(
                                                       context: context,
                                                       builder:
@@ -6986,7 +7123,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                     token: FFAppState()
                                                         .accessToken,
                                                     sensitiveConsent: _model
-                                                            .privacyConsentValue!
+                                                            .sensitiveConsentValue!
                                                         ? '1'
                                                         : '0',
                                                     privacyConsent: _model
@@ -6994,7 +7131,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                         ? '1'
                                                         : '0',
                                                     sanctionConsent: _model
-                                                            .privacyConsentValue!
+                                                            .sanctionConsentValue!
                                                         ? '1'
                                                         : '0',
                                                   );
@@ -7221,11 +7358,12 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                                     .insuranceInfoPage3ImageIdCard !=
                                                                 ''))) {
                                                   if (!(_model
-                                                          .privacyConsent1Value! &&
+                                                          .sensitiveConsentValue! &&
                                                       _model
-                                                          .privacyConsent2Value! &&
-                                                      _model
-                                                          .privacyConsent3Value!)) {
+                                                          .sanctionConsentValue! &&
+                                                      (_model.privacyConsentValue! ||
+                                                          _model
+                                                              .privacyConsentCancelValue!))) {
                                                     await showDialog(
                                                       context: context,
                                                       builder:
@@ -7319,7 +7457,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                     token: FFAppState()
                                                         .accessToken,
                                                     sensitiveConsent: _model
-                                                            .privacyConsentValue!
+                                                            .sensitiveConsentValue!
                                                         ? '1'
                                                         : '0',
                                                     privacyConsent: _model
@@ -7327,7 +7465,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                         ? '1'
                                                         : '0',
                                                     sanctionConsent: _model
-                                                            .privacyConsentValue!
+                                                            .sanctionConsentValue!
                                                         ? '1'
                                                         : '0',
                                                   );
@@ -7521,11 +7659,12 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                                 .insuranceInfoPage3ImageIdCard !=
                                                             '')) {
                                                   if (!(_model
-                                                          .privacyConsent1Value! &&
+                                                          .sensitiveConsentValue! &&
                                                       _model
-                                                          .privacyConsent2Value! &&
-                                                      _model
-                                                          .privacyConsent3Value!)) {
+                                                          .sanctionConsentValue! &&
+                                                      (_model.privacyConsentValue! ||
+                                                          _model
+                                                              .privacyConsentCancelValue!))) {
                                                     await showDialog(
                                                       context: context,
                                                       builder:
@@ -7637,7 +7776,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                     token: FFAppState()
                                                         .accessToken,
                                                     sensitiveConsent: _model
-                                                            .privacyConsentValue!
+                                                            .sensitiveConsentValue!
                                                         ? '1'
                                                         : '0',
                                                     privacyConsent: _model
@@ -7645,7 +7784,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                         ? '1'
                                                         : '0',
                                                     sanctionConsent: _model
-                                                            .privacyConsentValue!
+                                                            .sanctionConsentValue!
                                                         ? '1'
                                                         : '0',
                                                     subProduct: FFAppState()

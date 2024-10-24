@@ -498,6 +498,12 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                                           token: FFAppState().accessToken,
                                           subProduct:
                                               FFAppState().insuranceinfoActType,
+                                          fileCancelLoan: FFAppState()
+                                              .insuranceInfoPage4FileCancelLoan,
+                                          powerOfAttorney: FFAppState()
+                                              .InsuranceInfoPage4PowerOfAttoney,
+                                          idCardPowerOfAttorney: FFAppState()
+                                              .insuranceInfoPage4IdCardPowerattorney,
                                         );
 
                                         _shouldSetState = true;

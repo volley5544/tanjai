@@ -210,7 +210,7 @@ class _RenewSearchAllPoolPageWidgetState
                 child: TabBar(
                   labelColor: FlutterFlowTheme.of(context).primaryText,
                   unselectedLabelColor:
-                      FlutterFlowTheme.of(context).secondaryText,
+                      FlutterFlowTheme.of(context).primaryText,
                   labelStyle: FlutterFlowTheme.of(context).titleMedium.override(
                         fontFamily: 'Noto Sans Thai',
                         fontSize: 16.0,

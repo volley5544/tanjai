@@ -115,6 +115,7 @@ class _NonePackageBasicPageWidgetState
   late NonePackageBasicPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  bool brandNameTextFieldFocusListenerRegistered = false;
 
   @override
   void initState() {
@@ -861,44 +862,47 @@ class _NonePackageBasicPageWidgetState
                                   ),
                                   child: Align(
                                     alignment: AlignmentDirectional(0.0, 0.0),
-                                    child: ListTile(
-                                      title: Text(
-                                        (FFAppState().nonePackageBranchCode !=
-                                                    '') &&
-                                                (FFAppState()
-                                                        .nonePackageBranchName !=
-                                                    '')
-                                            ? '(${FFAppState().nonePackageBranchCode}) ${FFAppState().nonePackageBranchName}'
-                                            : 'กรุณาเลือกสาขาที่จะลงผลงาน',
-                                        textAlign: TextAlign.start,
-                                        style: FlutterFlowTheme.of(context)
-                                            .titleLarge
-                                            .override(
-                                              fontFamily: 'Noto Sans Thai',
-                                              color: (FFAppState()
-                                                              .nonePackageBranchCode !=
-                                                          '') &&
-                                                      (FFAppState()
-                                                              .nonePackageBranchName !=
-                                                          '')
-                                                  ? Colors.black
-                                                  : Color(0xFF9F9F9F),
-                                              fontSize: 15.0,
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                      ),
-                                      trailing: Icon(
-                                        Icons.arrow_forward_ios,
-                                        color: Color(0xFF474747),
-                                        size: 20.0,
-                                      ),
-                                      tileColor: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      dense: false,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
+                                    child: Material(
+                                      color: Colors.transparent,
+                                      child: ListTile(
+                                        title: Text(
+                                          (FFAppState().nonePackageBranchCode !=
+                                                      '') &&
+                                                  (FFAppState()
+                                                          .nonePackageBranchName !=
+                                                      '')
+                                              ? '(${FFAppState().nonePackageBranchCode}) ${FFAppState().nonePackageBranchName}'
+                                              : 'กรุณาเลือกสาขาที่จะลงผลงาน',
+                                          textAlign: TextAlign.start,
+                                          style: FlutterFlowTheme.of(context)
+                                              .titleLarge
+                                              .override(
+                                                fontFamily: 'Noto Sans Thai',
+                                                color: (FFAppState()
+                                                                .nonePackageBranchCode !=
+                                                            '') &&
+                                                        (FFAppState()
+                                                                .nonePackageBranchName !=
+                                                            '')
+                                                    ? Colors.black
+                                                    : Color(0xFF9F9F9F),
+                                                fontSize: 15.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                        ),
+                                        trailing: Icon(
+                                          Icons.arrow_forward_ios,
+                                          color: Color(0xFF474747),
+                                          size: 20.0,
+                                        ),
+                                        tileColor: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        dense: false,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10.0),
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -2205,19 +2209,12 @@ class _NonePackageBasicPageWidgetState
                                           ) {
                                             _model.brandNameTextFieldFocusNode =
                                                 focusNode;
-
-                                            _model.brandNameTextFieldTextController =
-                                                textEditingController;
-                                            return TextFormField(
-                                              key: _model.brandNameTextFieldKey,
-                                              controller: textEditingController,
-                                              focusNode: focusNode,
-                                              onEditingComplete:
-                                                  onEditingComplete,
-                                              onChanged: (_) =>
-                                                  EasyDebounce.debounce(
-                                                '_model.brandNameTextFieldTextController',
-                                                Duration(milliseconds: 1000),
+                                            if (!brandNameTextFieldFocusListenerRegistered) {
+                                              brandNameTextFieldFocusListenerRegistered =
+                                                  true;
+                                              _model
+                                                  .brandNameTextFieldFocusNode!
+                                                  .addListener(
                                                 () async {
                                                   if (FFAppState()
                                                           .insuranceBasicVehicleGroup ==
@@ -2424,7 +2421,92 @@ class _NonePackageBasicPageWidgetState
                                                       .toList()
                                                       .cast<String>();
                                                   safeSetState(() {});
+                                                  FFAppState().insuranceBasicModelNameList = functions
+                                                      .returnMappedListFrom3List(
+                                                          FFAppState()
+                                                              .insuranceBasicModelNameListOriginal
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .insuranceBasicModelBrandIdListOriginal
+                                                              .toList(),
+                                                          FFAppState()
+                                                                  .insuranceBasicBrandIdList[
+                                                              functions.getIndexOfBoolList(
+                                                                  FFAppState()
+                                                                      .searchableListComponentSelectedList
+                                                                      .toList(),
+                                                                  true)],
+                                                          FFAppState()
+                                                              .insuranceBasicVehicleGroupList
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .insuranceBasicVehicleGroup,
+                                                          FFAppState()
+                                                              .insuranceBasicCarGroupDetail
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .insuranceBasicCarTypeContain,
+                                                          FFAppState()
+                                                              .insuranceBasicCarDoorList
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .insuranceBasicCarTypeDoors)
+                                                      .toList()
+                                                      .cast<String>();
+                                                  FFAppState().insuranceBasicModelIdList = functions
+                                                      .returnMappedListFrom3List(
+                                                          FFAppState()
+                                                              .insuranceBasicModelIdListOriginal
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .insuranceBasicModelBrandIdListOriginal
+                                                              .toList(),
+                                                          FFAppState()
+                                                                  .insuranceBasicBrandIdList[
+                                                              functions.getIndexOfBoolList(
+                                                                  FFAppState()
+                                                                      .searchableListComponentSelectedList
+                                                                      .toList(),
+                                                                  true)],
+                                                          FFAppState()
+                                                              .insuranceBasicVehicleGroupList
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .insuranceBasicVehicleGroup,
+                                                          FFAppState()
+                                                              .insuranceBasicCarGroupDetail
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .insuranceBasicCarTypeContain,
+                                                          FFAppState()
+                                                              .insuranceBasicCarDoorList
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .insuranceBasicCarTypeDoors)
+                                                      .toList()
+                                                      .cast<String>();
+                                                  FFAppState()
+                                                          .insuranceBasicModelName =
+                                                      'เลือกรุ่นรถ';
+                                                  FFAppState()
+                                                      .insuranceBasicModelId = '';
+                                                  safeSetState(() {});
                                                 },
+                                              );
+                                            }
+                                            _model.brandNameTextFieldTextController =
+                                                textEditingController;
+                                            return TextFormField(
+                                              key: _model.brandNameTextFieldKey,
+                                              controller: textEditingController,
+                                              focusNode: focusNode,
+                                              onEditingComplete:
+                                                  onEditingComplete,
+                                              onChanged: (_) =>
+                                                  EasyDebounce.debounce(
+                                                '_model.brandNameTextFieldTextController',
+                                                Duration(milliseconds: 1000),
+                                                () async {},
                                               ),
                                               onFieldSubmitted: (_) async {
                                                 await actions

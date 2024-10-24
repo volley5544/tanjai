@@ -1182,6 +1182,31 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                             ],
                                           ),
                                         ),
+                                        Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      25.0, 0.0, 0.0, 0.0),
+                                              child: Text(
+                                                '*หากไม่ขึ้นการ์ดแพ็คเกจ หมายถึงไม่มีแพ็คเกจจากค่าที่ฟิลเตอร์*',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .error,
+                                                          fontSize: 14.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -1282,12 +1307,6 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                     Container(
                                                                   width: double
                                                                       .infinity,
-                                                                  height: columnInsurerConfig2Record!
-                                                                          .insurerInstallment
-                                                                          .contains(
-                                                                              FFAppState().searchShortName[listinsuranceIndex])
-                                                                      ? 160.0
-                                                                      : 140.0,
                                                                   decoration:
                                                                       BoxDecoration(
                                                                     color: FlutterFlowTheme.of(
@@ -1610,6 +1629,67 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                                               ],
                                                                                             ),
                                                                                           ),
+                                                                                          if (FFAppState().searchSumInsured[listinsuranceIndex] != '')
+                                                                                            Padding(
+                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 3.0),
+                                                                                              child: Row(
+                                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                                children: [
+                                                                                                  Text(
+                                                                                                    'สูญหายไฟไหม้',
+                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                          fontFamily: 'Noto Sans Thai',
+                                                                                                          color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                          fontSize: 10.0,
+                                                                                                          letterSpacing: 0.0,
+                                                                                                        ),
+                                                                                                  ),
+                                                                                                  Padding(
+                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
+                                                                                                    child: Text(
+                                                                                                      valueOrDefault<String>(
+                                                                                                        functions.showNumberWithComma(FFAppState().searchSumInsured[listinsuranceIndex]),
+                                                                                                        '0',
+                                                                                                      ),
+                                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                            fontFamily: 'Noto Sans Thai',
+                                                                                                            color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                            fontSize: 10.0,
+                                                                                                            letterSpacing: 0.0,
+                                                                                                          ),
+                                                                                                    ),
+                                                                                                  ),
+                                                                                                ],
+                                                                                              ),
+                                                                                            ),
+                                                                                          if (FFAppState().searchMotoraddon[listinsuranceIndex] != '')
+                                                                                            Padding(
+                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 3.0),
+                                                                                              child: Row(
+                                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                                children: [
+                                                                                                  Text(
+                                                                                                    'ประกันภัยเสริมรถยนต์ Motor Add-on',
+                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                          fontFamily: 'Noto Sans Thai',
+                                                                                                          color: FlutterFlowTheme.of(context).primary,
+                                                                                                          fontSize: 10.0,
+                                                                                                          letterSpacing: 0.0,
+                                                                                                        ),
+                                                                                                  ),
+                                                                                                  Padding(
+                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
+                                                                                                    child: Icon(
+                                                                                                      Icons.check_circle,
+                                                                                                      color: FlutterFlowTheme.of(context).secondary,
+                                                                                                      size: 16.0,
+                                                                                                    ),
+                                                                                                  ),
+                                                                                                ],
+                                                                                              ),
+                                                                                            ),
                                                                                           if (FFAppState().searchDeductible[listinsuranceIndex] != '0')
                                                                                             Padding(
                                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 3.0),
@@ -1679,7 +1759,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                                       ),
                                                                                     ),
                                                                                     Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 10.0),
                                                                                       child: FFButtonWidget(
                                                                                         onPressed: () async {
                                                                                           context.pushNamed(

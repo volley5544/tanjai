@@ -17,9 +17,9 @@ import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/permissions_util.dart';
 import 'package:badges/badges.dart' as badges;
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:expandable/expandable.dart';
@@ -5159,7 +5159,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                 ],
                                                 carouselController: _model
                                                         .carouselController ??=
-                                                    CarouselController(),
+                                                    CarouselSliderController(),
                                                 options: CarouselOptions(
                                                   initialPage: max(
                                                       0,

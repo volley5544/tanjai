@@ -693,8 +693,80 @@ class _CompareInsurancePageWidgetState
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         30.0, 0.0, 0.0, 0.0),
                                     child: Text(
-                                      widget!.insurerCondition![
-                                          _model.indexDataCompare!],
+                                      valueOrDefault<String>(
+                                        widget!.insurerCondition?[
+                                            _model.indexDataCompare!],
+                                        '-',
+                                      ),
+                                      textAlign: TextAlign.start,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Noto Sans Thai',
+                                            letterSpacing: 0.0,
+                                          ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            if ((widget!
+                                    .motorAddOn?[_model.indexDataCompare!]) !=
+                                '')
+                              Divider(
+                                thickness: 1.0,
+                                color: Color(0xFFB9B9B9),
+                              ),
+                            if ((widget!
+                                    .motorAddOn?[_model.indexDataCompare!]) !=
+                                '')
+                              Column(
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        20.0, 10.0, 20.0, 10.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        SizedBox(
+                                          height: 18.0,
+                                          child: VerticalDivider(
+                                            thickness: 3.0,
+                                            color: Color(0xFFEDBB8D),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  4.0, 0.0, 0.0, 0.0),
+                                          child: Text(
+                                            'ประกันภัยเสริมรถยนต์ Motor Add-on',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Noto Sans Thai',
+                                                  color: Color(0xFF002D5E),
+                                                  fontSize: 15.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        30.0, 0.0, 0.0, 0.0),
+                                    child: Text(
+                                      valueOrDefault<String>(
+                                        widget!.motorAddOn?[
+                                            _model.indexDataCompare!],
+                                        '-',
+                                      ),
                                       textAlign: TextAlign.start,
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
@@ -1207,6 +1279,58 @@ class _CompareInsurancePageWidgetState
                                             : (valueOrDefault<String>(
                                                 functions.showNumberWithComma(
                                                     widget!.pa?[_model
+                                                        .indexDataCompare!]),
+                                                '-',
+                                              )),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Noto Sans Thai',
+                                              color: Color(0xFF222424),
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Divider(
+                              thickness: 1.0,
+                              color: Color(0xFFB9B9B9),
+                            ),
+                            Column(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      20.0, 10.0, 20.0, 10.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        'สูญหายไฟไหม้',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Noto Sans Thai',
+                                              color: Color(0xFF646464),
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                      ),
+                                      Text(
+                                        functions.checkNullValueAndReturn(
+                                                    widget!.carLost?[_model
+                                                        .indexDataCompare!]) ==
+                                                '-'
+                                            ? '-'
+                                            : (valueOrDefault<String>(
+                                                functions.showNumberWithComma(
+                                                    widget!.carLost?[_model
                                                         .indexDataCompare!]),
                                                 '-',
                                               )),

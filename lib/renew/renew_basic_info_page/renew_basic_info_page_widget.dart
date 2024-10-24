@@ -1953,47 +1953,52 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(4.0, 0.0, 0.0, 0.0),
-                                              child: ListTile(
-                                                title: Text(
-                                                  FFAppState().renewPaymentType !=
-                                                          ''
-                                                      ? FFAppState()
-                                                          .renewPaymentType
-                                                      : 'กรุณาเลือกประเภทการชำระเงิน',
-                                                  textAlign: TextAlign.start,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .titleLarge
-                                                      .override(
-                                                        fontFamily:
-                                                            'Noto Sans Thai',
-                                                        color: (FFAppState()
-                                                                        .insuranceInfoBranchCode !=
-                                                                    '') &&
-                                                                (FFAppState()
-                                                                        .insuranceInfoBranchNameOutput !=
-                                                                    '')
-                                                            ? Colors.black
-                                                            : Color(0xFF9F9F9F),
-                                                        fontSize: 15.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                      ),
-                                                ),
-                                                trailing: Icon(
-                                                  Icons.arrow_forward_ios,
-                                                  color: Color(0xFF474747),
-                                                  size: 20.0,
-                                                ),
-                                                tileColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                                dense: false,
-                                                shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          10.0),
+                                              child: Material(
+                                                color: Colors.transparent,
+                                                child: ListTile(
+                                                  title: Text(
+                                                    FFAppState().renewPaymentType !=
+                                                            ''
+                                                        ? FFAppState()
+                                                            .renewPaymentType
+                                                        : 'กรุณาเลือกประเภทการชำระเงิน',
+                                                    textAlign: TextAlign.start,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .titleLarge
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          color: (FFAppState()
+                                                                          .insuranceInfoBranchCode !=
+                                                                      '') &&
+                                                                  (FFAppState()
+                                                                          .insuranceInfoBranchNameOutput !=
+                                                                      '')
+                                                              ? Colors.black
+                                                              : Color(
+                                                                  0xFF9F9F9F),
+                                                          fontSize: 15.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                        ),
+                                                  ),
+                                                  trailing: Icon(
+                                                    Icons.arrow_forward_ios,
+                                                    color: Color(0xFF474747),
+                                                    size: 20.0,
+                                                  ),
+                                                  tileColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .secondaryBackground,
+                                                  dense: false,
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10.0),
+                                                  ),
                                                 ),
                                               ),
                                             ),
@@ -2103,51 +2108,55 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         4.0, 0.0, 0.0, 0.0),
-                                                child: ListTile(
-                                                  title: Text(
-                                                    (FFAppState().renewBranchCode !=
-                                                                '') &&
-                                                            (FFAppState()
-                                                                    .renewBranchName !=
-                                                                '')
-                                                        ? '(${FFAppState().renewBranchCode}) ${FFAppState().renewBranchName}'
-                                                        : 'กรุณาเลือกสาขาที่จะลงผลงาน',
-                                                    textAlign: TextAlign.start,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .titleLarge
-                                                        .override(
-                                                          fontFamily:
-                                                              'Noto Sans Thai',
-                                                          color: (FFAppState()
-                                                                          .insuranceInfoBranchCode !=
-                                                                      '') &&
-                                                                  (FFAppState()
-                                                                          .insuranceInfoBranchNameOutput !=
-                                                                      '')
-                                                              ? Colors.black
-                                                              : Color(
-                                                                  0xFF9F9F9F),
-                                                          fontSize: 15.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                        ),
-                                                  ),
-                                                  trailing: Icon(
-                                                    Icons.arrow_forward_ios,
-                                                    color: Color(0xFF474747),
-                                                    size: 20.0,
-                                                  ),
-                                                  tileColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .secondaryBackground,
-                                                  dense: false,
-                                                  shape: RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10.0),
+                                                child: Material(
+                                                  color: Colors.transparent,
+                                                  child: ListTile(
+                                                    title: Text(
+                                                      (FFAppState().renewBranchCode !=
+                                                                  '') &&
+                                                              (FFAppState()
+                                                                      .renewBranchName !=
+                                                                  '')
+                                                          ? '(${FFAppState().renewBranchCode}) ${FFAppState().renewBranchName}'
+                                                          : 'กรุณาเลือกสาขาที่จะลงผลงาน',
+                                                      textAlign:
+                                                          TextAlign.start,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .titleLarge
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            color: (FFAppState()
+                                                                            .insuranceInfoBranchCode !=
+                                                                        '') &&
+                                                                    (FFAppState()
+                                                                            .insuranceInfoBranchNameOutput !=
+                                                                        '')
+                                                                ? Colors.black
+                                                                : Color(
+                                                                    0xFF9F9F9F),
+                                                            fontSize: 15.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                          ),
+                                                    ),
+                                                    trailing: Icon(
+                                                      Icons.arrow_forward_ios,
+                                                      color: Color(0xFF474747),
+                                                      size: 20.0,
+                                                    ),
+                                                    tileColor: FlutterFlowTheme
+                                                            .of(context)
+                                                        .secondaryBackground,
+                                                    dense: false,
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              10.0),
+                                                    ),
                                                   ),
                                                 ),
                                               ),

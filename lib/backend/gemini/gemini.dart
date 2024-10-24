@@ -5,13 +5,14 @@ import 'dart:typed_data';
 import 'package:http/http.dart' as http;
 import '/flutter_flow/flutter_flow_util.dart';
 
-const _kGemeniApiKey = 'AIzaSyACyj2QefRkIG_GIKhsWvH65JGS54NvX9c';
+const _kGeminiApiKey = 'AIzaSyACyj2QefRkIG_GIKhsWvH65JGS54NvX9c';
 
 Future<String?> geminiGenerateText(
   BuildContext context,
   String prompt,
 ) async {
-  final model = GenerativeModel(model: 'gemini-pro', apiKey: _kGemeniApiKey);
+  final model =
+      GenerativeModel(model: 'gemini-1.5-pro', apiKey: _kGeminiApiKey);
   final content = [Content.text(prompt)];
 
   try {
@@ -30,7 +31,8 @@ Future<String?> geminiCountTokens(
   BuildContext context,
   String prompt,
 ) async {
-  final model = GenerativeModel(model: 'gemini-pro', apiKey: _kGemeniApiKey);
+  final model =
+      GenerativeModel(model: 'gemini-1.5-pro', apiKey: _kGeminiApiKey);
   final content = [Content.text(prompt)];
 
   try {
@@ -67,7 +69,7 @@ Future<String?> geminiTextFromImage(
   );
 
   final model =
-      GenerativeModel(model: 'gemini-1.5-flash', apiKey: _kGemeniApiKey);
+      GenerativeModel(model: 'gemini-1.5-flash', apiKey: _kGeminiApiKey);
   final imageBytes = uploadImageBytes != null
       ? uploadImageBytes.bytes
       : await loadImageBytesFromUrl(imageNetworkUrl!);

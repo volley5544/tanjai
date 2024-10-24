@@ -140,14 +140,16 @@ class InsuranceInfoPage31Model
       FFUploadedFile(bytes: Uint8List.fromList([]));
   String uploadedFileUrl23 = '';
 
-  // State field(s) for privacy_consent_1 widget.
-  bool? privacyConsent1Value;
-  // State field(s) for privacy_consent_2 widget.
-  bool? privacyConsent2Value;
-  // State field(s) for privacy_consent_3 widget.
-  bool? privacyConsent3Value;
+  // State field(s) for sensitive_consent widget.
+  bool? sensitiveConsentValue;
+  // State field(s) for sanction_consent widget.
+  bool? sanctionConsentValue;
   // State field(s) for privacy_consent widget.
   bool? privacyConsentValue;
+  // State field(s) for privacy_consent_cancel widget.
+  bool? privacyConsentCancelValue;
+  // State field(s) for privacy_consent_all widget.
+  bool? privacyConsentAllValue;
   // Stores action output result for [Backend Call - API (ibsApplicationsSave)] action in VIM1Btn widget.
   ApiCallResponse? ibsAppSaveAPIOutput2;
 

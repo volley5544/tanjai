@@ -12248,11 +12248,17 @@ class IbsApplicationsSaveCall {
     String? batteryNumber2 = '',
     String? wallChargerNumber = '',
     String? horsepower = '',
+    String? fileCancelLoan = '',
+    String? powerOfAttorney = '',
+    String? idCardPowerOfAttorney = '',
   }) async {
     final address = _serializeJson(addressJson);
     final appDriver = _serializeJson(appDriverJson, true);
     final ffApiRequestBody = '''
 {
+"id_card_power_of_attorney":"${idCardPowerOfAttorney}",
+"power_of_attorney":"${powerOfAttorney}",
+"file_cancel_loan":"${fileCancelLoan}",
 "customer_type":"${customerType}",
   "horsepower": "${horsepower}",
   "battery_number": "${batteryNumber}",
@@ -13646,6 +13652,21 @@ class IbsApplicationsDetailCall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
+  static String? filecancelloan(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.data.app_document[:].file_cancel_loan''',
+      ));
+  static String? powerofattorney(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.data.app_document[:].power_of_attorney''',
+      ));
+  static String? idcardpowerofattorney(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.data.app_document[:].id_card_power_of_attorney''',
+      ));
 }
 
 class IbsApplicationsPaymentSaveCall {

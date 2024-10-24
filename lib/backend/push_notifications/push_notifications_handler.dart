@@ -300,7 +300,12 @@ final parametersBuilderMap =
         },
       ),
   'Search_7_Renew_1': ParameterData.none(),
-  'SampleIDcard': ParameterData.none(),
+  'SampleIDcard': (data) async => ParameterData(
+        allParams: {
+          'fromPage': getParameter<String>(data, 'fromPage'),
+          'imageUrl': getParameter<String>(data, 'imageUrl'),
+        },
+      ),
   'NonePackageBasicPage': (data) async => ParameterData(
         allParams: {
           'branchCode': getParameter<String>(data, 'branchCode'),
