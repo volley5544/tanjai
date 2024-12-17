@@ -933,6 +933,22 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
           ? true
           : false;
       safeSetState(() {});
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content: Text(FFAppState().isCorporate.toString()),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
       if (FFAppState().insuranceInfoApplicationType != 'auto') {
         FFAppState().insuranceInfoActFlag = '${IbsApplicationsDetailCall.actflg(
               (_model.detailAPIOutput?.jsonBody ?? ''),
@@ -1413,126 +1429,71 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
               (_model.detailAPIOutput?.jsonBody ?? ''),
             )}';
       safeSetState(() {});
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content: Text(FFAppState().insuranceInfoIdCard),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
       safeSetState(() {
         _model.idCardTextFieldTextController1?.text =
             FFAppState().insuranceInfoIdCard;
-        _model.idCardTextFieldFocusNode1?.requestFocus();
-        WidgetsBinding.instance.addPostFrameCallback((_) {
-          _model.idCardTextFieldTextController1?.selection =
-              TextSelection.collapsed(
-            offset: _model.idCardTextFieldTextController1!.text.length,
-          );
-        });
         _model.idCardTextFieldMask1.updateMask(
           newValue: TextEditingValue(
             text: _model.idCardTextFieldTextController1!.text,
-            selection: TextSelection.collapsed(
-              offset: _model.idCardTextFieldTextController1!.text.length,
-            ),
           ),
         );
       });
       safeSetState(() {
         _model.cusNameTextFieldTextController?.text =
             FFAppState().insuranceInfoFirstName;
-        _model.cusNameTextFieldFocusNode?.requestFocus();
-        WidgetsBinding.instance.addPostFrameCallback((_) {
-          _model.cusNameTextFieldTextController?.selection =
-              TextSelection.collapsed(
-            offset: _model.cusNameTextFieldTextController!.text.length,
-          );
-        });
       });
       safeSetState(() {
         _model.cusLastnameTextFieldTextController?.text =
             FFAppState().insuranceInfoLastName;
-        _model.cusLastnameTextFieldFocusNode?.requestFocus();
-        WidgetsBinding.instance.addPostFrameCallback((_) {
-          _model.cusLastnameTextFieldTextController?.selection =
-              TextSelection.collapsed(
-            offset: _model.cusLastnameTextFieldTextController!.text.length,
-          );
-        });
       });
       safeSetState(() {
         _model.cusOcputationTextFieldTextController?.text =
             FFAppState().insuranceInfoSelectOccupationSubNameChoose;
-        _model.cusOcputationTextFieldFocusNode?.requestFocus();
-        WidgetsBinding.instance.addPostFrameCallback((_) {
-          _model.cusOcputationTextFieldTextController?.selection =
-              TextSelection.collapsed(
-            offset: _model.cusOcputationTextFieldTextController!.text.length,
-          );
-        });
       });
       safeSetState(() {
         _model.cusPhoneTextFieldTextController?.text =
             FFAppState().insuranceInfoPhonenumber;
-        _model.cusPhoneTextFieldFocusNode?.requestFocus();
-        WidgetsBinding.instance.addPostFrameCallback((_) {
-          _model.cusPhoneTextFieldTextController?.selection =
-              TextSelection.collapsed(
-            offset: _model.cusPhoneTextFieldTextController!.text.length,
-          );
-        });
         _model.cusPhoneTextFieldMask.updateMask(
           newValue: TextEditingValue(
             text: _model.cusPhoneTextFieldTextController!.text,
-            selection: TextSelection.collapsed(
-              offset: _model.cusPhoneTextFieldTextController!.text.length,
-            ),
           ),
         );
       });
       safeSetState(() {
         _model.cusPhoneOtherTextFieldTextController?.text =
             FFAppState().insuranceInfoOtherPhone;
-        _model.cusPhoneOtherTextFieldFocusNode?.requestFocus();
-        WidgetsBinding.instance.addPostFrameCallback((_) {
-          _model.cusPhoneOtherTextFieldTextController?.selection =
-              TextSelection.collapsed(
-            offset: _model.cusPhoneOtherTextFieldTextController!.text.length,
-          );
-        });
         _model.cusPhoneOtherTextFieldMask.updateMask(
           newValue: TextEditingValue(
             text: _model.cusPhoneOtherTextFieldTextController!.text,
-            selection: TextSelection.collapsed(
-              offset: _model.cusPhoneOtherTextFieldTextController!.text.length,
-            ),
           ),
         );
       });
       safeSetState(() {
         _model.emailTextFieldTextController?.text =
             FFAppState().insuranceInfoEmail;
-        _model.emailTextFieldFocusNode?.requestFocus();
-        WidgetsBinding.instance.addPostFrameCallback((_) {
-          _model.emailTextFieldTextController?.selection =
-              TextSelection.collapsed(
-            offset: _model.emailTextFieldTextController!.text.length,
-          );
-        });
       });
       safeSetState(() {
         _model.ageTextFieldTextController?.text = FFAppState().insuranceInfoAge;
-        _model.ageTextFieldFocusNode?.requestFocus();
-        WidgetsBinding.instance.addPostFrameCallback((_) {
-          _model.ageTextFieldTextController?.selection =
-              TextSelection.collapsed(
-            offset: _model.ageTextFieldTextController!.text.length,
-          );
-        });
       });
       safeSetState(() {
         _model.licenseCodeTextController?.text =
             FFAppState().insuranceInfoLicenseEmployeeId;
-        _model.licenseCodeFocusNode?.requestFocus();
-        WidgetsBinding.instance.addPostFrameCallback((_) {
-          _model.licenseCodeTextController?.selection = TextSelection.collapsed(
-            offset: _model.licenseCodeTextController!.text.length,
-          );
-        });
       });
       if (FFAppState().insuranceInfoSelectOccupationName != null &&
           FFAppState().insuranceInfoSelectOccupationName != '') {
@@ -1688,13 +1649,6 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
         safeSetState(() {
           _model.licenseCodeTextController?.text =
               FFAppState().insuranceInfoLicenseEmployeeId;
-          _model.licenseCodeFocusNode?.requestFocus();
-          WidgetsBinding.instance.addPostFrameCallback((_) {
-            _model.licenseCodeTextController?.selection =
-                TextSelection.collapsed(
-              offset: _model.licenseCodeTextController!.text.length,
-            );
-          });
         });
         Navigator.pop(context);
       }
@@ -2611,6 +2565,9 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                           focusNode: _model
                                                               .idCardTextFieldFocusNode1,
                                                           autofocus: false,
+                                                          textCapitalization:
+                                                              TextCapitalization
+                                                                  .none,
                                                           obscureText: false,
                                                           decoration:
                                                               InputDecoration(
@@ -3577,7 +3534,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Text(
-                                              'กรอกเลขบัตรลูกค้า',
+                                              'กรอกเลขพาสปอร์ตลูกค้า',
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
