@@ -18,6 +18,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -1654,8 +1655,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
       }
     });
 
-    _model.idCardTextFieldTextController1 ??=
-        TextEditingController(text: FFAppState().insuranceInfoIdCard);
+    _model.idCardTextFieldTextController1 ??= TextEditingController();
     _model.idCardTextFieldFocusNode1 ??= FocusNode();
 
     _model.taxIDCardTextFieldTextController ??=
@@ -2626,9 +2626,18 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
+                                                          maxLength: 13,
+                                                          maxLengthEnforcement:
+                                                              MaxLengthEnforcement
+                                                                  .enforced,
+                                                          buildCounter: (context,
+                                                                  {required currentLength,
+                                                                  required isFocused,
+                                                                  maxLength}) =>
+                                                              null,
                                                           keyboardType:
                                                               TextInputType
-                                                                  .number,
+                                                                  .phone,
                                                           validator: _model
                                                               .idCardTextFieldTextController1Validator
                                                               .asValidator(
