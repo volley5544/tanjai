@@ -67,7 +67,10 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => FocusScope.of(context).unfocus(),
+              onTap: () {
+                FocusScope.of(context).unfocus();
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: Container(
@@ -245,7 +248,10 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -438,7 +444,10 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                       builder: (context) {
                         return WebViewAware(
                           child: GestureDetector(
-                            onTap: () => FocusScope.of(context).unfocus(),
+                            onTap: () {
+                              FocusScope.of(context).unfocus();
+                              FocusManager.instance.primaryFocus?.unfocus();
+                            },
                             child: Padding(
                               padding: MediaQuery.viewInsetsOf(context),
                               child: Container(
@@ -627,7 +636,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                 (_model.getRequestList
                                                         ?.jsonBody ??
                                                     ''),
-                                              )?[listIndex])! ||
+                                              )?.elementAtOrNull(listIndex))! ||
                                           (_model.searchFirstnameTextController
                                                       .text ==
                                                   null ||
@@ -641,7 +650,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                 (_model.getRequestList
                                                         ?.jsonBody ??
                                                     ''),
-                                              )?[listIndex]))),
+                                              )?.elementAtOrNull(listIndex)))),
                                   child: Align(
                                     alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Padding(
@@ -654,7 +663,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                     (_model.getRequestList
                                                             ?.jsonBody ??
                                                         ''),
-                                                  )?[listIndex]) !=
+                                                  )?.elementAtOrNull(
+                                                      listIndex)) !=
                                                   'manual'
                                               ? Color(0xFFF9DCC3)
                                               : Color(0xFFD9D9D9),
@@ -666,7 +676,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                       (_model.getRequestList
                                                               ?.jsonBody ??
                                                           ''),
-                                                    )?[listIndex]) !=
+                                                    )?.elementAtOrNull(
+                                                        listIndex)) !=
                                                     'manual'
                                                 ? Color(0xFFD9761A)
                                                 : Color(0xFF95A1AC),
@@ -766,11 +777,11 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                     (_model.getRequestList
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )?[listIndex])} ${functions.checkNullValueAndReturn(InsuranceRequestListAPICall.lastname(
+                                                                  )?.elementAtOrNull(listIndex))} ${functions.checkNullValueAndReturn(InsuranceRequestListAPICall.lastname(
                                                                     (_model.getRequestList
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )?[listIndex])}',
+                                                                  )?.elementAtOrNull(listIndex))}',
                                                                   maxLines: 2,
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
@@ -856,7 +867,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                   (_model.getRequestList
                                                                           ?.jsonBody ??
                                                                       ''),
-                                                                )?[listIndex]),
+                                                                )?.elementAtOrNull(
+                                                                        listIndex)),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
@@ -939,20 +951,20 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                   () {
                                                                     if (((InsuranceRequestListAPICall.flagRenew(
                                                                               (_model.getRequestList?.jsonBody ?? ''),
-                                                                            )?[listIndex]) ==
+                                                                            )?.elementAtOrNull(listIndex)) ==
                                                                             '1') &&
                                                                         ((InsuranceRequestListAPICall.oldVMIFlg(
                                                                               (_model.getRequestList?.jsonBody ?? ''),
-                                                                            )?[listIndex]) ==
+                                                                            )?.elementAtOrNull(listIndex)) ==
                                                                             '0')) {
                                                                       return 'งานต่ออายุ';
                                                                     } else if (((InsuranceRequestListAPICall.flagRenew(
                                                                               (_model.getRequestList?.jsonBody ?? ''),
-                                                                            )?[listIndex]) ==
+                                                                            )?.elementAtOrNull(listIndex)) ==
                                                                             '1') &&
                                                                         ((InsuranceRequestListAPICall.oldVMIFlg(
                                                                               (_model.getRequestList?.jsonBody ?? ''),
-                                                                            )?[listIndex]) ==
+                                                                            )?.elementAtOrNull(listIndex)) ==
                                                                             '1')) {
                                                                       return 'งานโอนโค้ด';
                                                                     } else {
@@ -988,7 +1000,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                     (_model.getRequestList
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )?[listIndex],
+                                                                  )?.elementAtOrNull(
+                                                                      listIndex),
                                                                   '-',
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
@@ -1073,20 +1086,20 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                   () {
                                                                     if (((InsuranceRequestListAPICall.flagRenew(
                                                                               (_model.getRequestList?.jsonBody ?? ''),
-                                                                            )?[listIndex]) ==
+                                                                            )?.elementAtOrNull(listIndex)) ==
                                                                             '1') &&
                                                                         ((InsuranceRequestListAPICall.oldVMIFlg(
                                                                               (_model.getRequestList?.jsonBody ?? ''),
-                                                                            )?[listIndex]) ==
+                                                                            )?.elementAtOrNull(listIndex)) ==
                                                                             '0')) {
                                                                       return 'งานต่ออายุ';
                                                                     } else if (((InsuranceRequestListAPICall.flagRenew(
                                                                               (_model.getRequestList?.jsonBody ?? ''),
-                                                                            )?[listIndex]) ==
+                                                                            )?.elementAtOrNull(listIndex)) ==
                                                                             '1') &&
                                                                         ((InsuranceRequestListAPICall.oldVMIFlg(
                                                                               (_model.getRequestList?.jsonBody ?? ''),
-                                                                            )?[listIndex]) ==
+                                                                            )?.elementAtOrNull(listIndex)) ==
                                                                             '1')) {
                                                                       return 'งานโอนโค้ด';
                                                                     } else {
@@ -1122,7 +1135,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                     (_model.getRequestList
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )?[listIndex],
+                                                                  )?.elementAtOrNull(
+                                                                      listIndex),
                                                                   '-',
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
@@ -1207,20 +1221,20 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                   () {
                                                                     if (((InsuranceRequestListAPICall.flagRenew(
                                                                               (_model.getRequestList?.jsonBody ?? ''),
-                                                                            )?[listIndex]) ==
+                                                                            )?.elementAtOrNull(listIndex)) ==
                                                                             '1') &&
                                                                         ((InsuranceRequestListAPICall.oldVMIFlg(
                                                                               (_model.getRequestList?.jsonBody ?? ''),
-                                                                            )?[listIndex]) ==
+                                                                            )?.elementAtOrNull(listIndex)) ==
                                                                             '0')) {
                                                                       return 'งานต่ออายุ';
                                                                     } else if (((InsuranceRequestListAPICall.flagRenew(
                                                                               (_model.getRequestList?.jsonBody ?? ''),
-                                                                            )?[listIndex]) ==
+                                                                            )?.elementAtOrNull(listIndex)) ==
                                                                             '1') &&
                                                                         ((InsuranceRequestListAPICall.oldVMIFlg(
                                                                               (_model.getRequestList?.jsonBody ?? ''),
-                                                                            )?[listIndex]) ==
+                                                                            )?.elementAtOrNull(listIndex)) ==
                                                                             '1')) {
                                                                       return 'งานโอนโค้ด';
                                                                     } else {
@@ -1256,7 +1270,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                     (_model.getRequestList
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )?[listIndex],
+                                                                  )?.elementAtOrNull(
+                                                                      listIndex),
                                                                   '-',
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
@@ -1343,7 +1358,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                   (_model.getRequestList
                                                                           ?.jsonBody ??
                                                                       ''),
-                                                                )?[listIndex]),
+                                                                )?.elementAtOrNull(
+                                                                        listIndex)),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
@@ -1428,7 +1444,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                   (_model.getRequestList
                                                                           ?.jsonBody ??
                                                                       ''),
-                                                                )?[listIndex]),
+                                                                )?.elementAtOrNull(
+                                                                        listIndex)),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
@@ -1513,7 +1530,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                   (_model.getRequestList
                                                                           ?.jsonBody ??
                                                                       ''),
-                                                                )?[listIndex]),
+                                                                )?.elementAtOrNull(
+                                                                        listIndex)),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
@@ -1522,7 +1540,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                           'Noto Sans Thai',
                                                                       color: functions.checkNullValueAndReturn(InsuranceRequestListAPICall.quotationStatus(
                                                                                 (_model.getRequestList?.jsonBody ?? ''),
-                                                                              )?[listIndex]) ==
+                                                                              )?.elementAtOrNull(listIndex)) ==
                                                                               'ประกันปฏิเสธ'
                                                                           ? FlutterFlowTheme.of(context).error
                                                                           : FlutterFlowTheme.of(context).black600,
@@ -1604,7 +1622,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                   (_model.getRequestList
                                                                           ?.jsonBody ??
                                                                       ''),
-                                                                )?[listIndex]),
+                                                                )?.elementAtOrNull(
+                                                                        listIndex)),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
@@ -1632,27 +1651,28 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                   ),
                                                 ),
                                                 if ((((InsuranceRequestListAPICall
-                                                                            .phoneNumber(
+                                                                        .phoneNumber(
                                                                       (_model.getRequestList
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[
-                                                                        listIndex]) !=
+                                                                    )?.elementAtOrNull(
+                                                                        listIndex)) !=
                                                                     null &&
                                                                 (InsuranceRequestListAPICall
-                                                                            .phoneNumber(
+                                                                        .phoneNumber(
                                                                       (_model.getRequestList
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[
-                                                                        listIndex]) !=
+                                                                    )?.elementAtOrNull(
+                                                                        listIndex)) !=
                                                                     '') &&
                                                             ((InsuranceRequestListAPICall
                                                                     .phoneNumber(
                                                                   (_model.getRequestList
                                                                           ?.jsonBody ??
                                                                       ''),
-                                                                )?[listIndex]) !=
+                                                                )?.elementAtOrNull(
+                                                                    listIndex)) !=
                                                                 '')
                                                         ? true
                                                         : false) &&
@@ -1713,13 +1733,13 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                       Uri(
                                                                     scheme:
                                                                         'tel',
-                                                                    path: functions
-                                                                        .checkNullValueAndReturn(
-                                                                            InsuranceRequestListAPICall.phoneNumber(
+                                                                    path: functions.checkNullValueAndReturn(InsuranceRequestListAPICall
+                                                                        .phoneNumber(
                                                                       (_model.getRequestList
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[listIndex]),
+                                                                    )?.elementAtOrNull(
+                                                                        listIndex)),
                                                                   ));
                                                                 },
                                                                 child: Icon(
@@ -1753,7 +1773,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                 (_model.getRequestList
                                                                         ?.jsonBody ??
                                                                     ''),
-                                                              )?[listIndex]) ==
+                                                              )?.elementAtOrNull(
+                                                                  listIndex)) ==
                                                               'manual') &&
                                                           (functions.checkNullValueAndReturn(
                                                                   InsuranceRequestListAPICall
@@ -1761,7 +1782,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                 (_model.getRequestList
                                                                         ?.jsonBody ??
                                                                     ''),
-                                                              )?[listIndex]) !=
+                                                              )?.elementAtOrNull(
+                                                                      listIndex)) !=
                                                               'ประกันปฏิเสธ')
                                                       ? true
                                                       : false)
@@ -1789,10 +1811,15 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                               return WebViewAware(
                                                                 child:
                                                                     GestureDetector(
-                                                                  onTap: () =>
-                                                                      FocusScope.of(
-                                                                              context)
-                                                                          .unfocus(),
+                                                                  onTap: () {
+                                                                    FocusScope.of(
+                                                                            context)
+                                                                        .unfocus();
+                                                                    FocusManager
+                                                                        .instance
+                                                                        .primaryFocus
+                                                                        ?.unfocus();
+                                                                  },
                                                                   child:
                                                                       Padding(
                                                                     padding: MediaQuery
@@ -2095,14 +2122,14 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                 .apiUrlInsuranceAppState,
                                                             token: FFAppState()
                                                                 .accessToken,
-                                                            leadId:
-                                                                (InsuranceRequestListAPICall
-                                                                        .leadId(
+                                                            leadId: (InsuranceRequestListAPICall
+                                                                    .leadId(
                                                               (_model.getRequestList
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            )?[listIndex])
-                                                                    ?.toString(),
+                                                            )?.elementAtOrNull(
+                                                                    listIndex))
+                                                                ?.toString(),
                                                           );
 
                                                           _shouldSetState =
@@ -2424,7 +2451,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                             (_model.getDetailAPIEdit
                                                                     ?.jsonBody ??
                                                                 ''),
-                                                          )?.first}');
+                                                          )?.firstOrNull}');
                                                           FFAppState()
                                                                   .nonePackageGarageTypeName =
                                                               functions
@@ -2433,7 +2460,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                             (_model.getDetailAPIEdit
                                                                     ?.jsonBody ??
                                                                 ''),
-                                                          )?.first}');
+                                                          )?.firstOrNull}');
                                                           FFAppState()
                                                                   .nonePackageFlagRenew =
                                                               InsuranceRequestDetailAPICall
@@ -2866,21 +2893,24 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                             (_model.getRequestList
                                                                     ?.jsonBody ??
                                                                 ''),
-                                                          )?[listIndex]) ==
+                                                          )?.elementAtOrNull(
+                                                              listIndex)) ==
                                                           'manual') &&
                                                       ((InsuranceRequestListAPICall
                                                               .flagRenew(
                                                             (_model.getRequestList
                                                                     ?.jsonBody ??
                                                                 ''),
-                                                          )?[listIndex]) !=
+                                                          )?.elementAtOrNull(
+                                                              listIndex)) !=
                                                           '1') &&
                                                       ((InsuranceRequestListAPICall
                                                               .refRenewId(
                                                             (_model.getRequestList
                                                                     ?.jsonBody ??
                                                                 ''),
-                                                          )?[listIndex]) ==
+                                                          )?.elementAtOrNull(
+                                                              listIndex)) ==
                                                           ''))
                                                     Padding(
                                                       padding:
@@ -2906,10 +2936,15 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                               return WebViewAware(
                                                                 child:
                                                                     GestureDetector(
-                                                                  onTap: () =>
-                                                                      FocusScope.of(
-                                                                              context)
-                                                                          .unfocus(),
+                                                                  onTap: () {
+                                                                    FocusScope.of(
+                                                                            context)
+                                                                        .unfocus();
+                                                                    FocusManager
+                                                                        .instance
+                                                                        .primaryFocus
+                                                                        ?.unfocus();
+                                                                  },
                                                                   child:
                                                                       Padding(
                                                                     padding: MediaQuery
@@ -3209,14 +3244,14 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                 .apiUrlInsuranceAppState,
                                                             token: FFAppState()
                                                                 .accessToken,
-                                                            leadId:
-                                                                (InsuranceRequestListAPICall
-                                                                        .leadId(
+                                                            leadId: (InsuranceRequestListAPICall
+                                                                    .leadId(
                                                               (_model.getRequestList
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            )?[listIndex])
-                                                                    ?.toString(),
+                                                            )?.elementAtOrNull(
+                                                                    listIndex))
+                                                                ?.toString(),
                                                           );
 
                                                           _shouldSetState =
@@ -3737,7 +3772,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )?.first}') ==
+                                                                  )?.firstOrNull}') ==
                                                                   '-'
                                                               ? ''
                                                               : functions
@@ -3746,7 +3781,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                   (_model.getDetailApiDup
                                                                           ?.jsonBody ??
                                                                       ''),
-                                                                )?.first}');
+                                                                )?.firstOrNull}');
                                                           FFAppState()
                                                               .nonePackageCoverTypeCode = functions
                                                                       .checkNullValueAndReturn(
@@ -3754,7 +3789,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )?.first}') ==
+                                                                  )?.firstOrNull}') ==
                                                                   '-'
                                                               ? ''
                                                               : functions
@@ -3763,7 +3798,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                   (_model.getDetailApiDup
                                                                           ?.jsonBody ??
                                                                       ''),
-                                                                )?.first}');
+                                                                )?.firstOrNull}');
                                                           FFAppState()
                                                               .nonePackageCoverTypeName = functions
                                                                       .checkNullValueAndReturn(
@@ -3771,7 +3806,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )?.first}') ==
+                                                                  )?.firstOrNull}') ==
                                                                   '-'
                                                               ? 'กรุณาเลือกประเภทชั้นประกัน'
                                                               : functions
@@ -3780,7 +3815,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                   (_model.getDetailApiDup
                                                                           ?.jsonBody ??
                                                                       ''),
-                                                                )?.first}');
+                                                                )?.firstOrNull}');
                                                           FFAppState()
                                                               .nonePackageGarageTypeId = functions
                                                                       .checkNullValueAndReturn(
@@ -3788,7 +3823,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )?.first}') ==
+                                                                  )?.firstOrNull}') ==
                                                                   '-'
                                                               ? ''
                                                               : functions
@@ -3797,7 +3832,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                   (_model.getDetailApiDup
                                                                           ?.jsonBody ??
                                                                       ''),
-                                                                )?.first}');
+                                                                )?.firstOrNull}');
                                                           FFAppState()
                                                               .nonePackageGarageTypeName = functions
                                                                       .checkNullValueAndReturn(
@@ -3805,7 +3840,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )?.first}') ==
+                                                                  )?.firstOrNull}') ==
                                                                   '-'
                                                               ? 'กรุณาเลือกประเภทการซ่อม'
                                                               : functions
@@ -3814,7 +3849,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                   (_model.getDetailApiDup
                                                                           ?.jsonBody ??
                                                                       ''),
-                                                                )?.first}');
+                                                                )?.firstOrNull}');
                                                           FFAppState()
                                                               .nonePackageGarageTypeCode = functions
                                                                       .checkNullValueAndReturn(
@@ -3822,7 +3857,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )?.first}') ==
+                                                                  )?.firstOrNull}') ==
                                                                   '-'
                                                               ? ''
                                                               : functions
@@ -3831,7 +3866,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                   (_model.getDetailApiDup
                                                                           ?.jsonBody ??
                                                                       ''),
-                                                                )?.first}');
+                                                                )?.firstOrNull}');
                                                           FFAppState()
                                                                   .nonePackageFlagRenew =
                                                               InsuranceRequestDetailAPICall
@@ -4327,7 +4362,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                             (_model.getRequestList
                                                                     ?.jsonBody ??
                                                                 ''),
-                                                          )?[listIndex]) ==
+                                                          )?.elementAtOrNull(
+                                                              listIndex)) ==
                                                           0
                                                       ? true
                                                       : false)
@@ -4655,7 +4691,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                 (_model.getRequestList
                                                                         ?.jsonBody ??
                                                                     ''),
-                                                              )?[listIndex])
+                                                              )?.elementAtOrNull(
+                                                                      listIndex))
                                                                   ?.toString(),
                                                               list: FFAppState()
                                                                   .typeList,
@@ -4733,7 +4770,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                               .videourl(
                                                                             (_model.listFromDash?.jsonBody ??
                                                                                 ''),
-                                                                          )?.first !=
+                                                                          )?.firstOrNull !=
                                                                           ''))
                                                                   : true) {
                                                                 context
@@ -4780,7 +4817,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                           ?.jsonBody ??
                                                                       ''),
                                                                 )!
-                                                                        .first;
+                                                                        .firstOrNull!;
                                                                 safeSetState(
                                                                     () {});
                                                                 await showModalBottomSheet(
@@ -4798,8 +4835,15 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                     return WebViewAware(
                                                                       child:
                                                                           GestureDetector(
-                                                                        onTap: () =>
-                                                                            FocusScope.of(context).unfocus(),
+                                                                        onTap:
+                                                                            () {
+                                                                          FocusScope.of(context)
+                                                                              .unfocus();
+                                                                          FocusManager
+                                                                              .instance
+                                                                              .primaryFocus
+                                                                              ?.unfocus();
+                                                                        },
                                                                         child:
                                                                             Padding(
                                                                           padding:
@@ -4809,11 +4853,11 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                             leadID: InsuranceRequestListAPIDashBoardCall.watingInfoleadid(
                                                                               (_model.listFromDash?.jsonBody ?? ''),
                                                                             )!
-                                                                                .first,
+                                                                                .firstOrNull!,
                                                                             quotationID: InsuranceRequestListAPIDashBoardCall.watingInfoquotationid(
                                                                               (_model.listFromDash?.jsonBody ?? ''),
                                                                             )!
-                                                                                .first,
+                                                                                .firstOrNull!,
                                                                           ),
                                                                         ),
                                                                       ),

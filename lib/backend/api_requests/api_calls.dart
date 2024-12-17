@@ -13667,6 +13667,11 @@ class IbsApplicationsDetailCall {
         response,
         r'''$.results.data.app_document[:].id_card_power_of_attorney''',
       ));
+  static String? seatappdetail(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.data.app_detail[:].seat''',
+      ));
 }
 
 class IbsApplicationsPaymentSaveCall {

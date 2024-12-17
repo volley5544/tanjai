@@ -125,7 +125,7 @@ class _UrlLinkWidgetState extends State<UrlLinkWidget>
                         unselectedLabelStyle: TextStyle(),
                         labelColor: FlutterFlowTheme.of(context).primaryText,
                         unselectedLabelColor:
-                            FlutterFlowTheme.of(context).primaryText,
+                            FlutterFlowTheme.of(context).secondaryText,
                         backgroundColor:
                             FlutterFlowTheme.of(context).primaryBtnText,
                         unselectedBackgroundColor:
@@ -255,9 +255,10 @@ class _UrlLinkWidgetState extends State<UrlLinkWidget>
                                                       child: Container(
                                                         height: double.infinity,
                                                         child: ShowimgurlWidget(
-                                                          imgPath: widget!
-                                                                  .leaveDoc![
-                                                              leavedocIndex],
+                                                          imgPath: (widget!
+                                                              .leaveDoc!
+                                                              .elementAtOrNull(
+                                                                  leavedocIndex))!,
                                                         ),
                                                       ),
                                                     ),

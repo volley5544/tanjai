@@ -313,13 +313,18 @@ class _TextFieldComponentWidgetState extends State<TextFieldComponentWidget> {
                               safeSetState(() {
                                 _model.carryPurposeTextFieldTextController1
                                     ?.text = widget!.sliderMinValue!;
-                                _model.carryPurposeTextFieldTextController1
-                                        ?.selection =
-                                    TextSelection.collapsed(
-                                        offset: _model
-                                            .carryPurposeTextFieldTextController1!
-                                            .text
-                                            .length);
+                                _model.carryPurposeTextFieldFocusNode1
+                                    ?.requestFocus();
+                                WidgetsBinding.instance
+                                    .addPostFrameCallback((_) {
+                                  _model.carryPurposeTextFieldTextController1
+                                      ?.selection = TextSelection.collapsed(
+                                    offset: _model
+                                        .carryPurposeTextFieldTextController1!
+                                        .text
+                                        .length,
+                                  );
+                                });
                               });
                             }
                             if (double.parse(_model
@@ -329,13 +334,18 @@ class _TextFieldComponentWidgetState extends State<TextFieldComponentWidget> {
                               safeSetState(() {
                                 _model.carryPurposeTextFieldTextController2
                                     ?.text = widget!.sliderMaxValue!;
-                                _model.carryPurposeTextFieldTextController2
-                                        ?.selection =
-                                    TextSelection.collapsed(
-                                        offset: _model
-                                            .carryPurposeTextFieldTextController2!
-                                            .text
-                                            .length);
+                                _model.carryPurposeTextFieldFocusNode2
+                                    ?.requestFocus();
+                                WidgetsBinding.instance
+                                    .addPostFrameCallback((_) {
+                                  _model.carryPurposeTextFieldTextController2
+                                      ?.selection = TextSelection.collapsed(
+                                    offset: _model
+                                        .carryPurposeTextFieldTextController2!
+                                        .text
+                                        .length,
+                                  );
+                                });
                               });
                             }
                           } else {

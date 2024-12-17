@@ -13963,6 +13963,12 @@ class FFAppState extends ChangeNotifier {
   set insuranceInfoPage4IdCardPowerattorney(String value) {
     _insuranceInfoPage4IdCardPowerattorney = value;
   }
+
+  bool _haveSeatinPackage = false;
+  bool get haveSeatinPackage => _haveSeatinPackage;
+  set haveSeatinPackage(bool value) {
+    _haveSeatinPackage = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

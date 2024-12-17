@@ -74,7 +74,10 @@ class _MakeInsuranceListPageWidgetState
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => FocusScope.of(context).unfocus(),
+              onTap: () {
+                FocusScope.of(context).unfocus();
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: Container(
@@ -205,7 +208,10 @@ class _MakeInsuranceListPageWidgetState
                 : null;
 
         return GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          onTap: () {
+            FocusScope.of(context).unfocus();
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
           child: WillPopScope(
             onWillPop: () async => false,
             child: Scaffold(
@@ -272,7 +278,11 @@ class _MakeInsuranceListPageWidgetState
                             builder: (context) {
                               return WebViewAware(
                                 child: GestureDetector(
-                                  onTap: () => FocusScope.of(context).unfocus(),
+                                  onTap: () {
+                                    FocusScope.of(context).unfocus();
+                                    FocusManager.instance.primaryFocus
+                                        ?.unfocus();
+                                  },
                                   child: Padding(
                                     padding: MediaQuery.viewInsetsOf(context),
                                     child: Container(
@@ -349,9 +359,13 @@ class _MakeInsuranceListPageWidgetState
                                         builder: (context) {
                                           return WebViewAware(
                                             child: GestureDetector(
-                                              onTap: () =>
-                                                  FocusScope.of(context)
-                                                      .unfocus(),
+                                              onTap: () {
+                                                FocusScope.of(context)
+                                                    .unfocus();
+                                                FocusManager
+                                                    .instance.primaryFocus
+                                                    ?.unfocus();
+                                              },
                                               child: Padding(
                                                 padding:
                                                     MediaQuery.viewInsetsOf(
@@ -566,8 +580,9 @@ class _MakeInsuranceListPageWidgetState
                                                                     .searchFirstnameTextController
                                                                     .text,
                                                                 getJsonField(
-                                                                  widget!.list?[
-                                                                      leadListItemIndex],
+                                                                  widget!.list
+                                                                      ?.elementAtOrNull(
+                                                                          leadListItemIndex),
                                                                   r'''$.first_name''',
                                                                 )
                                                                     .toString())! ||
@@ -580,8 +595,9 @@ class _MakeInsuranceListPageWidgetState
                                                         (FFAppState()
                                                                 .searchQuotationStatus ==
                                                             getJsonField(
-                                                              widget!.list?[
-                                                                  leadListItemIndex],
+                                                              widget!.list
+                                                                  ?.elementAtOrNull(
+                                                                      leadListItemIndex),
                                                               r'''$.payment_status''',
                                                             ).toString())),
                                                 child: Align(
@@ -598,8 +614,9 @@ class _MakeInsuranceListPageWidgetState
                                                       decoration: BoxDecoration(
                                                         color: () {
                                                           if (getJsonField(
-                                                                widget!.list![
-                                                                    leadListItemIndex],
+                                                                widget!.list!
+                                                                    .elementAtOrNull(
+                                                                        leadListItemIndex),
                                                                 r'''$.payment_status_check''',
                                                               ) &&
                                                               (widget!.checkPayment ==
@@ -607,8 +624,9 @@ class _MakeInsuranceListPageWidgetState
                                                             return Color(
                                                                 0xFFFFE090);
                                                           } else if (getJsonField(
-                                                                widget!.list![
-                                                                    leadListItemIndex],
+                                                                widget!.list!
+                                                                    .elementAtOrNull(
+                                                                        leadListItemIndex),
                                                                 r'''$.payment_status_check_sec''',
                                                               ) &&
                                                               (widget!.checkPayment ==
@@ -627,8 +645,9 @@ class _MakeInsuranceListPageWidgetState
                                                         border: Border.all(
                                                           color: () {
                                                             if (getJsonField(
-                                                                  widget!.list![
-                                                                      leadListItemIndex],
+                                                                  widget!.list!
+                                                                      .elementAtOrNull(
+                                                                          leadListItemIndex),
                                                                   r'''$.payment_status_check''',
                                                                 ) &&
                                                                 (widget!.checkPayment ==
@@ -637,8 +656,9 @@ class _MakeInsuranceListPageWidgetState
                                                                       .of(context)
                                                                   .warning;
                                                             } else if (getJsonField(
-                                                                  widget!.list![
-                                                                      leadListItemIndex],
+                                                                  widget!.list!
+                                                                      .elementAtOrNull(
+                                                                          leadListItemIndex),
                                                                   r'''$.payment_status_check_sec''',
                                                                 ) &&
                                                                 (widget!.checkPayment ==
@@ -715,7 +735,7 @@ class _MakeInsuranceListPageWidgetState
                                                                             child:
                                                                                 Image.network(
                                                                               getJsonField(
-                                                                                widget!.list![leadListItemIndex],
+                                                                                widget!.list!.elementAtOrNull(leadListItemIndex),
                                                                                 r'''$.image''',
                                                                               ).toString(),
                                                                               width: 300.0,
@@ -746,7 +766,8 @@ class _MakeInsuranceListPageWidgetState
                                                                       Text(
                                                                         getJsonField(
                                                                           widget!
-                                                                              .list![leadListItemIndex],
+                                                                              .list!
+                                                                              .elementAtOrNull(leadListItemIndex),
                                                                           r'''$.insurer_name''',
                                                                         ).toString(),
                                                                         style: FlutterFlowTheme.of(context)
@@ -776,10 +797,10 @@ class _MakeInsuranceListPageWidgetState
                                                                           ),
                                                                           Text(
                                                                             '${getJsonField(
-                                                                              widget!.list?[leadListItemIndex],
+                                                                              widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                               r'''$.first_name''',
                                                                             ).toString()} ${getJsonField(
-                                                                              widget!.list?[leadListItemIndex],
+                                                                              widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                               r'''$.last_name''',
                                                                             ).toString()}',
                                                                             maxLines:
@@ -795,7 +816,7 @@ class _MakeInsuranceListPageWidgetState
                                                                       ),
                                                                       if ('CMI' !=
                                                                           getJsonField(
-                                                                            widget!.list?[leadListItemIndex],
+                                                                            widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                             r'''$.sub_product''',
                                                                           ).toString())
                                                                         Row(
@@ -816,7 +837,7 @@ class _MakeInsuranceListPageWidgetState
                                                                             ),
                                                                             Text(
                                                                               getJsonField(
-                                                                                widget!.list![leadListItemIndex],
+                                                                                widget!.list!.elementAtOrNull(leadListItemIndex),
                                                                                 r'''$.cover_type_name''',
                                                                               ).toString(),
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -831,12 +852,12 @@ class _MakeInsuranceListPageWidgetState
                                                                         ),
                                                                       if (('งานนอกเรท' ==
                                                                                   getJsonField(
-                                                                                    widget!.list?[leadListItemIndex],
+                                                                                    widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                     r'''$.quotation_type_name''',
                                                                                   ).toString()) ||
                                                                               ('CMI' ==
                                                                                   getJsonField(
-                                                                                    widget!.list?[leadListItemIndex],
+                                                                                    widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                     r'''$.sub_product''',
                                                                                   ).toString())
                                                                           ? false
@@ -860,11 +881,11 @@ class _MakeInsuranceListPageWidgetState
                                                                             Text(
                                                                               '' !=
                                                                                       getJsonField(
-                                                                                        widget!.list?[leadListItemIndex],
+                                                                                        widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                         r'''$.sum_insured''',
                                                                                       ).toString()
                                                                                   ? getJsonField(
-                                                                                      widget!.list![leadListItemIndex],
+                                                                                      widget!.list!.elementAtOrNull(leadListItemIndex),
                                                                                       r'''$.sum_insured''',
                                                                                     ).toString()
                                                                                   : '-',
@@ -879,7 +900,7 @@ class _MakeInsuranceListPageWidgetState
                                                                         ),
                                                                       if ('CMI' ==
                                                                           getJsonField(
-                                                                            widget!.list?[leadListItemIndex],
+                                                                            widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                             r'''$.sub_product''',
                                                                           ).toString())
                                                                         Row(
@@ -902,13 +923,13 @@ class _MakeInsuranceListPageWidgetState
                                                                               valueOrDefault<String>(
                                                                                 '' !=
                                                                                         getJsonField(
-                                                                                          widget!.list?[leadListItemIndex],
+                                                                                          widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                           r'''$.act_total''',
                                                                                         ).toString()
-                                                                                    ? (functions.showNumberWithComma(getJsonField(
-                                                                                        widget!.list?[leadListItemIndex],
+                                                                                    ? functions.showNumberWithComma(getJsonField(
+                                                                                        widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                         r'''$.act_total''',
-                                                                                      ).toString()))
+                                                                                      ).toString())
                                                                                     : '-',
                                                                                 '-',
                                                                               ),
@@ -923,7 +944,7 @@ class _MakeInsuranceListPageWidgetState
                                                                         ),
                                                                       if ('CMI' !=
                                                                           getJsonField(
-                                                                            widget!.list?[leadListItemIndex],
+                                                                            widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                             r'''$.sub_product''',
                                                                           ).toString())
                                                                         Row(
@@ -943,7 +964,7 @@ class _MakeInsuranceListPageWidgetState
                                                                             ),
                                                                             Text(
                                                                               getJsonField(
-                                                                                widget!.list![leadListItemIndex],
+                                                                                widget!.list!.elementAtOrNull(leadListItemIndex),
                                                                                 r'''$.garage_type_name''',
                                                                               ).toString(),
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -982,24 +1003,24 @@ class _MakeInsuranceListPageWidgetState
                                                                               child: Text(
                                                                                 'ปฏิเสธ' !=
                                                                                         functions.checkNullValueAndReturn(getJsonField(
-                                                                                          widget!.list?[leadListItemIndex],
+                                                                                          widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                           r'''$.insurer_status''',
                                                                                         ).toString())
                                                                                     ? getJsonField(
-                                                                                        widget!.list![leadListItemIndex],
+                                                                                        widget!.list!.elementAtOrNull(leadListItemIndex),
                                                                                         r'''$.quotation_status''',
                                                                                       ).toString()
-                                                                                    : (functions.checkNullValueAndReturn(getJsonField(
-                                                                                        widget!.list?[leadListItemIndex],
+                                                                                    : functions.checkNullValueAndReturn(getJsonField(
+                                                                                        widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                         r'''$.insurer_status''',
-                                                                                      ).toString())),
+                                                                                      ).toString()),
                                                                                 textAlign: TextAlign.end,
                                                                                 maxLines: 2,
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                       fontFamily: 'Noto Sans Thai',
                                                                                       color: 'ปฏิเสธ' !=
                                                                                               functions.checkNullValueAndReturn(getJsonField(
-                                                                                                widget!.list?[leadListItemIndex],
+                                                                                                widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                                 r'''$.insurer_status''',
                                                                                               ).toString())
                                                                                           ? FlutterFlowTheme.of(context).primaryText
@@ -1015,13 +1036,13 @@ class _MakeInsuranceListPageWidgetState
                                                                       if (widget!.checkPayment ==
                                                                               '1'
                                                                           ? true
-                                                                          : (('${getJsonField(
-                                                                                    widget!.list?[leadListItemIndex],
+                                                                          : ('${getJsonField(
+                                                                                    widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                     r'''$.quotation_status''',
                                                                                   ).toString()}' ==
                                                                                   'ขอคืนเงิน'
                                                                               ? true
-                                                                              : false)))
+                                                                              : false))
                                                                         Row(
                                                                           mainAxisSize:
                                                                               MainAxisSize.max,
@@ -1039,7 +1060,7 @@ class _MakeInsuranceListPageWidgetState
                                                                             ),
                                                                             Text(
                                                                               getJsonField(
-                                                                                widget!.list![leadListItemIndex],
+                                                                                widget!.list!.elementAtOrNull(leadListItemIndex),
                                                                                 r'''$.payment_status''',
                                                                               ).toString(),
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1075,7 +1096,7 @@ class _MakeInsuranceListPageWidgetState
                                                                             ),
                                                                             Text(
                                                                               getJsonField(
-                                                                                widget!.list![leadListItemIndex],
+                                                                                widget!.list!.elementAtOrNull(leadListItemIndex),
                                                                                 r'''$.quotation_type_bak_name''',
                                                                               ).toString(),
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1113,7 +1134,7 @@ class _MakeInsuranceListPageWidgetState
                                                                             ),
                                                                             Text(
                                                                               getJsonField(
-                                                                                widget!.list![leadListItemIndex],
+                                                                                widget!.list!.elementAtOrNull(leadListItemIndex),
                                                                                 r'''$.quotation_type_name''',
                                                                               ).toString(),
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1151,7 +1172,7 @@ class _MakeInsuranceListPageWidgetState
                                                                             ),
                                                                             Text(
                                                                               getJsonField(
-                                                                                widget!.list![leadListItemIndex],
+                                                                                widget!.list!.elementAtOrNull(leadListItemIndex),
                                                                                 r'''$.sub_product_name''',
                                                                               ).toString(),
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1167,23 +1188,23 @@ class _MakeInsuranceListPageWidgetState
                                                                       ),
                                                                       if (('' !=
                                                                               getJsonField(
-                                                                                widget!.list?[leadListItemIndex],
+                                                                                widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                 r'''$.pdf_quotation''',
                                                                               ).toString()) &&
                                                                           ('manual' ==
                                                                                   getJsonField(
-                                                                                    widget!.list?[leadListItemIndex],
+                                                                                    widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                     r'''$.quotation_type''',
                                                                                   ).toString()
-                                                                              ? (('ปฏิเสธ' !=
+                                                                              ? ('ปฏิเสธ' !=
                                                                                   functions.checkNullValueAndReturn(getJsonField(
-                                                                                    widget!.list?[leadListItemIndex],
+                                                                                    widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                     r'''$.insurer_status''',
-                                                                                  ).toString())))
+                                                                                  ).toString()))
                                                                               : true) &&
                                                                           ('CMI' !=
                                                                               getJsonField(
-                                                                                widget!.list?[leadListItemIndex],
+                                                                                widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                 r'''$.sub_product''',
                                                                               ).toString()))
                                                                         Row(
@@ -1203,7 +1224,7 @@ class _MakeInsuranceListPageWidgetState
                                                                             ),
                                                                             FFButtonWidget(
                                                                               onPressed: () async {
-                                                                                FFAppState().jsonTemp = widget!.list![leadListItemIndex];
+                                                                                FFAppState().jsonTemp = (widget!.list!.elementAtOrNull(leadListItemIndex))!;
                                                                                 safeSetState(() {});
 
                                                                                 context.pushNamed(
@@ -1249,12 +1270,12 @@ class _MakeInsuranceListPageWidgetState
                                                                         ),
                                                                       if (('อนุมัติ' ==
                                                                               getJsonField(
-                                                                                widget!.list?[leadListItemIndex],
+                                                                                widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                 r'''$.quotation_status''',
                                                                               ).toString()) &&
                                                                           ('CMI' !=
                                                                               getJsonField(
-                                                                                widget!.list?[leadListItemIndex],
+                                                                                widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                 r'''$.sub_product''',
                                                                               ).toString()))
                                                                         Padding(
@@ -1287,7 +1308,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                       apiUrl: FFAppState().apiUrlInsuranceAppState,
                                                                                       token: FFAppState().accessToken,
                                                                                       quotationId: getJsonField(
-                                                                                        widget!.list?[leadListItemIndex],
+                                                                                        widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                         r'''$.quotation_id''',
                                                                                       ).toString(),
                                                                                       ownerId: FFAppState().employeeID,
@@ -1340,17 +1361,17 @@ class _MakeInsuranceListPageWidgetState
                                                                                       return;
                                                                                     }
                                                                                     if (('${getJsonField(
-                                                                                              widget!.list?[leadListItemIndex],
+                                                                                              widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                               r'''$.insurer_short_name''',
                                                                                             ).toString()}' ==
                                                                                             'TNI') &&
                                                                                         ('${getJsonField(
-                                                                                              widget!.list?[leadListItemIndex],
+                                                                                              widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                               r'''$.cover_type_name''',
                                                                                             ).toString()}' ==
                                                                                             'ชั้น 1') &&
                                                                                         ('${getJsonField(
-                                                                                              widget!.list?[leadListItemIndex],
+                                                                                              widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                               r'''$.quotation_type''',
                                                                                             ).toString()}' ==
                                                                                             'auto')) {
@@ -1365,7 +1386,10 @@ class _MakeInsuranceListPageWidgetState
                                                                                               alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
                                                                                               child: WebViewAware(
                                                                                                 child: GestureDetector(
-                                                                                                  onTap: () => FocusScope.of(dialogContext).unfocus(),
+                                                                                                  onTap: () {
+                                                                                                    FocusScope.of(dialogContext).unfocus();
+                                                                                                    FocusManager.instance.primaryFocus?.unfocus();
+                                                                                                  },
                                                                                                   child: CustomDialogComponentCopyWidget(
                                                                                                     linkUrl: '${GetFileVmiApiCall.vmiDocumentUrl(
                                                                                                       (_model.getFileVmiButton?.jsonBody ?? ''),
@@ -1422,12 +1446,12 @@ class _MakeInsuranceListPageWidgetState
                                                                         ),
                                                                       if (('อนุมัติ' ==
                                                                               getJsonField(
-                                                                                widget!.list?[leadListItemIndex],
+                                                                                widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                 r'''$.quotation_status''',
                                                                               ).toString()) &&
                                                                           ('1' ==
                                                                               getJsonField(
-                                                                                widget!.list?[leadListItemIndex],
+                                                                                widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                 r'''$.flg_act''',
                                                                               ).toString()))
                                                                         Padding(
@@ -1459,7 +1483,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                     apiUrl: FFAppState().apiUrlInsuranceAppState,
                                                                                     token: FFAppState().accessToken,
                                                                                     quotationId: getJsonField(
-                                                                                      widget!.list?[leadListItemIndex],
+                                                                                      widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                       r'''$.quotation_id''',
                                                                                     ).toString(),
                                                                                     ownerId: FFAppState().employeeID,
@@ -1543,7 +1567,7 @@ class _MakeInsuranceListPageWidgetState
                                                                         ),
                                                                       if ('manual' ==
                                                                           getJsonField(
-                                                                            widget!.list?[leadListItemIndex],
+                                                                            widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                             r'''$.quotation_type''',
                                                                           ).toString())
                                                                         Padding(
@@ -1565,7 +1589,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                   _model.getHistory = await GetNonePackageHistoryAPICall.call(
                                                                                     token: FFAppState().accessToken,
                                                                                     quotationId: getJsonField(
-                                                                                      widget!.list?[leadListItemIndex],
+                                                                                      widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                       r'''$.quotation_id''',
                                                                                     ).toString(),
                                                                                     apiUrl: FFAppState().apiUrlInsuranceAppState,
@@ -1625,7 +1649,10 @@ class _MakeInsuranceListPageWidgetState
                                                                                     builder: (context) {
                                                                                       return WebViewAware(
                                                                                         child: GestureDetector(
-                                                                                          onTap: () => FocusScope.of(context).unfocus(),
+                                                                                          onTap: () {
+                                                                                            FocusScope.of(context).unfocus();
+                                                                                            FocusManager.instance.primaryFocus?.unfocus();
+                                                                                          },
                                                                                           child: Padding(
                                                                                             padding: MediaQuery.viewInsetsOf(context),
                                                                                             child: Container(
@@ -1680,17 +1707,17 @@ class _MakeInsuranceListPageWidgetState
                                                                         ),
                                                                       if (('manual' ==
                                                                               getJsonField(
-                                                                                widget!.list?[leadListItemIndex],
+                                                                                widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                 r'''$.quotation_type''',
                                                                               ).toString()) &&
                                                                           (('-' !=
                                                                                   functions.checkNullValueAndReturn(getJsonField(
-                                                                                    widget!.list?[leadListItemIndex],
+                                                                                    widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                     r'''$.insurer_remark''',
                                                                                   ).toString())) &&
                                                                               ('' !=
                                                                                   functions.checkNullValueAndReturn(getJsonField(
-                                                                                    widget!.list?[leadListItemIndex],
+                                                                                    widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                     r'''$.insurer_remark''',
                                                                                   ).toString()))))
                                                                         Padding(
@@ -1714,7 +1741,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                       return WebViewAware(
                                                                                         child: AlertDialog(
                                                                                           content: Text(functions.checkNullValueAndReturn(getJsonField(
-                                                                                            widget!.list?[leadListItemIndex],
+                                                                                            widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                             r'''$.insurer_remark''',
                                                                                           ).toString())),
                                                                                           actions: [
@@ -1780,8 +1807,10 @@ class _MakeInsuranceListPageWidgetState
                                                               children: [
                                                                 if ('CMI' !=
                                                                     getJsonField(
-                                                                      widget!.list?[
-                                                                          leadListItemIndex],
+                                                                      widget!
+                                                                          .list
+                                                                          ?.elementAtOrNull(
+                                                                              leadListItemIndex),
                                                                       r'''$.sub_product''',
                                                                     ).toString())
                                                                   Padding(
@@ -1813,11 +1842,11 @@ class _MakeInsuranceListPageWidgetState
                                                                         Text(
                                                                           '' !=
                                                                                   getJsonField(
-                                                                                    widget!.list?[leadListItemIndex],
+                                                                                    widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                     r'''$.net_premium_total''',
                                                                                   ).toString()
                                                                               ? getJsonField(
-                                                                                  widget!.list![leadListItemIndex],
+                                                                                  widget!.list!.elementAtOrNull(leadListItemIndex),
                                                                                   r'''$.net_premium_total''',
                                                                                 ).toString()
                                                                               : '-',
@@ -1836,8 +1865,10 @@ class _MakeInsuranceListPageWidgetState
                                                                   ),
                                                                 if ('CMI' ==
                                                                     getJsonField(
-                                                                      widget!.list?[
-                                                                          leadListItemIndex],
+                                                                      widget!
+                                                                          .list
+                                                                          ?.elementAtOrNull(
+                                                                              leadListItemIndex),
                                                                       r'''$.sub_product''',
                                                                     ).toString())
                                                                   Container(
@@ -1850,50 +1881,50 @@ class _MakeInsuranceListPageWidgetState
                                                                   ),
                                                                 if ((('ส่งเรื่องขอใบเสนอราคา' !=
                                                                                     getJsonField(
-                                                                                      widget!.list?[leadListItemIndex],
+                                                                                      widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                       r'''$.quotation_status''',
                                                                                     ).toString()
-                                                                                ? ((('' !=
+                                                                                ? (('' !=
                                                                                         getJsonField(
-                                                                                          widget!.list?[leadListItemIndex],
+                                                                                          widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                           r'''$.pdf_quotation''',
                                                                                         ).toString()) &&
                                                                                     (functions.checkNullValueAndReturn(getJsonField(
-                                                                                          widget!.list?[leadListItemIndex],
+                                                                                          widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                           r'''$.pdf_quotation''',
                                                                                         ).toString()) !=
-                                                                                        '-')))
-                                                                                : ((('' !=
+                                                                                        '-'))
+                                                                                : (('' !=
                                                                                         getJsonField(
-                                                                                          widget!.list?[leadListItemIndex],
+                                                                                          widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                           r'''$.pdf_quotation''',
                                                                                         ).toString()) &&
                                                                                     (functions.checkNullValueAndReturn(getJsonField(
-                                                                                          widget!.list?[leadListItemIndex],
+                                                                                          widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                           r'''$.pdf_quotation''',
                                                                                         ).toString()) !=
-                                                                                        '-')))) &&
+                                                                                        '-'))) &&
                                                                             ('manual' ==
                                                                                     getJsonField(
-                                                                                      widget!.list?[leadListItemIndex],
+                                                                                      widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                       r'''$.quotation_type''',
                                                                                     ).toString()
-                                                                                ? (('ปฏิเสธ' !=
+                                                                                ? ('ปฏิเสธ' !=
                                                                                     functions.checkNullValueAndReturn(getJsonField(
-                                                                                      widget!.list?[leadListItemIndex],
+                                                                                      widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                       r'''$.insurer_status''',
-                                                                                    ).toString())))
+                                                                                    ).toString()))
                                                                                 : true) &&
                                                                             ('1' ==
                                                                                     getJsonField(
-                                                                                      widget!.list?[leadListItemIndex],
+                                                                                      widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                       r'''$.is_active''',
                                                                                     ).toString()
                                                                                 ? true
                                                                                 : false)) ||
                                                                         ('CMI' ==
                                                                             getJsonField(
-                                                                              widget!.list?[leadListItemIndex],
+                                                                              widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                               r'''$.sub_product''',
                                                                             ).toString())
                                                                     ? true
@@ -2175,52 +2206,52 @@ class _MakeInsuranceListPageWidgetState
                                                                           '0') {
                                                                         if (('เตรียมข้อมูล' !=
                                                                                 getJsonField(
-                                                                                  widget!.list?[leadListItemIndex],
+                                                                                  widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                   r'''$.quotation_status''',
                                                                                 ).toString()) &&
                                                                             ('รอตัดสินใจ' !=
                                                                                 getJsonField(
-                                                                                  widget!.list?[leadListItemIndex],
+                                                                                  widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                   r'''$.quotation_status''',
                                                                                 ).toString()) &&
                                                                             ('ส่งเรื่องขอใบเสนอราคา' !=
                                                                                 getJsonField(
-                                                                                  widget!.list?[leadListItemIndex],
+                                                                                  widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                   r'''$.quotation_status''',
                                                                                 ).toString())) {
                                                                           if (('อยู่ระหว่างตรวจสอบสภาพรถ' ==
                                                                                   getJsonField(
-                                                                                    widget!.list?[leadListItemIndex],
+                                                                                    widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                     r'''$.quotation_status''',
                                                                                   ).toString()) ||
                                                                               ('อนุมัติ' ==
                                                                                   getJsonField(
-                                                                                    widget!.list?[leadListItemIndex],
+                                                                                    widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                     r'''$.quotation_status''',
                                                                                   ).toString()) ||
                                                                               ('ไม่อนุมัติ' ==
                                                                                   getJsonField(
-                                                                                    widget!.list?[leadListItemIndex],
+                                                                                    widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                     r'''$.quotation_status''',
                                                                                   ).toString()) ||
                                                                               ('ส่งเรื่องให้บริษัทประกันพิจารณา' ==
                                                                                   getJsonField(
-                                                                                    widget!.list?[leadListItemIndex],
+                                                                                    widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                     r'''$.quotation_status''',
                                                                                   ).toString()) ||
                                                                               ('ยกเลิก' ==
                                                                                   getJsonField(
-                                                                                    widget!.list?[leadListItemIndex],
+                                                                                    widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                     r'''$.quotation_status''',
                                                                                   ).toString()) ||
                                                                               ('ขอคืนเงิน' ==
                                                                                   getJsonField(
-                                                                                    widget!.list?[leadListItemIndex],
+                                                                                    widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                     r'''$.quotation_status''',
                                                                                   ).toString()) ||
                                                                               ('โยกเงิน' ==
                                                                                   getJsonField(
-                                                                                    widget!.list?[leadListItemIndex],
+                                                                                    widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                     r'''$.quotation_status''',
                                                                                   ).toString())) {
                                                                             context.pushNamed(
@@ -2228,14 +2259,14 @@ class _MakeInsuranceListPageWidgetState
                                                                               queryParameters: {
                                                                                 'quotationId': serializeParam(
                                                                                   getJsonField(
-                                                                                    widget!.list?[leadListItemIndex],
+                                                                                    widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                     r'''$.quotation_id''',
                                                                                   ).toString(),
                                                                                   ParamType.String,
                                                                                 ),
                                                                                 'leadDtlId': serializeParam(
                                                                                   getJsonField(
-                                                                                    widget!.list?[leadListItemIndex],
+                                                                                    widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                     r'''$.lead_dtl_id''',
                                                                                   ),
                                                                                   ParamType.int,
@@ -2255,14 +2286,14 @@ class _MakeInsuranceListPageWidgetState
                                                                                 {
                                                                               'quotationId': serializeParam(
                                                                                 getJsonField(
-                                                                                  widget!.list?[leadListItemIndex],
+                                                                                  widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                   r'''$.quotation_id''',
                                                                                 ).toString(),
                                                                                 ParamType.String,
                                                                               ),
                                                                               'leadDetailId': serializeParam(
                                                                                 getJsonField(
-                                                                                  widget!.list?[leadListItemIndex],
+                                                                                  widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                   r'''$.lead_dtl_id''',
                                                                                 ),
                                                                                 ParamType.int,
@@ -2276,7 +2307,7 @@ class _MakeInsuranceListPageWidgetState
                                                                         } else {
                                                                           if ('auto' ==
                                                                               getJsonField(
-                                                                                widget!.list?[leadListItemIndex],
+                                                                                widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                 r'''$.quotation_type''',
                                                                               ).toString()) {
                                                                             context.pushNamed(
@@ -2284,14 +2315,14 @@ class _MakeInsuranceListPageWidgetState
                                                                               queryParameters: {
                                                                                 'quotationId': serializeParam(
                                                                                   getJsonField(
-                                                                                    widget!.list?[leadListItemIndex],
+                                                                                    widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                     r'''$.quotation_id''',
                                                                                   ).toString(),
                                                                                   ParamType.String,
                                                                                 ),
                                                                                 'leadDtailId': serializeParam(
                                                                                   getJsonField(
-                                                                                    widget!.list?[leadListItemIndex],
+                                                                                    widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                     r'''$.lead_dtl_id''',
                                                                                   ),
                                                                                   ParamType.int,
@@ -2305,7 +2336,7 @@ class _MakeInsuranceListPageWidgetState
                                                                           } else {
                                                                             if ('รอตัดสินใจ' ==
                                                                                 getJsonField(
-                                                                                  widget!.list?[leadListItemIndex],
+                                                                                  widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                   r'''$.quotation_status''',
                                                                                 ).toString()) {
                                                                               FFAppState().insuranceInfoPage1SaveDataCheckBool = false;
@@ -2318,14 +2349,14 @@ class _MakeInsuranceListPageWidgetState
                                                                                 queryParameters: {
                                                                                   'quotationId': serializeParam(
                                                                                     getJsonField(
-                                                                                      widget!.list?[leadListItemIndex],
+                                                                                      widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                       r'''$.quotation_id''',
                                                                                     ).toString(),
                                                                                     ParamType.String,
                                                                                   ),
                                                                                   'leadDtailId': serializeParam(
                                                                                     getJsonField(
-                                                                                      widget!.list?[leadListItemIndex],
+                                                                                      widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                       r'''$.lead_dtl_id''',
                                                                                     ),
                                                                                     ParamType.int,
@@ -2343,56 +2374,56 @@ class _MakeInsuranceListPageWidgetState
                                                                               queryParameters: {
                                                                                 'leadID': serializeParam(
                                                                                   getJsonField(
-                                                                                    widget!.list?[leadListItemIndex],
+                                                                                    widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                     r'''$.lead_id''',
                                                                                   ).toString(),
                                                                                   ParamType.String,
                                                                                 ),
                                                                                 'coverTypeName': serializeParam(
                                                                                   getJsonField(
-                                                                                    widget!.list?[leadListItemIndex],
+                                                                                    widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                     r'''$.cover_type_name''',
                                                                                   ).toString(),
                                                                                   ParamType.String,
                                                                                 ),
                                                                                 'garageTypeName': serializeParam(
                                                                                   getJsonField(
-                                                                                    widget!.list?[leadListItemIndex],
+                                                                                    widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                     r'''$.garage_type_name''',
                                                                                   ).toString(),
                                                                                   ParamType.String,
                                                                                 ),
                                                                                 'insurerShortName': serializeParam(
                                                                                   getJsonField(
-                                                                                    widget!.list?[leadListItemIndex],
+                                                                                    widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                     r'''$.insurer_short_name''',
                                                                                   ).toString(),
                                                                                   ParamType.String,
                                                                                 ),
                                                                                 'insurerName': serializeParam(
                                                                                   getJsonField(
-                                                                                    widget!.list?[leadListItemIndex],
+                                                                                    widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                     r'''$.insurer_name''',
                                                                                   ).toString(),
                                                                                   ParamType.String,
                                                                                 ),
                                                                                 'quotationId': serializeParam(
                                                                                   getJsonField(
-                                                                                    widget!.list?[leadListItemIndex],
+                                                                                    widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                     r'''$.quotation_id''',
                                                                                   ).toString(),
                                                                                   ParamType.String,
                                                                                 ),
                                                                                 'leadDtlId': serializeParam(
                                                                                   getJsonField(
-                                                                                    widget!.list?[leadListItemIndex],
+                                                                                    widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                     r'''$.lead_dtl_id''',
                                                                                   ),
                                                                                   ParamType.int,
                                                                                 ),
                                                                                 'actFlag': serializeParam(
                                                                                   '${getJsonField(
-                                                                                        widget!.list?[leadListItemIndex],
+                                                                                        widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                         r'''$.flg_act''',
                                                                                       ).toString()}' ==
                                                                                       '1',
@@ -2400,15 +2431,15 @@ class _MakeInsuranceListPageWidgetState
                                                                                 ),
                                                                                 'masterActAmount': serializeParam(
                                                                                   '${getJsonField(
-                                                                                            widget!.list?[leadListItemIndex],
+                                                                                            widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                             r'''$.master_act_amount''',
                                                                                           ).toString()}' ==
                                                                                           'null'
                                                                                       ? ''
-                                                                                      : ('${getJsonField(
-                                                                                          widget!.list?[leadListItemIndex],
+                                                                                      : '${getJsonField(
+                                                                                          widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                           r'''$.master_act_amount''',
-                                                                                        ).toString()}'),
+                                                                                        ).toString()}',
                                                                                   ParamType.String,
                                                                                 ),
                                                                               }.withoutNulls,
@@ -2418,7 +2449,7 @@ class _MakeInsuranceListPageWidgetState
                                                                       } else {
                                                                         if ('CMI' ==
                                                                             getJsonField(
-                                                                              widget!.list?[leadListItemIndex],
+                                                                              widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                               r'''$.sub_product''',
                                                                             ).toString()) {
                                                                           context
@@ -2428,14 +2459,14 @@ class _MakeInsuranceListPageWidgetState
                                                                                 {
                                                                               'quotationId': serializeParam(
                                                                                 getJsonField(
-                                                                                  widget!.list?[leadListItemIndex],
+                                                                                  widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                   r'''$.quotation_id''',
                                                                                 ).toString(),
                                                                                 ParamType.String,
                                                                               ),
                                                                               'leadDtlId': serializeParam(
                                                                                 getJsonField(
-                                                                                  widget!.list?[leadListItemIndex],
+                                                                                  widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                   r'''$.lead_dtl_id''',
                                                                                 ),
                                                                                 ParamType.int,
@@ -2449,7 +2480,7 @@ class _MakeInsuranceListPageWidgetState
                                                                         } else {
                                                                           if ('' !=
                                                                               getJsonField(
-                                                                                widget!.list?[leadListItemIndex],
+                                                                                widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                 r'''$.VMI_documentUrl''',
                                                                               ).toString()) {
                                                                             _model.getFileVmi =
@@ -2457,7 +2488,7 @@ class _MakeInsuranceListPageWidgetState
                                                                               apiUrl: FFAppState().apiUrlInsuranceAppState,
                                                                               token: FFAppState().accessToken,
                                                                               quotationId: getJsonField(
-                                                                                widget!.list?[leadListItemIndex],
+                                                                                widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                 r'''$.quotation_id''',
                                                                               ).toString(),
                                                                               ownerId: FFAppState().employeeID,
@@ -2554,29 +2585,29 @@ class _MakeInsuranceListPageWidgetState
                                                                           '0') {
                                                                         return (('ยกเลิก' ==
                                                                                     getJsonField(
-                                                                                      widget!.list?[leadListItemIndex],
+                                                                                      widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                       r'''$.quotation_status''',
                                                                                     ).toString()) ||
                                                                                 ('โยกเงิน' ==
                                                                                     getJsonField(
-                                                                                      widget!.list?[leadListItemIndex],
+                                                                                      widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                       r'''$.quotation_status''',
                                                                                     ).toString()) ||
                                                                                 ('ขอคืนเงิน' ==
                                                                                     getJsonField(
-                                                                                      widget!.list?[leadListItemIndex],
+                                                                                      widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                       r'''$.quotation_status''',
                                                                                     ).toString()) ||
                                                                                 ('ไม่อนุมัติ' ==
                                                                                     getJsonField(
-                                                                                      widget!.list?[leadListItemIndex],
+                                                                                      widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                                       r'''$.quotation_status''',
                                                                                     ).toString())
                                                                             ? 'ดูรายละเอียด'
                                                                             : 'ทำประกัน');
                                                                       } else if ('CMI' ==
                                                                           getJsonField(
-                                                                            widget!.list?[leadListItemIndex],
+                                                                            widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                             r'''$.sub_product''',
                                                                           ).toString()) {
                                                                         return 'ทำ พ.ร.บ';

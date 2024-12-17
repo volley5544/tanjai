@@ -180,7 +180,10 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -1125,8 +1128,11 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                   builder: (context) {
                                     return WebViewAware(
                                       child: GestureDetector(
-                                        onTap: () =>
-                                            FocusScope.of(context).unfocus(),
+                                        onTap: () {
+                                          FocusScope.of(context).unfocus();
+                                          FocusManager.instance.primaryFocus
+                                              ?.unfocus();
+                                        },
                                         child: Padding(
                                           padding:
                                               MediaQuery.viewInsetsOf(context),
@@ -1339,7 +1345,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                               (_model.aPIQuotationSaveOutput
                                                       ?.jsonBody ??
                                                   ''),
-                                            )?[0],
+                                            )?.elementAtOrNull(0),
                                             ParamType.int,
                                           ),
                                         }.withoutNulls,
@@ -1376,7 +1382,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                               (_model.aPIQuotationSaveOutput
                                                       ?.jsonBody ??
                                                   ''),
-                                            )?[0],
+                                            )?.elementAtOrNull(0),
                                             ParamType.int,
                                           ),
                                         }.withoutNulls,

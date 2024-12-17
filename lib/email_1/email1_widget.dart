@@ -44,7 +44,10 @@ class _Email1WidgetState extends State<Email1Widget>
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => FocusScope.of(context).unfocus(),
+              onTap: () {
+                FocusScope.of(context).unfocus();
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: LoadingSceneWidget(),
@@ -88,7 +91,10 @@ class _Email1WidgetState extends State<Email1Widget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -284,8 +290,9 @@ class _Email1WidgetState extends State<Email1Widget>
                             return Visibility(
                               visible: functions.containWordinStringUrl(
                                       _model.textController.text,
-                                      _model.subjectEmailOutput?[
-                                          leadListItemIndex])! ||
+                                      _model.subjectEmailOutput
+                                          ?.elementAtOrNull(
+                                              leadListItemIndex))! ||
                                   (_model.textController.text == ''),
                               child: Align(
                                 alignment: AlignmentDirectional(0.0, 0.0),
@@ -345,8 +352,9 @@ class _Email1WidgetState extends State<Email1Widget>
                                             children: [
                                               Text(
                                                 valueOrDefault<String>(
-                                                  _model.fromEmailOutput?[
-                                                      leadListItemIndex],
+                                                  _model.fromEmailOutput
+                                                      ?.elementAtOrNull(
+                                                          leadListItemIndex),
                                                   '-',
                                                 ),
                                                 style:
@@ -361,8 +369,9 @@ class _Email1WidgetState extends State<Email1Widget>
                                               ),
                                               Text(
                                                 valueOrDefault<String>(
-                                                  _model.subjectEmailOutput?[
-                                                      leadListItemIndex],
+                                                  _model.subjectEmailOutput
+                                                      ?.elementAtOrNull(
+                                                          leadListItemIndex),
                                                   '-',
                                                 ),
                                                 style:

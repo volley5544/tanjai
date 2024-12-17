@@ -60,7 +60,10 @@ class _RenewSearchAllPoolPageWidgetState
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => FocusScope.of(context).unfocus(),
+              onTap: () {
+                FocusScope.of(context).unfocus();
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: LoadingSceneWidget(),
@@ -166,7 +169,10 @@ class _RenewSearchAllPoolPageWidgetState
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -210,7 +216,7 @@ class _RenewSearchAllPoolPageWidgetState
                 child: TabBar(
                   labelColor: FlutterFlowTheme.of(context).primaryText,
                   unselectedLabelColor:
-                      FlutterFlowTheme.of(context).primaryText,
+                      FlutterFlowTheme.of(context).secondaryText,
                   labelStyle: FlutterFlowTheme.of(context).titleMedium.override(
                         fontFamily: 'Noto Sans Thai',
                         fontSize: 16.0,
@@ -427,7 +433,8 @@ class _RenewSearchAllPoolPageWidgetState
                                                                         .callstatusflg(
                                                                       listViewRenewBranchListResponse
                                                                           .jsonBody,
-                                                                    )?[poolListIndex],
+                                                                    )?.elementAtOrNull(
+                                                                        poolListIndex),
                                                                     '-',
                                                                   ) ==
                                                                   '1'
@@ -529,17 +536,17 @@ class _RenewSearchAllPoolPageWidgetState
                                                                                     '${valueOrDefault<String>(
                                                                                       RenewBranchListCall.titleth(
                                                                                         listViewRenewBranchListResponse.jsonBody,
-                                                                                      )?[poolListIndex],
+                                                                                      )?.elementAtOrNull(poolListIndex),
                                                                                       '-',
                                                                                     )}${valueOrDefault<String>(
                                                                                       RenewBranchListCall.firstnameth(
                                                                                         listViewRenewBranchListResponse.jsonBody,
-                                                                                      )?[poolListIndex],
+                                                                                      )?.elementAtOrNull(poolListIndex),
                                                                                       '-',
                                                                                     )} ${valueOrDefault<String>(
                                                                                       RenewBranchListCall.lastnameth(
                                                                                         listViewRenewBranchListResponse.jsonBody,
-                                                                                      )?[poolListIndex],
+                                                                                      )?.elementAtOrNull(poolListIndex),
                                                                                       '-',
                                                                                     )}',
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -593,7 +600,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                                     valueOrDefault<String>(
                                                                                       RenewBranchListCall.carregistration(
                                                                                         listViewRenewBranchListResponse.jsonBody,
-                                                                                      )?[poolListIndex],
+                                                                                      )?.elementAtOrNull(poolListIndex),
                                                                                       '-',
                                                                                     ),
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -647,12 +654,12 @@ class _RenewSearchAllPoolPageWidgetState
                                                                                     '${valueOrDefault<String>(
                                                                                       RenewBranchListCall.brandname(
                                                                                         listViewRenewBranchListResponse.jsonBody,
-                                                                                      )?[poolListIndex],
+                                                                                      )?.elementAtOrNull(poolListIndex),
                                                                                       '-',
                                                                                     )}/${valueOrDefault<String>(
                                                                                       RenewBranchListCall.modelname(
                                                                                         listViewRenewBranchListResponse.jsonBody,
-                                                                                      )?[poolListIndex],
+                                                                                      )?.elementAtOrNull(poolListIndex),
                                                                                       '-',
                                                                                     )}',
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -706,7 +713,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                                     valueOrDefault<String>(
                                                                                       RenewBranchListCall.oldcovertypecode(
                                                                                         listViewRenewBranchListResponse.jsonBody,
-                                                                                      )?[poolListIndex],
+                                                                                      )?.elementAtOrNull(poolListIndex),
                                                                                       '-',
                                                                                     ),
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -760,7 +767,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                                     valueOrDefault<String>(
                                                                                       RenewBranchListCall.oldgaragetypename(
                                                                                         listViewRenewBranchListResponse.jsonBody,
-                                                                                      )?[poolListIndex],
+                                                                                      )?.elementAtOrNull(poolListIndex),
                                                                                       '-',
                                                                                     ),
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -816,7 +823,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                                       functions.showDateBE(valueOrDefault<String>(
                                                                                         RenewBranchListCall.oldexpirydate(
                                                                                           listViewRenewBranchListResponse.jsonBody,
-                                                                                        )?[poolListIndex],
+                                                                                        )?.elementAtOrNull(poolListIndex),
                                                                                         '-',
                                                                                       )),
                                                                                       '-',
@@ -872,7 +879,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                                     valueOrDefault<String>(
                                                                                               RenewBranchListCall.insurerstatus(
                                                                                                 listViewRenewBranchListResponse.jsonBody,
-                                                                                              )?[poolListIndex],
+                                                                                              )?.elementAtOrNull(poolListIndex),
                                                                                               '-',
                                                                                             ) ==
                                                                                             'SUCCESS'
@@ -905,11 +912,11 @@ class _RenewSearchAllPoolPageWidgetState
                                                                         children: [
                                                                           if (functions.checkPhoneNumberChar(RenewBranchListCall.mobile1(
                                                                                 listViewRenewBranchListResponse.jsonBody,
-                                                                              )?[poolListIndex]) &&
+                                                                              )?.elementAtOrNull(poolListIndex)) &&
                                                                               (valueOrDefault<String>(
                                                                                     RenewBranchListCall.saverenewstatus(
                                                                                       listViewRenewBranchListResponse.jsonBody,
-                                                                                    )?[poolListIndex],
+                                                                                    )?.elementAtOrNull(poolListIndex),
                                                                                     '-',
                                                                                   ) !=
                                                                                   'ตกลงทำประกัน'))
@@ -964,7 +971,10 @@ class _RenewSearchAllPoolPageWidgetState
                                                                                       builder: (context) {
                                                                                         return WebViewAware(
                                                                                           child: GestureDetector(
-                                                                                            onTap: () => FocusScope.of(context).unfocus(),
+                                                                                            onTap: () {
+                                                                                              FocusScope.of(context).unfocus();
+                                                                                              FocusManager.instance.primaryFocus?.unfocus();
+                                                                                            },
                                                                                             child: Padding(
                                                                                               padding: MediaQuery.viewInsetsOf(context),
                                                                                               child: Container(
@@ -979,7 +989,7 @@ class _RenewSearchAllPoolPageWidgetState
 
                                                                                     if (!functions.checkPhoneNumberChar(RenewBranchListCall.mobile1(
                                                                                       listViewRenewBranchListResponse.jsonBody,
-                                                                                    )?[poolListIndex])) {
+                                                                                    )?.elementAtOrNull(poolListIndex))) {
                                                                                       await showDialog(
                                                                                         context: context,
                                                                                         builder: (alertDialogContext) {
@@ -1002,7 +1012,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                                     await actions.open3CXAction(
                                                                                       RenewBranchListCall.mobile1(
                                                                                         listViewRenewBranchListResponse.jsonBody,
-                                                                                      )?[poolListIndex],
+                                                                                      )?.elementAtOrNull(poolListIndex),
                                                                                     );
                                                                                   },
                                                                                   child: Icon(
@@ -1051,7 +1061,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                                 valueOrDefault<String>(
                                                                                   RenewBranchListCall.refrenewid(
                                                                                     listViewRenewBranchListResponse.jsonBody,
-                                                                                  )?[poolListIndex],
+                                                                                  )?.elementAtOrNull(poolListIndex),
                                                                                   '-',
                                                                                 ),
                                                                                 ParamType.String,
@@ -1122,7 +1132,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               valueOrDefault<String>(
                                                                                 RenewBranchListCall.titleth(
                                                                                   listViewRenewBranchListResponse.jsonBody,
-                                                                                )?[poolListIndex],
+                                                                                )?.elementAtOrNull(poolListIndex),
                                                                                 '-',
                                                                               ),
                                                                               ParamType.String,
@@ -1132,7 +1142,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               valueOrDefault<String>(
                                                                                 RenewBranchListCall.firstnameth(
                                                                                   listViewRenewBranchListResponse.jsonBody,
-                                                                                )?[poolListIndex],
+                                                                                )?.elementAtOrNull(poolListIndex),
                                                                                 '-',
                                                                               ),
                                                                               ParamType.String,
@@ -1142,7 +1152,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               valueOrDefault<String>(
                                                                                 RenewBranchListCall.lastnameth(
                                                                                   listViewRenewBranchListResponse.jsonBody,
-                                                                                )?[poolListIndex],
+                                                                                )?.elementAtOrNull(poolListIndex),
                                                                                 '-',
                                                                               ),
                                                                               ParamType.String,
@@ -1152,7 +1162,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               valueOrDefault<String>(
                                                                                 RenewBranchListCall.brandname(
                                                                                   listViewRenewBranchListResponse.jsonBody,
-                                                                                )?[poolListIndex],
+                                                                                )?.elementAtOrNull(poolListIndex),
                                                                                 '-',
                                                                               ),
                                                                               ParamType.String,
@@ -1162,7 +1172,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               valueOrDefault<String>(
                                                                                 RenewBranchListCall.modelname(
                                                                                   listViewRenewBranchListResponse.jsonBody,
-                                                                                )?[poolListIndex],
+                                                                                )?.elementAtOrNull(poolListIndex),
                                                                                 '-',
                                                                               ),
                                                                               ParamType.String,
@@ -1172,7 +1182,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               valueOrDefault<String>(
                                                                                 RenewBranchListCall.covertypecode(
                                                                                   listViewRenewBranchListResponse.jsonBody,
-                                                                                )?[poolListIndex],
+                                                                                )?.elementAtOrNull(poolListIndex),
                                                                                 '-',
                                                                               ),
                                                                               ParamType.String,
@@ -1182,7 +1192,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               valueOrDefault<String>(
                                                                                 RenewBranchListCall.garagetypename(
                                                                                   listViewRenewBranchListResponse.jsonBody,
-                                                                                )?[poolListIndex],
+                                                                                )?.elementAtOrNull(poolListIndex),
                                                                                 '-',
                                                                               ),
                                                                               ParamType.String,
@@ -1192,7 +1202,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               valueOrDefault<String>(
                                                                                 RenewBranchListCall.oldexpirydate(
                                                                                   listViewRenewBranchListResponse.jsonBody,
-                                                                                )?[poolListIndex],
+                                                                                )?.elementAtOrNull(poolListIndex),
                                                                                 '-',
                                                                               ),
                                                                               ParamType.String,
@@ -1202,7 +1212,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               valueOrDefault<String>(
                                                                                 RenewBranchListCall.insurerstatus(
                                                                                   listViewRenewBranchListResponse.jsonBody,
-                                                                                )?[poolListIndex],
+                                                                                )?.elementAtOrNull(poolListIndex),
                                                                                 '-',
                                                                               ),
                                                                               ParamType.String,
@@ -1212,7 +1222,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               valueOrDefault<String>(
                                                                                 RenewBranchListCall.refrenewid(
                                                                                   listViewRenewBranchListResponse.jsonBody,
-                                                                                )?[poolListIndex],
+                                                                                )?.elementAtOrNull(poolListIndex),
                                                                                 '-',
                                                                               ),
                                                                               ParamType.String,
@@ -1222,7 +1232,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               valueOrDefault<String>(
                                                                                 RenewBranchListCall.carregistration(
                                                                                   listViewRenewBranchListResponse.jsonBody,
-                                                                                )?[poolListIndex],
+                                                                                )?.elementAtOrNull(poolListIndex),
                                                                                 '-',
                                                                               ),
                                                                               ParamType.String,
@@ -1294,7 +1304,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                                 valueOrDefault<String>(
                                                                                   RenewBranchListCall.refrenewid(
                                                                                     listViewRenewBranchListResponse.jsonBody,
-                                                                                  )?[poolListIndex],
+                                                                                  )?.elementAtOrNull(poolListIndex),
                                                                                   '-',
                                                                                 ),
                                                                                 ParamType.String,
@@ -2195,7 +2205,10 @@ class _RenewSearchAllPoolPageWidgetState
                                                                                 builder: (context) {
                                                                                   return WebViewAware(
                                                                                     child: GestureDetector(
-                                                                                      onTap: () => FocusScope.of(context).unfocus(),
+                                                                                      onTap: () {
+                                                                                        FocusScope.of(context).unfocus();
+                                                                                        FocusManager.instance.primaryFocus?.unfocus();
+                                                                                      },
                                                                                       child: Padding(
                                                                                         padding: MediaQuery.viewInsetsOf(context),
                                                                                         child: Container(
@@ -2839,9 +2852,13 @@ class _RenewSearchAllPoolPageWidgetState
                                         builder: (context) {
                                           return WebViewAware(
                                             child: GestureDetector(
-                                              onTap: () =>
-                                                  FocusScope.of(context)
-                                                      .unfocus(),
+                                              onTap: () {
+                                                FocusScope.of(context)
+                                                    .unfocus();
+                                                FocusManager
+                                                    .instance.primaryFocus
+                                                    ?.unfocus();
+                                              },
                                               child: Padding(
                                                 padding:
                                                     MediaQuery.viewInsetsOf(
@@ -2986,7 +3003,8 @@ class _RenewSearchAllPoolPageWidgetState
                                                         (_model.checkRenewAPIOutput
                                                                 ?.jsonBody ??
                                                             ''),
-                                                      )?[poolListIndex]) ==
+                                                      )?.elementAtOrNull(
+                                                          poolListIndex)) ==
                                                       '1'
                                                   ? Color(0xFFE9FFEA)
                                                   : FlutterFlowTheme.of(context)
@@ -3099,11 +3117,11 @@ class _RenewSearchAllPoolPageWidgetState
                                                                                 Text(
                                                                               '${RenewCheckRenewCall.titleth(
                                                                                 (_model.checkRenewAPIOutput?.jsonBody ?? ''),
-                                                                              )?[poolListIndex]}${RenewCheckRenewCall.firstnameth(
+                                                                              )?.elementAtOrNull(poolListIndex)}${RenewCheckRenewCall.firstnameth(
                                                                                 (_model.checkRenewAPIOutput?.jsonBody ?? ''),
-                                                                              )?[poolListIndex]}  ${RenewCheckRenewCall.lastnameth(
+                                                                              )?.elementAtOrNull(poolListIndex)}  ${RenewCheckRenewCall.lastnameth(
                                                                                 (_model.checkRenewAPIOutput?.jsonBody ?? ''),
-                                                                              )?[poolListIndex]}',
+                                                                              )?.elementAtOrNull(poolListIndex)}',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     fontSize: 14.0,
@@ -3167,9 +3185,10 @@ class _RenewSearchAllPoolPageWidgetState
                                                                                 BoxDecoration(),
                                                                             child:
                                                                                 Text(
-                                                                              RenewCheckRenewCall.carregistration(
+                                                                              (RenewCheckRenewCall.carregistration(
                                                                                 (_model.checkRenewAPIOutput?.jsonBody ?? ''),
-                                                                              )![poolListIndex],
+                                                                              )!
+                                                                                  .elementAtOrNull(poolListIndex))!,
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     fontSize: 14.0,
@@ -3235,9 +3254,9 @@ class _RenewSearchAllPoolPageWidgetState
                                                                                 Text(
                                                                               '${RenewCheckRenewCall.brandname(
                                                                                 (_model.checkRenewAPIOutput?.jsonBody ?? ''),
-                                                                              )?[poolListIndex]}/${RenewCheckRenewCall.modelname(
+                                                                              )?.elementAtOrNull(poolListIndex)}/${RenewCheckRenewCall.modelname(
                                                                                 (_model.checkRenewAPIOutput?.jsonBody ?? ''),
-                                                                              )?[poolListIndex]}',
+                                                                              )?.elementAtOrNull(poolListIndex)}',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     fontSize: 14.0,
@@ -3301,9 +3320,10 @@ class _RenewSearchAllPoolPageWidgetState
                                                                                 BoxDecoration(),
                                                                             child:
                                                                                 Text(
-                                                                              RenewCheckRenewCall.oldcovertypecode(
+                                                                              (RenewCheckRenewCall.oldcovertypecode(
                                                                                 (_model.checkRenewAPIOutput?.jsonBody ?? ''),
-                                                                              )![poolListIndex],
+                                                                              )!
+                                                                                  .elementAtOrNull(poolListIndex))!,
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     fontSize: 14.0,
@@ -3367,9 +3387,10 @@ class _RenewSearchAllPoolPageWidgetState
                                                                                 BoxDecoration(),
                                                                             child:
                                                                                 Text(
-                                                                              RenewCheckRenewCall.oldgaragetypename(
+                                                                              (RenewCheckRenewCall.oldgaragetypename(
                                                                                 (_model.checkRenewAPIOutput?.jsonBody ?? ''),
-                                                                              )![poolListIndex],
+                                                                              )!
+                                                                                  .elementAtOrNull(poolListIndex))!,
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     fontSize: 14.0,
@@ -3436,7 +3457,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               valueOrDefault<String>(
                                                                                 functions.showDateBE(RenewCheckRenewCall.oldexpirydate(
                                                                                   (_model.checkRenewAPIOutput?.jsonBody ?? ''),
-                                                                                )?[poolListIndex]),
+                                                                                )?.elementAtOrNull(poolListIndex)),
                                                                                 '-',
                                                                               ),
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -3504,7 +3525,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                                 Text(
                                                                               (RenewCheckRenewCall.insurerstatus(
                                                                                         (_model.checkRenewAPIOutput?.jsonBody ?? ''),
-                                                                                      )?[poolListIndex]) ==
+                                                                                      )?.elementAtOrNull(poolListIndex)) ==
                                                                                       'SUCCESS'
                                                                                   ? 'อนุมัติ'
                                                                                   : 'ปฏิเสธ',
@@ -3534,14 +3555,15 @@ class _RenewSearchAllPoolPageWidgetState
                                                                       MainAxisAlignment
                                                                           .start,
                                                                   children: [
-                                                                    if (functions
-                                                                            .checkPhoneNumberChar(RenewCheckRenewCall.mobile1(
+                                                                    if (functions.checkPhoneNumberChar(RenewCheckRenewCall
+                                                                            .mobile1(
                                                                           (_model.checkRenewAPIOutput?.jsonBody ??
                                                                               ''),
-                                                                        )?[poolListIndex]) &&
+                                                                        )?.elementAtOrNull(
+                                                                            poolListIndex)) &&
                                                                         ((RenewCheckRenewCall.saverenewstatus(
                                                                               (_model.checkRenewAPIOutput?.jsonBody ?? ''),
-                                                                            )?[poolListIndex]) !=
+                                                                            )?.elementAtOrNull(poolListIndex)) !=
                                                                             'ตกลงทำประกัน'))
                                                                       Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
@@ -3611,7 +3633,10 @@ class _RenewSearchAllPoolPageWidgetState
                                                                                 builder: (context) {
                                                                                   return WebViewAware(
                                                                                     child: GestureDetector(
-                                                                                      onTap: () => FocusScope.of(context).unfocus(),
+                                                                                      onTap: () {
+                                                                                        FocusScope.of(context).unfocus();
+                                                                                        FocusManager.instance.primaryFocus?.unfocus();
+                                                                                      },
                                                                                       child: Padding(
                                                                                         padding: MediaQuery.viewInsetsOf(context),
                                                                                         child: Container(
@@ -3626,7 +3651,7 @@ class _RenewSearchAllPoolPageWidgetState
 
                                                                               if (!functions.checkPhoneNumberChar(RenewCheckRenewCall.mobile1(
                                                                                 (_model.checkRenewAPIOutput?.jsonBody ?? ''),
-                                                                              )?[poolListIndex])) {
+                                                                              )?.elementAtOrNull(poolListIndex))) {
                                                                                 await showDialog(
                                                                                   context: context,
                                                                                   builder: (alertDialogContext) {
@@ -3649,7 +3674,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               await actions.open3CXAction(
                                                                                 RenewCheckRenewCall.mobile1(
                                                                                   (_model.checkRenewAPIOutput?.jsonBody ?? ''),
-                                                                                )?[poolListIndex],
+                                                                                )?.elementAtOrNull(poolListIndex),
                                                                               );
                                                                             },
                                                                             child:
@@ -3703,7 +3728,8 @@ class _RenewSearchAllPoolPageWidgetState
                                                                       (_model.checkRenewAPIOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[poolListIndex],
+                                                                    )?.elementAtOrNull(
+                                                                        poolListIndex),
                                                                     ParamType
                                                                         .String,
                                                                   ),
@@ -3780,7 +3806,8 @@ class _RenewSearchAllPoolPageWidgetState
                                                                     (_model.checkRenewAPIOutput
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )?[poolListIndex],
+                                                                  )?.elementAtOrNull(
+                                                                      poolListIndex),
                                                                   ParamType
                                                                       .String,
                                                                 ),
@@ -3791,7 +3818,8 @@ class _RenewSearchAllPoolPageWidgetState
                                                                     (_model.checkRenewAPIOutput
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )?[poolListIndex],
+                                                                  )?.elementAtOrNull(
+                                                                      poolListIndex),
                                                                   ParamType
                                                                       .String,
                                                                 ),
@@ -3802,7 +3830,8 @@ class _RenewSearchAllPoolPageWidgetState
                                                                     (_model.checkRenewAPIOutput
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )?[poolListIndex],
+                                                                  )?.elementAtOrNull(
+                                                                      poolListIndex),
                                                                   ParamType
                                                                       .String,
                                                                 ),
@@ -3813,7 +3842,8 @@ class _RenewSearchAllPoolPageWidgetState
                                                                     (_model.checkRenewAPIOutput
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )?[poolListIndex],
+                                                                  )?.elementAtOrNull(
+                                                                      poolListIndex),
                                                                   ParamType
                                                                       .String,
                                                                 ),
@@ -3824,7 +3854,8 @@ class _RenewSearchAllPoolPageWidgetState
                                                                     (_model.checkRenewAPIOutput
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )?[poolListIndex],
+                                                                  )?.elementAtOrNull(
+                                                                      poolListIndex),
                                                                   ParamType
                                                                       .String,
                                                                 ),
@@ -3835,7 +3866,8 @@ class _RenewSearchAllPoolPageWidgetState
                                                                     (_model.checkRenewAPIOutput
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )?[poolListIndex],
+                                                                  )?.elementAtOrNull(
+                                                                      poolListIndex),
                                                                   ParamType
                                                                       .String,
                                                                 ),
@@ -3846,7 +3878,8 @@ class _RenewSearchAllPoolPageWidgetState
                                                                     (_model.checkRenewAPIOutput
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )?[poolListIndex],
+                                                                  )?.elementAtOrNull(
+                                                                      poolListIndex),
                                                                   ParamType
                                                                       .String,
                                                                 ),
@@ -3857,7 +3890,8 @@ class _RenewSearchAllPoolPageWidgetState
                                                                     (_model.checkRenewAPIOutput
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )?[poolListIndex],
+                                                                  )?.elementAtOrNull(
+                                                                      poolListIndex),
                                                                   ParamType
                                                                       .String,
                                                                 ),
@@ -3868,7 +3902,8 @@ class _RenewSearchAllPoolPageWidgetState
                                                                     (_model.checkRenewAPIOutput
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )?[poolListIndex],
+                                                                  )?.elementAtOrNull(
+                                                                      poolListIndex),
                                                                   ParamType
                                                                       .String,
                                                                 ),
@@ -3879,7 +3914,8 @@ class _RenewSearchAllPoolPageWidgetState
                                                                     (_model.checkRenewAPIOutput
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )?[poolListIndex],
+                                                                  )?.elementAtOrNull(
+                                                                      poolListIndex),
                                                                   ParamType
                                                                       .String,
                                                                 ),
@@ -3890,7 +3926,8 @@ class _RenewSearchAllPoolPageWidgetState
                                                                     (_model.checkRenewAPIOutput
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )?[poolListIndex],
+                                                                  )?.elementAtOrNull(
+                                                                      poolListIndex),
                                                                   ParamType
                                                                       .String,
                                                                 ),
@@ -3972,7 +4009,8 @@ class _RenewSearchAllPoolPageWidgetState
                                                                       (_model.checkRenewAPIOutput
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )?[poolListIndex],
+                                                                    )?.elementAtOrNull(
+                                                                        poolListIndex),
                                                                     ParamType
                                                                         .String,
                                                                   ),
@@ -4393,72 +4431,82 @@ class _RenewSearchAllPoolPageWidgetState
                                           FFAppState().nonePackageVehicleType =
                                               FFAppState()
                                                       .searchPackageCheckFilled
-                                                      .first
+                                                      .firstOrNull!
                                                   ? FFAppState()
                                                       .insuranceVehicleTypeDropDown
                                                   : FFAppState()
                                                       .nonePackageVehicleType;
-                                          FFAppState()
-                                              .nonePackageBrandName = FFAppState()
-                                                  .searchPackageCheckFilled[1]
-                                              ? FFAppState()
-                                                  .insuranceBasicBrandName
-                                              : FFAppState()
-                                                  .nonePackageBrandName;
+                                          FFAppState().nonePackageBrandName =
+                                              FFAppState()
+                                                      .searchPackageCheckFilled
+                                                      .elementAtOrNull(1)!
+                                                  ? FFAppState()
+                                                      .insuranceBasicBrandName
+                                                  : FFAppState()
+                                                      .nonePackageBrandName;
                                           FFAppState()
                                               .nonePackageBrandId = FFAppState()
-                                                  .searchPackageCheckFilled[1]
+                                                  .searchPackageCheckFilled
+                                                  .elementAtOrNull(1)!
                                               ? FFAppState()
                                                   .insuranceBasicBrandId
                                               : FFAppState().nonePackageBrandId;
-                                          FFAppState()
-                                              .nonePackageModelName = FFAppState()
-                                                  .searchPackageCheckFilled[2]
-                                              ? FFAppState()
-                                                  .insuranceBasicModelName
-                                              : FFAppState()
-                                                  .nonePackageModelName;
-                                          FFAppState()
-                                              .nonePackageModelCode = FFAppState()
-                                                  .searchPackageCheckFilled[2]
-                                              ? FFAppState()
-                                                  .insuranceBasicModelId
-                                              : FFAppState()
-                                                  .nonePackageModelCode;
+                                          FFAppState().nonePackageModelName =
+                                              FFAppState()
+                                                      .searchPackageCheckFilled
+                                                      .elementAtOrNull(2)!
+                                                  ? FFAppState()
+                                                      .insuranceBasicModelName
+                                                  : FFAppState()
+                                                      .nonePackageModelName;
+                                          FFAppState().nonePackageModelCode =
+                                              FFAppState()
+                                                      .searchPackageCheckFilled
+                                                      .elementAtOrNull(2)!
+                                                  ? FFAppState()
+                                                      .insuranceBasicModelId
+                                                  : FFAppState()
+                                                      .nonePackageModelCode;
                                           FFAppState()
                                               .nonePackageYear = FFAppState()
-                                                  .searchPackageCheckFilled[3]
+                                                  .searchPackageCheckFilled
+                                                  .elementAtOrNull(3)!
                                               ? FFAppState().insuranceBasicYear
                                               : FFAppState().nonePackageYear;
                                           FFAppState()
                                               .nonePackageUsedTypeId = FFAppState()
-                                                  .searchPackageCheckFilled[4]
+                                                  .searchPackageCheckFilled
+                                                  .elementAtOrNull(4)!
                                               ? FFAppState()
                                                   .insuranceBasicVehicleUsedTypeId
                                               : FFAppState()
                                                   .nonePackageUsedTypeId;
-                                          FFAppState()
-                                              .nonePackageUsedTypeCode = FFAppState()
-                                                  .searchPackageCheckFilled[4]
-                                              ? FFAppState()
-                                                  .insuranceBasicVehicleUsedTypeCode
-                                              : FFAppState()
-                                                  .nonePackageUsedTypeCode;
-                                          FFAppState()
-                                              .nonePackageUsedTypeName = FFAppState()
-                                                  .searchPackageCheckFilled[4]
-                                              ? FFAppState()
-                                                  .insuranceBasicVehicleUsedTypeName
-                                              : FFAppState()
-                                                  .nonePackageUsedTypeName;
+                                          FFAppState().nonePackageUsedTypeCode =
+                                              FFAppState()
+                                                      .searchPackageCheckFilled
+                                                      .elementAtOrNull(4)!
+                                                  ? FFAppState()
+                                                      .insuranceBasicVehicleUsedTypeCode
+                                                  : FFAppState()
+                                                      .nonePackageUsedTypeCode;
+                                          FFAppState().nonePackageUsedTypeName =
+                                              FFAppState()
+                                                      .searchPackageCheckFilled
+                                                      .elementAtOrNull(4)!
+                                                  ? FFAppState()
+                                                      .insuranceBasicVehicleUsedTypeName
+                                                  : FFAppState()
+                                                      .nonePackageUsedTypeName;
                                           FFAppState()
                                                   .nonePackageIsBrandSelect =
                                               FFAppState()
-                                                  .searchPackageCheckFilled[1];
+                                                  .searchPackageCheckFilled
+                                                  .elementAtOrNull(1)!;
                                           FFAppState()
                                                   .nonePackageSearchModelList =
-                                              FFAppState().searchPackageCheckFilled[
-                                                      1]
+                                              FFAppState()
+                                                      .searchPackageCheckFilled
+                                                      .elementAtOrNull(1)!
                                                   ? FFAppState()
                                                       .insuranceBasicModelNameList
                                                   : FFAppState()
@@ -4467,8 +4515,9 @@ class _RenewSearchAllPoolPageWidgetState
                                                       .cast<String>();
                                           FFAppState()
                                                   .nonePackageSearchModelIdList =
-                                              FFAppState().searchPackageCheckFilled[
-                                                      1]
+                                              FFAppState()
+                                                      .searchPackageCheckFilled
+                                                      .elementAtOrNull(1)!
                                                   ? FFAppState()
                                                       .insuranceBasicModelIdList
                                                   : FFAppState()

@@ -149,7 +149,10 @@ class _CompareInsurancePageWidgetState
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -295,9 +298,10 @@ class _CompareInsurancePageWidgetState
                                             BorderRadius.circular(0.0),
                                         child: Image.network(
                                           valueOrDefault<String>(
-                                            functions.stringToImgPath(
-                                                widget!.insurerLogoUrl?[
-                                                    insurerListItemIndex]),
+                                            functions.stringToImgPath(widget!
+                                                .insurerLogoUrl
+                                                ?.elementAtOrNull(
+                                                    insurerListItemIndex)),
                                             'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                           ),
                                           height: 100.0,
@@ -349,8 +353,9 @@ class _CompareInsurancePageWidgetState
                                           child: Image.network(
                                             functions.stringToImgPath(
                                                 valueOrDefault<String>(
-                                              widget!.insurerLogoUrl?[
-                                                  _model.indexDataCompare!],
+                                              widget!.insurerLogoUrl
+                                                  ?.elementAtOrNull(
+                                                      _model.indexDataCompare!),
                                               'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                             ))!,
                                             width: 59.0,
@@ -387,20 +392,24 @@ class _CompareInsurancePageWidgetState
                                                       functions.checkNullValueAndReturn(
                                                                   valueOrDefault<
                                                                       String>(
-                                                                widget!.insurerFullName?[
-                                                                    _model
-                                                                        .indexDataCompare!],
+                                                                widget!
+                                                                    .insurerFullName
+                                                                    ?.elementAtOrNull(
+                                                                        _model
+                                                                            .indexDataCompare!),
                                                                 '-',
                                                               )) ==
                                                               '-'
                                                           ? '-'
-                                                          : (valueOrDefault<
+                                                          : valueOrDefault<
                                                               String>(
-                                                              widget!.insurerFullName?[
-                                                                  _model
-                                                                      .indexDataCompare!],
+                                                              widget!
+                                                                  .insurerFullName
+                                                                  ?.elementAtOrNull(
+                                                                      _model
+                                                                          .indexDataCompare!),
                                                               '-',
-                                                            )),
+                                                            ),
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .bodyMedium
@@ -420,9 +429,9 @@ class _CompareInsurancePageWidgetState
                                                 if (widget!.insurerConfig2
                                                         ?.insurerInstallment
                                                         ?.contains(widget!
-                                                                .insurerShortName?[
-                                                            _model
-                                                                .indexDataCompare!]) ??
+                                                            .insurerShortName
+                                                            ?.elementAtOrNull(_model
+                                                                .indexDataCompare!)) ??
                                                     true)
                                                   Row(
                                                     mainAxisSize:
@@ -483,20 +492,24 @@ class _CompareInsurancePageWidgetState
                                                       functions.checkNullValueAndReturn(
                                                                   valueOrDefault<
                                                                       String>(
-                                                                widget!.coverTypeName?[
-                                                                    _model
-                                                                        .indexDataCompare!],
+                                                                widget!
+                                                                    .coverTypeName
+                                                                    ?.elementAtOrNull(
+                                                                        _model
+                                                                            .indexDataCompare!),
                                                                 '-',
                                                               )) ==
                                                               '-'
                                                           ? '-'
-                                                          : (valueOrDefault<
+                                                          : valueOrDefault<
                                                               String>(
-                                                              widget!.coverTypeName?[
-                                                                  _model
-                                                                      .indexDataCompare!],
+                                                              widget!
+                                                                  .coverTypeName
+                                                                  ?.elementAtOrNull(
+                                                                      _model
+                                                                          .indexDataCompare!),
                                                               '-',
-                                                            )),
+                                                            ),
                                                       textAlign:
                                                           TextAlign.justify,
                                                       style: FlutterFlowTheme
@@ -542,20 +555,24 @@ class _CompareInsurancePageWidgetState
                                                       functions.checkNullValueAndReturn(
                                                                   valueOrDefault<
                                                                       String>(
-                                                                widget!.garageTypeName?[
-                                                                    _model
-                                                                        .indexDataCompare!],
+                                                                widget!
+                                                                    .garageTypeName
+                                                                    ?.elementAtOrNull(
+                                                                        _model
+                                                                            .indexDataCompare!),
                                                                 '-',
                                                               )) ==
                                                               '-'
                                                           ? '-'
-                                                          : (valueOrDefault<
+                                                          : valueOrDefault<
                                                               String>(
-                                                              widget!.garageTypeName?[
-                                                                  _model
-                                                                      .indexDataCompare!],
+                                                              widget!
+                                                                  .garageTypeName
+                                                                  ?.elementAtOrNull(
+                                                                      _model
+                                                                          .indexDataCompare!),
                                                               '-',
-                                                            )),
+                                                            ),
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .bodyMedium
@@ -635,8 +652,8 @@ class _CompareInsurancePageWidgetState
                               ],
                             ),
                             if (valueOrDefault<String>(
-                                  widget!.insurerCondition?[
-                                      _model.indexDataCompare!],
+                                  widget!.insurerCondition?.elementAtOrNull(
+                                      _model.indexDataCompare!),
                                   '-',
                                 ) !=
                                 '')
@@ -645,8 +662,8 @@ class _CompareInsurancePageWidgetState
                                 color: Color(0xFFB9B9B9),
                               ),
                             if (valueOrDefault<String>(
-                                  widget!.insurerCondition?[
-                                      _model.indexDataCompare!],
+                                  widget!.insurerCondition?.elementAtOrNull(
+                                      _model.indexDataCompare!),
                                   '-',
                                 ) !=
                                 '')
@@ -694,8 +711,9 @@ class _CompareInsurancePageWidgetState
                                         30.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       valueOrDefault<String>(
-                                        widget!.insurerCondition?[
-                                            _model.indexDataCompare!],
+                                        widget!.insurerCondition
+                                            ?.elementAtOrNull(
+                                                _model.indexDataCompare!),
                                         '-',
                                       ),
                                       textAlign: TextAlign.start,
@@ -709,15 +727,15 @@ class _CompareInsurancePageWidgetState
                                   ),
                                 ],
                               ),
-                            if ((widget!
-                                    .motorAddOn?[_model.indexDataCompare!]) !=
+                            if ((widget!.motorAddOn?.elementAtOrNull(
+                                    _model.indexDataCompare!)) !=
                                 '')
                               Divider(
                                 thickness: 1.0,
                                 color: Color(0xFFB9B9B9),
                               ),
-                            if ((widget!
-                                    .motorAddOn?[_model.indexDataCompare!]) !=
+                            if ((widget!.motorAddOn?.elementAtOrNull(
+                                    _model.indexDataCompare!)) !=
                                 '')
                               Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -763,8 +781,8 @@ class _CompareInsurancePageWidgetState
                                         30.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       valueOrDefault<String>(
-                                        widget!.motorAddOn?[
-                                            _model.indexDataCompare!],
+                                        widget!.motorAddOn?.elementAtOrNull(
+                                            _model.indexDataCompare!),
                                         '-',
                                       ),
                                       textAlign: TextAlign.start,
@@ -1037,21 +1055,23 @@ class _CompareInsurancePageWidgetState
                                       Text(
                                         functions.checkNullValueAndReturn(
                                                     valueOrDefault<String>(
-                                                  widget!.grossTotal?[
-                                                      _model.indexDataCompare!],
+                                                  widget!.grossTotal
+                                                      ?.elementAtOrNull(_model
+                                                          .indexDataCompare!),
                                                   '-',
                                                 )) ==
                                                 '-'
                                             ? '-'
-                                            : (valueOrDefault<String>(
+                                            : valueOrDefault<String>(
                                                 functions.showNumberWithComma(
                                                     valueOrDefault<String>(
-                                                  widget!.grossTotal?[
-                                                      _model.indexDataCompare!],
+                                                  widget!.grossTotal
+                                                      ?.elementAtOrNull(_model
+                                                          .indexDataCompare!),
                                                   '-',
                                                 )),
                                                 '-',
-                                              )),
+                                              ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -1097,23 +1117,25 @@ class _CompareInsurancePageWidgetState
                                                     valueOrDefault<String>(
                                                   functions.showNumberWithComma(
                                                       valueOrDefault<String>(
-                                                    widget!.sumInsured?[_model
-                                                        .indexDataCompare!],
+                                                    widget!.sumInsured
+                                                        ?.elementAtOrNull(_model
+                                                            .indexDataCompare!),
                                                     '-',
                                                   )),
                                                   '-',
                                                 )) ==
                                                 '-'
                                             ? '-'
-                                            : (valueOrDefault<String>(
+                                            : valueOrDefault<String>(
                                                 functions.showNumberWithComma(
                                                     valueOrDefault<String>(
-                                                  widget!.sumInsured?[
-                                                      _model.indexDataCompare!],
+                                                  widget!.sumInsured
+                                                      ?.elementAtOrNull(_model
+                                                          .indexDataCompare!),
                                                   '-',
                                                 )),
                                                 '-',
-                                              )),
+                                              ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -1158,18 +1180,20 @@ class _CompareInsurancePageWidgetState
                                         functions.checkNullValueAndReturn(
                                                     valueOrDefault<String>(
                                                   functions.showNumberWithComma(
-                                                      widget!.deductible?[_model
-                                                          .indexDataCompare!]),
+                                                      widget!.deductible
+                                                          ?.elementAtOrNull(_model
+                                                              .indexDataCompare!)),
                                                   '-',
                                                 )) ==
                                                 '-'
                                             ? '-'
-                                            : (valueOrDefault<String>(
+                                            : valueOrDefault<String>(
                                                 functions.showNumberWithComma(
-                                                    widget!.deductible?[_model
-                                                        .indexDataCompare!]),
+                                                    widget!.deductible
+                                                        ?.elementAtOrNull(_model
+                                                            .indexDataCompare!)),
                                                 '-',
-                                              )),
+                                              ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -1215,21 +1239,23 @@ class _CompareInsurancePageWidgetState
                                       Text(
                                         functions.checkNullValueAndReturn(
                                                     valueOrDefault<String>(
-                                                  widget!.tpbiAccident?[
-                                                      _model.indexDataCompare!],
+                                                  widget!.tpbiAccident
+                                                      ?.elementAtOrNull(_model
+                                                          .indexDataCompare!),
                                                   '-',
                                                 )) ==
                                                 '-'
                                             ? '-'
-                                            : (valueOrDefault<String>(
+                                            : valueOrDefault<String>(
                                                 functions.showNumberWithComma(
                                                     valueOrDefault<String>(
-                                                  widget!.tpbiAccident?[
-                                                      _model.indexDataCompare!],
+                                                  widget!.tpbiAccident
+                                                      ?.elementAtOrNull(_model
+                                                          .indexDataCompare!),
                                                   '-',
                                                 )),
                                                 '-',
-                                              )),
+                                              ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -1271,17 +1297,19 @@ class _CompareInsurancePageWidgetState
                                             ),
                                       ),
                                       Text(
-                                        functions.checkNullValueAndReturn(
-                                                    widget!.pa?[_model
-                                                        .indexDataCompare!]) ==
+                                        functions.checkNullValueAndReturn(widget!
+                                                    .pa
+                                                    ?.elementAtOrNull(_model
+                                                        .indexDataCompare!)) ==
                                                 '-'
                                             ? '-'
-                                            : (valueOrDefault<String>(
+                                            : valueOrDefault<String>(
                                                 functions.showNumberWithComma(
-                                                    widget!.pa?[_model
-                                                        .indexDataCompare!]),
+                                                    widget!.pa?.elementAtOrNull(
+                                                        _model
+                                                            .indexDataCompare!)),
                                                 '-',
-                                              )),
+                                              ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -1323,17 +1351,19 @@ class _CompareInsurancePageWidgetState
                                             ),
                                       ),
                                       Text(
-                                        functions.checkNullValueAndReturn(
-                                                    widget!.carLost?[_model
-                                                        .indexDataCompare!]) ==
+                                        functions.checkNullValueAndReturn(widget!
+                                                    .carLost
+                                                    ?.elementAtOrNull(_model
+                                                        .indexDataCompare!)) ==
                                                 '-'
                                             ? '-'
-                                            : (valueOrDefault<String>(
+                                            : valueOrDefault<String>(
                                                 functions.showNumberWithComma(
-                                                    widget!.carLost?[_model
-                                                        .indexDataCompare!]),
+                                                    widget!.carLost
+                                                        ?.elementAtOrNull(_model
+                                                            .indexDataCompare!)),
                                                 '-',
-                                              )),
+                                              ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -1377,21 +1407,23 @@ class _CompareInsurancePageWidgetState
                                       Text(
                                         functions.checkNullValueAndReturn(
                                                     valueOrDefault<String>(
-                                                  widget!.grossTotal?[
-                                                      _model.indexDataCompare!],
+                                                  widget!.grossTotal
+                                                      ?.elementAtOrNull(_model
+                                                          .indexDataCompare!),
                                                   '-',
                                                 )) ==
                                                 '-'
                                             ? '-'
-                                            : (valueOrDefault<String>(
+                                            : valueOrDefault<String>(
                                                 functions.showNumberWithComma(
                                                     valueOrDefault<String>(
-                                                  widget!.grossTotal?[
-                                                      _model.indexDataCompare!],
+                                                  widget!.grossTotal
+                                                      ?.elementAtOrNull(_model
+                                                          .indexDataCompare!),
                                                   '-',
                                                 )),
                                                 '-',
-                                              )),
+                                              ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -1435,21 +1467,24 @@ class _CompareInsurancePageWidgetState
                                       Text(
                                         functions.checkNullValueAndReturn(
                                                     valueOrDefault<String>(
-                                                  widget!.grossAct?[
-                                                      _model.indexDataCompare!],
+                                                  widget!.grossAct
+                                                      ?.elementAtOrNull(_model
+                                                          .indexDataCompare!),
                                                   '-',
                                                 )) ==
                                                 '-'
                                             ? '-'
-                                            : (valueOrDefault<String>(
+                                            : valueOrDefault<String>(
                                                 functions.showNumberWithComma(
                                                     functions.getGrossAct(
-                                                        widget!.grossTotal?[_model
-                                                            .indexDataCompare!],
-                                                        widget!.grossAct?[_model
-                                                            .indexDataCompare!])),
+                                                        widget!.grossTotal
+                                                            ?.elementAtOrNull(_model
+                                                                .indexDataCompare!),
+                                                        widget!.grossAct
+                                                            ?.elementAtOrNull(_model
+                                                                .indexDataCompare!))),
                                                 '-',
-                                              )),
+                                              ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -1495,18 +1530,20 @@ class _CompareInsurancePageWidgetState
                                           valueOrDefault<String>(
                                             functions.checkNullValueAndReturn(
                                                         valueOrDefault<String>(
-                                                      widget!.expireDate?[_model
-                                                          .indexDataCompare!],
+                                                      widget!.expireDate
+                                                          ?.elementAtOrNull(_model
+                                                              .indexDataCompare!),
                                                       '-',
                                                     )) ==
                                                     '-'
                                                 ? '-'
-                                                : (functions.changeADToBD(
+                                                : functions.changeADToBD(
                                                     valueOrDefault<String>(
-                                                    widget!.expireDate?[_model
-                                                        .indexDataCompare!],
+                                                    widget!.expireDate
+                                                        ?.elementAtOrNull(_model
+                                                            .indexDataCompare!),
                                                     '-',
-                                                  ))),
+                                                  )),
                                             '-',
                                           ),
                                           style: FlutterFlowTheme.of(context)
@@ -2033,20 +2070,22 @@ class _CompareInsurancePageWidgetState
                                                         if ((functions.checkNullValueAndReturn(
                                                                         valueOrDefault<
                                                                             String>(
-                                                                      widget!.coverTypeName?[
-                                                                          _model
-                                                                              .indexDataCompare!],
+                                                                      widget!
+                                                                          .coverTypeName
+                                                                          ?.elementAtOrNull(
+                                                                              _model.indexDataCompare!),
                                                                       '-',
                                                                     )) ==
                                                                     '-'
                                                                 ? '-'
-                                                                : (valueOrDefault<
+                                                                : valueOrDefault<
                                                                     String>(
-                                                                    widget!.coverTypeName?[
-                                                                        _model
-                                                                            .indexDataCompare!],
+                                                                    widget!
+                                                                        .coverTypeName
+                                                                        ?.elementAtOrNull(
+                                                                            _model.indexDataCompare!),
                                                                     '-',
-                                                                  ))) ==
+                                                                  )) ==
                                                             'ชั้น 1') {
                                                           await showDialog(
                                                             context: context,

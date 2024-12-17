@@ -66,7 +66,10 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => FocusScope.of(context).unfocus(),
+              onTap: () {
+                FocusScope.of(context).unfocus();
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: LoadingSceneWidget(),
@@ -492,27 +495,27 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
       FFAppState().insuranceInfoGarageType =
           '${IbsApplicationsDetailCall.garagetypename(
         (_model.detailAPIOutput?.jsonBody ?? ''),
-      )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
+      )?.elementAtOrNull(functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
                 (_model.detailAPIOutput?.jsonBody ?? ''),
                 r'''$.results.data.leads_detail[:].lead_dtl_id''',
                 true,
-              )).toList(), widget!.leadDtailId)]}';
+              )).toList(), widget!.leadDtailId))}';
       FFAppState().insuranceInfocoverType =
           '${IbsApplicationsDetailCall.covertypename(
         (_model.detailAPIOutput?.jsonBody ?? ''),
-      )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
+      )?.elementAtOrNull(functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
                 (_model.detailAPIOutput?.jsonBody ?? ''),
                 r'''$.results.data.leads_detail[:].lead_dtl_id''',
                 true,
-              )).toList(), widget!.leadDtailId)]}';
+              )).toList(), widget!.leadDtailId))}';
       FFAppState().insuranceInfoGrossTotal =
           '${IbsApplicationsDetailCall.grosstotalnetList(
         (_model.detailAPIOutput?.jsonBody ?? ''),
-      )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
+      )?.elementAtOrNull(functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
                 (_model.detailAPIOutput?.jsonBody ?? ''),
                 r'''$.results.data.leads_detail[:].lead_dtl_id''',
                 true,
-              )).toList(), widget!.leadDtailId)]}';
+              )).toList(), widget!.leadDtailId))}';
       FFAppState().insuranceInfoVehicleType =
           '${IbsApplicationsDetailCall.quotationtype(
                 (_model.detailAPIOutput?.jsonBody ?? ''),
@@ -561,20 +564,27 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
           '${IbsApplicationsDetailCall.enginenumber(
         (_model.detailAPIOutput?.jsonBody ?? ''),
       )}';
-      FFAppState().insuranceInfoCarSeat = '${IbsApplicationsDetailCall.seat(
-        (_model.detailAPIOutput?.jsonBody ?? ''),
-      )}';
+      FFAppState().insuranceInfoCarSeat =
+          '${IbsApplicationsDetailCall.seatappdetail(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) != null && IbsApplicationsDetailCall.seatappdetail(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) != '' ? IbsApplicationsDetailCall.seatappdetail(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            ) : IbsApplicationsDetailCall.seat(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            )}';
       FFAppState().insuranceInfoSizeCar = '${IbsApplicationsDetailCall.cc(
             (_model.detailAPIOutput?.jsonBody ?? ''),
           ) != '' ? IbsApplicationsDetailCall.cc(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ) : ((IbsApplicationsDetailCall.leaddetailcc(
+        ) : (IbsApplicationsDetailCall.leaddetailcc(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
+        )?.elementAtOrNull(functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
             (_model.detailAPIOutput?.jsonBody ?? ''),
             r'''$.results.data.leads_detail[:].lead_dtl_id''',
             true,
-          )).toList(), widget!.leadDtailId)]))}';
+          )).toList(), widget!.leadDtailId)))}';
       FFAppState().insuranceInfoWeightCar = '${IbsApplicationsDetailCall.weight(
         (_model.detailAPIOutput?.jsonBody ?? ''),
       )}';
@@ -599,58 +609,58 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
       }()}';
       FFAppState().addAddressAtIdCard = '${IbsApplicationsDetailCall.keyword(
         (_model.detailAPIOutput?.jsonBody ?? ''),
-      )?.last}';
+      )?.lastOrNull}';
       FFAppState().addAddressAtIdCard2 =
           '${IbsApplicationsDetailCall.addressline1(
         (_model.detailAPIOutput?.jsonBody ?? ''),
-      )?.last}';
+      )?.lastOrNull}';
       FFAppState().addAddressAtIdCard3 =
           '${IbsApplicationsDetailCall.addressline2(
         (_model.detailAPIOutput?.jsonBody ?? ''),
-      )?.last}';
+      )?.lastOrNull}';
       FFAppState().addAddressForDoc = '${IbsApplicationsDetailCall.keyword(
         (_model.detailAPIOutput?.jsonBody ?? ''),
-      )?.first}';
+      )?.firstOrNull}';
       FFAppState().addAddressForDoc2 =
           '${IbsApplicationsDetailCall.addressline1(
         (_model.detailAPIOutput?.jsonBody ?? ''),
-      )?.first}';
+      )?.firstOrNull}';
       FFAppState().addAddressForDoc3 =
           '${IbsApplicationsDetailCall.addressline2(
         (_model.detailAPIOutput?.jsonBody ?? ''),
-      )?.first}';
+      )?.firstOrNull}';
       FFAppState().addAddressSelectProvinceId =
           '${IbsApplicationsDetailCall.provinceid(
         (_model.detailAPIOutput?.jsonBody ?? ''),
-      )?.last}';
+      )?.lastOrNull}';
       FFAppState().addAddressSelectProvinceName =
           '${IbsApplicationsDetailCall.provincename(
         (_model.detailAPIOutput?.jsonBody ?? ''),
-      )?.last}';
+      )?.lastOrNull}';
       FFAppState().addAddressSelectDistrictId =
           '${IbsApplicationsDetailCall.districtid(
         (_model.detailAPIOutput?.jsonBody ?? ''),
-      )?.last}';
+      )?.lastOrNull}';
       FFAppState().addAddressSelectDistrictName =
           '${IbsApplicationsDetailCall.districtname(
         (_model.detailAPIOutput?.jsonBody ?? ''),
-      )?.last}';
+      )?.lastOrNull}';
       FFAppState().addAddressSelectSubdistrictId =
           '${IbsApplicationsDetailCall.subdistrictid(
         (_model.detailAPIOutput?.jsonBody ?? ''),
-      )?.last}';
+      )?.lastOrNull}';
       FFAppState().addAddressSelectSubdistrictName =
           '${IbsApplicationsDetailCall.subdistrictname(
         (_model.detailAPIOutput?.jsonBody ?? ''),
-      )?.last}';
+      )?.lastOrNull}';
       FFAppState().addAddressSelectZipCode =
           '${IbsApplicationsDetailCall.zipcode(
         (_model.detailAPIOutput?.jsonBody ?? ''),
-      )?.last}';
+      )?.lastOrNull}';
       FFAppState().addAddressSelectKeyWord =
           '${IbsApplicationsDetailCall.keyword(
         (_model.detailAPIOutput?.jsonBody ?? ''),
-      )?.last}';
+      )?.lastOrNull}';
       FFAppState().insuranceInfoActOflLegislation = '${() {
         if (IbsApplicationsDetailCall.actflg(
               (_model.detailAPIOutput?.jsonBody ?? ''),
@@ -669,35 +679,35 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
       FFAppState().addAdressSelectDocProvinceId =
           '${IbsApplicationsDetailCall.provinceid(
         (_model.detailAPIOutput?.jsonBody ?? ''),
-      )?.first}';
+      )?.firstOrNull}';
       FFAppState().addAdressSelectDocProvinceName =
           '${IbsApplicationsDetailCall.provincename(
         (_model.detailAPIOutput?.jsonBody ?? ''),
-      )?.first}';
+      )?.firstOrNull}';
       FFAppState().addAdressSelectDocDistrictName =
           '${IbsApplicationsDetailCall.districtname(
         (_model.detailAPIOutput?.jsonBody ?? ''),
-      )?.first}';
+      )?.firstOrNull}';
       FFAppState().addAddressSelectDocDistrictId =
           '${IbsApplicationsDetailCall.districtid(
         (_model.detailAPIOutput?.jsonBody ?? ''),
-      )?.first}';
+      )?.firstOrNull}';
       FFAppState().addAddressSelectDocSubdistrictId =
           '${IbsApplicationsDetailCall.subdistrictid(
         (_model.detailAPIOutput?.jsonBody ?? ''),
-      )?.first}';
+      )?.firstOrNull}';
       FFAppState().addAddressSelectDocSubdistrictName =
           '${IbsApplicationsDetailCall.subdistrictname(
         (_model.detailAPIOutput?.jsonBody ?? ''),
-      )?.first}';
+      )?.firstOrNull}';
       FFAppState().addAddressSelectDocZipCode =
           '${IbsApplicationsDetailCall.zipcode(
         (_model.detailAPIOutput?.jsonBody ?? ''),
-      )?.first}';
+      )?.firstOrNull}';
       FFAppState().addAddressSelectDocKeyWord =
           '${IbsApplicationsDetailCall.keyword(
         (_model.detailAPIOutput?.jsonBody ?? ''),
-      )?.first}';
+      )?.firstOrNull}';
       FFAppState().insuranceInfoBeneficiaryName =
           '${IbsApplicationsDetailCall.beneficiaryname(
         (_model.detailAPIOutput?.jsonBody ?? ''),
@@ -709,19 +719,19 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
       FFAppState().insuranceInfoCompayId =
           '${IbsApplicationsDetailCall.insurershortname(
         (_model.detailAPIOutput?.jsonBody ?? ''),
-      )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
+      )?.elementAtOrNull(functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
                 (_model.detailAPIOutput?.jsonBody ?? ''),
                 r'''$.results.data.leads_detail[:].lead_dtl_id''',
                 true,
-              )).toList(), widget!.leadDtailId)]}';
+              )).toList(), widget!.leadDtailId))}';
       FFAppState().insuranceInfoLeadDetailId =
           '${(IbsApplicationsDetailCall.leaddtlid(
         (_model.detailAPIOutput?.jsonBody ?? ''),
-      )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
+      )?.elementAtOrNull(functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
                 (_model.detailAPIOutput?.jsonBody ?? ''),
                 r'''$.results.data.leads_detail[:].lead_dtl_id''',
                 true,
-              )).toList(), widget!.leadDtailId)])?.toString()}';
+              )).toList(), widget!.leadDtailId)))?.toString()}';
       FFAppState().insuranceInfoSelectOccupationSubNameChoose =
           '${IbsApplicationsDetailCall.occupationsubname(
         (_model.detailAPIOutput?.jsonBody ?? ''),
@@ -778,11 +788,11 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
       FFAppState().insuranceInfoAccessory =
           '${IbsApplicationsDetailCall.accessorytotal(
         (_model.detailAPIOutput?.jsonBody ?? ''),
-      )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
+      )?.elementAtOrNull(functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
                 (_model.detailAPIOutput?.jsonBody ?? ''),
                 r'''$.results.data.leads_detail[:].lead_dtl_id''',
                 true,
-              )).toList(), widget!.leadDtailId)]}';
+              )).toList(), widget!.leadDtailId))}';
       FFAppState().insuranceInfoApplicationType =
           '${IbsApplicationsDetailCall.quotationtypebak(
         (_model.detailAPIOutput?.jsonBody ?? ''),
@@ -818,13 +828,13 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                 (_model.detailAPIOutput?.jsonBody ?? ''),
               ) != '') ? IbsApplicationsDetailCall.netpremiumtotalAppdetail(
               (_model.detailAPIOutput?.jsonBody ?? ''),
-            ) : ('${IbsApplicationsDetailCall.grosstotalnetList(
+            ) : '${IbsApplicationsDetailCall.grosstotalnetList(
               (_model.detailAPIOutput?.jsonBody ?? ''),
-            )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
+            )?.elementAtOrNull(functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
                 (_model.detailAPIOutput?.jsonBody ?? ''),
                 r'''$.results.data.leads_detail[:].lead_dtl_id''',
                 true,
-              )).toList(), widget!.leadDtailId)]}')}';
+              )).toList(), widget!.leadDtailId))}'}';
       FFAppState().insuranceInfoActFlag = '${IbsApplicationsDetailCall.actflg(
         (_model.detailAPIOutput?.jsonBody ?? ''),
       )}';
@@ -847,11 +857,11 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
       FFAppState().insuranceInfoInsuranceLogo =
           '${IbsApplicationsDetailCall.insurerlogo(
         (_model.detailAPIOutput?.jsonBody ?? ''),
-      )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
+      )?.elementAtOrNull(functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
                 (_model.detailAPIOutput?.jsonBody ?? ''),
                 r'''$.results.data.leads_detail[:].lead_dtl_id''',
                 true,
-              )).toList(), widget!.leadDtailId)]}';
+              )).toList(), widget!.leadDtailId))}';
       FFAppState().insuranceInfoCarTypeDetail =
           '${IbsApplicationsDetailCall.cartypedetail(
         (_model.detailAPIOutput?.jsonBody ?? ''),
@@ -912,6 +922,16 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                   'CMI')
           ? true
           : false;
+      FFAppState().haveSeatinPackage = IbsApplicationsDetailCall.seatappdetail(
+                    (_model.detailAPIOutput?.jsonBody ?? ''),
+                  ) !=
+                  null &&
+              IbsApplicationsDetailCall.seatappdetail(
+                    (_model.detailAPIOutput?.jsonBody ?? ''),
+                  ) !=
+                  ''
+          ? true
+          : false;
       safeSetState(() {});
       if (FFAppState().insuranceInfoApplicationType != 'auto') {
         FFAppState().insuranceInfoActFlag = '${IbsApplicationsDetailCall.actflg(
@@ -922,29 +942,31 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
             (_model.detailAPIOutput?.jsonBody ?? ''),
           )}';
         FFAppState().insuranceInfoActAmount =
-            IbsApplicationsDetailCall.actamountleaddetail(
+            (IbsApplicationsDetailCall.actamountleaddetail(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        )![functions.getIndexOfIntList(
-                functions
-                    .convertDynamicListToIntList(getJsonField(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                      r'''$.results.data.leads_detail[:].lead_dtl_id''',
-                      true,
-                    ))
-                    .toList(),
-                widget!.leadDtailId)];
+        )!
+                .elementAtOrNull(functions.getIndexOfIntList(
+                    functions
+                        .convertDynamicListToIntList(getJsonField(
+                          (_model.detailAPIOutput?.jsonBody ?? ''),
+                          r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                          true,
+                        ))
+                        .toList(),
+                    widget!.leadDtailId)))!;
         FFAppState().insuranceInfoGrosstotalNet =
-            IbsApplicationsDetailCall.grosstotalnetleaddetail(
+            (IbsApplicationsDetailCall.grosstotalnetleaddetail(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        )![functions.getIndexOfIntList(
-                functions
-                    .convertDynamicListToIntList(getJsonField(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                      r'''$.results.data.leads_detail[:].lead_dtl_id''',
-                      true,
-                    ))
-                    .toList(),
-                widget!.leadDtailId)];
+        )!
+                .elementAtOrNull(functions.getIndexOfIntList(
+                    functions
+                        .convertDynamicListToIntList(getJsonField(
+                          (_model.detailAPIOutput?.jsonBody ?? ''),
+                          r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                          true,
+                        ))
+                        .toList(),
+                    widget!.leadDtailId)))!;
         safeSetState(() {});
       }
       FFAppState().DriverList = [];
@@ -965,7 +987,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
         FFAppState().insuranceInfoEvFlag = IbsApplicationsDetailCall.evflag(
           (_model.detailAPIOutput?.jsonBody ?? ''),
         )!
-            .first;
+            .firstOrNull!;
         safeSetState(() {});
       } else {
         FFAppState().addToDriverList(DriverDataStruct(
@@ -1394,64 +1416,123 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
       safeSetState(() {
         _model.idCardTextFieldTextController1?.text =
             FFAppState().insuranceInfoIdCard;
-        _model.idCardTextFieldTextController1?.selection =
-            TextSelection.collapsed(
-                offset: _model.idCardTextFieldTextController1!.text.length);
+        _model.idCardTextFieldFocusNode1?.requestFocus();
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          _model.idCardTextFieldTextController1?.selection =
+              TextSelection.collapsed(
+            offset: _model.idCardTextFieldTextController1!.text.length,
+          );
+        });
+        _model.idCardTextFieldMask1.updateMask(
+          newValue: TextEditingValue(
+            text: _model.idCardTextFieldTextController1!.text,
+            selection: TextSelection.collapsed(
+              offset: _model.idCardTextFieldTextController1!.text.length,
+            ),
+          ),
+        );
       });
       safeSetState(() {
         _model.cusNameTextFieldTextController?.text =
             FFAppState().insuranceInfoFirstName;
-        _model.cusNameTextFieldTextController?.selection =
-            TextSelection.collapsed(
-                offset: _model.cusNameTextFieldTextController!.text.length);
+        _model.cusNameTextFieldFocusNode?.requestFocus();
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          _model.cusNameTextFieldTextController?.selection =
+              TextSelection.collapsed(
+            offset: _model.cusNameTextFieldTextController!.text.length,
+          );
+        });
       });
       safeSetState(() {
         _model.cusLastnameTextFieldTextController?.text =
             FFAppState().insuranceInfoLastName;
-        _model.cusLastnameTextFieldTextController?.selection =
-            TextSelection.collapsed(
-                offset: _model.cusLastnameTextFieldTextController!.text.length);
+        _model.cusLastnameTextFieldFocusNode?.requestFocus();
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          _model.cusLastnameTextFieldTextController?.selection =
+              TextSelection.collapsed(
+            offset: _model.cusLastnameTextFieldTextController!.text.length,
+          );
+        });
       });
       safeSetState(() {
         _model.cusOcputationTextFieldTextController?.text =
             FFAppState().insuranceInfoSelectOccupationSubNameChoose;
-        _model.cusOcputationTextFieldTextController?.selection =
-            TextSelection.collapsed(
-                offset:
-                    _model.cusOcputationTextFieldTextController!.text.length);
+        _model.cusOcputationTextFieldFocusNode?.requestFocus();
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          _model.cusOcputationTextFieldTextController?.selection =
+              TextSelection.collapsed(
+            offset: _model.cusOcputationTextFieldTextController!.text.length,
+          );
+        });
       });
       safeSetState(() {
         _model.cusPhoneTextFieldTextController?.text =
             FFAppState().insuranceInfoPhonenumber;
-        _model.cusPhoneTextFieldTextController?.selection =
-            TextSelection.collapsed(
-                offset: _model.cusPhoneTextFieldTextController!.text.length);
+        _model.cusPhoneTextFieldFocusNode?.requestFocus();
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          _model.cusPhoneTextFieldTextController?.selection =
+              TextSelection.collapsed(
+            offset: _model.cusPhoneTextFieldTextController!.text.length,
+          );
+        });
+        _model.cusPhoneTextFieldMask.updateMask(
+          newValue: TextEditingValue(
+            text: _model.cusPhoneTextFieldTextController!.text,
+            selection: TextSelection.collapsed(
+              offset: _model.cusPhoneTextFieldTextController!.text.length,
+            ),
+          ),
+        );
       });
       safeSetState(() {
         _model.cusPhoneOtherTextFieldTextController?.text =
             FFAppState().insuranceInfoOtherPhone;
-        _model.cusPhoneOtherTextFieldTextController?.selection =
-            TextSelection.collapsed(
-                offset:
-                    _model.cusPhoneOtherTextFieldTextController!.text.length);
+        _model.cusPhoneOtherTextFieldFocusNode?.requestFocus();
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          _model.cusPhoneOtherTextFieldTextController?.selection =
+              TextSelection.collapsed(
+            offset: _model.cusPhoneOtherTextFieldTextController!.text.length,
+          );
+        });
+        _model.cusPhoneOtherTextFieldMask.updateMask(
+          newValue: TextEditingValue(
+            text: _model.cusPhoneOtherTextFieldTextController!.text,
+            selection: TextSelection.collapsed(
+              offset: _model.cusPhoneOtherTextFieldTextController!.text.length,
+            ),
+          ),
+        );
       });
       safeSetState(() {
         _model.emailTextFieldTextController?.text =
             FFAppState().insuranceInfoEmail;
-        _model.emailTextFieldTextController?.selection =
-            TextSelection.collapsed(
-                offset: _model.emailTextFieldTextController!.text.length);
+        _model.emailTextFieldFocusNode?.requestFocus();
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          _model.emailTextFieldTextController?.selection =
+              TextSelection.collapsed(
+            offset: _model.emailTextFieldTextController!.text.length,
+          );
+        });
       });
       safeSetState(() {
         _model.ageTextFieldTextController?.text = FFAppState().insuranceInfoAge;
-        _model.ageTextFieldTextController?.selection = TextSelection.collapsed(
-            offset: _model.ageTextFieldTextController!.text.length);
+        _model.ageTextFieldFocusNode?.requestFocus();
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          _model.ageTextFieldTextController?.selection =
+              TextSelection.collapsed(
+            offset: _model.ageTextFieldTextController!.text.length,
+          );
+        });
       });
       safeSetState(() {
         _model.licenseCodeTextController?.text =
             FFAppState().insuranceInfoLicenseEmployeeId;
-        _model.licenseCodeTextController?.selection = TextSelection.collapsed(
-            offset: _model.licenseCodeTextController!.text.length);
+        _model.licenseCodeFocusNode?.requestFocus();
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          _model.licenseCodeTextController?.selection = TextSelection.collapsed(
+            offset: _model.licenseCodeTextController!.text.length,
+          );
+        });
       });
       if (FFAppState().insuranceInfoSelectOccupationName != null &&
           FFAppState().insuranceInfoSelectOccupationName != '') {
@@ -1519,7 +1600,10 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
           builder: (context) {
             return WebViewAware(
               child: GestureDetector(
-                onTap: () => FocusScope.of(context).unfocus(),
+                onTap: () {
+                  FocusScope.of(context).unfocus();
+                  FocusManager.instance.primaryFocus?.unfocus();
+                },
                 child: Padding(
                   padding: MediaQuery.viewInsetsOf(context),
                   child: LoadingSceneWidget(),
@@ -1604,8 +1688,13 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
         safeSetState(() {
           _model.licenseCodeTextController?.text =
               FFAppState().insuranceInfoLicenseEmployeeId;
-          _model.licenseCodeTextController?.selection = TextSelection.collapsed(
-              offset: _model.licenseCodeTextController!.text.length);
+          _model.licenseCodeFocusNode?.requestFocus();
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            _model.licenseCodeTextController?.selection =
+                TextSelection.collapsed(
+              offset: _model.licenseCodeTextController!.text.length,
+            );
+          });
         });
         Navigator.pop(context);
       }
@@ -1674,7 +1763,10 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -2747,10 +2839,15 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                     builder: (context) {
                                                       return WebViewAware(
                                                         child: GestureDetector(
-                                                          onTap: () =>
-                                                              FocusScope.of(
-                                                                      context)
-                                                                  .unfocus(),
+                                                          onTap: () {
+                                                            FocusScope.of(
+                                                                    context)
+                                                                .unfocus();
+                                                            FocusManager
+                                                                .instance
+                                                                .primaryFocus
+                                                                ?.unfocus();
+                                                          },
                                                           child: Padding(
                                                             padding: MediaQuery
                                                                 .viewInsetsOf(
@@ -3265,10 +3362,15 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                     builder: (context) {
                                                       return WebViewAware(
                                                         child: GestureDetector(
-                                                          onTap: () =>
-                                                              FocusScope.of(
-                                                                      context)
-                                                                  .unfocus(),
+                                                          onTap: () {
+                                                            FocusScope.of(
+                                                                    context)
+                                                                .unfocus();
+                                                            FocusManager
+                                                                .instance
+                                                                .primaryFocus
+                                                                ?.unfocus();
+                                                          },
                                                           child: Padding(
                                                             padding: MediaQuery
                                                                 .viewInsetsOf(
@@ -3718,10 +3820,15 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                     builder: (context) {
                                                       return WebViewAware(
                                                         child: GestureDetector(
-                                                          onTap: () =>
-                                                              FocusScope.of(
-                                                                      context)
-                                                                  .unfocus(),
+                                                          onTap: () {
+                                                            FocusScope.of(
+                                                                    context)
+                                                                .unfocus();
+                                                            FocusManager
+                                                                .instance
+                                                                .primaryFocus
+                                                                ?.unfocus();
+                                                          },
                                                           child: Padding(
                                                             padding: MediaQuery
                                                                 .viewInsetsOf(
@@ -4668,13 +4775,20 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                               _model
                                                                   .datePicked)!
                                                           .toString();
-                                                  _model.ageTextFieldTextController
-                                                          ?.selection =
-                                                      TextSelection.collapsed(
-                                                          offset: _model
-                                                              .ageTextFieldTextController!
-                                                              .text
-                                                              .length);
+                                                  _model.ageTextFieldFocusNode
+                                                      ?.requestFocus();
+                                                  WidgetsBinding.instance
+                                                      .addPostFrameCallback(
+                                                          (_) {
+                                                    _model.ageTextFieldTextController
+                                                            ?.selection =
+                                                        TextSelection.collapsed(
+                                                      offset: _model
+                                                          .ageTextFieldTextController!
+                                                          .text
+                                                          .length,
+                                                    );
+                                                  });
                                                 });
                                                 await actions
                                                     .hideKeyboardAction(
@@ -6272,10 +6386,15 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                             return WebViewAware(
                                                               child:
                                                                   GestureDetector(
-                                                                onTap: () =>
-                                                                    FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
+                                                                onTap: () {
+                                                                  FocusScope.of(
+                                                                          context)
+                                                                      .unfocus();
+                                                                  FocusManager
+                                                                      .instance
+                                                                      .primaryFocus
+                                                                      ?.unfocus();
+                                                                },
                                                                 child: Padding(
                                                                   padding: MediaQuery
                                                                       .viewInsetsOf(
@@ -7663,10 +7782,13 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                   builder: (context) {
                                                     return WebViewAware(
                                                       child: GestureDetector(
-                                                        onTap: () =>
-                                                            FocusScope.of(
-                                                                    context)
-                                                                .unfocus(),
+                                                        onTap: () {
+                                                          FocusScope.of(context)
+                                                              .unfocus();
+                                                          FocusManager.instance
+                                                              .primaryFocus
+                                                              ?.unfocus();
+                                                        },
                                                         child: Padding(
                                                           padding: MediaQuery
                                                               .viewInsetsOf(
@@ -8886,10 +9008,13 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                   builder: (context) {
                                                     return WebViewAware(
                                                       child: GestureDetector(
-                                                        onTap: () =>
-                                                            FocusScope.of(
-                                                                    context)
-                                                                .unfocus(),
+                                                        onTap: () {
+                                                          FocusScope.of(context)
+                                                              .unfocus();
+                                                          FocusManager.instance
+                                                              .primaryFocus
+                                                              ?.unfocus();
+                                                        },
                                                         child: Padding(
                                                           padding: MediaQuery
                                                               .viewInsetsOf(

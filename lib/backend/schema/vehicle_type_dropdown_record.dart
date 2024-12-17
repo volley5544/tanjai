@@ -29,10 +29,12 @@ class VehicleTypeDropdownRecord extends FirestoreRecord {
   bool hasAllCarVehicle() => _allCarVehicle != null;
 
   void _initializeFields() {
-    _pickUp2Doors =
-        VehicleTypeInfoStruct.maybeFromMap(snapshotData['PickUp2Doors']);
-    _allCarVehicle =
-        VehicleTypeInfoStruct.maybeFromMap(snapshotData['AllCarVehicle']);
+    _pickUp2Doors = snapshotData['PickUp2Doors'] is VehicleTypeInfoStruct
+        ? snapshotData['PickUp2Doors']
+        : VehicleTypeInfoStruct.maybeFromMap(snapshotData['PickUp2Doors']);
+    _allCarVehicle = snapshotData['AllCarVehicle'] is VehicleTypeInfoStruct
+        ? snapshotData['AllCarVehicle']
+        : VehicleTypeInfoStruct.maybeFromMap(snapshotData['AllCarVehicle']);
   }
 
   static CollectionReference get collection =>

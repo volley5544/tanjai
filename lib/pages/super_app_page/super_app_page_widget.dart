@@ -71,7 +71,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => FocusScope.of(context).unfocus(),
+              onTap: () {
+                FocusScope.of(context).unfocus();
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: Container(
@@ -474,7 +477,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -636,10 +642,15 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                             return WebViewAware(
                                                               child:
                                                                   GestureDetector(
-                                                                onTap: () =>
-                                                                    FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
+                                                                onTap: () {
+                                                                  FocusScope.of(
+                                                                          context)
+                                                                      .unfocus();
+                                                                  FocusManager
+                                                                      .instance
+                                                                      .primaryFocus
+                                                                      ?.unfocus();
+                                                                },
                                                                 child: Padding(
                                                                   padding: MediaQuery
                                                                       .viewInsetsOf(
@@ -1259,7 +1270,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                             child:
                                                                                 WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => FocusScope.of(dialogContext).unfocus(),
+                                                                                onTap: () {
+                                                                                  FocusScope.of(dialogContext).unfocus();
+                                                                                  FocusManager.instance.primaryFocus?.unfocus();
+                                                                                },
                                                                                 child: CustomDialogComponentWidget(),
                                                                               ),
                                                                             ),
@@ -1286,7 +1300,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => FocusScope.of(context).unfocus(),
+                                                                                onTap: () {
+                                                                                  FocusScope.of(context).unfocus();
+                                                                                  FocusManager.instance.primaryFocus?.unfocus();
+                                                                                },
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -1661,7 +1678,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                               alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
                                                                               child: WebViewAware(
                                                                                 child: GestureDetector(
-                                                                                  onTap: () => FocusScope.of(dialogContext).unfocus(),
+                                                                                  onTap: () {
+                                                                                    FocusScope.of(dialogContext).unfocus();
+                                                                                    FocusManager.instance.primaryFocus?.unfocus();
+                                                                                  },
                                                                                   child: CustomDialogComponentWidget(),
                                                                                 ),
                                                                               ),
@@ -1688,7 +1708,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                                 (context) {
                                                                               return WebViewAware(
                                                                                 child: GestureDetector(
-                                                                                  onTap: () => FocusScope.of(context).unfocus(),
+                                                                                  onTap: () {
+                                                                                    FocusScope.of(context).unfocus();
+                                                                                    FocusManager.instance.primaryFocus?.unfocus();
+                                                                                  },
                                                                                   child: Padding(
                                                                                     padding: MediaQuery.viewInsetsOf(context),
                                                                                     child: Container(
@@ -2228,74 +2251,74 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                       FFAppState()
                                                                           .nonePackageVehicleType = FFAppState()
                                                                               .searchPackageCheckFilled
-                                                                              .first
+                                                                              .firstOrNull!
                                                                           ? FFAppState()
                                                                               .insuranceVehicleTypeDropDown
                                                                           : FFAppState()
                                                                               .nonePackageVehicleType;
                                                                       FFAppState()
-                                                                          .nonePackageBrandName = FFAppState().searchPackageCheckFilled[
-                                                                              1]
+                                                                          .nonePackageBrandName = FFAppState().searchPackageCheckFilled.elementAtOrNull(
+                                                                              1)!
                                                                           ? FFAppState()
                                                                               .insuranceBasicBrandName
                                                                           : FFAppState()
                                                                               .nonePackageBrandName;
                                                                       FFAppState()
-                                                                          .nonePackageBrandId = FFAppState().searchPackageCheckFilled[
-                                                                              1]
+                                                                          .nonePackageBrandId = FFAppState().searchPackageCheckFilled.elementAtOrNull(
+                                                                              1)!
                                                                           ? FFAppState()
                                                                               .insuranceBasicBrandId
                                                                           : FFAppState()
                                                                               .nonePackageBrandId;
                                                                       FFAppState()
-                                                                          .nonePackageModelName = FFAppState().searchPackageCheckFilled[
-                                                                              2]
+                                                                          .nonePackageModelName = FFAppState().searchPackageCheckFilled.elementAtOrNull(
+                                                                              2)!
                                                                           ? FFAppState()
                                                                               .insuranceBasicModelName
                                                                           : FFAppState()
                                                                               .nonePackageModelName;
                                                                       FFAppState()
-                                                                          .nonePackageModelCode = FFAppState().searchPackageCheckFilled[
-                                                                              2]
+                                                                          .nonePackageModelCode = FFAppState().searchPackageCheckFilled.elementAtOrNull(
+                                                                              2)!
                                                                           ? FFAppState()
                                                                               .insuranceBasicModelId
                                                                           : FFAppState()
                                                                               .nonePackageModelCode;
                                                                       FFAppState()
-                                                                          .nonePackageYear = FFAppState().searchPackageCheckFilled[
-                                                                              3]
+                                                                          .nonePackageYear = FFAppState().searchPackageCheckFilled.elementAtOrNull(
+                                                                              3)!
                                                                           ? FFAppState()
                                                                               .insuranceBasicYear
                                                                           : FFAppState()
                                                                               .nonePackageYear;
                                                                       FFAppState()
-                                                                          .nonePackageUsedTypeId = FFAppState().searchPackageCheckFilled[
-                                                                              4]
+                                                                          .nonePackageUsedTypeId = FFAppState().searchPackageCheckFilled.elementAtOrNull(
+                                                                              4)!
                                                                           ? FFAppState()
                                                                               .insuranceBasicVehicleUsedTypeId
                                                                           : FFAppState()
                                                                               .nonePackageUsedTypeId;
                                                                       FFAppState()
-                                                                          .nonePackageUsedTypeCode = FFAppState().searchPackageCheckFilled[
-                                                                              4]
+                                                                          .nonePackageUsedTypeCode = FFAppState().searchPackageCheckFilled.elementAtOrNull(
+                                                                              4)!
                                                                           ? FFAppState()
                                                                               .insuranceBasicVehicleUsedTypeCode
                                                                           : FFAppState()
                                                                               .nonePackageUsedTypeCode;
                                                                       FFAppState()
-                                                                          .nonePackageUsedTypeName = FFAppState().searchPackageCheckFilled[
-                                                                              4]
+                                                                          .nonePackageUsedTypeName = FFAppState().searchPackageCheckFilled.elementAtOrNull(
+                                                                              4)!
                                                                           ? FFAppState()
                                                                               .insuranceBasicVehicleUsedTypeName
                                                                           : FFAppState()
                                                                               .nonePackageUsedTypeName;
+                                                                      FFAppState().nonePackageIsBrandSelect = FFAppState()
+                                                                          .searchPackageCheckFilled
+                                                                          .elementAtOrNull(
+                                                                              1)!;
                                                                       FFAppState()
-                                                                              .nonePackageIsBrandSelect =
-                                                                          FFAppState()
-                                                                              .searchPackageCheckFilled[1];
-                                                                      FFAppState()
-                                                                          .nonePackageSearchModelList = FFAppState().searchPackageCheckFilled[
-                                                                              1]
+                                                                          .nonePackageSearchModelList = FFAppState().searchPackageCheckFilled.elementAtOrNull(
+                                                                              1)!
                                                                           ? FFAppState()
                                                                               .insuranceBasicModelNameList
                                                                           : FFAppState()
@@ -2303,8 +2326,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                               .toList()
                                                                               .cast<String>();
                                                                       FFAppState()
-                                                                          .nonePackageSearchModelIdList = FFAppState().searchPackageCheckFilled[
-                                                                              1]
+                                                                          .nonePackageSearchModelIdList = FFAppState().searchPackageCheckFilled.elementAtOrNull(
+                                                                              1)!
                                                                           ? FFAppState()
                                                                               .insuranceBasicModelIdList
                                                                           : FFAppState()
@@ -2471,7 +2494,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => FocusScope.of(context).unfocus(),
+                                                                                onTap: () {
+                                                                                  FocusScope.of(context).unfocus();
+                                                                                  FocusManager.instance.primaryFocus?.unfocus();
+                                                                                },
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -3261,10 +3287,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                         '${functions.checkNullValueAndReturn(GetVMICall.firstNameList(
                                                                           (_model.getVMIApi?.jsonBody ??
                                                                               ''),
-                                                                        )?[leadListIndex])} ${functions.checkNullValueAndReturn(GetVMICall.lastNameList(
+                                                                        )?.elementAtOrNull(leadListIndex))} ${functions.checkNullValueAndReturn(GetVMICall.lastNameList(
                                                                           (_model.getVMIApi?.jsonBody ??
                                                                               ''),
-                                                                        )?[leadListIndex])}',
+                                                                        )?.elementAtOrNull(leadListIndex))}',
                                                                         maxLines:
                                                                             2,
                                                                         style: FlutterFlowTheme.of(context)
@@ -3335,11 +3361,12 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                           BoxDecoration(),
                                                                       child:
                                                                           Text(
-                                                                        functions
-                                                                            .checkNullValueAndReturn(GetVMICall.quotationtypebakname(
+                                                                        functions.checkNullValueAndReturn(GetVMICall
+                                                                            .quotationtypebakname(
                                                                           (_model.getVMIApi?.jsonBody ??
                                                                               ''),
-                                                                        )?[leadListIndex]),
+                                                                        )?.elementAtOrNull(
+                                                                            leadListIndex)),
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
@@ -3408,11 +3435,12 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                           BoxDecoration(),
                                                                       child:
                                                                           Text(
-                                                                        functions
-                                                                            .checkNullValueAndReturn(GetVMICall.quotationtypename(
+                                                                        functions.checkNullValueAndReturn(GetVMICall
+                                                                            .quotationtypename(
                                                                           (_model.getVMIApi?.jsonBody ??
                                                                               ''),
-                                                                        )?[leadListIndex]),
+                                                                        )?.elementAtOrNull(
+                                                                            leadListIndex)),
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
@@ -3481,11 +3509,12 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                           BoxDecoration(),
                                                                       child:
                                                                           Text(
-                                                                        functions
-                                                                            .checkNullValueAndReturn(GetVMICall.subproductname(
+                                                                        functions.checkNullValueAndReturn(GetVMICall
+                                                                            .subproductname(
                                                                           (_model.getVMIApi?.jsonBody ??
                                                                               ''),
-                                                                        )?[leadListIndex]),
+                                                                        )?.elementAtOrNull(
+                                                                            leadListIndex)),
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
@@ -3554,11 +3583,12 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                           BoxDecoration(),
                                                                       child:
                                                                           Text(
-                                                                        functions
-                                                                            .checkNullValueAndReturn(GetVMICall.expireDate(
+                                                                        functions.checkNullValueAndReturn(GetVMICall
+                                                                            .expireDate(
                                                                           (_model.getVMIApi?.jsonBody ??
                                                                               ''),
-                                                                        )?[leadListIndex]),
+                                                                        )?.elementAtOrNull(
+                                                                            leadListIndex)),
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
@@ -3627,11 +3657,12 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                           BoxDecoration(),
                                                                       child:
                                                                           Text(
-                                                                        functions
-                                                                            .checkNullValueAndReturn(GetVMICall.quotationStatus(
+                                                                        functions.checkNullValueAndReturn(GetVMICall
+                                                                            .quotationStatus(
                                                                           (_model.getVMIApi?.jsonBody ??
                                                                               ''),
-                                                                        )?[leadListIndex]),
+                                                                        )?.elementAtOrNull(
+                                                                            leadListIndex)),
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
@@ -3710,11 +3741,12 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                             FFAppState().apiUrlInsuranceAppState,
                                                                         token: FFAppState()
                                                                             .accessToken,
-                                                                        leadId:
-                                                                            GetVMICall.leadIdList(
+                                                                        leadId: GetVMICall
+                                                                            .leadIdList(
                                                                           (_model.getVMIApi?.jsonBody ??
                                                                               ''),
-                                                                        )?[leadListIndex],
+                                                                        )?.elementAtOrNull(
+                                                                            leadListIndex),
                                                                         list: FFAppState()
                                                                             .typeList,
                                                                         mode:
@@ -3777,7 +3809,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                             ? (FFAppState().profileIsHaveInsuranceCard ||
                                                                                 (InsuranceRequestListAPIDashBoardCall.videourl(
                                                                                       (_model.listFromDash?.jsonBody ?? ''),
-                                                                                    )?.first !=
+                                                                                    )?.firstOrNull !=
                                                                                     ''))
                                                                             : true) {
                                                                           context
@@ -3809,7 +3841,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                               '${InsuranceRequestListAPIDashBoardCall.employeecodelicense(
                                                                             (_model.listFromDash?.jsonBody ??
                                                                                 ''),
-                                                                          )?.first}';
+                                                                          )?.firstOrNull}';
                                                                           safeSetState(
                                                                               () {});
                                                                           await showModalBottomSheet(
@@ -3825,18 +3857,21 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                                 (context) {
                                                                               return WebViewAware(
                                                                                 child: GestureDetector(
-                                                                                  onTap: () => FocusScope.of(context).unfocus(),
+                                                                                  onTap: () {
+                                                                                    FocusScope.of(context).unfocus();
+                                                                                    FocusManager.instance.primaryFocus?.unfocus();
+                                                                                  },
                                                                                   child: Padding(
                                                                                     padding: MediaQuery.viewInsetsOf(context),
                                                                                     child: LicenseSelectComponentWidget(
                                                                                       leadID: InsuranceRequestListAPIDashBoardCall.watingInfoleadid(
                                                                                         (_model.listFromDash?.jsonBody ?? ''),
                                                                                       )!
-                                                                                          .first,
+                                                                                          .firstOrNull!,
                                                                                       quotationID: InsuranceRequestListAPIDashBoardCall.watingInfoquotationid(
                                                                                         (_model.listFromDash?.jsonBody ?? ''),
                                                                                       )!
-                                                                                          .first,
+                                                                                          .firstOrNull!,
                                                                                     ),
                                                                                   ),
                                                                                 ),
@@ -5048,9 +5083,15 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                   return WebViewAware(
                                                                     child:
                                                                         GestureDetector(
-                                                                      onTap: () =>
-                                                                          FocusScope.of(context)
-                                                                              .unfocus(),
+                                                                      onTap:
+                                                                          () {
+                                                                        FocusScope.of(context)
+                                                                            .unfocus();
+                                                                        FocusManager
+                                                                            .instance
+                                                                            .primaryFocus
+                                                                            ?.unfocus();
+                                                                      },
                                                                       child:
                                                                           Padding(
                                                                         padding:
@@ -5345,23 +5386,23 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                         Colors.transparent,
                                                     onTap: () async {
                                                       if ((pageViewTanjaiBannerRecord
-                                                                  ?.contentLink?[
-                                                              functions.getIndexOfIntList(
+                                                              ?.contentLink
+                                                              ?.elementAtOrNull(functions.getIndexOfIntList(
                                                                   pageViewTanjaiBannerRecord
                                                                       ?.order
                                                                       ?.toList(),
                                                                   imageListItemIndex +
-                                                                      1)]) ==
+                                                                      1))) ==
                                                           'Hello World') {
                                                         if (pageViewTanjaiBannerRecord!
-                                                                .isHavePdf[
-                                                            functions
-                                                                .getIndexOfIntList(
+                                                            .isHavePdf
+                                                            .elementAtOrNull(
+                                                                functions.getIndexOfIntList(
                                                                     pageViewTanjaiBannerRecord
                                                                         ?.order
                                                                         ?.toList(),
                                                                     imageListItemIndex +
-                                                                        1)]) {
+                                                                        1))!) {
                                                           await showModalBottomSheet(
                                                             isScrollControlled:
                                                                 true,
@@ -5375,10 +5416,15 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                               return WebViewAware(
                                                                 child:
                                                                     GestureDetector(
-                                                                  onTap: () =>
-                                                                      FocusScope.of(
-                                                                              context)
-                                                                          .unfocus(),
+                                                                  onTap: () {
+                                                                    FocusScope.of(
+                                                                            context)
+                                                                        .unfocus();
+                                                                    FocusManager
+                                                                        .instance
+                                                                        .primaryFocus
+                                                                        ?.unfocus();
+                                                                  },
                                                                   child:
                                                                       Padding(
                                                                     padding: MediaQuery
@@ -5393,8 +5439,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                         pdfUrlList: functions.getBannerDataByOrder(
                                                                             pageViewTanjaiBannerRecord?.pdfUrl
                                                                                 ?.toList(),
-                                                                            pageViewTanjaiBannerRecord?.order?[functions.getIndexOfIntList(pageViewTanjaiBannerRecord?.order?.toList(),
-                                                                                imageListItemIndex + 1)])!,
+                                                                            pageViewTanjaiBannerRecord?.order?.elementAtOrNull(functions.getIndexOfIntList(pageViewTanjaiBannerRecord?.order?.toList(),
+                                                                                imageListItemIndex + 1)))!,
                                                                       ),
                                                                     ),
                                                                   ),
@@ -5408,23 +5454,25 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                         return;
                                                       }
                                                       await launchURL(pageViewTanjaiBannerRecord!
-                                                              .contentLink[
-                                                          functions.getIndexOfIntList(
-                                                              pageViewTanjaiBannerRecord
-                                                                  ?.order
-                                                                  ?.toList(),
-                                                              imageListItemIndex +
-                                                                  1)]);
+                                                          .contentLink
+                                                          .elementAtOrNull(functions
+                                                              .getIndexOfIntList(
+                                                                  pageViewTanjaiBannerRecord
+                                                                      ?.order
+                                                                      ?.toList(),
+                                                                  imageListItemIndex +
+                                                                      1))!);
                                                     },
                                                     child: Hero(
                                                       tag: pageViewTanjaiBannerRecord!
-                                                              .imageUrl[
-                                                          functions.getIndexOfIntList(
-                                                              pageViewTanjaiBannerRecord
-                                                                  ?.order
-                                                                  ?.toList(),
-                                                              imageListItemIndex +
-                                                                  1)],
+                                                          .imageUrl
+                                                          .elementAtOrNull(functions
+                                                              .getIndexOfIntList(
+                                                                  pageViewTanjaiBannerRecord
+                                                                      ?.order
+                                                                      ?.toList(),
+                                                                  imageListItemIndex +
+                                                                      1))!,
                                                       transitionOnUserGestures:
                                                           true,
                                                       child: ClipRRect(
@@ -5437,24 +5485,25 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                   .expand(
                                                             child: Image(
                                                               image: BlurHashImage(pageViewTanjaiBannerRecord!
-                                                                      .blurHash[
-                                                                  functions.getIndexOfIntList(
+                                                                  .blurHash
+                                                                  .elementAtOrNull(functions.getIndexOfIntList(
                                                                       pageViewTanjaiBannerRecord
                                                                           ?.order
                                                                           ?.toList(),
                                                                       imageListItemIndex +
-                                                                          1)]),
+                                                                          1))!),
                                                               fit: BoxFit.cover,
                                                             ),
                                                           ),
                                                           image: NetworkImage(
-                                                            pageViewTanjaiBannerRecord!.imageUrl[
-                                                                functions.getIndexOfIntList(
+                                                            pageViewTanjaiBannerRecord!
+                                                                .imageUrl
+                                                                .elementAtOrNull(functions.getIndexOfIntList(
                                                                     pageViewTanjaiBannerRecord
                                                                         ?.order
                                                                         ?.toList(),
                                                                     imageListItemIndex +
-                                                                        1)],
+                                                                        1))!,
                                                           ),
                                                           width: 300.0,
                                                           height: 227.0,

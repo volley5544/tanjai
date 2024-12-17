@@ -52,7 +52,10 @@ class _NonePackageInsurerPageWidgetState
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => FocusScope.of(context).unfocus(),
+              onTap: () {
+                FocusScope.of(context).unfocus();
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: Container(
@@ -205,7 +208,10 @@ class _NonePackageInsurerPageWidgetState
         final nonePackageInsurerPageInsurerConfig2Record = snapshot.data!;
 
         return GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          onTap: () {
+            FocusScope.of(context).unfocus();
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
           child: WillPopScope(
             onWillPop: () async => false,
             child: Scaffold(
@@ -510,8 +516,9 @@ class _NonePackageInsurerPageWidgetState
                                                             ? listViewInsurerConfigRecord
                                                                 ?.insurerShortNameList
                                                                 ?.contains(FFAppState()
-                                                                        .nonePackageInsurerShortNameList[
-                                                                    dataListIndex])
+                                                                    .nonePackageInsurerShortNameList
+                                                                    .elementAtOrNull(
+                                                                        dataListIndex))
                                                             : () {
                                                                 if (FFAppState()
                                                                         .nonePackageCoverTypeCode ==
@@ -519,43 +526,48 @@ class _NonePackageInsurerPageWidgetState
                                                                   return !nonePackageInsurerPageInsurerConfig2Record
                                                                       .insurerShortNameMap
                                                                       .vmi1
-                                                                      .contains(
-                                                                          FFAppState()
-                                                                              .nonePackageInsurerShortNameList[dataListIndex]);
+                                                                      .contains(FFAppState()
+                                                                          .nonePackageInsurerShortNameList
+                                                                          .elementAtOrNull(
+                                                                              dataListIndex));
                                                                 } else if (FFAppState()
                                                                         .nonePackageCoverTypeCode ==
                                                                     'VMI2') {
                                                                   return !nonePackageInsurerPageInsurerConfig2Record
                                                                       .insurerShortNameMap
                                                                       .vmi2
-                                                                      .contains(
-                                                                          FFAppState()
-                                                                              .nonePackageInsurerShortNameList[dataListIndex]);
+                                                                      .contains(FFAppState()
+                                                                          .nonePackageInsurerShortNameList
+                                                                          .elementAtOrNull(
+                                                                              dataListIndex));
                                                                 } else if (FFAppState()
                                                                         .nonePackageCoverTypeCode ==
                                                                     'VMI2+') {
                                                                   return !nonePackageInsurerPageInsurerConfig2Record
                                                                       .insurerShortNameMap
                                                                       .vmi25
-                                                                      .contains(
-                                                                          FFAppState()
-                                                                              .nonePackageInsurerShortNameList[dataListIndex]);
+                                                                      .contains(FFAppState()
+                                                                          .nonePackageInsurerShortNameList
+                                                                          .elementAtOrNull(
+                                                                              dataListIndex));
                                                                 } else if (FFAppState()
                                                                         .nonePackageCoverTypeCode ==
                                                                     'VMI3') {
                                                                   return !nonePackageInsurerPageInsurerConfig2Record
                                                                       .insurerShortNameMap
                                                                       .vmi3
-                                                                      .contains(
-                                                                          FFAppState()
-                                                                              .nonePackageInsurerShortNameList[dataListIndex]);
+                                                                      .contains(FFAppState()
+                                                                          .nonePackageInsurerShortNameList
+                                                                          .elementAtOrNull(
+                                                                              dataListIndex));
                                                                 } else {
                                                                   return !nonePackageInsurerPageInsurerConfig2Record
                                                                       .insurerShortNameMap
                                                                       .vmi35
-                                                                      .contains(
-                                                                          FFAppState()
-                                                                              .nonePackageInsurerShortNameList[dataListIndex]);
+                                                                      .contains(FFAppState()
+                                                                          .nonePackageInsurerShortNameList
+                                                                          .elementAtOrNull(
+                                                                              dataListIndex));
                                                                 }
                                                               }()) ??
                                                         true,
@@ -593,11 +605,13 @@ class _NonePackageInsurerPageWidgetState
                                                                 if (nonePackageInsurerPageInsurerConfig2Record
                                                                     .insurerInstallment
                                                                     .contains(FFAppState()
-                                                                            .nonePackageInsurerShortNameList[
-                                                                        dataListIndex])) {
+                                                                        .nonePackageInsurerShortNameList
+                                                                        .elementAtOrNull(
+                                                                            dataListIndex))) {
                                                                   if (FFAppState()
-                                                                              .nonePackageInsurerSelectedList[
-                                                                          dataListIndex] !=
+                                                                          .nonePackageInsurerSelectedList
+                                                                          .elementAtOrNull(
+                                                                              dataListIndex) !=
                                                                       true) {
                                                                     var confirmDialogResponse =
                                                                         await showDialog<bool>(
@@ -605,7 +619,7 @@ class _NonePackageInsurerPageWidgetState
                                                                               builder: (alertDialogContext) {
                                                                                 return WebViewAware(
                                                                                   child: AlertDialog(
-                                                                                    content: Text('${FFAppState().nonePackageInsurerDisplayName[dataListIndex]} จะต้องชำระเงินแบบจ่ายเต็มเท่านั้น ไม่สามารถชำระแบบผ่อนชำระได้ คุณต้องการจะทำรายการต่อหรือไม่?'),
+                                                                                    content: Text('${FFAppState().nonePackageInsurerDisplayName.elementAtOrNull(dataListIndex)} จะต้องชำระเงินแบบจ่ายเต็มเท่านั้น ไม่สามารถชำระแบบผ่อนชำระได้ คุณต้องการจะทำรายการต่อหรือไม่?'),
                                                                                     actions: [
                                                                                       TextButton(
                                                                                         onPressed: () => Navigator.pop(alertDialogContext, false),
@@ -655,7 +669,7 @@ class _NonePackageInsurerPageWidgetState
                                                                     FFAppState()
                                                                         .updateNonePackageInsurerSelectedListAtIndex(
                                                                       dataListIndex,
-                                                                      (_) => FFAppState().nonePackageInsurerSelectedList[dataListIndex] ==
+                                                                      (_) => FFAppState().nonePackageInsurerSelectedList.elementAtOrNull(dataListIndex) ==
                                                                               true
                                                                           ? false
                                                                           : true,
@@ -703,7 +717,8 @@ class _NonePackageInsurerPageWidgetState
                                                                       child:
                                                                           Text(
                                                                         FFAppState()
-                                                                            .nonePackageInsurerDisplayName[dataListIndex],
+                                                                            .nonePackageInsurerDisplayName
+                                                                            .elementAtOrNull(dataListIndex)!,
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
@@ -716,8 +731,9 @@ class _NonePackageInsurerPageWidgetState
                                                                       ),
                                                                     ),
                                                                     if (!FFAppState()
-                                                                            .nonePackageInsurerSelectedList[
-                                                                        dataListIndex])
+                                                                        .nonePackageInsurerSelectedList
+                                                                        .elementAtOrNull(
+                                                                            dataListIndex)!)
                                                                       Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
@@ -745,8 +761,9 @@ class _NonePackageInsurerPageWidgetState
                                                                         ),
                                                                       ),
                                                                     if (FFAppState()
-                                                                            .nonePackageInsurerSelectedList[
-                                                                        dataListIndex])
+                                                                            .nonePackageInsurerSelectedList
+                                                                            .elementAtOrNull(dataListIndex) ??
+                                                                        true)
                                                                       Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,

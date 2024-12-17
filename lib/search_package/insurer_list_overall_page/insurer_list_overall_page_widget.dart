@@ -78,7 +78,10 @@ class _InsurerListOverallPageWidgetState
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => FocusScope.of(context).unfocus(),
+              onTap: () {
+                FocusScope.of(context).unfocus();
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: LoadingSceneWidget(),
@@ -496,7 +499,10 @@ class _InsurerListOverallPageWidgetState
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -766,7 +772,7 @@ class _InsurerListOverallPageWidgetState
                                                                       0
                                                                   ? FFAppState()
                                                                       .filterInsurerList
-                                                                      .first
+                                                                      .firstOrNull!
                                                                   : 'ค้นหาบริษัทประกัน',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
@@ -1010,7 +1016,7 @@ class _InsurerListOverallPageWidgetState
                                                                 listinsurance[
                                                                     listinsuranceIndex];
                                                             return Visibility(
-                                                              visible: (FFAppState().filterInsurerList.length > 0 ? (FFAppState().filterInsurerList.length > 0 ? FFAppState().filterInsurerList.contains(FFAppState().searchInsurerInsurercode[listinsuranceIndex]) : true) : true) &&
+                                                              visible: (FFAppState().filterInsurerList.length > 0 ? (FFAppState().filterInsurerList.length > 0 ? FFAppState().filterInsurerList.contains(FFAppState().searchInsurerInsurercode.elementAtOrNull(listinsuranceIndex)) : true) : true) &&
                                                                   (functions.checkPackageInRangePage2Copy(
                                                                           FFAppState()
                                                                               .searchShortName
@@ -1018,14 +1024,14 @@ class _InsurerListOverallPageWidgetState
                                                                           FFAppState()
                                                                               .searchGrossTotal
                                                                               .toList(),
-                                                                          FFAppState().searchInsurerInsurershortname[
-                                                                              listinsuranceIndex],
+                                                                          FFAppState().searchInsurerInsurershortname.elementAtOrNull(
+                                                                              listinsuranceIndex),
                                                                           FFAppState()
                                                                               .sliderCurrentMinGrossPage2,
                                                                           FFAppState()
                                                                               .sliderCurrentMaxGrossPage2,
-                                                                          FFAppState().searchInsurerCovertypelist[
-                                                                              listinsuranceIndex],
+                                                                          FFAppState().searchInsurerCovertypelist.elementAtOrNull(
+                                                                              listinsuranceIndex),
                                                                           FFAppState()
                                                                               .searchCoverType
                                                                               .toList())! &&
@@ -1033,11 +1039,13 @@ class _InsurerListOverallPageWidgetState
                                                                           FFAppState()
                                                                               .searchShortName
                                                                               .toList(),
-                                                                          FFAppState().searchSumInsured.toList(),
-                                                                          FFAppState().searchInsurerInsurershortname[listinsuranceIndex],
+                                                                          FFAppState()
+                                                                              .searchSumInsured
+                                                                              .toList(),
+                                                                          FFAppState().searchInsurerInsurershortname.elementAtOrNull(listinsuranceIndex),
                                                                           FFAppState().sliderCurrentMinSumInsuredPage2,
                                                                           FFAppState().sliderCurrentMaxSumInsuredPage2,
-                                                                          FFAppState().searchInsurerCovertypelist[listinsuranceIndex],
+                                                                          FFAppState().searchInsurerCovertypelist.elementAtOrNull(listinsuranceIndex),
                                                                           FFAppState().searchCoverType.toList())!),
                                                               child: Padding(
                                                                 padding: EdgeInsetsDirectional
@@ -1052,8 +1060,9 @@ class _InsurerListOverallPageWidgetState
                                                                       .infinity,
                                                                   height: columnInsurerConfig2Record!
                                                                           .insurerInstallment
-                                                                          .contains(
-                                                                              FFAppState().searchShortName[listinsuranceIndex])
+                                                                          .contains(FFAppState()
+                                                                              .searchShortName
+                                                                              .elementAtOrNull(listinsuranceIndex))
                                                                       ? 160.0
                                                                       : 140.0,
                                                                   decoration:
@@ -1132,7 +1141,7 @@ class _InsurerListOverallPageWidgetState
                                                                                                   borderRadius: BorderRadius.circular(0.0),
                                                                                                   child: Image.network(
                                                                                                     valueOrDefault<String>(
-                                                                                                      functions.stringToImgPath(FFAppState().searchInsurerLogo[listinsuranceIndex]),
+                                                                                                      functions.stringToImgPath(FFAppState().searchInsurerLogo.elementAtOrNull(listinsuranceIndex)),
                                                                                                       'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                                                     ),
                                                                                                     width: 150.0,
@@ -1163,7 +1172,7 @@ class _InsurerListOverallPageWidgetState
                                                                                                     color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                                   ),
                                                                                                   child: Text(
-                                                                                                    FFAppState().searchInsurerInsurercode[listinsuranceIndex],
+                                                                                                    FFAppState().searchInsurerInsurercode.elementAtOrNull(listinsuranceIndex)!,
                                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                           fontFamily: 'Noto Sans Thai',
                                                                                                           fontSize: 11.0,
@@ -1174,7 +1183,7 @@ class _InsurerListOverallPageWidgetState
                                                                                               ],
                                                                                             ),
                                                                                           ),
-                                                                                          if (columnInsurerConfig2Record?.insurerInstallment?.contains(FFAppState().searchInsurerInsurershortname[listinsuranceIndex]) ?? true)
+                                                                                          if (columnInsurerConfig2Record?.insurerInstallment?.contains(FFAppState().searchInsurerInsurershortname.elementAtOrNull(listinsuranceIndex)) ?? true)
                                                                                             Padding(
                                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 3.0),
                                                                                               child: Row(
@@ -1211,7 +1220,7 @@ class _InsurerListOverallPageWidgetState
                                                                                                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
                                                                                                   child: Text(
                                                                                                     valueOrDefault<String>(
-                                                                                                      functions.addCoverType(FFAppState().searchInsurerCovertypelist[listinsuranceIndex]),
+                                                                                                      functions.addCoverType(FFAppState().searchInsurerCovertypelist.elementAtOrNull(listinsuranceIndex)),
                                                                                                       '-',
                                                                                                     ),
                                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1242,7 +1251,7 @@ class _InsurerListOverallPageWidgetState
                                                                                                 Padding(
                                                                                                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
                                                                                                   child: Text(
-                                                                                                    FFAppState().searchInsurerMinnetpremium[listinsuranceIndex],
+                                                                                                    FFAppState().searchInsurerMinnetpremium.elementAtOrNull(listinsuranceIndex)!,
                                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                           fontFamily: 'Noto Sans Thai',
                                                                                                           color: FlutterFlowTheme.of(context).secondaryText,
@@ -1272,7 +1281,7 @@ class _InsurerListOverallPageWidgetState
                                                                                                 Padding(
                                                                                                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
                                                                                                   child: Text(
-                                                                                                    FFAppState().searchInsurerMaxsuminsured[listinsuranceIndex],
+                                                                                                    FFAppState().searchInsurerMaxsuminsured.elementAtOrNull(listinsuranceIndex)!,
                                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                           fontFamily: 'Noto Sans Thai',
                                                                                                           color: FlutterFlowTheme.of(context).secondaryText,
@@ -1303,9 +1312,9 @@ class _InsurerListOverallPageWidgetState
                                                                                             FFAppState().addCustomerQuotationSaveSuccess = false;
                                                                                             FFAppState().filterInsurerList = [];
                                                                                             safeSetState(() {});
-                                                                                            FFAppState().addToFilterInsurerList(FFAppState().searchInsurerInsurercode[listinsuranceIndex]);
+                                                                                            FFAppState().addToFilterInsurerList(FFAppState().searchInsurerInsurercode.elementAtOrNull(listinsuranceIndex)!);
                                                                                             safeSetState(() {});
-                                                                                            if (functions.containWordinStringUrl('1', FFAppState().searchInsurerCovertypelist[listinsuranceIndex])!) {
+                                                                                            if (functions.containWordinStringUrl('1', FFAppState().searchInsurerCovertypelist.elementAtOrNull(listinsuranceIndex))!) {
                                                                                               FFAppState().filterCoverTypeList = FFAppState().listType1.toList().cast<String>();
                                                                                               safeSetState(() {});
                                                                                             } else {
@@ -1945,7 +1954,9 @@ class _InsurerListOverallPageWidgetState
                                                                   FFAppState()
                                                                           .nonePackageIsBrandSelect =
                                                                       FFAppState()
-                                                                          .searchPackageCheckFilled[1];
+                                                                          .searchPackageCheckFilled
+                                                                          .elementAtOrNull(
+                                                                              1)!;
                                                                   safeSetState(
                                                                       () {});
                                                                   FFAppState()
@@ -2533,7 +2544,9 @@ class _InsurerListOverallPageWidgetState
                                                                   FFAppState()
                                                                           .nonePackageIsBrandSelect =
                                                                       FFAppState()
-                                                                          .searchPackageCheckFilled[1];
+                                                                          .searchPackageCheckFilled
+                                                                          .elementAtOrNull(
+                                                                              1)!;
                                                                   FFAppState()
                                                                       .nonePackageOldVmiExpDate = '';
                                                                   safeSetState(

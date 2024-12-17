@@ -52,7 +52,10 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -181,7 +184,9 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                             ),
                                       ),
                                     ),
-                                    if (!FFAppState().nonePackageReason.first)
+                                    if (!FFAppState()
+                                        .nonePackageReason
+                                        .firstOrNull!)
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 10.0, 0.0),
@@ -199,7 +204,10 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                           ),
                                         ),
                                       ),
-                                    if (FFAppState().nonePackageReason.first)
+                                    if (FFAppState()
+                                            .nonePackageReason
+                                            .firstOrNull ??
+                                        true)
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 10.0, 0.0),
@@ -288,7 +296,9 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                             ),
                                       ),
                                     ),
-                                    if (!FFAppState().nonePackageReason[1])
+                                    if (!FFAppState()
+                                        .nonePackageReason
+                                        .elementAtOrNull(1)!)
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 10.0, 0.0),
@@ -306,7 +316,10 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                           ),
                                         ),
                                       ),
-                                    if (FFAppState().nonePackageReason[1])
+                                    if (FFAppState()
+                                            .nonePackageReason
+                                            .elementAtOrNull(1) ??
+                                        true)
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 10.0, 0.0),
@@ -395,7 +408,9 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                             ),
                                       ),
                                     ),
-                                    if (!FFAppState().nonePackageReason.last)
+                                    if (!FFAppState()
+                                        .nonePackageReason
+                                        .lastOrNull!)
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 10.0, 0.0),
@@ -413,7 +428,10 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                           ),
                                         ),
                                       ),
-                                    if (FFAppState().nonePackageReason.last)
+                                    if (FFAppState()
+                                            .nonePackageReason
+                                            .lastOrNull ??
+                                        true)
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 10.0, 0.0),

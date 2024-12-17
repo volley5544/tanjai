@@ -48,7 +48,10 @@ class _QuotationWidgetState extends State<QuotationWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -113,7 +116,8 @@ class _QuotationWidgetState extends State<QuotationWidget> {
                             onTap: () async {},
                             onLongPress: () async {
                               await launchURL(FFAppState()
-                                  .insurarerQuotationPdf[pdfListItemIndex]);
+                                  .insurarerQuotationPdf
+                                  .elementAtOrNull(pdfListItemIndex)!);
                             },
                             child: Container(
                               width: 100.0,
@@ -124,7 +128,8 @@ class _QuotationWidgetState extends State<QuotationWidget> {
                               ),
                               child: FlutterFlowPdfViewer(
                                 networkPath: FFAppState()
-                                    .insurarerQuotationPdf[pdfListItemIndex],
+                                    .insurarerQuotationPdf
+                                    .elementAtOrNull(pdfListItemIndex)!,
                                 height:
                                     MediaQuery.sizeOf(context).height * 0.85,
                                 horizontalScroll: false,

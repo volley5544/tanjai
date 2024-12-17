@@ -50,7 +50,10 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -72,7 +75,7 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
             },
           ),
           title: Text(
-            'เพิ่มผู้ขับขี่ (${'${FFAppState().DriverList.length == 1 ? ((FFAppState().DriverList.length == 1) && ((FFAppState().DriverList.first.firstNameTh != '') && (FFAppState().DriverList.first.lastNameTh != '') && (FFAppState().DriverList.first.birthDay != '') && (FFAppState().DriverList.first.nationalThaiId != '') && (FFAppState().DriverList.first.licenseNo != '') && (FFAppState().DriverList.first.imageIdcard != '') && (FFAppState().DriverList.first.imageLicenseNo != '')) ? FFAppState().DriverList.length.toString() : '0') : FFAppState().DriverList.length.toString()}/5'})',
+            'เพิ่มผู้ขับขี่ (${'${FFAppState().DriverList.length == 1 ? ((FFAppState().DriverList.length == 1) && ((FFAppState().DriverList.firstOrNull?.firstNameTh != '') && (FFAppState().DriverList.firstOrNull?.lastNameTh != '') && (FFAppState().DriverList.firstOrNull?.birthDay != '') && (FFAppState().DriverList.firstOrNull?.nationalThaiId != '') && (FFAppState().DriverList.firstOrNull?.licenseNo != '') && (FFAppState().DriverList.firstOrNull?.imageIdcard != '') && (FFAppState().DriverList.firstOrNull?.imageLicenseNo != '')) ? FFAppState().DriverList.length.toString() : '0') : FFAppState().DriverList.length.toString()}/5'})',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Noto Sans Thai',
                   color: Color(0xFF204A77),
@@ -110,36 +113,31 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                             driverListItem[driverListItemIndex];
                         return Visibility(
                           visible: FFAppState().DriverList.length == 1
-                              ? ((FFAppState().DriverList.length ==
-                                      1) &&
-                                  ((FFAppState()
+                              ? ((FFAppState().DriverList.length == 1) &&
+                                  ((FFAppState().DriverList.firstOrNull?.firstNameTh != '') &&
+                                      (FFAppState()
                                               .DriverList
-                                              .first
-                                              .firstNameTh !=
+                                              .firstOrNull
+                                              ?.lastNameTh !=
                                           '') &&
-                                      (FFAppState().DriverList.first.lastNameTh !=
-                                          '') &&
-                                      (FFAppState().DriverList.first.birthDay !=
+                                      (FFAppState().DriverList.firstOrNull?.birthDay !=
                                           '') &&
                                       (FFAppState()
                                               .DriverList
-                                              .first
-                                              .nationalThaiId !=
+                                              .firstOrNull
+                                              ?.nationalThaiId !=
+                                          '') &&
+                                      (FFAppState().DriverList.firstOrNull?.licenseNo !=
                                           '') &&
                                       (FFAppState()
                                               .DriverList
-                                              .first
-                                              .licenseNo !=
+                                              .firstOrNull
+                                              ?.imageIdcard !=
                                           '') &&
                                       (FFAppState()
                                               .DriverList
-                                              .first
-                                              .imageIdcard !=
-                                          '') &&
-                                      (FFAppState()
-                                              .DriverList
-                                              .first
-                                              .imageLicenseNo !=
+                                              .firstOrNull
+                                              ?.imageLicenseNo !=
                                           '')))
                               : true,
                           child: Padding(
@@ -303,7 +301,7 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                                                   0.0,
                                                                   0.0),
                                                       child: Text(
-                                                        '${FFAppState().DriverList[driverListItemIndex].titleTh} ${FFAppState().DriverList[driverListItemIndex].firstNameTh} ${FFAppState().DriverList[driverListItemIndex].lastNameTh}',
+                                                        '${FFAppState().DriverList.elementAtOrNull(driverListItemIndex)?.titleTh} ${FFAppState().DriverList.elementAtOrNull(driverListItemIndex)?.firstNameTh} ${FFAppState().DriverList.elementAtOrNull(driverListItemIndex)?.lastNameTh}',
                                                         style: FlutterFlowTheme
                                                                 .of(context)
                                                             .bodyMedium
@@ -377,15 +375,17 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                                             children: [
                                                               Text(
                                                                 FFAppState()
-                                                                            .DriverList[
-                                                                                driverListItemIndex]
-                                                                            .birthDay !=
+                                                                            .DriverList
+                                                                            .elementAtOrNull(
+                                                                                driverListItemIndex)
+                                                                            ?.birthDay !=
                                                                         ''
                                                                     ? valueOrDefault<
                                                                         String>(
                                                                         functions.showDateBE(FFAppState()
-                                                                            .DriverList[driverListItemIndex]
-                                                                            .birthDay),
+                                                                            .DriverList
+                                                                            .elementAtOrNull(driverListItemIndex)
+                                                                            ?.birthDay),
                                                                         '-',
                                                                       )
                                                                     : '-',
@@ -460,8 +460,9 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                                             children: [
                                                               Text(
                                                                 FFAppState()
-                                                                    .DriverList[
-                                                                        driverListItemIndex]
+                                                                    .DriverList
+                                                                    .elementAtOrNull(
+                                                                        driverListItemIndex)!
                                                                     .occupationSubname,
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
@@ -542,13 +543,18 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                                                       .max,
                                                               children: [
                                                                 Text(
-                                                                  FFAppState().DriverList[driverListItemIndex].nationalThaiId !=
+                                                                  FFAppState()
+                                                                              .DriverList
+                                                                              .elementAtOrNull(
+                                                                                  driverListItemIndex)
+                                                                              ?.nationalThaiId !=
                                                                           ''
                                                                       ? valueOrDefault<
                                                                           String>(
                                                                           functions.showThaiIdNumberForm(FFAppState()
-                                                                              .DriverList[driverListItemIndex]
-                                                                              .nationalThaiId),
+                                                                              .DriverList
+                                                                              .elementAtOrNull(driverListItemIndex)
+                                                                              ?.nationalThaiId),
                                                                           '-',
                                                                         )
                                                                       : '-',
@@ -624,8 +630,9 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                                               children: [
                                                                 Text(
                                                                   FFAppState()
-                                                                      .DriverList[
-                                                                          driverListItemIndex]
+                                                                      .DriverList
+                                                                      .elementAtOrNull(
+                                                                          driverListItemIndex)!
                                                                       .nationalThaiId,
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
@@ -819,8 +826,8 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                 if (FFAppState().DriverList.length != 0) {
                                   if (FFAppState()
                                           .DriverList
-                                          .last
-                                          .firstNameTh ==
+                                          .lastOrNull
+                                          ?.firstNameTh ==
                                       '') {
                                     context.pushNamed(
                                       'AddDriverPage',
@@ -931,33 +938,33 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                             } else if (FFAppState().DriverList.length > 0) {
                               return (FFAppState().DriverList.length == 1
                                   ? ((FFAppState().DriverList.length == 1) &&
-                                      ((FFAppState().DriverList.first.firstNameTh != '') &&
+                                      ((FFAppState().DriverList.firstOrNull?.firstNameTh != '') &&
                                           (FFAppState()
                                                   .DriverList
-                                                  .first
-                                                  .lastNameTh !=
+                                                  .firstOrNull
+                                                  ?.lastNameTh !=
                                               '') &&
-                                          (FFAppState().DriverList.first.birthDay !=
-                                              '') &&
-                                          (FFAppState()
-                                                  .DriverList
-                                                  .first
-                                                  .nationalThaiId !=
+                                          (FFAppState().DriverList.firstOrNull?.birthDay !=
                                               '') &&
                                           (FFAppState()
                                                   .DriverList
-                                                  .first
-                                                  .licenseNo !=
+                                                  .firstOrNull
+                                                  ?.nationalThaiId !=
                                               '') &&
                                           (FFAppState()
                                                   .DriverList
-                                                  .first
-                                                  .imageIdcard !=
+                                                  .firstOrNull
+                                                  ?.licenseNo !=
                                               '') &&
                                           (FFAppState()
                                                   .DriverList
-                                                  .first
-                                                  .imageLicenseNo !=
+                                                  .firstOrNull
+                                                  ?.imageIdcard !=
+                                              '') &&
+                                          (FFAppState()
+                                                  .DriverList
+                                                  .firstOrNull
+                                                  ?.imageLicenseNo !=
                                               '')))
                                   : true);
                             } else {

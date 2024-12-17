@@ -99,7 +99,10 @@ class _SearchInsurancePageCopyWidgetState
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -885,22 +888,24 @@ class _SearchInsurancePageCopyWidgetState
                                                 FFAppState().insuranceBasicVehicleUsedTypeName ==
                                                         'เลือกการใช้งาน'
                                                     ? 'เลือกการใช้งาน'
-                                                    : (functions.generateInsuranceVehicleTypeDropdown(
-                                                        FFAppState()
-                                                            .insuranceBasicVehicleUsedTypeCodeList
-                                                            .toList(),
-                                                        FFAppState()
-                                                            .insuranceBasicVehicleUsedTypeTypeList
-                                                            .toList(),
-                                                        FFAppState()
-                                                            .insuranceBasicVehicleUsedTypeNameList
-                                                            .toList())![functions
-                                                        .getIndexOfSomethingList(
+                                                    : (functions
+                                                        .generateInsuranceVehicleTypeDropdown(
                                                             FFAppState()
                                                                 .insuranceBasicVehicleUsedTypeCodeList
                                                                 .toList(),
                                                             FFAppState()
-                                                                .insuranceBasicVehicleUsedTypeCode)]),
+                                                                .insuranceBasicVehicleUsedTypeTypeList
+                                                                .toList(),
+                                                            FFAppState()
+                                                                .insuranceBasicVehicleUsedTypeNameList
+                                                                .toList())!
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfSomethingList(
+                                                                FFAppState()
+                                                                    .insuranceBasicVehicleUsedTypeCodeList
+                                                                    .toList(),
+                                                                FFAppState()
+                                                                    .insuranceBasicVehicleUsedTypeCode)))!,
                                                 textAlign: TextAlign.start,
                                                 style: FlutterFlowTheme.of(
                                                         context)

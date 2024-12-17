@@ -72,7 +72,10 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => FocusScope.of(context).unfocus(),
+              onTap: () {
+                FocusScope.of(context).unfocus();
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: LoadingSceneWidget(),
@@ -126,7 +129,10 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -1345,10 +1351,13 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                   builder: (context) {
                                                     return WebViewAware(
                                                       child: GestureDetector(
-                                                        onTap: () =>
-                                                            FocusScope.of(
-                                                                    context)
-                                                                .unfocus(),
+                                                        onTap: () {
+                                                          FocusScope.of(context)
+                                                              .unfocus();
+                                                          FocusManager.instance
+                                                              .primaryFocus
+                                                              ?.unfocus();
+                                                        },
                                                         child: Padding(
                                                           padding: MediaQuery
                                                               .viewInsetsOf(
@@ -1381,7 +1390,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                     (_model.masterAPIOutput
                                                             ?.jsonBody ??
                                                         ''),
-                                                  )?[functions
+                                                  )?.elementAtOrNull(functions
                                                           .getIndexOfSomethingList(
                                                               RenewMasterGetCallStatusCall
                                                                   .callstatus(
@@ -1390,7 +1399,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                                     ''),
                                                               )?.toList(),
                                                               _model
-                                                                  .dropDownMainValue)],
+                                                                  .dropDownMainValue)),
                                                   branchCode: FFAppState()
                                                       .profileBranch,
                                                   branchName: FFAppState()

@@ -58,7 +58,10 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => FocusScope.of(context).unfocus(),
+              onTap: () {
+                FocusScope.of(context).unfocus();
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: LoadingSceneWidget(),
@@ -304,7 +307,10 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -6022,38 +6028,38 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                               ? false
                                                               : ((FFAppState()
                                                                           .DriverList
-                                                                          .first
-                                                                          .firstNameTh !=
+                                                                          .firstOrNull
+                                                                          ?.firstNameTh !=
                                                                       '') &&
                                                                   (FFAppState()
                                                                           .DriverList
-                                                                          .first
-                                                                          .lastNameTh !=
+                                                                          .firstOrNull
+                                                                          ?.lastNameTh !=
                                                                       '') &&
                                                                   (FFAppState()
                                                                           .DriverList
-                                                                          .first
-                                                                          .birthDay !=
+                                                                          .firstOrNull
+                                                                          ?.birthDay !=
                                                                       '') &&
                                                                   (FFAppState()
                                                                           .DriverList
-                                                                          .first
-                                                                          .nationalThaiId !=
+                                                                          .firstOrNull
+                                                                          ?.nationalThaiId !=
                                                                       '') &&
                                                                   (FFAppState()
                                                                           .DriverList
-                                                                          .first
-                                                                          .licenseNo !=
+                                                                          .firstOrNull
+                                                                          ?.licenseNo !=
                                                                       '') &&
                                                                   (FFAppState()
                                                                           .DriverList
-                                                                          .first
-                                                                          .imageIdcard !=
+                                                                          .firstOrNull
+                                                                          ?.imageIdcard !=
                                                                       '') &&
                                                                   (FFAppState()
                                                                           .DriverList
-                                                                          .first
-                                                                          .imageLicenseNo !=
+                                                                          .firstOrNull
+                                                                          ?.imageLicenseNo !=
                                                                       '')))
                                                           ? 'ระบุผู้ขับขี่'
                                                           : 'ไม่ระบุผู้ขับขี่',
@@ -6103,37 +6109,40 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                     ),
                                                 ],
                                               ),
-                                              if ((FFAppState().DriverList.length > 0) &&
-                                                  ((FFAppState().DriverList.first.firstNameTh != '') &&
+                                              if ((FFAppState()
+                                                          .DriverList
+                                                          .length >
+                                                      0) &&
+                                                  ((FFAppState().DriverList.firstOrNull?.firstNameTh != '') &&
                                                       (FFAppState()
                                                               .DriverList
-                                                              .first
-                                                              .lastNameTh !=
+                                                              .firstOrNull
+                                                              ?.lastNameTh !=
                                                           '') &&
                                                       (FFAppState()
                                                               .DriverList
-                                                              .first
-                                                              .birthDay !=
+                                                              .firstOrNull
+                                                              ?.birthDay !=
                                                           '') &&
                                                       (FFAppState()
                                                               .DriverList
-                                                              .first
-                                                              .nationalThaiId !=
+                                                              .firstOrNull
+                                                              ?.nationalThaiId !=
                                                           '') &&
                                                       (FFAppState()
                                                               .DriverList
-                                                              .first
-                                                              .licenseNo !=
+                                                              .firstOrNull
+                                                              ?.licenseNo !=
                                                           '') &&
                                                       (FFAppState()
                                                               .DriverList
-                                                              .first
-                                                              .imageIdcard !=
+                                                              .firstOrNull
+                                                              ?.imageIdcard !=
                                                           '') &&
                                                       (FFAppState()
                                                               .DriverList
-                                                              .first
-                                                              .imageLicenseNo !=
+                                                              .firstOrNull
+                                                              ?.imageLicenseNo !=
                                                           '')))
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
@@ -7553,38 +7562,38 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                                   1) &&
                                                               ((FFAppState()
                                                                           .DriverList
-                                                                          .first
-                                                                          .firstNameTh !=
+                                                                          .firstOrNull
+                                                                          ?.firstNameTh !=
                                                                       '') &&
                                                                   (FFAppState()
                                                                           .DriverList
-                                                                          .first
-                                                                          .lastNameTh !=
+                                                                          .firstOrNull
+                                                                          ?.lastNameTh !=
                                                                       '') &&
                                                                   (FFAppState()
                                                                           .DriverList
-                                                                          .first
-                                                                          .birthDay !=
+                                                                          .firstOrNull
+                                                                          ?.birthDay !=
                                                                       '') &&
                                                                   (FFAppState()
                                                                           .DriverList
-                                                                          .first
-                                                                          .nationalThaiId !=
+                                                                          .firstOrNull
+                                                                          ?.nationalThaiId !=
                                                                       '') &&
                                                                   (FFAppState()
                                                                           .DriverList
-                                                                          .first
-                                                                          .licenseNo !=
+                                                                          .firstOrNull
+                                                                          ?.licenseNo !=
                                                                       '') &&
                                                                   (FFAppState()
                                                                           .DriverList
-                                                                          .first
-                                                                          .imageIdcard !=
+                                                                          .firstOrNull
+                                                                          ?.imageIdcard !=
                                                                       '') &&
                                                                   (FFAppState()
                                                                           .DriverList
-                                                                          .first
-                                                                          .imageLicenseNo !=
+                                                                          .firstOrNull
+                                                                          ?.imageLicenseNo !=
                                                                       '')));
                                                         } else {
                                                           return true;
@@ -8512,10 +8521,13 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                   builder: (context) {
                                                     return WebViewAware(
                                                       child: GestureDetector(
-                                                        onTap: () =>
-                                                            FocusScope.of(
-                                                                    context)
-                                                                .unfocus(),
+                                                        onTap: () {
+                                                          FocusScope.of(context)
+                                                              .unfocus();
+                                                          FocusManager.instance
+                                                              .primaryFocus
+                                                              ?.unfocus();
+                                                        },
                                                         child: Padding(
                                                           padding: MediaQuery
                                                               .viewInsetsOf(

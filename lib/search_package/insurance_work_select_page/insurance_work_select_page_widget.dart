@@ -46,7 +46,10 @@ class _InsuranceWorkSelectPageWidgetState
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -88,7 +91,8 @@ class _InsuranceWorkSelectPageWidgetState
                   builder: (alertDialogContext) {
                     return WebViewAware(
                       child: AlertDialog(
-                        content: Text(FFAppState().filterInsurerList.first),
+                        content:
+                            Text(FFAppState().filterInsurerList.firstOrNull!),
                         actions: [
                           TextButton(
                             onPressed: () => Navigator.pop(alertDialogContext),
@@ -104,7 +108,8 @@ class _InsuranceWorkSelectPageWidgetState
                   builder: (alertDialogContext) {
                     return WebViewAware(
                       child: AlertDialog(
-                        content: Text(FFAppState().filterCoverTypeList.first),
+                        content:
+                            Text(FFAppState().filterCoverTypeList.firstOrNull!),
                         actions: [
                           TextButton(
                             onPressed: () => Navigator.pop(alertDialogContext),
@@ -120,7 +125,8 @@ class _InsuranceWorkSelectPageWidgetState
                   builder: (alertDialogContext) {
                     return WebViewAware(
                       child: AlertDialog(
-                        content: Text(FFAppState().filterGarageTypeList.first),
+                        content: Text(
+                            FFAppState().filterGarageTypeList.firstOrNull!),
                         actions: [
                           TextButton(
                             onPressed: () => Navigator.pop(alertDialogContext),
@@ -191,7 +197,9 @@ class _InsuranceWorkSelectPageWidgetState
                       child: AlertDialog(
                         content: Text(FFAppState()
                             .filterInsurerList
-                            .contains(FFAppState().searchSerialName[1])
+                            .contains(FFAppState()
+                                .searchSerialName
+                                .elementAtOrNull(1))
                             .toString()),
                         actions: [
                           TextButton(
@@ -210,7 +218,8 @@ class _InsuranceWorkSelectPageWidgetState
                       child: AlertDialog(
                         content: Text(FFAppState()
                             .filterCoverTypeList
-                            .contains(FFAppState().searchCoverType[1])
+                            .contains(
+                                FFAppState().searchCoverType.elementAtOrNull(1))
                             .toString()),
                         actions: [
                           TextButton(
@@ -229,7 +238,9 @@ class _InsuranceWorkSelectPageWidgetState
                       child: AlertDialog(
                         content: Text(FFAppState()
                             .filterGarageTypeList
-                            .contains(FFAppState().searchGarageType[1])
+                            .contains(FFAppState()
+                                .searchGarageType
+                                .elementAtOrNull(1))
                             .toString()),
                         actions: [
                           TextButton(
@@ -601,61 +612,71 @@ class _InsuranceWorkSelectPageWidgetState
                                       FFAppState()
                                           .nonePackageVehicleType = FFAppState()
                                               .searchPackageCheckFilled
-                                              .first
+                                              .firstOrNull!
                                           ? FFAppState()
                                               .insuranceVehicleTypeDropDown
                                           : FFAppState().nonePackageVehicleType;
                                       FFAppState()
                                           .nonePackageBrandName = FFAppState()
-                                              .searchPackageCheckFilled[1]
+                                              .searchPackageCheckFilled
+                                              .elementAtOrNull(1)!
                                           ? FFAppState().insuranceBasicBrandName
                                           : FFAppState().nonePackageBrandName;
                                       FFAppState()
                                           .nonePackageBrandId = FFAppState()
-                                              .searchPackageCheckFilled[1]
+                                              .searchPackageCheckFilled
+                                              .elementAtOrNull(1)!
                                           ? FFAppState().insuranceBasicBrandId
                                           : FFAppState().nonePackageBrandId;
                                       FFAppState()
                                           .nonePackageModelName = FFAppState()
-                                              .searchPackageCheckFilled[2]
+                                              .searchPackageCheckFilled
+                                              .elementAtOrNull(2)!
                                           ? FFAppState().insuranceBasicModelName
                                           : FFAppState().nonePackageModelName;
                                       FFAppState()
                                           .nonePackageModelCode = FFAppState()
-                                              .searchPackageCheckFilled[2]
+                                              .searchPackageCheckFilled
+                                              .elementAtOrNull(2)!
                                           ? FFAppState().insuranceBasicModelId
                                           : FFAppState().nonePackageModelCode;
                                       FFAppState().nonePackageYear =
                                           FFAppState()
-                                                  .searchPackageCheckFilled[3]
+                                                  .searchPackageCheckFilled
+                                                  .elementAtOrNull(3)!
                                               ? FFAppState().insuranceBasicYear
                                               : FFAppState().nonePackageYear;
                                       FFAppState()
                                           .nonePackageUsedTypeId = FFAppState()
-                                              .searchPackageCheckFilled[4]
+                                              .searchPackageCheckFilled
+                                              .elementAtOrNull(4)!
                                           ? FFAppState()
                                               .insuranceBasicVehicleUsedTypeId
                                           : FFAppState().nonePackageUsedTypeId;
                                       FFAppState()
                                           .nonePackageUsedTypeCode = FFAppState()
-                                              .searchPackageCheckFilled[4]
+                                              .searchPackageCheckFilled
+                                              .elementAtOrNull(4)!
                                           ? FFAppState()
                                               .insuranceBasicVehicleUsedTypeCode
                                           : FFAppState()
                                               .nonePackageUsedTypeCode;
                                       FFAppState()
                                           .nonePackageUsedTypeName = FFAppState()
-                                              .searchPackageCheckFilled[4]
+                                              .searchPackageCheckFilled
+                                              .elementAtOrNull(4)!
                                           ? FFAppState()
                                               .insuranceBasicVehicleUsedTypeName
                                           : FFAppState()
                                               .nonePackageUsedTypeName;
                                       FFAppState().nonePackageIsBrandSelect =
                                           FFAppState()
-                                              .searchPackageCheckFilled[1];
+                                              .searchPackageCheckFilled
+                                              .elementAtOrNull(1)!;
                                       FFAppState().nonePackageSearchModelList =
                                           FFAppState()
-                                                  .searchPackageCheckFilled[1]
+                                                  .searchPackageCheckFilled
+                                                  .elementAtOrNull(1)!
                                               ? FFAppState()
                                                   .insuranceBasicModelNameList
                                               : FFAppState()
@@ -665,7 +686,8 @@ class _InsuranceWorkSelectPageWidgetState
                                       FFAppState()
                                               .nonePackageSearchModelIdList =
                                           FFAppState()
-                                                  .searchPackageCheckFilled[1]
+                                                  .searchPackageCheckFilled
+                                                  .elementAtOrNull(1)!
                                               ? FFAppState()
                                                   .insuranceBasicModelIdList
                                               : FFAppState()
@@ -1053,55 +1075,68 @@ class _InsuranceWorkSelectPageWidgetState
                                     FFAppState()
                                         .nonePackageVehicleType = FFAppState()
                                             .searchPackageCheckFilled
-                                            .first
+                                            .firstOrNull!
                                         ? FFAppState()
                                             .insuranceVehicleTypeDropDown
                                         : FFAppState().nonePackageVehicleType;
-                                    FFAppState().nonePackageBrandName =
-                                        FFAppState().searchPackageCheckFilled[1]
-                                            ? FFAppState()
-                                                .insuranceBasicBrandName
-                                            : FFAppState().nonePackageBrandName;
+                                    FFAppState()
+                                        .nonePackageBrandName = FFAppState()
+                                            .searchPackageCheckFilled
+                                            .elementAtOrNull(1)!
+                                        ? FFAppState().insuranceBasicBrandName
+                                        : FFAppState().nonePackageBrandName;
                                     FFAppState().nonePackageBrandId =
-                                        FFAppState().searchPackageCheckFilled[1]
+                                        FFAppState()
+                                                .searchPackageCheckFilled
+                                                .elementAtOrNull(1)!
                                             ? FFAppState().insuranceBasicBrandId
                                             : FFAppState().nonePackageBrandId;
-                                    FFAppState().nonePackageModelName =
-                                        FFAppState().searchPackageCheckFilled[2]
-                                            ? FFAppState()
-                                                .insuranceBasicModelName
-                                            : FFAppState().nonePackageModelName;
+                                    FFAppState()
+                                        .nonePackageModelName = FFAppState()
+                                            .searchPackageCheckFilled
+                                            .elementAtOrNull(2)!
+                                        ? FFAppState().insuranceBasicModelName
+                                        : FFAppState().nonePackageModelName;
                                     FFAppState().nonePackageModelCode =
-                                        FFAppState().searchPackageCheckFilled[2]
+                                        FFAppState()
+                                                .searchPackageCheckFilled
+                                                .elementAtOrNull(2)!
                                             ? FFAppState().insuranceBasicModelId
                                             : FFAppState().nonePackageModelCode;
-                                    FFAppState().nonePackageYear =
-                                        FFAppState().searchPackageCheckFilled[3]
-                                            ? FFAppState().insuranceBasicYear
-                                            : FFAppState().nonePackageYear;
-                                    FFAppState().nonePackageUsedTypeId =
-                                        FFAppState().searchPackageCheckFilled[4]
-                                            ? FFAppState()
-                                                .insuranceBasicVehicleUsedTypeId
-                                            : FFAppState()
-                                                .nonePackageUsedTypeId;
+                                    FFAppState().nonePackageYear = FFAppState()
+                                            .searchPackageCheckFilled
+                                            .elementAtOrNull(3)!
+                                        ? FFAppState().insuranceBasicYear
+                                        : FFAppState().nonePackageYear;
+                                    FFAppState()
+                                        .nonePackageUsedTypeId = FFAppState()
+                                            .searchPackageCheckFilled
+                                            .elementAtOrNull(4)!
+                                        ? FFAppState()
+                                            .insuranceBasicVehicleUsedTypeId
+                                        : FFAppState().nonePackageUsedTypeId;
                                     FFAppState()
                                         .nonePackageUsedTypeCode = FFAppState()
-                                            .searchPackageCheckFilled[4]
+                                            .searchPackageCheckFilled
+                                            .elementAtOrNull(4)!
                                         ? FFAppState()
                                             .insuranceBasicVehicleUsedTypeCode
                                         : FFAppState().nonePackageUsedTypeCode;
                                     FFAppState()
                                         .nonePackageUsedTypeName = FFAppState()
-                                            .searchPackageCheckFilled[4]
+                                            .searchPackageCheckFilled
+                                            .elementAtOrNull(4)!
                                         ? FFAppState()
                                             .insuranceBasicVehicleUsedTypeName
                                         : FFAppState().nonePackageUsedTypeName;
                                     FFAppState().nonePackageIsBrandSelect =
                                         FFAppState()
-                                            .searchPackageCheckFilled[1];
+                                            .searchPackageCheckFilled
+                                            .elementAtOrNull(1)!;
                                     FFAppState().nonePackageSearchModelList =
-                                        FFAppState().searchPackageCheckFilled[1]
+                                        FFAppState()
+                                                .searchPackageCheckFilled
+                                                .elementAtOrNull(1)!
                                             ? FFAppState()
                                                 .insuranceBasicModelNameList
                                             : FFAppState()
@@ -1109,7 +1144,9 @@ class _InsuranceWorkSelectPageWidgetState
                                                 .toList()
                                                 .cast<String>();
                                     FFAppState().nonePackageSearchModelIdList =
-                                        FFAppState().searchPackageCheckFilled[1]
+                                        FFAppState()
+                                                .searchPackageCheckFilled
+                                                .elementAtOrNull(1)!
                                             ? FFAppState()
                                                 .insuranceBasicModelIdList
                                             : FFAppState()

@@ -56,7 +56,10 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => FocusScope.of(context).unfocus(),
+              onTap: () {
+                FocusScope.of(context).unfocus();
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: LoadingSceneWidget(),
@@ -207,11 +210,11 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
       FFAppState().insuranceInfoLeadDetailId =
           '${(IbsApplicationsDetailCall.leaddtlid(
         (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-      )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
+      )?.elementAtOrNull(functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
                 (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
                 r'''$.results.data.leads_detail[:].lead_dtl_id''',
                 true,
-              )).toList(), widget!.leadDetailId)])?.toString()}';
+              )).toList(), widget!.leadDetailId)))?.toString()}';
       FFAppState().insuranceInfoFirstName =
           IbsApplicationsDetailCall.firstnameth(
         (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
@@ -232,60 +235,64 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
               (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
             )!;
       FFAppState().insuranceInfocoverType =
-          IbsApplicationsDetailCall.covertypename(
+          (IbsApplicationsDetailCall.covertypename(
         (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-      )![functions.getIndexOfIntList(
-              functions
-                  .convertDynamicListToIntList(getJsonField(
-                    (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-                    r'''$.results.data.leads_detail[:].lead_dtl_id''',
-                    true,
-                  ))
-                  .toList(),
-              widget!.leadDetailId)];
+      )!
+              .elementAtOrNull(functions.getIndexOfIntList(
+                  functions
+                      .convertDynamicListToIntList(getJsonField(
+                        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+                        r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                        true,
+                      ))
+                      .toList(),
+                  widget!.leadDetailId)))!;
       FFAppState().insuranceInfoGarageType =
-          IbsApplicationsDetailCall.garagetypename(
+          (IbsApplicationsDetailCall.garagetypename(
         (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-      )![functions.getIndexOfIntList(
-              functions
-                  .convertDynamicListToIntList(getJsonField(
-                    (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-                    r'''$.results.data.leads_detail[:].lead_dtl_id''',
-                    true,
-                  ))
-                  .toList(),
-              widget!.leadDetailId)];
+      )!
+              .elementAtOrNull(functions.getIndexOfIntList(
+                  functions
+                      .convertDynamicListToIntList(getJsonField(
+                        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+                        r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                        true,
+                      ))
+                      .toList(),
+                  widget!.leadDetailId)))!;
       FFAppState().insuranceInfoApplicationType =
           IbsApplicationsDetailCall.quotationtypebak(
         (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
       )!;
       FFAppState().insuranceInfoCompayId =
-          IbsApplicationsDetailCall.insurershortname(
+          (IbsApplicationsDetailCall.insurershortname(
         (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-      )![functions.getIndexOfIntList(
-              functions
-                  .convertDynamicListToIntList(getJsonField(
-                    (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-                    r'''$.results.data.leads_detail[:].lead_dtl_id''',
-                    true,
-                  ))
-                  .toList(),
-              widget!.leadDetailId)];
+      )!
+              .elementAtOrNull(functions.getIndexOfIntList(
+                  functions
+                      .convertDynamicListToIntList(getJsonField(
+                        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+                        r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                        true,
+                      ))
+                      .toList(),
+                  widget!.leadDetailId)))!;
       FFAppState().insuranceInfoActFlag = IbsApplicationsDetailCall.actflg(
         (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
       )!;
       FFAppState().insuranceInfoInsuranceLogo =
-          IbsApplicationsDetailCall.insurerlogo(
+          (IbsApplicationsDetailCall.insurerlogo(
         (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-      )![functions.getIndexOfIntList(
-              functions
-                  .convertDynamicListToIntList(getJsonField(
-                    (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-                    r'''$.results.data.leads_detail[:].lead_dtl_id''',
-                    true,
-                  ))
-                  .toList(),
-              widget!.leadDetailId)];
+      )!
+              .elementAtOrNull(functions.getIndexOfIntList(
+                  functions
+                      .convertDynamicListToIntList(getJsonField(
+                        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+                        r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                        true,
+                      ))
+                      .toList(),
+                  widget!.leadDetailId)))!;
       FFAppState().insuranceInfoEffectiveDateAct =
           IbsApplicationsDetailCall.effectiveDateAct(
         (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
@@ -405,32 +412,49 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
         safeSetState(() {
           _model.paymentTypeTextController?.text =
               FFAppState().insuranceInfoPage4PaymentType;
-          _model.paymentTypeTextController?.selection = TextSelection.collapsed(
-              offset: _model.paymentTypeTextController!.text.length);
+          _model.paymentTypeFocusNode?.requestFocus();
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            _model.paymentTypeTextController?.selection =
+                TextSelection.collapsed(
+              offset: _model.paymentTypeTextController!.text.length,
+            );
+          });
         });
         safeSetState(() {
           _model.paymentChannelTextController?.text =
               FFAppState().insuranceInfoPage4PaymentChannel;
-          _model.paymentChannelTextController?.selection =
-              TextSelection.collapsed(
-                  offset: _model.paymentChannelTextController!.text.length);
+          _model.paymentChannelFocusNode?.requestFocus();
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            _model.paymentChannelTextController?.selection =
+                TextSelection.collapsed(
+              offset: _model.paymentChannelTextController!.text.length,
+            );
+          });
         });
         safeSetState(() {
           _model.actTotalTextController?.text =
               functions.showNumberWithComma(IbsApplicationsDetailCall.acttotal(
             (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
           ))!;
-          _model.actTotalTextController?.selection = TextSelection.collapsed(
-              offset: _model.actTotalTextController!.text.length);
+          _model.actTotalFocusNode?.requestFocus();
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            _model.actTotalTextController?.selection = TextSelection.collapsed(
+              offset: _model.actTotalTextController!.text.length,
+            );
+          });
         });
         safeSetState(() {
           _model.grossNetTotalTextController?.text = functions
               .showNumberWithComma(IbsApplicationsDetailCall.grosstotalnet(
             (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
           ))!;
-          _model.grossNetTotalTextController?.selection =
-              TextSelection.collapsed(
-                  offset: _model.grossNetTotalTextController!.text.length);
+          _model.grossNetTotalFocusNode?.requestFocus();
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            _model.grossNetTotalTextController?.selection =
+                TextSelection.collapsed(
+              offset: _model.grossNetTotalTextController!.text.length,
+            );
+          });
         });
         safeSetState(() {
           _model.netPremiumTotalTextController?.text =
@@ -438,9 +462,13 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                   IbsApplicationsDetailCall.netpremiumtotalAppdetail(
             (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
           ))!;
-          _model.netPremiumTotalTextController?.selection =
-              TextSelection.collapsed(
-                  offset: _model.netPremiumTotalTextController!.text.length);
+          _model.netPremiumTotalFocusNode?.requestFocus();
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            _model.netPremiumTotalTextController?.selection =
+                TextSelection.collapsed(
+              offset: _model.netPremiumTotalTextController!.text.length,
+            );
+          });
         });
         Navigator.pop(context);
       } else {
@@ -528,15 +556,24 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
         safeSetState(() {
           _model.paymentTypeTextController?.text =
               FFAppState().insuranceInfoPage4PaymentType;
-          _model.paymentTypeTextController?.selection = TextSelection.collapsed(
-              offset: _model.paymentTypeTextController!.text.length);
+          _model.paymentTypeFocusNode?.requestFocus();
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            _model.paymentTypeTextController?.selection =
+                TextSelection.collapsed(
+              offset: _model.paymentTypeTextController!.text.length,
+            );
+          });
         });
         safeSetState(() {
           _model.paymentChannelTextController?.text =
               FFAppState().insuranceInfoPage4PaymentChannel;
-          _model.paymentChannelTextController?.selection =
-              TextSelection.collapsed(
-                  offset: _model.paymentChannelTextController!.text.length);
+          _model.paymentChannelFocusNode?.requestFocus();
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            _model.paymentChannelTextController?.selection =
+                TextSelection.collapsed(
+              offset: _model.paymentChannelTextController!.text.length,
+            );
+          });
         });
         safeSetState(() {
           _model.netPremiumTotalTextController?.text =
@@ -544,26 +581,38 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                   IbsApplicationsDetailCall.netpremiumtotalAppdetail(
             (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
           ))!;
-          _model.netPremiumTotalTextController?.selection =
-              TextSelection.collapsed(
-                  offset: _model.netPremiumTotalTextController!.text.length);
+          _model.netPremiumTotalFocusNode?.requestFocus();
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            _model.netPremiumTotalTextController?.selection =
+                TextSelection.collapsed(
+              offset: _model.netPremiumTotalTextController!.text.length,
+            );
+          });
         });
         safeSetState(() {
           _model.actTotalTextController?.text =
               functions.showNumberWithComma(IbsApplicationsDetailCall.acttotal(
             (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
           ))!;
-          _model.actTotalTextController?.selection = TextSelection.collapsed(
-              offset: _model.actTotalTextController!.text.length);
+          _model.actTotalFocusNode?.requestFocus();
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            _model.actTotalTextController?.selection = TextSelection.collapsed(
+              offset: _model.actTotalTextController!.text.length,
+            );
+          });
         });
         safeSetState(() {
           _model.grossNetTotalTextController?.text = functions
               .showNumberWithComma(IbsApplicationsDetailCall.grosstotalnet(
             (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
           ))!;
-          _model.grossNetTotalTextController?.selection =
-              TextSelection.collapsed(
-                  offset: _model.grossNetTotalTextController!.text.length);
+          _model.grossNetTotalFocusNode?.requestFocus();
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            _model.grossNetTotalTextController?.selection =
+                TextSelection.collapsed(
+              offset: _model.grossNetTotalTextController!.text.length,
+            );
+          });
         });
         Navigator.pop(context);
       }
@@ -605,7 +654,10 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -659,7 +711,10 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                     builder: (context) {
                       return WebViewAware(
                         child: GestureDetector(
-                          onTap: () => FocusScope.of(context).unfocus(),
+                          onTap: () {
+                            FocusScope.of(context).unfocus();
+                            FocusManager.instance.primaryFocus?.unfocus();
+                          },
                           child: Padding(
                             padding: MediaQuery.viewInsetsOf(context),
                             child: LoadingSceneWidget(),
@@ -1246,10 +1301,15 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                         return WebViewAware(
                                                           child:
                                                               GestureDetector(
-                                                            onTap: () =>
-                                                                FocusScope.of(
-                                                                        context)
-                                                                    .unfocus(),
+                                                            onTap: () {
+                                                              FocusScope.of(
+                                                                      context)
+                                                                  .unfocus();
+                                                              FocusManager
+                                                                  .instance
+                                                                  .primaryFocus
+                                                                  ?.unfocus();
+                                                            },
                                                             child: Padding(
                                                               padding: MediaQuery
                                                                   .viewInsetsOf(
@@ -2099,10 +2159,15 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                           return WebViewAware(
                                                             child:
                                                                 GestureDetector(
-                                                              onTap: () =>
-                                                                  FocusScope.of(
-                                                                          context)
-                                                                      .unfocus(),
+                                                              onTap: () {
+                                                                FocusScope.of(
+                                                                        context)
+                                                                    .unfocus();
+                                                                FocusManager
+                                                                    .instance
+                                                                    .primaryFocus
+                                                                    ?.unfocus();
+                                                              },
                                                               child: Padding(
                                                                 padding: MediaQuery
                                                                     .viewInsetsOf(
@@ -2775,10 +2840,15 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                             return WebViewAware(
                                                               child:
                                                                   GestureDetector(
-                                                                onTap: () =>
-                                                                    FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
+                                                                onTap: () {
+                                                                  FocusScope.of(
+                                                                          context)
+                                                                      .unfocus();
+                                                                  FocusManager
+                                                                      .instance
+                                                                      .primaryFocus
+                                                                      ?.unfocus();
+                                                                },
                                                                 child: Padding(
                                                                   padding: MediaQuery
                                                                       .viewInsetsOf(
@@ -3356,9 +3426,15 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                                 return WebViewAware(
                                                                   child:
                                                                       GestureDetector(
-                                                                    onTap: () =>
-                                                                        FocusScope.of(context)
-                                                                            .unfocus(),
+                                                                    onTap: () {
+                                                                      FocusScope.of(
+                                                                              context)
+                                                                          .unfocus();
+                                                                      FocusManager
+                                                                          .instance
+                                                                          .primaryFocus
+                                                                          ?.unfocus();
+                                                                    },
                                                                     child:
                                                                         Padding(
                                                                       padding: MediaQuery
@@ -3763,9 +3839,15 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                                 return WebViewAware(
                                                                   child:
                                                                       GestureDetector(
-                                                                    onTap: () =>
-                                                                        FocusScope.of(context)
-                                                                            .unfocus(),
+                                                                    onTap: () {
+                                                                      FocusScope.of(
+                                                                              context)
+                                                                          .unfocus();
+                                                                      FocusManager
+                                                                          .instance
+                                                                          .primaryFocus
+                                                                          ?.unfocus();
+                                                                    },
                                                                     child:
                                                                         Padding(
                                                                       padding: MediaQuery
@@ -3936,9 +4018,15 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                                   return WebViewAware(
                                                                     child:
                                                                         GestureDetector(
-                                                                      onTap: () =>
-                                                                          FocusScope.of(context)
-                                                                              .unfocus(),
+                                                                      onTap:
+                                                                          () {
+                                                                        FocusScope.of(context)
+                                                                            .unfocus();
+                                                                        FocusManager
+                                                                            .instance
+                                                                            .primaryFocus
+                                                                            ?.unfocus();
+                                                                      },
                                                                       child:
                                                                           Padding(
                                                                         padding:

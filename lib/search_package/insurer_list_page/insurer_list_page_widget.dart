@@ -78,7 +78,10 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => FocusScope.of(context).unfocus(),
+              onTap: () {
+                FocusScope.of(context).unfocus();
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: LoadingSceneWidget(),
@@ -726,7 +729,10 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -1281,19 +1287,19 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                               0) ||
                                                                           (FFAppState().filterGarageTypeList.length >
                                                                               0)
-                                                                      ? ((FFAppState().filterInsurerList.length > 0 ? FFAppState().filterInsurerList.contains(FFAppState().searchSerialName[listinsuranceIndex]) : true) &&
+                                                                      ? ((FFAppState().filterInsurerList.length > 0 ? FFAppState().filterInsurerList.contains(FFAppState().searchSerialName.elementAtOrNull(listinsuranceIndex)) : true) &&
                                                                           (FFAppState().filterCoverTypeList.length > 0
-                                                                              ? FFAppState().filterCoverTypeList.contains(FFAppState().searchCoverType[
-                                                                                  listinsuranceIndex])
+                                                                              ? FFAppState().filterCoverTypeList.contains(FFAppState().searchCoverType.elementAtOrNull(
+                                                                                  listinsuranceIndex))
                                                                               : true) &&
                                                                           (FFAppState().filterGarageTypeList.length > 0
-                                                                              ? FFAppState().filterGarageTypeList.contains(FFAppState().searchGarageType[
-                                                                                  listinsuranceIndex])
+                                                                              ? FFAppState().filterGarageTypeList.contains(FFAppState().searchGarageType.elementAtOrNull(
+                                                                                  listinsuranceIndex))
                                                                               : true))
                                                                       : true) &&
-                                                                  (functions.checkPackageInRangePage3(FFAppState().searchGrossTotal[listinsuranceIndex], FFAppState().sliderCurrentMinGrossPage3, FFAppState().sliderCurrentMaxGrossPage3)! &&
+                                                                  (functions.checkPackageInRangePage3(FFAppState().searchGrossTotal.elementAtOrNull(listinsuranceIndex), FFAppState().sliderCurrentMinGrossPage3, FFAppState().sliderCurrentMaxGrossPage3)! &&
                                                                       functions.checkPackageInRangePage3(
-                                                                          FFAppState().searchSumInsured[listinsuranceIndex],
+                                                                          FFAppState().searchSumInsured.elementAtOrNull(listinsuranceIndex),
                                                                           FFAppState().sliderCurrentMinSumInsuredPage3,
                                                                           FFAppState().sliderCurrentMaxSumInsuredPage3)!),
                                                               child: Padding(
@@ -1350,14 +1356,14 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                               () async {
                                                                             if (functions.countTrueInBoolList(FFAppState().selectInsurerList.toList())! >
                                                                                 2) {
-                                                                              if (!FFAppState().selectInsurerList[listinsuranceIndex]) {
+                                                                              if (!FFAppState().selectInsurerList.elementAtOrNull(listinsuranceIndex)!) {
                                                                                 return;
                                                                               }
                                                                             }
                                                                             HapticFeedback.mediumImpact();
                                                                             FFAppState().updateSelectInsurerListAtIndex(
                                                                               listinsuranceIndex,
-                                                                              (_) => FFAppState().selectInsurerList[listinsuranceIndex] == true ? false : true,
+                                                                              (_) => FFAppState().selectInsurerList.elementAtOrNull(listinsuranceIndex) == true ? false : true,
                                                                             );
                                                                             safeSetState(() {});
                                                                           },
@@ -1388,7 +1394,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                                       ),
                                                                                     ),
                                                                                     child: Visibility(
-                                                                                      visible: FFAppState().selectInsurerList[listinsuranceIndex],
+                                                                                      visible: FFAppState().selectInsurerList.elementAtOrNull(listinsuranceIndex) ?? true,
                                                                                       child: Icon(
                                                                                         Icons.check,
                                                                                         color: FlutterFlowTheme.of(context).success,
@@ -1451,7 +1457,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                                                   borderRadius: BorderRadius.circular(0.0),
                                                                                                   child: Image.network(
                                                                                                     valueOrDefault<String>(
-                                                                                                      functions.stringToImgPath(FFAppState().searchLogo[listinsuranceIndex]),
+                                                                                                      functions.stringToImgPath(FFAppState().searchLogo.elementAtOrNull(listinsuranceIndex)),
                                                                                                       'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                                                     ),
                                                                                                     width: 150.0,
@@ -1482,7 +1488,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                                                     color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                                   ),
                                                                                                   child: Text(
-                                                                                                    FFAppState().searchSerialName[listinsuranceIndex],
+                                                                                                    FFAppState().searchSerialName.elementAtOrNull(listinsuranceIndex)!,
                                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                           fontFamily: 'Noto Sans Thai',
                                                                                                           fontSize: 11.0,
@@ -1509,7 +1515,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                                                           color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                                         ),
                                                                                                         child: Text(
-                                                                                                          FFAppState().serachPackageName[listinsuranceIndex],
+                                                                                                          FFAppState().serachPackageName.elementAtOrNull(listinsuranceIndex)!,
                                                                                                           style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                 fontFamily: 'Noto Sans Thai',
                                                                                                                 fontSize: 12.0,
@@ -1522,7 +1528,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                                                 ],
                                                                                               ),
                                                                                             ),
-                                                                                          if (columnInsurerConfig2Record?.insurerInstallment?.contains(FFAppState().searchShortName[listinsuranceIndex]) ?? true)
+                                                                                          if (columnInsurerConfig2Record?.insurerInstallment?.contains(FFAppState().searchShortName.elementAtOrNull(listinsuranceIndex)) ?? true)
                                                                                             Padding(
                                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 3.0),
                                                                                               child: Row(
@@ -1558,7 +1564,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                                                 Padding(
                                                                                                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
                                                                                                   child: Text(
-                                                                                                    functions.showCoverTypeThai(FFAppState().searchCoverType[listinsuranceIndex]),
+                                                                                                    functions.showCoverTypeThai(FFAppState().searchCoverType.elementAtOrNull(listinsuranceIndex)),
                                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                           fontFamily: 'Noto Sans Thai',
                                                                                                           fontSize: 11.0,
@@ -1587,7 +1593,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                                                 Padding(
                                                                                                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
                                                                                                   child: Text(
-                                                                                                    functions.showNumberWithComma(FFAppState().searchSumInsured[listinsuranceIndex])!,
+                                                                                                    functions.showNumberWithComma(FFAppState().searchSumInsured.elementAtOrNull(listinsuranceIndex))!,
                                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                           fontFamily: 'Noto Sans Thai',
                                                                                                           color: FlutterFlowTheme.of(context).secondaryText,
@@ -1617,7 +1623,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                                                 Padding(
                                                                                                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
                                                                                                   child: Text(
-                                                                                                    functions.showGarageType(FFAppState().searchGarageType[listinsuranceIndex]),
+                                                                                                    functions.showGarageType(FFAppState().searchGarageType.elementAtOrNull(listinsuranceIndex)),
                                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                           fontFamily: 'Noto Sans Thai',
                                                                                                           color: FlutterFlowTheme.of(context).secondaryText,
@@ -1629,7 +1635,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                                               ],
                                                                                             ),
                                                                                           ),
-                                                                                          if (FFAppState().searchSumInsured[listinsuranceIndex] != '')
+                                                                                          if (FFAppState().searchSumInsured.elementAtOrNull(listinsuranceIndex) != '')
                                                                                             Padding(
                                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 3.0),
                                                                                               child: Row(
@@ -1649,7 +1655,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                                                     padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
                                                                                                     child: Text(
                                                                                                       valueOrDefault<String>(
-                                                                                                        functions.showNumberWithComma(FFAppState().searchSumInsured[listinsuranceIndex]),
+                                                                                                        functions.showNumberWithComma(FFAppState().searchSumInsured.elementAtOrNull(listinsuranceIndex)),
                                                                                                         '0',
                                                                                                       ),
                                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1663,7 +1669,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                                                 ],
                                                                                               ),
                                                                                             ),
-                                                                                          if (FFAppState().searchMotoraddon[listinsuranceIndex] != '')
+                                                                                          if (FFAppState().searchMotoraddon.elementAtOrNull(listinsuranceIndex) != '')
                                                                                             Padding(
                                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 3.0),
                                                                                               child: Row(
@@ -1690,7 +1696,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                                                 ],
                                                                                               ),
                                                                                             ),
-                                                                                          if (FFAppState().searchDeductible[listinsuranceIndex] != '0')
+                                                                                          if (FFAppState().searchDeductible.elementAtOrNull(listinsuranceIndex) != '0')
                                                                                             Padding(
                                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 3.0),
                                                                                               child: Row(
@@ -1709,7 +1715,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                                                   Padding(
                                                                                                     padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
                                                                                                     child: Text(
-                                                                                                      functions.showNumberWithComma(FFAppState().searchDeductible[listinsuranceIndex])!,
+                                                                                                      functions.showNumberWithComma(FFAppState().searchDeductible.elementAtOrNull(listinsuranceIndex))!,
                                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                             fontFamily: 'Noto Sans Thai',
                                                                                                             color: FlutterFlowTheme.of(context).error,
@@ -1748,7 +1754,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                                                 ),
                                                                                           ),
                                                                                           Text(
-                                                                                            '${functions.showNumberWithComma(FFAppState().searchGrossTotal[listinsuranceIndex])} บาท',
+                                                                                            '${functions.showNumberWithComma(FFAppState().searchGrossTotal.elementAtOrNull(listinsuranceIndex))} บาท',
                                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                   fontFamily: 'Noto Sans Thai',
                                                                                                   fontSize: 11.0,
@@ -1766,7 +1772,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                                             'detailsInsurancePage',
                                                                                             queryParameters: {
                                                                                               'insurerFullName': serializeParam(
-                                                                                                functions.checkNullValueAndReturn(FFAppState().searchSerialName[listinsuranceIndex]),
+                                                                                                functions.checkNullValueAndReturn(FFAppState().searchSerialName.elementAtOrNull(listinsuranceIndex)),
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'currentDate': serializeParam(
@@ -1774,7 +1780,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'brandId': serializeParam(
-                                                                                                functions.checkNullValueAndReturn(FFAppState().teleBrandID[listinsuranceIndex]),
+                                                                                                functions.checkNullValueAndReturn(FFAppState().teleBrandID.elementAtOrNull(listinsuranceIndex)),
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'brandName': serializeParam(
@@ -1782,7 +1788,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'modelCode': serializeParam(
-                                                                                                functions.checkNullValueAndReturn(FFAppState().teleModelCode[listinsuranceIndex]),
+                                                                                                functions.checkNullValueAndReturn(FFAppState().teleModelCode.elementAtOrNull(listinsuranceIndex)),
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'modelName': serializeParam(
@@ -1798,143 +1804,143 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'grossTotal': serializeParam(
-                                                                                                functions.checkNullValueAndReturn(FFAppState().searchGrossTotal[listinsuranceIndex]),
+                                                                                                functions.checkNullValueAndReturn(FFAppState().searchGrossTotal.elementAtOrNull(listinsuranceIndex)),
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'sumInsured': serializeParam(
-                                                                                                functions.checkNullValueAndReturn(FFAppState().searchSumInsured[listinsuranceIndex]),
+                                                                                                functions.checkNullValueAndReturn(FFAppState().searchSumInsured.elementAtOrNull(listinsuranceIndex)),
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'tppd': serializeParam(
-                                                                                                functions.checkNullValueAndReturn(FFAppState().searchTppd[listinsuranceIndex]),
+                                                                                                functions.checkNullValueAndReturn(FFAppState().searchTppd.elementAtOrNull(listinsuranceIndex)),
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'pa': serializeParam(
-                                                                                                functions.checkNullValueAndReturn(FFAppState().searchPa[listinsuranceIndex]),
+                                                                                                functions.checkNullValueAndReturn(FFAppState().searchPa.elementAtOrNull(listinsuranceIndex)),
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'grossAct': serializeParam(
-                                                                                                functions.checkNullValueAndReturn(FFAppState().searchActAmount[listinsuranceIndex]),
+                                                                                                functions.checkNullValueAndReturn(FFAppState().searchActAmount.elementAtOrNull(listinsuranceIndex)),
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'expireDate': serializeParam(
-                                                                                                functions.checkNullValueAndReturn(FFAppState().searchExpDate[listinsuranceIndex]),
+                                                                                                functions.checkNullValueAndReturn(FFAppState().searchExpDate.elementAtOrNull(listinsuranceIndex)),
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'coverTypeId': serializeParam(
-                                                                                                functions.checkNullValueAndReturn(FFAppState().searchCoverType[listinsuranceIndex]),
+                                                                                                functions.checkNullValueAndReturn(FFAppState().searchCoverType.elementAtOrNull(listinsuranceIndex)),
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'coverTypeCode': serializeParam(
-                                                                                                functions.checkNullValueAndReturn(FFAppState().searchCoverType[listinsuranceIndex]),
+                                                                                                functions.checkNullValueAndReturn(FFAppState().searchCoverType.elementAtOrNull(listinsuranceIndex)),
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'coverTypeName': serializeParam(
-                                                                                                functions.checkNullValueAndReturn(FFAppState().searchCoverType[listinsuranceIndex]),
+                                                                                                functions.checkNullValueAndReturn(FFAppState().searchCoverType.elementAtOrNull(listinsuranceIndex)),
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'garageTypeId': serializeParam(
-                                                                                                functions.checkNullValueAndReturn(FFAppState().searchGarageType[listinsuranceIndex]),
+                                                                                                functions.checkNullValueAndReturn(FFAppState().searchGarageType.elementAtOrNull(listinsuranceIndex)),
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'garageTypeName': serializeParam(
-                                                                                                functions.checkNullValueAndReturn(FFAppState().searchGarageType[listinsuranceIndex]),
+                                                                                                functions.checkNullValueAndReturn(FFAppState().searchGarageType.elementAtOrNull(listinsuranceIndex)),
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'insurerId': serializeParam(
-                                                                                                functions.checkNullValueAndReturn(FFAppState().companyId[listinsuranceIndex]),
+                                                                                                functions.checkNullValueAndReturn(FFAppState().companyId.elementAtOrNull(listinsuranceIndex)),
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'insurerShortName': serializeParam(
-                                                                                                functions.checkNullValueAndReturn(FFAppState().searchShortName[listinsuranceIndex]),
+                                                                                                functions.checkNullValueAndReturn(FFAppState().searchShortName.elementAtOrNull(listinsuranceIndex)),
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'garageTypeCode': serializeParam(
-                                                                                                functions.checkNullValueAndReturn(FFAppState().searchGarageType[listinsuranceIndex]),
+                                                                                                functions.checkNullValueAndReturn(FFAppState().searchGarageType.elementAtOrNull(listinsuranceIndex)),
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'tpbiPerson': serializeParam(
-                                                                                                functions.checkNullValueAndReturn(FFAppState().tpbiPerson[listinsuranceIndex]),
+                                                                                                functions.checkNullValueAndReturn(FFAppState().tpbiPerson.elementAtOrNull(listinsuranceIndex)),
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'tpbiAccident': serializeParam(
-                                                                                                functions.checkNullValueAndReturn(FFAppState().tpbiAccident[listinsuranceIndex]),
+                                                                                                functions.checkNullValueAndReturn(FFAppState().tpbiAccident.elementAtOrNull(listinsuranceIndex)),
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'logoUrl': serializeParam(
-                                                                                                functions.checkNullValueAndReturn(FFAppState().searchLogo[listinsuranceIndex]),
+                                                                                                functions.checkNullValueAndReturn(FFAppState().searchLogo.elementAtOrNull(listinsuranceIndex)),
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'yearProduct': serializeParam(
-                                                                                                functions.checkNullValueAndReturn(FFAppState().searchRegisYearList[listinsuranceIndex]),
+                                                                                                functions.checkNullValueAndReturn(FFAppState().searchRegisYearList.elementAtOrNull(listinsuranceIndex)),
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'accessory': serializeParam(
-                                                                                                functions.checkNullValueAndReturn(FFAppState().searchAccessoryList[listinsuranceIndex]),
+                                                                                                functions.checkNullValueAndReturn(FFAppState().searchAccessoryList.elementAtOrNull(listinsuranceIndex)),
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'productId': serializeParam(
-                                                                                                FFAppState().searchId[listinsuranceIndex].toString(),
+                                                                                                FFAppState().searchId.elementAtOrNull(listinsuranceIndex)?.toString(),
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'packageId': serializeParam(
-                                                                                                FFAppState().searchPackageId[listinsuranceIndex],
+                                                                                                FFAppState().searchPackageId.elementAtOrNull(listinsuranceIndex),
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'packageName': serializeParam(
-                                                                                                FFAppState().serachPackageName[listinsuranceIndex],
+                                                                                                FFAppState().serachPackageName.elementAtOrNull(listinsuranceIndex),
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'roadsideAssis': serializeParam(
-                                                                                                FFAppState().searchRoadsideAssistance[listinsuranceIndex],
+                                                                                                FFAppState().searchRoadsideAssistance.elementAtOrNull(listinsuranceIndex),
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'flood': serializeParam(
-                                                                                                FFAppState().searchFlood[listinsuranceIndex],
+                                                                                                FFAppState().searchFlood.elementAtOrNull(listinsuranceIndex),
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'deductible': serializeParam(
-                                                                                                FFAppState().searchDeductible[listinsuranceIndex],
+                                                                                                FFAppState().searchDeductible.elementAtOrNull(listinsuranceIndex),
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'me': serializeParam(
-                                                                                                FFAppState().searchme[listinsuranceIndex],
+                                                                                                FFAppState().searchme.elementAtOrNull(listinsuranceIndex),
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'bb': serializeParam(
-                                                                                                FFAppState().searchbb[listinsuranceIndex],
+                                                                                                FFAppState().searchbb.elementAtOrNull(listinsuranceIndex),
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'seat': serializeParam(
-                                                                                                FFAppState().searchSeat[listinsuranceIndex],
+                                                                                                FFAppState().searchSeat.elementAtOrNull(listinsuranceIndex),
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'netPremium': serializeParam(
-                                                                                                FFAppState().searchNetPremium[listinsuranceIndex],
+                                                                                                FFAppState().searchNetPremium.elementAtOrNull(listinsuranceIndex),
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'vat': serializeParam(
-                                                                                                FFAppState().searchVat[listinsuranceIndex],
+                                                                                                FFAppState().searchVat.elementAtOrNull(listinsuranceIndex),
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'stamp': serializeParam(
-                                                                                                FFAppState().searchStamp[listinsuranceIndex],
+                                                                                                FFAppState().searchStamp.elementAtOrNull(listinsuranceIndex),
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'insurerMaxName': serializeParam(
-                                                                                                FFAppState().searchFullName[listinsuranceIndex],
+                                                                                                FFAppState().searchFullName.elementAtOrNull(listinsuranceIndex),
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'contractProcessstate': serializeParam(
-                                                                                                FFAppState().searchContractProcessstate[listinsuranceIndex],
+                                                                                                FFAppState().searchContractProcessstate.elementAtOrNull(listinsuranceIndex),
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'insurerCondition': serializeParam(
-                                                                                                FFAppState().searchInsurerCondition[listinsuranceIndex],
+                                                                                                FFAppState().searchInsurerCondition.elementAtOrNull(listinsuranceIndex),
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'cc': serializeParam(
-                                                                                                FFAppState().searchcc[listinsuranceIndex],
+                                                                                                FFAppState().searchcc.elementAtOrNull(listinsuranceIndex),
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'insurerConfig': serializeParam(
@@ -1942,15 +1948,15 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                                                 ParamType.Document,
                                                                                               ),
                                                                                               'carLost': serializeParam(
-                                                                                                FFAppState().searchCarlost[listinsuranceIndex],
+                                                                                                FFAppState().searchCarlost.elementAtOrNull(listinsuranceIndex),
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'motorAddOn': serializeParam(
-                                                                                                FFAppState().searchMotoraddon[listinsuranceIndex],
+                                                                                                FFAppState().searchMotoraddon.elementAtOrNull(listinsuranceIndex),
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                               'driverBehavior': serializeParam(
-                                                                                                FFAppState().searchDriverbehavior[listinsuranceIndex],
+                                                                                                FFAppState().searchDriverbehavior.elementAtOrNull(listinsuranceIndex),
                                                                                                 ParamType.String,
                                                                                               ),
                                                                                             }.withoutNulls,
@@ -2165,7 +2171,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                   .selectInsurerList
                                                                   .toList(),
                                                               true)
-                                                          .first,
+                                                          .firstOrNull,
                                                       ParamType.String,
                                                     ),
                                                     'modelCode': serializeParam(
@@ -2178,7 +2184,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                   .selectInsurerList
                                                                   .toList(),
                                                               true)
-                                                          .first,
+                                                          .firstOrNull,
                                                       ParamType.String,
                                                     ),
                                                     'modelName': serializeParam(
@@ -2411,7 +2417,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                   .selectInsurerList
                                                                   .toList(),
                                                               true)
-                                                          .first),
+                                                          .firstOrNull),
                                                       ParamType.String,
                                                     ),
                                                     'accessory': serializeParam(
@@ -3228,7 +3234,9 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                   FFAppState()
                                                                           .nonePackageIsBrandSelect =
                                                                       FFAppState()
-                                                                          .searchPackageCheckFilled[1];
+                                                                          .searchPackageCheckFilled
+                                                                          .elementAtOrNull(
+                                                                              1)!;
                                                                   safeSetState(
                                                                       () {});
                                                                   FFAppState()
@@ -3816,7 +3824,9 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                   FFAppState()
                                                                           .nonePackageIsBrandSelect =
                                                                       FFAppState()
-                                                                          .searchPackageCheckFilled[1];
+                                                                          .searchPackageCheckFilled
+                                                                          .elementAtOrNull(
+                                                                              1)!;
                                                                   FFAppState()
                                                                       .nonePackageOldVmiExpDate = '';
                                                                   safeSetState(

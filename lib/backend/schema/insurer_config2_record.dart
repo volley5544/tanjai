@@ -39,8 +39,11 @@ class InsurerConfig2Record extends FirestoreRecord {
 
   void _initializeFields() {
     _configName = snapshotData['config_name'] as String?;
-    _insurerShortNameMap = InsurerShortNameMapStruct.maybeFromMap(
-        snapshotData['insurer_short_name_map']);
+    _insurerShortNameMap =
+        snapshotData['insurer_short_name_map'] is InsurerShortNameMapStruct
+            ? snapshotData['insurer_short_name_map']
+            : InsurerShortNameMapStruct.maybeFromMap(
+                snapshotData['insurer_short_name_map']);
     _insurerFullPayment = getDataList(snapshotData['InsurerFullPayment']);
     _insurerInstallment = getDataList(snapshotData['InsurerInstallment']);
   }

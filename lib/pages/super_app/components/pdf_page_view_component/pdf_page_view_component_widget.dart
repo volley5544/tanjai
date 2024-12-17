@@ -122,8 +122,8 @@ class _PdfPageViewComponentWidgetState
                                   height: 100.0,
                                   decoration: BoxDecoration(),
                                   child: FlutterFlowPdfViewer(
-                                    networkPath: widget!
-                                        .pdfUrlList!.pdfUrl[pdfListItemIndex],
+                                    networkPath: widget!.pdfUrlList!.pdfUrl
+                                        .elementAtOrNull(pdfListItemIndex)!,
                                     height: 300.0,
                                     horizontalScroll: false,
                                   ),

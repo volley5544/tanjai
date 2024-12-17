@@ -61,7 +61,10 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => FocusScope.of(context).unfocus(),
+              onTap: () {
+                FocusScope.of(context).unfocus();
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: LoadingSceneWidget(),
@@ -211,12 +214,12 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
           IbsApplicationsDetailCall.garagetypename(
         (_model.getAppDetailAPIOutput?.jsonBody ?? ''),
       )!
-              .first;
+              .firstOrNull!;
       FFAppState().insuranceInfocoverType =
           IbsApplicationsDetailCall.covertypename(
         (_model.getAppDetailAPIOutput?.jsonBody ?? ''),
       )!
-              .first;
+              .firstOrNull!;
       FFAppState().insuranceInfoPage4NetPremiumTotal =
           IbsApplicationsDetailCall.netpremiumtotalAppdetail(
         (_model.getAppDetailAPIOutput?.jsonBody ?? ''),
@@ -224,7 +227,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
       FFAppState().insuranceInfoActAmount = IbsApplicationsDetailCall.actAmount(
         (_model.getAppDetailAPIOutput?.jsonBody ?? ''),
       )!
-          .first;
+          .firstOrNull!;
       FFAppState().insuranceInfoGrosstotalNet =
           IbsApplicationsDetailCall.grosstotalnet(
         (_model.getAppDetailAPIOutput?.jsonBody ?? ''),
@@ -245,7 +248,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
           IbsApplicationsDetailCall.insurerlogo(
         (_model.getAppDetailAPIOutput?.jsonBody ?? ''),
       )!
-              .first;
+              .firstOrNull!;
       safeSetState(() {});
       _model.getLicenseAPIOutoutCopy = await GetLicenseListCall.call(
         insuranceUrl: FFAppState().apiUrlInsuranceAppState,
@@ -420,8 +423,13 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
         safeSetState(() {
           _model.licenseCodeTextController?.text =
               FFAppState().insuranceInfoLicenseEmployeeId;
-          _model.licenseCodeTextController?.selection = TextSelection.collapsed(
-              offset: _model.licenseCodeTextController!.text.length);
+          _model.licenseCodeFocusNode?.requestFocus();
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            _model.licenseCodeTextController?.selection =
+                TextSelection.collapsed(
+              offset: _model.licenseCodeTextController!.text.length,
+            );
+          });
         });
         Navigator.pop(context);
       } else {
@@ -446,7 +454,10 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -1770,10 +1781,15 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                     builder: (context) {
                                                       return WebViewAware(
                                                         child: GestureDetector(
-                                                          onTap: () =>
-                                                              FocusScope.of(
-                                                                      context)
-                                                                  .unfocus(),
+                                                          onTap: () {
+                                                            FocusScope.of(
+                                                                    context)
+                                                                .unfocus();
+                                                            FocusManager
+                                                                .instance
+                                                                .primaryFocus
+                                                                ?.unfocus();
+                                                          },
                                                           child: Padding(
                                                             padding: MediaQuery
                                                                 .viewInsetsOf(
@@ -2386,10 +2402,15 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                           return WebViewAware(
                                                             child:
                                                                 GestureDetector(
-                                                              onTap: () =>
-                                                                  FocusScope.of(
-                                                                          context)
-                                                                      .unfocus(),
+                                                              onTap: () {
+                                                                FocusScope.of(
+                                                                        context)
+                                                                    .unfocus();
+                                                                FocusManager
+                                                                    .instance
+                                                                    .primaryFocus
+                                                                    ?.unfocus();
+                                                              },
                                                               child: Padding(
                                                                 padding: MediaQuery
                                                                     .viewInsetsOf(

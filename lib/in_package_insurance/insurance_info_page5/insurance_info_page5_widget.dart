@@ -64,7 +64,10 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => FocusScope.of(context).unfocus(),
+              onTap: () {
+                FocusScope.of(context).unfocus();
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: Container(
@@ -199,19 +202,19 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
       FFAppState().insuranceInfoGarageType =
           '${IbsApplicationsDetailCall.garagetypename(
         (_model.applicationDetailOutput?.jsonBody ?? ''),
-      )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
+      )?.elementAtOrNull(functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
                 (_model.applicationDetailOutput?.jsonBody ?? ''),
                 r'''$.results.data.leads_detail[:].lead_dtl_id''',
                 true,
-              )).toList(), widget!.leadDtlId)]}';
+              )).toList(), widget!.leadDtlId))}';
       FFAppState().insuranceInfocoverType =
           '${IbsApplicationsDetailCall.covertypename(
         (_model.applicationDetailOutput?.jsonBody ?? ''),
-      )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
+      )?.elementAtOrNull(functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
                 (_model.applicationDetailOutput?.jsonBody ?? ''),
                 r'''$.results.data.leads_detail[:].lead_dtl_id''',
                 true,
-              )).toList(), widget!.leadDtlId)]}';
+              )).toList(), widget!.leadDtlId))}';
       FFAppState().insuranceInfoGrossTotal =
           '${IbsApplicationsDetailCall.grosstotalnet(
         (_model.applicationDetailOutput?.jsonBody ?? ''),
@@ -229,11 +232,11 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
       FFAppState().insuranceInfoCompayId =
           '${IbsApplicationsDetailCall.insurershortname(
         (_model.applicationDetailOutput?.jsonBody ?? ''),
-      )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
+      )?.elementAtOrNull(functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
                 (_model.applicationDetailOutput?.jsonBody ?? ''),
                 r'''$.results.data.leads_detail[:].lead_dtl_id''',
                 true,
-              )).toList(), widget!.leadDtlId)]}';
+              )).toList(), widget!.leadDtlId))}';
       FFAppState().insuranceInfoActFlag = '${IbsApplicationsDetailCall.actflg(
         (_model.applicationDetailOutput?.jsonBody ?? ''),
       )}';
@@ -244,11 +247,11 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
       FFAppState().insuranceInfoInsuranceLogo =
           '${IbsApplicationsDetailCall.insurerlogo(
         (_model.applicationDetailOutput?.jsonBody ?? ''),
-      )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
+      )?.elementAtOrNull(functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
                 (_model.applicationDetailOutput?.jsonBody ?? ''),
                 r'''$.results.data.leads_detail[:].lead_dtl_id''',
                 true,
-              )).toList(), widget!.leadDtlId)]}';
+              )).toList(), widget!.leadDtlId))}';
       FFAppState().nonePackageOldVmiExpDate =
           '${IbsApplicationsDetailCall.expiryDateInsure(
         (_model.applicationDetailOutput?.jsonBody ?? ''),
@@ -476,7 +479,10 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -534,7 +540,10 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                       builder: (context) {
                         return WebViewAware(
                           child: GestureDetector(
-                            onTap: () => FocusScope.of(context).unfocus(),
+                            onTap: () {
+                              FocusScope.of(context).unfocus();
+                              FocusManager.instance.primaryFocus?.unfocus();
+                            },
                             child: Padding(
                               padding: MediaQuery.viewInsetsOf(context),
                               child: Container(
@@ -2306,10 +2315,15 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                         return WebViewAware(
                                                           child:
                                                               GestureDetector(
-                                                            onTap: () =>
-                                                                FocusScope.of(
-                                                                        context)
-                                                                    .unfocus(),
+                                                            onTap: () {
+                                                              FocusScope.of(
+                                                                      context)
+                                                                  .unfocus();
+                                                              FocusManager
+                                                                  .instance
+                                                                  .primaryFocus
+                                                                  ?.unfocus();
+                                                            },
                                                             child: Padding(
                                                               padding: MediaQuery
                                                                   .viewInsetsOf(
@@ -4743,10 +4757,15 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                           return WebViewAware(
                                                             child:
                                                                 GestureDetector(
-                                                              onTap: () =>
-                                                                  FocusScope.of(
-                                                                          context)
-                                                                      .unfocus(),
+                                                              onTap: () {
+                                                                FocusScope.of(
+                                                                        context)
+                                                                    .unfocus();
+                                                                FocusManager
+                                                                    .instance
+                                                                    .primaryFocus
+                                                                    ?.unfocus();
+                                                              },
                                                               child: Padding(
                                                                 padding: MediaQuery
                                                                     .viewInsetsOf(
@@ -4975,9 +4994,15 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                       WebViewAware(
                                                                     child:
                                                                         GestureDetector(
-                                                                      onTap: () =>
-                                                                          FocusScope.of(dialogContext)
-                                                                              .unfocus(),
+                                                                      onTap:
+                                                                          () {
+                                                                        FocusScope.of(dialogContext)
+                                                                            .unfocus();
+                                                                        FocusManager
+                                                                            .instance
+                                                                            .primaryFocus
+                                                                            ?.unfocus();
+                                                                      },
                                                                       child:
                                                                           CustomDialogComponentCopyWidget(
                                                                         linkUrl:

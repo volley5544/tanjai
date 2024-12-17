@@ -250,8 +250,10 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
                                                   winnerListItemItem) =>
                                               [
                                                 Text(
-                                                  FFAppState().tiktokNameList[
-                                                      winnerListItemIndex],
+                                                  FFAppState()
+                                                      .tiktokNameList
+                                                      .elementAtOrNull(
+                                                          winnerListItemIndex)!,
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -263,8 +265,9 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
                                                 ),
                                                 Text(
                                                   FFAppState()
-                                                          .tiktokLastnameList[
-                                                      winnerListItemIndex],
+                                                      .tiktokLastnameList
+                                                      .elementAtOrNull(
+                                                          winnerListItemIndex)!,
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -276,8 +279,9 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
                                                 ),
                                                 Text(
                                                   FFAppState()
-                                                          .tiktokEmployeeIdList[
-                                                      winnerListItemIndex],
+                                                      .tiktokEmployeeIdList
+                                                      .elementAtOrNull(
+                                                          winnerListItemIndex)!,
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium

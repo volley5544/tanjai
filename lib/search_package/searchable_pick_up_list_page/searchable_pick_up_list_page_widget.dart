@@ -89,7 +89,10 @@ class _SearchablePickUpListPageWidgetState
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -365,23 +368,26 @@ class _SearchablePickUpListPageWidgetState
                                                   'NonePackage') {
                                                 FFAppState()
                                                         .insuranceBasicBrandName =
-                                                    widget!.dataList![functions
-                                                        .getIndexOfBoolList(
-                                                            FFAppState()
-                                                                .searchableListComponentSelectedList
-                                                                .toList(),
-                                                            true)];
+                                                    (widget!.dataList!
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true)))!;
                                                 FFAppState()
                                                         .isSelectBrandInPackage =
                                                     true;
                                                 FFAppState()
-                                                    .insuranceBasicBrandId = FFAppState()
-                                                        .insuranceBasicBrandIdList[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .insuranceBasicBrandId =
+                                                    FFAppState()
+                                                        .insuranceBasicBrandIdList
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))!;
                                                 safeSetState(() {});
                                                 FFAppState().insuranceBasicModelNameList = functions
                                                     .returnMappedListFrom2List(
@@ -392,12 +398,13 @@ class _SearchablePickUpListPageWidgetState
                                                             .insuranceBasicModelBrandIdListOriginal
                                                             .toList(),
                                                         FFAppState()
-                                                                .insuranceBasicBrandIdList[
-                                                            functions.getIndexOfBoolList(
-                                                                FFAppState()
-                                                                    .searchableListComponentSelectedList
-                                                                    .toList(),
-                                                                true)])
+                                                            .insuranceBasicBrandIdList
+                                                            .elementAtOrNull(functions
+                                                                .getIndexOfBoolList(
+                                                                    FFAppState()
+                                                                        .searchableListComponentSelectedList
+                                                                        .toList(),
+                                                                    true)))
                                                     .toList()
                                                     .cast<String>();
                                                 FFAppState().insuranceBasicModelIdList = functions
@@ -409,12 +416,13 @@ class _SearchablePickUpListPageWidgetState
                                                             .insuranceBasicModelBrandIdListOriginal
                                                             .toList(),
                                                         FFAppState()
-                                                                .insuranceBasicBrandIdList[
-                                                            functions.getIndexOfBoolList(
-                                                                FFAppState()
-                                                                    .searchableListComponentSelectedList
-                                                                    .toList(),
-                                                                true)])
+                                                            .insuranceBasicBrandIdList
+                                                            .elementAtOrNull(functions
+                                                                .getIndexOfBoolList(
+                                                                    FFAppState()
+                                                                        .searchableListComponentSelectedList
+                                                                        .toList(),
+                                                                    true)))
                                                     .toList()
                                                     .cast<String>();
                                                 FFAppState()
@@ -463,21 +471,24 @@ class _SearchablePickUpListPageWidgetState
                                                 return;
                                               } else {
                                                 FFAppState()
-                                                    .nonePackageBrandName = widget!
-                                                        .dataList![
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .nonePackageBrandName =
+                                                    (widget!.dataList!
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true)))!;
                                                 FFAppState()
-                                                    .nonePackageBrandId = FFAppState()
-                                                        .insuranceBasicBrandIdList[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .nonePackageBrandId =
+                                                    FFAppState()
+                                                        .insuranceBasicBrandIdList
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))!;
                                                 FFAppState()
                                                         .nonePackageIsBrandSelect =
                                                     true;
@@ -491,12 +502,13 @@ class _SearchablePickUpListPageWidgetState
                                                             .insuranceBasicModelBrandIdListOriginal
                                                             .toList(),
                                                         FFAppState()
-                                                                .insuranceBasicBrandIdList[
-                                                            functions.getIndexOfBoolList(
-                                                                FFAppState()
-                                                                    .searchableListComponentSelectedList
-                                                                    .toList(),
-                                                                true)])
+                                                            .insuranceBasicBrandIdList
+                                                            .elementAtOrNull(functions
+                                                                .getIndexOfBoolList(
+                                                                    FFAppState()
+                                                                        .searchableListComponentSelectedList
+                                                                        .toList(),
+                                                                    true)))
                                                     .toList()
                                                     .cast<String>();
                                                 FFAppState().nonePackageSearchModelIdList = functions
@@ -508,12 +520,13 @@ class _SearchablePickUpListPageWidgetState
                                                             .insuranceBasicModelBrandIdListOriginal
                                                             .toList(),
                                                         FFAppState()
-                                                                .insuranceBasicBrandIdList[
-                                                            functions.getIndexOfBoolList(
-                                                                FFAppState()
-                                                                    .searchableListComponentSelectedList
-                                                                    .toList(),
-                                                                true)])
+                                                            .insuranceBasicBrandIdList
+                                                            .elementAtOrNull(functions
+                                                                .getIndexOfBoolList(
+                                                                    FFAppState()
+                                                                        .searchableListComponentSelectedList
+                                                                        .toList(),
+                                                                    true)))
                                                     .toList()
                                                     .cast<String>();
                                                 safeSetState(() {});
@@ -730,23 +743,26 @@ class _SearchablePickUpListPageWidgetState
                                                   'NonePackage') {
                                                 FFAppState()
                                                         .insuranceBasicBrandName =
-                                                    widget!.dataList![functions
-                                                        .getIndexOfBoolList(
-                                                            FFAppState()
-                                                                .searchableListComponentSelectedList
-                                                                .toList(),
-                                                            true)];
+                                                    (widget!.dataList!
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true)))!;
                                                 FFAppState()
                                                         .isSelectBrandInPackage =
                                                     true;
                                                 FFAppState()
-                                                    .insuranceBasicBrandId = FFAppState()
-                                                        .insuranceBasicBrandIdList[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .insuranceBasicBrandId =
+                                                    FFAppState()
+                                                        .insuranceBasicBrandIdList
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))!;
                                                 safeSetState(() {});
                                                 FFAppState().insuranceBasicModelNameList = functions
                                                     .returnMappedListFrom2List(
@@ -757,12 +773,13 @@ class _SearchablePickUpListPageWidgetState
                                                             .insuranceBasicModelBrandIdListOriginal
                                                             .toList(),
                                                         FFAppState()
-                                                                .insuranceBasicBrandIdList[
-                                                            functions.getIndexOfBoolList(
-                                                                FFAppState()
-                                                                    .searchableListComponentSelectedList
-                                                                    .toList(),
-                                                                true)])
+                                                            .insuranceBasicBrandIdList
+                                                            .elementAtOrNull(functions
+                                                                .getIndexOfBoolList(
+                                                                    FFAppState()
+                                                                        .searchableListComponentSelectedList
+                                                                        .toList(),
+                                                                    true)))
                                                     .toList()
                                                     .cast<String>();
                                                 FFAppState().insuranceBasicModelIdList = functions
@@ -774,12 +791,13 @@ class _SearchablePickUpListPageWidgetState
                                                             .insuranceBasicModelBrandIdListOriginal
                                                             .toList(),
                                                         FFAppState()
-                                                                .insuranceBasicBrandIdList[
-                                                            functions.getIndexOfBoolList(
-                                                                FFAppState()
-                                                                    .searchableListComponentSelectedList
-                                                                    .toList(),
-                                                                true)])
+                                                            .insuranceBasicBrandIdList
+                                                            .elementAtOrNull(functions
+                                                                .getIndexOfBoolList(
+                                                                    FFAppState()
+                                                                        .searchableListComponentSelectedList
+                                                                        .toList(),
+                                                                    true)))
                                                     .toList()
                                                     .cast<String>();
                                                 FFAppState()
@@ -828,21 +846,24 @@ class _SearchablePickUpListPageWidgetState
                                                 return;
                                               } else {
                                                 FFAppState()
-                                                    .nonePackageBrandName = widget!
-                                                        .dataList![
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .nonePackageBrandName =
+                                                    (widget!.dataList!
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true)))!;
                                                 FFAppState()
-                                                    .nonePackageBrandId = FFAppState()
-                                                        .insuranceBasicBrandIdList[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .nonePackageBrandId =
+                                                    FFAppState()
+                                                        .insuranceBasicBrandIdList
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))!;
                                                 FFAppState()
                                                         .nonePackageIsBrandSelect =
                                                     true;
@@ -856,12 +877,13 @@ class _SearchablePickUpListPageWidgetState
                                                             .insuranceBasicModelBrandIdListOriginal
                                                             .toList(),
                                                         FFAppState()
-                                                                .insuranceBasicBrandIdList[
-                                                            functions.getIndexOfBoolList(
-                                                                FFAppState()
-                                                                    .searchableListComponentSelectedList
-                                                                    .toList(),
-                                                                true)])
+                                                            .insuranceBasicBrandIdList
+                                                            .elementAtOrNull(functions
+                                                                .getIndexOfBoolList(
+                                                                    FFAppState()
+                                                                        .searchableListComponentSelectedList
+                                                                        .toList(),
+                                                                    true)))
                                                     .toList()
                                                     .cast<String>();
                                                 FFAppState().nonePackageSearchModelIdList = functions
@@ -873,12 +895,13 @@ class _SearchablePickUpListPageWidgetState
                                                             .insuranceBasicModelBrandIdListOriginal
                                                             .toList(),
                                                         FFAppState()
-                                                                .insuranceBasicBrandIdList[
-                                                            functions.getIndexOfBoolList(
-                                                                FFAppState()
-                                                                    .searchableListComponentSelectedList
-                                                                    .toList(),
-                                                                true)])
+                                                            .insuranceBasicBrandIdList
+                                                            .elementAtOrNull(functions
+                                                                .getIndexOfBoolList(
+                                                                    FFAppState()
+                                                                        .searchableListComponentSelectedList
+                                                                        .toList(),
+                                                                    true)))
                                                     .toList()
                                                     .cast<String>();
                                                 safeSetState(() {});
@@ -891,13 +914,14 @@ class _SearchablePickUpListPageWidgetState
                                               if (widget!.fromPage !=
                                                   'NonePackage') {
                                                 FFAppState()
-                                                    .insuranceBasicYear = widget!
-                                                        .dataList![
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .insuranceBasicYear =
+                                                    (widget!.dataList!
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true)))!;
                                                 safeSetState(() {});
                                                 FFAppState()
                                                     .updateSearchPackageCheckFilledAtIndex(
@@ -908,14 +932,14 @@ class _SearchablePickUpListPageWidgetState
                                                 context.safePop();
                                                 return;
                                               } else {
-                                                FFAppState()
-                                                    .nonePackageYear = widget!
-                                                        .dataList![
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                FFAppState().nonePackageYear =
+                                                    (widget!.dataList!
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true)))!;
                                                 safeSetState(() {});
                                                 context.safePop();
                                                 return;
@@ -925,10 +949,9 @@ class _SearchablePickUpListPageWidgetState
                                                 'เลือกลักษณะการใช้รถ') {
                                               if (widget!.fromPage !=
                                                   'NonePackage') {
-                                                FFAppState()
-                                                    .insuranceBasicVehicleUsedTypeId = FFAppState()
-                                                        .insuranceBasicVehicleUsedTypeIdList[
-                                                    functions.getIndexOfSomethingList(
+                                                FFAppState().insuranceBasicVehicleUsedTypeId = FFAppState()
+                                                    .insuranceBasicVehicleUsedTypeIdList
+                                                    .elementAtOrNull(functions.getIndexOfSomethingList(
                                                         functions
                                                             .generateInsuranceVehicleTypeDropdown(
                                                                 FFAppState()
@@ -941,16 +964,16 @@ class _SearchablePickUpListPageWidgetState
                                                                     .insuranceBasicVehicleUsedTypeNameList
                                                                     .toList())
                                                             ?.toList(),
-                                                        widget!.dataList?[functions
-                                                            .getIndexOfBoolList(
-                                                                FFAppState()
-                                                                    .searchableListComponentSelectedList
-                                                                    .toList(),
-                                                                true)])];
-                                                FFAppState()
-                                                    .insuranceBasicVehicleUsedTypeCode = FFAppState()
-                                                        .insuranceBasicVehicleUsedTypeCodeList[
-                                                    functions.getIndexOfSomethingList(
+                                                        widget!.dataList
+                                                            ?.elementAtOrNull(functions
+                                                                .getIndexOfBoolList(
+                                                                    FFAppState()
+                                                                        .searchableListComponentSelectedList
+                                                                        .toList(),
+                                                                    true))))!;
+                                                FFAppState().insuranceBasicVehicleUsedTypeCode = FFAppState()
+                                                    .insuranceBasicVehicleUsedTypeCodeList
+                                                    .elementAtOrNull(functions.getIndexOfSomethingList(
                                                         functions
                                                             .generateInsuranceVehicleTypeDropdown(
                                                                 FFAppState()
@@ -963,16 +986,16 @@ class _SearchablePickUpListPageWidgetState
                                                                     .insuranceBasicVehicleUsedTypeNameList
                                                                     .toList())
                                                             ?.toList(),
-                                                        widget!.dataList?[functions
-                                                            .getIndexOfBoolList(
-                                                                FFAppState()
-                                                                    .searchableListComponentSelectedList
-                                                                    .toList(),
-                                                                true)])];
-                                                FFAppState()
-                                                    .insuranceBasicVehicleUsedTypeName = FFAppState()
-                                                        .insuranceBasicVehicleUsedTypeNameList[
-                                                    functions.getIndexOfSomethingList(
+                                                        widget!.dataList
+                                                            ?.elementAtOrNull(functions
+                                                                .getIndexOfBoolList(
+                                                                    FFAppState()
+                                                                        .searchableListComponentSelectedList
+                                                                        .toList(),
+                                                                    true))))!;
+                                                FFAppState().insuranceBasicVehicleUsedTypeName = FFAppState()
+                                                    .insuranceBasicVehicleUsedTypeNameList
+                                                    .elementAtOrNull(functions.getIndexOfSomethingList(
                                                         functions
                                                             .generateInsuranceVehicleTypeDropdown(
                                                                 FFAppState()
@@ -985,12 +1008,13 @@ class _SearchablePickUpListPageWidgetState
                                                                     .insuranceBasicVehicleUsedTypeNameList
                                                                     .toList())
                                                             ?.toList(),
-                                                        widget!.dataList?[functions
-                                                            .getIndexOfBoolList(
-                                                                FFAppState()
-                                                                    .searchableListComponentSelectedList
-                                                                    .toList(),
-                                                                true)])];
+                                                        widget!.dataList
+                                                            ?.elementAtOrNull(functions
+                                                                .getIndexOfBoolList(
+                                                                    FFAppState()
+                                                                        .searchableListComponentSelectedList
+                                                                        .toList(),
+                                                                    true))))!;
                                                 safeSetState(() {});
                                                 FFAppState()
                                                     .updateSearchPackageCheckFilledAtIndex(
@@ -1001,10 +1025,9 @@ class _SearchablePickUpListPageWidgetState
                                                 context.safePop();
                                                 return;
                                               } else {
-                                                FFAppState()
-                                                    .nonePackageUsedTypeId = FFAppState()
-                                                        .nonePackageUsedTypeIdList[
-                                                    functions.getIndexOfSomethingList(
+                                                FFAppState().nonePackageUsedTypeId = FFAppState()
+                                                    .nonePackageUsedTypeIdList
+                                                    .elementAtOrNull(functions.getIndexOfSomethingList(
                                                         functions
                                                             .generateInsuranceVehicleTypeDropdown(
                                                                 FFAppState()
@@ -1017,16 +1040,16 @@ class _SearchablePickUpListPageWidgetState
                                                                     .nonePackageUsedTypeNameList
                                                                     .toList())
                                                             ?.toList(),
-                                                        widget!.dataList?[functions
-                                                            .getIndexOfBoolList(
-                                                                FFAppState()
-                                                                    .searchableListComponentSelectedList
-                                                                    .toList(),
-                                                                true)])];
-                                                FFAppState()
-                                                    .nonePackageUsedTypeCode = FFAppState()
-                                                        .nonePackageUsedTypeCodeList[
-                                                    functions.getIndexOfSomethingList(
+                                                        widget!.dataList
+                                                            ?.elementAtOrNull(functions
+                                                                .getIndexOfBoolList(
+                                                                    FFAppState()
+                                                                        .searchableListComponentSelectedList
+                                                                        .toList(),
+                                                                    true))))!;
+                                                FFAppState().nonePackageUsedTypeCode = FFAppState()
+                                                    .nonePackageUsedTypeCodeList
+                                                    .elementAtOrNull(functions.getIndexOfSomethingList(
                                                         functions
                                                             .generateInsuranceVehicleTypeDropdown(
                                                                 FFAppState()
@@ -1039,16 +1062,16 @@ class _SearchablePickUpListPageWidgetState
                                                                     .nonePackageUsedTypeNameList
                                                                     .toList())
                                                             ?.toList(),
-                                                        widget!.dataList?[functions
-                                                            .getIndexOfBoolList(
-                                                                FFAppState()
-                                                                    .searchableListComponentSelectedList
-                                                                    .toList(),
-                                                                true)])];
-                                                FFAppState()
-                                                    .nonePackageUsedTypeName = FFAppState()
-                                                        .nonePackageUsedTypeNameList[
-                                                    functions.getIndexOfSomethingList(
+                                                        widget!.dataList
+                                                            ?.elementAtOrNull(functions
+                                                                .getIndexOfBoolList(
+                                                                    FFAppState()
+                                                                        .searchableListComponentSelectedList
+                                                                        .toList(),
+                                                                    true))))!;
+                                                FFAppState().nonePackageUsedTypeName = FFAppState()
+                                                    .nonePackageUsedTypeNameList
+                                                    .elementAtOrNull(functions.getIndexOfSomethingList(
                                                         functions
                                                             .generateInsuranceVehicleTypeDropdown(
                                                                 FFAppState()
@@ -1061,12 +1084,13 @@ class _SearchablePickUpListPageWidgetState
                                                                     .nonePackageUsedTypeNameList
                                                                     .toList())
                                                             ?.toList(),
-                                                        widget!.dataList?[functions
-                                                            .getIndexOfBoolList(
-                                                                FFAppState()
-                                                                    .searchableListComponentSelectedList
-                                                                    .toList(),
-                                                                true)])];
+                                                        widget!.dataList
+                                                            ?.elementAtOrNull(functions
+                                                                .getIndexOfBoolList(
+                                                                    FFAppState()
+                                                                        .searchableListComponentSelectedList
+                                                                        .toList(),
+                                                                    true))))!;
                                                 safeSetState(() {});
                                                 context.safePop();
                                                 return;
@@ -1119,29 +1143,34 @@ class _SearchablePickUpListPageWidgetState
                                                 return;
                                               } else {
                                                 FFAppState()
-                                                    .nonePackageCoverTypeId = FFAppState()
-                                                        .insuranceBasicCoverTypeIdList[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .nonePackageCoverTypeId =
+                                                    FFAppState()
+                                                        .insuranceBasicCoverTypeIdList
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))!;
                                                 FFAppState()
-                                                    .nonePackageCoverTypeCode = FFAppState()
-                                                        .insuranceBasicCoverTypeCodeList[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .nonePackageCoverTypeCode =
+                                                    FFAppState()
+                                                        .insuranceBasicCoverTypeCodeList
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))!;
                                                 FFAppState()
                                                         .nonePackageCoverTypeName =
-                                                    widget!.dataList![functions
-                                                        .getIndexOfBoolList(
-                                                            FFAppState()
-                                                                .searchableListComponentSelectedList
-                                                                .toList(),
-                                                            true)];
+                                                    (widget!.dataList!
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true)))!;
                                                 safeSetState(() {});
                                                 context.safePop();
                                                 return;
@@ -1182,29 +1211,35 @@ class _SearchablePickUpListPageWidgetState
                                                 return;
                                               } else {
                                                 FFAppState()
-                                                    .nonePackageGarageTypeId = FFAppState()
-                                                        .insuranceBasicGarageTypeIdList[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .nonePackageGarageTypeId =
+                                                    FFAppState()
+                                                        .insuranceBasicGarageTypeIdList
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))!;
                                                 FFAppState()
-                                                    .nonePackageGarageTypeName = FFAppState()
-                                                        .insuranceBasicGarageTypeNameList[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .nonePackageGarageTypeName =
+                                                    FFAppState()
+                                                        .insuranceBasicGarageTypeNameList
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))!;
                                                 FFAppState()
-                                                    .nonePackageGarageTypeCode = FFAppState()
-                                                        .nonePackageGarageTypeCodeList[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .nonePackageGarageTypeCode =
+                                                    FFAppState()
+                                                        .nonePackageGarageTypeCodeList
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))!;
                                                 safeSetState(() {});
                                                 context.safePop();
                                                 return;
@@ -1264,26 +1299,27 @@ class _SearchablePickUpListPageWidgetState
                                             if (widget!.titleText ==
                                                 'ประเภทบัตร') {
                                               FFAppState()
-                                                  .insuranceInfoCardType = widget!
-                                                      .dataList![
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .searchableListComponentSelectedList
-                                                          .toList(),
-                                                      true)];
+                                                      .insuranceInfoCardType =
+                                                  (widget!.dataList!
+                                                      .elementAtOrNull(functions
+                                                          .getIndexOfBoolList(
+                                                              FFAppState()
+                                                                  .searchableListComponentSelectedList
+                                                                  .toList(),
+                                                              true)))!;
                                               safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
                                             if (widget!.titleText == 'เพศ') {
-                                              FFAppState()
-                                                  .insuranceInfoGender = widget!
-                                                      .dataList![
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .searchableListComponentSelectedList
-                                                          .toList(),
-                                                      true)];
+                                              FFAppState().insuranceInfoGender =
+                                                  (widget!.dataList!
+                                                      .elementAtOrNull(functions
+                                                          .getIndexOfBoolList(
+                                                              FFAppState()
+                                                                  .searchableListComponentSelectedList
+                                                                  .toList(),
+                                                              true)))!;
                                               FFAppState().insuranceInfoTitle =
                                                   'เลือกคำนำหน้าชื่อ';
                                               safeSetState(() {});
@@ -1292,14 +1328,14 @@ class _SearchablePickUpListPageWidgetState
                                             }
                                             if (widget!.titleText ==
                                                 'คำนำหน้า') {
-                                              FFAppState()
-                                                  .insuranceInfoTitle = widget!
-                                                      .dataList![
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .searchableListComponentSelectedList
-                                                          .toList(),
-                                                      true)];
+                                              FFAppState().insuranceInfoTitle =
+                                                  (widget!.dataList!
+                                                      .elementAtOrNull(functions
+                                                          .getIndexOfBoolList(
+                                                              FFAppState()
+                                                                  .searchableListComponentSelectedList
+                                                                  .toList(),
+                                                              true)))!;
                                               safeSetState(() {});
                                               context.safePop();
                                               return;
@@ -1307,33 +1343,36 @@ class _SearchablePickUpListPageWidgetState
                                             if (widget!.titleText ==
                                                 'กลุ่มอาชีพ') {
                                               FFAppState()
-                                                  .insuranceInfoOccupationGroup = widget!
-                                                      .dataList![
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .searchableListComponentSelectedList
-                                                          .toList(),
-                                                      true)];
+                                                      .insuranceInfoOccupationGroup =
+                                                  (widget!.dataList!
+                                                      .elementAtOrNull(functions
+                                                          .getIndexOfBoolList(
+                                                              FFAppState()
+                                                                  .searchableListComponentSelectedList
+                                                                  .toList(),
+                                                              true)))!;
                                               safeSetState(() {});
                                               FFAppState()
                                                       .insuranceInfoSelectOccupationCode =
-                                                  functions.removeDupeInList(
-                                                      FFAppState()
+                                                  (functions
+                                                      .removeDupeInList(FFAppState()
                                                           .insuranceInfoOccupationCode
-                                                          .toList())![functions
-                                                      .getIndexOfBoolList(
-                                                          FFAppState()
-                                                              .searchableListComponentSelectedList
-                                                              .toList(),
-                                                          true)];
+                                                          .toList())!
+                                                      .elementAtOrNull(functions
+                                                          .getIndexOfBoolList(
+                                                              FFAppState()
+                                                                  .searchableListComponentSelectedList
+                                                                  .toList(),
+                                                              true)))!;
                                               FFAppState()
-                                                  .insuranceInfoSelectOccupationName = widget!
-                                                      .dataList![
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .searchableListComponentSelectedList
-                                                          .toList(),
-                                                      true)];
+                                                      .insuranceInfoSelectOccupationName =
+                                                  (widget!.dataList!
+                                                      .elementAtOrNull(functions
+                                                          .getIndexOfBoolList(
+                                                              FFAppState()
+                                                                  .searchableListComponentSelectedList
+                                                                  .toList(),
+                                                              true)))!;
                                               safeSetState(() {});
                                               FFAppState()
                                                       .insuranceInfoSelectOccupationSubCode =
@@ -1378,21 +1417,23 @@ class _SearchablePickUpListPageWidgetState
                                               }
 
                                               FFAppState()
-                                                  .nonePackageProvinceId = FFAppState()
-                                                      .insuranceBasicProvinceIdList[
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .searchableListComponentSelectedList
-                                                          .toList(),
-                                                      true)];
-                                              FFAppState()
-                                                  .nonePackageProvince = widget!
-                                                      .dataList![
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .searchableListComponentSelectedList
-                                                          .toList(),
-                                                      true)];
+                                                      .nonePackageProvinceId =
+                                                  FFAppState()
+                                                      .insuranceBasicProvinceIdList
+                                                      .elementAtOrNull(functions
+                                                          .getIndexOfBoolList(
+                                                              FFAppState()
+                                                                  .searchableListComponentSelectedList
+                                                                  .toList(),
+                                                              true))!;
+                                              FFAppState().nonePackageProvince =
+                                                  (widget!.dataList!
+                                                      .elementAtOrNull(functions
+                                                          .getIndexOfBoolList(
+                                                              FFAppState()
+                                                                  .searchableListComponentSelectedList
+                                                                  .toList(),
+                                                              true)))!;
                                               safeSetState(() {});
                                               context.safePop();
                                               return;
@@ -1402,169 +1443,192 @@ class _SearchablePickUpListPageWidgetState
                                               if (widget!.fromPage ==
                                                   'addAddressIdCard') {
                                                 FFAppState()
-                                                    .addAddressSelectProvinceId = FFAppState()
-                                                        .addAddressProvinceId[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .addAddressSelectProvinceId =
+                                                    FFAppState()
+                                                        .addAddressProvinceId
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))!;
                                                 FFAppState()
-                                                    .addAddressSelectProvinceName = FFAppState()
-                                                        .addAddressProvinceName[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .addAddressSelectProvinceName =
+                                                    FFAppState()
+                                                        .addAddressProvinceName
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))!;
                                                 FFAppState()
                                                         .addAddressSelectDistrictId =
                                                     FFAppState()
-                                                        .addAddressDistrictId[functions
+                                                        .addAddressDistrictId
+                                                        .elementAtOrNull(functions
                                                             .getIndexOfBoolList(
                                                                 FFAppState()
                                                                     .searchableListComponentSelectedList
                                                                     .toList(),
-                                                                true)]
+                                                                true))!
                                                         .toString();
                                                 FFAppState()
-                                                    .addAddressSelectDistrictName = FFAppState()
-                                                        .addAddressDistrictName[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .addAddressSelectDistrictName =
+                                                    FFAppState()
+                                                        .addAddressDistrictName
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))!;
                                                 FFAppState()
                                                         .addAddressSelectSubdistrictId =
                                                     FFAppState()
-                                                        .addAddressSubdistrictId[
-                                                            functions.getIndexOfBoolList(
+                                                        .addAddressSubdistrictId
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
                                                                 FFAppState()
                                                                     .searchableListComponentSelectedList
                                                                     .toList(),
-                                                                true)]
+                                                                true))!
                                                         .toString();
                                                 FFAppState()
-                                                    .addAddressSelectSubdistrictName = FFAppState()
-                                                        .addAddressSubdistrictName[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .addAddressSelectSubdistrictName =
+                                                    FFAppState()
+                                                        .addAddressSubdistrictName
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))!;
                                                 FFAppState()
                                                         .addAddressSelectZipCode =
                                                     FFAppState()
-                                                            .addAddressZipCode[
-                                                        functions
+                                                        .addAddressZipCode
+                                                        .elementAtOrNull(functions
                                                             .getIndexOfBoolList(
                                                                 FFAppState()
                                                                     .searchableListComponentSelectedList
                                                                     .toList(),
-                                                                true)];
+                                                                true))!;
                                                 FFAppState()
                                                         .addAddressSelectKeyWord =
                                                     FFAppState()
-                                                            .addAddressKeyWord[
-                                                        functions
+                                                        .addAddressKeyWord
+                                                        .elementAtOrNull(functions
                                                             .getIndexOfBoolList(
                                                                 FFAppState()
                                                                     .searchableListComponentSelectedList
                                                                     .toList(),
-                                                                true)];
+                                                                true))!;
                                                 FFAppState()
-                                                    .addAddressAtIdCard = FFAppState()
-                                                        .addAddressKeyWord[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .addAddressAtIdCard =
+                                                    FFAppState()
+                                                        .addAddressKeyWord
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))!;
                                                 safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               } else {
-                                                FFAppState()
-                                                    .addAddressForDoc = FFAppState()
-                                                        .addAddressKeyWord[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
-                                                FFAppState()
-                                                    .addAdressSelectDocProvinceId = FFAppState()
-                                                        .addAddressProvinceId[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
-                                                FFAppState()
-                                                    .addAdressSelectDocProvinceName = FFAppState()
-                                                        .addAddressProvinceName[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
-                                                FFAppState()
-                                                    .addAdressSelectDocDistrictName = FFAppState()
-                                                        .addAddressDistrictName[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
-                                                FFAppState()
-                                                        .addAddressSelectDocDistrictId =
+                                                FFAppState().addAddressForDoc =
                                                     FFAppState()
-                                                        .addAddressDistrictId[functions
+                                                        .addAddressKeyWord
+                                                        .elementAtOrNull(functions
                                                             .getIndexOfBoolList(
                                                                 FFAppState()
                                                                     .searchableListComponentSelectedList
                                                                     .toList(),
-                                                                true)]
+                                                                true))!;
+                                                FFAppState()
+                                                        .addAdressSelectDocProvinceId =
+                                                    FFAppState()
+                                                        .addAddressProvinceId
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))!;
+                                                FFAppState()
+                                                        .addAdressSelectDocProvinceName =
+                                                    FFAppState()
+                                                        .addAddressProvinceName
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))!;
+                                                FFAppState()
+                                                        .addAdressSelectDocDistrictName =
+                                                    FFAppState()
+                                                        .addAddressDistrictName
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))!;
+                                                FFAppState()
+                                                        .addAddressSelectDocDistrictId =
+                                                    FFAppState()
+                                                        .addAddressDistrictId
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))!
                                                         .toString();
                                                 FFAppState()
                                                         .addAddressSelectDocSubdistrictId =
                                                     FFAppState()
-                                                        .addAddressSubdistrictId[
-                                                            functions.getIndexOfBoolList(
+                                                        .addAddressSubdistrictId
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
                                                                 FFAppState()
                                                                     .searchableListComponentSelectedList
                                                                     .toList(),
-                                                                true)]
+                                                                true))!
                                                         .toString();
                                                 FFAppState()
-                                                    .addAddressSelectDocSubdistrictName = FFAppState()
-                                                        .addAddressSubdistrictName[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .addAddressSelectDocSubdistrictName =
+                                                    FFAppState()
+                                                        .addAddressSubdistrictName
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))!;
                                                 FFAppState()
                                                         .addAddressSelectDocZipCode =
                                                     FFAppState()
-                                                            .addAddressZipCode[
-                                                        functions
+                                                        .addAddressZipCode
+                                                        .elementAtOrNull(functions
                                                             .getIndexOfBoolList(
                                                                 FFAppState()
                                                                     .searchableListComponentSelectedList
                                                                     .toList(),
-                                                                true)];
+                                                                true))!;
                                                 FFAppState()
                                                         .addAddressSelectDocKeyWord =
                                                     FFAppState()
-                                                            .addAddressKeyWord[
-                                                        functions
+                                                        .addAddressKeyWord
+                                                        .elementAtOrNull(functions
                                                             .getIndexOfBoolList(
                                                                 FFAppState()
                                                                     .searchableListComponentSelectedList
                                                                     .toList(),
-                                                                true)];
+                                                                true))!;
                                                 safeSetState(() {});
                                                 context.safePop();
                                                 return;
@@ -1578,13 +1642,14 @@ class _SearchablePickUpListPageWidgetState
                                               }
 
                                               FFAppState()
-                                                  .nonePackageCarrierType = widget!
-                                                      .dataList![
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .searchableListComponentSelectedList
-                                                          .toList(),
-                                                      true)];
+                                                      .nonePackageCarrierType =
+                                                  (widget!.dataList!
+                                                      .elementAtOrNull(functions
+                                                          .getIndexOfBoolList(
+                                                              FFAppState()
+                                                                  .searchableListComponentSelectedList
+                                                                  .toList(),
+                                                              true)))!;
                                               safeSetState(() {});
                                               context.safePop();
                                               return;
@@ -1597,13 +1662,14 @@ class _SearchablePickUpListPageWidgetState
                                               }
 
                                               FFAppState()
-                                                  .nonePackageTruckPart = widget!
-                                                      .dataList![
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .searchableListComponentSelectedList
-                                                          .toList(),
-                                                      true)];
+                                                      .nonePackageTruckPart =
+                                                  (widget!.dataList!
+                                                      .elementAtOrNull(functions
+                                                          .getIndexOfBoolList(
+                                                              FFAppState()
+                                                                  .searchableListComponentSelectedList
+                                                                  .toList(),
+                                                              true)))!;
                                               safeSetState(() {});
                                               context.safePop();
                                               return;
@@ -1616,13 +1682,14 @@ class _SearchablePickUpListPageWidgetState
                                               }
 
                                               FFAppState()
-                                                  .nonePackageCusMembership = widget!
-                                                      .dataList![
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .searchableListComponentSelectedList
-                                                          .toList(),
-                                                      true)];
+                                                      .nonePackageCusMembership =
+                                                  (widget!.dataList!
+                                                      .elementAtOrNull(functions
+                                                          .getIndexOfBoolList(
+                                                              FFAppState()
+                                                                  .searchableListComponentSelectedList
+                                                                  .toList(),
+                                                              true)))!;
                                               safeSetState(() {});
                                               context.safePop();
                                               return;
@@ -1630,13 +1697,14 @@ class _SearchablePickUpListPageWidgetState
                                             if (widget!.titleText ==
                                                 'เลือกปีที่ผลิต') {
                                               FFAppState()
-                                                  .insuranceInfoProductYear = widget!
-                                                      .dataList![
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .searchableListComponentSelectedList
-                                                          .toList(),
-                                                      true)];
+                                                      .insuranceInfoProductYear =
+                                                  (widget!.dataList!
+                                                      .elementAtOrNull(functions
+                                                          .getIndexOfBoolList(
+                                                              FFAppState()
+                                                                  .searchableListComponentSelectedList
+                                                                  .toList(),
+                                                              true)))!;
                                               safeSetState(() {});
                                               context.safePop();
                                               return;
@@ -1644,29 +1712,35 @@ class _SearchablePickUpListPageWidgetState
                                             if (widget!.titleText ==
                                                 'จำนวนงวด') {
                                               FFAppState()
-                                                  .insuranceInfoPage4SelectTenor = FFAppState()
-                                                      .InsuranceInfoPage4Tenor[
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .searchableListComponentSelectedList
-                                                          .toList(),
-                                                      true)];
+                                                      .insuranceInfoPage4SelectTenor =
+                                                  FFAppState()
+                                                      .InsuranceInfoPage4Tenor
+                                                      .elementAtOrNull(functions
+                                                          .getIndexOfBoolList(
+                                                              FFAppState()
+                                                                  .searchableListComponentSelectedList
+                                                                  .toList(),
+                                                              true))!;
                                               FFAppState()
-                                                  .insuranceInfoPage4SelectInstallMentFirstDue = FFAppState()
-                                                      .InsuranceInfoPage4InstallmentFirstDue[
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .searchableListComponentSelectedList
-                                                          .toList(),
-                                                      true)];
+                                                      .insuranceInfoPage4SelectInstallMentFirstDue =
+                                                  FFAppState()
+                                                      .InsuranceInfoPage4InstallmentFirstDue
+                                                      .elementAtOrNull(functions
+                                                          .getIndexOfBoolList(
+                                                              FFAppState()
+                                                                  .searchableListComponentSelectedList
+                                                                  .toList(),
+                                                              true))!;
                                               FFAppState()
-                                                  .insuranceInfoPage4SelectInstallMentLastDue = FFAppState()
-                                                      .InsuranceInfoPage4InstallmentLastDue[
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .searchableListComponentSelectedList
-                                                          .toList(),
-                                                      true)];
+                                                      .insuranceInfoPage4SelectInstallMentLastDue =
+                                                  FFAppState()
+                                                      .InsuranceInfoPage4InstallmentLastDue
+                                                      .elementAtOrNull(functions
+                                                          .getIndexOfBoolList(
+                                                              FFAppState()
+                                                                  .searchableListComponentSelectedList
+                                                                  .toList(),
+                                                              true))!;
                                               safeSetState(() {});
                                               context.safePop();
                                               return;
@@ -1676,13 +1750,15 @@ class _SearchablePickUpListPageWidgetState
                                               if (widget!.fromPage ==
                                                   'NonePackageSelectedInsurer') {
                                                 FFAppState()
-                                                    .nonePackageSelectedInsurerShortName = FFAppState()
-                                                        .nonePackageSelectedInsurerShortNameList[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .nonePackageSelectedInsurerShortName =
+                                                    FFAppState()
+                                                        .nonePackageSelectedInsurerShortNameList
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))!;
                                                 safeSetState(() {});
                                                 context.safePop();
                                                 return;
@@ -1691,21 +1767,25 @@ class _SearchablePickUpListPageWidgetState
                                             if (widget!.titleText ==
                                                 'เลือกจังหวัดที่จดทะเบียน') {
                                               FFAppState()
-                                                  .insuranceInfoRegistrationCodeSelect = FFAppState()
-                                                      .insuranceInfoRegistrationCodeList[
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .searchableListComponentSelectedList
-                                                          .toList(),
-                                                      true)];
+                                                      .insuranceInfoRegistrationCodeSelect =
+                                                  FFAppState()
+                                                      .insuranceInfoRegistrationCodeList
+                                                      .elementAtOrNull(functions
+                                                          .getIndexOfBoolList(
+                                                              FFAppState()
+                                                                  .searchableListComponentSelectedList
+                                                                  .toList(),
+                                                              true))!;
                                               FFAppState()
-                                                  .insuranceInfoRegistrationProvinceSelect = FFAppState()
-                                                      .insuranceInfoRegistrationprovinceList[
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .searchableListComponentSelectedList
-                                                          .toList(),
-                                                      true)];
+                                                      .insuranceInfoRegistrationProvinceSelect =
+                                                  FFAppState()
+                                                      .insuranceInfoRegistrationprovinceList
+                                                      .elementAtOrNull(functions
+                                                          .getIndexOfBoolList(
+                                                              FFAppState()
+                                                                  .searchableListComponentSelectedList
+                                                                  .toList(),
+                                                              true))!;
                                               safeSetState(() {});
                                               context.safePop();
                                               return;
@@ -1716,20 +1796,23 @@ class _SearchablePickUpListPageWidgetState
                                                   'NonePackage') {
                                                 FFAppState()
                                                         .insuranceBasicModelName =
-                                                    widget!.dataList![functions
-                                                        .getIndexOfBoolList(
-                                                            FFAppState()
-                                                                .searchableListComponentSelectedList
-                                                                .toList(),
-                                                            true)];
+                                                    (widget!.dataList!
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true)))!;
                                                 FFAppState()
-                                                    .insuranceBasicModelId = FFAppState()
-                                                        .insuranceBasicModelIdList[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .insuranceBasicModelId =
+                                                    FFAppState()
+                                                        .insuranceBasicModelIdList
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))!;
                                                 safeSetState(() {});
                                                 FFAppState()
                                                     .updateSearchPackageCheckFilledAtIndex(
@@ -1743,13 +1826,14 @@ class _SearchablePickUpListPageWidgetState
                                             }
                                             if (widget!.titleText == 'อาชีพ') {
                                               FFAppState()
-                                                  .insuranceInfoSelectOccupationSubNameChoose = widget!
-                                                      .dataList![
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .searchableListComponentSelectedList
-                                                          .toList(),
-                                                      true)];
+                                                      .insuranceInfoSelectOccupationSubNameChoose =
+                                                  (widget!.dataList!
+                                                      .elementAtOrNull(functions
+                                                          .getIndexOfBoolList(
+                                                              FFAppState()
+                                                                  .searchableListComponentSelectedList
+                                                                  .toList(),
+                                                              true)))!;
                                               safeSetState(() {});
                                               context.safePop();
                                               return;
@@ -1954,23 +2038,26 @@ class _SearchablePickUpListPageWidgetState
                                                   'NonePackage') {
                                                 FFAppState()
                                                         .insuranceBasicBrandName =
-                                                    widget!.dataList![functions
-                                                        .getIndexOfBoolList(
-                                                            FFAppState()
-                                                                .searchableListComponentSelectedList
-                                                                .toList(),
-                                                            true)];
+                                                    (widget!.dataList!
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true)))!;
                                                 FFAppState()
                                                         .isSelectBrandInPackage =
                                                     true;
                                                 FFAppState()
-                                                    .insuranceBasicBrandId = FFAppState()
-                                                        .insuranceBasicBrandIdList[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .insuranceBasicBrandId =
+                                                    FFAppState()
+                                                        .insuranceBasicBrandIdList
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))!;
                                                 safeSetState(() {});
                                                 FFAppState().insuranceBasicModelNameList = functions
                                                     .returnMappedListFrom2List(
@@ -1981,12 +2068,13 @@ class _SearchablePickUpListPageWidgetState
                                                             .insuranceBasicModelBrandIdListOriginal
                                                             .toList(),
                                                         FFAppState()
-                                                                .insuranceBasicBrandIdList[
-                                                            functions.getIndexOfBoolList(
-                                                                FFAppState()
-                                                                    .searchableListComponentSelectedList
-                                                                    .toList(),
-                                                                true)])
+                                                            .insuranceBasicBrandIdList
+                                                            .elementAtOrNull(functions
+                                                                .getIndexOfBoolList(
+                                                                    FFAppState()
+                                                                        .searchableListComponentSelectedList
+                                                                        .toList(),
+                                                                    true)))
                                                     .toList()
                                                     .cast<String>();
                                                 FFAppState().insuranceBasicModelIdList = functions
@@ -1998,12 +2086,13 @@ class _SearchablePickUpListPageWidgetState
                                                             .insuranceBasicModelBrandIdListOriginal
                                                             .toList(),
                                                         FFAppState()
-                                                                .insuranceBasicBrandIdList[
-                                                            functions.getIndexOfBoolList(
-                                                                FFAppState()
-                                                                    .searchableListComponentSelectedList
-                                                                    .toList(),
-                                                                true)])
+                                                            .insuranceBasicBrandIdList
+                                                            .elementAtOrNull(functions
+                                                                .getIndexOfBoolList(
+                                                                    FFAppState()
+                                                                        .searchableListComponentSelectedList
+                                                                        .toList(),
+                                                                    true)))
                                                     .toList()
                                                     .cast<String>();
                                                 FFAppState()
@@ -2052,21 +2141,24 @@ class _SearchablePickUpListPageWidgetState
                                                 return;
                                               } else {
                                                 FFAppState()
-                                                    .nonePackageBrandName = widget!
-                                                        .dataList![
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .nonePackageBrandName =
+                                                    (widget!.dataList!
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true)))!;
                                                 FFAppState()
-                                                    .nonePackageBrandId = FFAppState()
-                                                        .insuranceBasicBrandIdList[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .nonePackageBrandId =
+                                                    FFAppState()
+                                                        .insuranceBasicBrandIdList
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))!;
                                                 FFAppState()
                                                         .nonePackageIsBrandSelect =
                                                     true;
@@ -2080,12 +2172,13 @@ class _SearchablePickUpListPageWidgetState
                                                             .insuranceBasicModelBrandIdListOriginal
                                                             .toList(),
                                                         FFAppState()
-                                                                .insuranceBasicBrandIdList[
-                                                            functions.getIndexOfBoolList(
-                                                                FFAppState()
-                                                                    .searchableListComponentSelectedList
-                                                                    .toList(),
-                                                                true)])
+                                                            .insuranceBasicBrandIdList
+                                                            .elementAtOrNull(functions
+                                                                .getIndexOfBoolList(
+                                                                    FFAppState()
+                                                                        .searchableListComponentSelectedList
+                                                                        .toList(),
+                                                                    true)))
                                                     .toList()
                                                     .cast<String>();
                                                 FFAppState().nonePackageSearchModelIdList = functions
@@ -2097,12 +2190,13 @@ class _SearchablePickUpListPageWidgetState
                                                             .insuranceBasicModelBrandIdListOriginal
                                                             .toList(),
                                                         FFAppState()
-                                                                .insuranceBasicBrandIdList[
-                                                            functions.getIndexOfBoolList(
-                                                                FFAppState()
-                                                                    .searchableListComponentSelectedList
-                                                                    .toList(),
-                                                                true)])
+                                                            .insuranceBasicBrandIdList
+                                                            .elementAtOrNull(functions
+                                                                .getIndexOfBoolList(
+                                                                    FFAppState()
+                                                                        .searchableListComponentSelectedList
+                                                                        .toList(),
+                                                                    true)))
                                                     .toList()
                                                     .cast<String>();
                                                 safeSetState(() {});
@@ -2115,13 +2209,14 @@ class _SearchablePickUpListPageWidgetState
                                               if (widget!.fromPage !=
                                                   'NonePackage') {
                                                 FFAppState()
-                                                    .insuranceBasicYear = widget!
-                                                        .dataList![
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .insuranceBasicYear =
+                                                    (widget!.dataList!
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true)))!;
                                                 safeSetState(() {});
                                                 FFAppState()
                                                     .updateSearchPackageCheckFilledAtIndex(
@@ -2132,14 +2227,14 @@ class _SearchablePickUpListPageWidgetState
                                                 context.safePop();
                                                 return;
                                               } else {
-                                                FFAppState()
-                                                    .nonePackageYear = widget!
-                                                        .dataList![
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                FFAppState().nonePackageYear =
+                                                    (widget!.dataList!
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true)))!;
                                                 safeSetState(() {});
                                                 context.safePop();
                                                 return;
@@ -2149,10 +2244,9 @@ class _SearchablePickUpListPageWidgetState
                                                 'เลือกลักษณะการใช้รถ') {
                                               if (widget!.fromPage !=
                                                   'NonePackage') {
-                                                FFAppState()
-                                                    .insuranceBasicVehicleUsedTypeId = FFAppState()
-                                                        .insuranceBasicVehicleUsedTypeIdList[
-                                                    functions.getIndexOfSomethingList(
+                                                FFAppState().insuranceBasicVehicleUsedTypeId = FFAppState()
+                                                    .insuranceBasicVehicleUsedTypeIdList
+                                                    .elementAtOrNull(functions.getIndexOfSomethingList(
                                                         functions
                                                             .generateInsuranceVehicleTypeDropdown(
                                                                 FFAppState()
@@ -2165,16 +2259,16 @@ class _SearchablePickUpListPageWidgetState
                                                                     .insuranceBasicVehicleUsedTypeNameList
                                                                     .toList())
                                                             ?.toList(),
-                                                        widget!.dataList?[functions
-                                                            .getIndexOfBoolList(
-                                                                FFAppState()
-                                                                    .searchableListComponentSelectedList
-                                                                    .toList(),
-                                                                true)])];
-                                                FFAppState()
-                                                    .insuranceBasicVehicleUsedTypeCode = FFAppState()
-                                                        .insuranceBasicVehicleUsedTypeCodeList[
-                                                    functions.getIndexOfSomethingList(
+                                                        widget!.dataList
+                                                            ?.elementAtOrNull(functions
+                                                                .getIndexOfBoolList(
+                                                                    FFAppState()
+                                                                        .searchableListComponentSelectedList
+                                                                        .toList(),
+                                                                    true))))!;
+                                                FFAppState().insuranceBasicVehicleUsedTypeCode = FFAppState()
+                                                    .insuranceBasicVehicleUsedTypeCodeList
+                                                    .elementAtOrNull(functions.getIndexOfSomethingList(
                                                         functions
                                                             .generateInsuranceVehicleTypeDropdown(
                                                                 FFAppState()
@@ -2187,16 +2281,16 @@ class _SearchablePickUpListPageWidgetState
                                                                     .insuranceBasicVehicleUsedTypeNameList
                                                                     .toList())
                                                             ?.toList(),
-                                                        widget!.dataList?[functions
-                                                            .getIndexOfBoolList(
-                                                                FFAppState()
-                                                                    .searchableListComponentSelectedList
-                                                                    .toList(),
-                                                                true)])];
-                                                FFAppState()
-                                                    .insuranceBasicVehicleUsedTypeName = FFAppState()
-                                                        .insuranceBasicVehicleUsedTypeNameList[
-                                                    functions.getIndexOfSomethingList(
+                                                        widget!.dataList
+                                                            ?.elementAtOrNull(functions
+                                                                .getIndexOfBoolList(
+                                                                    FFAppState()
+                                                                        .searchableListComponentSelectedList
+                                                                        .toList(),
+                                                                    true))))!;
+                                                FFAppState().insuranceBasicVehicleUsedTypeName = FFAppState()
+                                                    .insuranceBasicVehicleUsedTypeNameList
+                                                    .elementAtOrNull(functions.getIndexOfSomethingList(
                                                         functions
                                                             .generateInsuranceVehicleTypeDropdown(
                                                                 FFAppState()
@@ -2209,12 +2303,13 @@ class _SearchablePickUpListPageWidgetState
                                                                     .insuranceBasicVehicleUsedTypeNameList
                                                                     .toList())
                                                             ?.toList(),
-                                                        widget!.dataList?[functions
-                                                            .getIndexOfBoolList(
-                                                                FFAppState()
-                                                                    .searchableListComponentSelectedList
-                                                                    .toList(),
-                                                                true)])];
+                                                        widget!.dataList
+                                                            ?.elementAtOrNull(functions
+                                                                .getIndexOfBoolList(
+                                                                    FFAppState()
+                                                                        .searchableListComponentSelectedList
+                                                                        .toList(),
+                                                                    true))))!;
                                                 safeSetState(() {});
                                                 FFAppState()
                                                     .updateSearchPackageCheckFilledAtIndex(
@@ -2225,10 +2320,9 @@ class _SearchablePickUpListPageWidgetState
                                                 context.safePop();
                                                 return;
                                               } else {
-                                                FFAppState()
-                                                    .nonePackageUsedTypeId = FFAppState()
-                                                        .nonePackageUsedTypeIdList[
-                                                    functions.getIndexOfSomethingList(
+                                                FFAppState().nonePackageUsedTypeId = FFAppState()
+                                                    .nonePackageUsedTypeIdList
+                                                    .elementAtOrNull(functions.getIndexOfSomethingList(
                                                         functions
                                                             .generateInsuranceVehicleTypeDropdown(
                                                                 FFAppState()
@@ -2241,16 +2335,16 @@ class _SearchablePickUpListPageWidgetState
                                                                     .nonePackageUsedTypeNameList
                                                                     .toList())
                                                             ?.toList(),
-                                                        widget!.dataList?[functions
-                                                            .getIndexOfBoolList(
-                                                                FFAppState()
-                                                                    .searchableListComponentSelectedList
-                                                                    .toList(),
-                                                                true)])];
-                                                FFAppState()
-                                                    .nonePackageUsedTypeCode = FFAppState()
-                                                        .nonePackageUsedTypeCodeList[
-                                                    functions.getIndexOfSomethingList(
+                                                        widget!.dataList
+                                                            ?.elementAtOrNull(functions
+                                                                .getIndexOfBoolList(
+                                                                    FFAppState()
+                                                                        .searchableListComponentSelectedList
+                                                                        .toList(),
+                                                                    true))))!;
+                                                FFAppState().nonePackageUsedTypeCode = FFAppState()
+                                                    .nonePackageUsedTypeCodeList
+                                                    .elementAtOrNull(functions.getIndexOfSomethingList(
                                                         functions
                                                             .generateInsuranceVehicleTypeDropdown(
                                                                 FFAppState()
@@ -2263,16 +2357,16 @@ class _SearchablePickUpListPageWidgetState
                                                                     .nonePackageUsedTypeNameList
                                                                     .toList())
                                                             ?.toList(),
-                                                        widget!.dataList?[functions
-                                                            .getIndexOfBoolList(
-                                                                FFAppState()
-                                                                    .searchableListComponentSelectedList
-                                                                    .toList(),
-                                                                true)])];
-                                                FFAppState()
-                                                    .nonePackageUsedTypeName = FFAppState()
-                                                        .nonePackageUsedTypeNameList[
-                                                    functions.getIndexOfSomethingList(
+                                                        widget!.dataList
+                                                            ?.elementAtOrNull(functions
+                                                                .getIndexOfBoolList(
+                                                                    FFAppState()
+                                                                        .searchableListComponentSelectedList
+                                                                        .toList(),
+                                                                    true))))!;
+                                                FFAppState().nonePackageUsedTypeName = FFAppState()
+                                                    .nonePackageUsedTypeNameList
+                                                    .elementAtOrNull(functions.getIndexOfSomethingList(
                                                         functions
                                                             .generateInsuranceVehicleTypeDropdown(
                                                                 FFAppState()
@@ -2285,12 +2379,13 @@ class _SearchablePickUpListPageWidgetState
                                                                     .nonePackageUsedTypeNameList
                                                                     .toList())
                                                             ?.toList(),
-                                                        widget!.dataList?[functions
-                                                            .getIndexOfBoolList(
-                                                                FFAppState()
-                                                                    .searchableListComponentSelectedList
-                                                                    .toList(),
-                                                                true)])];
+                                                        widget!.dataList
+                                                            ?.elementAtOrNull(functions
+                                                                .getIndexOfBoolList(
+                                                                    FFAppState()
+                                                                        .searchableListComponentSelectedList
+                                                                        .toList(),
+                                                                    true))))!;
                                                 safeSetState(() {});
                                                 context.safePop();
                                                 return;
@@ -2343,29 +2438,34 @@ class _SearchablePickUpListPageWidgetState
                                                 return;
                                               } else {
                                                 FFAppState()
-                                                    .nonePackageCoverTypeId = FFAppState()
-                                                        .insuranceBasicCoverTypeIdList[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .nonePackageCoverTypeId =
+                                                    FFAppState()
+                                                        .insuranceBasicCoverTypeIdList
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))!;
                                                 FFAppState()
-                                                    .nonePackageCoverTypeCode = FFAppState()
-                                                        .insuranceBasicCoverTypeCodeList[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .nonePackageCoverTypeCode =
+                                                    FFAppState()
+                                                        .insuranceBasicCoverTypeCodeList
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))!;
                                                 FFAppState()
                                                         .nonePackageCoverTypeName =
-                                                    widget!.dataList![functions
-                                                        .getIndexOfBoolList(
-                                                            FFAppState()
-                                                                .searchableListComponentSelectedList
-                                                                .toList(),
-                                                            true)];
+                                                    (widget!.dataList!
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true)))!;
                                                 safeSetState(() {});
                                                 context.safePop();
                                                 return;
@@ -2406,29 +2506,35 @@ class _SearchablePickUpListPageWidgetState
                                                 return;
                                               } else {
                                                 FFAppState()
-                                                    .nonePackageGarageTypeId = FFAppState()
-                                                        .insuranceBasicGarageTypeIdList[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .nonePackageGarageTypeId =
+                                                    FFAppState()
+                                                        .insuranceBasicGarageTypeIdList
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))!;
                                                 FFAppState()
-                                                    .nonePackageGarageTypeName = FFAppState()
-                                                        .insuranceBasicGarageTypeNameList[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .nonePackageGarageTypeName =
+                                                    FFAppState()
+                                                        .insuranceBasicGarageTypeNameList
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))!;
                                                 FFAppState()
-                                                    .nonePackageGarageTypeCode = FFAppState()
-                                                        .nonePackageGarageTypeCodeList[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .nonePackageGarageTypeCode =
+                                                    FFAppState()
+                                                        .nonePackageGarageTypeCodeList
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))!;
                                                 safeSetState(() {});
                                                 context.safePop();
                                                 return;
@@ -2488,26 +2594,27 @@ class _SearchablePickUpListPageWidgetState
                                             if (widget!.titleText ==
                                                 'ประเภทบัตร') {
                                               FFAppState()
-                                                  .insuranceInfoCardType = widget!
-                                                      .dataList![
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .searchableListComponentSelectedList
-                                                          .toList(),
-                                                      true)];
+                                                      .insuranceInfoCardType =
+                                                  (widget!.dataList!
+                                                      .elementAtOrNull(functions
+                                                          .getIndexOfBoolList(
+                                                              FFAppState()
+                                                                  .searchableListComponentSelectedList
+                                                                  .toList(),
+                                                              true)))!;
                                               safeSetState(() {});
                                               context.safePop();
                                               return;
                                             }
                                             if (widget!.titleText == 'เพศ') {
-                                              FFAppState()
-                                                  .insuranceInfoGender = widget!
-                                                      .dataList![
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .searchableListComponentSelectedList
-                                                          .toList(),
-                                                      true)];
+                                              FFAppState().insuranceInfoGender =
+                                                  (widget!.dataList!
+                                                      .elementAtOrNull(functions
+                                                          .getIndexOfBoolList(
+                                                              FFAppState()
+                                                                  .searchableListComponentSelectedList
+                                                                  .toList(),
+                                                              true)))!;
                                               FFAppState().insuranceInfoTitle =
                                                   'เลือกคำนำหน้าชื่อ';
                                               safeSetState(() {});
@@ -2516,14 +2623,14 @@ class _SearchablePickUpListPageWidgetState
                                             }
                                             if (widget!.titleText ==
                                                 'คำนำหน้า') {
-                                              FFAppState()
-                                                  .insuranceInfoTitle = widget!
-                                                      .dataList![
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .searchableListComponentSelectedList
-                                                          .toList(),
-                                                      true)];
+                                              FFAppState().insuranceInfoTitle =
+                                                  (widget!.dataList!
+                                                      .elementAtOrNull(functions
+                                                          .getIndexOfBoolList(
+                                                              FFAppState()
+                                                                  .searchableListComponentSelectedList
+                                                                  .toList(),
+                                                              true)))!;
                                               safeSetState(() {});
                                               context.safePop();
                                               return;
@@ -2531,33 +2638,36 @@ class _SearchablePickUpListPageWidgetState
                                             if (widget!.titleText ==
                                                 'กลุ่มอาชีพ') {
                                               FFAppState()
-                                                  .insuranceInfoOccupationGroup = widget!
-                                                      .dataList![
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .searchableListComponentSelectedList
-                                                          .toList(),
-                                                      true)];
+                                                      .insuranceInfoOccupationGroup =
+                                                  (widget!.dataList!
+                                                      .elementAtOrNull(functions
+                                                          .getIndexOfBoolList(
+                                                              FFAppState()
+                                                                  .searchableListComponentSelectedList
+                                                                  .toList(),
+                                                              true)))!;
                                               safeSetState(() {});
                                               FFAppState()
                                                       .insuranceInfoSelectOccupationCode =
-                                                  functions.removeDupeInList(
-                                                      FFAppState()
+                                                  (functions
+                                                      .removeDupeInList(FFAppState()
                                                           .insuranceInfoOccupationCode
-                                                          .toList())![functions
-                                                      .getIndexOfBoolList(
-                                                          FFAppState()
-                                                              .searchableListComponentSelectedList
-                                                              .toList(),
-                                                          true)];
+                                                          .toList())!
+                                                      .elementAtOrNull(functions
+                                                          .getIndexOfBoolList(
+                                                              FFAppState()
+                                                                  .searchableListComponentSelectedList
+                                                                  .toList(),
+                                                              true)))!;
                                               FFAppState()
-                                                  .insuranceInfoSelectOccupationName = widget!
-                                                      .dataList![
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .searchableListComponentSelectedList
-                                                          .toList(),
-                                                      true)];
+                                                      .insuranceInfoSelectOccupationName =
+                                                  (widget!.dataList!
+                                                      .elementAtOrNull(functions
+                                                          .getIndexOfBoolList(
+                                                              FFAppState()
+                                                                  .searchableListComponentSelectedList
+                                                                  .toList(),
+                                                              true)))!;
                                               safeSetState(() {});
                                               FFAppState()
                                                       .insuranceInfoSelectOccupationSubCode =
@@ -2602,21 +2712,23 @@ class _SearchablePickUpListPageWidgetState
                                               }
 
                                               FFAppState()
-                                                  .nonePackageProvinceId = FFAppState()
-                                                      .insuranceBasicProvinceIdList[
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .searchableListComponentSelectedList
-                                                          .toList(),
-                                                      true)];
-                                              FFAppState()
-                                                  .nonePackageProvince = widget!
-                                                      .dataList![
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .searchableListComponentSelectedList
-                                                          .toList(),
-                                                      true)];
+                                                      .nonePackageProvinceId =
+                                                  FFAppState()
+                                                      .insuranceBasicProvinceIdList
+                                                      .elementAtOrNull(functions
+                                                          .getIndexOfBoolList(
+                                                              FFAppState()
+                                                                  .searchableListComponentSelectedList
+                                                                  .toList(),
+                                                              true))!;
+                                              FFAppState().nonePackageProvince =
+                                                  (widget!.dataList!
+                                                      .elementAtOrNull(functions
+                                                          .getIndexOfBoolList(
+                                                              FFAppState()
+                                                                  .searchableListComponentSelectedList
+                                                                  .toList(),
+                                                              true)))!;
                                               safeSetState(() {});
                                               context.safePop();
                                               return;
@@ -2626,169 +2738,192 @@ class _SearchablePickUpListPageWidgetState
                                               if (widget!.fromPage ==
                                                   'addAddressIdCard') {
                                                 FFAppState()
-                                                    .addAddressSelectProvinceId = FFAppState()
-                                                        .addAddressProvinceId[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .addAddressSelectProvinceId =
+                                                    FFAppState()
+                                                        .addAddressProvinceId
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))!;
                                                 FFAppState()
-                                                    .addAddressSelectProvinceName = FFAppState()
-                                                        .addAddressProvinceName[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .addAddressSelectProvinceName =
+                                                    FFAppState()
+                                                        .addAddressProvinceName
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))!;
                                                 FFAppState()
                                                         .addAddressSelectDistrictId =
                                                     FFAppState()
-                                                        .addAddressDistrictId[functions
+                                                        .addAddressDistrictId
+                                                        .elementAtOrNull(functions
                                                             .getIndexOfBoolList(
                                                                 FFAppState()
                                                                     .searchableListComponentSelectedList
                                                                     .toList(),
-                                                                true)]
+                                                                true))!
                                                         .toString();
                                                 FFAppState()
-                                                    .addAddressSelectDistrictName = FFAppState()
-                                                        .addAddressDistrictName[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .addAddressSelectDistrictName =
+                                                    FFAppState()
+                                                        .addAddressDistrictName
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))!;
                                                 FFAppState()
                                                         .addAddressSelectSubdistrictId =
                                                     FFAppState()
-                                                        .addAddressSubdistrictId[
-                                                            functions.getIndexOfBoolList(
+                                                        .addAddressSubdistrictId
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
                                                                 FFAppState()
                                                                     .searchableListComponentSelectedList
                                                                     .toList(),
-                                                                true)]
+                                                                true))!
                                                         .toString();
                                                 FFAppState()
-                                                    .addAddressSelectSubdistrictName = FFAppState()
-                                                        .addAddressSubdistrictName[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .addAddressSelectSubdistrictName =
+                                                    FFAppState()
+                                                        .addAddressSubdistrictName
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))!;
                                                 FFAppState()
                                                         .addAddressSelectZipCode =
                                                     FFAppState()
-                                                            .addAddressZipCode[
-                                                        functions
+                                                        .addAddressZipCode
+                                                        .elementAtOrNull(functions
                                                             .getIndexOfBoolList(
                                                                 FFAppState()
                                                                     .searchableListComponentSelectedList
                                                                     .toList(),
-                                                                true)];
+                                                                true))!;
                                                 FFAppState()
                                                         .addAddressSelectKeyWord =
                                                     FFAppState()
-                                                            .addAddressKeyWord[
-                                                        functions
+                                                        .addAddressKeyWord
+                                                        .elementAtOrNull(functions
                                                             .getIndexOfBoolList(
                                                                 FFAppState()
                                                                     .searchableListComponentSelectedList
                                                                     .toList(),
-                                                                true)];
+                                                                true))!;
                                                 FFAppState()
-                                                    .addAddressAtIdCard = FFAppState()
-                                                        .addAddressKeyWord[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .addAddressAtIdCard =
+                                                    FFAppState()
+                                                        .addAddressKeyWord
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))!;
                                                 safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               } else {
-                                                FFAppState()
-                                                    .addAddressForDoc = FFAppState()
-                                                        .addAddressKeyWord[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
-                                                FFAppState()
-                                                    .addAdressSelectDocProvinceId = FFAppState()
-                                                        .addAddressProvinceId[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
-                                                FFAppState()
-                                                    .addAdressSelectDocProvinceName = FFAppState()
-                                                        .addAddressProvinceName[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
-                                                FFAppState()
-                                                    .addAdressSelectDocDistrictName = FFAppState()
-                                                        .addAddressDistrictName[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
-                                                FFAppState()
-                                                        .addAddressSelectDocDistrictId =
+                                                FFAppState().addAddressForDoc =
                                                     FFAppState()
-                                                        .addAddressDistrictId[functions
+                                                        .addAddressKeyWord
+                                                        .elementAtOrNull(functions
                                                             .getIndexOfBoolList(
                                                                 FFAppState()
                                                                     .searchableListComponentSelectedList
                                                                     .toList(),
-                                                                true)]
+                                                                true))!;
+                                                FFAppState()
+                                                        .addAdressSelectDocProvinceId =
+                                                    FFAppState()
+                                                        .addAddressProvinceId
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))!;
+                                                FFAppState()
+                                                        .addAdressSelectDocProvinceName =
+                                                    FFAppState()
+                                                        .addAddressProvinceName
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))!;
+                                                FFAppState()
+                                                        .addAdressSelectDocDistrictName =
+                                                    FFAppState()
+                                                        .addAddressDistrictName
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))!;
+                                                FFAppState()
+                                                        .addAddressSelectDocDistrictId =
+                                                    FFAppState()
+                                                        .addAddressDistrictId
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))!
                                                         .toString();
                                                 FFAppState()
                                                         .addAddressSelectDocSubdistrictId =
                                                     FFAppState()
-                                                        .addAddressSubdistrictId[
-                                                            functions.getIndexOfBoolList(
+                                                        .addAddressSubdistrictId
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
                                                                 FFAppState()
                                                                     .searchableListComponentSelectedList
                                                                     .toList(),
-                                                                true)]
+                                                                true))!
                                                         .toString();
                                                 FFAppState()
-                                                    .addAddressSelectDocSubdistrictName = FFAppState()
-                                                        .addAddressSubdistrictName[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .addAddressSelectDocSubdistrictName =
+                                                    FFAppState()
+                                                        .addAddressSubdistrictName
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))!;
                                                 FFAppState()
                                                         .addAddressSelectDocZipCode =
                                                     FFAppState()
-                                                            .addAddressZipCode[
-                                                        functions
+                                                        .addAddressZipCode
+                                                        .elementAtOrNull(functions
                                                             .getIndexOfBoolList(
                                                                 FFAppState()
                                                                     .searchableListComponentSelectedList
                                                                     .toList(),
-                                                                true)];
+                                                                true))!;
                                                 FFAppState()
                                                         .addAddressSelectDocKeyWord =
                                                     FFAppState()
-                                                            .addAddressKeyWord[
-                                                        functions
+                                                        .addAddressKeyWord
+                                                        .elementAtOrNull(functions
                                                             .getIndexOfBoolList(
                                                                 FFAppState()
                                                                     .searchableListComponentSelectedList
                                                                     .toList(),
-                                                                true)];
+                                                                true))!;
                                                 safeSetState(() {});
                                                 context.safePop();
                                                 return;
@@ -2802,13 +2937,14 @@ class _SearchablePickUpListPageWidgetState
                                               }
 
                                               FFAppState()
-                                                  .nonePackageCarrierType = widget!
-                                                      .dataList![
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .searchableListComponentSelectedList
-                                                          .toList(),
-                                                      true)];
+                                                      .nonePackageCarrierType =
+                                                  (widget!.dataList!
+                                                      .elementAtOrNull(functions
+                                                          .getIndexOfBoolList(
+                                                              FFAppState()
+                                                                  .searchableListComponentSelectedList
+                                                                  .toList(),
+                                                              true)))!;
                                               safeSetState(() {});
                                               context.safePop();
                                               return;
@@ -2821,13 +2957,14 @@ class _SearchablePickUpListPageWidgetState
                                               }
 
                                               FFAppState()
-                                                  .nonePackageTruckPart = widget!
-                                                      .dataList![
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .searchableListComponentSelectedList
-                                                          .toList(),
-                                                      true)];
+                                                      .nonePackageTruckPart =
+                                                  (widget!.dataList!
+                                                      .elementAtOrNull(functions
+                                                          .getIndexOfBoolList(
+                                                              FFAppState()
+                                                                  .searchableListComponentSelectedList
+                                                                  .toList(),
+                                                              true)))!;
                                               safeSetState(() {});
                                               context.safePop();
                                               return;
@@ -2840,13 +2977,14 @@ class _SearchablePickUpListPageWidgetState
                                               }
 
                                               FFAppState()
-                                                  .nonePackageCusMembership = widget!
-                                                      .dataList![
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .searchableListComponentSelectedList
-                                                          .toList(),
-                                                      true)];
+                                                      .nonePackageCusMembership =
+                                                  (widget!.dataList!
+                                                      .elementAtOrNull(functions
+                                                          .getIndexOfBoolList(
+                                                              FFAppState()
+                                                                  .searchableListComponentSelectedList
+                                                                  .toList(),
+                                                              true)))!;
                                               safeSetState(() {});
                                               context.safePop();
                                               return;
@@ -2854,13 +2992,14 @@ class _SearchablePickUpListPageWidgetState
                                             if (widget!.titleText ==
                                                 'เลือกปีที่ผลิต') {
                                               FFAppState()
-                                                  .insuranceInfoProductYear = widget!
-                                                      .dataList![
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .searchableListComponentSelectedList
-                                                          .toList(),
-                                                      true)];
+                                                      .insuranceInfoProductYear =
+                                                  (widget!.dataList!
+                                                      .elementAtOrNull(functions
+                                                          .getIndexOfBoolList(
+                                                              FFAppState()
+                                                                  .searchableListComponentSelectedList
+                                                                  .toList(),
+                                                              true)))!;
                                               safeSetState(() {});
                                               context.safePop();
                                               return;
@@ -2868,29 +3007,35 @@ class _SearchablePickUpListPageWidgetState
                                             if (widget!.titleText ==
                                                 'จำนวนงวด') {
                                               FFAppState()
-                                                  .insuranceInfoPage4SelectTenor = FFAppState()
-                                                      .InsuranceInfoPage4Tenor[
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .searchableListComponentSelectedList
-                                                          .toList(),
-                                                      true)];
+                                                      .insuranceInfoPage4SelectTenor =
+                                                  FFAppState()
+                                                      .InsuranceInfoPage4Tenor
+                                                      .elementAtOrNull(functions
+                                                          .getIndexOfBoolList(
+                                                              FFAppState()
+                                                                  .searchableListComponentSelectedList
+                                                                  .toList(),
+                                                              true))!;
                                               FFAppState()
-                                                  .insuranceInfoPage4SelectInstallMentFirstDue = FFAppState()
-                                                      .InsuranceInfoPage4InstallmentFirstDue[
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .searchableListComponentSelectedList
-                                                          .toList(),
-                                                      true)];
+                                                      .insuranceInfoPage4SelectInstallMentFirstDue =
+                                                  FFAppState()
+                                                      .InsuranceInfoPage4InstallmentFirstDue
+                                                      .elementAtOrNull(functions
+                                                          .getIndexOfBoolList(
+                                                              FFAppState()
+                                                                  .searchableListComponentSelectedList
+                                                                  .toList(),
+                                                              true))!;
                                               FFAppState()
-                                                  .insuranceInfoPage4SelectInstallMentLastDue = FFAppState()
-                                                      .InsuranceInfoPage4InstallmentLastDue[
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .searchableListComponentSelectedList
-                                                          .toList(),
-                                                      true)];
+                                                      .insuranceInfoPage4SelectInstallMentLastDue =
+                                                  FFAppState()
+                                                      .InsuranceInfoPage4InstallmentLastDue
+                                                      .elementAtOrNull(functions
+                                                          .getIndexOfBoolList(
+                                                              FFAppState()
+                                                                  .searchableListComponentSelectedList
+                                                                  .toList(),
+                                                              true))!;
                                               safeSetState(() {});
                                               context.safePop();
                                               return;
@@ -2900,13 +3045,15 @@ class _SearchablePickUpListPageWidgetState
                                               if (widget!.fromPage ==
                                                   'NonePackageSelectedInsurer') {
                                                 FFAppState()
-                                                    .nonePackageSelectedInsurerShortName = FFAppState()
-                                                        .nonePackageSelectedInsurerShortNameList[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .nonePackageSelectedInsurerShortName =
+                                                    FFAppState()
+                                                        .nonePackageSelectedInsurerShortNameList
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))!;
                                                 safeSetState(() {});
                                                 context.safePop();
                                                 return;
@@ -2915,21 +3062,25 @@ class _SearchablePickUpListPageWidgetState
                                             if (widget!.titleText ==
                                                 'เลือกจังหวัดที่จดทะเบียน') {
                                               FFAppState()
-                                                  .insuranceInfoRegistrationCodeSelect = FFAppState()
-                                                      .insuranceInfoRegistrationCodeList[
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .searchableListComponentSelectedList
-                                                          .toList(),
-                                                      true)];
+                                                      .insuranceInfoRegistrationCodeSelect =
+                                                  FFAppState()
+                                                      .insuranceInfoRegistrationCodeList
+                                                      .elementAtOrNull(functions
+                                                          .getIndexOfBoolList(
+                                                              FFAppState()
+                                                                  .searchableListComponentSelectedList
+                                                                  .toList(),
+                                                              true))!;
                                               FFAppState()
-                                                  .insuranceInfoRegistrationProvinceSelect = FFAppState()
-                                                      .insuranceInfoRegistrationprovinceList[
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .searchableListComponentSelectedList
-                                                          .toList(),
-                                                      true)];
+                                                      .insuranceInfoRegistrationProvinceSelect =
+                                                  FFAppState()
+                                                      .insuranceInfoRegistrationprovinceList
+                                                      .elementAtOrNull(functions
+                                                          .getIndexOfBoolList(
+                                                              FFAppState()
+                                                                  .searchableListComponentSelectedList
+                                                                  .toList(),
+                                                              true))!;
                                               safeSetState(() {});
                                               context.safePop();
                                               return;
@@ -2940,20 +3091,23 @@ class _SearchablePickUpListPageWidgetState
                                                   'NonePackage') {
                                                 FFAppState()
                                                         .insuranceBasicModelName =
-                                                    widget!.dataList![functions
-                                                        .getIndexOfBoolList(
-                                                            FFAppState()
-                                                                .searchableListComponentSelectedList
-                                                                .toList(),
-                                                            true)];
+                                                    (widget!.dataList!
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true)))!;
                                                 FFAppState()
-                                                    .insuranceBasicModelId = FFAppState()
-                                                        .insuranceBasicModelIdList[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .insuranceBasicModelId =
+                                                    FFAppState()
+                                                        .insuranceBasicModelIdList
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))!;
                                                 safeSetState(() {});
                                                 FFAppState()
                                                     .updateSearchPackageCheckFilledAtIndex(
@@ -2967,13 +3121,14 @@ class _SearchablePickUpListPageWidgetState
                                             }
                                             if (widget!.titleText == 'อาชีพ') {
                                               FFAppState()
-                                                  .insuranceInfoSelectOccupationSubNameChoose = widget!
-                                                      .dataList![
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .searchableListComponentSelectedList
-                                                          .toList(),
-                                                      true)];
+                                                      .insuranceInfoSelectOccupationSubNameChoose =
+                                                  (widget!.dataList!
+                                                      .elementAtOrNull(functions
+                                                          .getIndexOfBoolList(
+                                                              FFAppState()
+                                                                  .searchableListComponentSelectedList
+                                                                  .toList(),
+                                                              true)))!;
                                               safeSetState(() {});
                                               context.safePop();
                                               return;
@@ -3168,23 +3323,24 @@ class _SearchablePickUpListPageWidgetState
                                           if (widget!.fromPage !=
                                               'NonePackage') {
                                             FFAppState()
-                                                .insuranceBasicBrandName = widget!
-                                                    .dataList![
-                                                functions.getIndexOfBoolList(
-                                                    FFAppState()
-                                                        .searchableListComponentSelectedList
-                                                        .toList(),
-                                                    true)];
+                                                    .insuranceBasicBrandName =
+                                                (widget!.dataList!.elementAtOrNull(
+                                                    functions.getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .searchableListComponentSelectedList
+                                                            .toList(),
+                                                        true)))!;
                                             FFAppState()
                                                 .isSelectBrandInPackage = true;
-                                            FFAppState()
-                                                .insuranceBasicBrandId = FFAppState()
-                                                    .insuranceBasicBrandIdList[
-                                                functions.getIndexOfBoolList(
-                                                    FFAppState()
-                                                        .searchableListComponentSelectedList
-                                                        .toList(),
-                                                    true)];
+                                            FFAppState().insuranceBasicBrandId =
+                                                FFAppState()
+                                                    .insuranceBasicBrandIdList
+                                                    .elementAtOrNull(functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .searchableListComponentSelectedList
+                                                                .toList(),
+                                                            true))!;
                                             safeSetState(() {});
                                             FFAppState().insuranceBasicModelNameList = functions
                                                 .returnMappedListFrom2List(
@@ -3195,13 +3351,13 @@ class _SearchablePickUpListPageWidgetState
                                                         .insuranceBasicModelBrandIdListOriginal
                                                         .toList(),
                                                     FFAppState()
-                                                            .insuranceBasicBrandIdList[
-                                                        functions
+                                                        .insuranceBasicBrandIdList
+                                                        .elementAtOrNull(functions
                                                             .getIndexOfBoolList(
                                                                 FFAppState()
                                                                     .searchableListComponentSelectedList
                                                                     .toList(),
-                                                                true)])
+                                                                true)))
                                                 .toList()
                                                 .cast<String>();
                                             FFAppState().insuranceBasicModelIdList = functions
@@ -3213,13 +3369,13 @@ class _SearchablePickUpListPageWidgetState
                                                         .insuranceBasicModelBrandIdListOriginal
                                                         .toList(),
                                                     FFAppState()
-                                                            .insuranceBasicBrandIdList[
-                                                        functions
+                                                        .insuranceBasicBrandIdList
+                                                        .elementAtOrNull(functions
                                                             .getIndexOfBoolList(
                                                                 FFAppState()
                                                                     .searchableListComponentSelectedList
                                                                     .toList(),
-                                                                true)])
+                                                                true)))
                                                 .toList()
                                                 .cast<String>();
                                             FFAppState()
@@ -3266,22 +3422,22 @@ class _SearchablePickUpListPageWidgetState
                                             context.safePop();
                                             return;
                                           } else {
-                                            FFAppState()
-                                                .nonePackageBrandName = widget!
-                                                    .dataList![
-                                                functions.getIndexOfBoolList(
-                                                    FFAppState()
-                                                        .searchableListComponentSelectedList
-                                                        .toList(),
-                                                    true)];
-                                            FFAppState()
-                                                .nonePackageBrandId = FFAppState()
-                                                    .insuranceBasicBrandIdList[
-                                                functions.getIndexOfBoolList(
-                                                    FFAppState()
-                                                        .searchableListComponentSelectedList
-                                                        .toList(),
-                                                    true)];
+                                            FFAppState().nonePackageBrandName =
+                                                (widget!.dataList!.elementAtOrNull(
+                                                    functions.getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .searchableListComponentSelectedList
+                                                            .toList(),
+                                                        true)))!;
+                                            FFAppState().nonePackageBrandId =
+                                                FFAppState()
+                                                    .insuranceBasicBrandIdList
+                                                    .elementAtOrNull(functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .searchableListComponentSelectedList
+                                                                .toList(),
+                                                            true))!;
                                             FFAppState()
                                                     .nonePackageIsBrandSelect =
                                                 true;
@@ -3295,13 +3451,13 @@ class _SearchablePickUpListPageWidgetState
                                                         .insuranceBasicModelBrandIdListOriginal
                                                         .toList(),
                                                     FFAppState()
-                                                            .insuranceBasicBrandIdList[
-                                                        functions
+                                                        .insuranceBasicBrandIdList
+                                                        .elementAtOrNull(functions
                                                             .getIndexOfBoolList(
                                                                 FFAppState()
                                                                     .searchableListComponentSelectedList
                                                                     .toList(),
-                                                                true)])
+                                                                true)))
                                                 .toList()
                                                 .cast<String>();
                                             FFAppState().nonePackageSearchModelIdList = functions
@@ -3313,13 +3469,13 @@ class _SearchablePickUpListPageWidgetState
                                                         .insuranceBasicModelBrandIdListOriginal
                                                         .toList(),
                                                     FFAppState()
-                                                            .insuranceBasicBrandIdList[
-                                                        functions
+                                                        .insuranceBasicBrandIdList
+                                                        .elementAtOrNull(functions
                                                             .getIndexOfBoolList(
                                                                 FFAppState()
                                                                     .searchableListComponentSelectedList
                                                                     .toList(),
-                                                                true)])
+                                                                true)))
                                                 .toList()
                                                 .cast<String>();
                                             safeSetState(() {});
@@ -3331,14 +3487,13 @@ class _SearchablePickUpListPageWidgetState
                                             'เลือกปีจดทะเบียน') {
                                           if (widget!.fromPage !=
                                               'NonePackage') {
-                                            FFAppState()
-                                                .insuranceBasicYear = widget!
-                                                    .dataList![
-                                                functions.getIndexOfBoolList(
-                                                    FFAppState()
-                                                        .searchableListComponentSelectedList
-                                                        .toList(),
-                                                    true)];
+                                            FFAppState().insuranceBasicYear =
+                                                (widget!.dataList!.elementAtOrNull(
+                                                    functions.getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .searchableListComponentSelectedList
+                                                            .toList(),
+                                                        true)))!;
                                             safeSetState(() {});
                                             FFAppState()
                                                 .updateSearchPackageCheckFilledAtIndex(
@@ -3349,14 +3504,14 @@ class _SearchablePickUpListPageWidgetState
                                             context.safePop();
                                             return;
                                           } else {
-                                            FFAppState()
-                                                .nonePackageYear = widget!
-                                                    .dataList![
-                                                functions.getIndexOfBoolList(
-                                                    FFAppState()
-                                                        .searchableListComponentSelectedList
-                                                        .toList(),
-                                                    true)];
+                                            FFAppState().nonePackageYear = (widget!
+                                                .dataList!
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .searchableListComponentSelectedList
+                                                            .toList(),
+                                                        true)))!;
                                             safeSetState(() {});
                                             context.safePop();
                                             return;
@@ -3367,8 +3522,8 @@ class _SearchablePickUpListPageWidgetState
                                           if (widget!.fromPage !=
                                               'NonePackage') {
                                             FFAppState().insuranceBasicVehicleUsedTypeId = FFAppState()
-                                                    .insuranceBasicVehicleUsedTypeIdList[
-                                                functions.getIndexOfSomethingList(
+                                                .insuranceBasicVehicleUsedTypeIdList
+                                                .elementAtOrNull(functions.getIndexOfSomethingList(
                                                     functions
                                                         .generateInsuranceVehicleTypeDropdown(
                                                             FFAppState()
@@ -3381,15 +3536,16 @@ class _SearchablePickUpListPageWidgetState
                                                                 .insuranceBasicVehicleUsedTypeNameList
                                                                 .toList())
                                                         ?.toList(),
-                                                    widget!.dataList?[functions
-                                                        .getIndexOfBoolList(
-                                                            FFAppState()
-                                                                .searchableListComponentSelectedList
-                                                                .toList(),
-                                                            true)])];
+                                                    widget!.dataList
+                                                        ?.elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))))!;
                                             FFAppState().insuranceBasicVehicleUsedTypeCode = FFAppState()
-                                                    .insuranceBasicVehicleUsedTypeCodeList[
-                                                functions.getIndexOfSomethingList(
+                                                .insuranceBasicVehicleUsedTypeCodeList
+                                                .elementAtOrNull(functions.getIndexOfSomethingList(
                                                     functions
                                                         .generateInsuranceVehicleTypeDropdown(
                                                             FFAppState()
@@ -3402,15 +3558,16 @@ class _SearchablePickUpListPageWidgetState
                                                                 .insuranceBasicVehicleUsedTypeNameList
                                                                 .toList())
                                                         ?.toList(),
-                                                    widget!.dataList?[functions
-                                                        .getIndexOfBoolList(
-                                                            FFAppState()
-                                                                .searchableListComponentSelectedList
-                                                                .toList(),
-                                                            true)])];
+                                                    widget!.dataList
+                                                        ?.elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))))!;
                                             FFAppState().insuranceBasicVehicleUsedTypeName = FFAppState()
-                                                    .insuranceBasicVehicleUsedTypeNameList[
-                                                functions.getIndexOfSomethingList(
+                                                .insuranceBasicVehicleUsedTypeNameList
+                                                .elementAtOrNull(functions.getIndexOfSomethingList(
                                                     functions
                                                         .generateInsuranceVehicleTypeDropdown(
                                                             FFAppState()
@@ -3423,12 +3580,13 @@ class _SearchablePickUpListPageWidgetState
                                                                 .insuranceBasicVehicleUsedTypeNameList
                                                                 .toList())
                                                         ?.toList(),
-                                                    widget!.dataList?[functions
-                                                        .getIndexOfBoolList(
-                                                            FFAppState()
-                                                                .searchableListComponentSelectedList
-                                                                .toList(),
-                                                            true)])];
+                                                    widget!.dataList
+                                                        ?.elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))))!;
                                             safeSetState(() {});
                                             FFAppState()
                                                 .updateSearchPackageCheckFilledAtIndex(
@@ -3439,10 +3597,9 @@ class _SearchablePickUpListPageWidgetState
                                             context.safePop();
                                             return;
                                           } else {
-                                            FFAppState()
-                                                .nonePackageUsedTypeId = FFAppState()
-                                                    .nonePackageUsedTypeIdList[
-                                                functions.getIndexOfSomethingList(
+                                            FFAppState().nonePackageUsedTypeId = FFAppState()
+                                                .nonePackageUsedTypeIdList
+                                                .elementAtOrNull(functions.getIndexOfSomethingList(
                                                     functions
                                                         .generateInsuranceVehicleTypeDropdown(
                                                             FFAppState()
@@ -3455,15 +3612,16 @@ class _SearchablePickUpListPageWidgetState
                                                                 .nonePackageUsedTypeNameList
                                                                 .toList())
                                                         ?.toList(),
-                                                    widget!.dataList?[functions
-                                                        .getIndexOfBoolList(
-                                                            FFAppState()
-                                                                .searchableListComponentSelectedList
-                                                                .toList(),
-                                                            true)])];
+                                                    widget!.dataList
+                                                        ?.elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))))!;
                                             FFAppState().nonePackageUsedTypeCode = FFAppState()
-                                                    .nonePackageUsedTypeCodeList[
-                                                functions.getIndexOfSomethingList(
+                                                .nonePackageUsedTypeCodeList
+                                                .elementAtOrNull(functions.getIndexOfSomethingList(
                                                     functions
                                                         .generateInsuranceVehicleTypeDropdown(
                                                             FFAppState()
@@ -3476,15 +3634,16 @@ class _SearchablePickUpListPageWidgetState
                                                                 .nonePackageUsedTypeNameList
                                                                 .toList())
                                                         ?.toList(),
-                                                    widget!.dataList?[functions
-                                                        .getIndexOfBoolList(
-                                                            FFAppState()
-                                                                .searchableListComponentSelectedList
-                                                                .toList(),
-                                                            true)])];
+                                                    widget!.dataList
+                                                        ?.elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))))!;
                                             FFAppState().nonePackageUsedTypeName = FFAppState()
-                                                    .nonePackageUsedTypeNameList[
-                                                functions.getIndexOfSomethingList(
+                                                .nonePackageUsedTypeNameList
+                                                .elementAtOrNull(functions.getIndexOfSomethingList(
                                                     functions
                                                         .generateInsuranceVehicleTypeDropdown(
                                                             FFAppState()
@@ -3497,12 +3656,13 @@ class _SearchablePickUpListPageWidgetState
                                                                 .nonePackageUsedTypeNameList
                                                                 .toList())
                                                         ?.toList(),
-                                                    widget!.dataList?[functions
-                                                        .getIndexOfBoolList(
-                                                            FFAppState()
-                                                                .searchableListComponentSelectedList
-                                                                .toList(),
-                                                            true)])];
+                                                    widget!.dataList
+                                                        ?.elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))))!;
                                             safeSetState(() {});
                                             context.safePop();
                                             return;
@@ -3555,29 +3715,33 @@ class _SearchablePickUpListPageWidgetState
                                             return;
                                           } else {
                                             FFAppState()
-                                                .nonePackageCoverTypeId = FFAppState()
-                                                    .insuranceBasicCoverTypeIdList[
-                                                functions.getIndexOfBoolList(
-                                                    FFAppState()
-                                                        .searchableListComponentSelectedList
-                                                        .toList(),
-                                                    true)];
+                                                    .nonePackageCoverTypeId =
+                                                FFAppState()
+                                                    .insuranceBasicCoverTypeIdList
+                                                    .elementAtOrNull(functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .searchableListComponentSelectedList
+                                                                .toList(),
+                                                            true))!;
                                             FFAppState()
-                                                .nonePackageCoverTypeCode = FFAppState()
-                                                    .insuranceBasicCoverTypeCodeList[
-                                                functions.getIndexOfBoolList(
-                                                    FFAppState()
-                                                        .searchableListComponentSelectedList
-                                                        .toList(),
-                                                    true)];
+                                                    .nonePackageCoverTypeCode =
+                                                FFAppState()
+                                                    .insuranceBasicCoverTypeCodeList
+                                                    .elementAtOrNull(functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .searchableListComponentSelectedList
+                                                                .toList(),
+                                                            true))!;
                                             FFAppState()
-                                                .nonePackageCoverTypeName = widget!
-                                                    .dataList![
-                                                functions.getIndexOfBoolList(
-                                                    FFAppState()
-                                                        .searchableListComponentSelectedList
-                                                        .toList(),
-                                                    true)];
+                                                    .nonePackageCoverTypeName =
+                                                (widget!.dataList!.elementAtOrNull(
+                                                    functions.getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .searchableListComponentSelectedList
+                                                            .toList(),
+                                                        true)))!;
                                             safeSetState(() {});
                                             context.safePop();
                                             return;
@@ -3618,29 +3782,35 @@ class _SearchablePickUpListPageWidgetState
                                             return;
                                           } else {
                                             FFAppState()
-                                                .nonePackageGarageTypeId = FFAppState()
-                                                    .insuranceBasicGarageTypeIdList[
-                                                functions.getIndexOfBoolList(
-                                                    FFAppState()
-                                                        .searchableListComponentSelectedList
-                                                        .toList(),
-                                                    true)];
+                                                    .nonePackageGarageTypeId =
+                                                FFAppState()
+                                                    .insuranceBasicGarageTypeIdList
+                                                    .elementAtOrNull(functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .searchableListComponentSelectedList
+                                                                .toList(),
+                                                            true))!;
                                             FFAppState()
-                                                .nonePackageGarageTypeName = FFAppState()
-                                                    .insuranceBasicGarageTypeNameList[
-                                                functions.getIndexOfBoolList(
-                                                    FFAppState()
-                                                        .searchableListComponentSelectedList
-                                                        .toList(),
-                                                    true)];
+                                                    .nonePackageGarageTypeName =
+                                                FFAppState()
+                                                    .insuranceBasicGarageTypeNameList
+                                                    .elementAtOrNull(functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .searchableListComponentSelectedList
+                                                                .toList(),
+                                                            true))!;
                                             FFAppState()
-                                                .nonePackageGarageTypeCode = FFAppState()
-                                                    .nonePackageGarageTypeCodeList[
-                                                functions.getIndexOfBoolList(
-                                                    FFAppState()
-                                                        .searchableListComponentSelectedList
-                                                        .toList(),
-                                                    true)];
+                                                    .nonePackageGarageTypeCode =
+                                                FFAppState()
+                                                    .nonePackageGarageTypeCodeList
+                                                    .elementAtOrNull(functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .searchableListComponentSelectedList
+                                                                .toList(),
+                                                            true))!;
                                             safeSetState(() {});
                                             context.safePop();
                                             return;
@@ -3696,27 +3866,25 @@ class _SearchablePickUpListPageWidgetState
                                           return;
                                         }
                                         if (widget!.titleText == 'ประเภทบัตร') {
-                                          FFAppState()
-                                              .insuranceInfoCardType = widget!
-                                                  .dataList![
-                                              functions.getIndexOfBoolList(
-                                                  FFAppState()
-                                                      .searchableListComponentSelectedList
-                                                      .toList(),
-                                                  true)];
+                                          FFAppState().insuranceInfoCardType =
+                                              (widget!.dataList!.elementAtOrNull(
+                                                  functions.getIndexOfBoolList(
+                                                      FFAppState()
+                                                          .searchableListComponentSelectedList
+                                                          .toList(),
+                                                      true)))!;
                                           safeSetState(() {});
                                           context.safePop();
                                           return;
                                         }
                                         if (widget!.titleText == 'เพศ') {
-                                          FFAppState()
-                                              .insuranceInfoGender = widget!
-                                                  .dataList![
-                                              functions.getIndexOfBoolList(
-                                                  FFAppState()
-                                                      .searchableListComponentSelectedList
-                                                      .toList(),
-                                                  true)];
+                                          FFAppState().insuranceInfoGender =
+                                              (widget!.dataList!.elementAtOrNull(
+                                                  functions.getIndexOfBoolList(
+                                                      FFAppState()
+                                                          .searchableListComponentSelectedList
+                                                          .toList(),
+                                                      true)))!;
                                           FFAppState().insuranceInfoTitle =
                                               'เลือกคำนำหน้าชื่อ';
                                           safeSetState(() {});
@@ -3724,14 +3892,13 @@ class _SearchablePickUpListPageWidgetState
                                           return;
                                         }
                                         if (widget!.titleText == 'คำนำหน้า') {
-                                          FFAppState()
-                                              .insuranceInfoTitle = widget!
-                                                  .dataList![
-                                              functions.getIndexOfBoolList(
-                                                  FFAppState()
-                                                      .searchableListComponentSelectedList
-                                                      .toList(),
-                                                  true)];
+                                          FFAppState().insuranceInfoTitle =
+                                              (widget!.dataList!.elementAtOrNull(
+                                                  functions.getIndexOfBoolList(
+                                                      FFAppState()
+                                                          .searchableListComponentSelectedList
+                                                          .toList(),
+                                                      true)))!;
                                           safeSetState(() {});
                                           context.safePop();
                                           return;
@@ -3739,32 +3906,33 @@ class _SearchablePickUpListPageWidgetState
                                         if (widget!.titleText == 'กลุ่มอาชีพ') {
                                           FFAppState()
                                                   .insuranceInfoOccupationGroup =
-                                              widget!.dataList![
+                                              (widget!.dataList!.elementAtOrNull(
                                                   functions.getIndexOfBoolList(
                                                       FFAppState()
                                                           .searchableListComponentSelectedList
                                                           .toList(),
-                                                      true)];
+                                                      true)))!;
                                           safeSetState(() {});
                                           FFAppState()
                                                   .insuranceInfoSelectOccupationCode =
-                                              functions.removeDupeInList(
-                                                  FFAppState()
+                                              (functions
+                                                  .removeDupeInList(FFAppState()
                                                       .insuranceInfoOccupationCode
-                                                      .toList())![functions
-                                                  .getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .searchableListComponentSelectedList
-                                                          .toList(),
-                                                      true)];
+                                                      .toList())!
+                                                  .elementAtOrNull(functions
+                                                      .getIndexOfBoolList(
+                                                          FFAppState()
+                                                              .searchableListComponentSelectedList
+                                                              .toList(),
+                                                          true)))!;
                                           FFAppState()
                                                   .insuranceInfoSelectOccupationName =
-                                              widget!.dataList![
+                                              (widget!.dataList!.elementAtOrNull(
                                                   functions.getIndexOfBoolList(
                                                       FFAppState()
                                                           .searchableListComponentSelectedList
                                                           .toList(),
-                                                      true)];
+                                                      true)))!;
                                           safeSetState(() {});
                                           FFAppState()
                                                   .insuranceInfoSelectOccupationSubCode =
@@ -3808,22 +3976,22 @@ class _SearchablePickUpListPageWidgetState
                                             return;
                                           }
 
-                                          FFAppState()
-                                              .nonePackageProvinceId = FFAppState()
-                                                  .insuranceBasicProvinceIdList[
-                                              functions.getIndexOfBoolList(
-                                                  FFAppState()
-                                                      .searchableListComponentSelectedList
-                                                      .toList(),
-                                                  true)];
-                                          FFAppState()
-                                              .nonePackageProvince = widget!
-                                                  .dataList![
-                                              functions.getIndexOfBoolList(
-                                                  FFAppState()
-                                                      .searchableListComponentSelectedList
-                                                      .toList(),
-                                                  true)];
+                                          FFAppState().nonePackageProvinceId =
+                                              FFAppState()
+                                                  .insuranceBasicProvinceIdList
+                                                  .elementAtOrNull(functions
+                                                      .getIndexOfBoolList(
+                                                          FFAppState()
+                                                              .searchableListComponentSelectedList
+                                                              .toList(),
+                                                          true))!;
+                                          FFAppState().nonePackageProvince =
+                                              (widget!.dataList!.elementAtOrNull(
+                                                  functions.getIndexOfBoolList(
+                                                      FFAppState()
+                                                          .searchableListComponentSelectedList
+                                                          .toList(),
+                                                      true)))!;
                                           safeSetState(() {});
                                           context.safePop();
                                           return;
@@ -3835,169 +4003,189 @@ class _SearchablePickUpListPageWidgetState
                                             FFAppState()
                                                     .addAddressSelectProvinceId =
                                                 FFAppState()
-                                                        .addAddressProvinceId[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
-                                            FFAppState()
-                                                    .addAddressSelectProvinceName =
-                                                FFAppState()
-                                                        .addAddressProvinceName[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
-                                            FFAppState()
-                                                    .addAddressSelectDistrictId =
-                                                FFAppState()
-                                                    .addAddressDistrictId[functions
+                                                    .addAddressProvinceId
+                                                    .elementAtOrNull(functions
                                                         .getIndexOfBoolList(
                                                             FFAppState()
                                                                 .searchableListComponentSelectedList
                                                                 .toList(),
-                                                            true)]
+                                                            true))!;
+                                            FFAppState()
+                                                    .addAddressSelectProvinceName =
+                                                FFAppState()
+                                                    .addAddressProvinceName
+                                                    .elementAtOrNull(functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .searchableListComponentSelectedList
+                                                                .toList(),
+                                                            true))!;
+                                            FFAppState()
+                                                    .addAddressSelectDistrictId =
+                                                FFAppState()
+                                                    .addAddressDistrictId
+                                                    .elementAtOrNull(functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .searchableListComponentSelectedList
+                                                                .toList(),
+                                                            true))!
                                                     .toString();
                                             FFAppState()
                                                     .addAddressSelectDistrictName =
                                                 FFAppState()
-                                                        .addAddressDistrictName[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
-                                            FFAppState()
-                                                    .addAddressSelectSubdistrictId =
-                                                FFAppState()
-                                                    .addAddressSubdistrictId[
-                                                        functions
-                                                            .getIndexOfBoolList(
-                                                                FFAppState()
-                                                                    .searchableListComponentSelectedList
-                                                                    .toList(),
-                                                                true)]
-                                                    .toString();
-                                            FFAppState()
-                                                    .addAddressSelectSubdistrictName =
-                                                FFAppState()
-                                                        .addAddressSubdistrictName[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
-                                            FFAppState()
-                                                    .addAddressSelectZipCode =
-                                                FFAppState().addAddressZipCode[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
-                                            FFAppState()
-                                                    .addAddressSelectKeyWord =
-                                                FFAppState().addAddressKeyWord[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
-                                            FFAppState()
-                                                .addAddressAtIdCard = FFAppState()
-                                                    .addAddressKeyWord[
-                                                functions.getIndexOfBoolList(
-                                                    FFAppState()
-                                                        .searchableListComponentSelectedList
-                                                        .toList(),
-                                                    true)];
-                                            safeSetState(() {});
-                                            context.safePop();
-                                            return;
-                                          } else {
-                                            FFAppState()
-                                                .addAddressForDoc = FFAppState()
-                                                    .addAddressKeyWord[
-                                                functions.getIndexOfBoolList(
-                                                    FFAppState()
-                                                        .searchableListComponentSelectedList
-                                                        .toList(),
-                                                    true)];
-                                            FFAppState()
-                                                    .addAdressSelectDocProvinceId =
-                                                FFAppState()
-                                                        .addAddressProvinceId[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
-                                            FFAppState()
-                                                    .addAdressSelectDocProvinceName =
-                                                FFAppState()
-                                                        .addAddressProvinceName[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
-                                            FFAppState()
-                                                    .addAdressSelectDocDistrictName =
-                                                FFAppState()
-                                                        .addAddressDistrictName[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
-                                            FFAppState()
-                                                    .addAddressSelectDocDistrictId =
-                                                FFAppState()
-                                                    .addAddressDistrictId[functions
+                                                    .addAddressDistrictName
+                                                    .elementAtOrNull(functions
                                                         .getIndexOfBoolList(
                                                             FFAppState()
                                                                 .searchableListComponentSelectedList
                                                                 .toList(),
-                                                            true)]
+                                                            true))!;
+                                            FFAppState()
+                                                    .addAddressSelectSubdistrictId =
+                                                FFAppState()
+                                                    .addAddressSubdistrictId
+                                                    .elementAtOrNull(functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .searchableListComponentSelectedList
+                                                                .toList(),
+                                                            true))!
+                                                    .toString();
+                                            FFAppState()
+                                                    .addAddressSelectSubdistrictName =
+                                                FFAppState()
+                                                    .addAddressSubdistrictName
+                                                    .elementAtOrNull(functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .searchableListComponentSelectedList
+                                                                .toList(),
+                                                            true))!;
+                                            FFAppState()
+                                                    .addAddressSelectZipCode =
+                                                FFAppState()
+                                                    .addAddressZipCode
+                                                    .elementAtOrNull(functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .searchableListComponentSelectedList
+                                                                .toList(),
+                                                            true))!;
+                                            FFAppState()
+                                                    .addAddressSelectKeyWord =
+                                                FFAppState()
+                                                    .addAddressKeyWord
+                                                    .elementAtOrNull(functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .searchableListComponentSelectedList
+                                                                .toList(),
+                                                            true))!;
+                                            FFAppState().addAddressAtIdCard =
+                                                FFAppState()
+                                                    .addAddressKeyWord
+                                                    .elementAtOrNull(functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .searchableListComponentSelectedList
+                                                                .toList(),
+                                                            true))!;
+                                            safeSetState(() {});
+                                            context.safePop();
+                                            return;
+                                          } else {
+                                            FFAppState().addAddressForDoc =
+                                                FFAppState()
+                                                    .addAddressKeyWord
+                                                    .elementAtOrNull(functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .searchableListComponentSelectedList
+                                                                .toList(),
+                                                            true))!;
+                                            FFAppState()
+                                                    .addAdressSelectDocProvinceId =
+                                                FFAppState()
+                                                    .addAddressProvinceId
+                                                    .elementAtOrNull(functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .searchableListComponentSelectedList
+                                                                .toList(),
+                                                            true))!;
+                                            FFAppState()
+                                                    .addAdressSelectDocProvinceName =
+                                                FFAppState()
+                                                    .addAddressProvinceName
+                                                    .elementAtOrNull(functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .searchableListComponentSelectedList
+                                                                .toList(),
+                                                            true))!;
+                                            FFAppState()
+                                                    .addAdressSelectDocDistrictName =
+                                                FFAppState()
+                                                    .addAddressDistrictName
+                                                    .elementAtOrNull(functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .searchableListComponentSelectedList
+                                                                .toList(),
+                                                            true))!;
+                                            FFAppState()
+                                                    .addAddressSelectDocDistrictId =
+                                                FFAppState()
+                                                    .addAddressDistrictId
+                                                    .elementAtOrNull(functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .searchableListComponentSelectedList
+                                                                .toList(),
+                                                            true))!
                                                     .toString();
                                             FFAppState()
                                                     .addAddressSelectDocSubdistrictId =
                                                 FFAppState()
-                                                    .addAddressSubdistrictId[
-                                                        functions
-                                                            .getIndexOfBoolList(
-                                                                FFAppState()
-                                                                    .searchableListComponentSelectedList
-                                                                    .toList(),
-                                                                true)]
+                                                    .addAddressSubdistrictId
+                                                    .elementAtOrNull(functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .searchableListComponentSelectedList
+                                                                .toList(),
+                                                            true))!
                                                     .toString();
                                             FFAppState()
                                                     .addAddressSelectDocSubdistrictName =
                                                 FFAppState()
-                                                        .addAddressSubdistrictName[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                    .addAddressSubdistrictName
+                                                    .elementAtOrNull(functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .searchableListComponentSelectedList
+                                                                .toList(),
+                                                            true))!;
                                             FFAppState()
                                                     .addAddressSelectDocZipCode =
-                                                FFAppState().addAddressZipCode[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                FFAppState()
+                                                    .addAddressZipCode
+                                                    .elementAtOrNull(functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .searchableListComponentSelectedList
+                                                                .toList(),
+                                                            true))!;
                                             FFAppState()
                                                     .addAddressSelectDocKeyWord =
-                                                FFAppState().addAddressKeyWord[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                FFAppState()
+                                                    .addAddressKeyWord
+                                                    .elementAtOrNull(functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .searchableListComponentSelectedList
+                                                                .toList(),
+                                                            true))!;
                                             safeSetState(() {});
                                             context.safePop();
                                             return;
@@ -4010,14 +4198,13 @@ class _SearchablePickUpListPageWidgetState
                                             return;
                                           }
 
-                                          FFAppState()
-                                              .nonePackageCarrierType = widget!
-                                                  .dataList![
-                                              functions.getIndexOfBoolList(
-                                                  FFAppState()
-                                                      .searchableListComponentSelectedList
-                                                      .toList(),
-                                                  true)];
+                                          FFAppState().nonePackageCarrierType =
+                                              (widget!.dataList!.elementAtOrNull(
+                                                  functions.getIndexOfBoolList(
+                                                      FFAppState()
+                                                          .searchableListComponentSelectedList
+                                                          .toList(),
+                                                      true)))!;
                                           safeSetState(() {});
                                           context.safePop();
                                           return;
@@ -4029,14 +4216,13 @@ class _SearchablePickUpListPageWidgetState
                                             return;
                                           }
 
-                                          FFAppState()
-                                              .nonePackageTruckPart = widget!
-                                                  .dataList![
-                                              functions.getIndexOfBoolList(
-                                                  FFAppState()
-                                                      .searchableListComponentSelectedList
-                                                      .toList(),
-                                                  true)];
+                                          FFAppState().nonePackageTruckPart =
+                                              (widget!.dataList!.elementAtOrNull(
+                                                  functions.getIndexOfBoolList(
+                                                      FFAppState()
+                                                          .searchableListComponentSelectedList
+                                                          .toList(),
+                                                      true)))!;
                                           safeSetState(() {});
                                           context.safePop();
                                           return;
@@ -4049,13 +4235,13 @@ class _SearchablePickUpListPageWidgetState
                                           }
 
                                           FFAppState()
-                                              .nonePackageCusMembership = widget!
-                                                  .dataList![
-                                              functions.getIndexOfBoolList(
-                                                  FFAppState()
-                                                      .searchableListComponentSelectedList
-                                                      .toList(),
-                                                  true)];
+                                                  .nonePackageCusMembership =
+                                              (widget!.dataList!.elementAtOrNull(
+                                                  functions.getIndexOfBoolList(
+                                                      FFAppState()
+                                                          .searchableListComponentSelectedList
+                                                          .toList(),
+                                                      true)))!;
                                           safeSetState(() {});
                                           context.safePop();
                                           return;
@@ -4063,13 +4249,13 @@ class _SearchablePickUpListPageWidgetState
                                         if (widget!.titleText ==
                                             'เลือกปีที่ผลิต') {
                                           FFAppState()
-                                              .insuranceInfoProductYear = widget!
-                                                  .dataList![
-                                              functions.getIndexOfBoolList(
-                                                  FFAppState()
-                                                      .searchableListComponentSelectedList
-                                                      .toList(),
-                                                  true)];
+                                                  .insuranceInfoProductYear =
+                                              (widget!.dataList!.elementAtOrNull(
+                                                  functions.getIndexOfBoolList(
+                                                      FFAppState()
+                                                          .searchableListComponentSelectedList
+                                                          .toList(),
+                                                      true)))!;
                                           safeSetState(() {});
                                           context.safePop();
                                           return;
@@ -4078,30 +4264,33 @@ class _SearchablePickUpListPageWidgetState
                                           FFAppState()
                                                   .insuranceInfoPage4SelectTenor =
                                               FFAppState()
-                                                      .InsuranceInfoPage4Tenor[
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .searchableListComponentSelectedList
-                                                          .toList(),
-                                                      true)];
+                                                  .InsuranceInfoPage4Tenor
+                                                  .elementAtOrNull(functions
+                                                      .getIndexOfBoolList(
+                                                          FFAppState()
+                                                              .searchableListComponentSelectedList
+                                                              .toList(),
+                                                          true))!;
                                           FFAppState()
                                                   .insuranceInfoPage4SelectInstallMentFirstDue =
                                               FFAppState()
-                                                      .InsuranceInfoPage4InstallmentFirstDue[
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .searchableListComponentSelectedList
-                                                          .toList(),
-                                                      true)];
+                                                  .InsuranceInfoPage4InstallmentFirstDue
+                                                  .elementAtOrNull(functions
+                                                      .getIndexOfBoolList(
+                                                          FFAppState()
+                                                              .searchableListComponentSelectedList
+                                                              .toList(),
+                                                          true))!;
                                           FFAppState()
                                                   .insuranceInfoPage4SelectInstallMentLastDue =
                                               FFAppState()
-                                                      .InsuranceInfoPage4InstallmentLastDue[
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .searchableListComponentSelectedList
-                                                          .toList(),
-                                                      true)];
+                                                  .InsuranceInfoPage4InstallmentLastDue
+                                                  .elementAtOrNull(functions
+                                                      .getIndexOfBoolList(
+                                                          FFAppState()
+                                                              .searchableListComponentSelectedList
+                                                              .toList(),
+                                                          true))!;
                                           safeSetState(() {});
                                           context.safePop();
                                           return;
@@ -4111,13 +4300,15 @@ class _SearchablePickUpListPageWidgetState
                                           if (widget!.fromPage ==
                                               'NonePackageSelectedInsurer') {
                                             FFAppState()
-                                                .nonePackageSelectedInsurerShortName = FFAppState()
-                                                    .nonePackageSelectedInsurerShortNameList[
-                                                functions.getIndexOfBoolList(
-                                                    FFAppState()
-                                                        .searchableListComponentSelectedList
-                                                        .toList(),
-                                                    true)];
+                                                    .nonePackageSelectedInsurerShortName =
+                                                FFAppState()
+                                                    .nonePackageSelectedInsurerShortNameList
+                                                    .elementAtOrNull(functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .searchableListComponentSelectedList
+                                                                .toList(),
+                                                            true))!;
                                             safeSetState(() {});
                                             context.safePop();
                                             return;
@@ -4128,21 +4319,23 @@ class _SearchablePickUpListPageWidgetState
                                           FFAppState()
                                                   .insuranceInfoRegistrationCodeSelect =
                                               FFAppState()
-                                                      .insuranceInfoRegistrationCodeList[
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .searchableListComponentSelectedList
-                                                          .toList(),
-                                                      true)];
+                                                  .insuranceInfoRegistrationCodeList
+                                                  .elementAtOrNull(functions
+                                                      .getIndexOfBoolList(
+                                                          FFAppState()
+                                                              .searchableListComponentSelectedList
+                                                              .toList(),
+                                                          true))!;
                                           FFAppState()
                                                   .insuranceInfoRegistrationProvinceSelect =
                                               FFAppState()
-                                                      .insuranceInfoRegistrationprovinceList[
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .searchableListComponentSelectedList
-                                                          .toList(),
-                                                      true)];
+                                                  .insuranceInfoRegistrationprovinceList
+                                                  .elementAtOrNull(functions
+                                                      .getIndexOfBoolList(
+                                                          FFAppState()
+                                                              .searchableListComponentSelectedList
+                                                              .toList(),
+                                                          true))!;
                                           safeSetState(() {});
                                           context.safePop();
                                           return;
@@ -4152,21 +4345,22 @@ class _SearchablePickUpListPageWidgetState
                                           if (widget!.fromPage !=
                                               'NonePackage') {
                                             FFAppState()
-                                                .insuranceBasicModelName = widget!
-                                                    .dataList![
-                                                functions.getIndexOfBoolList(
-                                                    FFAppState()
-                                                        .searchableListComponentSelectedList
-                                                        .toList(),
-                                                    true)];
-                                            FFAppState()
-                                                .insuranceBasicModelId = FFAppState()
-                                                    .insuranceBasicModelIdList[
-                                                functions.getIndexOfBoolList(
-                                                    FFAppState()
-                                                        .searchableListComponentSelectedList
-                                                        .toList(),
-                                                    true)];
+                                                    .insuranceBasicModelName =
+                                                (widget!.dataList!.elementAtOrNull(
+                                                    functions.getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .searchableListComponentSelectedList
+                                                            .toList(),
+                                                        true)))!;
+                                            FFAppState().insuranceBasicModelId =
+                                                FFAppState()
+                                                    .insuranceBasicModelIdList
+                                                    .elementAtOrNull(functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .searchableListComponentSelectedList
+                                                                .toList(),
+                                                            true))!;
                                             safeSetState(() {});
                                             FFAppState()
                                                 .updateSearchPackageCheckFilledAtIndex(
@@ -4181,12 +4375,12 @@ class _SearchablePickUpListPageWidgetState
                                         if (widget!.titleText == 'อาชีพ') {
                                           FFAppState()
                                                   .insuranceInfoSelectOccupationSubNameChoose =
-                                              widget!.dataList![
+                                              (widget!.dataList!.elementAtOrNull(
                                                   functions.getIndexOfBoolList(
                                                       FFAppState()
                                                           .searchableListComponentSelectedList
                                                           .toList(),
-                                                      true)];
+                                                      true)))!;
                                           safeSetState(() {});
                                           context.safePop();
                                           return;
@@ -4325,24 +4519,24 @@ class _SearchablePickUpListPageWidgetState
                                             (widget!.fromPage ==
                                                 'NonePackage'))) {
                                       if (widget!.fromPage == 'searchPackage') {
-                                        if ((widget!.dataList?[
+                                        if ((widget!.dataList?.elementAtOrNull(
                                                 functions.getIndexOfBoolList(
                                                     FFAppState()
                                                         .searchableListComponentSelectedList
                                                         .toList(),
-                                                    true)]) ==
+                                                    true))) ==
                                             'รถบรรทุก หัวลาก หางพ่วง') {
                                           context.goNamed(
                                               'InsuranceWorkSelectPage');
 
                                           return;
                                         } else {
-                                          if ((widget!.dataList?[
+                                          if ((widget!.dataList?.elementAtOrNull(
                                                   functions.getIndexOfBoolList(
                                                       FFAppState()
                                                           .searchableListComponentSelectedList
                                                           .toList(),
-                                                      true)]) ==
+                                                      true))) ==
                                               'รถแต่ง ต่อคอก') {
                                             context.goNamed(
                                                 'InsuranceWorkSelectPage');
@@ -4352,13 +4546,13 @@ class _SearchablePickUpListPageWidgetState
                                         }
 
                                         FFAppState()
-                                            .insuranceVehicleTypeDropDown = widget!
-                                                .dataList![
-                                            functions.getIndexOfBoolList(
-                                                FFAppState()
-                                                    .searchableListComponentSelectedList
-                                                    .toList(),
-                                                true)];
+                                                .insuranceVehicleTypeDropDown =
+                                            (widget!.dataList!.elementAtOrNull(
+                                                functions.getIndexOfBoolList(
+                                                    FFAppState()
+                                                        .searchableListComponentSelectedList
+                                                        .toList(),
+                                                    true)))!;
                                         FFAppState()
                                             .updateSearchPackageCheckFilledAtIndex(
                                           0,
@@ -4369,14 +4563,13 @@ class _SearchablePickUpListPageWidgetState
                                         return;
                                       } else {
                                         if (widget!.fromPage == 'NonePackage') {
-                                          FFAppState()
-                                              .nonePackageVehicleType = widget!
-                                                  .dataList![
-                                              functions.getIndexOfBoolList(
-                                                  FFAppState()
-                                                      .searchableListComponentSelectedList
-                                                      .toList(),
-                                                  true)];
+                                          FFAppState().nonePackageVehicleType =
+                                              (widget!.dataList!.elementAtOrNull(
+                                                  functions.getIndexOfBoolList(
+                                                      FFAppState()
+                                                          .searchableListComponentSelectedList
+                                                          .toList(),
+                                                      true)))!;
                                           safeSetState(() {});
                                           context.safePop();
                                           return;
@@ -4387,24 +4580,24 @@ class _SearchablePickUpListPageWidgetState
                                     }
                                     if (widget!.titleText == 'เลือกยี่ห้อรถ') {
                                       if (widget!.fromPage != 'NonePackage') {
-                                        FFAppState()
-                                            .insuranceBasicBrandName = widget!
-                                                .dataList![
-                                            functions.getIndexOfBoolList(
-                                                FFAppState()
-                                                    .searchableListComponentSelectedList
-                                                    .toList(),
-                                                true)];
+                                        FFAppState().insuranceBasicBrandName =
+                                            (widget!.dataList!.elementAtOrNull(
+                                                functions.getIndexOfBoolList(
+                                                    FFAppState()
+                                                        .searchableListComponentSelectedList
+                                                        .toList(),
+                                                    true)))!;
                                         FFAppState().isSelectBrandInPackage =
                                             true;
-                                        FFAppState()
-                                            .insuranceBasicBrandId = FFAppState()
-                                                .insuranceBasicBrandIdList[
-                                            functions.getIndexOfBoolList(
-                                                FFAppState()
-                                                    .searchableListComponentSelectedList
-                                                    .toList(),
-                                                true)];
+                                        FFAppState().insuranceBasicBrandId =
+                                            FFAppState()
+                                                .insuranceBasicBrandIdList
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .searchableListComponentSelectedList
+                                                            .toList(),
+                                                        true))!;
                                         safeSetState(() {});
                                         FFAppState().insuranceBasicModelNameList = functions
                                             .returnMappedListFrom2List(
@@ -4415,12 +4608,13 @@ class _SearchablePickUpListPageWidgetState
                                                     .insuranceBasicModelBrandIdListOriginal
                                                     .toList(),
                                                 FFAppState()
-                                                        .insuranceBasicBrandIdList[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)])
+                                                    .insuranceBasicBrandIdList
+                                                    .elementAtOrNull(functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .searchableListComponentSelectedList
+                                                                .toList(),
+                                                            true)))
                                             .toList()
                                             .cast<String>();
                                         FFAppState().insuranceBasicModelIdList = functions
@@ -4432,12 +4626,13 @@ class _SearchablePickUpListPageWidgetState
                                                     .insuranceBasicModelBrandIdListOriginal
                                                     .toList(),
                                                 FFAppState()
-                                                        .insuranceBasicBrandIdList[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)])
+                                                    .insuranceBasicBrandIdList
+                                                    .elementAtOrNull(functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .searchableListComponentSelectedList
+                                                                .toList(),
+                                                            true)))
                                             .toList()
                                             .cast<String>();
                                         safeSetState(() {});
@@ -4450,22 +4645,22 @@ class _SearchablePickUpListPageWidgetState
                                         context.safePop();
                                         return;
                                       } else {
-                                        FFAppState()
-                                            .nonePackageBrandName = widget!
-                                                .dataList![
-                                            functions.getIndexOfBoolList(
-                                                FFAppState()
-                                                    .searchableListComponentSelectedList
-                                                    .toList(),
-                                                true)];
-                                        FFAppState()
-                                            .nonePackageBrandId = FFAppState()
-                                                .insuranceBasicBrandIdList[
-                                            functions.getIndexOfBoolList(
-                                                FFAppState()
-                                                    .searchableListComponentSelectedList
-                                                    .toList(),
-                                                true)];
+                                        FFAppState().nonePackageBrandName =
+                                            (widget!.dataList!.elementAtOrNull(
+                                                functions.getIndexOfBoolList(
+                                                    FFAppState()
+                                                        .searchableListComponentSelectedList
+                                                        .toList(),
+                                                    true)))!;
+                                        FFAppState().nonePackageBrandId =
+                                            FFAppState()
+                                                .insuranceBasicBrandIdList
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .searchableListComponentSelectedList
+                                                            .toList(),
+                                                        true))!;
                                         FFAppState().nonePackageIsBrandSelect =
                                             true;
                                         safeSetState(() {});
@@ -4478,12 +4673,13 @@ class _SearchablePickUpListPageWidgetState
                                                     .insuranceBasicModelBrandIdListOriginal
                                                     .toList(),
                                                 FFAppState()
-                                                        .insuranceBasicBrandIdList[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)])
+                                                    .insuranceBasicBrandIdList
+                                                    .elementAtOrNull(functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .searchableListComponentSelectedList
+                                                                .toList(),
+                                                            true)))
                                             .toList()
                                             .cast<String>();
                                         FFAppState().nonePackageSearchModelIdList = functions
@@ -4495,12 +4691,13 @@ class _SearchablePickUpListPageWidgetState
                                                     .insuranceBasicModelBrandIdListOriginal
                                                     .toList(),
                                                 FFAppState()
-                                                        .insuranceBasicBrandIdList[
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)])
+                                                    .insuranceBasicBrandIdList
+                                                    .elementAtOrNull(functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .searchableListComponentSelectedList
+                                                                .toList(),
+                                                            true)))
                                             .toList()
                                             .cast<String>();
                                         safeSetState(() {});
@@ -4511,14 +4708,13 @@ class _SearchablePickUpListPageWidgetState
                                     if (widget!.titleText ==
                                         'เลือกปีจดทะเบียน') {
                                       if (widget!.fromPage != 'NonePackage') {
-                                        FFAppState()
-                                            .insuranceBasicYear = widget!
-                                                .dataList![
-                                            functions.getIndexOfBoolList(
-                                                FFAppState()
-                                                    .searchableListComponentSelectedList
-                                                    .toList(),
-                                                true)];
+                                        FFAppState().insuranceBasicYear =
+                                            (widget!.dataList!.elementAtOrNull(
+                                                functions.getIndexOfBoolList(
+                                                    FFAppState()
+                                                        .searchableListComponentSelectedList
+                                                        .toList(),
+                                                    true)))!;
                                         safeSetState(() {});
                                         FFAppState()
                                             .updateSearchPackageCheckFilledAtIndex(
@@ -4529,13 +4725,13 @@ class _SearchablePickUpListPageWidgetState
                                         context.safePop();
                                         return;
                                       } else {
-                                        FFAppState().nonePackageYear = widget!
-                                                .dataList![
-                                            functions.getIndexOfBoolList(
-                                                FFAppState()
-                                                    .searchableListComponentSelectedList
-                                                    .toList(),
-                                                true)];
+                                        FFAppState().nonePackageYear =
+                                            (widget!.dataList!.elementAtOrNull(
+                                                functions.getIndexOfBoolList(
+                                                    FFAppState()
+                                                        .searchableListComponentSelectedList
+                                                        .toList(),
+                                                    true)))!;
                                         safeSetState(() {});
                                         context.safePop();
                                         return;
@@ -4544,10 +4740,9 @@ class _SearchablePickUpListPageWidgetState
                                     if (widget!.titleText ==
                                         'เลือกลักษณะการใช้รถ') {
                                       if (widget!.fromPage != 'NonePackage') {
-                                        FFAppState()
-                                            .insuranceBasicVehicleUsedTypeId = FFAppState()
-                                                .insuranceBasicVehicleUsedTypeIdList[
-                                            functions.getIndexOfSomethingList(
+                                        FFAppState().insuranceBasicVehicleUsedTypeId = FFAppState()
+                                            .insuranceBasicVehicleUsedTypeIdList
+                                            .elementAtOrNull(functions.getIndexOfSomethingList(
                                                 functions
                                                     .generateInsuranceVehicleTypeDropdown(
                                                         FFAppState()
@@ -4560,16 +4755,15 @@ class _SearchablePickUpListPageWidgetState
                                                             .insuranceBasicVehicleUsedTypeNameList
                                                             .toList())
                                                     ?.toList(),
-                                                widget!.dataList?[functions
-                                                    .getIndexOfBoolList(
+                                                widget!.dataList?.elementAtOrNull(
+                                                    functions.getIndexOfBoolList(
                                                         FFAppState()
                                                             .searchableListComponentSelectedList
                                                             .toList(),
-                                                        true)])];
-                                        FFAppState()
-                                            .insuranceBasicVehicleUsedTypeCode = FFAppState()
-                                                .insuranceBasicVehicleUsedTypeCodeList[
-                                            functions.getIndexOfSomethingList(
+                                                        true))))!;
+                                        FFAppState().insuranceBasicVehicleUsedTypeCode = FFAppState()
+                                            .insuranceBasicVehicleUsedTypeCodeList
+                                            .elementAtOrNull(functions.getIndexOfSomethingList(
                                                 functions
                                                     .generateInsuranceVehicleTypeDropdown(
                                                         FFAppState()
@@ -4582,16 +4776,15 @@ class _SearchablePickUpListPageWidgetState
                                                             .insuranceBasicVehicleUsedTypeNameList
                                                             .toList())
                                                     ?.toList(),
-                                                widget!.dataList?[functions
-                                                    .getIndexOfBoolList(
+                                                widget!.dataList?.elementAtOrNull(
+                                                    functions.getIndexOfBoolList(
                                                         FFAppState()
                                                             .searchableListComponentSelectedList
                                                             .toList(),
-                                                        true)])];
-                                        FFAppState()
-                                            .insuranceBasicVehicleUsedTypeName = FFAppState()
-                                                .insuranceBasicVehicleUsedTypeNameList[
-                                            functions.getIndexOfSomethingList(
+                                                        true))))!;
+                                        FFAppState().insuranceBasicVehicleUsedTypeName = FFAppState()
+                                            .insuranceBasicVehicleUsedTypeNameList
+                                            .elementAtOrNull(functions.getIndexOfSomethingList(
                                                 functions
                                                     .generateInsuranceVehicleTypeDropdown(
                                                         FFAppState()
@@ -4604,12 +4797,12 @@ class _SearchablePickUpListPageWidgetState
                                                             .insuranceBasicVehicleUsedTypeNameList
                                                             .toList())
                                                     ?.toList(),
-                                                widget!.dataList?[functions
-                                                    .getIndexOfBoolList(
+                                                widget!.dataList?.elementAtOrNull(
+                                                    functions.getIndexOfBoolList(
                                                         FFAppState()
                                                             .searchableListComponentSelectedList
                                                             .toList(),
-                                                        true)])];
+                                                        true))))!;
                                         safeSetState(() {});
                                         FFAppState()
                                             .updateSearchPackageCheckFilledAtIndex(
@@ -4620,10 +4813,9 @@ class _SearchablePickUpListPageWidgetState
                                         context.safePop();
                                         return;
                                       } else {
-                                        FFAppState()
-                                            .nonePackageUsedTypeId = FFAppState()
-                                                .insuranceBasicVehicleUsedTypeIdList[
-                                            functions.getIndexOfSomethingList(
+                                        FFAppState().nonePackageUsedTypeId = FFAppState()
+                                            .insuranceBasicVehicleUsedTypeIdList
+                                            .elementAtOrNull(functions.getIndexOfSomethingList(
                                                 functions
                                                     .generateInsuranceVehicleTypeDropdown(
                                                         FFAppState()
@@ -4636,16 +4828,15 @@ class _SearchablePickUpListPageWidgetState
                                                             .insuranceBasicVehicleUsedTypeNameList
                                                             .toList())
                                                     ?.toList(),
-                                                widget!.dataList?[functions
-                                                    .getIndexOfBoolList(
+                                                widget!.dataList?.elementAtOrNull(
+                                                    functions.getIndexOfBoolList(
                                                         FFAppState()
                                                             .searchableListComponentSelectedList
                                                             .toList(),
-                                                        true)])];
-                                        FFAppState()
-                                            .nonePackageUsedTypeCode = FFAppState()
-                                                .insuranceBasicVehicleUsedTypeCodeList[
-                                            functions.getIndexOfSomethingList(
+                                                        true))))!;
+                                        FFAppState().nonePackageUsedTypeCode = FFAppState()
+                                            .insuranceBasicVehicleUsedTypeCodeList
+                                            .elementAtOrNull(functions.getIndexOfSomethingList(
                                                 functions
                                                     .generateInsuranceVehicleTypeDropdown(
                                                         FFAppState()
@@ -4658,16 +4849,15 @@ class _SearchablePickUpListPageWidgetState
                                                             .insuranceBasicVehicleUsedTypeNameList
                                                             .toList())
                                                     ?.toList(),
-                                                widget!.dataList?[functions
-                                                    .getIndexOfBoolList(
+                                                widget!.dataList?.elementAtOrNull(
+                                                    functions.getIndexOfBoolList(
                                                         FFAppState()
                                                             .searchableListComponentSelectedList
                                                             .toList(),
-                                                        true)])];
-                                        FFAppState()
-                                            .nonePackageUsedTypeName = FFAppState()
-                                                .insuranceBasicVehicleUsedTypeNameList[
-                                            functions.getIndexOfSomethingList(
+                                                        true))))!;
+                                        FFAppState().nonePackageUsedTypeName = FFAppState()
+                                            .insuranceBasicVehicleUsedTypeNameList
+                                            .elementAtOrNull(functions.getIndexOfSomethingList(
                                                 functions
                                                     .generateInsuranceVehicleTypeDropdown(
                                                         FFAppState()
@@ -4680,12 +4870,12 @@ class _SearchablePickUpListPageWidgetState
                                                             .insuranceBasicVehicleUsedTypeNameList
                                                             .toList())
                                                     ?.toList(),
-                                                widget!.dataList?[functions
-                                                    .getIndexOfBoolList(
+                                                widget!.dataList?.elementAtOrNull(
+                                                    functions.getIndexOfBoolList(
                                                         FFAppState()
                                                             .searchableListComponentSelectedList
                                                             .toList(),
-                                                        true)])];
+                                                        true))))!;
                                         safeSetState(() {});
                                         context.safePop();
                                         return;
@@ -4735,30 +4925,31 @@ class _SearchablePickUpListPageWidgetState
                                         context.safePop();
                                         return;
                                       } else {
-                                        FFAppState()
-                                            .nonePackageCoverTypeId = FFAppState()
-                                                .insuranceBasicCoverTypeIdList[
-                                            functions.getIndexOfBoolList(
-                                                FFAppState()
-                                                    .searchableListComponentSelectedList
-                                                    .toList(),
-                                                true)];
-                                        FFAppState()
-                                            .nonePackageCoverTypeCode = FFAppState()
-                                                .insuranceBasicCoverTypeCodeList[
-                                            functions.getIndexOfBoolList(
-                                                FFAppState()
-                                                    .searchableListComponentSelectedList
-                                                    .toList(),
-                                                true)];
-                                        FFAppState()
-                                            .nonePackageCoverTypeName = widget!
-                                                .dataList![
-                                            functions.getIndexOfBoolList(
-                                                FFAppState()
-                                                    .searchableListComponentSelectedList
-                                                    .toList(),
-                                                true)];
+                                        FFAppState().nonePackageCoverTypeId =
+                                            FFAppState()
+                                                .insuranceBasicCoverTypeIdList
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .searchableListComponentSelectedList
+                                                            .toList(),
+                                                        true))!;
+                                        FFAppState().nonePackageCoverTypeCode =
+                                            FFAppState()
+                                                .insuranceBasicCoverTypeCodeList
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .searchableListComponentSelectedList
+                                                            .toList(),
+                                                        true))!;
+                                        FFAppState().nonePackageCoverTypeName =
+                                            (widget!.dataList!.elementAtOrNull(
+                                                functions.getIndexOfBoolList(
+                                                    FFAppState()
+                                                        .searchableListComponentSelectedList
+                                                        .toList(),
+                                                    true)))!;
                                         safeSetState(() {});
                                         context.safePop();
                                         return;
@@ -4797,30 +4988,33 @@ class _SearchablePickUpListPageWidgetState
                                         context.safePop();
                                         return;
                                       } else {
-                                        FFAppState()
-                                            .nonePackageGarageTypeId = FFAppState()
-                                                .insuranceBasicGarageTypeIdList[
-                                            functions.getIndexOfBoolList(
-                                                FFAppState()
-                                                    .searchableListComponentSelectedList
-                                                    .toList(),
-                                                true)];
-                                        FFAppState()
-                                            .nonePackageGarageTypeName = FFAppState()
-                                                .insuranceBasicGarageTypeNameList[
-                                            functions.getIndexOfBoolList(
-                                                FFAppState()
-                                                    .searchableListComponentSelectedList
-                                                    .toList(),
-                                                true)];
-                                        FFAppState()
-                                            .nonePackageGarageTypeCode = FFAppState()
-                                                .nonePackageGarageTypeCodeList[
-                                            functions.getIndexOfBoolList(
-                                                FFAppState()
-                                                    .searchableListComponentSelectedList
-                                                    .toList(),
-                                                true)];
+                                        FFAppState().nonePackageGarageTypeId =
+                                            FFAppState()
+                                                .insuranceBasicGarageTypeIdList
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .searchableListComponentSelectedList
+                                                            .toList(),
+                                                        true))!;
+                                        FFAppState().nonePackageGarageTypeName =
+                                            FFAppState()
+                                                .insuranceBasicGarageTypeNameList
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .searchableListComponentSelectedList
+                                                            .toList(),
+                                                        true))!;
+                                        FFAppState().nonePackageGarageTypeCode =
+                                            FFAppState()
+                                                .nonePackageGarageTypeCodeList
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .searchableListComponentSelectedList
+                                                            .toList(),
+                                                        true))!;
                                         safeSetState(() {});
                                         context.safePop();
                                         return;
@@ -4872,51 +5066,50 @@ class _SearchablePickUpListPageWidgetState
                                       return;
                                     }
                                     if (widget!.titleText == 'ประเภทบัตร') {
-                                      FFAppState()
-                                          .insuranceInfoCardType = widget!
-                                              .dataList![
-                                          functions.getIndexOfBoolList(
-                                              FFAppState()
-                                                  .searchableListComponentSelectedList
-                                                  .toList(),
-                                              true)];
+                                      FFAppState().insuranceInfoCardType =
+                                          (widget!.dataList!.elementAtOrNull(
+                                              functions.getIndexOfBoolList(
+                                                  FFAppState()
+                                                      .searchableListComponentSelectedList
+                                                      .toList(),
+                                                  true)))!;
                                       safeSetState(() {});
                                       context.safePop();
                                       return;
                                     }
                                     if (widget!.titleText == 'เพศ') {
-                                      FFAppState().insuranceInfoGender = widget!
-                                              .dataList![
-                                          functions.getIndexOfBoolList(
-                                              FFAppState()
-                                                  .searchableListComponentSelectedList
-                                                  .toList(),
-                                              true)];
+                                      FFAppState().insuranceInfoGender =
+                                          (widget!.dataList!.elementAtOrNull(
+                                              functions.getIndexOfBoolList(
+                                                  FFAppState()
+                                                      .searchableListComponentSelectedList
+                                                      .toList(),
+                                                  true)))!;
                                       safeSetState(() {});
                                       context.safePop();
                                       return;
                                     }
                                     if (widget!.titleText == 'คำนำหน้า') {
-                                      FFAppState().insuranceInfoTitle = widget!
-                                              .dataList![
-                                          functions.getIndexOfBoolList(
-                                              FFAppState()
-                                                  .searchableListComponentSelectedList
-                                                  .toList(),
-                                              true)];
+                                      FFAppState().insuranceInfoTitle =
+                                          (widget!.dataList!.elementAtOrNull(
+                                              functions.getIndexOfBoolList(
+                                                  FFAppState()
+                                                      .searchableListComponentSelectedList
+                                                      .toList(),
+                                                  true)))!;
                                       safeSetState(() {});
                                       context.safePop();
                                       return;
                                     }
                                     if (widget!.titleText == 'กลุ่มอาชีพ') {
                                       FFAppState()
-                                          .insuranceInfoOccupationGroup = widget!
-                                              .dataList![
-                                          functions.getIndexOfBoolList(
-                                              FFAppState()
-                                                  .searchableListComponentSelectedList
-                                                  .toList(),
-                                              true)];
+                                              .insuranceInfoOccupationGroup =
+                                          (widget!.dataList!.elementAtOrNull(
+                                              functions.getIndexOfBoolList(
+                                                  FFAppState()
+                                                      .searchableListComponentSelectedList
+                                                      .toList(),
+                                                  true)))!;
                                       safeSetState(() {});
                                       context.safePop();
                                       return;
@@ -4927,21 +5120,22 @@ class _SearchablePickUpListPageWidgetState
                                         return;
                                       }
 
-                                      FFAppState()
-                                          .nonePackageProvinceId = FFAppState()
-                                              .insuranceBasicProvinceIdList[
-                                          functions.getIndexOfBoolList(
-                                              FFAppState()
-                                                  .searchableListComponentSelectedList
-                                                  .toList(),
-                                              true)];
-                                      FFAppState().nonePackageProvince = widget!
-                                              .dataList![
-                                          functions.getIndexOfBoolList(
-                                              FFAppState()
-                                                  .searchableListComponentSelectedList
-                                                  .toList(),
-                                              true)];
+                                      FFAppState().nonePackageProvinceId =
+                                          FFAppState()
+                                              .insuranceBasicProvinceIdList
+                                              .elementAtOrNull(
+                                                  functions.getIndexOfBoolList(
+                                                      FFAppState()
+                                                          .searchableListComponentSelectedList
+                                                          .toList(),
+                                                      true))!;
+                                      FFAppState().nonePackageProvince =
+                                          (widget!.dataList!.elementAtOrNull(
+                                              functions.getIndexOfBoolList(
+                                                  FFAppState()
+                                                      .searchableListComponentSelectedList
+                                                      .toList(),
+                                                  true)))!;
                                       safeSetState(() {});
                                       context.safePop();
                                       return;
@@ -4951,162 +5145,187 @@ class _SearchablePickUpListPageWidgetState
                                           'addAddressIdCard') {
                                         FFAppState()
                                                 .addAddressSelectProvinceId =
-                                            FFAppState().addAddressProvinceId[
-                                                functions.getIndexOfBoolList(
-                                                    FFAppState()
-                                                        .searchableListComponentSelectedList
-                                                        .toList(),
-                                                    true)];
-                                        FFAppState()
-                                                .addAddressSelectProvinceName =
-                                            FFAppState().addAddressProvinceName[
-                                                functions.getIndexOfBoolList(
-                                                    FFAppState()
-                                                        .searchableListComponentSelectedList
-                                                        .toList(),
-                                                    true)];
-                                        FFAppState()
-                                                .addAddressSelectDistrictId =
                                             FFAppState()
-                                                .addAddressDistrictId[functions
+                                                .addAddressProvinceId
+                                                .elementAtOrNull(functions
                                                     .getIndexOfBoolList(
                                                         FFAppState()
                                                             .searchableListComponentSelectedList
                                                             .toList(),
-                                                        true)]
-                                                .toString();
+                                                        true))!;
                                         FFAppState()
-                                                .addAddressSelectDistrictName =
-                                            FFAppState().addAddressDistrictName[
-                                                functions.getIndexOfBoolList(
-                                                    FFAppState()
-                                                        .searchableListComponentSelectedList
-                                                        .toList(),
-                                                    true)];
-                                        FFAppState()
-                                                .addAddressSelectSubdistrictId =
+                                                .addAddressSelectProvinceName =
                                             FFAppState()
-                                                .addAddressSubdistrictId[
-                                                    functions.getIndexOfBoolList(
+                                                .addAddressProvinceName
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfBoolList(
                                                         FFAppState()
                                                             .searchableListComponentSelectedList
                                                             .toList(),
-                                                        true)]
+                                                        true))!;
+                                        FFAppState()
+                                                .addAddressSelectDistrictId =
+                                            FFAppState()
+                                                .addAddressDistrictId
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .searchableListComponentSelectedList
+                                                            .toList(),
+                                                        true))!
+                                                .toString();
+                                        FFAppState()
+                                                .addAddressSelectDistrictName =
+                                            FFAppState()
+                                                .addAddressDistrictName
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .searchableListComponentSelectedList
+                                                            .toList(),
+                                                        true))!;
+                                        FFAppState()
+                                                .addAddressSelectSubdistrictId =
+                                            FFAppState()
+                                                .addAddressSubdistrictId
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .searchableListComponentSelectedList
+                                                            .toList(),
+                                                        true))!
                                                 .toString();
                                         FFAppState()
                                                 .addAddressSelectSubdistrictName =
                                             FFAppState()
-                                                    .addAddressSubdistrictName[
-                                                functions.getIndexOfBoolList(
-                                                    FFAppState()
-                                                        .searchableListComponentSelectedList
-                                                        .toList(),
-                                                    true)];
-                                        FFAppState()
-                                            .addAddressSelectZipCode = FFAppState()
-                                                .addAddressZipCode[
-                                            functions.getIndexOfBoolList(
-                                                FFAppState()
-                                                    .searchableListComponentSelectedList
-                                                    .toList(),
-                                                true)];
-                                        FFAppState()
-                                            .addAddressSelectKeyWord = FFAppState()
-                                                .addAddressKeyWord[
-                                            functions.getIndexOfBoolList(
-                                                FFAppState()
-                                                    .searchableListComponentSelectedList
-                                                    .toList(),
-                                                true)];
-                                        FFAppState()
-                                            .addAddressAtIdCard = FFAppState()
-                                                .addAddressKeyWord[
-                                            functions.getIndexOfBoolList(
-                                                FFAppState()
-                                                    .searchableListComponentSelectedList
-                                                    .toList(),
-                                                true)];
-                                        safeSetState(() {});
-                                        context.safePop();
-                                        return;
-                                      } else {
-                                        FFAppState()
-                                            .addAddressForDoc = FFAppState()
-                                                .addAddressKeyWord[
-                                            functions.getIndexOfBoolList(
-                                                FFAppState()
-                                                    .searchableListComponentSelectedList
-                                                    .toList(),
-                                                true)];
-                                        FFAppState()
-                                                .addAdressSelectDocProvinceId =
-                                            FFAppState().addAddressProvinceId[
-                                                functions.getIndexOfBoolList(
-                                                    FFAppState()
-                                                        .searchableListComponentSelectedList
-                                                        .toList(),
-                                                    true)];
-                                        FFAppState()
-                                                .addAdressSelectDocProvinceName =
-                                            FFAppState().addAddressProvinceName[
-                                                functions.getIndexOfBoolList(
-                                                    FFAppState()
-                                                        .searchableListComponentSelectedList
-                                                        .toList(),
-                                                    true)];
-                                        FFAppState()
-                                                .addAdressSelectDocDistrictName =
-                                            FFAppState().addAddressDistrictName[
-                                                functions.getIndexOfBoolList(
-                                                    FFAppState()
-                                                        .searchableListComponentSelectedList
-                                                        .toList(),
-                                                    true)];
-                                        FFAppState()
-                                                .addAddressSelectDocDistrictId =
-                                            FFAppState()
-                                                .addAddressDistrictId[functions
+                                                .addAddressSubdistrictName
+                                                .elementAtOrNull(functions
                                                     .getIndexOfBoolList(
                                                         FFAppState()
                                                             .searchableListComponentSelectedList
                                                             .toList(),
-                                                        true)]
+                                                        true))!;
+                                        FFAppState().addAddressSelectZipCode =
+                                            FFAppState()
+                                                .addAddressZipCode
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .searchableListComponentSelectedList
+                                                            .toList(),
+                                                        true))!;
+                                        FFAppState().addAddressSelectKeyWord =
+                                            FFAppState()
+                                                .addAddressKeyWord
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .searchableListComponentSelectedList
+                                                            .toList(),
+                                                        true))!;
+                                        FFAppState().addAddressAtIdCard =
+                                            FFAppState()
+                                                .addAddressKeyWord
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .searchableListComponentSelectedList
+                                                            .toList(),
+                                                        true))!;
+                                        safeSetState(() {});
+                                        context.safePop();
+                                        return;
+                                      } else {
+                                        FFAppState().addAddressForDoc = FFAppState()
+                                            .addAddressKeyWord
+                                            .elementAtOrNull(
+                                                functions.getIndexOfBoolList(
+                                                    FFAppState()
+                                                        .searchableListComponentSelectedList
+                                                        .toList(),
+                                                    true))!;
+                                        FFAppState()
+                                                .addAdressSelectDocProvinceId =
+                                            FFAppState()
+                                                .addAddressProvinceId
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .searchableListComponentSelectedList
+                                                            .toList(),
+                                                        true))!;
+                                        FFAppState()
+                                                .addAdressSelectDocProvinceName =
+                                            FFAppState()
+                                                .addAddressProvinceName
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .searchableListComponentSelectedList
+                                                            .toList(),
+                                                        true))!;
+                                        FFAppState()
+                                                .addAdressSelectDocDistrictName =
+                                            FFAppState()
+                                                .addAddressDistrictName
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .searchableListComponentSelectedList
+                                                            .toList(),
+                                                        true))!;
+                                        FFAppState()
+                                                .addAddressSelectDocDistrictId =
+                                            FFAppState()
+                                                .addAddressDistrictId
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .searchableListComponentSelectedList
+                                                            .toList(),
+                                                        true))!
                                                 .toString();
                                         FFAppState()
                                                 .addAddressSelectDocSubdistrictId =
                                             FFAppState()
-                                                .addAddressSubdistrictId[
-                                                    functions.getIndexOfBoolList(
+                                                .addAddressSubdistrictId
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfBoolList(
                                                         FFAppState()
                                                             .searchableListComponentSelectedList
                                                             .toList(),
-                                                        true)]
+                                                        true))!
                                                 .toString();
                                         FFAppState()
                                                 .addAddressSelectDocSubdistrictName =
                                             FFAppState()
-                                                    .addAddressSubdistrictName[
-                                                functions.getIndexOfBoolList(
-                                                    FFAppState()
-                                                        .searchableListComponentSelectedList
-                                                        .toList(),
-                                                    true)];
+                                                .addAddressSubdistrictName
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .searchableListComponentSelectedList
+                                                            .toList(),
+                                                        true))!;
                                         FFAppState()
                                                 .addAddressSelectDocZipCode =
-                                            FFAppState().addAddressZipCode[
-                                                functions.getIndexOfBoolList(
-                                                    FFAppState()
-                                                        .searchableListComponentSelectedList
-                                                        .toList(),
-                                                    true)];
+                                            FFAppState()
+                                                .addAddressZipCode
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .searchableListComponentSelectedList
+                                                            .toList(),
+                                                        true))!;
                                         FFAppState()
                                                 .addAddressSelectDocKeyWord =
-                                            FFAppState().addAddressKeyWord[
-                                                functions.getIndexOfBoolList(
-                                                    FFAppState()
-                                                        .searchableListComponentSelectedList
-                                                        .toList(),
-                                                    true)];
+                                            FFAppState()
+                                                .addAddressKeyWord
+                                                .elementAtOrNull(functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .searchableListComponentSelectedList
+                                                            .toList(),
+                                                        true))!;
                                         safeSetState(() {});
                                         context.safePop();
                                         return;
@@ -5118,14 +5337,13 @@ class _SearchablePickUpListPageWidgetState
                                         return;
                                       }
 
-                                      FFAppState()
-                                          .nonePackageCarrierType = widget!
-                                              .dataList![
-                                          functions.getIndexOfBoolList(
-                                              FFAppState()
-                                                  .searchableListComponentSelectedList
-                                                  .toList(),
-                                              true)];
+                                      FFAppState().nonePackageCarrierType =
+                                          (widget!.dataList!.elementAtOrNull(
+                                              functions.getIndexOfBoolList(
+                                                  FFAppState()
+                                                      .searchableListComponentSelectedList
+                                                      .toList(),
+                                                  true)))!;
                                       safeSetState(() {});
                                       context.safePop();
                                       return;
@@ -5136,14 +5354,13 @@ class _SearchablePickUpListPageWidgetState
                                         return;
                                       }
 
-                                      FFAppState()
-                                          .nonePackageTruckPart = widget!
-                                              .dataList![
-                                          functions.getIndexOfBoolList(
-                                              FFAppState()
-                                                  .searchableListComponentSelectedList
-                                                  .toList(),
-                                              true)];
+                                      FFAppState().nonePackageTruckPart =
+                                          (widget!.dataList!.elementAtOrNull(
+                                              functions.getIndexOfBoolList(
+                                                  FFAppState()
+                                                      .searchableListComponentSelectedList
+                                                      .toList(),
+                                                  true)))!;
                                       safeSetState(() {});
                                       context.safePop();
                                       return;
@@ -5154,27 +5371,25 @@ class _SearchablePickUpListPageWidgetState
                                         return;
                                       }
 
-                                      FFAppState()
-                                          .nonePackageCusMembership = widget!
-                                              .dataList![
-                                          functions.getIndexOfBoolList(
-                                              FFAppState()
-                                                  .searchableListComponentSelectedList
-                                                  .toList(),
-                                              true)];
+                                      FFAppState().nonePackageCusMembership =
+                                          (widget!.dataList!.elementAtOrNull(
+                                              functions.getIndexOfBoolList(
+                                                  FFAppState()
+                                                      .searchableListComponentSelectedList
+                                                      .toList(),
+                                                  true)))!;
                                       safeSetState(() {});
                                       context.safePop();
                                       return;
                                     }
                                     if (widget!.titleText == 'เลือกปีที่ผลิต') {
-                                      FFAppState()
-                                          .insuranceInfoProductYear = widget!
-                                              .dataList![
-                                          functions.getIndexOfBoolList(
-                                              FFAppState()
-                                                  .searchableListComponentSelectedList
-                                                  .toList(),
-                                              true)];
+                                      FFAppState().insuranceInfoProductYear =
+                                          (widget!.dataList!.elementAtOrNull(
+                                              functions.getIndexOfBoolList(
+                                                  FFAppState()
+                                                      .searchableListComponentSelectedList
+                                                      .toList(),
+                                                  true)))!;
                                       safeSetState(() {});
                                       context.safePop();
                                       return;

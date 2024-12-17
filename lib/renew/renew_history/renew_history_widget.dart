@@ -51,7 +51,10 @@ class _RenewHistoryWidgetState extends State<RenewHistoryWidget> {
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => FocusScope.of(context).unfocus(),
+              onTap: () {
+                FocusScope.of(context).unfocus();
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: LoadingSceneWidget(),
@@ -129,7 +132,10 @@ class _RenewHistoryWidgetState extends State<RenewHistoryWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -306,7 +312,8 @@ class _RenewHistoryWidgetState extends State<RenewHistoryWidget> {
                                                               (_model.historyAPIOutput
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            )?[datajsonIndex],
+                                                            )?.elementAtOrNull(
+                                                                datajsonIndex),
                                                             '-',
                                                           ),
                                                           style: FlutterFlowTheme
@@ -357,7 +364,8 @@ class _RenewHistoryWidgetState extends State<RenewHistoryWidget> {
                                                               (_model.historyAPIOutput
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            )?[datajsonIndex],
+                                                            )?.elementAtOrNull(
+                                                                datajsonIndex),
                                                             '-',
                                                           ),
                                                           style: FlutterFlowTheme
@@ -411,7 +419,8 @@ class _RenewHistoryWidgetState extends State<RenewHistoryWidget> {
                                                                 (_model.historyAPIOutput
                                                                         ?.jsonBody ??
                                                                     ''),
-                                                              )?[datajsonIndex],
+                                                              )?.elementAtOrNull(
+                                                                  datajsonIndex),
                                                               '-',
                                                             )),
                                                             '-',
@@ -464,7 +473,8 @@ class _RenewHistoryWidgetState extends State<RenewHistoryWidget> {
                                                               (_model.historyAPIOutput
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            )?[datajsonIndex],
+                                                            )?.elementAtOrNull(
+                                                                datajsonIndex),
                                                             '-',
                                                           ),
                                                           style: FlutterFlowTheme
@@ -515,7 +525,8 @@ class _RenewHistoryWidgetState extends State<RenewHistoryWidget> {
                                                               (_model.historyAPIOutput
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            )?[datajsonIndex],
+                                                            )?.elementAtOrNull(
+                                                                datajsonIndex),
                                                             '-',
                                                           ),
                                                           style: FlutterFlowTheme
@@ -565,7 +576,8 @@ class _RenewHistoryWidgetState extends State<RenewHistoryWidget> {
                                                               (_model.historyAPIOutput
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            )?[datajsonIndex],
+                                                            )?.elementAtOrNull(
+                                                                datajsonIndex),
                                                             '-',
                                                           )}_${valueOrDefault<String>(
                                                             RenewCallStatusGetHistoryCall
@@ -573,7 +585,8 @@ class _RenewHistoryWidgetState extends State<RenewHistoryWidget> {
                                                               (_model.historyAPIOutput
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            )?[datajsonIndex],
+                                                            )?.elementAtOrNull(
+                                                                datajsonIndex),
                                                             '-',
                                                           )}',
                                                           style: FlutterFlowTheme
@@ -628,7 +641,8 @@ class _RenewHistoryWidgetState extends State<RenewHistoryWidget> {
                                                                 (_model.historyAPIOutput
                                                                         ?.jsonBody ??
                                                                     ''),
-                                                              )?[datajsonIndex],
+                                                              )?.elementAtOrNull(
+                                                                  datajsonIndex),
                                                               '-',
                                                             ),
                                                             style: FlutterFlowTheme

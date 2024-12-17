@@ -86,7 +86,10 @@ class _NonePackageEditPage3WidgetState
                 : null;
 
         return GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          onTap: () {
+            FocusScope.of(context).unfocus();
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
           child: WillPopScope(
             onWillPop: () async => false,
             child: Scaffold(
@@ -501,9 +504,11 @@ class _NonePackageEditPage3WidgetState
                                                         ),
                                                       ),
                                                     ),
-                                                    if (FFAppState().nonePackageImageOldVmi[
-                                                                FFAppState()
-                                                                    .nonePackageInsurerOutputIndex] !=
+                                                    if (FFAppState()
+                                                                .nonePackageImageOldVmi
+                                                                .elementAtOrNull(
+                                                                    FFAppState()
+                                                                        .nonePackageInsurerOutputIndex) !=
                                                             ''
                                                         ? true
                                                         : false)
@@ -529,10 +534,15 @@ class _NonePackageEditPage3WidgetState
                                                               return WebViewAware(
                                                                 child:
                                                                     GestureDetector(
-                                                                  onTap: () =>
-                                                                      FocusScope.of(
-                                                                              context)
-                                                                          .unfocus(),
+                                                                  onTap: () {
+                                                                    FocusScope.of(
+                                                                            context)
+                                                                        .unfocus();
+                                                                    FocusManager
+                                                                        .instance
+                                                                        .primaryFocus
+                                                                        ?.unfocus();
+                                                                  },
                                                                   child:
                                                                       Padding(
                                                                     padding: MediaQuery
@@ -544,9 +554,9 @@ class _NonePackageEditPage3WidgetState
                                                                           .infinity,
                                                                       child:
                                                                           ShowImageComponentWidget(
-                                                                        imageUrl: FFAppState().nonePackageImageOldVmi[FFAppState().nonePackageInsurerOutputIndex] !=
+                                                                        imageUrl: FFAppState().nonePackageImageOldVmi.elementAtOrNull(FFAppState().nonePackageInsurerOutputIndex) !=
                                                                                 ''
-                                                                            ? functions.stringToImgPath(FFAppState().nonePackageImageOldVmi[FFAppState().nonePackageInsurerOutputIndex])!
+                                                                            ? functions.stringToImgPath(FFAppState().nonePackageImageOldVmi.elementAtOrNull(FFAppState().nonePackageInsurerOutputIndex))!
                                                                             : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                       ),
                                                                     ),
@@ -959,9 +969,11 @@ class _NonePackageEditPage3WidgetState
                                                         ),
                                                       ),
                                                     ),
-                                                    if (FFAppState().nonePackageImageIdCard[
-                                                                FFAppState()
-                                                                    .nonePackageInsurerOutputIndex] !=
+                                                    if (FFAppState()
+                                                                .nonePackageImageIdCard
+                                                                .elementAtOrNull(
+                                                                    FFAppState()
+                                                                        .nonePackageInsurerOutputIndex) !=
                                                             ''
                                                         ? true
                                                         : false)
@@ -987,10 +999,15 @@ class _NonePackageEditPage3WidgetState
                                                               return WebViewAware(
                                                                 child:
                                                                     GestureDetector(
-                                                                  onTap: () =>
-                                                                      FocusScope.of(
-                                                                              context)
-                                                                          .unfocus(),
+                                                                  onTap: () {
+                                                                    FocusScope.of(
+                                                                            context)
+                                                                        .unfocus();
+                                                                    FocusManager
+                                                                        .instance
+                                                                        .primaryFocus
+                                                                        ?.unfocus();
+                                                                  },
                                                                   child:
                                                                       Padding(
                                                                     padding: MediaQuery
@@ -1002,9 +1019,9 @@ class _NonePackageEditPage3WidgetState
                                                                           .infinity,
                                                                       child:
                                                                           ShowImageComponentWidget(
-                                                                        imageUrl: FFAppState().nonePackageImageIdCard[FFAppState().nonePackageInsurerOutputIndex] !=
+                                                                        imageUrl: FFAppState().nonePackageImageIdCard.elementAtOrNull(FFAppState().nonePackageInsurerOutputIndex) !=
                                                                                 ''
-                                                                            ? functions.stringToImgPath(FFAppState().nonePackageImageIdCard[FFAppState().nonePackageInsurerOutputIndex])!
+                                                                            ? functions.stringToImgPath(FFAppState().nonePackageImageIdCard.elementAtOrNull(FFAppState().nonePackageInsurerOutputIndex))!
                                                                             : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                       ),
                                                                     ),
@@ -1696,9 +1713,11 @@ class _NonePackageEditPage3WidgetState
                                                       ),
                                                 ),
                                               ),
-                                              if (FFAppState().nonePackageImageBlueBook[
-                                                          FFAppState()
-                                                              .nonePackageInsurerOutputIndex] !=
+                                              if (FFAppState()
+                                                          .nonePackageImageBlueBook
+                                                          .elementAtOrNull(
+                                                              FFAppState()
+                                                                  .nonePackageInsurerOutputIndex) !=
                                                       ''
                                                   ? true
                                                   : false)
@@ -1722,10 +1741,15 @@ class _NonePackageEditPage3WidgetState
                                                         return WebViewAware(
                                                           child:
                                                               GestureDetector(
-                                                            onTap: () =>
-                                                                FocusScope.of(
-                                                                        context)
-                                                                    .unfocus(),
+                                                            onTap: () {
+                                                              FocusScope.of(
+                                                                      context)
+                                                                  .unfocus();
+                                                              FocusManager
+                                                                  .instance
+                                                                  .primaryFocus
+                                                                  ?.unfocus();
+                                                            },
                                                             child: Padding(
                                                               padding: MediaQuery
                                                                   .viewInsetsOf(
@@ -1735,13 +1759,13 @@ class _NonePackageEditPage3WidgetState
                                                                     .infinity,
                                                                 child:
                                                                     ShowImageComponentWidget(
-                                                                  imageUrl: FFAppState().nonePackageImageBlueBook[FFAppState()
-                                                                              .nonePackageInsurerOutputIndex] !=
+                                                                  imageUrl: FFAppState().nonePackageImageBlueBook.elementAtOrNull(FFAppState()
+                                                                              .nonePackageInsurerOutputIndex) !=
                                                                           ''
                                                                       ? functions.stringToImgPath(FFAppState()
-                                                                              .nonePackageImageBlueBook[
-                                                                          FFAppState()
-                                                                              .nonePackageInsurerOutputIndex])!
+                                                                          .nonePackageImageBlueBook
+                                                                          .elementAtOrNull(
+                                                                              FFAppState().nonePackageInsurerOutputIndex))!
                                                                       : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                 ),
                                                               ),
@@ -2042,9 +2066,11 @@ class _NonePackageEditPage3WidgetState
                                                           ),
                                                     ),
                                                   ),
-                                                  if (FFAppState().nonePackageImageIdCard[
-                                                              FFAppState()
-                                                                  .nonePackageInsurerOutputIndex] !=
+                                                  if (FFAppState()
+                                                              .nonePackageImageIdCard
+                                                              .elementAtOrNull(
+                                                                  FFAppState()
+                                                                      .nonePackageInsurerOutputIndex) !=
                                                           ''
                                                       ? true
                                                       : false)
@@ -2069,10 +2095,15 @@ class _NonePackageEditPage3WidgetState
                                                             return WebViewAware(
                                                               child:
                                                                   GestureDetector(
-                                                                onTap: () =>
-                                                                    FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
+                                                                onTap: () {
+                                                                  FocusScope.of(
+                                                                          context)
+                                                                      .unfocus();
+                                                                  FocusManager
+                                                                      .instance
+                                                                      .primaryFocus
+                                                                      ?.unfocus();
+                                                                },
                                                                 child: Padding(
                                                                   padding: MediaQuery
                                                                       .viewInsetsOf(
@@ -2083,10 +2114,11 @@ class _NonePackageEditPage3WidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: FFAppState().nonePackageImageIdCard[FFAppState().nonePackageInsurerOutputIndex] !=
+                                                                      imageUrl: FFAppState().nonePackageImageIdCard.elementAtOrNull(FFAppState().nonePackageInsurerOutputIndex) !=
                                                                               ''
-                                                                          ? functions
-                                                                              .stringToImgPath(FFAppState().nonePackageImageIdCard[FFAppState().nonePackageInsurerOutputIndex])!
+                                                                          ? functions.stringToImgPath(FFAppState()
+                                                                              .nonePackageImageIdCard
+                                                                              .elementAtOrNull(FFAppState().nonePackageInsurerOutputIndex))!
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
                                                                   ),
@@ -2238,10 +2270,15 @@ class _NonePackageEditPage3WidgetState
                                                           return WebViewAware(
                                                             child:
                                                                 GestureDetector(
-                                                              onTap: () =>
-                                                                  FocusScope.of(
-                                                                          context)
-                                                                      .unfocus(),
+                                                              onTap: () {
+                                                                FocusScope.of(
+                                                                        context)
+                                                                    .unfocus();
+                                                                FocusManager
+                                                                    .instance
+                                                                    .primaryFocus
+                                                                    ?.unfocus();
+                                                              },
                                                               child: Padding(
                                                                 padding: MediaQuery
                                                                     .viewInsetsOf(
@@ -3496,13 +3533,13 @@ class _NonePackageEditPage3WidgetState
                                       imageOther5:
                                           FFAppState().nonePackageImageOther5,
                                       insurerShortName: FFAppState()
-                                              .nonePackageInsurerShortNameList[
-                                          FFAppState()
-                                              .nonePackageInsurerOutputIndex],
+                                          .nonePackageInsurerShortNameList
+                                          .elementAtOrNull(FFAppState()
+                                              .nonePackageInsurerOutputIndex),
                                       imageOtherName: FFAppState()
-                                              .nonePackageImageOtherNameList[
-                                          FFAppState()
-                                              .nonePackageInsurerOutputIndex],
+                                          .nonePackageImageOtherNameList
+                                          .elementAtOrNull(FFAppState()
+                                              .nonePackageInsurerOutputIndex),
                                       oldVMIImage: FFAppState()
                                           .nonePackageOldVmiImageUrl,
                                       imageCompanyBook: FFAppState()

@@ -56,46 +56,108 @@ class _DriverInfomationFormComponentWidgetState
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       safeSetState(() {
-        _model.firstnameTextfieldTextController?.text =
-            FFAppState().DriverList[widget!.index!].firstNameTh != ''
-                ? FFAppState().DriverList[widget!.index!].firstNameTh
-                : '';
-        _model.address4LastnameTextfieldTextController?.text =
-            FFAppState().DriverList[widget!.index!].lastNameTh != ''
-                ? FFAppState().DriverList[widget!.index!].lastNameTh
-                : '';
-        _model.thaiIdTextfieldTextController?.text =
-            FFAppState().DriverList[widget!.index!].nationalThaiId != ''
-                ? FFAppState().DriverList[widget!.index!].nationalThaiId
-                : '';
-        _model.driverLicenseTextfieldTextController?.text =
-            FFAppState().DriverList[widget!.index!].licenseNo != ''
-                ? FFAppState().DriverList[widget!.index!].licenseNo
-                : '';
+        _model.firstnameTextfieldTextController?.text = FFAppState()
+                    .DriverList
+                    .elementAtOrNull(widget!.index!)
+                    ?.firstNameTh !=
+                ''
+            ? FFAppState()
+                .DriverList
+                .elementAtOrNull(widget!.index!)!
+                .firstNameTh
+            : '';
+
+        _model.address4LastnameTextfieldTextController?.text = FFAppState()
+                    .DriverList
+                    .elementAtOrNull(widget!.index!)
+                    ?.lastNameTh !=
+                ''
+            ? FFAppState()
+                .DriverList
+                .elementAtOrNull(widget!.index!)!
+                .lastNameTh
+            : '';
+
+        _model.thaiIdTextfieldTextController?.text = FFAppState()
+                    .DriverList
+                    .elementAtOrNull(widget!.index!)
+                    ?.nationalThaiId !=
+                ''
+            ? FFAppState()
+                .DriverList
+                .elementAtOrNull(widget!.index!)!
+                .nationalThaiId
+            : '';
+
+        _model.thaiIdTextfieldMask.updateMask(
+          newValue: TextEditingValue(
+              text: FFAppState()
+                          .DriverList
+                          .elementAtOrNull(widget!.index!)
+                          ?.nationalThaiId !=
+                      ''
+                  ? FFAppState()
+                      .DriverList
+                      .elementAtOrNull(widget!.index!)!
+                      .nationalThaiId
+                  : ''),
+        );
+        _model.driverLicenseTextfieldTextController?.text = FFAppState()
+                    .DriverList
+                    .elementAtOrNull(widget!.index!)
+                    ?.licenseNo !=
+                ''
+            ? FFAppState().DriverList.elementAtOrNull(widget!.index!)!.licenseNo
+            : '';
       });
     });
 
     _model.firstnameTextfieldTextController ??= TextEditingController(
-        text: FFAppState().DriverList[widget!.index!].firstNameTh != ''
-            ? FFAppState().DriverList[widget!.index!].firstNameTh
+        text: FFAppState()
+                    .DriverList
+                    .elementAtOrNull(widget!.index!)
+                    ?.firstNameTh !=
+                ''
+            ? FFAppState()
+                .DriverList
+                .elementAtOrNull(widget!.index!)
+                ?.firstNameTh
             : '');
     _model.firstnameTextfieldFocusNode ??= FocusNode();
 
     _model.address4LastnameTextfieldTextController ??= TextEditingController(
-        text: FFAppState().DriverList[widget!.index!].lastNameTh != ''
-            ? FFAppState().DriverList[widget!.index!].lastNameTh
+        text: FFAppState()
+                    .DriverList
+                    .elementAtOrNull(widget!.index!)
+                    ?.lastNameTh !=
+                ''
+            ? FFAppState()
+                .DriverList
+                .elementAtOrNull(widget!.index!)
+                ?.lastNameTh
             : '');
     _model.address4LastnameTextfieldFocusNode ??= FocusNode();
 
     _model.thaiIdTextfieldTextController ??= TextEditingController(
-        text: FFAppState().DriverList[widget!.index!].nationalThaiId != ''
-            ? FFAppState().DriverList[widget!.index!].nationalThaiId
+        text: FFAppState()
+                    .DriverList
+                    .elementAtOrNull(widget!.index!)
+                    ?.nationalThaiId !=
+                ''
+            ? FFAppState()
+                .DriverList
+                .elementAtOrNull(widget!.index!)
+                ?.nationalThaiId
             : '');
     _model.thaiIdTextfieldFocusNode ??= FocusNode();
 
     _model.driverLicenseTextfieldTextController ??= TextEditingController(
-        text: FFAppState().DriverList[widget!.index!].licenseNo != ''
-            ? FFAppState().DriverList[widget!.index!].licenseNo
+        text: FFAppState()
+                    .DriverList
+                    .elementAtOrNull(widget!.index!)
+                    ?.licenseNo !=
+                ''
+            ? FFAppState().DriverList.elementAtOrNull(widget!.index!)?.licenseNo
             : '');
     _model.driverLicenseTextfieldFocusNode ??= FocusNode();
   }
@@ -296,12 +358,15 @@ class _DriverInfomationFormComponentWidgetState
                                 child: AutoSizeText(
                                   valueOrDefault<String>(
                                     FFAppState()
-                                                .DriverList[widget!.index!]
-                                                .gender !=
+                                                .DriverList
+                                                .elementAtOrNull(widget!.index!)
+                                                ?.gender !=
                                             ''
                                         ? (FFAppState()
-                                                    .DriverList[widget!.index!]
-                                                    .gender ==
+                                                    .DriverList
+                                                    .elementAtOrNull(
+                                                        widget!.index!)
+                                                    ?.gender ==
                                                 'MALE'
                                             ? 'ชาย'
                                             : 'หญิง')
@@ -313,8 +378,10 @@ class _DriverInfomationFormComponentWidgetState
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: FFAppState()
-                                                    .DriverList[widget!.index!]
-                                                    .gender !=
+                                                    .DriverList
+                                                    .elementAtOrNull(
+                                                        widget!.index!)
+                                                    ?.gender !=
                                                 ''
                                             ? FlutterFlowTheme.of(context)
                                                 .primaryText
@@ -343,7 +410,11 @@ class _DriverInfomationFormComponentWidgetState
                   ],
                 ),
               ),
-              if (FFAppState().DriverList[widget!.index!].gender != '')
+              if (FFAppState()
+                      .DriverList
+                      .elementAtOrNull(widget!.index!)
+                      ?.gender !=
+                  '')
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                   child: Container(
@@ -411,12 +482,16 @@ class _DriverInfomationFormComponentWidgetState
                                   ),
                                   'dataList': serializeParam(
                                     (FFAppState()
-                                                    .DriverList[widget!.index!]
-                                                    .gender ==
+                                                    .DriverList
+                                                    .elementAtOrNull(
+                                                        widget!.index!)
+                                                    ?.gender ==
                                                 'MALE') ||
                                             (FFAppState()
-                                                    .DriverList[widget!.index!]
-                                                    .gender ==
+                                                    .DriverList
+                                                    .elementAtOrNull(
+                                                        widget!.index!)
+                                                    ?.gender ==
                                                 'ชาย')
                                         ? widget!.firestoreDataConfigList?.title
                                         : widget!
@@ -469,12 +544,15 @@ class _DriverInfomationFormComponentWidgetState
                                     child: AutoSizeText(
                                       valueOrDefault<String>(
                                         FFAppState()
-                                                    .DriverList[widget!.index!]
-                                                    .titleTh !=
+                                                    .DriverList
+                                                    .elementAtOrNull(
+                                                        widget!.index!)
+                                                    ?.titleTh !=
                                                 ''
                                             ? FFAppState()
-                                                .DriverList[widget!.index!]
-                                                .titleTh
+                                                .DriverList
+                                                .elementAtOrNull(widget!.index!)
+                                                ?.titleTh
                                             : 'กรุณาเลือกคำนำหน้าชื่อ',
                                         '-',
                                       ),
@@ -483,9 +561,10 @@ class _DriverInfomationFormComponentWidgetState
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: FFAppState()
-                                                        .DriverList[
-                                                            widget!.index!]
-                                                        .titleTh !=
+                                                        .DriverList
+                                                        .elementAtOrNull(
+                                                            widget!.index!)
+                                                        ?.titleTh !=
                                                     ''
                                                 ? FlutterFlowTheme.of(context)
                                                     .primaryText
@@ -882,15 +961,18 @@ class _DriverInfomationFormComponentWidgetState
                                   child: AutoSizeText(
                                     valueOrDefault<String>(
                                       FFAppState()
-                                                  .DriverList[widget!.index!]
-                                                  .birthDay !=
+                                                  .DriverList
+                                                  .elementAtOrNull(
+                                                      widget!.index!)
+                                                  ?.birthDay !=
                                               ''
                                           ? functions.showDateBE(functions
                                               .parseStringToDatetime(
                                                   FFAppState()
-                                                      .DriverList[
-                                                          widget!.index!]
-                                                      .birthDay)
+                                                      .DriverList
+                                                      .elementAtOrNull(
+                                                          widget!.index!)
+                                                      ?.birthDay)
                                               ?.toString())
                                           : 'กรุณาเลือกวันเดือนปีเกิด',
                                       '-',
@@ -900,9 +982,10 @@ class _DriverInfomationFormComponentWidgetState
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: FFAppState()
-                                                      .DriverList[
-                                                          widget!.index!]
-                                                      .birthDay !=
+                                                      .DriverList
+                                                      .elementAtOrNull(
+                                                          widget!.index!)
+                                                      ?.birthDay !=
                                                   ''
                                               ? FlutterFlowTheme.of(context)
                                                   .primaryText
@@ -1046,12 +1129,15 @@ class _DriverInfomationFormComponentWidgetState
                                   child: AutoSizeText(
                                     valueOrDefault<String>(
                                       FFAppState()
-                                                  .DriverList[widget!.index!]
-                                                  .occupationSubname !=
+                                                  .DriverList
+                                                  .elementAtOrNull(
+                                                      widget!.index!)
+                                                  ?.occupationSubname !=
                                               ''
                                           ? FFAppState()
-                                              .DriverList[widget!.index!]
-                                              .occupationSubname
+                                              .DriverList
+                                              .elementAtOrNull(widget!.index!)
+                                              ?.occupationSubname
                                           : 'กรุณาเลือกอาชีพ',
                                       '-',
                                     ),
@@ -1060,9 +1146,10 @@ class _DriverInfomationFormComponentWidgetState
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: FFAppState()
-                                                      .DriverList[
-                                                          widget!.index!]
-                                                      .occupationSubname !=
+                                                      .DriverList
+                                                      .elementAtOrNull(
+                                                          widget!.index!)
+                                                      ?.occupationSubname !=
                                                   ''
                                               ? FlutterFlowTheme.of(context)
                                                   .primaryText
@@ -1576,14 +1663,16 @@ class _DriverInfomationFormComponentWidgetState
                                           12.0, 0.0, 0.0, 0.0),
                                       child: Text(
                                         FFAppState()
-                                                        .DriverList[
-                                                            widget!.index!]
-                                                        .imageIdcard !=
+                                                        .DriverList
+                                                        .elementAtOrNull(
+                                                            widget!.index!)
+                                                        ?.imageIdcard !=
                                                     null &&
                                                 FFAppState()
-                                                        .DriverList[
-                                                            widget!.index!]
-                                                        .imageIdcard !=
+                                                        .DriverList
+                                                        .elementAtOrNull(
+                                                            widget!.index!)
+                                                        ?.imageIdcard !=
                                                     ''
                                             ? 'สถานะ : อัพโหลดแล้ว'
                                             : 'สถานะ : ยังไม่อัพโหลด',
@@ -1596,12 +1685,14 @@ class _DriverInfomationFormComponentWidgetState
                                       ),
                                     ),
                                     if (FFAppState()
-                                                .DriverList[widget!.index!]
-                                                .imageIdcard !=
+                                                .DriverList
+                                                .elementAtOrNull(widget!.index!)
+                                                ?.imageIdcard !=
                                             null &&
                                         FFAppState()
-                                                .DriverList[widget!.index!]
-                                                .imageIdcard !=
+                                                .DriverList
+                                                .elementAtOrNull(widget!.index!)
+                                                ?.imageIdcard !=
                                             '')
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
@@ -1628,12 +1719,12 @@ class _DriverInfomationFormComponentWidgetState
                                                     child:
                                                         ShowImageComponentWidget(
                                                       imageUrl: functions
-                                                          .stringToImgPath(
-                                                              FFAppState()
-                                                                  .DriverList[
-                                                                      widget!
-                                                                          .index!]
-                                                                  .imageIdcard)!,
+                                                          .stringToImgPath(FFAppState()
+                                                              .DriverList
+                                                              .elementAtOrNull(
+                                                                  widget!
+                                                                      .index!)
+                                                              ?.imageIdcard)!,
                                                     ),
                                                   ),
                                                 );
@@ -1652,12 +1743,14 @@ class _DriverInfomationFormComponentWidgetState
                                   ],
                                 ),
                                 if (FFAppState()
-                                            .DriverList[widget!.index!]
-                                            .imageIdcard !=
+                                            .DriverList
+                                            .elementAtOrNull(widget!.index!)
+                                            ?.imageIdcard !=
                                         null &&
                                     FFAppState()
-                                            .DriverList[widget!.index!]
-                                            .imageIdcard !=
+                                            .DriverList
+                                            .elementAtOrNull(widget!.index!)
+                                            ?.imageIdcard !=
                                         '')
                                   Icon(
                                     Icons.check,
@@ -1665,12 +1758,14 @@ class _DriverInfomationFormComponentWidgetState
                                     size: 24.0,
                                   ),
                                 if (FFAppState()
-                                            .DriverList[widget!.index!]
-                                            .imageIdcard ==
+                                            .DriverList
+                                            .elementAtOrNull(widget!.index!)
+                                            ?.imageIdcard ==
                                         null ||
                                     FFAppState()
-                                            .DriverList[widget!.index!]
-                                            .imageIdcard ==
+                                            .DriverList
+                                            .elementAtOrNull(widget!.index!)
+                                            ?.imageIdcard ==
                                         '')
                                   Icon(
                                     Icons.close,
@@ -1868,14 +1963,16 @@ class _DriverInfomationFormComponentWidgetState
                                           12.0, 0.0, 0.0, 0.0),
                                       child: Text(
                                         FFAppState()
-                                                        .DriverList[
-                                                            widget!.index!]
-                                                        .imageLicenseNo !=
+                                                        .DriverList
+                                                        .elementAtOrNull(
+                                                            widget!.index!)
+                                                        ?.imageLicenseNo !=
                                                     null &&
                                                 FFAppState()
-                                                        .DriverList[
-                                                            widget!.index!]
-                                                        .imageLicenseNo !=
+                                                        .DriverList
+                                                        .elementAtOrNull(
+                                                            widget!.index!)
+                                                        ?.imageLicenseNo !=
                                                     ''
                                             ? 'สถานะ : อัพโหลดแล้ว'
                                             : 'สถานะ : ยังไม่อัพโหลด',
@@ -1888,12 +1985,14 @@ class _DriverInfomationFormComponentWidgetState
                                       ),
                                     ),
                                     if (FFAppState()
-                                                .DriverList[widget!.index!]
-                                                .imageLicenseNo !=
+                                                .DriverList
+                                                .elementAtOrNull(widget!.index!)
+                                                ?.imageLicenseNo !=
                                             null &&
                                         FFAppState()
-                                                .DriverList[widget!.index!]
-                                                .imageLicenseNo !=
+                                                .DriverList
+                                                .elementAtOrNull(widget!.index!)
+                                                ?.imageLicenseNo !=
                                             '')
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
@@ -1920,12 +2019,12 @@ class _DriverInfomationFormComponentWidgetState
                                                     child:
                                                         ShowImageComponentWidget(
                                                       imageUrl: functions
-                                                          .stringToImgPath(
-                                                              FFAppState()
-                                                                  .DriverList[
-                                                                      widget!
-                                                                          .index!]
-                                                                  .imageLicenseNo)!,
+                                                          .stringToImgPath(FFAppState()
+                                                              .DriverList
+                                                              .elementAtOrNull(
+                                                                  widget!
+                                                                      .index!)
+                                                              ?.imageLicenseNo)!,
                                                     ),
                                                   ),
                                                 );
@@ -1944,12 +2043,14 @@ class _DriverInfomationFormComponentWidgetState
                                   ],
                                 ),
                                 if (FFAppState()
-                                            .DriverList[widget!.index!]
-                                            .imageLicenseNo !=
+                                            .DriverList
+                                            .elementAtOrNull(widget!.index!)
+                                            ?.imageLicenseNo !=
                                         null &&
                                     FFAppState()
-                                            .DriverList[widget!.index!]
-                                            .imageLicenseNo !=
+                                            .DriverList
+                                            .elementAtOrNull(widget!.index!)
+                                            ?.imageLicenseNo !=
                                         '')
                                   Icon(
                                     Icons.check,
@@ -1957,12 +2058,14 @@ class _DriverInfomationFormComponentWidgetState
                                     size: 24.0,
                                   ),
                                 if (FFAppState()
-                                            .DriverList[widget!.index!]
-                                            .imageLicenseNo ==
+                                            .DriverList
+                                            .elementAtOrNull(widget!.index!)
+                                            ?.imageLicenseNo ==
                                         null ||
                                     FFAppState()
-                                            .DriverList[widget!.index!]
-                                            .imageLicenseNo ==
+                                            .DriverList
+                                            .elementAtOrNull(widget!.index!)
+                                            ?.imageLicenseNo ==
                                         '')
                                   Icon(
                                     Icons.close,

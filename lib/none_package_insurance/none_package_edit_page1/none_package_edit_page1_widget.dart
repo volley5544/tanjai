@@ -96,7 +96,10 @@ class _NonePackageEditPage1WidgetState
                 : null;
 
         return GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          onTap: () {
+            FocusScope.of(context).unfocus();
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
           child: WillPopScope(
             onWillPop: () async => false,
             child: Scaffold(
@@ -607,8 +610,9 @@ class _NonePackageEditPage1WidgetState
                                                                       0.0),
                                                           child: Text(
                                                             FFAppState()
-                                                                    .nonePackageInsurerDisplayName[
-                                                                dataListIndex],
+                                                                .nonePackageInsurerDisplayName
+                                                                .elementAtOrNull(
+                                                                    dataListIndex)!,
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
@@ -628,8 +632,9 @@ class _NonePackageEditPage1WidgetState
                                                           ),
                                                         ),
                                                         if (!FFAppState()
-                                                                .nonePackageInsurerSelectedList[
-                                                            dataListIndex])
+                                                            .nonePackageInsurerSelectedList
+                                                            .elementAtOrNull(
+                                                                dataListIndex)!)
                                                           Padding(
                                                             padding:
                                                                 EdgeInsetsDirectional
@@ -658,8 +663,10 @@ class _NonePackageEditPage1WidgetState
                                                             ),
                                                           ),
                                                         if (FFAppState()
-                                                                .nonePackageInsurerSelectedList[
-                                                            dataListIndex])
+                                                                .nonePackageInsurerSelectedList
+                                                                .elementAtOrNull(
+                                                                    dataListIndex) ??
+                                                            true)
                                                           Padding(
                                                             padding:
                                                                 EdgeInsetsDirectional
@@ -877,12 +884,13 @@ class _NonePackageEditPage1WidgetState
                                           FFAppState()
                                                   .nonePackageInsurerDisplayNameOutput =
                                               FFAppState()
-                                                      .nonePackageInsurerDisplayName[
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .nonePackageInsurerSelectedList
-                                                          .toList(),
-                                                      true)];
+                                                  .nonePackageInsurerDisplayName
+                                                  .elementAtOrNull(functions
+                                                      .getIndexOfBoolList(
+                                                          FFAppState()
+                                                              .nonePackageInsurerSelectedList
+                                                              .toList(),
+                                                          true))!;
                                           FFAppState()
                                                   .nonePackageInsurerOutputIndex =
                                               functions.getIndexOfBoolList(

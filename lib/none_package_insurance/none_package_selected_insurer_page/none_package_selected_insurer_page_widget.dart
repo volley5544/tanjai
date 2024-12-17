@@ -83,9 +83,6 @@ class _NonePackageSelectedInsurerPageWidgetState
           safeSetState(() {
             _model.netPremiumTextController?.text = functions
                 .removeCommaFromNumText(_model.netPremiumTextController.text);
-            _model.netPremiumTextController?.selection =
-                TextSelection.collapsed(
-                    offset: _model.netPremiumTextController!.text.length);
           });
         } else {
           if (_model.netPremiumTextController.text == '') {
@@ -95,9 +92,6 @@ class _NonePackageSelectedInsurerPageWidgetState
             _model.netPremiumTextController?.text =
                 functions.returnNumberWithComma2Decimal(
                     _model.netPremiumTextController.text)!;
-            _model.netPremiumTextController?.selection =
-                TextSelection.collapsed(
-                    offset: _model.netPremiumTextController!.text.length);
           });
         }
       },
@@ -116,8 +110,6 @@ class _NonePackageSelectedInsurerPageWidgetState
           safeSetState(() {
             _model.actAmountTextController?.text = functions
                 .removeCommaFromNumText(_model.actAmountTextController.text);
-            _model.actAmountTextController?.selection = TextSelection.collapsed(
-                offset: _model.actAmountTextController!.text.length);
           });
         } else {
           if (_model.actAmountTextController.text == '') {
@@ -127,8 +119,6 @@ class _NonePackageSelectedInsurerPageWidgetState
             _model.actAmountTextController?.text =
                 functions.returnNumberWithComma2Decimal(
                     _model.actAmountTextController.text)!;
-            _model.actAmountTextController?.selection = TextSelection.collapsed(
-                offset: _model.actAmountTextController!.text.length);
           });
         }
       },
@@ -145,9 +135,6 @@ class _NonePackageSelectedInsurerPageWidgetState
             _model.accessoryTotalTextController?.text =
                 functions.removeCommaFromNumText(
                     _model.accessoryTotalTextController.text);
-            _model.accessoryTotalTextController?.selection =
-                TextSelection.collapsed(
-                    offset: _model.accessoryTotalTextController!.text.length);
           });
         } else {
           if (_model.accessoryTotalTextController.text == '') {
@@ -157,9 +144,6 @@ class _NonePackageSelectedInsurerPageWidgetState
             _model.accessoryTotalTextController?.text =
                 functions.returnNumberWithComma2Decimal(
                     _model.accessoryTotalTextController.text)!;
-            _model.accessoryTotalTextController?.selection =
-                TextSelection.collapsed(
-                    offset: _model.accessoryTotalTextController!.text.length);
           });
         }
       },
@@ -233,7 +217,10 @@ class _NonePackageSelectedInsurerPageWidgetState
                 : null;
 
         return GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          onTap: () {
+            FocusScope.of(context).unfocus();
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
           child: WillPopScope(
             onWillPop: () async => false,
             child: Scaffold(
@@ -1532,8 +1519,11 @@ class _NonePackageSelectedInsurerPageWidgetState
                                       builder: (context) {
                                         return WebViewAware(
                                           child: GestureDetector(
-                                            onTap: () => FocusScope.of(context)
-                                                .unfocus(),
+                                            onTap: () {
+                                              FocusScope.of(context).unfocus();
+                                              FocusManager.instance.primaryFocus
+                                                  ?.unfocus();
+                                            },
                                             child: Padding(
                                               padding: MediaQuery.viewInsetsOf(
                                                   context),
