@@ -60,3 +60,4 @@ export 'hide_keyboard_action.dart' show hideKeyboardAction;
 export 'get_firebase_server_time.dart' show getFirebaseServerTime;
 export 'url_launcher_action_copy.dart' show urlLauncherActionCopy;
 export 'url_launcher_action.dart' show urlLauncherAction;
+export 'upload_file_firebase_storage.dart' show uploadFileFirebaseStorage;

@@ -36,6 +36,8 @@ class _ShowCheckinImageWidgetState extends State<ShowCheckinImageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ShowCheckinImageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -80,8 +82,10 @@ class _ShowCheckinImageWidgetState extends State<ShowCheckinImageWidget> {
                                 type: PageTransitionType.fade,
                                 child: FlutterFlowExpandedImageView(
                                   image: Image.network(
-                                    (widget!.leaveImage!
-                                        .elementAtOrNull(leaveimagelistIndex))!,
+                                    getCORSProxyUrl(
+                                      (widget!.leaveImage!.elementAtOrNull(
+                                          leaveimagelistIndex))!,
+                                    ),
                                     fit: BoxFit.contain,
                                   ),
                                   allowRotation: false,
@@ -97,8 +101,10 @@ class _ShowCheckinImageWidgetState extends State<ShowCheckinImageWidget> {
                                 .elementAtOrNull(leaveimagelistIndex))!,
                             transitionOnUserGestures: true,
                             child: Image.network(
-                              (widget!.leaveImage!
-                                  .elementAtOrNull(leaveimagelistIndex))!,
+                              getCORSProxyUrl(
+                                (widget!.leaveImage!
+                                    .elementAtOrNull(leaveimagelistIndex))!,
+                              ),
                               width: double.infinity,
                               height: 600.0,
                               fit: BoxFit.contain,

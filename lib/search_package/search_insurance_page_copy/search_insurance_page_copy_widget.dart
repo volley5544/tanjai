@@ -3,8 +3,10 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
+import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -85,6 +87,8 @@ class _SearchInsurancePageCopyWidgetState
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -1468,24 +1472,44 @@ class _SearchInsurancePageCopyWidgetState
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
-                                      await DatePicker.showDatePicker(
-                                        context,
-                                        showTitleActions: true,
-                                        onConfirm: (date) {
+                                      if (kIsWeb) {
+                                        final _datePickedDate =
+                                            await showDatePicker(
+                                          context: context,
+                                          initialDate: getCurrentTimestamp,
+                                          firstDate: DateTime(1900),
+                                          lastDate: DateTime(2050),
+                                        );
+
+                                        if (_datePickedDate != null) {
                                           safeSetState(() {
-                                            _model.datePicked = date;
+                                            _model.datePicked = DateTime(
+                                              _datePickedDate.year,
+                                              _datePickedDate.month,
+                                              _datePickedDate.day,
+                                            );
                                           });
-                                        },
-                                        currentTime: getCurrentTimestamp,
-                                        minTime: DateTime(0, 0, 0),
-                                        locale: LocaleType.values.firstWhere(
-                                          (l) =>
-                                              l.name ==
-                                              FFLocalizations.of(context)
-                                                  .languageCode,
-                                          orElse: () => LocaleType.en,
-                                        ),
-                                      );
+                                        }
+                                      } else {
+                                        await DatePicker.showDatePicker(
+                                          context,
+                                          showTitleActions: true,
+                                          onConfirm: (date) {
+                                            safeSetState(() {
+                                              _model.datePicked = date;
+                                            });
+                                          },
+                                          currentTime: getCurrentTimestamp,
+                                          minTime: DateTime(0, 0, 0),
+                                          locale: LocaleType.values.firstWhere(
+                                            (l) =>
+                                                l.name ==
+                                                FFLocalizations.of(context)
+                                                    .languageCode,
+                                            orElse: () => LocaleType.en,
+                                          ),
+                                        );
+                                      }
 
                                       if (!(_model.datePicked != null)) {
                                         await actions.hideKeyboardAction(

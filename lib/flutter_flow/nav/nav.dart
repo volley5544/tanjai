@@ -24,6 +24,8 @@ export 'serialization_util.dart';
 
 const kTransitionInfoKey = '__transition_info__';
 
+GlobalKey<NavigatorState> appNavigatorKey = GlobalKey<NavigatorState>();
+
 class AppStateNotifier extends ChangeNotifier {
   AppStateNotifier._();
 
@@ -81,6 +83,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
+      navigatorKey: appNavigatorKey,
       errorBuilder: (context, state) =>
           appStateNotifier.loggedIn ? NavBarPage() : LoginPageWidget(),
       routes: [
@@ -1970,6 +1973,490 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 provinceCode: params.getParam(
                   'provinceCode',
                   ParamType.String,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'SearchableHouseList',
+              path: 'SearchableHouseList',
+              builder: (context, params) => SearchableHouseListWidget(
+                titleText: params.getParam(
+                  'titleText',
+                  ParamType.String,
+                ),
+                searchLabel: params.getParam(
+                  'searchLabel',
+                  ParamType.String,
+                ),
+                dataList: params.getParam<String>(
+                  'dataList',
+                  ParamType.String,
+                  isList: true,
+                ),
+                multiSelect: params.getParam(
+                  'multiSelect',
+                  ParamType.bool,
+                ),
+                maxSelected: params.getParam(
+                  'maxSelected',
+                  ParamType.int,
+                ),
+                fromPage: params.getParam(
+                  'fromPage',
+                  ParamType.String,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'fireInsurerListAll',
+              path: 'fireInsurerListAll',
+              builder: (context, params) => FireInsurerListAllWidget(
+                brandCode: params.getParam(
+                  'brandCode',
+                  ParamType.String,
+                ),
+                modelCode: params.getParam(
+                  'modelCode',
+                  ParamType.String,
+                ),
+                year: params.getParam(
+                  'year',
+                  ParamType.String,
+                ),
+                province: params.getParam(
+                  'province',
+                  ParamType.String,
+                ),
+                vehicleUsage: params.getParam(
+                  'vehicleUsage',
+                  ParamType.String,
+                ),
+                coverType: params.getParam<String>(
+                  'coverType',
+                  ParamType.String,
+                  isList: true,
+                ),
+                garageType: params.getParam<String>(
+                  'garageType',
+                  ParamType.String,
+                  isList: true,
+                ),
+                brandName: params.getParam(
+                  'brandName',
+                  ParamType.String,
+                ),
+                modelName: params.getParam(
+                  'modelName',
+                  ParamType.String,
+                ),
+                carTypeDetail: params.getParam(
+                  'carTypeDetail',
+                  ParamType.String,
+                ),
+                oldVmiExpDate: params.getParam(
+                  'oldVmiExpDate',
+                  ParamType.String,
+                ),
+                provinceCode: params.getParam(
+                  'provinceCode',
+                  ParamType.String,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'fireInsurerListPage',
+              path: 'fireInsurerListPage',
+              builder: (context, params) => FireInsurerListPageWidget(
+                yearMin: params.getParam(
+                  'yearMin',
+                  ParamType.String,
+                ),
+                yearMax: params.getParam(
+                  'yearMax',
+                  ParamType.String,
+                ),
+                sumInsured: params.getParam(
+                  'sumInsured',
+                  ParamType.String,
+                ),
+                sumInsureHouse: params.getParam(
+                  'sumInsureHouse',
+                  ParamType.String,
+                ),
+                sumInsureBuilding: params.getParam(
+                  'sumInsureBuilding',
+                  ParamType.String,
+                ),
+                sumInsureOther: params.getParam(
+                  'sumInsureOther',
+                  ParamType.String,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'SearchPackageFireInsurancePage',
+              path: 'searchPackageFireInsurancePage',
+              builder: (context, params) =>
+                  SearchPackageFireInsurancePageWidget(
+                token: params.getParam(
+                  'token',
+                  ParamType.String,
+                ),
+                userProfileData: params.getParam(
+                  'userProfileData',
+                  ParamType.JSON,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'fireInsuranceListPage',
+              path: 'fireInsuranceListPage',
+              builder: (context, params) => FireInsuranceListPageWidget(
+                checkType: params.getParam(
+                  'checkType',
+                  ParamType.JSON,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'MakeFireInsuranceListPage',
+              path: 'MakeFireInsuranceListPage',
+              builder: (context, params) => MakeFireInsuranceListPageWidget(
+                checkTotal: params.getParam(
+                  'checkTotal',
+                  ParamType.int,
+                ),
+                list: params.getParam<dynamic>(
+                  'list',
+                  ParamType.JSON,
+                  isList: true,
+                ),
+                checkPayment: params.getParam(
+                  'checkPayment',
+                  ParamType.String,
+                ),
+                checkVMI: params.getParam(
+                  'checkVMI',
+                  ParamType.String,
+                ),
+                fromPage: params.getParam(
+                  'fromPage',
+                  ParamType.String,
+                ),
+                type: params.getParam(
+                  'type',
+                  ParamType.String,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'fireLeadFollowUpPage',
+              path: 'fireLeadFollowUpPage',
+              requireAuth: true,
+              builder: (context, params) => FireLeadFollowUpPageWidget(),
+            ),
+            FFRoute(
+              name: 'detailsFireInsurancePage',
+              path: 'detailsFireInsurancePage',
+              builder: (context, params) => NavBarPage(
+                initialPage: '',
+                page: DetailsFireInsurancePageWidget(
+                  packageData: params.getParam(
+                    'packageData',
+                    ParamType.DataStruct,
+                    isList: false,
+                    structBuilder:
+                        GetPackageFireInsurerDataTypeStruct.fromSerializableMap,
+                  ),
+                  sumInsureHouse: params.getParam(
+                    'sumInsureHouse',
+                    ParamType.String,
+                  ),
+                  sumInsureBuildin: params.getParam(
+                    'sumInsureBuildin',
+                    ParamType.String,
+                  ),
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'AddFireCustomerName',
+              path: 'AddFireCustomerName',
+              builder: (context, params) => AddFireCustomerNameWidget(
+                packageDetail: params.getParam(
+                  'packageDetail',
+                  ParamType.DataStruct,
+                  isList: false,
+                  structBuilder:
+                      GetPackageFireInsurerDataTypeStruct.fromSerializableMap,
+                ),
+                button: params.getParam(
+                  'button',
+                  ParamType.String,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'FireSearchableListPage',
+              path: 'FireSearchableListPage',
+              builder: (context, params) => FireSearchableListPageWidget(
+                titleText: params.getParam(
+                  'titleText',
+                  ParamType.String,
+                ),
+                searchLabel: params.getParam(
+                  'searchLabel',
+                  ParamType.String,
+                ),
+                dataList: params.getParam<String>(
+                  'dataList',
+                  ParamType.String,
+                  isList: true,
+                ),
+                multiSelect: params.getParam(
+                  'multiSelect',
+                  ParamType.bool,
+                ),
+                maxSelected: params.getParam(
+                  'maxSelected',
+                  ParamType.int,
+                ),
+                fromPage: params.getParam(
+                  'fromPage',
+                  ParamType.String,
+                ),
+                index: params.getParam(
+                  'index',
+                  ParamType.int,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'fireInsuranceInfoPage1',
+              path: 'fireInsuranceInfoPage1',
+              builder: (context, params) => FireInsuranceInfoPage1Widget(
+                quotationId: params.getParam(
+                  'quotationId',
+                  ParamType.String,
+                ),
+                leadDtailId: params.getParam(
+                  'leadDtailId',
+                  ParamType.int,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'fireInsuranceInfoPage2',
+              path: 'fireInsuranceInfoPage2',
+              asyncParams: {
+                'masterDataFirebase':
+                    getDoc(['dataList'], DataListRecord.fromSnapshot),
+              },
+              builder: (context, params) => FireInsuranceInfoPage2Widget(
+                masterDataFirebase: params.getParam(
+                  'masterDataFirebase',
+                  ParamType.Document,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'fireInsuranceInfoPage3',
+              path: 'fireInsuranceInfoPage3',
+              builder: (context, params) => FireInsuranceInfoPage3Widget(),
+            ),
+            FFRoute(
+              name: 'fireInsuranceInfoPage4',
+              path: 'fireInsuranceInfoPage4',
+              builder: (context, params) => FireInsuranceInfoPage4Widget(),
+            ),
+            FFRoute(
+              name: 'fireInsuranceInfoPage4_2',
+              path: 'fireInsuranceInfoPage4_2',
+              builder: (context, params) => NavBarPage(
+                initialPage: '',
+                page: FireInsuranceInfoPage42Widget(
+                  quotationId: params.getParam(
+                    'quotationId',
+                    ParamType.String,
+                  ),
+                  leadDetailId: params.getParam(
+                    'leadDetailId',
+                    ParamType.int,
+                  ),
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'fireInsuranceInfoPage4_installments',
+              path: 'fireInsuranceInfoPage4_installments',
+              builder: (context, params) =>
+                  FireInsuranceInfoPage4InstallmentsWidget(
+                titleText: params.getParam(
+                  'titleText',
+                  ParamType.String,
+                ),
+                searchLabel: params.getParam(
+                  'searchLabel',
+                  ParamType.String,
+                ),
+                dataList: params.getParam<String>(
+                  'dataList',
+                  ParamType.String,
+                  isList: true,
+                ),
+                multiSelect: params.getParam(
+                  'multiSelect',
+                  ParamType.bool,
+                ),
+                maxSelected: params.getParam(
+                  'maxSelected',
+                  ParamType.int,
+                ),
+                fromPage: params.getParam(
+                  'fromPage',
+                  ParamType.String,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'fireInsuranceInfoPage5',
+              path: 'fireInsuranceInfoPage5',
+              builder: (context, params) => NavBarPage(
+                initialPage: '',
+                page: FireInsuranceInfoPage5Widget(
+                  quotationId: params.getParam(
+                    'quotationId',
+                    ParamType.String,
+                  ),
+                  leadDtlId: params.getParam(
+                    'leadDtlId',
+                    ParamType.int,
+                  ),
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'fireInsuranceInfoPage5ShowPolicy',
+              path: 'fireInsuranceInfoPage5ShowPolicy',
+              builder: (context, params) => NavBarPage(
+                initialPage: '',
+                page: FireInsuranceInfoPage5ShowPolicyWidget(
+                  vmiDocumentUrl: params.getParam(
+                    'vmiDocumentUrl',
+                    ParamType.String,
+                  ),
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'fireInsuranceInfoPage5Cancel',
+              path: 'fireInsuranceInfoPage5Cancel',
+              builder: (context, params) => FireInsuranceInfoPage5CancelWidget(
+                quotationId: params.getParam(
+                  'quotationId',
+                  ParamType.String,
+                ),
+                leadDtlId: params.getParam(
+                  'leadDtlId',
+                  ParamType.int,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'firePaywithQRcode',
+              path: 'firePaywithQRcode',
+              builder: (context, params) => FirePaywithQRcodeWidget(
+                taxId: params.getParam(
+                  'taxId',
+                  ParamType.String,
+                ),
+                suffix: params.getParam(
+                  'suffix',
+                  ParamType.String,
+                ),
+                ref1: params.getParam(
+                  'ref1',
+                  ParamType.String,
+                ),
+                ref2: params.getParam(
+                  'ref2',
+                  ParamType.String,
+                ),
+                amount: params.getParam(
+                  'amount',
+                  ParamType.String,
+                ),
+                fromPage: params.getParam(
+                  'fromPage',
+                  ParamType.String,
+                ),
+                actCMI: params.getParam(
+                  'actCMI',
+                  ParamType.bool,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'FireQuotationPage',
+              path: 'FireQuotationPage',
+              builder: (context, params) => NavBarPage(
+                initialPage: '',
+                page: FireQuotationPageWidget(
+                  fromPage: params.getParam(
+                    'fromPage',
+                    ParamType.String,
+                  ),
+                  pdfUrl: params.getParam<String>(
+                    'pdfUrl',
+                    ParamType.String,
+                    isList: true,
+                  ),
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'WebviewPage',
+              path: 'webviewPage',
+              builder: (context, params) => WebviewPageWidget(
+                webUrl: params.getParam(
+                  'webUrl',
+                  ParamType.String,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'addPeopleFireInsurancePage',
+              path: 'addPeopleFireInsurancePage',
+              asyncParams: {
+                'firestoreDataConfigList':
+                    getDoc(['dataList'], DataListRecord.fromSnapshot),
+              },
+              builder: (context, params) => AddPeopleFireInsurancePageWidget(
+                firestoreDataConfigList: params.getParam(
+                  'firestoreDataConfigList',
+                  ParamType.Document,
+                ),
+                index: params.getParam(
+                  'index',
+                  ParamType.int,
+                ),
+                isEditing: params.getParam(
+                  'isEditing',
+                  ParamType.bool,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'showPeoplePage',
+              path: 'showPeoplePage',
+              asyncParams: {
+                'firestoreDataConfigList':
+                    getDoc(['dataList'], DataListRecord.fromSnapshot),
+              },
+              builder: (context, params) => ShowPeoplePageWidget(
+                firestoreDataConfigList: params.getParam(
+                  'firestoreDataConfigList',
+                  ParamType.Document,
                 ),
               ),
             )

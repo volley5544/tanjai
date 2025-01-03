@@ -168,3 +168,51 @@ export '/select_ordinary/select_ordinary_widget.dart' show SelectOrdinaryWidget;
 export '/test_page/test_page_widget.dart' show TestPageWidget;
 export '/search_package/insurer_list_overall_page/insurer_list_overall_page_widget.dart'
     show InsurerListOverallPageWidget;
+export '/fire_insurance/searchable_house_list/searchable_house_list_widget.dart'
+    show SearchableHouseListWidget;
+export '/fire_insurance/fire_insurer_list_all/fire_insurer_list_all_widget.dart'
+    show FireInsurerListAllWidget;
+export '/fire_insurance/fire_insurer_list_page/fire_insurer_list_page_widget.dart'
+    show FireInsurerListPageWidget;
+export '/fire_insurance/search_package_fire_insurance_page/search_package_fire_insurance_page_widget.dart'
+    show SearchPackageFireInsurancePageWidget;
+export '/fire_insurance/fire_insurance_list_page/fire_insurance_list_page_widget.dart'
+    show FireInsuranceListPageWidget;
+export '/fire_insurance/make_fire_insurance_list_page/make_fire_insurance_list_page_widget.dart'
+    show MakeFireInsuranceListPageWidget;
+export '/fire_insurance/fire_lead_follow_up_page/fire_lead_follow_up_page_widget.dart'
+    show FireLeadFollowUpPageWidget;
+export '/fire_insurance/details_fire_insurance_page/details_fire_insurance_page_widget.dart'
+    show DetailsFireInsurancePageWidget;
+export '/fire_insurance/add_fire_customer_name/add_fire_customer_name_widget.dart'
+    show AddFireCustomerNameWidget;
+export '/fire_insurance/fire_searchable_list_page/fire_searchable_list_page_widget.dart'
+    show FireSearchableListPageWidget;
+export '/fire_insurance/fire_inpackage_folder/fire_insurance_info_page1/fire_insurance_info_page1_widget.dart'
+    show FireInsuranceInfoPage1Widget;
+export '/fire_insurance/fire_inpackage_folder/fire_insurance_info_page2/fire_insurance_info_page2_widget.dart'
+    show FireInsuranceInfoPage2Widget;
+export '/fire_insurance/fire_inpackage_folder/fire_insurance_info_page3/fire_insurance_info_page3_widget.dart'
+    show FireInsuranceInfoPage3Widget;
+export '/fire_insurance/fire_inpackage_folder/fire_insurance_info_page4/fire_insurance_info_page4_widget.dart'
+    show FireInsuranceInfoPage4Widget;
+export '/fire_insurance/fire_inpackage_folder/fire_insurance_info_page4_2/fire_insurance_info_page42_widget.dart'
+    show FireInsuranceInfoPage42Widget;
+export '/fire_insurance/fire_inpackage_folder/fire_insurance_info_page4_installments/fire_insurance_info_page4_installments_widget.dart'
+    show FireInsuranceInfoPage4InstallmentsWidget;
+export '/fire_insurance/fire_inpackage_folder/fire_insurance_info_page5/fire_insurance_info_page5_widget.dart'
+    show FireInsuranceInfoPage5Widget;
+export '/fire_insurance/fire_inpackage_folder/fire_insurance_info_page5_show_policy/fire_insurance_info_page5_show_policy_widget.dart'
+    show FireInsuranceInfoPage5ShowPolicyWidget;
+export '/fire_insurance/fire_inpackage_folder/fire_insurance_info_page5_cancel/fire_insurance_info_page5_cancel_widget.dart'
+    show FireInsuranceInfoPage5CancelWidget;
+export '/fire_insurance/fire_inpackage_folder/fire_paywith_q_rcode/fire_paywith_q_rcode_widget.dart'
+    show FirePaywithQRcodeWidget;
+export '/fire_insurance/fire_quotation_page/fire_quotation_page_widget.dart'
+    show FireQuotationPageWidget;
+export '/fire_insurance/webview_page/webview_page_widget.dart'
+    show WebviewPageWidget;
+export '/fire_insurance/fire_inpackage_folder/add_people_fire_insurance_page/add_people_fire_insurance_page_widget.dart'
+    show AddPeopleFireInsurancePageWidget;
+export '/fire_insurance/fire_inpackage_folder/show_people_page/show_people_page_widget.dart'
+    show ShowPeoplePageWidget;

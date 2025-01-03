@@ -3,8 +3,10 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -33,6 +35,7 @@ class _HomepageRequest22WidgetState extends State<HomepageRequest22Widget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'Homepage_Request_2_2'});
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -814,52 +817,101 @@ class _HomepageRequest22WidgetState extends State<HomepageRequest22Widget> {
                                             hoverColor: Colors.transparent,
                                             highlightColor: Colors.transparent,
                                             onTap: () async {
-                                              await DatePicker.showDatePicker(
-                                                context,
-                                                showTitleActions: true,
-                                                onConfirm: (date) {
+                                              if (kIsWeb) {
+                                                final _datePickedDate =
+                                                    await showDatePicker(
+                                                  context: context,
+                                                  initialDate: (((FFAppState()
+                                                                      .nonePackageWorkType ==
+                                                                  'งานต่ออายุ') ||
+                                                              (FFAppState()
+                                                                      .nonePackageWorkType ==
+                                                                  'งานโอนโค้ด')
+                                                          ? functions.addDateTimeDuration(
+                                                              1,
+                                                              functions
+                                                                  .parseStringToDatetime(
+                                                                      FFAppState()
+                                                                          .nonePackageOldVmiExpDate)
+                                                                  ?.toString())
+                                                          : getCurrentTimestamp) ??
+                                                      DateTime.now()),
+                                                  firstDate: (((FFAppState()
+                                                                      .nonePackageWorkType ==
+                                                                  'งานต่ออายุ') ||
+                                                              (FFAppState()
+                                                                      .nonePackageWorkType ==
+                                                                  'งานโอนโค้ด')
+                                                          ? functions.addDateTimeDuration(
+                                                              1,
+                                                              functions
+                                                                  .parseStringToDatetime(
+                                                                      FFAppState()
+                                                                          .nonePackageOldVmiExpDate)
+                                                                  ?.toString())
+                                                          : getCurrentTimestamp) ??
+                                                      DateTime.now()),
+                                                  lastDate: DateTime(2050),
+                                                );
+
+                                                if (_datePickedDate != null) {
                                                   safeSetState(() {
-                                                    _model.datePicked = date;
+                                                    _model.datePicked =
+                                                        DateTime(
+                                                      _datePickedDate.year,
+                                                      _datePickedDate.month,
+                                                      _datePickedDate.day,
+                                                    );
                                                   });
-                                                },
-                                                currentTime: (FFAppState()
-                                                                .nonePackageWorkType ==
-                                                            'งานต่ออายุ') ||
-                                                        (FFAppState()
-                                                                .nonePackageWorkType ==
-                                                            'งานโอนโค้ด')
-                                                    ? functions.addDateTimeDuration(
-                                                        1,
-                                                        functions
-                                                            .parseStringToDatetime(
-                                                                FFAppState()
-                                                                    .nonePackageOldVmiExpDate)
-                                                            ?.toString())!
-                                                    : getCurrentTimestamp,
-                                                minTime: (FFAppState()
-                                                                .nonePackageWorkType ==
-                                                            'งานต่ออายุ') ||
-                                                        (FFAppState()
-                                                                .nonePackageWorkType ==
-                                                            'งานโอนโค้ด')
-                                                    ? functions.addDateTimeDuration(
-                                                        1,
-                                                        functions
-                                                            .parseStringToDatetime(
-                                                                FFAppState()
-                                                                    .nonePackageOldVmiExpDate)
-                                                            ?.toString())!
-                                                    : getCurrentTimestamp,
-                                                locale: LocaleType.values
-                                                    .firstWhere(
-                                                  (l) =>
-                                                      l.name ==
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .languageCode,
-                                                  orElse: () => LocaleType.en,
-                                                ),
-                                              );
+                                                }
+                                              } else {
+                                                await DatePicker.showDatePicker(
+                                                  context,
+                                                  showTitleActions: true,
+                                                  onConfirm: (date) {
+                                                    safeSetState(() {
+                                                      _model.datePicked = date;
+                                                    });
+                                                  },
+                                                  currentTime: (FFAppState()
+                                                                  .nonePackageWorkType ==
+                                                              'งานต่ออายุ') ||
+                                                          (FFAppState()
+                                                                  .nonePackageWorkType ==
+                                                              'งานโอนโค้ด')
+                                                      ? functions.addDateTimeDuration(
+                                                          1,
+                                                          functions
+                                                              .parseStringToDatetime(
+                                                                  FFAppState()
+                                                                      .nonePackageOldVmiExpDate)
+                                                              ?.toString())!
+                                                      : getCurrentTimestamp,
+                                                  minTime: (FFAppState()
+                                                                  .nonePackageWorkType ==
+                                                              'งานต่ออายุ') ||
+                                                          (FFAppState()
+                                                                  .nonePackageWorkType ==
+                                                              'งานโอนโค้ด')
+                                                      ? functions.addDateTimeDuration(
+                                                          1,
+                                                          functions
+                                                              .parseStringToDatetime(
+                                                                  FFAppState()
+                                                                      .nonePackageOldVmiExpDate)
+                                                              ?.toString())!
+                                                      : getCurrentTimestamp,
+                                                  locale: LocaleType.values
+                                                      .firstWhere(
+                                                    (l) =>
+                                                        l.name ==
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .languageCode,
+                                                    orElse: () => LocaleType.en,
+                                                  ),
+                                                );
+                                              }
 
                                               if (!(_model.datePicked !=
                                                   null)) {

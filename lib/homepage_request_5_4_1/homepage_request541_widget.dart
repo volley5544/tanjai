@@ -147,6 +147,8 @@ class _HomepageRequest541WidgetState extends State<HomepageRequest541Widget> {
 
       Navigator.pop(context);
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -260,7 +262,9 @@ class _HomepageRequest541WidgetState extends State<HomepageRequest541Widget> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(0.0),
                       child: Image.network(
-                        'https://picsum.photos/seed/985/600',
+                        getCORSProxyUrl(
+                          'https://picsum.photos/seed/985/600',
+                        ),
                         width: 300.0,
                         height: 200.0,
                         fit: BoxFit.cover,
@@ -356,7 +360,9 @@ class _HomepageRequest541WidgetState extends State<HomepageRequest541Widget> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(8.0),
                       child: Image.network(
-                        'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=4189e142-826e-4b26-b278-914c39bfac74',
+                        getCORSProxyUrl(
+                          'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=4189e142-826e-4b26-b278-914c39bfac74',
+                        ),
                         width: 300.0,
                         height: 200.0,
                         fit: BoxFit.cover,

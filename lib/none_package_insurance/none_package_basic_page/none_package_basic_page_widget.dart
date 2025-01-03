@@ -9,9 +9,11 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
 import 'dart:convert';
+import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -555,13 +557,6 @@ class _NonePackageBasicPageWidgetState
             _model.currentPriceTextFieldTextController?.text =
                 functions.removeCommaFromNumText(
                     _model.currentPriceTextFieldTextController.text);
-            _model.currentPriceTextFieldFocusNode?.requestFocus();
-            WidgetsBinding.instance.addPostFrameCallback((_) {
-              _model.currentPriceTextFieldTextController?.selection =
-                  TextSelection.collapsed(
-                offset: _model.currentPriceTextFieldTextController!.text.length,
-              );
-            });
           });
         } else {
           if (_model.currentPriceTextFieldTextController.text == '') {
@@ -571,13 +566,6 @@ class _NonePackageBasicPageWidgetState
             _model.currentPriceTextFieldTextController?.text =
                 functions.showNumberWithCommaWithoutDot(
                     _model.currentPriceTextFieldTextController.text)!;
-            _model.currentPriceTextFieldFocusNode?.requestFocus();
-            WidgetsBinding.instance.addPostFrameCallback((_) {
-              _model.currentPriceTextFieldTextController?.selection =
-                  TextSelection.collapsed(
-                offset: _model.currentPriceTextFieldTextController!.text.length,
-              );
-            });
           });
         }
       },
@@ -699,6 +687,8 @@ class _NonePackageBasicPageWidgetState
     _model.remarkTextFieldTextController ??=
         TextEditingController(text: widget!.remark);
     _model.remarkTextFieldFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -2928,24 +2918,43 @@ class _NonePackageBasicPageWidgetState
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                await DatePicker.showDatePicker(
-                                  context,
-                                  showTitleActions: true,
-                                  onConfirm: (date) {
+                                if (kIsWeb) {
+                                  final _datePickedDate = await showDatePicker(
+                                    context: context,
+                                    initialDate: getCurrentTimestamp,
+                                    firstDate: DateTime(1900),
+                                    lastDate: DateTime(2050),
+                                  );
+
+                                  if (_datePickedDate != null) {
                                     safeSetState(() {
-                                      _model.datePicked = date;
+                                      _model.datePicked = DateTime(
+                                        _datePickedDate.year,
+                                        _datePickedDate.month,
+                                        _datePickedDate.day,
+                                      );
                                     });
-                                  },
-                                  currentTime: getCurrentTimestamp,
-                                  minTime: DateTime(0, 0, 0),
-                                  locale: LocaleType.values.firstWhere(
-                                    (l) =>
-                                        l.name ==
-                                        FFLocalizations.of(context)
-                                            .languageCode,
-                                    orElse: () => LocaleType.en,
-                                  ),
-                                );
+                                  }
+                                } else {
+                                  await DatePicker.showDatePicker(
+                                    context,
+                                    showTitleActions: true,
+                                    onConfirm: (date) {
+                                      safeSetState(() {
+                                        _model.datePicked = date;
+                                      });
+                                    },
+                                    currentTime: getCurrentTimestamp,
+                                    minTime: DateTime(0, 0, 0),
+                                    locale: LocaleType.values.firstWhere(
+                                      (l) =>
+                                          l.name ==
+                                          FFLocalizations.of(context)
+                                              .languageCode,
+                                      orElse: () => LocaleType.en,
+                                    ),
+                                  );
+                                }
 
                                 await actions.hideKeyboardAction(
                                   context,

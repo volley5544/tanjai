@@ -9,10 +9,12 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
 import 'dart:convert';
+import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:easy_debounce/easy_debounce.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
@@ -293,6 +295,8 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
             ? FFAppState().insuranceInfoWallChargerNumber
             : '');
     _model.wallChargeTextFieldFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -1165,51 +1169,53 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                                         8.0),
                                                             child:
                                                                 Image.network(
-                                                              () {
-                                                                if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'รถเก๋ง') {
-                                                                  return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=68ef0a76-99d9-4c43-ae86-b48970b7fb09';
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'รถตู้') {
-                                                                  return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B8%95%E0%B8%B9%E0%B9%89.png?alt=media&token=8969fa4a-52e0-4b0c-9c44-f349976bc624';
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'รถกระบะ 2 ประตู') {
-                                                                  return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%20%E0%B8%95%E0%B8%AD%E0%B8%99%E0%B9%80%E0%B8%94%E0%B8%B5%E0%B8%A2%E0%B8%A7%20(%E0%B8%A3%E0%B8%A7%E0%B8%A1).png?alt=media&token=bd62e47d-dd92-41ca-8f51-3632edfd54a6';
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'รถกระบะ 4 ประตู') {
-                                                                  return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%204%20%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%95%E0%B8%B9.png?alt=media&token=45bc2e60-3a29-47dc-aa4d-e9c82a113bbc';
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'รถบรรทุก หัวลาก หางพ่วง') {
-                                                                  return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B8%A5%E0%B8%B2%E0%B8%81%20%E0%B8%AB%E0%B8%B2%E0%B8%87%E0%B8%9E%E0%B9%88%E0%B8%A7%E0%B8%87.png?alt=media&token=1d749f04-0765-422a-b0b7-34a3d5d60519';
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'รถแต่ง ต่อคอก') {
-                                                                  return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B9%81%E0%B8%95%E0%B9%88%E0%B8%87%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B8%84%E0%B8%AD%E0%B8%81.png?alt=media&token=80501c24-fec4-4c34-ac0f-361db3b698b3';
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'กระบะไม่ต่อเติม') {
-                                                                  return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%202%20%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%95%E0%B8%B9%E0%B9%84%E0%B8%A1%E0%B9%88%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1.png?alt=media&token=ca1d014f-d1aa-4f27-bd54-3d97d5efba3f';
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'กระบะต่อเติมเกินหัวเก๋ง') {
-                                                                  return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1%E0%B9%80%E0%B8%81%E0%B8%B4%E0%B8%99%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=957c9ae1-6d8a-41d5-b7aa-23965926a562';
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'กระบะต่อเติมเกินหัวเก๋ง') {
-                                                                  return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1%E0%B9%80%E0%B8%81%E0%B8%B4%E0%B8%99%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=957c9ae1-6d8a-41d5-b7aa-23965926a562';
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'กระบะตู้ทึบ/ตู้แห้ง') {
-                                                                  return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F2_%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B8%B9%E0%B9%89%E0%B8%97%E0%B8%B6%E0%B8%9A_%E0%B8%95%E0%B8%B9%E0%B9%89%E0%B9%81%E0%B8%AB%E0%B9%89%E0%B8%87.png?alt=media&token=71715c79-6196-4a63-9a9e-c179033218ea';
-                                                                } else {
-                                                                  return '-';
-                                                                }
-                                                              }(),
+                                                              getCORSProxyUrl(
+                                                                () {
+                                                                  if (FFAppState()
+                                                                          .insuranceInfoCarTypeDetail ==
+                                                                      'รถเก๋ง') {
+                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=68ef0a76-99d9-4c43-ae86-b48970b7fb09';
+                                                                  } else if (FFAppState()
+                                                                          .insuranceInfoCarTypeDetail ==
+                                                                      'รถตู้') {
+                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B8%95%E0%B8%B9%E0%B9%89.png?alt=media&token=8969fa4a-52e0-4b0c-9c44-f349976bc624';
+                                                                  } else if (FFAppState()
+                                                                          .insuranceInfoCarTypeDetail ==
+                                                                      'รถกระบะ 2 ประตู') {
+                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%20%E0%B8%95%E0%B8%AD%E0%B8%99%E0%B9%80%E0%B8%94%E0%B8%B5%E0%B8%A2%E0%B8%A7%20(%E0%B8%A3%E0%B8%A7%E0%B8%A1).png?alt=media&token=bd62e47d-dd92-41ca-8f51-3632edfd54a6';
+                                                                  } else if (FFAppState()
+                                                                          .insuranceInfoCarTypeDetail ==
+                                                                      'รถกระบะ 4 ประตู') {
+                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%204%20%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%95%E0%B8%B9.png?alt=media&token=45bc2e60-3a29-47dc-aa4d-e9c82a113bbc';
+                                                                  } else if (FFAppState()
+                                                                          .insuranceInfoCarTypeDetail ==
+                                                                      'รถบรรทุก หัวลาก หางพ่วง') {
+                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B8%A5%E0%B8%B2%E0%B8%81%20%E0%B8%AB%E0%B8%B2%E0%B8%87%E0%B8%9E%E0%B9%88%E0%B8%A7%E0%B8%87.png?alt=media&token=1d749f04-0765-422a-b0b7-34a3d5d60519';
+                                                                  } else if (FFAppState()
+                                                                          .insuranceInfoCarTypeDetail ==
+                                                                      'รถแต่ง ต่อคอก') {
+                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B9%81%E0%B8%95%E0%B9%88%E0%B8%87%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B8%84%E0%B8%AD%E0%B8%81.png?alt=media&token=80501c24-fec4-4c34-ac0f-361db3b698b3';
+                                                                  } else if (FFAppState()
+                                                                          .insuranceInfoCarTypeDetail ==
+                                                                      'กระบะไม่ต่อเติม') {
+                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%202%20%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%95%E0%B8%B9%E0%B9%84%E0%B8%A1%E0%B9%88%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1.png?alt=media&token=ca1d014f-d1aa-4f27-bd54-3d97d5efba3f';
+                                                                  } else if (FFAppState()
+                                                                          .insuranceInfoCarTypeDetail ==
+                                                                      'กระบะต่อเติมเกินหัวเก๋ง') {
+                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1%E0%B9%80%E0%B8%81%E0%B8%B4%E0%B8%99%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=957c9ae1-6d8a-41d5-b7aa-23965926a562';
+                                                                  } else if (FFAppState()
+                                                                          .insuranceInfoCarTypeDetail ==
+                                                                      'กระบะต่อเติมเกินหัวเก๋ง') {
+                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1%E0%B9%80%E0%B8%81%E0%B8%B4%E0%B8%99%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=957c9ae1-6d8a-41d5-b7aa-23965926a562';
+                                                                  } else if (FFAppState()
+                                                                          .insuranceInfoCarTypeDetail ==
+                                                                      'กระบะตู้ทึบ/ตู้แห้ง') {
+                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F2_%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B8%B9%E0%B9%89%E0%B8%97%E0%B8%B6%E0%B8%9A_%E0%B8%95%E0%B8%B9%E0%B9%89%E0%B9%81%E0%B8%AB%E0%B9%89%E0%B8%87.png?alt=media&token=71715c79-6196-4a63-9a9e-c179033218ea';
+                                                                  } else {
+                                                                    return '-';
+                                                                  }
+                                                                }(),
+                                                              ),
                                                               width: () {
                                                                 if (FFAppState()
                                                                         .insuranceInfoCarTypeDetail ==
@@ -1407,112 +1413,6 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                     .width *
                                                 1.0,
                                             decoration: BoxDecoration(),
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          12.0, 0.0, 12.0, 0.0),
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Text(
-                                                        'ประเภทลูกค้า',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Noto Sans Thai',
-                                                              fontSize: 15.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500,
-                                                            ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 5.0, 0.0, 0.0),
-                                                  child: InkWell(
-                                                    splashColor:
-                                                        Colors.transparent,
-                                                    focusColor:
-                                                        Colors.transparent,
-                                                    hoverColor:
-                                                        Colors.transparent,
-                                                    highlightColor:
-                                                        Colors.transparent,
-                                                    onTap: () async {},
-                                                    child: Container(
-                                                      width: MediaQuery.sizeOf(
-                                                                  context)
-                                                              .width *
-                                                          1.0,
-                                                      height: 60.0,
-                                                      decoration: BoxDecoration(
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .secondaryBackground,
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(8.0),
-                                                        border: Border.all(
-                                                          color:
-                                                              Color(0xFFB3B3B3),
-                                                        ),
-                                                      ),
-                                                      child: Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceBetween,
-                                                        children: [
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        10.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: Text(
-                                                              FFAppState()
-                                                                  .nonePackageCusMembership,
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Noto Sans Thai',
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .black600,
-                                                                    fontSize:
-                                                                        15.0,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600,
-                                                                  ),
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
                                           ),
                                         ),
                                       if ((FFAppState()
@@ -2719,30 +2619,79 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                 highlightColor:
                                                     Colors.transparent,
                                                 onTap: () async {
-                                                  await DatePicker
-                                                      .showDatePicker(
-                                                    context,
-                                                    showTitleActions: true,
-                                                    onConfirm: (date) {
+                                                  if (kIsWeb) {
+                                                    final _datePicked1Date =
+                                                        await showDatePicker(
+                                                      context: context,
+                                                      initialDate:
+                                                          getCurrentTimestamp,
+                                                      firstDate: DateTime(1900),
+                                                      lastDate: DateTime(2050),
+                                                      builder:
+                                                          (context, child) {
+                                                        return wrapInMaterialDatePickerTheme(
+                                                          context,
+                                                          child!,
+                                                          headerBackgroundColor:
+                                                              Color(0x00000000),
+                                                          headerForegroundColor:
+                                                              Color(0x00000000),
+                                                          headerTextStyle:
+                                                              TextStyle(),
+                                                          pickerBackgroundColor:
+                                                              Color(0x00000000),
+                                                          pickerForegroundColor:
+                                                              Color(0x00000000),
+                                                          selectedDateTimeBackgroundColor:
+                                                              Color(0x00000000),
+                                                          selectedDateTimeForegroundColor:
+                                                              Color(0x00000000),
+                                                          actionButtonForegroundColor:
+                                                              Color(0x00000000),
+                                                          iconSize: 24,
+                                                        );
+                                                      },
+                                                    );
+
+                                                    if (_datePicked1Date !=
+                                                        null) {
                                                       safeSetState(() {
                                                         _model.datePicked1 =
-                                                            date;
+                                                            DateTime(
+                                                          _datePicked1Date.year,
+                                                          _datePicked1Date
+                                                              .month,
+                                                          _datePicked1Date.day,
+                                                        );
                                                       });
-                                                    },
-                                                    currentTime:
-                                                        getCurrentTimestamp,
-                                                    minTime: DateTime(0, 0, 0),
-                                                    locale: LocaleType.values
-                                                        .firstWhere(
-                                                      (l) =>
-                                                          l.name ==
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .languageCode,
-                                                      orElse: () =>
-                                                          LocaleType.en,
-                                                    ),
-                                                  );
+                                                    }
+                                                  } else {
+                                                    await DatePicker
+                                                        .showDatePicker(
+                                                      context,
+                                                      showTitleActions: true,
+                                                      onConfirm: (date) {
+                                                        safeSetState(() {
+                                                          _model.datePicked1 =
+                                                              date;
+                                                        });
+                                                      },
+                                                      currentTime:
+                                                          getCurrentTimestamp,
+                                                      minTime:
+                                                          DateTime(0, 0, 0),
+                                                      locale: LocaleType.values
+                                                          .firstWhere(
+                                                        (l) =>
+                                                            l.name ==
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .languageCode,
+                                                        orElse: () =>
+                                                            LocaleType.en,
+                                                      ),
+                                                    );
+                                                  }
 
                                                   if (!(_model.datePicked1 !=
                                                       null)) {
@@ -2935,43 +2884,80 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                 highlightColor:
                                                     Colors.transparent,
                                                 onTap: () async {
-                                                  await DatePicker
-                                                      .showDatePicker(
-                                                    context,
-                                                    showTitleActions: true,
-                                                    onConfirm: (date) {
+                                                  if (kIsWeb) {
+                                                    final _datePicked2Date =
+                                                        await showDatePicker(
+                                                      context: context,
+                                                      initialDate: ((FFAppState()
+                                                                      .nonePackageWorkType ==
+                                                                  'งานต่ออายุ') ||
+                                                              (FFAppState()
+                                                                      .nonePackageWorkType ==
+                                                                  'งานโอนโค้ด')
+                                                          ? getCurrentTimestamp
+                                                          : getCurrentTimestamp),
+                                                      firstDate: ((FFAppState()
+                                                                      .nonePackageWorkType ==
+                                                                  'งานต่ออายุ') ||
+                                                              (FFAppState()
+                                                                      .nonePackageWorkType ==
+                                                                  'งานโอนโค้ด')
+                                                          ? getCurrentTimestamp
+                                                          : getCurrentTimestamp),
+                                                      lastDate: DateTime(2050),
+                                                    );
+
+                                                    if (_datePicked2Date !=
+                                                        null) {
                                                       safeSetState(() {
                                                         _model.datePicked2 =
-                                                            date;
+                                                            DateTime(
+                                                          _datePicked2Date.year,
+                                                          _datePicked2Date
+                                                              .month,
+                                                          _datePicked2Date.day,
+                                                        );
                                                       });
-                                                    },
-                                                    currentTime: (FFAppState()
-                                                                    .nonePackageWorkType ==
-                                                                'งานต่ออายุ') ||
-                                                            (FFAppState()
-                                                                    .nonePackageWorkType ==
-                                                                'งานโอนโค้ด')
-                                                        ? getCurrentTimestamp
-                                                        : getCurrentTimestamp,
-                                                    minTime: (FFAppState()
-                                                                    .nonePackageWorkType ==
-                                                                'งานต่ออายุ') ||
-                                                            (FFAppState()
-                                                                    .nonePackageWorkType ==
-                                                                'งานโอนโค้ด')
-                                                        ? getCurrentTimestamp
-                                                        : getCurrentTimestamp,
-                                                    locale: LocaleType.values
-                                                        .firstWhere(
-                                                      (l) =>
-                                                          l.name ==
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .languageCode,
-                                                      orElse: () =>
-                                                          LocaleType.en,
-                                                    ),
-                                                  );
+                                                    }
+                                                  } else {
+                                                    await DatePicker
+                                                        .showDatePicker(
+                                                      context,
+                                                      showTitleActions: true,
+                                                      onConfirm: (date) {
+                                                        safeSetState(() {
+                                                          _model.datePicked2 =
+                                                              date;
+                                                        });
+                                                      },
+                                                      currentTime: (FFAppState()
+                                                                      .nonePackageWorkType ==
+                                                                  'งานต่ออายุ') ||
+                                                              (FFAppState()
+                                                                      .nonePackageWorkType ==
+                                                                  'งานโอนโค้ด')
+                                                          ? getCurrentTimestamp
+                                                          : getCurrentTimestamp,
+                                                      minTime: (FFAppState()
+                                                                      .nonePackageWorkType ==
+                                                                  'งานต่ออายุ') ||
+                                                              (FFAppState()
+                                                                      .nonePackageWorkType ==
+                                                                  'งานโอนโค้ด')
+                                                          ? getCurrentTimestamp
+                                                          : getCurrentTimestamp,
+                                                      locale: LocaleType.values
+                                                          .firstWhere(
+                                                        (l) =>
+                                                            l.name ==
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .languageCode,
+                                                        orElse: () =>
+                                                            LocaleType.en,
+                                                      ),
+                                                    );
+                                                  }
 
                                                   if (!(_model.datePicked2 !=
                                                       null)) {
@@ -3181,43 +3167,80 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                 highlightColor:
                                                     Colors.transparent,
                                                 onTap: () async {
-                                                  await DatePicker
-                                                      .showDatePicker(
-                                                    context,
-                                                    showTitleActions: true,
-                                                    onConfirm: (date) {
+                                                  if (kIsWeb) {
+                                                    final _datePicked3Date =
+                                                        await showDatePicker(
+                                                      context: context,
+                                                      initialDate: ((FFAppState()
+                                                                      .nonePackageWorkType ==
+                                                                  'งานต่ออายุ') ||
+                                                              (FFAppState()
+                                                                      .nonePackageWorkType ==
+                                                                  'งานโอนโค้ด')
+                                                          ? getCurrentTimestamp
+                                                          : getCurrentTimestamp),
+                                                      firstDate: ((FFAppState()
+                                                                      .nonePackageWorkType ==
+                                                                  'งานต่ออายุ') ||
+                                                              (FFAppState()
+                                                                      .nonePackageWorkType ==
+                                                                  'งานโอนโค้ด')
+                                                          ? getCurrentTimestamp
+                                                          : getCurrentTimestamp),
+                                                      lastDate: DateTime(2050),
+                                                    );
+
+                                                    if (_datePicked3Date !=
+                                                        null) {
                                                       safeSetState(() {
                                                         _model.datePicked3 =
-                                                            date;
+                                                            DateTime(
+                                                          _datePicked3Date.year,
+                                                          _datePicked3Date
+                                                              .month,
+                                                          _datePicked3Date.day,
+                                                        );
                                                       });
-                                                    },
-                                                    currentTime: (FFAppState()
-                                                                    .nonePackageWorkType ==
-                                                                'งานต่ออายุ') ||
-                                                            (FFAppState()
-                                                                    .nonePackageWorkType ==
-                                                                'งานโอนโค้ด')
-                                                        ? getCurrentTimestamp
-                                                        : getCurrentTimestamp,
-                                                    minTime: (FFAppState()
-                                                                    .nonePackageWorkType ==
-                                                                'งานต่ออายุ') ||
-                                                            (FFAppState()
-                                                                    .nonePackageWorkType ==
-                                                                'งานโอนโค้ด')
-                                                        ? getCurrentTimestamp
-                                                        : getCurrentTimestamp,
-                                                    locale: LocaleType.values
-                                                        .firstWhere(
-                                                      (l) =>
-                                                          l.name ==
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .languageCode,
-                                                      orElse: () =>
-                                                          LocaleType.en,
-                                                    ),
-                                                  );
+                                                    }
+                                                  } else {
+                                                    await DatePicker
+                                                        .showDatePicker(
+                                                      context,
+                                                      showTitleActions: true,
+                                                      onConfirm: (date) {
+                                                        safeSetState(() {
+                                                          _model.datePicked3 =
+                                                              date;
+                                                        });
+                                                      },
+                                                      currentTime: (FFAppState()
+                                                                      .nonePackageWorkType ==
+                                                                  'งานต่ออายุ') ||
+                                                              (FFAppState()
+                                                                      .nonePackageWorkType ==
+                                                                  'งานโอนโค้ด')
+                                                          ? getCurrentTimestamp
+                                                          : getCurrentTimestamp,
+                                                      minTime: (FFAppState()
+                                                                      .nonePackageWorkType ==
+                                                                  'งานต่ออายุ') ||
+                                                              (FFAppState()
+                                                                      .nonePackageWorkType ==
+                                                                  'งานโอนโค้ด')
+                                                          ? getCurrentTimestamp
+                                                          : getCurrentTimestamp,
+                                                      locale: LocaleType.values
+                                                          .firstWhere(
+                                                        (l) =>
+                                                            l.name ==
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .languageCode,
+                                                        orElse: () =>
+                                                            LocaleType.en,
+                                                      ),
+                                                    );
+                                                  }
 
                                                   if (!(_model.datePicked3 !=
                                                       null)) {
@@ -4163,19 +4186,47 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
-                                                Text(
-                                                  'จังหวัดที่จดทะเบียน',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Noto Sans Thai',
-                                                        fontSize: 15.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                      ),
+                                                InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    context.pushNamed(
+                                                      'showPeoplePage',
+                                                      queryParameters: {
+                                                        'firestoreDataConfigList':
+                                                            serializeParam(
+                                                          widget!
+                                                              .masterDataFirebase,
+                                                          ParamType.Document,
+                                                        ),
+                                                      }.withoutNulls,
+                                                      extra: <String, dynamic>{
+                                                        'firestoreDataConfigList':
+                                                            widget!
+                                                                .masterDataFirebase,
+                                                      },
+                                                    );
+                                                  },
+                                                  child: Text(
+                                                    'จังหวัดที่จดทะเบียน',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          fontSize: 15.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                                  ),
                                                 ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional

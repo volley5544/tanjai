@@ -9,6 +9,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'dart:math';
+import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -125,6 +126,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -250,8 +253,10 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                               child:
                                                   FlutterFlowExpandedImageView(
                                                 image: Image.network(
-                                                  imageUserCustomRecord
-                                                      .imgProfile,
+                                                  getCORSProxyUrl(
+                                                    imageUserCustomRecord
+                                                        .imgProfile,
+                                                  ),
                                                   fit: BoxFit.contain,
                                                 ),
                                                 allowRotation: false,
@@ -269,7 +274,10 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                             borderRadius:
                                                 BorderRadius.circular(60.0),
                                             child: Image.network(
-                                              imageUserCustomRecord.imgProfile,
+                                              getCORSProxyUrl(
+                                                imageUserCustomRecord
+                                                    .imgProfile,
+                                              ),
                                               width: 100.0,
                                               fit: BoxFit.cover,
                                             ),
@@ -418,7 +426,9 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(60.0),
                                     child: Image.network(
-                                      'https://picsum.photos/seed/470/600',
+                                      getCORSProxyUrl(
+                                        'https://picsum.photos/seed/470/600',
+                                      ),
                                       width: 100.0,
                                       fit: BoxFit.cover,
                                     ),

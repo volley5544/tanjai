@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:math';
+import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -33,6 +34,8 @@ class _InfomationCustomerActWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => InfomationCustomerActModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -610,14 +613,16 @@ class _InfomationCustomerActWidgetState
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(0.0),
                                 child: Image.network(
-                                  valueOrDefault<String>(
-                                    functions.stringToImgPath(FFAppState()
-                                                .insuranceInfoInsuranceLogo !=
-                                            ''
-                                        ? FFAppState()
-                                            .insuranceInfoInsuranceLogo
-                                        : 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37'),
-                                    'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37',
+                                  getCORSProxyUrl(
+                                    valueOrDefault<String>(
+                                      functions.stringToImgPath(FFAppState()
+                                                  .insuranceInfoInsuranceLogo !=
+                                              ''
+                                          ? FFAppState()
+                                              .insuranceInfoInsuranceLogo
+                                          : 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37'),
+                                      'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37',
+                                    ),
                                   ),
                                   width: 300.0,
                                   height: 200.0,

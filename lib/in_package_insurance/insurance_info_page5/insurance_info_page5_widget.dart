@@ -1,8 +1,10 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import '/components/custom_dialog_component_copy_widget.dart';
 import '/components/infomation_customer_act_widget.dart';
+import '/components/infomation_customer_fire_insurance_widget.dart';
 import '/components/save_contract_c_m_i_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -13,6 +15,7 @@ import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
 import '/pages/super_app/components/step5_document_download/step5_document_download_widget.dart';
 import 'dart:convert';
 import 'dart:math';
+import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
@@ -289,6 +292,27 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
         (_model.applicationDetailOutput?.jsonBody ?? ''),
       )}';
       safeSetState(() {});
+      FFAppState().leadsHouse = (IbsApplicationsDetailCall.apphouse(
+        (_model.applicationDetailOutput?.jsonBody ?? ''),
+      )!
+              .firstOrNull!
+              .toList()
+              .map<LeadsHouseStruct?>(LeadsHouseStruct.maybeFromMap)
+              .toList() as Iterable<LeadsHouseStruct?>)
+          .withoutNulls
+          .toList()
+          .cast<LeadsHouseStruct>();
+      FFAppState().leadsDetailHouse = (IbsApplicationsDetailCall.appdetailhouse(
+        (_model.applicationDetailOutput?.jsonBody ?? ''),
+      )!
+              .firstOrNull!
+              .toList()
+              .map<LeadsDetailHouseStruct?>(LeadsDetailHouseStruct.maybeFromMap)
+              .toList() as Iterable<LeadsDetailHouseStruct?>)
+          .withoutNulls
+          .toList()
+          .cast<LeadsDetailHouseStruct>();
+      safeSetState(() {});
       _model.getPolicy = await GetInsurancePolicyApiCall.call(
         apiUrl: FFAppState().apiUrlInsuranceAppState,
         token: FFAppState().accessToken,
@@ -465,6 +489,8 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
       safeSetState(() {});
       Navigator.pop(context);
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -599,6 +625,13 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                         Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
+                            if (FFAppState().insuranceinfoActType == 'House')
+                              wrapWithModel(
+                                model:
+                                    _model.infomationCustomerFireInsuranceModel,
+                                updateCallback: () => safeSetState(() {}),
+                                child: InfomationCustomerFireInsuranceWidget(),
+                              ),
                             if (FFAppState().insuranceinfoActType != 'CMI')
                               Material(
                                 color: Colors.transparent,
@@ -1843,15 +1876,17 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                   .circular(
                                                                       0.0),
                                                           child: Image.network(
-                                                            valueOrDefault<
-                                                                String>(
-                                                              functions.stringToImgPath(FFAppState()
-                                                                          .insuranceInfoInsuranceLogo !=
-                                                                      ''
-                                                                  ? FFAppState()
-                                                                      .insuranceInfoInsuranceLogo
-                                                                  : 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37'),
-                                                              'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37',
+                                                            getCORSProxyUrl(
+                                                              valueOrDefault<
+                                                                  String>(
+                                                                functions.stringToImgPath(FFAppState()
+                                                                            .insuranceInfoInsuranceLogo !=
+                                                                        ''
+                                                                    ? FFAppState()
+                                                                        .insuranceInfoInsuranceLogo
+                                                                    : 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37'),
+                                                                'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37',
+                                                              ),
                                                             ),
                                                             width: 300.0,
                                                             height: 200.0,

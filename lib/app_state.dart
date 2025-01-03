@@ -13969,6 +13969,144 @@ class FFAppState extends ChangeNotifier {
   set haveSeatinPackage(bool value) {
     _haveSeatinPackage = value;
   }
+
+  UserProfileModelStruct _userProfileData = UserProfileModelStruct();
+  UserProfileModelStruct get userProfileData => _userProfileData;
+  set userProfileData(UserProfileModelStruct value) {
+    _userProfileData = value;
+  }
+
+  void updateUserProfileDataStruct(Function(UserProfileModelStruct) updateFn) {
+    updateFn(_userProfileData);
+  }
+
+  FireInsuranceSearchPackageDataStruct _fireInsuranceSearchPackageData =
+      FireInsuranceSearchPackageDataStruct();
+  FireInsuranceSearchPackageDataStruct get fireInsuranceSearchPackageData =>
+      _fireInsuranceSearchPackageData;
+  set fireInsuranceSearchPackageData(
+      FireInsuranceSearchPackageDataStruct value) {
+    _fireInsuranceSearchPackageData = value;
+  }
+
+  void updateFireInsuranceSearchPackageDataStruct(
+      Function(FireInsuranceSearchPackageDataStruct) updateFn) {
+    updateFn(_fireInsuranceSearchPackageData);
+  }
+
+  HouseCalEstimatedModelStruct _calEstimatedData =
+      HouseCalEstimatedModelStruct();
+  HouseCalEstimatedModelStruct get calEstimatedData => _calEstimatedData;
+  set calEstimatedData(HouseCalEstimatedModelStruct value) {
+    _calEstimatedData = value;
+  }
+
+  void updateCalEstimatedDataStruct(
+      Function(HouseCalEstimatedModelStruct) updateFn) {
+    updateFn(_calEstimatedData);
+  }
+
+  DocumentReference? _KeyStorageProdDocRef =
+      FirebaseFirestore.instance.doc('/Key_Storage/hzG7y4qinXyW313ukzON');
+  DocumentReference? get KeyStorageProdDocRef => _KeyStorageProdDocRef;
+  set KeyStorageProdDocRef(DocumentReference? value) {
+    _KeyStorageProdDocRef = value;
+  }
+
+  DocumentReference? _KeyStorageUatDocRef =
+      FirebaseFirestore.instance.doc('/Key_Storage3/5zyDv5qIAJuNGeMvfsJr');
+  DocumentReference? get KeyStorageUatDocRef => _KeyStorageUatDocRef;
+  set KeyStorageUatDocRef(DocumentReference? value) {
+    _KeyStorageUatDocRef = value;
+  }
+
+  List<LeadsHouseStruct> _leadsHouse = [];
+  List<LeadsHouseStruct> get leadsHouse => _leadsHouse;
+  set leadsHouse(List<LeadsHouseStruct> value) {
+    _leadsHouse = value;
+  }
+
+  void addToLeadsHouse(LeadsHouseStruct value) {
+    leadsHouse.add(value);
+  }
+
+  void removeFromLeadsHouse(LeadsHouseStruct value) {
+    leadsHouse.remove(value);
+  }
+
+  void removeAtIndexFromLeadsHouse(int index) {
+    leadsHouse.removeAt(index);
+  }
+
+  void updateLeadsHouseAtIndex(
+    int index,
+    LeadsHouseStruct Function(LeadsHouseStruct) updateFn,
+  ) {
+    leadsHouse[index] = updateFn(_leadsHouse[index]);
+  }
+
+  void insertAtIndexInLeadsHouse(int index, LeadsHouseStruct value) {
+    leadsHouse.insert(index, value);
+  }
+
+  List<BenefitorModelStruct> _benefitorData = [];
+  List<BenefitorModelStruct> get benefitorData => _benefitorData;
+  set benefitorData(List<BenefitorModelStruct> value) {
+    _benefitorData = value;
+  }
+
+  void addToBenefitorData(BenefitorModelStruct value) {
+    benefitorData.add(value);
+  }
+
+  void removeFromBenefitorData(BenefitorModelStruct value) {
+    benefitorData.remove(value);
+  }
+
+  void removeAtIndexFromBenefitorData(int index) {
+    benefitorData.removeAt(index);
+  }
+
+  void updateBenefitorDataAtIndex(
+    int index,
+    BenefitorModelStruct Function(BenefitorModelStruct) updateFn,
+  ) {
+    benefitorData[index] = updateFn(_benefitorData[index]);
+  }
+
+  void insertAtIndexInBenefitorData(int index, BenefitorModelStruct value) {
+    benefitorData.insert(index, value);
+  }
+
+  List<LeadsDetailHouseStruct> _leadsDetailHouse = [];
+  List<LeadsDetailHouseStruct> get leadsDetailHouse => _leadsDetailHouse;
+  set leadsDetailHouse(List<LeadsDetailHouseStruct> value) {
+    _leadsDetailHouse = value;
+  }
+
+  void addToLeadsDetailHouse(LeadsDetailHouseStruct value) {
+    leadsDetailHouse.add(value);
+  }
+
+  void removeFromLeadsDetailHouse(LeadsDetailHouseStruct value) {
+    leadsDetailHouse.remove(value);
+  }
+
+  void removeAtIndexFromLeadsDetailHouse(int index) {
+    leadsDetailHouse.removeAt(index);
+  }
+
+  void updateLeadsDetailHouseAtIndex(
+    int index,
+    LeadsDetailHouseStruct Function(LeadsDetailHouseStruct) updateFn,
+  ) {
+    leadsDetailHouse[index] = updateFn(_leadsDetailHouse[index]);
+  }
+
+  void insertAtIndexInLeadsDetailHouse(
+      int index, LeadsDetailHouseStruct value) {
+    leadsDetailHouse.insert(index, value);
+  }
 }
 
 void _safeInit(Function() initializeField) {

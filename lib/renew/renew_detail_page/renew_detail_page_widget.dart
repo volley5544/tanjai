@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
 import 'dart:convert';
+import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
@@ -125,6 +126,8 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
       safeSetState(() {});
       Navigator.pop(context);
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -197,20 +200,23 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(0.0),
                           child: Image.network(
-                            valueOrDefault<String>(
-                              functions.stringToImgPath(GetDataRenewCall
-                                          .insurerlogo(
+                            getCORSProxyUrl(
+                              valueOrDefault<String>(
+                                functions.stringToImgPath(GetDataRenewCall
+                                            .insurerlogo(
+                                          (_model.getDataRenewAPIOutput
+                                                  ?.jsonBody ??
+                                              ''),
+                                        ) !=
+                                        ''
+                                    ? GetDataRenewCall.insurerlogo(
                                         (_model.getDataRenewAPIOutput
                                                 ?.jsonBody ??
                                             ''),
-                                      ) !=
-                                      ''
-                                  ? GetDataRenewCall.insurerlogo(
-                                      (_model.getDataRenewAPIOutput?.jsonBody ??
-                                          ''),
-                                    )
-                                  : 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37'),
-                              'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37',
+                                      )
+                                    : 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37'),
+                                'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37',
+                              ),
                             ),
                             width: 59.0,
                             height: 60.0,

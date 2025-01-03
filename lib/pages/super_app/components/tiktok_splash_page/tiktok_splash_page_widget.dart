@@ -29,6 +29,8 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => TiktokSplashPageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -146,7 +148,9 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
                             ),
                           ),
                           Image.network(
-                            'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/ArunSawad%20Banner%20Img%2FAD2-tiktok-%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%81%E0%B8%B2%E0%B8%A8%E0%B8%A3%E0%B8%B2%E0%B8%87%E0%B8%A7%E0%B8%B1%E0%B8%A5-1920x1020.jpg?alt=media&token=06afd233-1869-4582-8511-52409f5d634e',
+                            getCORSProxyUrl(
+                              'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/ArunSawad%20Banner%20Img%2FAD2-tiktok-%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%81%E0%B8%B2%E0%B8%A8%E0%B8%A3%E0%B8%B2%E0%B8%87%E0%B8%A7%E0%B8%B1%E0%B8%A5-1920x1020.jpg?alt=media&token=06afd233-1869-4582-8511-52409f5d634e',
+                            ),
                             width: double.infinity,
                             height: 200.0,
                             fit: BoxFit.contain,

@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
+import 'dart:ui';
 import 'none_package_edit_page2_copy_widget.dart'
     show NonePackageEditPage2CopyWidget;
 import 'package:flutter/material.dart';

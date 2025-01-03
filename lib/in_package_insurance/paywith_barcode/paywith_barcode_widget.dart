@@ -2,6 +2,7 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:ui';
 import 'package:barcode_widget/barcode_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -31,6 +32,8 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
         parameters: {'screen_name': 'PaywithBarcode'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {});
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

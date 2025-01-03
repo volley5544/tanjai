@@ -32,6 +32,8 @@ class _ShowimgurlWidgetState extends State<ShowimgurlWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ShowimgurlModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -48,7 +50,9 @@ class _ShowimgurlWidgetState extends State<ShowimgurlWidget> {
         ClipRRect(
           borderRadius: BorderRadius.circular(8.0),
           child: Image.network(
-            widget!.imgPath!,
+            getCORSProxyUrl(
+              widget!.imgPath!,
+            ),
             width: double.infinity,
             height: double.infinity,
             fit: BoxFit.cover,

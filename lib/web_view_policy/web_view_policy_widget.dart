@@ -48,6 +48,8 @@ class _WebViewPolicyWidgetState extends State<WebViewPolicyWidget> {
         },
       );
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

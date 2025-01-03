@@ -12,6 +12,7 @@ import '/flutter_flow/upload_data.dart';
 import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
 import 'dart:convert';
 import 'dart:math';
+import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
@@ -423,13 +424,6 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
         safeSetState(() {
           _model.licenseCodeTextController?.text =
               FFAppState().insuranceInfoLicenseEmployeeId;
-          _model.licenseCodeFocusNode?.requestFocus();
-          WidgetsBinding.instance.addPostFrameCallback((_) {
-            _model.licenseCodeTextController?.selection =
-                TextSelection.collapsed(
-              offset: _model.licenseCodeTextController!.text.length,
-            );
-          });
         });
         Navigator.pop(context);
       } else {
@@ -440,6 +434,8 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
     _model.licenseCodeTextController ??= TextEditingController(
         text: FFAppState().insuranceInfoLicenseEmployeeId);
     _model.licenseCodeFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -1355,15 +1351,17 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                             BorderRadius
                                                                 .circular(0.0),
                                                         child: Image.network(
-                                                          valueOrDefault<
-                                                              String>(
-                                                            functions.stringToImgPath(FFAppState()
-                                                                        .insuranceInfoInsuranceLogo !=
-                                                                    ''
-                                                                ? FFAppState()
-                                                                    .insuranceInfoInsuranceLogo
-                                                                : 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37'),
-                                                            'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37',
+                                                          getCORSProxyUrl(
+                                                            valueOrDefault<
+                                                                String>(
+                                                              functions.stringToImgPath(FFAppState()
+                                                                          .insuranceInfoInsuranceLogo !=
+                                                                      ''
+                                                                  ? FFAppState()
+                                                                      .insuranceInfoInsuranceLogo
+                                                                  : 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37'),
+                                                              'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37',
+                                                            ),
                                                           ),
                                                           width: 300.0,
                                                           height: 200.0,
@@ -3029,12 +3027,14 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                                 ),
                                                                 child: Image
                                                                     .network(
-                                                                  valueOrDefault<
-                                                                      String>(
-                                                                    functions.stringToImgPath(
-                                                                        FFAppState()
-                                                                            .insuranceInfoLicenseImg),
-                                                                    'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=4189e142-826e-4b26-b278-914c39bfac74&_gl=1*ualx7r*_ga*OTc3MzI3NDY5LjE2NzU2NzMwNDE.*_ga_CW55HF8NVT*MTY5NjMyNzI4MS4yMzguMS4xNjk2MzI3MzEyLjI5LjAuMA..',
+                                                                  getCORSProxyUrl(
+                                                                    valueOrDefault<
+                                                                        String>(
+                                                                      functions.stringToImgPath(
+                                                                          FFAppState()
+                                                                              .insuranceInfoLicenseImg),
+                                                                      'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=4189e142-826e-4b26-b278-914c39bfac74&_gl=1*ualx7r*_ga*OTc3MzI3NDY5LjE2NzU2NzMwNDE.*_ga_CW55HF8NVT*MTY5NjMyNzI4MS4yMzguMS4xNjk2MzI3MzEyLjI5LjAuMA..',
+                                                                    ),
                                                                   ),
                                                                   fit: BoxFit
                                                                       .cover,

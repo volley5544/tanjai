@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -28,6 +29,8 @@ class _DetailRewardPointWidgetState extends State<DetailRewardPointWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => DetailRewardPointModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -86,7 +89,9 @@ class _DetailRewardPointWidgetState extends State<DetailRewardPointWidget> {
                   ),
                 ),
                 Image.network(
-                  'https://picsum.photos/seed/55/600',
+                  getCORSProxyUrl(
+                    'https://picsum.photos/seed/55/600',
+                  ),
                   width: double.infinity,
                   height: 300.0,
                   fit: BoxFit.cover,

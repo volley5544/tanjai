@@ -11,6 +11,428 @@ export 'api_manager.dart' show ApiCallResponse;
 
 const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 
+/// Start HouseInsurance Group Code
+
+class HouseInsuranceGroup {
+  static String getBaseUrl({
+    String? apiUrl = 'https://is-dev.swpfin.com/ssw_tanjai_api_dev',
+  }) =>
+      '${apiUrl}';
+  static Map<String, String> headers = {
+    'Content-Type': 'application/json',
+  };
+  static GetPackageFireInsuranceCall getPackageFireInsuranceCall =
+      GetPackageFireInsuranceCall();
+  static SaveQuotationCall saveQuotationCall = SaveQuotationCall();
+  static HouseCalEstimatedApiCall houseCalEstimatedApiCall =
+      HouseCalEstimatedApiCall();
+  static FireGetLeadsApiCall fireGetLeadsApiCall = FireGetLeadsApiCall();
+  static GetListFireApiCall getListFireApiCall = GetListFireApiCall();
+}
+
+class GetPackageFireInsuranceCall {
+  Future<ApiCallResponse> call({
+    String? yearCoverMin = '',
+    String? yearCoverMax = '',
+    String? sumInsured = '',
+    String? apiUrl = 'https://is-dev.swpfin.com/ssw_tanjai_api_dev',
+  }) async {
+    final baseUrl = HouseInsuranceGroup.getBaseUrl(
+      apiUrl: apiUrl,
+    );
+
+    final ffApiRequestBody = '''
+{
+  "year_cover_min": "${escapeStringForJson(yearCoverMin)}",
+  "year_cover_max": "${escapeStringForJson(yearCoverMax)}",
+  "sum_insured": "${escapeStringForJson(sumInsured)}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'getPackageFireInsurance',
+      apiUrl: '${baseUrl}/api/insurance/house/get_package?flag_get=1',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  int? code(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.code''',
+      ));
+  List<GetPackageFireInsurerDataTypeStruct>? data(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.results.data''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => GetPackageFireInsurerDataTypeStruct.maybeFromMap(x))
+          .withoutNulls
+          .toList();
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+}
+
+class SaveQuotationCall {
+  Future<ApiCallResponse> call({
+    String? subProduct = '',
+    String? ownerId = '',
+    String? token = '',
+    String? firstName = '',
+    String? phoneNumber = '',
+    String? ownerName = '',
+    String? ownerPhone = '',
+    String? branchCode = '',
+    String? branchName = '',
+    String? sumInsureHouse = '',
+    String? sumInsureBuildin = '',
+    String? sumInsureTotal = '',
+    String? floor = '',
+    String? width = '',
+    String? length = '',
+    String? usableArea = '',
+    String? houseTypeCode = '',
+    String? houseTypeName = '',
+    String? lastName = '',
+    dynamic? insurerPackageJson,
+    String? apiUrl = 'https://is-dev.swpfin.com/ssw_tanjai_api_dev',
+  }) async {
+    final baseUrl = HouseInsuranceGroup.getBaseUrl(
+      apiUrl: apiUrl,
+    );
+
+    final insurerPackage = _serializeJson(insurerPackageJson, true);
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'saveQuotation',
+      apiUrl: '${baseUrl}/api/house/quotations/save',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ${token}',
+      },
+      params: {
+        'insurer_package': insurerPackage,
+        'sub_product': subProduct,
+        'owner_id': ownerId,
+        'token': token,
+        'first_name': firstName,
+        'phone_number': phoneNumber,
+        'owner_name': ownerName,
+        'owner_phone': ownerPhone,
+        'branch_code': branchCode,
+        'branch_name': branchName,
+        'sum_insure_house': sumInsureHouse,
+        'sum_insure_buildin': sumInsureBuildin,
+        'sum_insure_total': sumInsureTotal,
+        'floor': floor,
+        'width': width,
+        'length': length,
+        'usable_area': usableArea,
+        'house_type_code': houseTypeCode,
+        'house_type_name': houseTypeName,
+        'last_name': lastName,
+      },
+      bodyType: BodyType.MULTIPART,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  dynamic pdfUrl(dynamic response) => getJsonField(
+        response,
+        r'''$.results.leads_house[0].url''',
+      );
+}
+
+class HouseCalEstimatedApiCall {
+  Future<ApiCallResponse> call({
+    String? houseAreaType = '',
+    String? houseTypeCode = '',
+    String? usableArea = '',
+    String? token = '',
+    String? floor = '',
+    String? width = '',
+    String? long = '',
+    String? apiUrl = 'https://is-dev.swpfin.com/ssw_tanjai_api_dev',
+  }) async {
+    final baseUrl = HouseInsuranceGroup.getBaseUrl(
+      apiUrl: apiUrl,
+    );
+
+    final ffApiRequestBody = '''
+{
+  "house_area_type": "${escapeStringForJson(houseAreaType)}",
+  "house_type_code": "${escapeStringForJson(houseTypeCode)}",
+  "usable_area": "${escapeStringForJson(usableArea)}",
+  "floor": "${escapeStringForJson(floor)}",
+  "width": "${escapeStringForJson(width)}",
+  "length": "${escapeStringForJson(long)}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'houseCalEstimatedApi',
+      apiUrl: '${baseUrl}/api/house/cal-estimated',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ${token}',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  HouseCalEstimatedModelStruct? data(dynamic response) =>
+      HouseCalEstimatedModelStruct.maybeFromMap(getJsonField(
+        response,
+        r'''$.results.data''',
+      ));
+  int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.code''',
+      ));
+  String? messageLayer1(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+}
+
+class FireGetLeadsApiCall {
+  Future<ApiCallResponse> call({
+    String? token = '',
+    String? ownerId = '',
+    String? apiUrl = 'https://is-dev.swpfin.com/ssw_tanjai_api_dev',
+  }) async {
+    final baseUrl = HouseInsuranceGroup.getBaseUrl(
+      apiUrl: apiUrl,
+    );
+
+    final ffApiRequestBody = '''
+{
+  "owner_id": "${escapeStringForJson(ownerId)}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'FireGetLeadsApi',
+      apiUrl: '${baseUrl}/api/house/leads/get',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ${token}',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  int? statuslayer(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.code''',
+      ));
+  List? data1(dynamic response) => getJsonField(
+        response,
+        r'''$.results.data''',
+        true,
+      ) as List?;
+  List<String>? firstName(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].first_name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? lastName(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].last_name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? packageName(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].leads_detail_house[:].package_name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? sumInsured(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].leads_detail_house[:].sum_insured''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? insurerCode(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].leads_detail_house[:].insurer_code''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? phoneNumber(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].phone_number''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? sumInsuredName(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].leads_detail_house[:].sum_insured_name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? insuranceType(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].insurance_type''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? leadsHouseDtIid(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].leads_detail_house[:].leads_house_dtl_id''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? quotationId(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].quotation_id''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? insurerName(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].leads_detail_house[:].insurer_name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? quotationStatus(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].quotation_status''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? insurerStatus(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].leads_detail_house[:].insurer_status''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? netPremiumTotalName(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].leads_detail_house[:].net_premium_total_name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+}
+
+class GetListFireApiCall {
+  Future<ApiCallResponse> call({
+    String? token = '',
+    String? ownerId = '',
+    String? apiUrl = 'https://is-dev.swpfin.com/ssw_tanjai_api_dev',
+  }) async {
+    final baseUrl = HouseInsuranceGroup.getBaseUrl(
+      apiUrl: apiUrl,
+    );
+
+    final ffApiRequestBody = '''
+{
+  "owner_id": "${escapeStringForJson(ownerId)}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'GetListFireApi',
+      apiUrl: '${baseUrl}/api/house/quotations/get-list',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ${token}',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+/// End HouseInsurance Group Code
+
 class AuthenAPICall {
   static Future<ApiCallResponse> call({
     String? username = '',
@@ -13672,6 +14094,35 @@ class IbsApplicationsDetailCall {
         response,
         r'''$.results.data.app_detail[:].seat''',
       ));
+  static List<LeadsHouseStruct>? leadshouse(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data.leads_house''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => LeadsHouseStruct.maybeFromMap(x))
+          .withoutNulls
+          .toList();
+  static List<LeadsDetailHouseStruct>? leadsdetailhouse(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.results.data.leads_detail_house''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => LeadsDetailHouseStruct.maybeFromMap(x))
+          .withoutNulls
+          .toList();
+  static List? apphouse(dynamic response) => getJsonField(
+        response,
+        r'''$.results.data.app_house''',
+        true,
+      ) as List?;
+  static List? appdetailhouse(dynamic response) => getJsonField(
+        response,
+        r'''$.results.data.app_detail_house''',
+        true,
+      ) as List?;
 }
 
 class IbsApplicationsPaymentSaveCall {
@@ -17123,4 +17574,15 @@ String _serializeJson(dynamic jsonVar, [bool isList = false]) {
     }
     return isList ? '[]' : '{}';
   }
+}
+
+String? escapeStringForJson(String? input) {
+  if (input == null) {
+    return null;
+  }
+  return input
+      .replaceAll('\\', '\\\\')
+      .replaceAll('"', '\\"')
+      .replaceAll('\n', '\\n')
+      .replaceAll('\t', '\\t');
 }

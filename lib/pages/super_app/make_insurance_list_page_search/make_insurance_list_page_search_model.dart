@@ -12,6 +12,7 @@ import '/pages/super_app/components/make_insurance_type_color/make_insurance_typ
 import '/pages/super_app/components/none_package_show_status_component/none_package_show_status_component_widget.dart';
 import 'dart:convert';
 import 'dart:math';
+import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'make_insurance_list_page_search_widget.dart'

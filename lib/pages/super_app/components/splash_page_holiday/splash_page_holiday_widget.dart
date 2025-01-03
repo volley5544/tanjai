@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
@@ -38,6 +39,8 @@ class _SplashPageHolidayWidgetState extends State<SplashPageHolidayWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => SplashPageHolidayModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -90,7 +93,9 @@ class _SplashPageHolidayWidgetState extends State<SplashPageHolidayWidget> {
                                 ClipRRect(
                                   borderRadius: BorderRadius.circular(12.0),
                                   child: Image.network(
-                                    'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/SplashPageImg%2FWednesday%2FSP-Page-Test-03.jpg?alt=media&token=955bb637-e74d-40a4-977c-f1481f676f2f',
+                                    getCORSProxyUrl(
+                                      'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/SplashPageImg%2FWednesday%2FSP-Page-Test-03.jpg?alt=media&token=955bb637-e74d-40a4-977c-f1481f676f2f',
+                                    ),
                                     width: double.infinity,
                                     height: double.infinity,
                                     fit: BoxFit.fitHeight,

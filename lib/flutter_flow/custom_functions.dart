@@ -2214,6 +2214,10 @@ String? showNumberWithComma(String? number) {
   if (number == null || number.isEmpty) {
     return '';
   }
+  if (double.tryParse(number!) == null) {
+    return number!;
+  }
+
   double? parsedNumber = 0.00;
   if (number.contains('.')) {
     if (numberSplit[1].length > 1) {
@@ -3515,6 +3519,10 @@ List<String>? convertIntListToStringList(List<int>? callStatusId) {
 }
 
 String? returnNumberWithComma2Decimal(String? number) {
+  if (double.tryParse(number!) == null) {
+    return number!;
+  }
+
   RegExp reg = RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))');
   String Function(Match) mathFunc = (Match match) => '${match[1]},';
 
@@ -4994,6 +5002,25 @@ String? removeDatAndMakeUpperCase(String? input) {
   return result.toUpperCase();
 }
 
+String? showNumberWithCommaWithoutDot2(String? number) {
+  if (number == null || number.isEmpty) {
+    return '';
+  }
+
+  // Format the double as a string with two decimal places
+  //String formattedNumber = parsedNumber.toStringAsFixed(2);
+
+  // Use regular expression to add commas
+  List<String> parts = number!.split('.');
+
+  // Check if the input is null or empty
+  RegExp reg = RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))');
+  String Function(Match) mathFunc = (Match match) => '${match[1]},';
+  String result = parts[0].replaceAllMapped(reg, mathFunc);
+
+  return result;
+}
+
 bool? checkCancleTimeInsurance(
   String? apiCompleteDate,
   String? currentDateString,
@@ -5223,8 +5250,9 @@ bool? checkDateBeforeAnotherDate(
   }
 }
 
-List<dynamic>? changeDataTypeToJson(List<DriverDataStruct>? dataType) {
-  return dataType!;
+dynamic changeDataTypeToJson(DriverDataStruct? dataType) {
+  List<dynamic> outputList = [];
+  return outputList;
 }
 
 List<String>? generateDriverTitleList(int? numberInDriverList) {
@@ -5336,5 +5364,28 @@ List<bool>? checkPackageInRangePage2(
       }
     }
   }
+  return outputList;
+}
+
+String? removeCommaFromNumber(String? inputNumber) {
+  return inputNumber!.replaceAll(',', '');
+}
+
+List<GetPackageFireInsurerDataTypeStruct>? reverseDataTypeList(
+    List<GetPackageFireInsurerDataTypeStruct>? inputList) {
+  return inputList!.reversed.toList();
+}
+
+bool? checkIsDouble(String? input) {
+  if (double.tryParse(input!) != null) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+List<dynamic>? returnListDataType(dynamic dataTypeInput) {
+  List<dynamic> outputList = [dataTypeInput!];
+
   return outputList;
 }

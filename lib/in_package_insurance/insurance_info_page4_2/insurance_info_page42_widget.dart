@@ -1,7 +1,9 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
+import '/backend/schema/structs/index.dart';
 import '/components/effective_date_picker_component_widget.dart';
 import '/components/infomation_customer_act_widget.dart';
+import '/components/infomation_customer_fire_insurance_widget.dart';
 import '/components/infomation_customer_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -9,6 +11,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
 import 'dart:convert';
+import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
@@ -331,6 +334,27 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
         (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
       )}';
       safeSetState(() {});
+      FFAppState().leadsHouse = (IbsApplicationsDetailCall.apphouse(
+        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+      )!
+              .firstOrNull!
+              .toList()
+              .map<LeadsHouseStruct?>(LeadsHouseStruct.maybeFromMap)
+              .toList() as Iterable<LeadsHouseStruct?>)
+          .withoutNulls
+          .toList()
+          .cast<LeadsHouseStruct>();
+      FFAppState().leadsDetailHouse = (IbsApplicationsDetailCall.appdetailhouse(
+        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+      )!
+              .firstOrNull!
+              .toList()
+              .map<LeadsDetailHouseStruct?>(LeadsDetailHouseStruct.maybeFromMap)
+              .toList() as Iterable<LeadsDetailHouseStruct?>)
+          .withoutNulls
+          .toList()
+          .cast<LeadsDetailHouseStruct>();
+      safeSetState(() {});
       if (IbsApplicationsDetailCall.quotationstatus(
             (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
           ) ==
@@ -412,49 +436,22 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
         safeSetState(() {
           _model.paymentTypeTextController?.text =
               FFAppState().insuranceInfoPage4PaymentType;
-          _model.paymentTypeFocusNode?.requestFocus();
-          WidgetsBinding.instance.addPostFrameCallback((_) {
-            _model.paymentTypeTextController?.selection =
-                TextSelection.collapsed(
-              offset: _model.paymentTypeTextController!.text.length,
-            );
-          });
         });
         safeSetState(() {
           _model.paymentChannelTextController?.text =
               FFAppState().insuranceInfoPage4PaymentChannel;
-          _model.paymentChannelFocusNode?.requestFocus();
-          WidgetsBinding.instance.addPostFrameCallback((_) {
-            _model.paymentChannelTextController?.selection =
-                TextSelection.collapsed(
-              offset: _model.paymentChannelTextController!.text.length,
-            );
-          });
         });
         safeSetState(() {
           _model.actTotalTextController?.text =
               functions.showNumberWithComma(IbsApplicationsDetailCall.acttotal(
             (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
           ))!;
-          _model.actTotalFocusNode?.requestFocus();
-          WidgetsBinding.instance.addPostFrameCallback((_) {
-            _model.actTotalTextController?.selection = TextSelection.collapsed(
-              offset: _model.actTotalTextController!.text.length,
-            );
-          });
         });
         safeSetState(() {
           _model.grossNetTotalTextController?.text = functions
               .showNumberWithComma(IbsApplicationsDetailCall.grosstotalnet(
             (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
           ))!;
-          _model.grossNetTotalFocusNode?.requestFocus();
-          WidgetsBinding.instance.addPostFrameCallback((_) {
-            _model.grossNetTotalTextController?.selection =
-                TextSelection.collapsed(
-              offset: _model.grossNetTotalTextController!.text.length,
-            );
-          });
         });
         safeSetState(() {
           _model.netPremiumTotalTextController?.text =
@@ -462,13 +459,6 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                   IbsApplicationsDetailCall.netpremiumtotalAppdetail(
             (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
           ))!;
-          _model.netPremiumTotalFocusNode?.requestFocus();
-          WidgetsBinding.instance.addPostFrameCallback((_) {
-            _model.netPremiumTotalTextController?.selection =
-                TextSelection.collapsed(
-              offset: _model.netPremiumTotalTextController!.text.length,
-            );
-          });
         });
         Navigator.pop(context);
       } else {
@@ -556,24 +546,10 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
         safeSetState(() {
           _model.paymentTypeTextController?.text =
               FFAppState().insuranceInfoPage4PaymentType;
-          _model.paymentTypeFocusNode?.requestFocus();
-          WidgetsBinding.instance.addPostFrameCallback((_) {
-            _model.paymentTypeTextController?.selection =
-                TextSelection.collapsed(
-              offset: _model.paymentTypeTextController!.text.length,
-            );
-          });
         });
         safeSetState(() {
           _model.paymentChannelTextController?.text =
               FFAppState().insuranceInfoPage4PaymentChannel;
-          _model.paymentChannelFocusNode?.requestFocus();
-          WidgetsBinding.instance.addPostFrameCallback((_) {
-            _model.paymentChannelTextController?.selection =
-                TextSelection.collapsed(
-              offset: _model.paymentChannelTextController!.text.length,
-            );
-          });
         });
         safeSetState(() {
           _model.netPremiumTotalTextController?.text =
@@ -581,38 +557,18 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                   IbsApplicationsDetailCall.netpremiumtotalAppdetail(
             (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
           ))!;
-          _model.netPremiumTotalFocusNode?.requestFocus();
-          WidgetsBinding.instance.addPostFrameCallback((_) {
-            _model.netPremiumTotalTextController?.selection =
-                TextSelection.collapsed(
-              offset: _model.netPremiumTotalTextController!.text.length,
-            );
-          });
         });
         safeSetState(() {
           _model.actTotalTextController?.text =
               functions.showNumberWithComma(IbsApplicationsDetailCall.acttotal(
             (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
           ))!;
-          _model.actTotalFocusNode?.requestFocus();
-          WidgetsBinding.instance.addPostFrameCallback((_) {
-            _model.actTotalTextController?.selection = TextSelection.collapsed(
-              offset: _model.actTotalTextController!.text.length,
-            );
-          });
         });
         safeSetState(() {
           _model.grossNetTotalTextController?.text = functions
               .showNumberWithComma(IbsApplicationsDetailCall.grosstotalnet(
             (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
           ))!;
-          _model.grossNetTotalFocusNode?.requestFocus();
-          WidgetsBinding.instance.addPostFrameCallback((_) {
-            _model.grossNetTotalTextController?.selection =
-                TextSelection.collapsed(
-              offset: _model.grossNetTotalTextController!.text.length,
-            );
-          });
         });
         Navigator.pop(context);
       }
@@ -640,6 +596,8 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
         text: functions
             .showNumberWithComma(FFAppState().insuranceInfoPage4GrossTotalNet));
     _model.grossNetTotalFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -834,6 +792,13 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                 model: _model.infomationCustomerModel,
                                 updateCallback: () => safeSetState(() {}),
                                 child: InfomationCustomerWidget(),
+                              ),
+                            if (FFAppState().insuranceinfoActType == 'House')
+                              wrapWithModel(
+                                model:
+                                    _model.infomationCustomerFireInsuranceModel,
+                                updateCallback: () => safeSetState(() {}),
+                                child: InfomationCustomerFireInsuranceWidget(),
                               ),
                             if (FFAppState().insuranceinfoActType == 'CMI')
                               wrapWithModel(

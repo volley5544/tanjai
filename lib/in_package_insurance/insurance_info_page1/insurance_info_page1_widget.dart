@@ -3,6 +3,7 @@ import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/components/infomation_customer_act_widget.dart';
+import '/components/infomation_customer_fire_insurance_widget.dart';
 import '/components/infomation_customer_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -12,10 +13,12 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
 import 'dart:convert';
 import 'dart:math';
+import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:easy_debounce/easy_debounce.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -934,22 +937,6 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
           ? true
           : false;
       safeSetState(() {});
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
-              content: Text(FFAppState().isCorporate.toString()),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ),
-          );
-        },
-      );
       if (FFAppState().insuranceInfoApplicationType != 'auto') {
         FFAppState().insuranceInfoActFlag = '${IbsApplicationsDetailCall.actflg(
               (_model.detailAPIOutput?.jsonBody ?? ''),
@@ -1430,31 +1417,60 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
               (_model.detailAPIOutput?.jsonBody ?? ''),
             )}';
       safeSetState(() {});
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
-              content: Text(FFAppState().insuranceInfoIdCard),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
+      if (IbsApplicationsDetailCall.apphouse(
+            (_model.detailAPIOutput?.jsonBody ?? ''),
+          )!
+              .length >
+          0) {
+        FFAppState().leadsHouse = (IbsApplicationsDetailCall.apphouse(
+          (_model.detailAPIOutput?.jsonBody ?? ''),
+        )!
+                .firstOrNull!
+                .toList()
+                .map<LeadsHouseStruct?>(LeadsHouseStruct.maybeFromMap)
+                .toList() as Iterable<LeadsHouseStruct?>)
+            .withoutNulls
+            .toList()
+            .cast<LeadsHouseStruct>();
+        FFAppState().leadsDetailHouse =
+            (IbsApplicationsDetailCall.appdetailhouse(
+          (_model.detailAPIOutput?.jsonBody ?? ''),
+        )!
+                    .firstOrNull!
+                    .toList()
+                    .map<LeadsDetailHouseStruct?>(
+                        LeadsDetailHouseStruct.maybeFromMap)
+                    .toList() as Iterable<LeadsDetailHouseStruct?>)
+                .withoutNulls
+                .toList()
+                .cast<LeadsDetailHouseStruct>();
+        safeSetState(() {});
+      } else {
+        FFAppState().leadsHouse = IbsApplicationsDetailCall.leadshouse(
+          (_model.detailAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<LeadsHouseStruct>();
+        FFAppState().leadsDetailHouse =
+            IbsApplicationsDetailCall.leadsdetailhouse(
+          (_model.detailAPIOutput?.jsonBody ?? ''),
+        )!
+                .toList()
+                .cast<LeadsDetailHouseStruct>();
+        safeSetState(() {});
+      }
+
+      if (FFAppState().insuranceInfoIdCard != '') {
+        safeSetState(() {
+          _model.idCardTextFieldTextController1?.text =
+              FFAppState().insuranceInfoIdCard;
+          _model.idCardTextFieldMask1.updateMask(
+            newValue: TextEditingValue(
+              text: _model.idCardTextFieldTextController1!.text,
             ),
           );
-        },
-      );
-      safeSetState(() {
-        _model.idCardTextFieldTextController1?.text =
-            FFAppState().insuranceInfoIdCard;
-        _model.idCardTextFieldMask1.updateMask(
-          newValue: TextEditingValue(
-            text: _model.idCardTextFieldTextController1!.text,
-          ),
-        );
-      });
+        });
+      }
       safeSetState(() {
         _model.cusNameTextFieldTextController?.text =
             FFAppState().insuranceInfoFirstName;
@@ -1467,24 +1483,28 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
         _model.cusOcputationTextFieldTextController?.text =
             FFAppState().insuranceInfoSelectOccupationSubNameChoose;
       });
-      safeSetState(() {
-        _model.cusPhoneTextFieldTextController?.text =
-            FFAppState().insuranceInfoPhonenumber;
-        _model.cusPhoneTextFieldMask.updateMask(
-          newValue: TextEditingValue(
-            text: _model.cusPhoneTextFieldTextController!.text,
-          ),
-        );
-      });
-      safeSetState(() {
-        _model.cusPhoneOtherTextFieldTextController?.text =
-            FFAppState().insuranceInfoOtherPhone;
-        _model.cusPhoneOtherTextFieldMask.updateMask(
-          newValue: TextEditingValue(
-            text: _model.cusPhoneOtherTextFieldTextController!.text,
-          ),
-        );
-      });
+      if (FFAppState().insuranceInfoPhonenumber != '') {
+        safeSetState(() {
+          _model.cusPhoneTextFieldTextController?.text =
+              FFAppState().insuranceInfoPhonenumber;
+          _model.cusPhoneTextFieldMask.updateMask(
+            newValue: TextEditingValue(
+              text: _model.cusPhoneTextFieldTextController!.text,
+            ),
+          );
+        });
+      }
+      if (FFAppState().insuranceInfoOtherPhone != '') {
+        safeSetState(() {
+          _model.cusPhoneOtherTextFieldTextController?.text =
+              FFAppState().insuranceInfoOtherPhone;
+          _model.cusPhoneOtherTextFieldMask.updateMask(
+            newValue: TextEditingValue(
+              text: _model.cusPhoneOtherTextFieldTextController!.text,
+            ),
+          );
+        });
+      }
       safeSetState(() {
         _model.emailTextFieldTextController?.text =
             FFAppState().insuranceInfoEmail;
@@ -1703,6 +1723,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
     _model.vedioCallLinkTextController ??=
         TextEditingController(text: FFAppState().InsuranceInfoVedioCallFile);
     _model.vedioCallLinkFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -1797,6 +1819,13 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                         Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
+                            if (FFAppState().insuranceinfoActType == 'House')
+                              wrapWithModel(
+                                model:
+                                    _model.infomationCustomerFireInsuranceModel,
+                                updateCallback: () => safeSetState(() {}),
+                                child: InfomationCustomerFireInsuranceWidget(),
+                              ),
                             if (FFAppState().insuranceinfoActType != 'CMI')
                               wrapWithModel(
                                 model: _model.infomationCustomerModel,
@@ -2626,7 +2655,11 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
-                                                          maxLength: 13,
+                                                          maxLength: FFAppState()
+                                                                      .insuranceInfoIdCard ==
+                                                                  ''
+                                                              ? 17
+                                                              : 13,
                                                           maxLengthEnforcement:
                                                               MaxLengthEnforcement
                                                                   .enforced,
@@ -4707,31 +4740,61 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                               highlightColor:
                                                   Colors.transparent,
                                               onTap: () async {
-                                                await DatePicker.showDatePicker(
-                                                  context,
-                                                  showTitleActions: true,
-                                                  onConfirm: (date) {
+                                                if (kIsWeb) {
+                                                  final _datePickedDate =
+                                                      await showDatePicker(
+                                                    context: context,
+                                                    initialDate: (functions
+                                                            .currentDate18YearsAgo(
+                                                                getCurrentTimestamp) ??
+                                                        DateTime.now()),
+                                                    firstDate: DateTime(1900),
+                                                    lastDate: (functions
+                                                            .currentDate18YearsAgo(
+                                                                getCurrentTimestamp) ??
+                                                        DateTime.now()),
+                                                  );
+
+                                                  if (_datePickedDate != null) {
                                                     safeSetState(() {
-                                                      _model.datePicked = date;
+                                                      _model.datePicked =
+                                                          DateTime(
+                                                        _datePickedDate.year,
+                                                        _datePickedDate.month,
+                                                        _datePickedDate.day,
+                                                      );
                                                     });
-                                                  },
-                                                  currentTime: functions
-                                                      .currentDate18YearsAgo(
-                                                          getCurrentTimestamp)!,
-                                                  minTime: DateTime(0, 0, 0),
-                                                  maxTime: functions
-                                                      .currentDate18YearsAgo(
-                                                          getCurrentTimestamp)!,
-                                                  locale: LocaleType.values
-                                                      .firstWhere(
-                                                    (l) =>
-                                                        l.name ==
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .languageCode,
-                                                    orElse: () => LocaleType.en,
-                                                  ),
-                                                );
+                                                  }
+                                                } else {
+                                                  await DatePicker
+                                                      .showDatePicker(
+                                                    context,
+                                                    showTitleActions: true,
+                                                    onConfirm: (date) {
+                                                      safeSetState(() {
+                                                        _model.datePicked =
+                                                            date;
+                                                      });
+                                                    },
+                                                    currentTime: functions
+                                                        .currentDate18YearsAgo(
+                                                            getCurrentTimestamp)!,
+                                                    minTime: DateTime(0, 0, 0),
+                                                    maxTime: functions
+                                                        .currentDate18YearsAgo(
+                                                            getCurrentTimestamp)!,
+                                                    locale: LocaleType.values
+                                                        .firstWhere(
+                                                      (l) =>
+                                                          l.name ==
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .languageCode,
+                                                      orElse: () =>
+                                                          LocaleType.en,
+                                                    ),
+                                                  );
+                                                }
 
                                                 safeSetState(() {
                                                   _model.ageTextFieldTextController
@@ -4741,20 +4804,6 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                               _model
                                                                   .datePicked)!
                                                           .toString();
-                                                  _model.ageTextFieldFocusNode
-                                                      ?.requestFocus();
-                                                  WidgetsBinding.instance
-                                                      .addPostFrameCallback(
-                                                          (_) {
-                                                    _model.ageTextFieldTextController
-                                                            ?.selection =
-                                                        TextSelection.collapsed(
-                                                      offset: _model
-                                                          .ageTextFieldTextController!
-                                                          .text
-                                                          .length,
-                                                    );
-                                                  });
                                                 });
                                                 await actions
                                                     .hideKeyboardAction(
@@ -5677,6 +5726,18 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                         fontSize: 15.0,
                                                         letterSpacing: 0.0,
                                                       ),
+                                              maxLength: FFAppState()
+                                                          .insuranceInfoPhonenumber ==
+                                                      ''
+                                                  ? 12
+                                                  : 10,
+                                              maxLengthEnforcement:
+                                                  MaxLengthEnforcement.enforced,
+                                              buildCounter: (context,
+                                                      {required currentLength,
+                                                      required isFocused,
+                                                      maxLength}) =>
+                                                  null,
                                               keyboardType:
                                                   TextInputType.number,
                                               validator: _model
@@ -5796,6 +5857,18 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                         fontSize: 15.0,
                                                         letterSpacing: 0.0,
                                                       ),
+                                              maxLength: FFAppState()
+                                                          .insuranceInfoOtherPhone ==
+                                                      ''
+                                                  ? 12
+                                                  : 10,
+                                              maxLengthEnforcement:
+                                                  MaxLengthEnforcement.enforced,
+                                              buildCounter: (context,
+                                                      {required currentLength,
+                                                      required isFocused,
+                                                      maxLength}) =>
+                                                  null,
                                               keyboardType: TextInputType.phone,
                                               validator: _model
                                                   .cusPhoneOtherTextFieldTextControllerValidator
@@ -6992,7 +7065,9 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                                   ),
                                                                   child: Image
                                                                       .network(
-                                                                    'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=4189e142-826e-4b26-b278-914c39bfac74&_gl=1*ualx7r*_ga*OTc3MzI3NDY5LjE2NzU2NzMwNDE.*_ga_CW55HF8NVT*MTY5NjMyNzI4MS4yMzguMS4xNjk2MzI3MzEyLjI5LjAuMA..',
+                                                                    getCORSProxyUrl(
+                                                                      'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=4189e142-826e-4b26-b278-914c39bfac74&_gl=1*ualx7r*_ga*OTc3MzI3NDY5LjE2NzU2NzMwNDE.*_ga_CW55HF8NVT*MTY5NjMyNzI4MS4yMzguMS4xNjk2MzI3MzEyLjI5LjAuMA..',
+                                                                    ),
                                                                     fit: BoxFit
                                                                         .cover,
                                                                   ),
@@ -9500,21 +9575,41 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                       .hideKeyboardAction(
                                                     context,
                                                   );
-
-                                                  context.pushNamed(
-                                                    'insuranceInfoPage2',
-                                                    queryParameters: {
-                                                      'masterDataFirebase':
-                                                          serializeParam(
-                                                        columnDataListRecord,
-                                                        ParamType.Document,
-                                                      ),
-                                                    }.withoutNulls,
-                                                    extra: <String, dynamic>{
-                                                      'masterDataFirebase':
+                                                  if (FFAppState()
+                                                              .insuranceinfoActType ==
+                                                          'House'
+                                                      ? true
+                                                      : false) {
+                                                    context.pushNamed(
+                                                      'fireInsuranceInfoPage2',
+                                                      queryParameters: {
+                                                        'masterDataFirebase':
+                                                            serializeParam(
                                                           columnDataListRecord,
-                                                    },
-                                                  );
+                                                          ParamType.Document,
+                                                        ),
+                                                      }.withoutNulls,
+                                                      extra: <String, dynamic>{
+                                                        'masterDataFirebase':
+                                                            columnDataListRecord,
+                                                      },
+                                                    );
+                                                  } else {
+                                                    context.pushNamed(
+                                                      'insuranceInfoPage2',
+                                                      queryParameters: {
+                                                        'masterDataFirebase':
+                                                            serializeParam(
+                                                          columnDataListRecord,
+                                                          ParamType.Document,
+                                                        ),
+                                                      }.withoutNulls,
+                                                      extra: <String, dynamic>{
+                                                        'masterDataFirebase':
+                                                            columnDataListRecord,
+                                                      },
+                                                    );
+                                                  }
                                                 },
                                                 text: 'ถัดไป',
                                                 options: FFButtonOptions(

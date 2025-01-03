@@ -15,7 +15,7 @@ Future<String> a13(String? username) async {
   // Add your function code here!
   bool thisFirebaseAccountIsCreated = true;
   String authType = 'Login';
-
+  print(username!);
   try {
     UserCredential userCredential1 = await FirebaseAuth.instance
         .signInWithEmailAndPassword(email: username!, password: "a123456*");

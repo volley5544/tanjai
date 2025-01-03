@@ -12,6 +12,7 @@ import '/pages/super_app/components/make_insurance_type_color/make_insurance_typ
 import '/pages/super_app/components/none_package_show_status_component/none_package_show_status_component_widget.dart';
 import 'dart:convert';
 import 'dart:math';
+import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -99,6 +100,8 @@ class _MakeInsuranceListPageSearchWidgetState
       safeSetState(() {});
       Navigator.pop(context);
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -470,10 +473,12 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                               BorderRadius.circular(0.0),
                                                                           child:
                                                                               Image.network(
-                                                                            getJsonField(
-                                                                              widget!.list!.elementAtOrNull(leadListItemIndex),
-                                                                              r'''$.image''',
-                                                                            ).toString(),
+                                                                            getCORSProxyUrl(
+                                                                              getJsonField(
+                                                                                widget!.list!.elementAtOrNull(leadListItemIndex),
+                                                                                r'''$.image''',
+                                                                              ).toString(),
+                                                                            ),
                                                                             width:
                                                                                 300.0,
                                                                             height:

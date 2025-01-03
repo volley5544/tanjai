@@ -3,6 +3,7 @@ import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/components/infomation_customer_act_widget.dart';
+import '/components/infomation_customer_fire_insurance_widget.dart';
 import '/components/infomation_customer_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -12,11 +13,13 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
 import 'dart:convert';
 import 'dart:math';
+import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'insurance_info_page1_widget.dart' show InsuranceInfoPage1Widget;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:easy_debounce/easy_debounce.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -42,6 +45,9 @@ class InsuranceInfoPage1Model
   ApiCallResponse? detailAPIOutput;
   // Stores action output result for [Backend Call - API (getProfileImage)] action in insuranceInfoPage1 widget.
   ApiCallResponse? profileImgOutputPage;
+  // Model for infomationCustomerFireInsurance component.
+  late InfomationCustomerFireInsuranceModel
+      infomationCustomerFireInsuranceModel;
   // Model for infomationCustomer component.
   late InfomationCustomerModel infomationCustomerModel;
   // Model for infomationCustomerAct component.
@@ -126,6 +132,8 @@ class InsuranceInfoPage1Model
 
   @override
   void initState(BuildContext context) {
+    infomationCustomerFireInsuranceModel =
+        createModel(context, () => InfomationCustomerFireInsuranceModel());
     infomationCustomerModel =
         createModel(context, () => InfomationCustomerModel());
     infomationCustomerActModel =
@@ -134,6 +142,7 @@ class InsuranceInfoPage1Model
 
   @override
   void dispose() {
+    infomationCustomerFireInsuranceModel.dispose();
     infomationCustomerModel.dispose();
     infomationCustomerActModel.dispose();
     idCardTextFieldFocusNode1?.dispose();

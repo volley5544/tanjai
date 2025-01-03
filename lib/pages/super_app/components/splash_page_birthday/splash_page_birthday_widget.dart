@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:math' as math;
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
@@ -39,6 +40,8 @@ class _SplashPageBirthdayWidgetState extends State<SplashPageBirthdayWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => SplashPageBirthdayModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -93,7 +96,9 @@ class _SplashPageBirthdayWidgetState extends State<SplashPageBirthdayWidget> {
                                 ClipRRect(
                                   borderRadius: BorderRadius.circular(12.0),
                                   child: Image.network(
-                                    'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/SplashPageImg%2FWednesday%2FSP-Page-Test-03.jpg?alt=media&token=955bb637-e74d-40a4-977c-f1481f676f2f',
+                                    getCORSProxyUrl(
+                                      'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/SplashPageImg%2FWednesday%2FSP-Page-Test-03.jpg?alt=media&token=955bb637-e74d-40a4-977c-f1481f676f2f',
+                                    ),
                                     width: double.infinity,
                                     height: double.infinity,
                                     fit: BoxFit.fitHeight,

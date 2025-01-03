@@ -12,6 +12,7 @@ import '/pages/super_app/components/insurance_type_color/insurance_type_color_wi
 import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
 import 'dart:convert';
 import 'dart:math';
+import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'insurance_list_page_widget.dart' show InsuranceListPageWidget;

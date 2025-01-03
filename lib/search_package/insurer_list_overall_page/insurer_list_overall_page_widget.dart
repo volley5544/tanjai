@@ -9,6 +9,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
 import 'dart:convert';
 import 'dart:math';
+import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -485,6 +486,8 @@ class _InsurerListOverallPageWidgetState
       safeSetState(() {});
       Navigator.pop(context);
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -1140,9 +1143,11 @@ class _InsurerListOverallPageWidgetState
                                                                                                 child: ClipRRect(
                                                                                                   borderRadius: BorderRadius.circular(0.0),
                                                                                                   child: Image.network(
-                                                                                                    valueOrDefault<String>(
-                                                                                                      functions.stringToImgPath(FFAppState().searchInsurerLogo.elementAtOrNull(listinsuranceIndex)),
-                                                                                                      'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                                                    getCORSProxyUrl(
+                                                                                                      valueOrDefault<String>(
+                                                                                                        functions.stringToImgPath(FFAppState().searchInsurerLogo.elementAtOrNull(listinsuranceIndex)),
+                                                                                                        'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                                                      ),
                                                                                                     ),
                                                                                                     width: 150.0,
                                                                                                     height: 150.0,

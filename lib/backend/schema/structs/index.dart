@@ -2,7 +2,15 @@ export '/backend/schema/util/schema_util.dart';
 
 export 'admin_role_menu_struct.dart';
 export 'banner_data_struct.dart';
+export 'benefitor_model_struct.dart';
 export 'driver_data_struct.dart';
+export 'fire_get_leads_struct.dart';
+export 'fire_insurance_search_package_data_struct.dart';
+export 'user_profile_model_struct.dart';
 export 'vehicle_type_info_struct.dart';
+export 'get_package_fire_insurer_data_type_struct.dart';
+export 'house_cal_estimated_model_struct.dart';
 export 'insurer_short_name_map_struct.dart';
 export 'lead_detail_struct.dart';
+export 'leads_detail_house_struct.dart';
+export 'leads_house_struct.dart';

@@ -563,6 +563,159 @@ final parametersBuilderMap =
           'provinceCode': getParameter<String>(data, 'provinceCode'),
         },
       ),
+  'SearchableHouseList': (data) async => ParameterData(
+        allParams: {
+          'titleText': getParameter<String>(data, 'titleText'),
+          'searchLabel': getParameter<String>(data, 'searchLabel'),
+          'multiSelect': getParameter<bool>(data, 'multiSelect'),
+          'maxSelected': getParameter<int>(data, 'maxSelected'),
+          'fromPage': getParameter<String>(data, 'fromPage'),
+        },
+      ),
+  'fireInsurerListAll': (data) async => ParameterData(
+        allParams: {
+          'brandCode': getParameter<String>(data, 'brandCode'),
+          'modelCode': getParameter<String>(data, 'modelCode'),
+          'year': getParameter<String>(data, 'year'),
+          'province': getParameter<String>(data, 'province'),
+          'vehicleUsage': getParameter<String>(data, 'vehicleUsage'),
+          'brandName': getParameter<String>(data, 'brandName'),
+          'modelName': getParameter<String>(data, 'modelName'),
+          'carTypeDetail': getParameter<String>(data, 'carTypeDetail'),
+          'oldVmiExpDate': getParameter<String>(data, 'oldVmiExpDate'),
+          'provinceCode': getParameter<String>(data, 'provinceCode'),
+        },
+      ),
+  'fireInsurerListPage': (data) async => ParameterData(
+        allParams: {
+          'yearMin': getParameter<String>(data, 'yearMin'),
+          'yearMax': getParameter<String>(data, 'yearMax'),
+          'sumInsured': getParameter<String>(data, 'sumInsured'),
+          'sumInsureHouse': getParameter<String>(data, 'sumInsureHouse'),
+          'sumInsureBuilding': getParameter<String>(data, 'sumInsureBuilding'),
+          'sumInsureOther': getParameter<String>(data, 'sumInsureOther'),
+        },
+      ),
+  'SearchPackageFireInsurancePage': (data) async => ParameterData(
+        allParams: {
+          'token': getParameter<String>(data, 'token'),
+        },
+      ),
+  'fireInsuranceListPage': (data) async => ParameterData(
+        allParams: {},
+      ),
+  'MakeFireInsuranceListPage': (data) async => ParameterData(
+        allParams: {
+          'checkTotal': getParameter<int>(data, 'checkTotal'),
+          'checkPayment': getParameter<String>(data, 'checkPayment'),
+          'checkVMI': getParameter<String>(data, 'checkVMI'),
+          'fromPage': getParameter<String>(data, 'fromPage'),
+          'type': getParameter<String>(data, 'type'),
+        },
+      ),
+  'fireLeadFollowUpPage': ParameterData.none(),
+  'detailsFireInsurancePage': (data) async => ParameterData(
+        allParams: {
+          'sumInsureHouse': getParameter<String>(data, 'sumInsureHouse'),
+          'sumInsureBuildin': getParameter<String>(data, 'sumInsureBuildin'),
+        },
+      ),
+  'AddFireCustomerName': (data) async => ParameterData(
+        allParams: {
+          'button': getParameter<String>(data, 'button'),
+        },
+      ),
+  'FireSearchableListPage': (data) async => ParameterData(
+        allParams: {
+          'titleText': getParameter<String>(data, 'titleText'),
+          'searchLabel': getParameter<String>(data, 'searchLabel'),
+          'multiSelect': getParameter<bool>(data, 'multiSelect'),
+          'maxSelected': getParameter<int>(data, 'maxSelected'),
+          'fromPage': getParameter<String>(data, 'fromPage'),
+          'index': getParameter<int>(data, 'index'),
+        },
+      ),
+  'fireInsuranceInfoPage1': (data) async => ParameterData(
+        allParams: {
+          'quotationId': getParameter<String>(data, 'quotationId'),
+          'leadDtailId': getParameter<int>(data, 'leadDtailId'),
+        },
+      ),
+  'fireInsuranceInfoPage2': (data) async => ParameterData(
+        allParams: {
+          'masterDataFirebase': await getDocumentParameter<DataListRecord>(
+              data, 'masterDataFirebase', DataListRecord.fromSnapshot),
+        },
+      ),
+  'fireInsuranceInfoPage3': ParameterData.none(),
+  'fireInsuranceInfoPage4': ParameterData.none(),
+  'fireInsuranceInfoPage4_2': (data) async => ParameterData(
+        allParams: {
+          'quotationId': getParameter<String>(data, 'quotationId'),
+          'leadDetailId': getParameter<int>(data, 'leadDetailId'),
+        },
+      ),
+  'fireInsuranceInfoPage4_installments': (data) async => ParameterData(
+        allParams: {
+          'titleText': getParameter<String>(data, 'titleText'),
+          'searchLabel': getParameter<String>(data, 'searchLabel'),
+          'multiSelect': getParameter<bool>(data, 'multiSelect'),
+          'maxSelected': getParameter<int>(data, 'maxSelected'),
+          'fromPage': getParameter<String>(data, 'fromPage'),
+        },
+      ),
+  'fireInsuranceInfoPage5': (data) async => ParameterData(
+        allParams: {
+          'quotationId': getParameter<String>(data, 'quotationId'),
+          'leadDtlId': getParameter<int>(data, 'leadDtlId'),
+        },
+      ),
+  'fireInsuranceInfoPage5ShowPolicy': (data) async => ParameterData(
+        allParams: {
+          'vmiDocumentUrl': getParameter<String>(data, 'vmiDocumentUrl'),
+        },
+      ),
+  'fireInsuranceInfoPage5Cancel': (data) async => ParameterData(
+        allParams: {
+          'quotationId': getParameter<String>(data, 'quotationId'),
+          'leadDtlId': getParameter<int>(data, 'leadDtlId'),
+        },
+      ),
+  'firePaywithQRcode': (data) async => ParameterData(
+        allParams: {
+          'taxId': getParameter<String>(data, 'taxId'),
+          'suffix': getParameter<String>(data, 'suffix'),
+          'ref1': getParameter<String>(data, 'ref1'),
+          'ref2': getParameter<String>(data, 'ref2'),
+          'amount': getParameter<String>(data, 'amount'),
+          'fromPage': getParameter<String>(data, 'fromPage'),
+          'actCMI': getParameter<bool>(data, 'actCMI'),
+        },
+      ),
+  'FireQuotationPage': (data) async => ParameterData(
+        allParams: {
+          'fromPage': getParameter<String>(data, 'fromPage'),
+        },
+      ),
+  'WebviewPage': (data) async => ParameterData(
+        allParams: {
+          'webUrl': getParameter<String>(data, 'webUrl'),
+        },
+      ),
+  'addPeopleFireInsurancePage': (data) async => ParameterData(
+        allParams: {
+          'firestoreDataConfigList': await getDocumentParameter<DataListRecord>(
+              data, 'firestoreDataConfigList', DataListRecord.fromSnapshot),
+          'index': getParameter<int>(data, 'index'),
+          'isEditing': getParameter<bool>(data, 'isEditing'),
+        },
+      ),
+  'showPeoplePage': (data) async => ParameterData(
+        allParams: {
+          'firestoreDataConfigList': await getDocumentParameter<DataListRecord>(
+              data, 'firestoreDataConfigList', DataListRecord.fromSnapshot),
+        },
+      ),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

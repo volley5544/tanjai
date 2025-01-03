@@ -1,5 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -32,6 +33,8 @@ class _ShowImageComponentWidgetState extends State<ShowImageComponentWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ShowImageComponentModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -92,7 +95,9 @@ class _ShowImageComponentWidgetState extends State<ShowImageComponentWidget> {
               ClipRRect(
                 borderRadius: BorderRadius.circular(8.0),
                 child: Image.network(
-                  widget!.imageUrl!,
+                  getCORSProxyUrl(
+                    widget!.imageUrl!,
+                  ),
                   width: double.infinity,
                   fit: BoxFit.cover,
                 ),

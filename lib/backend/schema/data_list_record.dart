@@ -61,6 +61,26 @@ class DataListRecord extends FirestoreRecord {
   List<String> get title2 => _title2 ?? const [];
   bool hasTitle2() => _title2 != null;
 
+  // "wall" field.
+  List<String>? _wall;
+  List<String> get wall => _wall ?? const [];
+  bool hasWall() => _wall != null;
+
+  // "roof_frame" field.
+  List<String>? _roofFrame;
+  List<String> get roofFrame => _roofFrame ?? const [];
+  bool hasRoofFrame() => _roofFrame != null;
+
+  // "roof" field.
+  List<String>? _roof;
+  List<String> get roof => _roof ?? const [];
+  bool hasRoof() => _roof != null;
+
+  // "floor" field.
+  List<String>? _floor;
+  List<String> get floor => _floor ?? const [];
+  bool hasFloor() => _floor != null;
+
   void _initializeFields() {
     _cardType = getDataList(snapshotData['CardType']);
     _gender = getDataList(snapshotData['Gender']);
@@ -71,6 +91,10 @@ class DataListRecord extends FirestoreRecord {
     _beneficiary = getDataList(snapshotData['beneficiary']);
     _beneficiaryOther = getDataList(snapshotData['beneficiaryOther']);
     _title2 = getDataList(snapshotData['Title2']);
+    _wall = getDataList(snapshotData['wall']);
+    _roofFrame = getDataList(snapshotData['roof_frame']);
+    _roof = getDataList(snapshotData['roof']);
+    _floor = getDataList(snapshotData['floor']);
   }
 
   static CollectionReference get collection =>
@@ -129,7 +153,11 @@ class DataListRecordDocumentEquality implements Equality<DataListRecord> {
         listEquality.equals(e1?.actOfLegislation, e2?.actOfLegislation) &&
         listEquality.equals(e1?.beneficiary, e2?.beneficiary) &&
         listEquality.equals(e1?.beneficiaryOther, e2?.beneficiaryOther) &&
-        listEquality.equals(e1?.title2, e2?.title2);
+        listEquality.equals(e1?.title2, e2?.title2) &&
+        listEquality.equals(e1?.wall, e2?.wall) &&
+        listEquality.equals(e1?.roofFrame, e2?.roofFrame) &&
+        listEquality.equals(e1?.roof, e2?.roof) &&
+        listEquality.equals(e1?.floor, e2?.floor);
   }
 
   @override
@@ -142,7 +170,11 @@ class DataListRecordDocumentEquality implements Equality<DataListRecord> {
         e?.actOfLegislation,
         e?.beneficiary,
         e?.beneficiaryOther,
-        e?.title2
+        e?.title2,
+        e?.wall,
+        e?.roofFrame,
+        e?.roof,
+        e?.floor
       ]);
 
   @override

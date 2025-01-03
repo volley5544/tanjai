@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:convert';
+import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -156,6 +157,7 @@ class _DetailsInsurancePageWidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'detailsInsurancePage'});
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -267,9 +269,12 @@ class _DetailsInsurancePageWidgetState
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(0.0),
                                 child: Image.network(
-                                  valueOrDefault<String>(
-                                    functions.stringToImgPath(widget!.logoUrl),
-                                    'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                  getCORSProxyUrl(
+                                    valueOrDefault<String>(
+                                      functions
+                                          .stringToImgPath(widget!.logoUrl),
+                                      'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                    ),
                                   ),
                                   width: 59.0,
                                   height: 60.0,

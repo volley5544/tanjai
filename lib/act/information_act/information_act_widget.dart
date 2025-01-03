@@ -5,7 +5,9 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
 import 'dart:convert';
+import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -35,6 +37,8 @@ class _InformationActWidgetState extends State<InformationActWidget> {
         parameters: {'screen_name': 'InformationAct'});
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -503,63 +507,174 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
-                                          await DatePicker.showDatePicker(
-                                            context,
-                                            showTitleActions: true,
-                                            onConfirm: (date) {
+                                          if (kIsWeb) {
+                                            final _datePickedDate =
+                                                await showDatePicker(
+                                              context: context,
+                                              initialDate: (((CmiCheckAPICall
+                                                                  .statuslayer1(
+                                                                (_model.cmiCheckAPIOutput
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              ) ==
+                                                              200) &&
+                                                          ('${CmiCheckAPICall.xdate(
+                                                                (_model.cmiCheckAPIOutput
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )}' !=
+                                                              'null')
+                                                      ? functions
+                                                          .changeYearBDtoAD(
+                                                              CmiCheckAPICall
+                                                                  .xdate(
+                                                          (_model.cmiCheckAPIOutput
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        ))
+                                                      : getCurrentTimestamp) ??
+                                                  DateTime.now()),
+                                              firstDate: (((CmiCheckAPICall
+                                                                  .statuslayer1(
+                                                                (_model.cmiCheckAPIOutput
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              ) ==
+                                                              200) &&
+                                                          ('${CmiCheckAPICall.xdate(
+                                                                (_model.cmiCheckAPIOutput
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )}' !=
+                                                              'null')
+                                                      ? functions
+                                                          .changeYearBDtoAD(
+                                                              CmiCheckAPICall
+                                                                  .xdate(
+                                                          (_model.cmiCheckAPIOutput
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        ))
+                                                      : getCurrentTimestamp) ??
+                                                  DateTime.now()),
+                                              lastDate: DateTime(2050),
+                                              builder: (context, child) {
+                                                return wrapInMaterialDatePickerTheme(
+                                                  context,
+                                                  child!,
+                                                  headerBackgroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primary,
+                                                  headerForegroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .info,
+                                                  headerTextStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .headlineLarge
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            fontSize: 32.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                          ),
+                                                  pickerBackgroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .secondaryBackground,
+                                                  pickerForegroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primaryText,
+                                                  selectedDateTimeBackgroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primary,
+                                                  selectedDateTimeForegroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .info,
+                                                  actionButtonForegroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primaryText,
+                                                  iconSize: 24.0,
+                                                );
+                                              },
+                                            );
+
+                                            if (_datePickedDate != null) {
                                               safeSetState(() {
-                                                _model.datePicked = date;
+                                                _model.datePicked = DateTime(
+                                                  _datePickedDate.year,
+                                                  _datePickedDate.month,
+                                                  _datePickedDate.day,
+                                                );
                                               });
-                                            },
-                                            currentTime: (CmiCheckAPICall
-                                                            .statuslayer1(
-                                                          (_model.cmiCheckAPIOutput
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        ) ==
-                                                        200) &&
-                                                    ('${CmiCheckAPICall.xdate(
-                                                          (_model.cmiCheckAPIOutput
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        )}' !=
-                                                        'null')
-                                                ? functions.changeYearBDtoAD(
-                                                    CmiCheckAPICall.xdate(
-                                                    (_model.cmiCheckAPIOutput
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  ))!
-                                                : getCurrentTimestamp,
-                                            minTime: (CmiCheckAPICall
-                                                            .statuslayer1(
-                                                          (_model.cmiCheckAPIOutput
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        ) ==
-                                                        200) &&
-                                                    ('${CmiCheckAPICall.xdate(
-                                                          (_model.cmiCheckAPIOutput
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        )}' !=
-                                                        'null')
-                                                ? functions.changeYearBDtoAD(
-                                                    CmiCheckAPICall.xdate(
-                                                    (_model.cmiCheckAPIOutput
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  ))!
-                                                : getCurrentTimestamp,
-                                            locale:
-                                                LocaleType.values.firstWhere(
-                                              (l) =>
-                                                  l.name ==
-                                                  FFLocalizations.of(context)
-                                                      .languageCode,
-                                              orElse: () => LocaleType.en,
-                                            ),
-                                          );
+                                            }
+                                          } else {
+                                            await DatePicker.showDatePicker(
+                                              context,
+                                              showTitleActions: true,
+                                              onConfirm: (date) {
+                                                safeSetState(() {
+                                                  _model.datePicked = date;
+                                                });
+                                              },
+                                              currentTime: (CmiCheckAPICall
+                                                              .statuslayer1(
+                                                            (_model.cmiCheckAPIOutput
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          ) ==
+                                                          200) &&
+                                                      ('${CmiCheckAPICall.xdate(
+                                                            (_model.cmiCheckAPIOutput
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )}' !=
+                                                          'null')
+                                                  ? functions.changeYearBDtoAD(
+                                                      CmiCheckAPICall.xdate(
+                                                      (_model.cmiCheckAPIOutput
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    ))!
+                                                  : getCurrentTimestamp,
+                                              minTime: (CmiCheckAPICall
+                                                              .statuslayer1(
+                                                            (_model.cmiCheckAPIOutput
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          ) ==
+                                                          200) &&
+                                                      ('${CmiCheckAPICall.xdate(
+                                                            (_model.cmiCheckAPIOutput
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )}' !=
+                                                          'null')
+                                                  ? functions.changeYearBDtoAD(
+                                                      CmiCheckAPICall.xdate(
+                                                      (_model.cmiCheckAPIOutput
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    ))!
+                                                  : getCurrentTimestamp,
+                                              locale:
+                                                  LocaleType.values.firstWhere(
+                                                (l) =>
+                                                    l.name ==
+                                                    FFLocalizations.of(context)
+                                                        .languageCode,
+                                                orElse: () => LocaleType.en,
+                                              ),
+                                            );
+                                          }
                                         },
                                         child: Container(
                                           width:

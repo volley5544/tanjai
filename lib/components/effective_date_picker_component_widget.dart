@@ -2,7 +2,9 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -48,6 +50,8 @@ class _EffectiveDatePickerComponentWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => EffectiveDatePickerComponentModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -125,26 +129,86 @@ class _EffectiveDatePickerComponentWidgetState
                           Expanded(
                             child: FFButtonWidget(
                               onPressed: () async {
-                                await DatePicker.showDatePicker(
-                                  context,
-                                  showTitleActions: true,
-                                  onConfirm: (date) {
+                                if (kIsWeb) {
+                                  final _datePicked1Date = await showDatePicker(
+                                    context: context,
+                                    initialDate:
+                                        (functions.parseStringToDatetime(
+                                                widget!.currentDate) ??
+                                            DateTime.now()),
+                                    firstDate: (functions.parseStringToDatetime(
+                                            widget!.currentDate) ??
+                                        DateTime.now()),
+                                    lastDate: DateTime(2050),
+                                    builder: (context, child) {
+                                      return wrapInMaterialDatePickerTheme(
+                                        context,
+                                        child!,
+                                        headerBackgroundColor:
+                                            FlutterFlowTheme.of(context)
+                                                .primary,
+                                        headerForegroundColor:
+                                            FlutterFlowTheme.of(context).info,
+                                        headerTextStyle:
+                                            FlutterFlowTheme.of(context)
+                                                .headlineLarge
+                                                .override(
+                                                  fontFamily: 'Noto Sans Thai',
+                                                  fontSize: 32.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w600,
+                                                ),
+                                        pickerBackgroundColor:
+                                            FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
+                                        pickerForegroundColor:
+                                            FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                        selectedDateTimeBackgroundColor:
+                                            FlutterFlowTheme.of(context)
+                                                .primary,
+                                        selectedDateTimeForegroundColor:
+                                            FlutterFlowTheme.of(context).info,
+                                        actionButtonForegroundColor:
+                                            FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                        iconSize: 24.0,
+                                      );
+                                    },
+                                  );
+
+                                  if (_datePicked1Date != null) {
                                     safeSetState(() {
-                                      _model.datePicked1 = date;
+                                      _model.datePicked1 = DateTime(
+                                        _datePicked1Date.year,
+                                        _datePicked1Date.month,
+                                        _datePicked1Date.day,
+                                      );
                                     });
-                                  },
-                                  currentTime: functions.parseStringToDatetime(
-                                      widget!.currentDate)!,
-                                  minTime: functions.parseStringToDatetime(
-                                      widget!.currentDate)!,
-                                  locale: LocaleType.values.firstWhere(
-                                    (l) =>
-                                        l.name ==
-                                        FFLocalizations.of(context)
-                                            .languageCode,
-                                    orElse: () => LocaleType.en,
-                                  ),
-                                );
+                                  }
+                                } else {
+                                  await DatePicker.showDatePicker(
+                                    context,
+                                    showTitleActions: true,
+                                    onConfirm: (date) {
+                                      safeSetState(() {
+                                        _model.datePicked1 = date;
+                                      });
+                                    },
+                                    currentTime:
+                                        functions.parseStringToDatetime(
+                                            widget!.currentDate)!,
+                                    minTime: functions.parseStringToDatetime(
+                                        widget!.currentDate)!,
+                                    locale: LocaleType.values.firstWhere(
+                                      (l) =>
+                                          l.name ==
+                                          FFLocalizations.of(context)
+                                              .languageCode,
+                                      orElse: () => LocaleType.en,
+                                    ),
+                                  );
+                                }
                               },
                               text: _model.datePicked1 != null
                                   ? functions.showDateBE(
@@ -197,26 +261,86 @@ class _EffectiveDatePickerComponentWidgetState
                           Expanded(
                             child: FFButtonWidget(
                               onPressed: () async {
-                                await DatePicker.showDatePicker(
-                                  context,
-                                  showTitleActions: true,
-                                  onConfirm: (date) {
+                                if (kIsWeb) {
+                                  final _datePicked2Date = await showDatePicker(
+                                    context: context,
+                                    initialDate:
+                                        (functions.parseStringToDatetime(
+                                                widget!.currentDate) ??
+                                            DateTime.now()),
+                                    firstDate: (functions.parseStringToDatetime(
+                                            widget!.currentDate) ??
+                                        DateTime.now()),
+                                    lastDate: DateTime(2050),
+                                    builder: (context, child) {
+                                      return wrapInMaterialDatePickerTheme(
+                                        context,
+                                        child!,
+                                        headerBackgroundColor:
+                                            FlutterFlowTheme.of(context)
+                                                .primary,
+                                        headerForegroundColor:
+                                            FlutterFlowTheme.of(context).info,
+                                        headerTextStyle:
+                                            FlutterFlowTheme.of(context)
+                                                .headlineLarge
+                                                .override(
+                                                  fontFamily: 'Noto Sans Thai',
+                                                  fontSize: 32.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w600,
+                                                ),
+                                        pickerBackgroundColor:
+                                            FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
+                                        pickerForegroundColor:
+                                            FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                        selectedDateTimeBackgroundColor:
+                                            FlutterFlowTheme.of(context)
+                                                .primary,
+                                        selectedDateTimeForegroundColor:
+                                            FlutterFlowTheme.of(context).info,
+                                        actionButtonForegroundColor:
+                                            FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                        iconSize: 24.0,
+                                      );
+                                    },
+                                  );
+
+                                  if (_datePicked2Date != null) {
                                     safeSetState(() {
-                                      _model.datePicked2 = date;
+                                      _model.datePicked2 = DateTime(
+                                        _datePicked2Date.year,
+                                        _datePicked2Date.month,
+                                        _datePicked2Date.day,
+                                      );
                                     });
-                                  },
-                                  currentTime: functions.parseStringToDatetime(
-                                      widget!.currentDate)!,
-                                  minTime: functions.parseStringToDatetime(
-                                      widget!.currentDate)!,
-                                  locale: LocaleType.values.firstWhere(
-                                    (l) =>
-                                        l.name ==
-                                        FFLocalizations.of(context)
-                                            .languageCode,
-                                    orElse: () => LocaleType.en,
-                                  ),
-                                );
+                                  }
+                                } else {
+                                  await DatePicker.showDatePicker(
+                                    context,
+                                    showTitleActions: true,
+                                    onConfirm: (date) {
+                                      safeSetState(() {
+                                        _model.datePicked2 = date;
+                                      });
+                                    },
+                                    currentTime:
+                                        functions.parseStringToDatetime(
+                                            widget!.currentDate)!,
+                                    minTime: functions.parseStringToDatetime(
+                                        widget!.currentDate)!,
+                                    locale: LocaleType.values.firstWhere(
+                                      (l) =>
+                                          l.name ==
+                                          FFLocalizations.of(context)
+                                              .languageCode,
+                                      orElse: () => LocaleType.en,
+                                    ),
+                                  );
+                                }
                               },
                               text: _model.datePicked2 != null
                                   ? functions.showDateBE(

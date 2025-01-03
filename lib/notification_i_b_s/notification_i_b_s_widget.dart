@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -32,6 +33,7 @@ class _NotificationIBSWidgetState extends State<NotificationIBSWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'NotificationIBS'});
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -345,10 +347,12 @@ class _NotificationIBSWidgetState extends State<NotificationIBSWidget> {
                                             borderRadius:
                                                 BorderRadius.circular(100.0),
                                             child: Image.network(
-                                              valueOrDefault<String>(
-                                                listViewNotificationRecord
-                                                    .notiImage,
-                                                'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/InsurerLogo%2FVIRIYAH_logo.jpg?alt=media&token=0686a1ee-f7a2-4781-836f-85cc6364edf5',
+                                              getCORSProxyUrl(
+                                                valueOrDefault<String>(
+                                                  listViewNotificationRecord
+                                                      .notiImage,
+                                                  'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/InsurerLogo%2FVIRIYAH_logo.jpg?alt=media&token=0686a1ee-f7a2-4781-836f-85cc6364edf5',
+                                                ),
                                               ),
                                               width: 300.0,
                                               height: 200.0,

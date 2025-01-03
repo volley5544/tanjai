@@ -2,6 +2,7 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import '/components/custom_dialog_component_widget.dart';
 import '/components/license_select_component_widget.dart';
 import '/components/search_old_vmi_widget.dart';
@@ -13,6 +14,7 @@ import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
 import '/pages/super_app/components/pdf_page_view_component/pdf_page_view_component_widget.dart';
 import '/pages/super_app/components/search_employee_component/search_employee_component_widget.dart';
 import 'dart:convert';
+import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/permissions_util.dart';
@@ -33,9 +35,17 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:octo_image/octo_image.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 
 class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
+  ///  Local state fields for this page.
+
+  FireGetLeadsStruct? getFireLead;
+  void updateGetFireLeadStruct(Function(FireGetLeadsStruct) updateFn) {
+    updateFn(getFireLead ??= FireGetLeadsStruct());
+  }
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Backend Call - Read Document] action in SuperAppPage widget.
@@ -52,6 +62,8 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   AuthorizationRecord? adminVersionQuery;
   // Stores action output result for [Backend Call - API (GetVMI)] action in SuperAppPage widget.
   ApiCallResponse? getVMIApi;
+  // Stores action output result for [Backend Call - API (FireGetLeadsApi)] action in SuperAppPage widget.
+  ApiCallResponse? fireGetLeads;
   // State field(s) for Expandable widget.
   late ExpandableController expandableExpandableController;
 
@@ -69,10 +81,6 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   ApiCallResponse? listFromDash;
   // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
   HideInAppContentRecord? isShowVideoFirebaseBool;
-  // State field(s) for Carousel widget.
-  CarouselSliderController? carouselController;
-  int carouselCurrentIndex = 0;
-
   // State field(s) for PageView widget.
   PageController? pageViewController2;
 
@@ -80,6 +88,18 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
           pageViewController2!.hasClients &&
           pageViewController2!.page != null
       ? pageViewController2!.page!.round()
+      : 0;
+  // State field(s) for Carousel widget.
+  CarouselSliderController? carouselController;
+  int carouselCurrentIndex = 0;
+
+  // State field(s) for PageView widget.
+  PageController? pageViewController3;
+
+  int get pageViewCurrentIndex3 => pageViewController3 != null &&
+          pageViewController3!.hasClients &&
+          pageViewController3!.page != null
+      ? pageViewController3!.page!.round()
       : 0;
 
   @override

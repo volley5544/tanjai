@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_count_controller.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -32,6 +33,8 @@ class _PointInfomationContainerWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => PointInfomationContainerModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -100,9 +103,11 @@ class _PointInfomationContainerWidgetState
                           shape: BoxShape.circle,
                         ),
                         child: Image.network(
-                          valueOrDefault<String>(
-                            circleImageUserCustomRecord?.imgProfile,
-                            'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=4189e142-826e-4b26-b278-914c39bfac74',
+                          getCORSProxyUrl(
+                            valueOrDefault<String>(
+                              circleImageUserCustomRecord?.imgProfile,
+                              'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=4189e142-826e-4b26-b278-914c39bfac74',
+                            ),
                           ),
                           fit: BoxFit.cover,
                         ),

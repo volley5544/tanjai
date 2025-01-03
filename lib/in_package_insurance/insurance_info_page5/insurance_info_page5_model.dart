@@ -1,8 +1,10 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import '/components/custom_dialog_component_copy_widget.dart';
 import '/components/infomation_customer_act_widget.dart';
+import '/components/infomation_customer_fire_insurance_widget.dart';
 import '/components/save_contract_c_m_i_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -13,6 +15,7 @@ import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
 import '/pages/super_app/components/step5_document_download/step5_document_download_widget.dart';
 import 'dart:convert';
 import 'dart:math';
+import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'insurance_info_page5_widget.dart' show InsuranceInfoPage5Widget;
@@ -35,6 +38,9 @@ class InsuranceInfoPage5Model
   ApiCallResponse? applicationDetailOutput;
   // Stores action output result for [Backend Call - API (getInsurancePolicyApi)] action in insuranceInfoPage5 widget.
   ApiCallResponse? getPolicy;
+  // Model for infomationCustomerFireInsurance component.
+  late InfomationCustomerFireInsuranceModel
+      infomationCustomerFireInsuranceModel;
   // Model for infomationCustomerAct component.
   late InfomationCustomerActModel infomationCustomerActModel;
   // Stores action output result for [Backend Call - API (getDateTimeAPI)] action in Icon widget.
@@ -52,12 +58,15 @@ class InsuranceInfoPage5Model
 
   @override
   void initState(BuildContext context) {
+    infomationCustomerFireInsuranceModel =
+        createModel(context, () => InfomationCustomerFireInsuranceModel());
     infomationCustomerActModel =
         createModel(context, () => InfomationCustomerActModel());
   }
 
   @override
   void dispose() {
+    infomationCustomerFireInsuranceModel.dispose();
     infomationCustomerActModel.dispose();
   }
 }

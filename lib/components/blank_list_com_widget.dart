@@ -26,6 +26,8 @@ class _BlankListComWidgetState extends State<BlankListComWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => BlankListComModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

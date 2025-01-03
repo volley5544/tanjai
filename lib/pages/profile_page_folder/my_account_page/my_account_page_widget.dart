@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
+import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -61,6 +62,8 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
       _model.getBuildVersion = await actions.getBuildVersion1();
       Navigator.pop(context);
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -160,7 +163,10 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                             borderRadius:
                                                 BorderRadius.circular(50.0),
                                             child: Image.network(
-                                              imageUserCustomRecord.imgProfile,
+                                              getCORSProxyUrl(
+                                                imageUserCustomRecord
+                                                    .imgProfile,
+                                              ),
                                               width: 100.0,
                                               height: 120.0,
                                               fit: BoxFit.cover,

@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -50,6 +51,8 @@ class _TextFieldComponentWidgetState extends State<TextFieldComponentWidget> {
     _model.carryPurposeTextFieldTextController2 ??=
         TextEditingController(text: widget!.maxValue);
     _model.carryPurposeTextFieldFocusNode2 ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -313,18 +316,6 @@ class _TextFieldComponentWidgetState extends State<TextFieldComponentWidget> {
                               safeSetState(() {
                                 _model.carryPurposeTextFieldTextController1
                                     ?.text = widget!.sliderMinValue!;
-                                _model.carryPurposeTextFieldFocusNode1
-                                    ?.requestFocus();
-                                WidgetsBinding.instance
-                                    .addPostFrameCallback((_) {
-                                  _model.carryPurposeTextFieldTextController1
-                                      ?.selection = TextSelection.collapsed(
-                                    offset: _model
-                                        .carryPurposeTextFieldTextController1!
-                                        .text
-                                        .length,
-                                  );
-                                });
                               });
                             }
                             if (double.parse(_model
@@ -334,18 +325,6 @@ class _TextFieldComponentWidgetState extends State<TextFieldComponentWidget> {
                               safeSetState(() {
                                 _model.carryPurposeTextFieldTextController2
                                     ?.text = widget!.sliderMaxValue!;
-                                _model.carryPurposeTextFieldFocusNode2
-                                    ?.requestFocus();
-                                WidgetsBinding.instance
-                                    .addPostFrameCallback((_) {
-                                  _model.carryPurposeTextFieldTextController2
-                                      ?.selection = TextSelection.collapsed(
-                                    offset: _model
-                                        .carryPurposeTextFieldTextController2!
-                                        .text
-                                        .length,
-                                  );
-                                });
                               });
                             }
                           } else {

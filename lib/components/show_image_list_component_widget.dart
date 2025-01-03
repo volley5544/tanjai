@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
@@ -38,6 +39,8 @@ class _ShowImageListComponentWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => ShowImageListComponentModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -130,10 +133,12 @@ class _ShowImageListComponentWidgetState
                                         type: PageTransitionType.fade,
                                         child: FlutterFlowExpandedImageView(
                                           image: Image.network(
-                                            functions.stringToImgPath(widget!
-                                                .imageUrl
-                                                ?.elementAtOrNull(
-                                                    imageListItemIndex))!,
+                                            getCORSProxyUrl(
+                                              functions.stringToImgPath(widget!
+                                                  .imageUrl
+                                                  ?.elementAtOrNull(
+                                                      imageListItemIndex))!,
+                                            ),
                                             fit: BoxFit.contain,
                                           ),
                                           allowRotation: false,
@@ -153,9 +158,11 @@ class _ShowImageListComponentWidgetState
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(8.0),
                                       child: Image.network(
-                                        functions.stringToImgPath(
-                                            widget!.imageUrl?.elementAtOrNull(
-                                                imageListItemIndex))!,
+                                        getCORSProxyUrl(
+                                          functions.stringToImgPath(
+                                              widget!.imageUrl?.elementAtOrNull(
+                                                  imageListItemIndex))!,
+                                        ),
                                         width: double.infinity,
                                         fit: BoxFit.cover,
                                       ),
