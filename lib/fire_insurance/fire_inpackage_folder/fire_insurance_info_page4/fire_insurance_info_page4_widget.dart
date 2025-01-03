@@ -1763,13 +1763,12 @@ class _FireInsuranceInfoPage4WidgetState
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    if (!((FFAppState()
-                                                    .insuranceInfoPage4ImageApplication !=
-                                                null &&
-                                            FFAppState()
-                                                    .insuranceInfoPage4ImageApplication !=
-                                                '') ||
-                                        (FFAppState().flagRenew == '1'))) {
+                                    if (!(FFAppState()
+                                                .insuranceInfoPage4ImageApplication !=
+                                            null &&
+                                        FFAppState()
+                                                .insuranceInfoPage4ImageApplication !=
+                                            '')) {
                                       await showDialog(
                                         context: context,
                                         builder: (alertDialogContext) {
@@ -1804,87 +1803,6 @@ class _FireInsuranceInfoPage4WidgetState
                                             child: AlertDialog(
                                               content: Text(
                                                   'กรุณาอัพโหลดรูปเอกสาร ใบคำขอสินเชื่อเป้า ง'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Ok'),
-                                                ),
-                                              ],
-                                            ),
-                                          );
-                                        },
-                                      );
-                                      return;
-                                    }
-                                    if (!(FFAppState()
-                                                .insuranceInfoPage4FileCancelLoan !=
-                                            null &&
-                                        FFAppState()
-                                                .insuranceInfoPage4FileCancelLoan !=
-                                            '')) {
-                                      await showDialog(
-                                        context: context,
-                                        builder: (alertDialogContext) {
-                                          return WebViewAware(
-                                            child: AlertDialog(
-                                              content: Text(
-                                                  'กรุณาอัพโหลดรูปเอกสาร '),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Ok'),
-                                                ),
-                                              ],
-                                            ),
-                                          );
-                                        },
-                                      );
-                                      return;
-                                    }
-                                    if (!(FFAppState()
-                                                .InsuranceInfoPage4PowerOfAttoney !=
-                                            null &&
-                                        FFAppState()
-                                                .InsuranceInfoPage4PowerOfAttoney !=
-                                            '')) {
-                                      await showDialog(
-                                        context: context,
-                                        builder: (alertDialogContext) {
-                                          return WebViewAware(
-                                            child: AlertDialog(
-                                              content: Text(
-                                                  'กรุณาอัพโหลดรูปเอกสาร '),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Ok'),
-                                                ),
-                                              ],
-                                            ),
-                                          );
-                                        },
-                                      );
-                                      return;
-                                    }
-                                    if (!(FFAppState()
-                                                .insuranceInfoPage4IdCardPowerattorney !=
-                                            null &&
-                                        FFAppState()
-                                                .insuranceInfoPage4IdCardPowerattorney !=
-                                            '')) {
-                                      await showDialog(
-                                        context: context,
-                                        builder: (alertDialogContext) {
-                                          return WebViewAware(
-                                            child: AlertDialog(
-                                              content: Text(
-                                                  'กรุณาอัพโหลดรูปเอกสาร '),
                                               actions: [
                                                 TextButton(
                                                   onPressed: () =>

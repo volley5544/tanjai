@@ -16,6 +16,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'people_fire_infomation_form_component_model.dart';
 export 'people_fire_infomation_form_component_model.dart';
 
@@ -433,17 +434,43 @@ class _PeopleFireInfomationFormComponentWidgetState
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          Text(
-                            'เพศ',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Noto Sans Thai',
-                                  color: Color(0xFF1D4774),
-                                  fontSize: 15.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w600,
-                                ),
+                          InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              await showDialog(
+                                context: context,
+                                builder: (alertDialogContext) {
+                                  return WebViewAware(
+                                    child: AlertDialog(
+                                      content: Text(
+                                          '${(FFAppState().benefitorData.elementAtOrNull(widget!.index!)?.insuredPersonTypeName != '').toString()}${(FFAppState().benefitorData.elementAtOrNull(widget!.index!)?.gender != '').toString()}${(FFAppState().benefitorData.elementAtOrNull(widget!.index!)?.titleTh != '').toString()}${(_model.firstnameTextfieldTextController.text != null && _model.firstnameTextfieldTextController.text != '').toString()}${(_model.address4LastnameTextfieldTextController.text != null && _model.address4LastnameTextfieldTextController.text != '').toString()}${(FFAppState().benefitorData.elementAtOrNull(widget!.index!)?.birthDay != '').toString()}'),
+                                      actions: [
+                                        TextButton(
+                                          onPressed: () =>
+                                              Navigator.pop(alertDialogContext),
+                                          child: Text('Ok'),
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                },
+                              );
+                            },
+                            child: Text(
+                              'เพศ',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Noto Sans Thai',
+                                    color: Color(0xFF1D4774),
+                                    fontSize: 15.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                            ),
                           ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(

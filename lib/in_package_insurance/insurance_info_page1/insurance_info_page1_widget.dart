@@ -1441,7 +1441,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
             .toList()
             .cast<LeadsHouseStruct>();
         FFAppState().leadsDetailHouse =
-            IbsApplicationsDetailCall.appdetailhouse(
+            IbsApplicationsDetailCall.leadsdetailhouse(
           (_model.detailAPIOutput?.jsonBody ?? ''),
         )!
                 .toList()
@@ -1815,7 +1815,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                 updateCallback: () => safeSetState(() {}),
                                 child: InfomationCustomerFireInsuranceWidget(),
                               ),
-                            if (FFAppState().insuranceinfoActType != 'CMI')
+                            if ((FFAppState().insuranceinfoActType != 'CMI') &&
+                                (FFAppState().insuranceinfoActType != 'House'))
                               wrapWithModel(
                                 model: _model.infomationCustomerModel,
                                 updateCallback: () => safeSetState(() {}),

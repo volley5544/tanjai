@@ -429,6 +429,15 @@ class GetListFireApiCall {
       alwaysAllowBody: false,
     );
   }
+
+  int? statusleyer1(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.code''',
+      ));
+  int? toTal(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.results.data.total''',
+      ));
 }
 
 /// End HouseInsurance Group Code
