@@ -978,6 +978,11 @@ class _PeopleFireInfomationFormComponentWidgetState
                                           .address4LastnameTextfieldTextController,
                                       focusNode: _model
                                           .address4LastnameTextfieldFocusNode,
+                                      onChanged: (_) => EasyDebounce.debounce(
+                                        '_model.address4LastnameTextfieldTextController',
+                                        Duration(milliseconds: 100),
+                                        () => safeSetState(() {}),
+                                      ),
                                       autofocus: false,
                                       obscureText: false,
                                       decoration: InputDecoration(

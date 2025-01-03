@@ -4359,44 +4359,42 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                             CrossAxisAlignment.start,
                                                                         children:
                                                                             [
-                                                                          Row(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            mainAxisAlignment:
-                                                                                MainAxisAlignment.start,
-                                                                            children: [
-                                                                              Expanded(
-                                                                                flex: 5,
-                                                                                child: Container(
-                                                                                  width: MediaQuery.sizeOf(context).width * 0.37,
+                                                                          Expanded(
+                                                                            child:
+                                                                                Row(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              mainAxisAlignment: MainAxisAlignment.start,
+                                                                              children: [
+                                                                                Expanded(
+                                                                                  flex: 5,
+                                                                                  child: Container(
+                                                                                    width: MediaQuery.sizeOf(context).width * 0.37,
+                                                                                    decoration: BoxDecoration(),
+                                                                                    child: Text(
+                                                                                      'ชื่อลูกค้า',
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: 'Noto Sans Thai',
+                                                                                            color: FlutterFlowTheme.of(context).black600,
+                                                                                            fontSize: 15.0,
+                                                                                            letterSpacing: 0.0,
+                                                                                          ),
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                                Container(
+                                                                                  width: 10.0,
                                                                                   decoration: BoxDecoration(),
                                                                                   child: Text(
-                                                                                    'ชื่อลูกค้า',
+                                                                                    ':',
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'Noto Sans Thai',
                                                                                           color: FlutterFlowTheme.of(context).black600,
-                                                                                          fontSize: 15.0,
                                                                                           letterSpacing: 0.0,
                                                                                         ),
                                                                                   ),
                                                                                 ),
-                                                                              ),
-                                                                              Container(
-                                                                                width: 10.0,
-                                                                                decoration: BoxDecoration(),
-                                                                                child: Text(
-                                                                                  ':',
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Noto Sans Thai',
-                                                                                        color: FlutterFlowTheme.of(context).black600,
-                                                                                        letterSpacing: 0.0,
-                                                                                      ),
-                                                                                ),
-                                                                              ),
-                                                                              Expanded(
-                                                                                flex: 6,
-                                                                                child: Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 50.0, 0.0),
+                                                                                Expanded(
+                                                                                  flex: 6,
                                                                                   child: Container(
                                                                                     width: 100.0,
                                                                                     decoration: BoxDecoration(),
@@ -4416,8 +4414,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                                     ),
                                                                                   ),
                                                                                 ),
-                                                                              ),
-                                                                            ],
+                                                                              ],
+                                                                            ),
                                                                           ),
                                                                           Row(
                                                                             mainAxisSize:

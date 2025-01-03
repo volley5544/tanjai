@@ -1417,9 +1417,10 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
               (_model.detailAPIOutput?.jsonBody ?? ''),
             )}';
       safeSetState(() {});
-      if ('${IbsApplicationsDetailCall.apphouse(
+      if ('${getJsonField(
             (_model.detailAPIOutput?.jsonBody ?? ''),
-          )?.firstOrNull?.leadId?.toString()}' !=
+            r'''$.results.data.app_house[0].lead_id''',
+          ).toString().toString()}' !=
           '') {
         FFAppState().leadsHouse = IbsApplicationsDetailCall.apphouse(
           (_model.detailAPIOutput?.jsonBody ?? ''),
