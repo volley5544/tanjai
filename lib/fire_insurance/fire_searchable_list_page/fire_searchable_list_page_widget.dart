@@ -789,6 +789,12 @@ class _FireSearchableListPageWidgetState
                                                           : 'FEMALE',
                                                   );
                                                   safeSetState(() {});
+                                                  FFAppState()
+                                                      .updateBenefitorDataAtIndex(
+                                                    widget!.index!,
+                                                    (e) => e..titleTh = '',
+                                                  );
+                                                  safeSetState(() {});
                                                   context.safePop();
                                                   if (_shouldSetState)
                                                     safeSetState(() {});

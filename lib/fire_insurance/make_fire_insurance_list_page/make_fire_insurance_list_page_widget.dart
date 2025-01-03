@@ -779,7 +779,7 @@ class _MakeFireInsuranceListPageWidgetState
                                                                             Text(
                                                                           getJsonField(
                                                                             widget!.list!.elementAtOrNull(leadListItemIndex),
-                                                                            r'''$.results.data[:].leads_detail_house[:].insurer_name''',
+                                                                            r'''$.data[:].leads_detail_house[:].insurer_name''',
                                                                           ).toString(),
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
@@ -817,10 +817,10 @@ class _MakeFireInsuranceListPageWidgetState
                                                                             Text(
                                                                               '${getJsonField(
                                                                                 widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                                r'''$.results.data[:].first_name''',
+                                                                                r'''$.data[:].first_name''',
                                                                               ).toString()} ${getJsonField(
                                                                                 widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                                r'''$.results.data[:].last_name''',
+                                                                                r'''$.data[:].last_name''',
                                                                               ).toString()}',
                                                                               maxLines: 2,
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(

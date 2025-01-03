@@ -4822,7 +4822,19 @@ class _FireInsuranceInfoPage2WidgetState
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
                                           context.pushNamed(
-                                              'Homepage_Request_2_3');
+                                            'showPeoplePage',
+                                            queryParameters: {
+                                              'firestoreDataConfigList':
+                                                  serializeParam(
+                                                widget!.masterDataFirebase,
+                                                ParamType.Document,
+                                              ),
+                                            }.withoutNulls,
+                                            extra: <String, dynamic>{
+                                              'firestoreDataConfigList':
+                                                  widget!.masterDataFirebase,
+                                            },
+                                          );
 
                                           await actions.hideKeyboardAction(
                                             context,
@@ -4945,6 +4957,30 @@ class _FireInsuranceInfoPage2WidgetState
                                                                   0.0),
                                                       child: Text(
                                                         '(กรุณาระบุอย่างน้อย 1 คน)',
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Noto Sans Thai',
+                                                              color: Color(
+                                                                  0xFFFB0606),
+                                                              fontSize: 12.0,
+                                                              letterSpacing:
+                                                                  0.0,
+                                                            ),
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  5.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Text(
+                                                        '${FFAppState().benefitorData.length == 1 ? ((FFAppState().benefitorData.length == 1) && ((FFAppState().benefitorData.firstOrNull?.firstNameTh != '') && (FFAppState().benefitorData.firstOrNull?.lastNameTh != '') && (FFAppState().benefitorData.firstOrNull?.birthDay != '') && (FFAppState().benefitorData.firstOrNull?.benefitorName != '') && (FFAppState().benefitorData.firstOrNull?.relationship != '')) ? FFAppState().benefitorData.length.toString() : '0') : FFAppState().benefitorData.length.toString()}/5',
                                                         style: FlutterFlowTheme
                                                                 .of(context)
                                                             .bodyMedium
@@ -5550,6 +5586,71 @@ class _FireInsuranceInfoPage2WidgetState
                                                     safeSetState(() {});
                                                   return;
                                                 }
+                                                if ((FFAppState()
+                                                                .benefitorData
+                                                                .length ==
+                                                            1
+                                                        ? ((FFAppState()
+                                                                        .benefitorData
+                                                                        .length ==
+                                                                    1) &&
+                                                                ((FFAppState()
+                                                                            .benefitorData
+                                                                            .firstOrNull
+                                                                            ?.firstNameTh !=
+                                                                        '') &&
+                                                                    (FFAppState()
+                                                                            .benefitorData
+                                                                            .firstOrNull
+                                                                            ?.lastNameTh !=
+                                                                        '') &&
+                                                                    (FFAppState()
+                                                                            .benefitorData
+                                                                            .firstOrNull
+                                                                            ?.birthDay !=
+                                                                        '') &&
+                                                                    (FFAppState()
+                                                                            .benefitorData
+                                                                            .firstOrNull
+                                                                            ?.benefitorName !=
+                                                                        '') &&
+                                                                    (FFAppState()
+                                                                            .benefitorData
+                                                                            .firstOrNull
+                                                                            ?.relationship !=
+                                                                        ''))
+                                                            ? FFAppState()
+                                                                .benefitorData
+                                                                .length
+                                                            : 0)
+                                                        : FFAppState()
+                                                            .benefitorData
+                                                            .length) <=
+                                                    0) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'กรุณาเพิ่มผู้รับประกันภัยอย่างน้อย 1 คน'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    safeSetState(() {});
+                                                  return;
+                                                }
                                                 if ((double.parse(FFAppState()
                                                                 .leadsHouse
                                                                 .firstOrNull!
@@ -5982,7 +6083,7 @@ class _FireInsuranceInfoPage2WidgetState
                                                 child: FFButtonWidget(
                                                   onPressed: () async {
                                                     context.pushNamed(
-                                                        'insuranceInfoPage3');
+                                                        'fireInsuranceInfoPage3');
                                                   },
                                                   text: 'ถัดไป',
                                                   options: FFButtonOptions(

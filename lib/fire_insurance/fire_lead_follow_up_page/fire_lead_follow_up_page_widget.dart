@@ -389,7 +389,7 @@ class _FireLeadFollowUpPageWidgetState extends State<FireLeadFollowUpPageWidget>
                               queryParameters: {
                                 'list': serializeParam(
                                   HouseInsuranceGroup.getListFireApiCall
-                                      .watingInfoData(
+                                      .watingInfo(
                                     (_model.getListFireApi?.jsonBody ?? ''),
                                   ),
                                   ParamType.JSON,

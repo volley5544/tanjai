@@ -211,7 +211,7 @@ class _ShowPeoplePageWidgetState extends State<ShowPeoplePageWidget> {
                                                       MainAxisSize.max,
                                                   children: [
                                                     Icon(
-                                                      Icons.sports_motorsports,
+                                                      Icons.person,
                                                       color: Color(0xFF204A77),
                                                       size: 24.0,
                                                     ),
@@ -453,8 +453,12 @@ class _ShowPeoplePageWidgetState extends State<ShowPeoplePageWidget> {
                                                                     .max,
                                                             children: [
                                                               Text(
-                                                                peopleListItemItem
-                                                                    .gender,
+                                                                (FFAppState().benefitorData.elementAtOrNull(peopleListItemIndex)?.gender ==
+                                                                            'MALE') ||
+                                                                        (FFAppState().benefitorData.elementAtOrNull(peopleListItemIndex)?.gender ==
+                                                                            'ชาย')
+                                                                    ? 'ชาย'
+                                                                    : 'หญิง',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
