@@ -1595,23 +1595,61 @@ class _FireInsuranceListPageWidgetState
                                                   ),
                                                   FFButtonWidget(
                                                     onPressed: () async {
+                                                      await showDialog(
+                                                        context: context,
+                                                        builder:
+                                                            (alertDialogContext) {
+                                                          return WebViewAware(
+                                                            child: AlertDialog(
+                                                              content: Text(
+                                                                  '${HouseInsuranceGroup.fireGetLeadsApiCall.quotationId(
+                                                                        (_model.fireGetLeads?.jsonBody ??
+                                                                            ''),
+                                                                      )?.elementAtOrNull(listLeadsIndex)}${HouseInsuranceGroup.fireGetLeadsApiCall.leadsHouseDtIid(
+                                                                        (_model.fireGetLeads?.jsonBody ??
+                                                                            ''),
+                                                                      )?.elementAtOrNull(listLeadsIndex)}'),
+                                                              actions: [
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext),
+                                                                  child: Text(
+                                                                      'Ok'),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          );
+                                                        },
+                                                      );
+
                                                       context.pushNamed(
                                                         'insuranceInfoPage1',
                                                         queryParameters: {
                                                           'quotationId':
                                                               serializeParam(
-                                                            getJsonField(
-                                                              listLeadsItem,
-                                                              r'''$.results.data[:].quotation_id''',
-                                                            ).toString(),
+                                                            HouseInsuranceGroup
+                                                                .fireGetLeadsApiCall
+                                                                .quotationId(
+                                                                  (_model.fireGetLeads
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )
+                                                                ?.elementAtOrNull(
+                                                                    listLeadsIndex),
                                                             ParamType.String,
                                                           ),
                                                           'leadDtailId':
                                                               serializeParam(
-                                                            getJsonField(
-                                                              listLeadsItem,
-                                                              r'''$.results.data[:].leads_detail_house[:].leads_house_dtl_id''',
-                                                            ),
+                                                            int.parse(((HouseInsuranceGroup
+                                                                .fireGetLeadsApiCall
+                                                                .leadsHouseDtIid(
+                                                                  (_model.fireGetLeads
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )!
+                                                                .elementAtOrNull(
+                                                                    listLeadsIndex))!)),
                                                             ParamType.int,
                                                           ),
                                                         }.withoutNulls,

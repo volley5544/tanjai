@@ -5138,15 +5138,11 @@ class _FireInsuranceInfoPage2WidgetState
                                                     .checkDateBeforeAnotherDate(
                                                         columnEffectiveDayConfigRecord
                                                             ?.effectiveDaysInsure,
-                                                        _model.datePicked)!) {
+                                                        _model.datePicked2)!) {
                                                   FFAppState()
-                                                      .updateLeadsDetailHouseAtIndex(
-                                                    0,
-                                                    (e) => e
-                                                      ..effectiveDate = functions
-                                                          .getDateFormat(_model
-                                                              .datePicked),
-                                                  );
+                                                          .insuranceInfoEffectiveDateInsure =
+                                                      functions.getDateFormat(
+                                                          _model.datePicked2)!;
                                                   safeSetState(() {});
                                                 } else {
                                                   await showDialog(
@@ -5549,6 +5545,8 @@ class _FireInsuranceInfoPage2WidgetState
                                                         (alertDialogContext) {
                                                       return WebViewAware(
                                                         child: AlertDialog(
+                                                          content: Text(
+                                                              'จำนวนเงินเอาประกันรวมไม่ถูกต้อง'),
                                                           actions: [
                                                             TextButton(
                                                               onPressed: () =>
@@ -5634,6 +5632,70 @@ class _FireInsuranceInfoPage2WidgetState
                                                       .insuranceinfoActType,
                                                   beneficiaryName: FFAppState()
                                                       .insuranceInfoBeneficiaryName,
+                                                  sumInsureHouse: FFAppState()
+                                                      .leadsHouse
+                                                      .firstOrNull
+                                                      ?.sumInsureHouse,
+                                                  sumInsureBuildin: FFAppState()
+                                                      .leadsHouse
+                                                      .firstOrNull
+                                                      ?.sumInsureBuildin,
+                                                  sumInsureTotal: FFAppState()
+                                                      .leadsHouse
+                                                      .firstOrNull
+                                                      ?.sumInsureTotal,
+                                                  wall: FFAppState()
+                                                      .leadsHouse
+                                                      .firstOrNull
+                                                      ?.wall,
+                                                  floorGround: FFAppState()
+                                                      .leadsHouse
+                                                      .firstOrNull
+                                                      ?.floorGround,
+                                                  floorUpper: FFAppState()
+                                                      .leadsHouse
+                                                      .firstOrNull
+                                                      ?.floorUpper,
+                                                  roofFrame: FFAppState()
+                                                      .leadsHouse
+                                                      .firstOrNull
+                                                      ?.roofFrame,
+                                                  roof: FFAppState()
+                                                      .leadsHouse
+                                                      .firstOrNull
+                                                      ?.roof,
+                                                  amoutHouse: FFAppState()
+                                                      .leadsHouse
+                                                      .firstOrNull
+                                                      ?.amoutHouse,
+                                                  floor: FFAppState()
+                                                      .leadsHouse
+                                                      .firstOrNull
+                                                      ?.floor,
+                                                  width: FFAppState()
+                                                      .leadsHouse
+                                                      .firstOrNull
+                                                      ?.width,
+                                                  length: FFAppState()
+                                                      .leadsHouse
+                                                      .firstOrNull
+                                                      ?.length,
+                                                  assured: FFAppState()
+                                                      .leadsHouse
+                                                      .firstOrNull
+                                                      ?.assured,
+                                                  houseTypeCode: FFAppState()
+                                                      .leadsHouse
+                                                      .firstOrNull
+                                                      ?.houseTypeCode,
+                                                  houseTypeName: FFAppState()
+                                                      .leadsHouse
+                                                      .firstOrNull
+                                                      ?.houseTypeName,
+                                                  usableArea: FFAppState()
+                                                      .leadsHouse
+                                                      .firstOrNull
+                                                      ?.usableArea,
                                                 );
 
                                                 _shouldSetState = true;

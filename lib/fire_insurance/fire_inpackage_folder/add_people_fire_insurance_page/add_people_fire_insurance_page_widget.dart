@@ -189,7 +189,7 @@ class _AddPeopleFireInsurancePageWidgetState
                   ],
                 ),
               ),
-              if (FFAppState().DriverList.length > 0)
+              if (FFAppState().benefitorData.length > 0)
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 20.0),
                   child: Container(

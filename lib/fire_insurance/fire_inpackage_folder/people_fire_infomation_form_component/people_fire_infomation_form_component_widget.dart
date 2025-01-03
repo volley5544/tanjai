@@ -1124,7 +1124,7 @@ class _PeopleFireInfomationFormComponentWidgetState
                               );
                             }
 
-                            FFAppState().updateDriverListAtIndex(
+                            FFAppState().updateBenefitorDataAtIndex(
                               widget!.index!,
                               (e) => e
                                 ..birthDay =
