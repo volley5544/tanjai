@@ -442,6 +442,68 @@ class GetListFireApiCall {
         response,
         r'''$.results.data.notApprove.total''',
       ));
+  dynamic? notApprove(dynamic response) => getJsonField(
+        response,
+        r'''$.results.data.notApprove''',
+      );
+  List? notApproveData(dynamic response) => getJsonField(
+        response,
+        r'''$.results.data.notApprove.data''',
+        true,
+      ) as List?;
+  dynamic? watingInfo(dynamic response) => getJsonField(
+        response,
+        r'''$.results.data.watingInfo''',
+      );
+  List? watingInfoData(dynamic response) => getJsonField(
+        response,
+        r'''$.results.data.watingInfo.data''',
+        true,
+      ) as List?;
+  int? watingInfoTotal(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.results.data.watingInfo.total''',
+      ));
+  dynamic? dataPayment(dynamic response) => getJsonField(
+        response,
+        r'''$.results.data.payment''',
+      );
+  List? paymentData(dynamic response) => getJsonField(
+        response,
+        r'''$.results.data.payment.data''',
+        true,
+      ) as List?;
+  int? paymentTotal(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.results.data.payment.total''',
+      ));
+  List? waitingData(dynamic response) => getJsonField(
+        response,
+        r'''$.results.data.waiting.data''',
+        true,
+      ) as List?;
+  int? waitingTotal(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.results.data.waiting.total''',
+      ));
+  List? approveData(dynamic response) => getJsonField(
+        response,
+        r'''$.results.data.approve.data''',
+        true,
+      ) as List?;
+  int? approveTotal(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.results.data.approve.total''',
+      ));
+  List? cancelData(dynamic response) => getJsonField(
+        response,
+        r'''$.results.data.cancel.data''',
+        true,
+      ) as List?;
+  int? cancelTotal(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.results.data.cancel.total''',
+      ));
 }
 
 /// End HouseInsurance Group Code

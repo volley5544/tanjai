@@ -859,6 +859,23 @@ class _FireSearchableListPageWidgetState
                                                     safeSetState(() {});
                                                   return;
                                                 }
+                                                if (widget!.titleText ==
+                                                    'เลือกผู้เอาประกันภัย') {
+                                                  FFAppState()
+                                                      .updateLeadsHouseAtIndex(
+                                                    0,
+                                                    (e) => e
+                                                      ..assured = widget!
+                                                          .dataList
+                                                          ?.elementAtOrNull(
+                                                              dataListIndex),
+                                                  );
+                                                  safeSetState(() {});
+                                                  context.safePop();
+                                                  if (_shouldSetState)
+                                                    safeSetState(() {});
+                                                  return;
+                                                }
                                               }
 
                                               if (_shouldSetState)

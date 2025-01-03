@@ -1380,7 +1380,7 @@ class _PeopleFireInfomationFormComponentWidgetState
                                                     fontWeight: FontWeight.w500,
                                                   ),
                                               hintText:
-                                                  'กรุณากรอกเลขที่บัตรประชาชน',
+                                                  'กรุณาชื่อผู้รับผลประโยชน์',
                                               hintStyle: FlutterFlowTheme.of(
                                                       context)
                                                   .labelMedium
@@ -1514,8 +1514,7 @@ class _PeopleFireInfomationFormComponentWidgetState
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
-                                        hintText:
-                                            'กรุณากรอกเลขที่ใบอนุญาตขับขี่',
+                                        hintText: 'กรุณากรอกความสัมพันธ์',
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .labelMedium
                                             .override(

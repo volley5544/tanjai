@@ -2,17 +2,22 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
 import 'dart:convert';
+import 'dart:math';
+import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -27,8 +32,8 @@ class FireLeadFollowUpPageWidget extends StatefulWidget {
       _FireLeadFollowUpPageWidgetState();
 }
 
-class _FireLeadFollowUpPageWidgetState
-    extends State<FireLeadFollowUpPageWidget> {
+class _FireLeadFollowUpPageWidgetState extends State<FireLeadFollowUpPageWidget>
+    with TickerProviderStateMixin {
   late FireLeadFollowUpPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -270,6 +275,850 @@ class _FireLeadFollowUpPageWidgetState
             actions: [],
             centerTitle: true,
             elevation: 2.0,
+          ),
+          body: SafeArea(
+            top: true,
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(24.0, 20.0, 24.0, 0.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Expanded(
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Color(0xFFF6BD67),
+                              boxShadow: [
+                                BoxShadow(
+                                  blurRadius: 0.0,
+                                  color: FlutterFlowTheme.of(context).lineColor,
+                                  offset: Offset(
+                                    0.0,
+                                    1.0,
+                                  ),
+                                )
+                              ],
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Container(
+                                    width: 50.0,
+                                    height: 50.0,
+                                    decoration: BoxDecoration(
+                                      color: Color(0xFFF6BD67),
+                                      borderRadius: BorderRadius.circular(60.0),
+                                      border: Border.all(
+                                        color: Colors.black,
+                                        width: 1.5,
+                                      ),
+                                    ),
+                                    child: Icon(
+                                      Icons.person_outline_sharp,
+                                      color: Color(0xFF204A77),
+                                      size: 30.0,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 10.0, 0.0, 0.0),
+                                    child: Text(
+                                      valueOrDefault<String>(
+                                        HouseInsuranceGroup.getListFireApiCall
+                                            .toTal(
+                                              (_model.getListFireApi
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )
+                                            ?.toString(),
+                                        '5',
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .titleMedium
+                                          .override(
+                                            fontFamily: 'Noto Sans Thai',
+                                            color: Color(0xFF204A77),
+                                            fontSize: 15.0,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.w800,
+                                          ),
+                                    ),
+                                  ),
+                                  Text(
+                                    'จำนวนงานทั้งหมด',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Noto Sans Thai',
+                                          color: Color(0xFF204A77),
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 10.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.goNamed(
+                              'MakeInsuranceListPage',
+                              queryParameters: {
+                                'checkTotal': serializeParam(
+                                  HouseInsuranceGroup.getListFireApiCall
+                                      .watingInfoTotal(
+                                    (_model.getListFireApi?.jsonBody ?? ''),
+                                  ),
+                                  ParamType.int,
+                                ),
+                                'list': serializeParam(
+                                  HouseInsuranceGroup.getListFireApiCall
+                                      .watingInfoData(
+                                    (_model.getListFireApi?.jsonBody ?? ''),
+                                  ),
+                                  ParamType.JSON,
+                                  isList: true,
+                                ),
+                                'checkPayment': serializeParam(
+                                  '0',
+                                  ParamType.String,
+                                ),
+                                'fromPage': serializeParam(
+                                  'FollowUpPage',
+                                  ParamType.String,
+                                ),
+                              }.withoutNulls,
+                            );
+                          },
+                          child: Container(
+                            width: MediaQuery.sizeOf(context).width * 0.4,
+                            decoration: BoxDecoration(
+                              color: Color(0xFFF6EFB4),
+                              boxShadow: [
+                                BoxShadow(
+                                  blurRadius: 0.0,
+                                  color: FlutterFlowTheme.of(context).lineColor,
+                                  offset: Offset(
+                                    0.0,
+                                    1.0,
+                                  ),
+                                )
+                              ],
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Container(
+                                    width: 50.0,
+                                    height: 50.0,
+                                    decoration: BoxDecoration(
+                                      color: Color(0xFFF6EFB4),
+                                      borderRadius: BorderRadius.circular(60.0),
+                                      border: Border.all(
+                                        color: Colors.black,
+                                        width: 1.5,
+                                      ),
+                                    ),
+                                    child: Align(
+                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      child: FaIcon(
+                                        FontAwesomeIcons.clipboardList,
+                                        color: Color(0xFF204A77),
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 10.0, 0.0, 0.0),
+                                    child: Text(
+                                      valueOrDefault<String>(
+                                        HouseInsuranceGroup.getListFireApiCall
+                                            .watingInfoTotal(
+                                              (_model.getListFireApi
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )
+                                            ?.toString(),
+                                        '5',
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .titleMedium
+                                          .override(
+                                            fontFamily: 'Noto Sans Thai',
+                                            color: Color(0xFF204A77),
+                                            fontSize: 15.0,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.w800,
+                                          ),
+                                    ),
+                                  ),
+                                  Text(
+                                    'เตรียมข้อมูล',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Noto Sans Thai',
+                                          color: Color(0xFF204A77),
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.goNamed(
+                              'MakeInsuranceListPage',
+                              queryParameters: {
+                                'checkTotal': serializeParam(
+                                  HouseInsuranceGroup.getListFireApiCall
+                                      .waitingTotal(
+                                    (_model.getListFireApi?.jsonBody ?? ''),
+                                  ),
+                                  ParamType.int,
+                                ),
+                                'list': serializeParam(
+                                  HouseInsuranceGroup.getListFireApiCall
+                                      .waitingData(
+                                    (_model.getListFireApi?.jsonBody ?? ''),
+                                  ),
+                                  ParamType.JSON,
+                                  isList: true,
+                                ),
+                                'checkPayment': serializeParam(
+                                  '0',
+                                  ParamType.String,
+                                ),
+                                'fromPage': serializeParam(
+                                  'FollowUpPage',
+                                  ParamType.String,
+                                ),
+                              }.withoutNulls,
+                            );
+                          },
+                          child: Container(
+                            width: MediaQuery.sizeOf(context).width * 0.4,
+                            decoration: BoxDecoration(
+                              color: Color(0xFFB6BFE3),
+                              boxShadow: [
+                                BoxShadow(
+                                  blurRadius: 0.0,
+                                  color: FlutterFlowTheme.of(context).lineColor,
+                                  offset: Offset(
+                                    0.0,
+                                    1.0,
+                                  ),
+                                )
+                              ],
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Container(
+                                    width: 50.0,
+                                    height: 50.0,
+                                    decoration: BoxDecoration(
+                                      color: Color(0xFFB6BFE3),
+                                      borderRadius: BorderRadius.circular(60.0),
+                                      border: Border.all(
+                                        color: Colors.black,
+                                        width: 1.5,
+                                      ),
+                                    ),
+                                    child: Icon(
+                                      Icons.directions_car_outlined,
+                                      color: Color(0xFF204A77),
+                                      size: 30.0,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 10.0, 0.0, 0.0),
+                                    child: Text(
+                                      valueOrDefault<String>(
+                                        HouseInsuranceGroup.getListFireApiCall
+                                            .waitingTotal(
+                                              (_model.getListFireApi
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )
+                                            ?.toString(),
+                                        '5',
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .titleMedium
+                                          .override(
+                                            fontFamily: 'Noto Sans Thai',
+                                            color: Color(0xFF204A77),
+                                            fontSize: 15.0,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.w800,
+                                          ),
+                                    ),
+                                  ),
+                                  Text(
+                                    'รออนุมัติ',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Noto Sans Thai',
+                                          color: Color(0xFF204A77),
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 10.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.goNamed(
+                              'MakeInsuranceListPage',
+                              queryParameters: {
+                                'checkTotal': serializeParam(
+                                  HouseInsuranceGroup.getListFireApiCall
+                                      .approveTotal(
+                                    (_model.getListFireApi?.jsonBody ?? ''),
+                                  ),
+                                  ParamType.int,
+                                ),
+                                'list': serializeParam(
+                                  HouseInsuranceGroup.getListFireApiCall
+                                      .approveData(
+                                    (_model.getListFireApi?.jsonBody ?? ''),
+                                  ),
+                                  ParamType.JSON,
+                                  isList: true,
+                                ),
+                                'checkPayment': serializeParam(
+                                  '0',
+                                  ParamType.String,
+                                ),
+                                'fromPage': serializeParam(
+                                  'FollowUpPage',
+                                  ParamType.String,
+                                ),
+                              }.withoutNulls,
+                            );
+                          },
+                          child: Container(
+                            width: MediaQuery.sizeOf(context).width * 0.4,
+                            decoration: BoxDecoration(
+                              color: Color(0xFF8DEEA7),
+                              boxShadow: [
+                                BoxShadow(
+                                  blurRadius: 0.0,
+                                  color: FlutterFlowTheme.of(context).lineColor,
+                                  offset: Offset(
+                                    0.0,
+                                    1.0,
+                                  ),
+                                )
+                              ],
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Align(
+                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    child: Container(
+                                      width: 50.0,
+                                      height: 50.0,
+                                      decoration: BoxDecoration(
+                                        color: Color(0xFF8DEEA7),
+                                        borderRadius:
+                                            BorderRadius.circular(60.0),
+                                        border: Border.all(
+                                          color: Colors.black,
+                                          width: 1.5,
+                                        ),
+                                      ),
+                                      child: Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
+                                        child: FaIcon(
+                                          FontAwesomeIcons.userCheck,
+                                          color: Color(0xFF204A77),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 10.0, 0.0, 0.0),
+                                    child: Text(
+                                      valueOrDefault<String>(
+                                        HouseInsuranceGroup.getListFireApiCall
+                                            .approveTotal(
+                                              (_model.getListFireApi
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )
+                                            ?.toString(),
+                                        '5',
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .titleMedium
+                                          .override(
+                                            fontFamily: 'Noto Sans Thai',
+                                            color: Color(0xFF204A77),
+                                            fontSize: 15.0,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.w800,
+                                          ),
+                                    ),
+                                  ),
+                                  Text(
+                                    'อนุมัติ',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Noto Sans Thai',
+                                          color: Color(0xFF204A77),
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.goNamed(
+                              'MakeInsuranceListPage',
+                              queryParameters: {
+                                'checkTotal': serializeParam(
+                                  HouseInsuranceGroup.getListFireApiCall
+                                      .notApproveTotal(
+                                    (_model.getListFireApi?.jsonBody ?? ''),
+                                  ),
+                                  ParamType.int,
+                                ),
+                                'list': serializeParam(
+                                  HouseInsuranceGroup.getListFireApiCall
+                                      .notApproveData(
+                                    (_model.getListFireApi?.jsonBody ?? ''),
+                                  ),
+                                  ParamType.JSON,
+                                  isList: true,
+                                ),
+                                'checkPayment': serializeParam(
+                                  '0',
+                                  ParamType.String,
+                                ),
+                                'fromPage': serializeParam(
+                                  'FollowUpPage',
+                                  ParamType.String,
+                                ),
+                              }.withoutNulls,
+                            );
+                          },
+                          child: Container(
+                            width: MediaQuery.sizeOf(context).width * 0.4,
+                            decoration: BoxDecoration(
+                              color: Color(0xFFE5B2C3),
+                              boxShadow: [
+                                BoxShadow(
+                                  blurRadius: 0.0,
+                                  color: FlutterFlowTheme.of(context).lineColor,
+                                  offset: Offset(
+                                    0.0,
+                                    1.0,
+                                  ),
+                                )
+                              ],
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Align(
+                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    child: Container(
+                                      width: 50.0,
+                                      height: 50.0,
+                                      decoration: BoxDecoration(
+                                        color: Color(0xFFE5B2C3),
+                                        borderRadius:
+                                            BorderRadius.circular(60.0),
+                                        border: Border.all(
+                                          color: Colors.black,
+                                          width: 1.5,
+                                        ),
+                                      ),
+                                      child: Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
+                                        child: FaIcon(
+                                          FontAwesomeIcons.userTimes,
+                                          color: Color(0xFF204A77),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 10.0, 0.0, 0.0),
+                                    child: Text(
+                                      valueOrDefault<String>(
+                                        HouseInsuranceGroup.getListFireApiCall
+                                            .notApproveTotal(
+                                              (_model.getListFireApi
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )
+                                            ?.toString(),
+                                        '5',
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .titleMedium
+                                          .override(
+                                            fontFamily: 'Noto Sans Thai',
+                                            color: Color(0xFF204A77),
+                                            fontSize: 15.0,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.w800,
+                                          ),
+                                    ),
+                                  ),
+                                  Text(
+                                    'ไม่อนุมัติ',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Noto Sans Thai',
+                                          color: Color(0xFF204A77),
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 10.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.goNamed(
+                              'MakeInsuranceListPage',
+                              queryParameters: {
+                                'checkTotal': serializeParam(
+                                  HouseInsuranceGroup.getListFireApiCall
+                                      .paymentTotal(
+                                    (_model.getListFireApi?.jsonBody ?? ''),
+                                  ),
+                                  ParamType.int,
+                                ),
+                                'list': serializeParam(
+                                  HouseInsuranceGroup.getListFireApiCall
+                                      .paymentData(
+                                    (_model.getListFireApi?.jsonBody ?? ''),
+                                  ),
+                                  ParamType.JSON,
+                                  isList: true,
+                                ),
+                                'checkPayment': serializeParam(
+                                  '1',
+                                  ParamType.String,
+                                ),
+                                'fromPage': serializeParam(
+                                  'FollowUpPage',
+                                  ParamType.String,
+                                ),
+                              }.withoutNulls,
+                            );
+                          },
+                          child: Container(
+                            width: MediaQuery.sizeOf(context).width * 0.4,
+                            decoration: BoxDecoration(
+                              color: Color(0xFFC3F9D2),
+                              boxShadow: [
+                                BoxShadow(
+                                  blurRadius: 0.0,
+                                  color: FlutterFlowTheme.of(context).lineColor,
+                                  offset: Offset(
+                                    0.0,
+                                    1.0,
+                                  ),
+                                )
+                              ],
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Align(
+                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    child: Container(
+                                      width: 50.0,
+                                      height: 50.0,
+                                      decoration: BoxDecoration(
+                                        color: Color(0xFFC3F9D2),
+                                        borderRadius:
+                                            BorderRadius.circular(60.0),
+                                        border: Border.all(
+                                          color: Colors.black,
+                                          width: 1.5,
+                                        ),
+                                      ),
+                                      child: Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
+                                        child: Icon(
+                                          Icons.attach_money_sharp,
+                                          color: Color(0xFF204A77),
+                                          size: 30.0,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 10.0, 0.0, 0.0),
+                                    child: Text(
+                                      valueOrDefault<String>(
+                                        HouseInsuranceGroup.getListFireApiCall
+                                            .paymentTotal(
+                                              (_model.getListFireApi
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )
+                                            ?.toString(),
+                                        '5',
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .titleMedium
+                                          .override(
+                                            fontFamily: 'Noto Sans Thai',
+                                            color: Color(0xFF204A77),
+                                            fontSize: 15.0,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.w800,
+                                          ),
+                                    ),
+                                  ),
+                                  Text(
+                                    'รายการลูกค้าชำระเงิน',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Noto Sans Thai',
+                                          color: Color(0xFF204A77),
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.goNamed(
+                              'MakeInsuranceListPage',
+                              queryParameters: {
+                                'checkTotal': serializeParam(
+                                  HouseInsuranceGroup.getListFireApiCall
+                                      .cancelTotal(
+                                    (_model.getListFireApi?.jsonBody ?? ''),
+                                  ),
+                                  ParamType.int,
+                                ),
+                                'list': serializeParam(
+                                  HouseInsuranceGroup.getListFireApiCall
+                                      .cancelData(
+                                    (_model.getListFireApi?.jsonBody ?? ''),
+                                  ),
+                                  ParamType.JSON,
+                                  isList: true,
+                                ),
+                                'checkPayment': serializeParam(
+                                  'cancle',
+                                  ParamType.String,
+                                ),
+                                'fromPage': serializeParam(
+                                  'FollowUpPage',
+                                  ParamType.String,
+                                ),
+                              }.withoutNulls,
+                            );
+                          },
+                          child: Container(
+                            width: MediaQuery.sizeOf(context).width * 0.4,
+                            decoration: BoxDecoration(
+                              color: Color(0xFFE5B2C3),
+                              boxShadow: [
+                                BoxShadow(
+                                  blurRadius: 0.0,
+                                  color: FlutterFlowTheme.of(context).lineColor,
+                                  offset: Offset(
+                                    0.0,
+                                    1.0,
+                                  ),
+                                )
+                              ],
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Align(
+                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    child: Container(
+                                      width: 50.0,
+                                      height: 50.0,
+                                      decoration: BoxDecoration(
+                                        color: Color(0xFFE5B2C3),
+                                        borderRadius:
+                                            BorderRadius.circular(60.0),
+                                        border: Border.all(
+                                          color: Colors.black,
+                                          width: 1.5,
+                                        ),
+                                      ),
+                                      child: Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
+                                        child: FaIcon(
+                                          FontAwesomeIcons.ban,
+                                          color: Color(0xFF204A77),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 10.0, 0.0, 0.0),
+                                    child: Text(
+                                      valueOrDefault<String>(
+                                        HouseInsuranceGroup.getListFireApiCall
+                                            .cancelTotal(
+                                              (_model.getListFireApi
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )
+                                            ?.toString(),
+                                        '5',
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .titleMedium
+                                          .override(
+                                            fontFamily: 'Noto Sans Thai',
+                                            color: Color(0xFF204A77),
+                                            fontSize: 15.0,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.w800,
+                                          ),
+                                    ),
+                                  ),
+                                  Text(
+                                    'ยกเลิก',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Noto Sans Thai',
+                                          color: Color(0xFF204A77),
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ].addToEnd(SizedBox(height: 50.0)),
+              ),
+            ),
           ),
         ),
       ),

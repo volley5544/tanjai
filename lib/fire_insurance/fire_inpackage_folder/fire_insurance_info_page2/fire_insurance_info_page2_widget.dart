@@ -342,9 +342,7 @@ class _FireInsuranceInfoPage2WidgetState
               },
             ),
             title: Text(
-              FFAppState().insuranceinfoActType == 'MC'
-                  ? '2. ข้อมูลมอเตอร์ไซค์'
-                  : '2. ข้อมูลรถยนต์',
+              '2. ข้อมูลที่อยู่อาศัย',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF003063),
@@ -1772,7 +1770,7 @@ class _FireInsuranceInfoPage2WidgetState
                                                               FFAppState()
                                                                   .leadsHouse
                                                                   .firstOrNull
-                                                                  ?.floorUpper,
+                                                                  ?.floorGround,
                                                               'เลือกพื้นชั้นล่าง',
                                                             ),
                                                             style: FlutterFlowTheme
@@ -3686,12 +3684,12 @@ class _FireInsuranceInfoPage2WidgetState
                                                   'SearchableHouseList',
                                                   queryParameters: {
                                                     'titleText': serializeParam(
-                                                      'เลือกประเภทที่อยู่อาศัย',
+                                                      'เลือกผู้เอาประกันภัย',
                                                       ParamType.String,
                                                     ),
                                                     'searchLabel':
                                                         serializeParam(
-                                                      'กรุณาเลือกประเภทที่อยู่อาศัย',
+                                                      'กรุณาเลือกผู้เอาประกันภัย',
                                                       ParamType.String,
                                                     ),
                                                     'dataList': serializeParam(
@@ -5061,22 +5059,10 @@ class _FireInsuranceInfoPage2WidgetState
                                                   final _datePickedDate =
                                                       await showDatePicker(
                                                     context: context,
-                                                    initialDate: ((FFAppState()
-                                                                    .nonePackageWorkType ==
-                                                                'งานต่ออายุ') ||
-                                                            (FFAppState()
-                                                                    .nonePackageWorkType ==
-                                                                'งานโอนโค้ด')
-                                                        ? getCurrentTimestamp
-                                                        : getCurrentTimestamp),
-                                                    firstDate: ((FFAppState()
-                                                                    .nonePackageWorkType ==
-                                                                'งานต่ออายุ') ||
-                                                            (FFAppState()
-                                                                    .nonePackageWorkType ==
-                                                                'งานโอนโค้ด')
-                                                        ? getCurrentTimestamp
-                                                        : getCurrentTimestamp),
+                                                    initialDate:
+                                                        getCurrentTimestamp,
+                                                    firstDate:
+                                                        getCurrentTimestamp,
                                                     lastDate: DateTime(2050),
                                                   );
 
@@ -5101,22 +5087,10 @@ class _FireInsuranceInfoPage2WidgetState
                                                             date;
                                                       });
                                                     },
-                                                    currentTime: (FFAppState()
-                                                                    .nonePackageWorkType ==
-                                                                'งานต่ออายุ') ||
-                                                            (FFAppState()
-                                                                    .nonePackageWorkType ==
-                                                                'งานโอนโค้ด')
-                                                        ? getCurrentTimestamp
-                                                        : getCurrentTimestamp,
-                                                    minTime: (FFAppState()
-                                                                    .nonePackageWorkType ==
-                                                                'งานต่ออายุ') ||
-                                                            (FFAppState()
-                                                                    .nonePackageWorkType ==
-                                                                'งานโอนโค้ด')
-                                                        ? getCurrentTimestamp
-                                                        : getCurrentTimestamp,
+                                                    currentTime:
+                                                        getCurrentTimestamp,
+                                                    minTime:
+                                                        getCurrentTimestamp,
                                                     locale: LocaleType.values
                                                         .firstWhere(
                                                       (l) =>
@@ -5130,14 +5104,58 @@ class _FireInsuranceInfoPage2WidgetState
                                                   );
                                                 }
 
-                                                if (!(_model.datePicked !=
-                                                    null)) {
+                                                if (_model.datePicked != null) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(_model
+                                                              .datePicked!
+                                                              .toString()),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              columnEffectiveDayConfigRecord!
+                                                                  .effectiveDaysInsure
+                                                                  .toString()),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                } else {
                                                   await actions
                                                       .hideKeyboardAction(
                                                     context,
                                                   );
                                                   return;
                                                 }
+
                                                 if (functions
                                                     .checkDateBeforeAnotherDate(
                                                         columnEffectiveDayConfigRecord

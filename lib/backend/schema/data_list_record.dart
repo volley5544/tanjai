@@ -81,6 +81,11 @@ class DataListRecord extends FirestoreRecord {
   List<String> get floor => _floor ?? const [];
   bool hasFloor() => _floor != null;
 
+  // "assured" field.
+  List<String>? _assured;
+  List<String> get assured => _assured ?? const [];
+  bool hasAssured() => _assured != null;
+
   void _initializeFields() {
     _cardType = getDataList(snapshotData['CardType']);
     _gender = getDataList(snapshotData['Gender']);
@@ -95,6 +100,7 @@ class DataListRecord extends FirestoreRecord {
     _roofFrame = getDataList(snapshotData['roof_frame']);
     _roof = getDataList(snapshotData['roof']);
     _floor = getDataList(snapshotData['floor']);
+    _assured = getDataList(snapshotData['assured']);
   }
 
   static CollectionReference get collection =>
@@ -157,7 +163,8 @@ class DataListRecordDocumentEquality implements Equality<DataListRecord> {
         listEquality.equals(e1?.wall, e2?.wall) &&
         listEquality.equals(e1?.roofFrame, e2?.roofFrame) &&
         listEquality.equals(e1?.roof, e2?.roof) &&
-        listEquality.equals(e1?.floor, e2?.floor);
+        listEquality.equals(e1?.floor, e2?.floor) &&
+        listEquality.equals(e1?.assured, e2?.assured);
   }
 
   @override
@@ -174,7 +181,8 @@ class DataListRecordDocumentEquality implements Equality<DataListRecord> {
         e?.wall,
         e?.roofFrame,
         e?.roof,
-        e?.floor
+        e?.floor,
+        e?.assured
       ]);
 
   @override
