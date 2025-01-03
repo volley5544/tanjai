@@ -622,7 +622,8 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                 updateCallback: () => safeSetState(() {}),
                                 child: InfomationCustomerFireInsuranceWidget(),
                               ),
-                            if (FFAppState().insuranceinfoActType != 'CMI')
+                            if ((FFAppState().insuranceinfoActType != 'CMI') &&
+                                (FFAppState().insuranceinfoActType != 'House'))
                               Material(
                                 color: Colors.transparent,
                                 elevation: 1.0,

@@ -1417,38 +1417,39 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
               (_model.detailAPIOutput?.jsonBody ?? ''),
             )}';
       safeSetState(() {});
-      if ('${getJsonField(
+      if (FFAppState().insuranceinfoActType == 'House') {
+        if ('${getJsonField(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+              r'''$.results.data.app_house[0].lead_id''',
+            ).toString().toString()}' !=
+            '') {
+          FFAppState().leadsHouse = IbsApplicationsDetailCall.apphouse(
             (_model.detailAPIOutput?.jsonBody ?? ''),
-            r'''$.results.data.app_house[0].lead_id''',
-          ).toString().toString()}' !=
-          '') {
-        FFAppState().leadsHouse = IbsApplicationsDetailCall.apphouse(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<LeadsHouseStruct>();
-        FFAppState().leadsDetailHouse =
-            IbsApplicationsDetailCall.appdetailhouse(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )!
-                .toList()
-                .cast<LeadsDetailHouseStruct>();
-        safeSetState(() {});
-      } else {
-        FFAppState().leadsHouse = IbsApplicationsDetailCall.leadshouse(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<LeadsHouseStruct>();
-        FFAppState().leadsDetailHouse =
-            IbsApplicationsDetailCall.leadsdetailhouse(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )!
-                .toList()
-                .cast<LeadsDetailHouseStruct>();
-        safeSetState(() {});
+          )!
+              .toList()
+              .cast<LeadsHouseStruct>();
+          FFAppState().leadsDetailHouse =
+              IbsApplicationsDetailCall.appdetailhouse(
+            (_model.detailAPIOutput?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<LeadsDetailHouseStruct>();
+          safeSetState(() {});
+        } else {
+          FFAppState().leadsHouse = IbsApplicationsDetailCall.leadshouse(
+            (_model.detailAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<LeadsHouseStruct>();
+          FFAppState().leadsDetailHouse =
+              IbsApplicationsDetailCall.leadsdetailhouse(
+            (_model.detailAPIOutput?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<LeadsDetailHouseStruct>();
+          safeSetState(() {});
+        }
       }
-
       if (FFAppState().insuranceInfoIdCard != '') {
         safeSetState(() {
           _model.idCardTextFieldTextController1?.text =

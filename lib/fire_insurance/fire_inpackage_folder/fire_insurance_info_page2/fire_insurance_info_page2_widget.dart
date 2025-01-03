@@ -434,8 +434,10 @@ class _FireInsuranceInfoPage2WidgetState
                                       child:
                                           InfomationCustomerFireInsuranceWidget(),
                                     ),
-                                  if (FFAppState().insuranceinfoActType !=
-                                      'CMI')
+                                  if ((FFAppState().insuranceinfoActType !=
+                                          'CMI') &&
+                                      (FFAppState().insuranceinfoActType !=
+                                          'House'))
                                     wrapWithModel(
                                       model: _model.infomationCustomerModel,
                                       updateCallback: () => safeSetState(() {}),
