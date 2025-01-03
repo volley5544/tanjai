@@ -16,7 +16,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
-import 'package:webviewx_plus/webviewx_plus.dart';
 import 'people_fire_infomation_form_component_model.dart';
 export 'people_fire_infomation_form_component_model.dart';
 
@@ -439,26 +438,7 @@ class _PeopleFireInfomationFormComponentWidgetState
                             focusColor: Colors.transparent,
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
-                            onTap: () async {
-                              await showDialog(
-                                context: context,
-                                builder: (alertDialogContext) {
-                                  return WebViewAware(
-                                    child: AlertDialog(
-                                      content: Text(
-                                          '${(FFAppState().benefitorData.elementAtOrNull(widget!.index!)?.insuredPersonTypeName != '').toString()}${(FFAppState().benefitorData.elementAtOrNull(widget!.index!)?.gender != '').toString()}${(FFAppState().benefitorData.elementAtOrNull(widget!.index!)?.titleTh != '').toString()}${(_model.firstnameTextfieldTextController.text != null && _model.firstnameTextfieldTextController.text != '').toString()}${(_model.address4LastnameTextfieldTextController.text != null && _model.address4LastnameTextfieldTextController.text != '').toString()}${(FFAppState().benefitorData.elementAtOrNull(widget!.index!)?.birthDay != '').toString()}'),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(alertDialogContext),
-                                          child: Text('Ok'),
-                                        ),
-                                      ],
-                                    ),
-                                  );
-                                },
-                              );
-                            },
+                            onTap: () async {},
                             child: Text(
                               'เพศ',
                               style: FlutterFlowTheme.of(context)
@@ -1354,114 +1334,41 @@ class _PeopleFireInfomationFormComponentWidgetState
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 16.0, 0.0),
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  context.pushNamed(
-                                    'SearchableListPage',
-                                    queryParameters: {
-                                      'titleText': serializeParam(
-                                        'ค้นหาที่อยู่',
-                                        ParamType.String,
-                                      ),
-                                      'searchLabel': serializeParam(
-                                        'ระบุรหัสไปรษณีย์หรือตำบล,อำเภอ,จังหวัด',
-                                        ParamType.String,
-                                      ),
-                                      'dataList': serializeParam(
-                                        FFAppState().addAddressKeyWord,
-                                        ParamType.String,
-                                        isList: true,
-                                      ),
-                                      'multiSelect': serializeParam(
-                                        false,
-                                        ParamType.bool,
-                                      ),
-                                      'fromPage': serializeParam(
-                                        'addAddressForDoc',
-                                        ParamType.String,
-                                      ),
-                                    }.withoutNulls,
-                                  );
-
-                                  await actions.hideKeyboardAction(
-                                    context,
-                                  );
-                                },
-                                child: Container(
-                                  width: MediaQuery.sizeOf(context).width * 1.0,
-                                  height: 60.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(8.0),
-                                    border: Border.all(
-                                      color: Color(0xFFB3B3B3),
-                                    ),
+                              child: Container(
+                                width: MediaQuery.sizeOf(context).width * 1.0,
+                                height: 60.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  border: Border.all(
+                                    color: Color(0xFFB3B3B3),
                                   ),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Expanded(
-                                        child: Align(
-                                          alignment:
-                                              AlignmentDirectional(0.0, 0.0),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 0.0, 10.0, 0.0),
-                                            child: TextFormField(
-                                              controller: _model
-                                                  .benefitorNameTextfieldTextController,
-                                              focusNode: _model
-                                                  .benefitorNameTextfieldFocusNode,
-                                              autofocus: false,
-                                              obscureText: false,
-                                              decoration: InputDecoration(
-                                                labelStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Noto Sans Thai',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryText,
-                                                          fontSize: 15.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
-                                                hintText:
-                                                    'กรุณากรอกเลขที่บัตรประชาชน',
-                                                hintStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Noto Sans Thai',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryText,
-                                                          fontSize: 15.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                        ),
-                                                enabledBorder: InputBorder.none,
-                                                focusedBorder: InputBorder.none,
-                                                errorBorder: InputBorder.none,
-                                                focusedErrorBorder:
-                                                    InputBorder.none,
-                                              ),
-                                              style: FlutterFlowTheme.of(
+                                ),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Expanded(
+                                      child: Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  10.0, 0.0, 10.0, 0.0),
+                                          child: TextFormField(
+                                            controller: _model
+                                                .benefitorNameTextfieldTextController,
+                                            focusNode: _model
+                                                .benefitorNameTextfieldFocusNode,
+                                            autofocus: false,
+                                            obscureText: false,
+                                            decoration: InputDecoration(
+                                              labelStyle: FlutterFlowTheme.of(
                                                       context)
-                                                  .bodyMedium
+                                                  .labelMedium
                                                   .override(
                                                     fontFamily:
                                                         'Noto Sans Thai',
@@ -1470,23 +1377,52 @@ class _PeopleFireInfomationFormComponentWidgetState
                                                         .primaryText,
                                                     fontSize: 15.0,
                                                     letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
+                                              hintText:
+                                                  'กรุณากรอกเลขที่บัตรประชาชน',
+                                              hintStyle: FlutterFlowTheme.of(
+                                                      context)
+                                                  .labelMedium
+                                                  .override(
+                                                    fontFamily:
+                                                        'Noto Sans Thai',
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryText,
+                                                    fontSize: 15.0,
+                                                    letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
-                                              keyboardType:
-                                                  TextInputType.number,
-                                              validator: _model
-                                                  .benefitorNameTextfieldTextControllerValidator
-                                                  .asValidator(context),
-                                              inputFormatters: [
-                                                _model
-                                                    .benefitorNameTextfieldMask
-                                              ],
+                                              enabledBorder: InputBorder.none,
+                                              focusedBorder: InputBorder.none,
+                                              errorBorder: InputBorder.none,
+                                              focusedErrorBorder:
+                                                  InputBorder.none,
                                             ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Noto Sans Thai',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                  fontSize: 15.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w600,
+                                                ),
+                                            keyboardType: TextInputType.number,
+                                            validator: _model
+                                                .benefitorNameTextfieldTextControllerValidator
+                                                .asValidator(context),
+                                            inputFormatters: [
+                                              _model.benefitorNameTextfieldMask
+                                            ],
                                           ),
                                         ),
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
@@ -1543,69 +1479,32 @@ class _PeopleFireInfomationFormComponentWidgetState
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 16.0, 0.0),
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {},
-                                child: Container(
-                                  width: MediaQuery.sizeOf(context).width * 1.0,
-                                  height: 60.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(8.0),
-                                    border: Border.all(
-                                      color: Color(0xFFB3B3B3),
-                                    ),
+                              child: Container(
+                                width: MediaQuery.sizeOf(context).width * 1.0,
+                                height: 60.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  border: Border.all(
+                                    color: Color(0xFFB3B3B3),
                                   ),
-                                  child: Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 0.0, 10.0, 0.0),
-                                      child: TextFormField(
-                                        controller: _model
-                                            .relationshipTextFieldTextController,
-                                        focusNode: _model
-                                            .relationshipTextFieldFocusNode,
-                                        autofocus: false,
-                                        obscureText: false,
-                                        decoration: InputDecoration(
-                                          labelStyle: FlutterFlowTheme.of(
-                                                  context)
-                                              .labelMedium
-                                              .override(
-                                                fontFamily: 'Noto Sans Thai',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                                fontSize: 15.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w500,
-                                              ),
-                                          hintText:
-                                              'กรุณากรอกเลขที่ใบอนุญาตขับขี่',
-                                          hintStyle: FlutterFlowTheme.of(
-                                                  context)
-                                              .labelMedium
-                                              .override(
-                                                fontFamily: 'Noto Sans Thai',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryText,
-                                                fontSize: 15.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w600,
-                                              ),
-                                          enabledBorder: InputBorder.none,
-                                          focusedBorder: InputBorder.none,
-                                          errorBorder: InputBorder.none,
-                                          focusedErrorBorder: InputBorder.none,
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
+                                ),
+                                child: Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        10.0, 0.0, 10.0, 0.0),
+                                    child: TextFormField(
+                                      controller: _model
+                                          .relationshipTextFieldTextController,
+                                      focusNode:
+                                          _model.relationshipTextFieldFocusNode,
+                                      autofocus: false,
+                                      obscureText: false,
+                                      decoration: InputDecoration(
+                                        labelStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color:
@@ -1613,12 +1512,39 @@ class _PeopleFireInfomationFormComponentWidgetState
                                                       .primaryText,
                                               fontSize: 15.0,
                                               letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                        hintText:
+                                            'กรุณากรอกเลขที่ใบอนุญาตขับขี่',
+                                        hintStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .override(
+                                              fontFamily: 'Noto Sans Thai',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryText,
+                                              fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
-                                        validator: _model
-                                            .relationshipTextFieldTextControllerValidator
-                                            .asValidator(context),
+                                        enabledBorder: InputBorder.none,
+                                        focusedBorder: InputBorder.none,
+                                        errorBorder: InputBorder.none,
+                                        focusedErrorBorder: InputBorder.none,
                                       ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Noto Sans Thai',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                            fontSize: 15.0,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                      validator: _model
+                                          .relationshipTextFieldTextControllerValidator
+                                          .asValidator(context),
                                     ),
                                   ),
                                 ),

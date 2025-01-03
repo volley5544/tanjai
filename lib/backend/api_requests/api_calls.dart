@@ -438,6 +438,10 @@ class GetListFireApiCall {
         response,
         r'''$.results.data.total''',
       ));
+  int? notApproveTotal(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.results.data.notApprove.total''',
+      ));
 }
 
 /// End HouseInsurance Group Code

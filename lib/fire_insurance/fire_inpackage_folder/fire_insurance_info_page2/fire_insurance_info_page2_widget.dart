@@ -4098,6 +4098,8 @@ class _FireInsuranceInfoPage2WidgetState
                                                           fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                         ),
+                                                    keyboardType:
+                                                        TextInputType.number,
                                                     cursorColor:
                                                         FlutterFlowTheme.of(
                                                                 context)
@@ -4331,6 +4333,8 @@ class _FireInsuranceInfoPage2WidgetState
                                                           fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                         ),
+                                                    keyboardType:
+                                                        TextInputType.number,
                                                     cursorColor:
                                                         FlutterFlowTheme.of(
                                                                 context)

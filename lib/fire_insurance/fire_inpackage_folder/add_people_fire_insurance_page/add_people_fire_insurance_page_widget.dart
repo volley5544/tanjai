@@ -116,7 +116,7 @@ class _AddPeopleFireInsurancePageWidgetState
                     ) ??
                     false;
                 if (confirmDialogResponse) {
-                  FFAppState().removeAtIndexFromDriverList(widget!.index!);
+                  FFAppState().removeAtIndexFromBenefitorData(widget!.index!);
                   safeSetState(() {});
                 } else {
                   return;
