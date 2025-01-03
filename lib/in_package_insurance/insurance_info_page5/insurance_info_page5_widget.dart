@@ -292,17 +292,20 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
         (_model.applicationDetailOutput?.jsonBody ?? ''),
       )}';
       safeSetState(() {});
-      FFAppState().leadsHouse = IbsApplicationsDetailCall.apphouse(
-        (_model.applicationDetailOutput?.jsonBody ?? ''),
-      )!
-          .toList()
-          .cast<LeadsHouseStruct>();
-      FFAppState().leadsDetailHouse = IbsApplicationsDetailCall.appdetailhouse(
-        (_model.applicationDetailOutput?.jsonBody ?? ''),
-      )!
-          .toList()
-          .cast<LeadsDetailHouseStruct>();
-      safeSetState(() {});
+      if (FFAppState().insuranceinfoActType == 'House') {
+        FFAppState().leadsHouse = IbsApplicationsDetailCall.apphouse(
+          (_model.applicationDetailOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<LeadsHouseStruct>();
+        FFAppState().leadsDetailHouse =
+            IbsApplicationsDetailCall.appdetailhouse(
+          (_model.applicationDetailOutput?.jsonBody ?? ''),
+        )!
+                .toList()
+                .cast<LeadsDetailHouseStruct>();
+        safeSetState(() {});
+      }
       _model.getPolicy = await GetInsurancePolicyApiCall.call(
         apiUrl: FFAppState().apiUrlInsuranceAppState,
         token: FFAppState().accessToken,

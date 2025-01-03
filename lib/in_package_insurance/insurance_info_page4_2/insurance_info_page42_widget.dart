@@ -334,17 +334,20 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
         (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
       )}';
       safeSetState(() {});
-      FFAppState().leadsHouse = IbsApplicationsDetailCall.apphouse(
-        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-      )!
-          .toList()
-          .cast<LeadsHouseStruct>();
-      FFAppState().leadsDetailHouse = IbsApplicationsDetailCall.appdetailhouse(
-        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-      )!
-          .toList()
-          .cast<LeadsDetailHouseStruct>();
-      safeSetState(() {});
+      if (FFAppState().insuranceinfoActType == 'House') {
+        FFAppState().leadsHouse = IbsApplicationsDetailCall.apphouse(
+          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<LeadsHouseStruct>();
+        FFAppState().leadsDetailHouse =
+            IbsApplicationsDetailCall.appdetailhouse(
+          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+        )!
+                .toList()
+                .cast<LeadsDetailHouseStruct>();
+        safeSetState(() {});
+      }
       if (IbsApplicationsDetailCall.quotationstatus(
             (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
           ) ==
@@ -777,7 +780,8 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            if (FFAppState().insuranceinfoActType != 'CMI')
+                            if ((FFAppState().insuranceinfoActType != 'CMI') &&
+                                (FFAppState().insuranceinfoActType != 'House'))
                               wrapWithModel(
                                 model: _model.infomationCustomerModel,
                                 updateCallback: () => safeSetState(() {}),
