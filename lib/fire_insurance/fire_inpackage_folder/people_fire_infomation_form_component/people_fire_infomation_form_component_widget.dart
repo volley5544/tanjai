@@ -14,7 +14,6 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
 import 'people_fire_infomation_form_component_model.dart';
 export 'people_fire_infomation_form_component_model.dart';
@@ -88,19 +87,6 @@ class _PeopleFireInfomationFormComponentWidgetState
                 .benefitorName
             : '';
 
-        _model.benefitorNameTextfieldMask.updateMask(
-          newValue: TextEditingValue(
-              text: FFAppState()
-                          .benefitorData
-                          .elementAtOrNull(widget!.index!)
-                          ?.benefitorName !=
-                      ''
-                  ? FFAppState()
-                      .benefitorData
-                      .elementAtOrNull(widget!.index!)!
-                      .benefitorName
-                  : ''),
-        );
         _model.relationshipTextFieldTextController?.text = FFAppState()
                     .benefitorData
                     .elementAtOrNull(widget!.index!)
@@ -664,13 +650,13 @@ class _PeopleFireInfomationFormComponentWidgetState
                                   ),
                                   'dataList': serializeParam(
                                     (FFAppState()
-                                                    .DriverList
+                                                    .benefitorData
                                                     .elementAtOrNull(
                                                         widget!.index!)
                                                     ?.gender ==
                                                 'MALE') ||
                                             (FFAppState()
-                                                    .DriverList
+                                                    .benefitorData
                                                     .elementAtOrNull(
                                                         widget!.index!)
                                                     ?.gender ==
@@ -1411,13 +1397,9 @@ class _PeopleFireInfomationFormComponentWidgetState
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
-                                            keyboardType: TextInputType.number,
                                             validator: _model
                                                 .benefitorNameTextfieldTextControllerValidator
                                                 .asValidator(context),
-                                            inputFormatters: [
-                                              _model.benefitorNameTextfieldMask
-                                            ],
                                           ),
                                         ),
                                       ),

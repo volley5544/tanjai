@@ -221,10 +221,7 @@ class _FireInsuranceInfoPage2WidgetState
     });
 
     _model.textController1 ??= TextEditingController(
-        text: valueOrDefault<String>(
-      FFAppState().leadsHouse.firstOrNull?.amoutHouse,
-      'กรอกจำนวนคูหา/หลัง/ห้อง',
-    ));
+        text: FFAppState().leadsHouse.firstOrNull?.amoutHouse);
     _model.textFieldFocusNode1 ??= FocusNode();
     _model.textFieldFocusNode1!.addListener(
       () async {
@@ -2627,6 +2624,8 @@ class _FireInsuranceInfoPage2WidgetState
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
+                                                      hintText:
+                                                          'กรอกจำนวนคูหา/หลัง/ห้อง',
                                                       hintStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -3683,7 +3682,7 @@ class _FireInsuranceInfoPage2WidgetState
                                                   Colors.transparent,
                                               onTap: () async {
                                                 context.pushNamed(
-                                                  'SearchableHouseList',
+                                                  'FireSearchableListPage',
                                                   queryParameters: {
                                                     'titleText': serializeParam(
                                                       'เลือกผู้เอาประกันภัย',
@@ -3691,13 +3690,19 @@ class _FireInsuranceInfoPage2WidgetState
                                                     ),
                                                     'searchLabel':
                                                         serializeParam(
-                                                      'กรุณาเลือกผู้เอาประกันภัย',
+                                                      'ระบุผู้เอาประกันภัย',
                                                       ParamType.String,
                                                     ),
                                                     'dataList': serializeParam(
-                                                      FFAppState().defaultList1,
+                                                      widget!.masterDataFirebase
+                                                          ?.assured,
                                                       ParamType.String,
                                                       isList: true,
+                                                    ),
+                                                    'multiSelect':
+                                                        serializeParam(
+                                                      false,
+                                                      ParamType.bool,
                                                     ),
                                                   }.withoutNulls,
                                                 );
@@ -5235,10 +5240,9 @@ class _FireInsuranceInfoPage2WidgetState
                                                             ? 'กรุณาเลือกวันที่ต้องการเริ่มคุ้มครองประกัน'
                                                             : valueOrDefault<
                                                                 String>(
-                                                                functions.showDateBE(
-                                                                    (FFAppState().insuranceInfoEffectiveDateInsure ==
-                                                                            '')
-                                                                        .toString()),
+                                                                functions.showDateBE(_model
+                                                                    .datePicked
+                                                                    ?.toString()),
                                                                 '0',
                                                               ),
                                                         style: FlutterFlowTheme

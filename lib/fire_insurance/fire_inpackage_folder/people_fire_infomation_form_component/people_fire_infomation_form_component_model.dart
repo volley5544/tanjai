@@ -16,7 +16,6 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
 
 class PeopleFireInfomationFormComponentModel
@@ -37,8 +36,6 @@ class PeopleFireInfomationFormComponentModel
   // State field(s) for BenefitorNameTextfield widget.
   FocusNode? benefitorNameTextfieldFocusNode;
   TextEditingController? benefitorNameTextfieldTextController;
-  final benefitorNameTextfieldMask =
-      MaskTextInputFormatter(mask: '#-####-#####-##-#');
   String? Function(BuildContext, String?)?
       benefitorNameTextfieldTextControllerValidator;
   // State field(s) for RelationshipTextField widget.

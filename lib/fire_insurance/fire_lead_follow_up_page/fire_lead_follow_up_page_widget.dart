@@ -385,15 +385,8 @@ class _FireLeadFollowUpPageWidgetState extends State<FireLeadFollowUpPageWidget>
                           highlightColor: Colors.transparent,
                           onTap: () async {
                             context.goNamed(
-                              'MakeInsuranceListPage',
+                              'MakeFireInsuranceListPage',
                               queryParameters: {
-                                'checkTotal': serializeParam(
-                                  HouseInsuranceGroup.getListFireApiCall
-                                      .watingInfoTotal(
-                                    (_model.getListFireApi?.jsonBody ?? ''),
-                                  ),
-                                  ParamType.int,
-                                ),
                                 'list': serializeParam(
                                   HouseInsuranceGroup.getListFireApiCall
                                       .watingInfoData(
@@ -405,6 +398,13 @@ class _FireLeadFollowUpPageWidgetState extends State<FireLeadFollowUpPageWidget>
                                 'checkPayment': serializeParam(
                                   '0',
                                   ParamType.String,
+                                ),
+                                'checkTotal': serializeParam(
+                                  HouseInsuranceGroup.getListFireApiCall
+                                      .watingInfoTotal(
+                                    (_model.getListFireApi?.jsonBody ?? ''),
+                                  ),
+                                  ParamType.int,
                                 ),
                                 'fromPage': serializeParam(
                                   'FollowUpPage',
@@ -501,15 +501,8 @@ class _FireLeadFollowUpPageWidgetState extends State<FireLeadFollowUpPageWidget>
                           highlightColor: Colors.transparent,
                           onTap: () async {
                             context.goNamed(
-                              'MakeInsuranceListPage',
+                              'MakeFireInsuranceListPage',
                               queryParameters: {
-                                'checkTotal': serializeParam(
-                                  HouseInsuranceGroup.getListFireApiCall
-                                      .waitingTotal(
-                                    (_model.getListFireApi?.jsonBody ?? ''),
-                                  ),
-                                  ParamType.int,
-                                ),
                                 'list': serializeParam(
                                   HouseInsuranceGroup.getListFireApiCall
                                       .waitingData(
@@ -521,6 +514,13 @@ class _FireLeadFollowUpPageWidgetState extends State<FireLeadFollowUpPageWidget>
                                 'checkPayment': serializeParam(
                                   '0',
                                   ParamType.String,
+                                ),
+                                'checkTotal': serializeParam(
+                                  HouseInsuranceGroup.getListFireApiCall
+                                      .waitingTotal(
+                                    (_model.getListFireApi?.jsonBody ?? ''),
+                                  ),
+                                  ParamType.int,
                                 ),
                                 'fromPage': serializeParam(
                                   'FollowUpPage',
@@ -625,15 +625,8 @@ class _FireLeadFollowUpPageWidgetState extends State<FireLeadFollowUpPageWidget>
                           highlightColor: Colors.transparent,
                           onTap: () async {
                             context.goNamed(
-                              'MakeInsuranceListPage',
+                              'MakeFireInsuranceListPage',
                               queryParameters: {
-                                'checkTotal': serializeParam(
-                                  HouseInsuranceGroup.getListFireApiCall
-                                      .approveTotal(
-                                    (_model.getListFireApi?.jsonBody ?? ''),
-                                  ),
-                                  ParamType.int,
-                                ),
                                 'list': serializeParam(
                                   HouseInsuranceGroup.getListFireApiCall
                                       .approveData(
@@ -645,6 +638,13 @@ class _FireLeadFollowUpPageWidgetState extends State<FireLeadFollowUpPageWidget>
                                 'checkPayment': serializeParam(
                                   '0',
                                   ParamType.String,
+                                ),
+                                'checkTotal': serializeParam(
+                                  HouseInsuranceGroup.getListFireApiCall
+                                      .approveTotal(
+                                    (_model.getListFireApi?.jsonBody ?? ''),
+                                  ),
+                                  ParamType.int,
                                 ),
                                 'fromPage': serializeParam(
                                   'FollowUpPage',
@@ -746,15 +746,8 @@ class _FireLeadFollowUpPageWidgetState extends State<FireLeadFollowUpPageWidget>
                           highlightColor: Colors.transparent,
                           onTap: () async {
                             context.goNamed(
-                              'MakeInsuranceListPage',
+                              'MakeFireInsuranceListPage',
                               queryParameters: {
-                                'checkTotal': serializeParam(
-                                  HouseInsuranceGroup.getListFireApiCall
-                                      .notApproveTotal(
-                                    (_model.getListFireApi?.jsonBody ?? ''),
-                                  ),
-                                  ParamType.int,
-                                ),
                                 'list': serializeParam(
                                   HouseInsuranceGroup.getListFireApiCall
                                       .notApproveData(
@@ -766,6 +759,13 @@ class _FireLeadFollowUpPageWidgetState extends State<FireLeadFollowUpPageWidget>
                                 'checkPayment': serializeParam(
                                   '0',
                                   ParamType.String,
+                                ),
+                                'checkTotal': serializeParam(
+                                  HouseInsuranceGroup.getListFireApiCall
+                                      .notApproveTotal(
+                                    (_model.getListFireApi?.jsonBody ?? ''),
+                                  ),
+                                  ParamType.int,
                                 ),
                                 'fromPage': serializeParam(
                                   'FollowUpPage',
@@ -877,15 +877,8 @@ class _FireLeadFollowUpPageWidgetState extends State<FireLeadFollowUpPageWidget>
                           highlightColor: Colors.transparent,
                           onTap: () async {
                             context.goNamed(
-                              'MakeInsuranceListPage',
+                              'MakeFireInsuranceListPage',
                               queryParameters: {
-                                'checkTotal': serializeParam(
-                                  HouseInsuranceGroup.getListFireApiCall
-                                      .paymentTotal(
-                                    (_model.getListFireApi?.jsonBody ?? ''),
-                                  ),
-                                  ParamType.int,
-                                ),
                                 'list': serializeParam(
                                   HouseInsuranceGroup.getListFireApiCall
                                       .paymentData(
@@ -895,8 +888,15 @@ class _FireLeadFollowUpPageWidgetState extends State<FireLeadFollowUpPageWidget>
                                   isList: true,
                                 ),
                                 'checkPayment': serializeParam(
-                                  '1',
+                                  '0',
                                   ParamType.String,
+                                ),
+                                'checkTotal': serializeParam(
+                                  HouseInsuranceGroup.getListFireApiCall
+                                      .paymentTotal(
+                                    (_model.getListFireApi?.jsonBody ?? ''),
+                                  ),
+                                  ParamType.int,
                                 ),
                                 'fromPage': serializeParam(
                                   'FollowUpPage',
@@ -999,15 +999,8 @@ class _FireLeadFollowUpPageWidgetState extends State<FireLeadFollowUpPageWidget>
                           highlightColor: Colors.transparent,
                           onTap: () async {
                             context.goNamed(
-                              'MakeInsuranceListPage',
+                              'MakeFireInsuranceListPage',
                               queryParameters: {
-                                'checkTotal': serializeParam(
-                                  HouseInsuranceGroup.getListFireApiCall
-                                      .cancelTotal(
-                                    (_model.getListFireApi?.jsonBody ?? ''),
-                                  ),
-                                  ParamType.int,
-                                ),
                                 'list': serializeParam(
                                   HouseInsuranceGroup.getListFireApiCall
                                       .cancelData(
@@ -1017,8 +1010,15 @@ class _FireLeadFollowUpPageWidgetState extends State<FireLeadFollowUpPageWidget>
                                   isList: true,
                                 ),
                                 'checkPayment': serializeParam(
-                                  'cancle',
+                                  '0',
                                   ParamType.String,
+                                ),
+                                'checkTotal': serializeParam(
+                                  HouseInsuranceGroup.getListFireApiCall
+                                      .cancelTotal(
+                                    (_model.getListFireApi?.jsonBody ?? ''),
+                                  ),
+                                  ParamType.int,
                                 ),
                                 'fromPage': serializeParam(
                                   'FollowUpPage',

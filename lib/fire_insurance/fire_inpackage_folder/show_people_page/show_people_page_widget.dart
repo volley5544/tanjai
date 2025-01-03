@@ -639,133 +639,136 @@ class _ShowPeoplePageWidgetState extends State<ShowPeoplePageWidget> {
                                                 mainAxisAlignment:
                                                     MainAxisAlignment.center,
                                                 children: [
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(8.0, 8.0,
-                                                                0.0, 0.0),
-                                                    child: FFButtonWidget(
-                                                      onPressed: () async {
-                                                        var confirmDialogResponse =
-                                                            await showDialog<
-                                                                    bool>(
-                                                                  context:
-                                                                      context,
-                                                                  builder:
-                                                                      (alertDialogContext) {
-                                                                    return WebViewAware(
-                                                                      child:
-                                                                          AlertDialog(
-                                                                        content:
-                                                                            Text('คุณต้องการจะลบรับประกันภัยที่ ${(peopleListItemIndex + 1).toString()} หรือไม่?'),
-                                                                        actions: [
-                                                                          TextButton(
-                                                                            onPressed: () =>
-                                                                                Navigator.pop(alertDialogContext, false),
-                                                                            child:
-                                                                                Text('ยกเลิก'),
-                                                                          ),
-                                                                          TextButton(
-                                                                            onPressed: () =>
-                                                                                Navigator.pop(alertDialogContext, true),
-                                                                            child:
-                                                                                Text('ลบ'),
-                                                                          ),
-                                                                        ],
-                                                                      ),
-                                                                    );
-                                                                  },
-                                                                ) ??
-                                                                false;
-                                                        if (!confirmDialogResponse) {
-                                                          return;
-                                                        }
-                                                        FFAppState()
-                                                            .loopCountTemp = 0;
-                                                        FFAppState()
-                                                            .removeAtIndexFromBenefitorData(
-                                                                peopleListItemIndex);
-                                                        safeSetState(() {});
-                                                        while (FFAppState()
-                                                                .loopCountTemp <
-                                                            FFAppState()
-                                                                .benefitorData
-                                                                .length) {
+                                                  if (peopleListItemIndex != 0)
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  8.0,
+                                                                  8.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: FFButtonWidget(
+                                                        onPressed: () async {
+                                                          var confirmDialogResponse =
+                                                              await showDialog<
+                                                                      bool>(
+                                                                    context:
+                                                                        context,
+                                                                    builder:
+                                                                        (alertDialogContext) {
+                                                                      return WebViewAware(
+                                                                        child:
+                                                                            AlertDialog(
+                                                                          content:
+                                                                              Text('คุณต้องการจะลบรับประกันภัยที่ ${(peopleListItemIndex + 1).toString()} หรือไม่?'),
+                                                                          actions: [
+                                                                            TextButton(
+                                                                              onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                              child: Text('ยกเลิก'),
+                                                                            ),
+                                                                            TextButton(
+                                                                              onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                              child: Text('ลบ'),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                      );
+                                                                    },
+                                                                  ) ??
+                                                                  false;
+                                                          if (!confirmDialogResponse) {
+                                                            return;
+                                                          }
                                                           FFAppState()
-                                                              .updateBenefitorDataAtIndex(
-                                                            FFAppState()
-                                                                .loopCountTemp,
-                                                            (e) => e
-                                                              ..insuredPersonNo =
-                                                                  (FFAppState()
-                                                                              .loopCountTemp +
-                                                                          1)
-                                                                      .toString(),
-                                                          );
+                                                              .loopCountTemp = 0;
                                                           FFAppState()
-                                                                  .loopCountTemp =
-                                                              FFAppState()
-                                                                      .loopCountTemp +
-                                                                  1;
+                                                              .removeAtIndexFromBenefitorData(
+                                                                  peopleListItemIndex);
                                                           safeSetState(() {});
-                                                        }
-                                                        FFAppState()
-                                                            .loopCountTemp = 0;
-                                                        safeSetState(() {});
-                                                      },
-                                                      text: 'ลบผู้รับประกันภัย',
-                                                      icon: Icon(
-                                                        Icons
-                                                            .person_remove_alt_1_rounded,
-                                                        size: 24.0,
-                                                      ),
-                                                      options: FFButtonOptions(
-                                                        width: 190.0,
-                                                        height: 40.0,
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    24.0,
-                                                                    0.0,
-                                                                    24.0,
-                                                                    0.0),
-                                                        iconPadding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        color:
-                                                            Color(0xFFD80000),
-                                                        textStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmall
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryBackground,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                ),
-                                                        elevation: 3.0,
-                                                        borderSide: BorderSide(
-                                                          color: Colors
-                                                              .transparent,
-                                                          width: 1.0,
+                                                          while (FFAppState()
+                                                                  .loopCountTemp <
+                                                              FFAppState()
+                                                                  .benefitorData
+                                                                  .length) {
+                                                            FFAppState()
+                                                                .updateBenefitorDataAtIndex(
+                                                              FFAppState()
+                                                                  .loopCountTemp,
+                                                              (e) => e
+                                                                ..insuredPersonNo =
+                                                                    (FFAppState().loopCountTemp +
+                                                                            1)
+                                                                        .toString(),
+                                                            );
+                                                            FFAppState()
+                                                                    .loopCountTemp =
+                                                                FFAppState()
+                                                                        .loopCountTemp +
+                                                                    1;
+                                                            safeSetState(() {});
+                                                          }
+                                                          FFAppState()
+                                                              .loopCountTemp = 0;
+                                                          safeSetState(() {});
+                                                        },
+                                                        text:
+                                                            'ลบผู้รับประกันภัย',
+                                                        icon: Icon(
+                                                          Icons
+                                                              .person_remove_alt_1_rounded,
+                                                          size: 24.0,
                                                         ),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(16.0),
+                                                        options:
+                                                            FFButtonOptions(
+                                                          width: 190.0,
+                                                          height: 40.0,
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      24.0,
+                                                                      0.0,
+                                                                      24.0,
+                                                                      0.0),
+                                                          iconPadding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          color:
+                                                              Color(0xFFD80000),
+                                                          textStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmall
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Noto Sans Thai',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryBackground,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                  ),
+                                                          elevation: 3.0,
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: Colors
+                                                                .transparent,
+                                                            width: 1.0,
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      16.0),
+                                                        ),
                                                       ),
                                                     ),
-                                                  ),
                                                 ],
                                               ),
                                             ),

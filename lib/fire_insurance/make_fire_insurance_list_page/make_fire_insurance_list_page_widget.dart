@@ -237,7 +237,7 @@ class _MakeFireInsuranceListPageWidgetState
                   ),
                   onPressed: () async {
                     if (widget!.fromPage == 'FollowUpPage') {
-                      context.goNamed('LeadFollowUpPage');
+                      context.goNamed('fireLeadFollowUpPage');
 
                       return;
                     }
