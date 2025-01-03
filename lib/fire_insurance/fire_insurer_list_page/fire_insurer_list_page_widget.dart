@@ -717,7 +717,7 @@ class _FireInsurerListPageWidgetState extends State<FireInsurerListPageWidget>
                                                                                   ),
                                                                                   Text(
                                                                                     '${valueOrDefault<String>(
-                                                                                      functions.showNumberWithComma('${listInsuranceItemItem.netPremium}'),
+                                                                                      functions.showNumberWithComma('${listInsuranceItemItem.grossTotal}'),
                                                                                       '0',
                                                                                     )} บาท',
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(

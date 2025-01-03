@@ -34,7 +34,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:octo_image/octo_image.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'super_app_page_model.dart';
 export 'super_app_page_model.dart';
@@ -452,63 +451,6 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
         return;
       }
 
-      _model.fireGetLeads = await HouseInsuranceGroup.fireGetLeadsApiCall.call(
-        token: FFAppState().accessToken,
-        ownerId: FFAppState().employeeID,
-        apiUrl: FFAppState().apiUrlInsuranceAppState,
-      );
-
-      if ((_model.fireGetLeads?.statusCode ?? 200) != 200) {
-        Navigator.pop(context);
-        await showDialog(
-          context: context,
-          builder: (alertDialogContext) {
-            return WebViewAware(
-              child: AlertDialog(
-                content: Text(
-                    'พบข้อผิดพลาดConnection (${(_model.fireGetLeads?.statusCode ?? 200).toString()})'),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(alertDialogContext),
-                    child: Text('Ok'),
-                  ),
-                ],
-              ),
-            );
-          },
-        );
-        return;
-      }
-      if (!((HouseInsuranceGroup.fireGetLeadsApiCall.statuslayer(
-                (_model.fireGetLeads?.jsonBody ?? ''),
-              ) ==
-              200) ||
-          (HouseInsuranceGroup.fireGetLeadsApiCall.statuslayer(
-                (_model.fireGetLeads?.jsonBody ?? ''),
-              ) ==
-              404))) {
-        Navigator.pop(context);
-        await showDialog(
-          context: context,
-          builder: (alertDialogContext) {
-            return WebViewAware(
-              child: AlertDialog(
-                content: Text(
-                    'พบข้อผิดพลาด (${HouseInsuranceGroup.fireGetLeadsApiCall.statuslayer(
-                          (_model.fireGetLeads?.jsonBody ?? ''),
-                        )?.toString()})'),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(alertDialogContext),
-                    child: Text('Ok'),
-                  ),
-                ],
-              ),
-            );
-          },
-        );
-        return;
-      }
       if (FFAppState().isInApp) {
         Navigator.pop(context);
         return;
@@ -4290,17 +4232,15 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                   alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Builder(
                                     builder: (context) {
-                                      final listLeads = (HouseInsuranceGroup
-                                                  .fireGetLeadsApiCall
-                                                  .data1(
-                                                    (_model.fireGetLeads
+                                      final listleadsHouse =
+                                          (GetVMICall.leadListHouse(
+                                                    (_model.getVMIApi
                                                             ?.jsonBody ??
                                                         ''),
-                                                  )
-                                                  ?.toList() ??
-                                              [])
-                                          .take(5)
-                                          .toList();
+                                                  )?.toList() ??
+                                                  [])
+                                              .take(5)
+                                              .toList();
 
                                       return Container(
                                         width: double.infinity,
@@ -4316,16 +4256,18 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                             0,
                                                             min(
                                                                 0,
-                                                                listLeads
+                                                                listleadsHouse
                                                                         .length -
                                                                     1))),
                                                 scrollDirection:
                                                     Axis.horizontal,
-                                                itemCount: listLeads.length,
-                                                itemBuilder:
-                                                    (context, listLeadsIndex) {
-                                                  final listLeadsItem =
-                                                      listLeads[listLeadsIndex];
+                                                itemCount:
+                                                    listleadsHouse.length,
+                                                itemBuilder: (context,
+                                                    listleadsHouseIndex) {
+                                                  final listleadsHouseItem =
+                                                      listleadsHouse[
+                                                          listleadsHouseIndex];
                                                   return Align(
                                                     alignment:
                                                         AlignmentDirectional(
@@ -4459,11 +4401,11 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                                     width: 100.0,
                                                                                     decoration: BoxDecoration(),
                                                                                     child: Text(
-                                                                                      '${functions.checkNullValueAndReturn(HouseInsuranceGroup.fireGetLeadsApiCall.firstName(
-                                                                                            (_model.fireGetLeads?.jsonBody ?? ''),
-                                                                                          )?.elementAtOrNull(listLeadsIndex))} ${functions.checkNullValueAndReturn(HouseInsuranceGroup.fireGetLeadsApiCall.lastName(
-                                                                                            (_model.fireGetLeads?.jsonBody ?? ''),
-                                                                                          )?.elementAtOrNull(listLeadsIndex))}',
+                                                                                      '${functions.checkNullValueAndReturn(GetVMICall.firstNameListHouse(
+                                                                                        (_model.getVMIApi?.jsonBody ?? ''),
+                                                                                      )?.elementAtOrNull(listleadsHouseIndex))} ${functions.checkNullValueAndReturn(GetVMICall.lastNameListHouse(
+                                                                                        (_model.getVMIApi?.jsonBody ?? ''),
+                                                                                      )?.elementAtOrNull(listleadsHouseIndex))}',
                                                                                       maxLines: 2,
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Noto Sans Thai',
@@ -4515,11 +4457,9 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                                   decoration: BoxDecoration(),
                                                                                   child: Text(
                                                                                     valueOrDefault<String>(
-                                                                                      HouseInsuranceGroup.fireGetLeadsApiCall
-                                                                                          .insuranceType(
-                                                                                            (_model.fireGetLeads?.jsonBody ?? ''),
-                                                                                          )
-                                                                                          ?.elementAtOrNull(listLeadsIndex),
+                                                                                      GetVMICall.insuranceType(
+                                                                                        (_model.getVMIApi?.jsonBody ?? ''),
+                                                                                      )?.elementAtOrNull(listleadsHouseIndex),
                                                                                       'อัคคีภัย',
                                                                                     ),
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -4571,11 +4511,9 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                                   decoration: BoxDecoration(),
                                                                                   child: Text(
                                                                                     valueOrDefault<String>(
-                                                                                      HouseInsuranceGroup.fireGetLeadsApiCall
-                                                                                          .packageName(
-                                                                                            (_model.fireGetLeads?.jsonBody ?? ''),
-                                                                                          )
-                                                                                          ?.elementAtOrNull(listLeadsIndex),
+                                                                                      GetVMICall.leadsDetailHouse(
+                                                                                        (_model.getVMIApi?.jsonBody ?? ''),
+                                                                                      )?.elementAtOrNull(listleadsHouseIndex),
                                                                                       'sabaide',
                                                                                     ),
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -4627,11 +4565,9 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                                   decoration: BoxDecoration(),
                                                                                   child: Text(
                                                                                     valueOrDefault<String>(
-                                                                                      HouseInsuranceGroup.fireGetLeadsApiCall
-                                                                                          .sumInsuredName(
-                                                                                            (_model.fireGetLeads?.jsonBody ?? ''),
-                                                                                          )
-                                                                                          ?.elementAtOrNull(listLeadsIndex),
+                                                                                      GetVMICall.suminSureName(
+                                                                                        (_model.getVMIApi?.jsonBody ?? ''),
+                                                                                      )?.elementAtOrNull(listleadsHouseIndex),
                                                                                       '40000',
                                                                                     ),
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -4648,26 +4584,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                         ].divide(SizedBox(height: 4.0)),
                                                                       ),
                                                                     ),
-                                                                    if ((((HouseInsuranceGroup.fireGetLeadsApiCall
-                                                                                            .phoneNumber(
-                                                                                              (_model.fireGetLeads?.jsonBody ?? ''),
-                                                                                            )
-                                                                                            ?.elementAtOrNull(listLeadsIndex)) !=
-                                                                                        null &&
-                                                                                    (HouseInsuranceGroup.fireGetLeadsApiCall
-                                                                                            .phoneNumber(
-                                                                                              (_model.fireGetLeads?.jsonBody ?? ''),
-                                                                                            )
-                                                                                            ?.elementAtOrNull(listLeadsIndex)) !=
-                                                                                        '') &&
-                                                                                ((HouseInsuranceGroup.fireGetLeadsApiCall
-                                                                                        .phoneNumber(
-                                                                                          (_model.fireGetLeads?.jsonBody ?? ''),
-                                                                                        )
-                                                                                        ?.elementAtOrNull(listLeadsIndex)) !=
-                                                                                    '')
-                                                                            ? true
-                                                                            : false) &&
+                                                                    if (false &&
                                                                         responsiveVisibility(
                                                                           context:
                                                                               context,
@@ -4709,16 +4626,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                                     focusColor: Colors.transparent,
                                                                                     hoverColor: Colors.transparent,
                                                                                     highlightColor: Colors.transparent,
-                                                                                    onTap: () async {
-                                                                                      await launchUrl(Uri(
-                                                                                        scheme: 'tel',
-                                                                                        path: functions.checkNullValueAndReturn(HouseInsuranceGroup.fireGetLeadsApiCall
-                                                                                            .phoneNumber(
-                                                                                              (_model.fireGetLeads?.jsonBody ?? ''),
-                                                                                            )
-                                                                                            ?.elementAtOrNull(listLeadsIndex)),
-                                                                                      ));
-                                                                                    },
+                                                                                    onTap: () async {},
                                                                                     child: Icon(
                                                                                       Icons.phone_in_talk_outlined,
                                                                                       color: FlutterFlowTheme.of(context).black600,
@@ -5099,10 +5007,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                             0,
                                                             min(
                                                                 0,
-                                                                listLeads
+                                                                listleadsHouse
                                                                         .length -
                                                                     1))),
-                                                count: listLeads.length,
+                                                count: listleadsHouse.length,
                                                 axisDirection: Axis.horizontal,
                                                 onDotClicked: (i) async {
                                                   await _model

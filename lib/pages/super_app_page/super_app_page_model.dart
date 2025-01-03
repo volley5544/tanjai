@@ -35,7 +35,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:octo_image/octo_image.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 
 class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
@@ -62,8 +61,6 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   AuthorizationRecord? adminVersionQuery;
   // Stores action output result for [Backend Call - API (GetVMI)] action in SuperAppPage widget.
   ApiCallResponse? getVMIApi;
-  // Stores action output result for [Backend Call - API (FireGetLeadsApi)] action in SuperAppPage widget.
-  ApiCallResponse? fireGetLeads;
   // State field(s) for Expandable widget.
   late ExpandableController expandableExpandableController;
 

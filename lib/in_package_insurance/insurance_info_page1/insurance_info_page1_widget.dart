@@ -1417,31 +1417,19 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
               (_model.detailAPIOutput?.jsonBody ?? ''),
             )}';
       safeSetState(() {});
-      if (IbsApplicationsDetailCall.apphouse(
+      if ('${IbsApplicationsDetailCall.apphouse(
             (_model.detailAPIOutput?.jsonBody ?? ''),
-          )!
-              .length >
-          0) {
-        FFAppState().leadsHouse = (IbsApplicationsDetailCall.apphouse(
+          )?.firstOrNull?.leadId?.toString()}' !=
+          '') {
+        FFAppState().leadsHouse = IbsApplicationsDetailCall.apphouse(
           (_model.detailAPIOutput?.jsonBody ?? ''),
         )!
-                .firstOrNull!
-                .toList()
-                .map<LeadsHouseStruct?>(LeadsHouseStruct.maybeFromMap)
-                .toList() as Iterable<LeadsHouseStruct?>)
-            .withoutNulls
             .toList()
             .cast<LeadsHouseStruct>();
         FFAppState().leadsDetailHouse =
-            (IbsApplicationsDetailCall.appdetailhouse(
+            IbsApplicationsDetailCall.appdetailhouse(
           (_model.detailAPIOutput?.jsonBody ?? ''),
         )!
-                    .firstOrNull!
-                    .toList()
-                    .map<LeadsDetailHouseStruct?>(
-                        LeadsDetailHouseStruct.maybeFromMap)
-                    .toList() as Iterable<LeadsDetailHouseStruct?>)
-                .withoutNulls
                 .toList()
                 .cast<LeadsDetailHouseStruct>();
         safeSetState(() {});
@@ -1452,7 +1440,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
             .toList()
             .cast<LeadsHouseStruct>();
         FFAppState().leadsDetailHouse =
-            IbsApplicationsDetailCall.leadsdetailhouse(
+            IbsApplicationsDetailCall.appdetailhouse(
           (_model.detailAPIOutput?.jsonBody ?? ''),
         )!
                 .toList()

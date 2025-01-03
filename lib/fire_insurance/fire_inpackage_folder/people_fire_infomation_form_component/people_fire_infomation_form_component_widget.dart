@@ -305,15 +305,23 @@ class _PeopleFireInfomationFormComponentWidgetState
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
+                          if (FFAppState()
+                                  .benefitorData
+                                  .elementAtOrNull(widget!.index!)
+                                  ?.insuredPersonTypeName ==
+                              'ผู้เอาประกัน') {
+                            return;
+                          }
+
                           context.pushNamed(
                             'FireSearchableListPage',
                             queryParameters: {
                               'titleText': serializeParam(
-                                'เพศ',
+                                'ประเภทผู้เอาประกันภัย',
                                 ParamType.String,
                               ),
                               'searchLabel': serializeParam(
-                                'ระบุเพศ',
+                                'ระบุประเภทผู้เอาประกันภัย',
                                 ParamType.String,
                               ),
                               'dataList': serializeParam(

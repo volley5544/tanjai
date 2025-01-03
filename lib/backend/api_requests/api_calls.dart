@@ -12117,7 +12117,7 @@ class GetVMICall {
       ));
   static List<String>? leadIdList(dynamic response) => (getJsonField(
         response,
-        r'''$.results.info.quotation[*].lead_id''',
+        r'''$.results.info.quotation.data[*].lead_id''',
         true,
       ) as List?)
           ?.withoutNulls
@@ -12126,7 +12126,7 @@ class GetVMICall {
           .toList();
   static List<String>? firstNameList(dynamic response) => (getJsonField(
         response,
-        r'''$.results.info.quotation[*].first_name''',
+        r'''$.results.info.quotation.data[*].first_name''',
         true,
       ) as List?)
           ?.withoutNulls
@@ -12135,7 +12135,7 @@ class GetVMICall {
           .toList();
   static List<String>? lastNameList(dynamic response) => (getJsonField(
         response,
-        r'''$.results.info.quotation[*].last_name''',
+        r'''$.results.info.quotation.data[*].last_name''',
         true,
       ) as List?)
           ?.withoutNulls
@@ -12144,7 +12144,7 @@ class GetVMICall {
           .toList();
   static List<String>? insurerNameList(dynamic response) => (getJsonField(
         response,
-        r'''$.results.info.quotation[*].insurer_name''',
+        r'''$.results.info.quotation.data[*].insurer_name''',
         true,
       ) as List?)
           ?.withoutNulls
@@ -12153,7 +12153,7 @@ class GetVMICall {
           .toList();
   static List<String>? insurerShortNameList(dynamic response) => (getJsonField(
         response,
-        r'''$.results.info.quotation[*].insurer_short_name''',
+        r'''$.results.info.quotation.data[*].insurer_short_name''',
         true,
       ) as List?)
           ?.withoutNulls
@@ -12162,7 +12162,7 @@ class GetVMICall {
           .toList();
   static List<String>? quotationIdList(dynamic response) => (getJsonField(
         response,
-        r'''$.results.info.quotation[*].quotation_id''',
+        r'''$.results.info.quotation.data[*].quotation_id''',
         true,
       ) as List?)
           ?.withoutNulls
@@ -12171,7 +12171,7 @@ class GetVMICall {
           .toList();
   static List<String>? createdAtList(dynamic response) => (getJsonField(
         response,
-        r'''$.results.info.quotation[*].created_at''',
+        r'''$.results.info.quotation.data[*].created_at''',
         true,
       ) as List?)
           ?.withoutNulls
@@ -12180,7 +12180,7 @@ class GetVMICall {
           .toList();
   static List<String>? netPremiumTotalList(dynamic response) => (getJsonField(
         response,
-        r'''$.results.info.quotation[*].gross_total''',
+        r'''$.results.info.quotation.data[*].gross_total''',
         true,
       ) as List?)
           ?.withoutNulls
@@ -12189,7 +12189,7 @@ class GetVMICall {
           .toList();
   static List<String>? expireDate(dynamic response) => (getJsonField(
         response,
-        r'''$.results.info.quotation[*].expire_date''',
+        r'''$.results.info.quotation.data[*].expire_date''',
         true,
       ) as List?)
           ?.withoutNulls
@@ -12198,7 +12198,7 @@ class GetVMICall {
           .toList();
   static List<String>? quotationType(dynamic response) => (getJsonField(
         response,
-        r'''$.results.info.quotation[*].quotation_type''',
+        r'''$.results.info.quotation.data[*].quotation_type''',
         true,
       ) as List?)
           ?.withoutNulls
@@ -12211,7 +12211,7 @@ class GetVMICall {
       ));
   static List<String>? flgRenew(dynamic response) => (getJsonField(
         response,
-        r'''$.results.info.quotation[*].flg_renew''',
+        r'''$.results.info.quotation.data[*].flg_renew''',
         true,
       ) as List?)
           ?.withoutNulls
@@ -12220,7 +12220,7 @@ class GetVMICall {
           .toList();
   static List<String>? quotationStatus(dynamic response) => (getJsonField(
         response,
-        r'''$.results.info.quotation[*].quotation_status''',
+        r'''$.results.info.quotation.data[*].quotation_status''',
         true,
       ) as List?)
           ?.withoutNulls
@@ -12238,7 +12238,7 @@ class GetVMICall {
       ));
   static List<String>? oldVMIFlg(dynamic response) => (getJsonField(
         response,
-        r'''$.results.info.quotation[*].old_VMI_flg''',
+        r'''$.results.info.quotation.data[*].old_VMI_flg''',
         true,
       ) as List?)
           ?.withoutNulls
@@ -12256,7 +12256,7 @@ class GetVMICall {
       ));
   static List<String>? subproductname(dynamic response) => (getJsonField(
         response,
-        r'''$.results.info.quotation[*].sub_product_name''',
+        r'''$.results.info.quotation.data[*].sub_product_name''',
         true,
       ) as List?)
           ?.withoutNulls
@@ -12265,7 +12265,7 @@ class GetVMICall {
           .toList();
   static List<String>? quotationtypebakname(dynamic response) => (getJsonField(
         response,
-        r'''$.results.info.quotation[*].quotation_type_bak_name''',
+        r'''$.results.info.quotation.data[*].quotation_type_bak_name''',
         true,
       ) as List?)
           ?.withoutNulls
@@ -12274,7 +12274,61 @@ class GetVMICall {
           .toList();
   static List<String>? quotationtypename(dynamic response) => (getJsonField(
         response,
-        r'''$.results.info.quotation[*].quotation_type_name''',
+        r'''$.results.info.quotation.data[*].quotation_type_name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? leadListHouse(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info.House.data[:].lead_id''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? firstNameListHouse(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info.House.data[:].first_name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? lastNameListHouse(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info.House.data[:].last_name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? leadsDetailHouse(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info.House.data[:].leads_detail_house[:].package_name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? suminSureName(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info.House.data[:].sum_insure_name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? insuranceType(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info.House.data[:].insurance_type''',
         true,
       ) as List?)
           ?.withoutNulls
@@ -14145,16 +14199,25 @@ class IbsApplicationsDetailCall {
           .map((x) => LeadsDetailHouseStruct.maybeFromMap(x))
           .withoutNulls
           .toList();
-  static List? apphouse(dynamic response) => getJsonField(
+  static List<LeadsHouseStruct>? apphouse(dynamic response) => (getJsonField(
         response,
         r'''$.results.data.app_house''',
         true,
-      ) as List?;
-  static List? appdetailhouse(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => LeadsHouseStruct.maybeFromMap(x))
+          .withoutNulls
+          .toList();
+  static List<LeadsDetailHouseStruct>? appdetailhouse(dynamic response) =>
+      (getJsonField(
         response,
         r'''$.results.data.app_detail_house''',
         true,
-      ) as List?;
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => LeadsDetailHouseStruct.maybeFromMap(x))
+          .withoutNulls
+          .toList();
 }
 
 class IbsApplicationsPaymentSaveCall {

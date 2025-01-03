@@ -292,24 +292,14 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
         (_model.applicationDetailOutput?.jsonBody ?? ''),
       )}';
       safeSetState(() {});
-      FFAppState().leadsHouse = (IbsApplicationsDetailCall.apphouse(
+      FFAppState().leadsHouse = IbsApplicationsDetailCall.apphouse(
         (_model.applicationDetailOutput?.jsonBody ?? ''),
       )!
-              .firstOrNull!
-              .toList()
-              .map<LeadsHouseStruct?>(LeadsHouseStruct.maybeFromMap)
-              .toList() as Iterable<LeadsHouseStruct?>)
-          .withoutNulls
           .toList()
           .cast<LeadsHouseStruct>();
-      FFAppState().leadsDetailHouse = (IbsApplicationsDetailCall.appdetailhouse(
+      FFAppState().leadsDetailHouse = IbsApplicationsDetailCall.appdetailhouse(
         (_model.applicationDetailOutput?.jsonBody ?? ''),
       )!
-              .firstOrNull!
-              .toList()
-              .map<LeadsDetailHouseStruct?>(LeadsDetailHouseStruct.maybeFromMap)
-              .toList() as Iterable<LeadsDetailHouseStruct?>)
-          .withoutNulls
           .toList()
           .cast<LeadsDetailHouseStruct>();
       safeSetState(() {});

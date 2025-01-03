@@ -293,7 +293,7 @@ class _InfomationCustomerFireInsuranceWidgetState
                                       .secondaryBackground,
                                 ),
                                 child: Text(
-                                  '${functions.showNumberWithComma(FFAppState().insuranceInfoGrossTotal)} บาท',
+                                  'อัคคีภัย',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -481,7 +481,7 @@ class _InfomationCustomerFireInsuranceWidgetState
                                     FFAppState()
                                         .leadsDetailHouse
                                         .firstOrNull
-                                        ?.netPremiumTotal,
+                                        ?.grossTotalNet,
                                     '-',
                                   ),
                                   style: FlutterFlowTheme.of(context)
