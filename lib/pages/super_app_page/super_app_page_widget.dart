@@ -4290,15 +4290,17 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                   alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Builder(
                                     builder: (context) {
-                                      final listLeads = HouseInsuranceGroup
-                                              .fireGetLeadsApiCall
-                                              .data1(
-                                                (_model.fireGetLeads
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              )
-                                              ?.toList() ??
-                                          [];
+                                      final listLeads = (HouseInsuranceGroup
+                                                  .fireGetLeadsApiCall
+                                                  .data1(
+                                                    (_model.fireGetLeads
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  )
+                                                  ?.toList() ??
+                                              [])
+                                          .take(5)
+                                          .toList();
 
                                       return Container(
                                         width: double.infinity,

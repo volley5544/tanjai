@@ -5138,11 +5138,11 @@ class _FireInsuranceInfoPage2WidgetState
                                                     .checkDateBeforeAnotherDate(
                                                         columnEffectiveDayConfigRecord
                                                             ?.effectiveDaysInsure,
-                                                        _model.datePicked2)!) {
+                                                        _model.datePicked)!) {
                                                   FFAppState()
                                                           .insuranceInfoEffectiveDateInsure =
                                                       functions.getDateFormat(
-                                                          _model.datePicked2)!;
+                                                          _model.datePicked)!;
                                                   safeSetState(() {});
                                                 } else {
                                                   await showDialog(
@@ -5206,18 +5206,15 @@ class _FireInsuranceInfoPage2WidgetState
                                                                   0.0,
                                                                   0.0),
                                                       child: Text(
-                                                        FFAppState()
-                                                                    .leadsDetailHouse
-                                                                    .firstOrNull
-                                                                    ?.effectiveDate ==
+                                                        FFAppState().insuranceInfoEffectiveDateInsure ==
                                                                 ''
                                                             ? 'กรุณาเลือกวันที่ต้องการเริ่มคุ้มครองประกัน'
                                                             : valueOrDefault<
                                                                 String>(
-                                                                functions.showDateBE(FFAppState()
-                                                                    .leadsDetailHouse
-                                                                    .firstOrNull
-                                                                    ?.effectiveDate),
+                                                                functions.showDateBE(
+                                                                    (FFAppState().insuranceInfoEffectiveDateInsure ==
+                                                                            '')
+                                                                        .toString()),
                                                                 '0',
                                                               ),
                                                         style: FlutterFlowTheme
@@ -5623,11 +5620,8 @@ class _FireInsuranceInfoPage2WidgetState
                                                           .insuranceInfoBranchNameOutput,
                                                   token:
                                                       FFAppState().accessToken,
-                                                  effectiveDateInsure:
-                                                      FFAppState()
-                                                          .leadsDetailHouse
-                                                          .firstOrNull
-                                                          ?.effectiveDate,
+                                                  effectiveDateInsure: FFAppState()
+                                                      .insuranceInfoEffectiveDateInsure,
                                                   subProduct: FFAppState()
                                                       .insuranceinfoActType,
                                                   beneficiaryName: FFAppState()
