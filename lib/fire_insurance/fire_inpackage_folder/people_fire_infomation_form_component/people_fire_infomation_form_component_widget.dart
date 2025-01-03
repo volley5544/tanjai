@@ -317,7 +317,7 @@ class _PeopleFireInfomationFormComponentWidgetState
                                 ParamType.String,
                               ),
                               'dataList': serializeParam(
-                                widget!.firestoreDataConfigList?.gender,
+                                ['คู่สมรส', 'บุตร', 'อื่นๆ'],
                                 ParamType.String,
                                 isList: true,
                               ),

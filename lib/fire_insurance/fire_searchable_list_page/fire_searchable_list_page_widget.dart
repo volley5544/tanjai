@@ -772,6 +772,93 @@ class _FireSearchableListPageWidgetState
                                                     safeSetState(() {});
                                                   return;
                                                 }
+                                                if (widget!.titleText ==
+                                                    'เพศ') {
+                                                  FFAppState()
+                                                      .updateBenefitorDataAtIndex(
+                                                    widget!.index!,
+                                                    (e) => e
+                                                      ..gender = (widget!.dataList?.elementAtOrNull(
+                                                                  functions.getIndexOfBoolList(
+                                                                      FFAppState()
+                                                                          .searchableListComponentSelectedList
+                                                                          .toList(),
+                                                                      true))) ==
+                                                              'ชาย'
+                                                          ? 'MALE'
+                                                          : 'FEMALE',
+                                                  );
+                                                  safeSetState(() {});
+                                                  context.safePop();
+                                                  if (_shouldSetState)
+                                                    safeSetState(() {});
+                                                  return;
+                                                }
+                                                if (widget!.titleText ==
+                                                    'คำนำหน้า') {
+                                                  FFAppState()
+                                                      .updateBenefitorDataAtIndex(
+                                                    widget!.index!,
+                                                    (e) => e
+                                                      ..titleTh = widget!
+                                                          .dataList
+                                                          ?.elementAtOrNull(functions
+                                                              .getIndexOfBoolList(
+                                                                  FFAppState()
+                                                                      .searchableListComponentSelectedList
+                                                                      .toList(),
+                                                                  true))
+                                                      ..titleThId = '',
+                                                  );
+                                                  safeSetState(() {});
+                                                  context.safePop();
+                                                  if (_shouldSetState)
+                                                    safeSetState(() {});
+                                                  return;
+                                                }
+                                                if (widget!.titleText ==
+                                                    'ประเภทผู้เอาประกันภัย') {
+                                                  FFAppState()
+                                                      .updateBenefitorDataAtIndex(
+                                                    widget!.index!,
+                                                    (e) => e
+                                                      ..insuredPersonTypeName = widget!
+                                                          .dataList
+                                                          ?.elementAtOrNull(functions
+                                                              .getIndexOfBoolList(
+                                                                  FFAppState()
+                                                                      .searchableListComponentSelectedList
+                                                                      .toList(),
+                                                                  true))
+                                                      ..insuredPersonType = () {
+                                                        if ((widget!.dataList?.elementAtOrNull(
+                                                                functions.getIndexOfBoolList(
+                                                                    FFAppState()
+                                                                        .searchableListComponentSelectedList
+                                                                        .toList(),
+                                                                    true))) ==
+                                                            'คู่สมรส') {
+                                                          return 'S';
+                                                        } else if ((widget!
+                                                                .dataList
+                                                                ?.elementAtOrNull(functions.getIndexOfBoolList(
+                                                                    FFAppState()
+                                                                        .searchableListComponentSelectedList
+                                                                        .toList(),
+                                                                    true))) ==
+                                                            'บุตร') {
+                                                          return 'C';
+                                                        } else {
+                                                          return 'O';
+                                                        }
+                                                      }(),
+                                                  );
+                                                  safeSetState(() {});
+                                                  context.safePop();
+                                                  if (_shouldSetState)
+                                                    safeSetState(() {});
+                                                  return;
+                                                }
                                               }
 
                                               if (_shouldSetState)

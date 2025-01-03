@@ -452,12 +452,6 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
         return;
       }
 
-      if (FFAppState().isInApp) {
-        Navigator.pop(context);
-        return;
-      }
-      FFAppState().isInApp = true;
-      FFAppState().update(() {});
       _model.fireGetLeads = await HouseInsuranceGroup.fireGetLeadsApiCall.call(
         token: FFAppState().accessToken,
         ownerId: FFAppState().employeeID,
@@ -515,6 +509,12 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
         );
         return;
       }
+      if (FFAppState().isInApp) {
+        Navigator.pop(context);
+        return;
+      }
+      FFAppState().isInApp = true;
+      FFAppState().update(() {});
       if (!(await getPermissionStatus(notificationsPermission))) {
         await requestPermission(notificationsPermission);
       }

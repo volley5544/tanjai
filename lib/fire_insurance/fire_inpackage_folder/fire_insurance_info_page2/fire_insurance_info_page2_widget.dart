@@ -14,6 +14,7 @@ import 'dart:convert';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -297,10 +298,6 @@ class _FireInsuranceInfoPage2WidgetState
     _model.textController8 ??= TextEditingController(
         text: FFAppState().leadsHouse.firstOrNull?.sumInsureTotal);
     _model.textFieldFocusNode6 ??= FocusNode();
-
-    _model.textController9 ??= TextEditingController(
-        text: FFAppState().leadsHouse.firstOrNull?.sumInsureTotal);
-    _model.textFieldFocusNode7 ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -4583,114 +4580,49 @@ class _FireInsuranceInfoPage2WidgetState
                                       ),
                                     ),
                                   ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 5.0, 0.0, 0.0),
-                                    child: Container(
-                                      width: MediaQuery.sizeOf(context).width *
-                                          1.0,
-                                      decoration: BoxDecoration(),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    12.0, 0.0, 12.0, 0.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Text(
-                                                  'ผู้รับผลประโยชน์ (สถาบันการเงิน/บุคคลอื่น)',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Noto Sans Thai',
-                                                        fontSize: 15.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                      ),
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          10.0, 0.0, 0.0, 0.0),
-                                                  child: Text(
-                                                    '(กรุณากรอก)',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Noto Sans Thai',
-                                                          color:
-                                                              Color(0xFFFB0606),
-                                                          fontSize: 12.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                                  ),
-                                                ),
-                                              ],
+                                  if (FFAppState().insuranceinfoActType !=
+                                      'CMI')
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 10.0, 0.0, 10.0),
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          context.pushNamed(
+                                              'Homepage_Request_2_3');
+
+                                          await actions.hideKeyboardAction(
+                                            context,
+                                          );
+                                        },
+                                        child: Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  1.0,
+                                          height: 60.0,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            border: Border.all(
+                                              color: Color(0xFFB3B3B3),
                                             ),
                                           ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 5.0, 0.0, 0.0),
-                                            child: InkWell(
-                                              splashColor: Colors.transparent,
-                                              focusColor: Colors.transparent,
-                                              hoverColor: Colors.transparent,
-                                              highlightColor:
-                                                  Colors.transparent,
-                                              onTap: () async {
-                                                context.pushNamed(
-                                                  'SearchableListPage',
-                                                  queryParameters: {
-                                                    'titleText': serializeParam(
-                                                      'เลือกปีที่ผลิต',
-                                                      ParamType.String,
-                                                    ),
-                                                    'searchLabel':
-                                                        serializeParam(
-                                                      'เลือกปี',
-                                                      ParamType.String,
-                                                    ),
-                                                    'dataList': serializeParam(
-                                                      functions.reverseList(
-                                                          functions
-                                                              .ganerateYearList(
-                                                                  1957, 2023)
-                                                              ?.toList()),
-                                                      ParamType.String,
-                                                      isList: true,
-                                                    ),
-                                                    'multiSelect':
-                                                        serializeParam(
-                                                      false,
-                                                      ParamType.bool,
-                                                    ),
-                                                    'fromPage': serializeParam(
-                                                      'insuranceInfoPage2',
-                                                      ParamType.String,
-                                                    ),
-                                                  }.withoutNulls,
-                                                );
-
-                                                await actions
-                                                    .hideKeyboardAction(
-                                                  context,
-                                                );
-                                              },
-                                              child: Container(
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Container(
                                                 width:
                                                     MediaQuery.sizeOf(context)
                                                             .width *
-                                                        1.0,
-                                                height: 60.0,
+                                                        0.6,
+                                                height: 100.0,
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
                                                           context)
@@ -4698,124 +4630,178 @@ class _FireInsuranceInfoPage2WidgetState
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           8.0),
-                                                  border: Border.all(
-                                                    color: Color(0xFFB3B3B3),
-                                                  ),
                                                 ),
-                                                child: Container(
-                                                  width: 200.0,
-                                                  child: TextFormField(
-                                                    controller:
-                                                        _model.textController9,
-                                                    focusNode: _model
-                                                        .textFieldFocusNode7,
-                                                    autofocus: false,
-                                                    readOnly: true,
-                                                    obscureText: false,
-                                                    decoration: InputDecoration(
-                                                      isDense: true,
-                                                      labelStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelMedium
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              0.0, 0.0),
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    10.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        child: Container(
+                                                          width: 50.0,
+                                                          height: 50.0,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground,
+                                                            shape:
+                                                                BoxShape.circle,
+                                                            border: Border.all(
+                                                              color:
+                                                                  Colors.black,
+                                                            ),
+                                                          ),
+                                                          child: Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    0.0, 0.0),
+                                                            child: Icon(
+                                                              Icons
+                                                                  .person_add_alt_outlined,
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondaryText,
+                                                              size: 30.0,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    if (FFAppState()
+                                                            .insuranceInfoBeneficiaryName ==
+                                                        '')
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    10.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        child: Text(
+                                                          'ผู้รับผลประโยชน์',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
+                                                                color: Color(
+                                                                    0xFF003063),
+                                                                fontSize: 15.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                    if (FFAppState()
+                                                            .insuranceInfoBeneficiaryName ==
+                                                        '')
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    5.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        child: Text(
+                                                          '(บังคับเลือก)',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Noto Sans Thai',
+                                                                color: Color(
+                                                                    0xFFFB0606),
+                                                                fontSize: 12.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
-                                                      hintStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelMedium
+                                                        ),
+                                                      ),
+                                                    if (FFAppState()
+                                                            .insuranceInfoBeneficiaryName !=
+                                                        '')
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    10.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        child: AutoSizeText(
+                                                          FFAppState()
+                                                              .insuranceInfoBeneficiaryName,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .secondaryText,
+                                                                    .info,
                                                                 fontSize: 15.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
-                                                      enabledBorder:
-                                                          OutlineInputBorder(
-                                                        borderSide: BorderSide(
-                                                          color:
-                                                              Color(0x00000000),
-                                                          width: 1.0,
                                                         ),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(8.0),
                                                       ),
-                                                      focusedBorder:
-                                                          OutlineInputBorder(
-                                                        borderSide: BorderSide(
-                                                          color:
-                                                              Color(0x00000000),
-                                                          width: 1.0,
-                                                        ),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(8.0),
-                                                      ),
-                                                      errorBorder:
-                                                          OutlineInputBorder(
-                                                        borderSide: BorderSide(
-                                                          color:
-                                                              Color(0x00000000),
-                                                          width: 1.0,
-                                                        ),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(8.0),
-                                                      ),
-                                                      focusedErrorBorder:
-                                                          OutlineInputBorder(
-                                                        borderSide: BorderSide(
-                                                          color:
-                                                              Color(0x00000000),
-                                                          width: 1.0,
-                                                        ),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(8.0),
-                                                      ),
-                                                      filled: true,
-                                                      fillColor:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primaryBackground,
-                                                    ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Noto Sans Thai',
+                                                  ],
+                                                ),
+                                              ),
+                                              Align(
+                                                alignment: AlignmentDirectional(
+                                                    0.0, 0.0),
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 10.0, 0.0),
+                                                  child: Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Align(
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                0.0, 0.0),
+                                                        child: Icon(
+                                                          Icons.navigate_next,
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .secondaryText,
-                                                          fontSize: 15.0,
-                                                          letterSpacing: 0.0,
+                                                          size: 24.0,
                                                         ),
-                                                    cursorColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .primaryText,
-                                                    validator: _model
-                                                        .textController9Validator
-                                                        .asValidator(context),
+                                                      ),
+                                                    ],
                                                   ),
                                                 ),
                                               ),
-                                            ),
+                                            ],
                                           ),
-                                        ],
+                                        ),
                                       ),
                                     ),
-                                  ),
                                   Expanded(
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
@@ -5513,6 +5499,72 @@ class _FireInsuranceInfoPage2WidgetState
                                                     safeSetState(() {});
                                                   return;
                                                 }
+                                                if (!(FFAppState()
+                                                            .insuranceInfoBeneficiaryName !=
+                                                        null &&
+                                                    FFAppState()
+                                                            .insuranceInfoBeneficiaryName !=
+                                                        '')) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'กรุณาเลือกผู้รับผลประโยชน์'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    safeSetState(() {});
+                                                  return;
+                                                }
+                                                if ((double.parse(FFAppState()
+                                                                .leadsHouse
+                                                                .firstOrNull!
+                                                                .sumInsureHouse) +
+                                                            double.parse(FFAppState()
+                                                                .leadsHouse
+                                                                .firstOrNull!
+                                                                .sumInsureBuildin))
+                                                        .toString() !=
+                                                    (double.parse(FFAppState()
+                                                            .leadsHouse
+                                                            .firstOrNull!
+                                                            .sumInsureTotal))
+                                                        .toString()) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    safeSetState(() {});
+                                                  return;
+                                                }
                                                 showModalBottomSheet(
                                                   isScrollControlled: true,
                                                   backgroundColor:
@@ -5580,6 +5632,8 @@ class _FireInsuranceInfoPage2WidgetState
                                                           ?.effectiveDate,
                                                   subProduct: FFAppState()
                                                       .insuranceinfoActType,
+                                                  beneficiaryName: FFAppState()
+                                                      .insuranceInfoBeneficiaryName,
                                                 );
 
                                                 _shouldSetState = true;

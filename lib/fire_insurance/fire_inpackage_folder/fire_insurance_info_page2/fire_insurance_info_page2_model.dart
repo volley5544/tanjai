@@ -16,6 +16,7 @@ import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'fire_insurance_info_page2_widget.dart'
     show FireInsuranceInfoPage2Widget;
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -84,10 +85,6 @@ class FireInsuranceInfoPage2Model
   FocusNode? textFieldFocusNode6;
   TextEditingController? textController8;
   String? Function(BuildContext, String?)? textController8Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode7;
-  TextEditingController? textController9;
-  String? Function(BuildContext, String?)? textController9Validator;
   DateTime? datePicked;
   // Stores action output result for [Backend Call - API (ibsApplicationsSave)] action in Button widget.
   ApiCallResponse? ibsAppAPIOutput;
@@ -132,8 +129,5 @@ class FireInsuranceInfoPage2Model
 
     textFieldFocusNode6?.dispose();
     textController8?.dispose();
-
-    textFieldFocusNode7?.dispose();
-    textController9?.dispose();
   }
 }

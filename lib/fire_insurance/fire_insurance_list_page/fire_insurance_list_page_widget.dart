@@ -406,7 +406,15 @@ class _FireInsuranceListPageWidgetState
                 safeSetState(() {});
                 await Future.delayed(const Duration(milliseconds: 500));
 
-                context.goNamed('SuperAppPage');
+                context.goNamed(
+                  'SuperAppPage',
+                  queryParameters: {
+                    'dailyText': serializeParam(
+                      '',
+                      ParamType.String,
+                    ),
+                  }.withoutNulls,
+                );
               },
             ),
             title: Align(
