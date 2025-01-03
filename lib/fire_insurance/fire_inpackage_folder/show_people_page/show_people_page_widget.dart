@@ -696,7 +696,7 @@ class _ShowPeoplePageWidgetState extends State<ShowPeoplePageWidget> {
                                                             FFAppState()
                                                                 .loopCountTemp,
                                                             (e) => e
-                                                              ..driverNo =
+                                                              ..insuredPersonNo =
                                                                   (FFAppState()
                                                                               .loopCountTemp +
                                                                           1)
@@ -832,8 +832,8 @@ class _ShowPeoplePageWidgetState extends State<ShowPeoplePageWidget> {
                                 }
                                 FFAppState()
                                     .addToBenefitorData(BenefitorModelStruct(
-                                  driverId: '',
-                                  driverNo: '',
+                                  insuredPersonId: '',
+                                  insuredPersonNo: '',
                                   applicationId: '',
                                   idTypeId: '',
                                   nationalThaiId: '',
@@ -853,6 +853,14 @@ class _ShowPeoplePageWidgetState extends State<ShowPeoplePageWidget> {
                                   occupationSubname: '',
                                   benefitorName: '',
                                   relationship: '',
+                                  insuredPersonType:
+                                      FFAppState().benefitorData.length == 0
+                                          ? 'I'
+                                          : '',
+                                  insuredPersonTypeName:
+                                      FFAppState().benefitorData.length == 0
+                                          ? 'ผู้เอาประกัน'
+                                          : '',
                                 ));
                                 safeSetState(() {});
 

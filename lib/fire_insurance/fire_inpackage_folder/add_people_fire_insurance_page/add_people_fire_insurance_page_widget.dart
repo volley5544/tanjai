@@ -212,11 +212,7 @@ class _AddPeopleFireInsurancePageWidgetState
                                               .firstnameTextfieldTextController
                                               .text !=
                                           '') &&
-                                  (_model
-                                              .peopleFireInfomationFormComponentModel
-                                              .address4LastnameTextfieldTextController
-                                              .text !=
-                                          null &&
+                                  (_model.peopleFireInfomationFormComponentModel.address4LastnameTextfieldTextController.text != null &&
                                       _model
                                               .peopleFireInfomationFormComponentModel
                                               .address4LastnameTextfieldTextController
@@ -227,11 +223,7 @@ class _AddPeopleFireInsurancePageWidgetState
                                           .elementAtOrNull(widget!.index!)
                                           ?.birthDay !=
                                       '') &&
-                                  (_model
-                                              .peopleFireInfomationFormComponentModel
-                                              .benefitorNameTextfieldTextController
-                                              .text !=
-                                          null &&
+                                  (_model.peopleFireInfomationFormComponentModel.benefitorNameTextfieldTextController.text != null &&
                                       _model
                                               .peopleFireInfomationFormComponentModel
                                               .benefitorNameTextfieldTextController
@@ -246,7 +238,12 @@ class _AddPeopleFireInsurancePageWidgetState
                                               .peopleFireInfomationFormComponentModel
                                               .relationshipTextFieldTextController
                                               .text !=
-                                          ''))) {
+                                          '') &&
+                                  (FFAppState()
+                                          .benefitorData
+                                          .elementAtOrNull(widget!.index!)
+                                          ?.insuredPersonTypeName !=
+                                      ''))) {
                                 await showDialog(
                                   context: context,
                                   builder: (alertDialogContext) {
@@ -269,8 +266,9 @@ class _AddPeopleFireInsurancePageWidgetState
                               FFAppState().updateBenefitorDataAtIndex(
                                 widget!.index!,
                                 (e) => e
-                                  ..driverId = ''
-                                  ..driverNo = ((widget!.index!) + 1).toString()
+                                  ..insuredPersonId = ''
+                                  ..insuredPersonNo =
+                                      ((widget!.index!) + 1).toString()
                                   ..applicationId =
                                       FFAppState().insuranceInfoApplicationId
                                   ..gender = FFAppState()
@@ -301,7 +299,15 @@ class _AddPeopleFireInsurancePageWidgetState
                                   ..relationship = _model
                                       .peopleFireInfomationFormComponentModel
                                       .relationshipTextFieldTextController
-                                      .text,
+                                      .text
+                                  ..insuredPersonType = FFAppState()
+                                      .benefitorData
+                                      .elementAtOrNull(widget!.index!)
+                                      ?.insuredPersonType
+                                  ..insuredPersonTypeName = FFAppState()
+                                      .benefitorData
+                                      .elementAtOrNull(widget!.index!)
+                                      ?.insuredPersonTypeName,
                               );
                               safeSetState(() {});
                               context.safePop();

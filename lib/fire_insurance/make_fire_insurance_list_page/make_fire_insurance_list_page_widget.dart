@@ -1446,11 +1446,11 @@ class _MakeFireInsuranceListPageWidgetState
                                                                           '' !=
                                                                                   getJsonField(
                                                                                     widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                                    r'''$.net_premium_total''',
+                                                                                    r'''$.results.data[:].leads_detail_house[:].net_premium_total_name''',
                                                                                   ).toString()
                                                                               ? getJsonField(
                                                                                   widget!.list!.elementAtOrNull(leadListItemIndex),
-                                                                                  r'''$.net_premium_total''',
+                                                                                  r'''$.results.data[:].leads_detail_house[:].net_premium_total_name''',
                                                                                 ).toString()
                                                                               : '-',
                                                                           style: FlutterFlowTheme.of(context)

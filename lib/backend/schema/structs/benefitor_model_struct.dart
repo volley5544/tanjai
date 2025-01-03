@@ -10,8 +10,8 @@ import '/flutter_flow/flutter_flow_util.dart';
 
 class BenefitorModelStruct extends FFFirebaseStruct {
   BenefitorModelStruct({
-    String? driverId,
-    String? driverNo,
+    String? insuredPersonId,
+    String? insuredPersonNo,
     String? applicationId,
     String? idTypeId,
     String? nationalThaiId,
@@ -31,9 +31,11 @@ class BenefitorModelStruct extends FFFirebaseStruct {
     String? occupationSubname,
     String? benefitorName,
     String? relationship,
+    String? insuredPersonType,
+    String? insuredPersonTypeName,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
-  })  : _driverId = driverId,
-        _driverNo = driverNo,
+  })  : _insuredPersonId = insuredPersonId,
+        _insuredPersonNo = insuredPersonNo,
         _applicationId = applicationId,
         _idTypeId = idTypeId,
         _nationalThaiId = nationalThaiId,
@@ -53,21 +55,23 @@ class BenefitorModelStruct extends FFFirebaseStruct {
         _occupationSubname = occupationSubname,
         _benefitorName = benefitorName,
         _relationship = relationship,
+        _insuredPersonType = insuredPersonType,
+        _insuredPersonTypeName = insuredPersonTypeName,
         super(firestoreUtilData);
 
-  // "driver_id" field.
-  String? _driverId;
-  String get driverId => _driverId ?? '';
-  set driverId(String? val) => _driverId = val;
+  // "insured_person_id" field.
+  String? _insuredPersonId;
+  String get insuredPersonId => _insuredPersonId ?? '';
+  set insuredPersonId(String? val) => _insuredPersonId = val;
 
-  bool hasDriverId() => _driverId != null;
+  bool hasInsuredPersonId() => _insuredPersonId != null;
 
-  // "driver_no" field.
-  String? _driverNo;
-  String get driverNo => _driverNo ?? '';
-  set driverNo(String? val) => _driverNo = val;
+  // "insured_person_no" field.
+  String? _insuredPersonNo;
+  String get insuredPersonNo => _insuredPersonNo ?? '';
+  set insuredPersonNo(String? val) => _insuredPersonNo = val;
 
-  bool hasDriverNo() => _driverNo != null;
+  bool hasInsuredPersonNo() => _insuredPersonNo != null;
 
   // "application_id" field.
   String? _applicationId;
@@ -202,10 +206,24 @@ class BenefitorModelStruct extends FFFirebaseStruct {
 
   bool hasRelationship() => _relationship != null;
 
+  // "insured_person_type" field.
+  String? _insuredPersonType;
+  String get insuredPersonType => _insuredPersonType ?? '';
+  set insuredPersonType(String? val) => _insuredPersonType = val;
+
+  bool hasInsuredPersonType() => _insuredPersonType != null;
+
+  // "insured_person_type_name" field.
+  String? _insuredPersonTypeName;
+  String get insuredPersonTypeName => _insuredPersonTypeName ?? '';
+  set insuredPersonTypeName(String? val) => _insuredPersonTypeName = val;
+
+  bool hasInsuredPersonTypeName() => _insuredPersonTypeName != null;
+
   static BenefitorModelStruct fromMap(Map<String, dynamic> data) =>
       BenefitorModelStruct(
-        driverId: data['driver_id'] as String?,
-        driverNo: data['driver_no'] as String?,
+        insuredPersonId: data['insured_person_id'] as String?,
+        insuredPersonNo: data['insured_person_no'] as String?,
         applicationId: data['application_id'] as String?,
         idTypeId: data['id_type_id'] as String?,
         nationalThaiId: data['national_thai_id'] as String?,
@@ -225,6 +243,8 @@ class BenefitorModelStruct extends FFFirebaseStruct {
         occupationSubname: data['occupation_subname'] as String?,
         benefitorName: data['benefitorName'] as String?,
         relationship: data['relationship'] as String?,
+        insuredPersonType: data['insured_person_type'] as String?,
+        insuredPersonTypeName: data['insured_person_type_name'] as String?,
       );
 
   static BenefitorModelStruct? maybeFromMap(dynamic data) => data is Map
@@ -232,8 +252,8 @@ class BenefitorModelStruct extends FFFirebaseStruct {
       : null;
 
   Map<String, dynamic> toMap() => {
-        'driver_id': _driverId,
-        'driver_no': _driverNo,
+        'insured_person_id': _insuredPersonId,
+        'insured_person_no': _insuredPersonNo,
         'application_id': _applicationId,
         'id_type_id': _idTypeId,
         'national_thai_id': _nationalThaiId,
@@ -253,16 +273,18 @@ class BenefitorModelStruct extends FFFirebaseStruct {
         'occupation_subname': _occupationSubname,
         'benefitorName': _benefitorName,
         'relationship': _relationship,
+        'insured_person_type': _insuredPersonType,
+        'insured_person_type_name': _insuredPersonTypeName,
       }.withoutNulls;
 
   @override
   Map<String, dynamic> toSerializableMap() => {
-        'driver_id': serializeParam(
-          _driverId,
+        'insured_person_id': serializeParam(
+          _insuredPersonId,
           ParamType.String,
         ),
-        'driver_no': serializeParam(
-          _driverNo,
+        'insured_person_no': serializeParam(
+          _insuredPersonNo,
           ParamType.String,
         ),
         'application_id': serializeParam(
@@ -341,17 +363,25 @@ class BenefitorModelStruct extends FFFirebaseStruct {
           _relationship,
           ParamType.String,
         ),
+        'insured_person_type': serializeParam(
+          _insuredPersonType,
+          ParamType.String,
+        ),
+        'insured_person_type_name': serializeParam(
+          _insuredPersonTypeName,
+          ParamType.String,
+        ),
       }.withoutNulls;
 
   static BenefitorModelStruct fromSerializableMap(Map<String, dynamic> data) =>
       BenefitorModelStruct(
-        driverId: deserializeParam(
-          data['driver_id'],
+        insuredPersonId: deserializeParam(
+          data['insured_person_id'],
           ParamType.String,
           false,
         ),
-        driverNo: deserializeParam(
-          data['driver_no'],
+        insuredPersonNo: deserializeParam(
+          data['insured_person_no'],
           ParamType.String,
           false,
         ),
@@ -450,6 +480,16 @@ class BenefitorModelStruct extends FFFirebaseStruct {
           ParamType.String,
           false,
         ),
+        insuredPersonType: deserializeParam(
+          data['insured_person_type'],
+          ParamType.String,
+          false,
+        ),
+        insuredPersonTypeName: deserializeParam(
+          data['insured_person_type_name'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -458,8 +498,8 @@ class BenefitorModelStruct extends FFFirebaseStruct {
   @override
   bool operator ==(Object other) {
     return other is BenefitorModelStruct &&
-        driverId == other.driverId &&
-        driverNo == other.driverNo &&
+        insuredPersonId == other.insuredPersonId &&
+        insuredPersonNo == other.insuredPersonNo &&
         applicationId == other.applicationId &&
         idTypeId == other.idTypeId &&
         nationalThaiId == other.nationalThaiId &&
@@ -478,13 +518,15 @@ class BenefitorModelStruct extends FFFirebaseStruct {
         occupationSubcode == other.occupationSubcode &&
         occupationSubname == other.occupationSubname &&
         benefitorName == other.benefitorName &&
-        relationship == other.relationship;
+        relationship == other.relationship &&
+        insuredPersonType == other.insuredPersonType &&
+        insuredPersonTypeName == other.insuredPersonTypeName;
   }
 
   @override
   int get hashCode => const ListEquality().hash([
-        driverId,
-        driverNo,
+        insuredPersonId,
+        insuredPersonNo,
         applicationId,
         idTypeId,
         nationalThaiId,
@@ -503,13 +545,15 @@ class BenefitorModelStruct extends FFFirebaseStruct {
         occupationSubcode,
         occupationSubname,
         benefitorName,
-        relationship
+        relationship,
+        insuredPersonType,
+        insuredPersonTypeName
       ]);
 }
 
 BenefitorModelStruct createBenefitorModelStruct({
-  String? driverId,
-  String? driverNo,
+  String? insuredPersonId,
+  String? insuredPersonNo,
   String? applicationId,
   String? idTypeId,
   String? nationalThaiId,
@@ -529,14 +573,16 @@ BenefitorModelStruct createBenefitorModelStruct({
   String? occupationSubname,
   String? benefitorName,
   String? relationship,
+  String? insuredPersonType,
+  String? insuredPersonTypeName,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
   bool delete = false,
 }) =>
     BenefitorModelStruct(
-      driverId: driverId,
-      driverNo: driverNo,
+      insuredPersonId: insuredPersonId,
+      insuredPersonNo: insuredPersonNo,
       applicationId: applicationId,
       idTypeId: idTypeId,
       nationalThaiId: nationalThaiId,
@@ -556,6 +602,8 @@ BenefitorModelStruct createBenefitorModelStruct({
       occupationSubname: occupationSubname,
       benefitorName: benefitorName,
       relationship: relationship,
+      insuredPersonType: insuredPersonType,
+      insuredPersonTypeName: insuredPersonTypeName,
       firestoreUtilData: FirestoreUtilData(
         clearUnsetFields: clearUnsetFields,
         create: create,

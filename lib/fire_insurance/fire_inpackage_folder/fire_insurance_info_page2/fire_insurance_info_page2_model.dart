@@ -16,8 +16,10 @@ import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'fire_insurance_info_page2_widget.dart'
     show FireInsuranceInfoPage2Widget;
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -86,6 +88,7 @@ class FireInsuranceInfoPage2Model
   FocusNode? textFieldFocusNode7;
   TextEditingController? textController9;
   String? Function(BuildContext, String?)? textController9Validator;
+  DateTime? datePicked;
   // Stores action output result for [Backend Call - API (ibsApplicationsSave)] action in Button widget.
   ApiCallResponse? ibsAppAPIOutput;
   // Stores action output result for [Backend Call - API (ibsApplicationsDetail)] action in Button widget.
