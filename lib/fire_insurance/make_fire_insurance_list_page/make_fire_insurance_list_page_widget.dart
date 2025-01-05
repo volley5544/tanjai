@@ -1240,13 +1240,7 @@ class _MakeFireInsuranceListPageWidgetState
                                                                                 maxLines: 2,
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                       fontFamily: 'Noto Sans Thai',
-                                                                                      color: 'ปฏิเสธ' !=
-                                                                                              functions.checkNullValueAndReturn(getJsonField(
-                                                                                                widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                                                r'''$.insurer_status''',
-                                                                                              ).toString())
-                                                                                          ? FlutterFlowTheme.of(context).primaryText
-                                                                                          : FlutterFlowTheme.of(context).error,
+                                                                                      color: FlutterFlowTheme.of(context).primaryText,
                                                                                       fontSize: 13.0,
                                                                                       letterSpacing: 0.0,
                                                                                     ),
