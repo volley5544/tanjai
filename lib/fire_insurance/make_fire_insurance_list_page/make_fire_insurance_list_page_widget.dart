@@ -876,13 +876,13 @@ class _MakeFireInsuranceListPageWidgetState
                                                                           child:
                                                                               Text(
                                                                             '${'ปฏิเสธ' != functions.checkNullValueAndReturn('${getJsonField(
-                                                                                  widget!.list?.elementAtOrNull(leadListItemIndex),
+                                                                                  leadListItemItem,
                                                                                   r'''$..leads_detail_house[:].insurer_status''',
                                                                                 ).toString()}') ? getJsonField(
-                                                                                widget!.list?.elementAtOrNull(leadListItemIndex),
+                                                                                leadListItemItem,
                                                                                 r'''$..quotation_status''',
                                                                               ).toString() : functions.checkNullValueAndReturn(getJsonField(
-                                                                                widget!.list?.elementAtOrNull(leadListItemIndex),
+                                                                                leadListItemItem,
                                                                                 r'''$..leads_detail_house[:].insurer_status''',
                                                                               ).toString())}',
                                                                             textAlign:
