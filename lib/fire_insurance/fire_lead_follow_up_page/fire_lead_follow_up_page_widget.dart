@@ -389,7 +389,7 @@ class _FireLeadFollowUpPageWidgetState extends State<FireLeadFollowUpPageWidget>
                               queryParameters: {
                                 'list': serializeParam(
                                   HouseInsuranceGroup.getListFireApiCall
-                                      .watingInfo(
+                                      .waitingInfoData(
                                     (_model.getListFireApi?.jsonBody ?? ''),
                                   ),
                                   ParamType.JSON,
@@ -401,7 +401,7 @@ class _FireLeadFollowUpPageWidgetState extends State<FireLeadFollowUpPageWidget>
                                 ),
                                 'checkTotal': serializeParam(
                                   HouseInsuranceGroup.getListFireApiCall
-                                      .watingInfoTotal(
+                                      .waitingInfoTotal(
                                     (_model.getListFireApi?.jsonBody ?? ''),
                                   ),
                                   ParamType.int,
@@ -459,7 +459,7 @@ class _FireLeadFollowUpPageWidgetState extends State<FireLeadFollowUpPageWidget>
                                     child: Text(
                                       valueOrDefault<String>(
                                         HouseInsuranceGroup.getListFireApiCall
-                                            .watingInfoTotal(
+                                            .waitingInfoTotal(
                                               (_model.getListFireApi
                                                       ?.jsonBody ??
                                                   ''),

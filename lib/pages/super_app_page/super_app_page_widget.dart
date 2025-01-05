@@ -4363,7 +4363,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                         context)
                                                                     .width *
                                                                 0.9,
-                                                        height: 250.0,
+                                                        height: 220.0,
                                                         constraints:
                                                             BoxConstraints(
                                                           maxHeight: 260.0,
@@ -4414,308 +4414,311 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                 CrossAxisAlignment
                                                                     .center,
                                                             children: [
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
+                                                              Stack(
+                                                                children: [
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            15.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                child: Stack(
-                                                                  children: [
-                                                                    Padding(
-                                                                      padding:
-                                                                          EdgeInsets.all(
-                                                                              12.0),
-                                                                      child:
-                                                                          Column(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        crossAxisAlignment:
-                                                                            CrossAxisAlignment.start,
-                                                                        children:
-                                                                            [
-                                                                          Expanded(
-                                                                            child:
-                                                                                Row(
-                                                                              mainAxisSize: MainAxisSize.max,
-                                                                              mainAxisAlignment: MainAxisAlignment.start,
-                                                                              children: [
-                                                                                Expanded(
-                                                                                  flex: 5,
-                                                                                  child: Container(
-                                                                                    width: MediaQuery.sizeOf(context).width * 0.37,
-                                                                                    decoration: BoxDecoration(),
-                                                                                    child: Text(
-                                                                                      'ชื่อลูกค้า',
-                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                            fontFamily: 'Noto Sans Thai',
-                                                                                            color: FlutterFlowTheme.of(context).black600,
-                                                                                            fontSize: 15.0,
-                                                                                            letterSpacing: 0.0,
-                                                                                          ),
-                                                                                    ),
-                                                                                  ),
-                                                                                ),
-                                                                                Container(
-                                                                                  width: 10.0,
-                                                                                  decoration: BoxDecoration(),
-                                                                                  child: Text(
-                                                                                    ':',
-                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: 'Noto Sans Thai',
-                                                                                          color: FlutterFlowTheme.of(context).black600,
-                                                                                          letterSpacing: 0.0,
-                                                                                        ),
-                                                                                  ),
-                                                                                ),
-                                                                                Expanded(
-                                                                                  flex: 6,
-                                                                                  child: Container(
-                                                                                    width: 100.0,
-                                                                                    decoration: BoxDecoration(),
-                                                                                    child: Text(
-                                                                                      '${functions.checkNullValueAndReturn(GetVMICall.firstNameListHouse(
-                                                                                        (_model.getVMIApi?.jsonBody ?? ''),
-                                                                                      )?.elementAtOrNull(listleadsHouseIndex))} ${functions.checkNullValueAndReturn(GetVMICall.lastNameListHouse(
-                                                                                        (_model.getVMIApi?.jsonBody ?? ''),
-                                                                                      )?.elementAtOrNull(listleadsHouseIndex))}',
-                                                                                      maxLines: 2,
-                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                            fontFamily: 'Noto Sans Thai',
-                                                                                            color: FlutterFlowTheme.of(context).black600,
-                                                                                            fontSize: 15.0,
-                                                                                            letterSpacing: 0.0,
-                                                                                          ),
-                                                                                    ),
-                                                                                  ),
-                                                                                ),
-                                                                              ],
-                                                                            ),
-                                                                          ),
-                                                                          Row(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            children: [
-                                                                              Expanded(
-                                                                                flex: 5,
-                                                                                child: Container(
-                                                                                  width: MediaQuery.sizeOf(context).width * 0.37,
-                                                                                  decoration: BoxDecoration(),
-                                                                                  child: Text(
-                                                                                    'ประเภทประกัน',
-                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: 'Noto Sans Thai',
-                                                                                          color: FlutterFlowTheme.of(context).black600,
-                                                                                          fontSize: 15.0,
-                                                                                          letterSpacing: 0.0,
-                                                                                        ),
-                                                                                  ),
-                                                                                ),
-                                                                              ),
-                                                                              Container(
-                                                                                width: 10.0,
-                                                                                decoration: BoxDecoration(),
-                                                                                child: Text(
-                                                                                  ':',
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Noto Sans Thai',
-                                                                                        color: FlutterFlowTheme.of(context).black600,
-                                                                                        letterSpacing: 0.0,
-                                                                                      ),
-                                                                                ),
-                                                                              ),
-                                                                              Expanded(
-                                                                                flex: 6,
-                                                                                child: Container(
-                                                                                  decoration: BoxDecoration(),
-                                                                                  child: Text(
-                                                                                    valueOrDefault<String>(
-                                                                                      GetVMICall.insuranceType(
-                                                                                        (_model.getVMIApi?.jsonBody ?? ''),
-                                                                                      )?.elementAtOrNull(listleadsHouseIndex),
-                                                                                      'อัคคีภัย',
-                                                                                    ),
-                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: 'Noto Sans Thai',
-                                                                                          color: FlutterFlowTheme.of(context).black600,
-                                                                                          fontSize: 15.0,
-                                                                                          letterSpacing: 0.0,
-                                                                                        ),
-                                                                                  ),
-                                                                                ),
-                                                                              ),
-                                                                            ],
-                                                                          ),
-                                                                          Row(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            children: [
-                                                                              Expanded(
-                                                                                flex: 5,
-                                                                                child: Container(
-                                                                                  width: MediaQuery.sizeOf(context).width * 0.37,
-                                                                                  decoration: BoxDecoration(),
-                                                                                  child: Text(
-                                                                                    'เเผนประกัน',
-                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: 'Noto Sans Thai',
-                                                                                          color: FlutterFlowTheme.of(context).black600,
-                                                                                          fontSize: 15.0,
-                                                                                          letterSpacing: 0.0,
-                                                                                        ),
-                                                                                  ),
-                                                                                ),
-                                                                              ),
-                                                                              Container(
-                                                                                width: 10.0,
-                                                                                decoration: BoxDecoration(),
-                                                                                child: Text(
-                                                                                  ':',
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Noto Sans Thai',
-                                                                                        color: FlutterFlowTheme.of(context).black600,
-                                                                                        letterSpacing: 0.0,
-                                                                                      ),
-                                                                                ),
-                                                                              ),
-                                                                              Expanded(
-                                                                                flex: 6,
-                                                                                child: Container(
-                                                                                  decoration: BoxDecoration(),
-                                                                                  child: Text(
-                                                                                    valueOrDefault<String>(
-                                                                                      GetVMICall.leadsDetailHouse(
-                                                                                        (_model.getVMIApi?.jsonBody ?? ''),
-                                                                                      )?.elementAtOrNull(listleadsHouseIndex),
-                                                                                      'sabaide',
-                                                                                    ),
-                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: 'Noto Sans Thai',
-                                                                                          color: FlutterFlowTheme.of(context).black600,
-                                                                                          fontSize: 15.0,
-                                                                                          letterSpacing: 0.0,
-                                                                                        ),
-                                                                                  ),
-                                                                                ),
-                                                                              ),
-                                                                            ],
-                                                                          ),
-                                                                          Row(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            children: [
-                                                                              Expanded(
-                                                                                flex: 5,
-                                                                                child: Container(
-                                                                                  width: MediaQuery.sizeOf(context).width * 0.37,
-                                                                                  decoration: BoxDecoration(),
-                                                                                  child: Text(
-                                                                                    'ทุนประกัน',
-                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: 'Noto Sans Thai',
-                                                                                          color: FlutterFlowTheme.of(context).black600,
-                                                                                          fontSize: 15.0,
-                                                                                          letterSpacing: 0.0,
-                                                                                        ),
-                                                                                  ),
-                                                                                ),
-                                                                              ),
-                                                                              Container(
-                                                                                width: 10.0,
-                                                                                decoration: BoxDecoration(),
-                                                                                child: Text(
-                                                                                  ':',
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Noto Sans Thai',
-                                                                                        color: FlutterFlowTheme.of(context).black600,
-                                                                                        letterSpacing: 0.0,
-                                                                                      ),
-                                                                                ),
-                                                                              ),
-                                                                              Expanded(
-                                                                                flex: 6,
-                                                                                child: Container(
-                                                                                  decoration: BoxDecoration(),
-                                                                                  child: Text(
-                                                                                    valueOrDefault<String>(
-                                                                                      GetVMICall.suminSureName(
-                                                                                        (_model.getVMIApi?.jsonBody ?? ''),
-                                                                                      )?.elementAtOrNull(listleadsHouseIndex),
-                                                                                      '40000',
-                                                                                    ),
-                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: 'Noto Sans Thai',
-                                                                                          color: FlutterFlowTheme.of(context).black600,
-                                                                                          fontSize: 15.0,
-                                                                                          letterSpacing: 0.0,
-                                                                                        ),
-                                                                                  ),
-                                                                                ),
-                                                                              ),
-                                                                            ],
-                                                                          ),
-                                                                        ].divide(SizedBox(height: 4.0)),
-                                                                      ),
-                                                                    ),
-                                                                    if (false &&
-                                                                        responsiveVisibility(
-                                                                          context:
-                                                                              context,
-                                                                          tablet:
-                                                                              false,
-                                                                        ))
-                                                                      Align(
-                                                                        alignment: AlignmentDirectional(
-                                                                            1.0,
-                                                                            -1.0),
-                                                                        child:
-                                                                            Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0.0,
-                                                                              10.0,
-                                                                              10.0,
-                                                                              0.0),
+                                                                            12.0,
+                                                                            12.0,
+                                                                            12.0,
+                                                                            12.0),
+                                                                    child:
+                                                                        Column(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      crossAxisAlignment:
+                                                                          CrossAxisAlignment
+                                                                              .start,
+                                                                      children:
+                                                                          [
+                                                                        Expanded(
                                                                           child:
-                                                                              Container(
-                                                                            width:
-                                                                                55.0,
-                                                                            height:
-                                                                                55.0,
-                                                                            decoration:
-                                                                                BoxDecoration(
-                                                                              shape: BoxShape.circle,
-                                                                              border: Border.all(
-                                                                                color: FlutterFlowTheme.of(context).black600,
-                                                                              ),
-                                                                            ),
-                                                                            child:
-                                                                                Row(
-                                                                              mainAxisSize: MainAxisSize.max,
-                                                                              children: [
-                                                                                Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                  child: InkWell(
-                                                                                    splashColor: Colors.transparent,
-                                                                                    focusColor: Colors.transparent,
-                                                                                    hoverColor: Colors.transparent,
-                                                                                    highlightColor: Colors.transparent,
-                                                                                    onTap: () async {},
-                                                                                    child: Icon(
-                                                                                      Icons.phone_in_talk_outlined,
-                                                                                      color: FlutterFlowTheme.of(context).black600,
-                                                                                      size: 30.0,
-                                                                                    ),
+                                                                              Row(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.max,
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.start,
+                                                                            children: [
+                                                                              Expanded(
+                                                                                flex: 5,
+                                                                                child: Container(
+                                                                                  width: MediaQuery.sizeOf(context).width * 0.37,
+                                                                                  decoration: BoxDecoration(),
+                                                                                  child: Text(
+                                                                                    'ชื่อลูกค้า',
+                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                          fontFamily: 'Noto Sans Thai',
+                                                                                          color: FlutterFlowTheme.of(context).black600,
+                                                                                          fontSize: 15.0,
+                                                                                          letterSpacing: 0.0,
+                                                                                        ),
                                                                                   ),
                                                                                 ),
-                                                                              ],
+                                                                              ),
+                                                                              Container(
+                                                                                width: 10.0,
+                                                                                decoration: BoxDecoration(),
+                                                                                child: Text(
+                                                                                  ':',
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                        fontFamily: 'Noto Sans Thai',
+                                                                                        color: FlutterFlowTheme.of(context).black600,
+                                                                                        letterSpacing: 0.0,
+                                                                                      ),
+                                                                                ),
+                                                                              ),
+                                                                              Expanded(
+                                                                                flex: 6,
+                                                                                child: Container(
+                                                                                  width: 100.0,
+                                                                                  decoration: BoxDecoration(),
+                                                                                  child: Text(
+                                                                                    '${functions.checkNullValueAndReturn(GetVMICall.firstNameListHouse(
+                                                                                      (_model.getVMIApi?.jsonBody ?? ''),
+                                                                                    )?.elementAtOrNull(listleadsHouseIndex))} ${functions.checkNullValueAndReturn(GetVMICall.lastNameListHouse(
+                                                                                      (_model.getVMIApi?.jsonBody ?? ''),
+                                                                                    )?.elementAtOrNull(listleadsHouseIndex))}',
+                                                                                    maxLines: 2,
+                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                          fontFamily: 'Noto Sans Thai',
+                                                                                          color: FlutterFlowTheme.of(context).black600,
+                                                                                          fontSize: 15.0,
+                                                                                          letterSpacing: 0.0,
+                                                                                        ),
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        ),
+                                                                        Row(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          children: [
+                                                                            Expanded(
+                                                                              flex: 5,
+                                                                              child: Container(
+                                                                                width: MediaQuery.sizeOf(context).width * 0.37,
+                                                                                decoration: BoxDecoration(),
+                                                                                child: Text(
+                                                                                  'ประเภทประกัน',
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                        fontFamily: 'Noto Sans Thai',
+                                                                                        color: FlutterFlowTheme.of(context).black600,
+                                                                                        fontSize: 15.0,
+                                                                                        letterSpacing: 0.0,
+                                                                                      ),
+                                                                                ),
+                                                                              ),
                                                                             ),
+                                                                            Container(
+                                                                              width: 10.0,
+                                                                              decoration: BoxDecoration(),
+                                                                              child: Text(
+                                                                                ':',
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Noto Sans Thai',
+                                                                                      color: FlutterFlowTheme.of(context).black600,
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
+                                                                              ),
+                                                                            ),
+                                                                            Expanded(
+                                                                              flex: 6,
+                                                                              child: Container(
+                                                                                decoration: BoxDecoration(),
+                                                                                child: Text(
+                                                                                  valueOrDefault<String>(
+                                                                                    GetVMICall.insuranceType(
+                                                                                      (_model.getVMIApi?.jsonBody ?? ''),
+                                                                                    )?.elementAtOrNull(listleadsHouseIndex),
+                                                                                    'อัคคีภัย',
+                                                                                  ),
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                        fontFamily: 'Noto Sans Thai',
+                                                                                        color: FlutterFlowTheme.of(context).black600,
+                                                                                        fontSize: 15.0,
+                                                                                        letterSpacing: 0.0,
+                                                                                      ),
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                        Row(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          children: [
+                                                                            Expanded(
+                                                                              flex: 5,
+                                                                              child: Container(
+                                                                                width: MediaQuery.sizeOf(context).width * 0.37,
+                                                                                decoration: BoxDecoration(),
+                                                                                child: Text(
+                                                                                  'เเผนประกัน',
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                        fontFamily: 'Noto Sans Thai',
+                                                                                        color: FlutterFlowTheme.of(context).black600,
+                                                                                        fontSize: 15.0,
+                                                                                        letterSpacing: 0.0,
+                                                                                      ),
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                            Container(
+                                                                              width: 10.0,
+                                                                              decoration: BoxDecoration(),
+                                                                              child: Text(
+                                                                                ':',
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Noto Sans Thai',
+                                                                                      color: FlutterFlowTheme.of(context).black600,
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
+                                                                              ),
+                                                                            ),
+                                                                            Expanded(
+                                                                              flex: 6,
+                                                                              child: Container(
+                                                                                decoration: BoxDecoration(),
+                                                                                child: Text(
+                                                                                  valueOrDefault<String>(
+                                                                                    GetVMICall.leadsDetailHouse(
+                                                                                      (_model.getVMIApi?.jsonBody ?? ''),
+                                                                                    )?.elementAtOrNull(listleadsHouseIndex),
+                                                                                    'sabaide',
+                                                                                  ),
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                        fontFamily: 'Noto Sans Thai',
+                                                                                        color: FlutterFlowTheme.of(context).black600,
+                                                                                        fontSize: 15.0,
+                                                                                        letterSpacing: 0.0,
+                                                                                      ),
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                        Row(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          children: [
+                                                                            Expanded(
+                                                                              flex: 5,
+                                                                              child: Container(
+                                                                                width: MediaQuery.sizeOf(context).width * 0.37,
+                                                                                decoration: BoxDecoration(),
+                                                                                child: Text(
+                                                                                  'ทุนประกัน',
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                        fontFamily: 'Noto Sans Thai',
+                                                                                        color: FlutterFlowTheme.of(context).black600,
+                                                                                        fontSize: 15.0,
+                                                                                        letterSpacing: 0.0,
+                                                                                      ),
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                            Container(
+                                                                              width: 10.0,
+                                                                              decoration: BoxDecoration(),
+                                                                              child: Text(
+                                                                                ':',
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Noto Sans Thai',
+                                                                                      color: FlutterFlowTheme.of(context).black600,
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
+                                                                              ),
+                                                                            ),
+                                                                            Expanded(
+                                                                              flex: 6,
+                                                                              child: Container(
+                                                                                decoration: BoxDecoration(),
+                                                                                child: Text(
+                                                                                  valueOrDefault<String>(
+                                                                                    GetVMICall.suminSureName(
+                                                                                      (_model.getVMIApi?.jsonBody ?? ''),
+                                                                                    )?.elementAtOrNull(listleadsHouseIndex),
+                                                                                    '40000',
+                                                                                  ),
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                        fontFamily: 'Noto Sans Thai',
+                                                                                        color: FlutterFlowTheme.of(context).black600,
+                                                                                        fontSize: 15.0,
+                                                                                        letterSpacing: 0.0,
+                                                                                      ),
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                      ].divide(SizedBox(
+                                                                              height: 4.0)),
+                                                                    ),
+                                                                  ),
+                                                                  if (false &&
+                                                                      responsiveVisibility(
+                                                                        context:
+                                                                            context,
+                                                                        tablet:
+                                                                            false,
+                                                                      ))
+                                                                    Align(
+                                                                      alignment:
+                                                                          AlignmentDirectional(
+                                                                              1.0,
+                                                                              -1.0),
+                                                                      child:
+                                                                          Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            0.0,
+                                                                            10.0,
+                                                                            10.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            Container(
+                                                                          width:
+                                                                              55.0,
+                                                                          height:
+                                                                              55.0,
+                                                                          decoration:
+                                                                              BoxDecoration(
+                                                                            shape:
+                                                                                BoxShape.circle,
+                                                                            border:
+                                                                                Border.all(
+                                                                              color: FlutterFlowTheme.of(context).black600,
+                                                                            ),
+                                                                          ),
+                                                                          child:
+                                                                              Row(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.max,
+                                                                            children: [
+                                                                              Padding(
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                                                                                child: InkWell(
+                                                                                  splashColor: Colors.transparent,
+                                                                                  focusColor: Colors.transparent,
+                                                                                  hoverColor: Colors.transparent,
+                                                                                  highlightColor: Colors.transparent,
+                                                                                  onTap: () async {},
+                                                                                  child: Icon(
+                                                                                    Icons.phone_in_talk_outlined,
+                                                                                    color: FlutterFlowTheme.of(context).black600,
+                                                                                    size: 30.0,
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            ],
                                                                           ),
                                                                         ),
                                                                       ),
-                                                                  ],
-                                                                ),
+                                                                    ),
+                                                                ],
                                                               ),
                                                               Padding(
                                                                 padding:

@@ -393,6 +393,10 @@ class FireGetLeadsApiCall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
+  int? checkTotal(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.results.total''',
+      ));
 }
 
 class GetListFireApiCall {
@@ -451,16 +455,16 @@ class GetListFireApiCall {
         r'''$.results.data.notApprove.data''',
         true,
       ) as List?;
-  dynamic? watingInfo(dynamic response) => getJsonField(
+  dynamic? waitingInfo(dynamic response) => getJsonField(
         response,
         r'''$.results.data.waitingInfo''',
       );
-  List? watingInfoData(dynamic response) => getJsonField(
+  List? waitingInfoData(dynamic response) => getJsonField(
         response,
         r'''$.results.data.waitingInfo.data''',
         true,
       ) as List?;
-  int? watingInfoTotal(dynamic response) => castToType<int>(getJsonField(
+  int? waitingInfoTotal(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.results.data.waitingInfo.total''',
       ));

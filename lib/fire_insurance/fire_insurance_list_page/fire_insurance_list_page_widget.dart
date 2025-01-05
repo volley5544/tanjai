@@ -1518,28 +1518,19 @@ class _FireInsuranceListPageWidgetState
                                                             ),
                                                             'checkPayment':
                                                                 serializeParam(
-                                                              '',
+                                                              '0',
                                                               ParamType.String,
                                                             ),
                                                             'checkTotal':
                                                                 serializeParam(
-                                                              0,
+                                                              HouseInsuranceGroup
+                                                                  .fireGetLeadsApiCall
+                                                                  .checkTotal(
+                                                                (_model.fireGetLeads
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              ),
                                                               ParamType.int,
-                                                            ),
-                                                            'checkVMI':
-                                                                serializeParam(
-                                                              '',
-                                                              ParamType.String,
-                                                            ),
-                                                            'fromPage':
-                                                                serializeParam(
-                                                              '',
-                                                              ParamType.String,
-                                                            ),
-                                                            'type':
-                                                                serializeParam(
-                                                              '',
-                                                              ParamType.String,
                                                             ),
                                                           }.withoutNulls,
                                                         );
