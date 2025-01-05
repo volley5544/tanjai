@@ -459,11 +459,10 @@ class GetListFireApiCall {
         response,
         r'''$.results.data.waitingInfo''',
       );
-  List? waitingInfoData(dynamic response) => getJsonField(
+  dynamic? waitingInfoData(dynamic response) => getJsonField(
         response,
         r'''$.results.data.waitingInfo.data[:]''',
-        true,
-      ) as List?;
+      );
   int? waitingInfoTotal(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.results.data.waitingInfo.total''',

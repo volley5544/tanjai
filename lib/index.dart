@@ -216,3 +216,5 @@ export '/fire_insurance/fire_inpackage_folder/add_people_fire_insurance_page/add
     show AddPeopleFireInsurancePageWidget;
 export '/fire_insurance/fire_inpackage_folder/show_people_page/show_people_page_widget.dart'
     show ShowPeoplePageWidget;
+export '/fire_insurance/fire_quotation_copy/fire_quotation_copy_widget.dart'
+    show FireQuotationCopyWidget;

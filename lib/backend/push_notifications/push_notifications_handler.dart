@@ -716,6 +716,9 @@ final parametersBuilderMap =
               data, 'firestoreDataConfigList', DataListRecord.fromSnapshot),
         },
       ),
+  'FireQuotationCopy': (data) async => ParameterData(
+        allParams: {},
+      ),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

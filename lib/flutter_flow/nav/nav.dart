@@ -2459,6 +2459,17 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   ParamType.Document,
                 ),
               ),
+            ),
+            FFRoute(
+              name: 'FireQuotationCopy',
+              path: 'FireQuotationCopy',
+              builder: (context, params) => FireQuotationCopyWidget(
+                quotation: params.getParam<String>(
+                  'quotation',
+                  ParamType.String,
+                  isList: true,
+                ),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
