@@ -817,396 +817,353 @@ class _MakeFireInsuranceListPageWidgetState
                       ),
                     ),
                     Expanded(
-                      child: FutureBuilder<List<HideInAppContentRecord>>(
-                        future: queryHideInAppContentRecordOnce(
-                          queryBuilder: (hideInAppContentRecord) =>
-                              hideInAppContentRecord.where(
-                            'content_name',
-                            isEqualTo: 'disable_work_weekend',
-                          ),
-                          singleRecord: true,
-                        ),
-                        builder: (context, snapshot) {
-                          // Customize what your widget looks like when it's loading.
-                          if (!snapshot.hasData) {
-                            return Center(
-                              child: SizedBox(
-                                width: 50.0,
-                                height: 50.0,
-                                child: CircularProgressIndicator(
-                                  valueColor: AlwaysStoppedAnimation<Color>(
-                                    FlutterFlowTheme.of(context).primary,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          if (widget!.checkTotal != 0 ? true : false)
+                            Expanded(
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    12.0, 12.0, 12.0, 0.0),
+                                child: Container(
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    borderRadius: BorderRadius.circular(8.0),
                                   ),
-                                ),
-                              ),
-                            );
-                          }
-                          List<HideInAppContentRecord>
-                              columnHideInAppContentRecordList = snapshot.data!;
-                          final columnHideInAppContentRecord =
-                              columnHideInAppContentRecordList.isNotEmpty
-                                  ? columnHideInAppContentRecordList.first
-                                  : null;
+                                  child: Builder(
+                                    builder: (context) {
+                                      final leadListItem =
+                                          widget!.list!.toList();
 
-                          return Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              if (widget!.checkTotal != 0 ? true : false)
-                                Expanded(
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 12.0, 12.0, 0.0),
-                                    child: Container(
-                                      width: MediaQuery.sizeOf(context).width *
-                                          1.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      child: Builder(
-                                        builder: (context) {
-                                          final leadListItem =
-                                              widget!.list!.toList();
-
-                                          return ListView.builder(
-                                            padding: EdgeInsets.fromLTRB(
-                                              0,
-                                              0,
-                                              0,
-                                              50.0,
-                                            ),
-                                            shrinkWrap: true,
-                                            scrollDirection: Axis.vertical,
-                                            itemCount: leadListItem.length,
-                                            itemBuilder:
-                                                (context, leadListItemIndex) {
-                                              final leadListItemItem =
-                                                  leadListItem[
-                                                      leadListItemIndex];
-                                              return Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 0.0, 16.0),
-                                                  child: Container(
-                                                    width: double.infinity,
-                                                    decoration: BoxDecoration(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .secondaryBackground,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              20.0),
-                                                      border: Border.all(
-                                                        width: 1.0,
-                                                      ),
-                                                    ),
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsets.all(
-                                                                  20.0),
-                                                          child: Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .start,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Align(
-                                                                alignment:
-                                                                    AlignmentDirectional(
-                                                                        1.0,
-                                                                        0.0),
-                                                                child: Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                      return ListView.builder(
+                                        padding: EdgeInsets.fromLTRB(
+                                          0,
+                                          0,
+                                          0,
+                                          50.0,
+                                        ),
+                                        shrinkWrap: true,
+                                        scrollDirection: Axis.vertical,
+                                        itemCount: leadListItem.length,
+                                        itemBuilder:
+                                            (context, leadListItemIndex) {
+                                          final leadListItemItem =
+                                              leadListItem[leadListItemIndex];
+                                          return Align(
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 0.0, 16.0),
+                                              child: Container(
+                                                width: double.infinity,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          20.0),
+                                                  border: Border.all(
+                                                    width: 1.0,
+                                                  ),
+                                                ),
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsets.all(20.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .start,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    1.0, 0.0),
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           10.0,
                                                                           0.0),
-                                                                  child: Column(
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .start,
+                                                                children: [
+                                                                  Container(
+                                                                    width: 50.0,
+                                                                    height:
+                                                                        50.0,
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondaryBackground,
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              0.0),
+                                                                    ),
+                                                                    child:
+                                                                        ClipRRect(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              0.0),
+                                                                      child: Image
+                                                                          .network(
+                                                                        getCORSProxyUrl(
+                                                                          getJsonField(
+                                                                            widget!.list!.elementAtOrNull(leadListItemIndex),
+                                                                            r'''$.image''',
+                                                                          ).toString(),
+                                                                        ),
+                                                                        width:
+                                                                            300.0,
+                                                                        height:
+                                                                            200.0,
+                                                                        fit: BoxFit
+                                                                            .cover,
+                                                                        errorBuilder: (context,
+                                                                                error,
+                                                                                stackTrace) =>
+                                                                            Image.asset(
+                                                                          'assets/images/error_image.png',
+                                                                          width:
+                                                                              300.0,
+                                                                          height:
+                                                                              200.0,
+                                                                          fit: BoxFit
+                                                                              .cover,
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Expanded(
+                                                            child: Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          8.0),
+                                                                  child: Text(
+                                                                    '${getJsonField(
+                                                                      widget!
+                                                                          .list
+                                                                          ?.elementAtOrNull(
+                                                                              leadListItemIndex),
+                                                                      r'''$..leads_detail_house[:].insurer_name''',
+                                                                    ).toString()}',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Noto Sans Thai',
+                                                                          color:
+                                                                              Color(0xFF1D4774),
+                                                                          fontSize:
+                                                                              13.0,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight:
+                                                                              FontWeight.bold,
+                                                                        ),
+                                                                  ),
+                                                                ),
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          8.0),
+                                                                  child: Row(
                                                                     mainAxisSize:
                                                                         MainAxisSize
                                                                             .max,
                                                                     mainAxisAlignment:
                                                                         MainAxisAlignment
-                                                                            .start,
+                                                                            .spaceBetween,
                                                                     children: [
-                                                                      Container(
-                                                                        width:
-                                                                            50.0,
-                                                                        height:
-                                                                            50.0,
-                                                                        decoration:
-                                                                            BoxDecoration(
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).secondaryBackground,
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(0.0),
-                                                                        ),
-                                                                        child:
-                                                                            ClipRRect(
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(0.0),
-                                                                          child:
-                                                                              Image.network(
-                                                                            getCORSProxyUrl(
-                                                                              getJsonField(
-                                                                                widget!.list!.elementAtOrNull(leadListItemIndex),
-                                                                                r'''$.image''',
-                                                                              ).toString(),
+                                                                      Text(
+                                                                        'ชื่อ',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Noto Sans Thai',
+                                                                              fontSize: 13.0,
+                                                                              letterSpacing: 0.0,
+                                                                              fontWeight: FontWeight.w600,
                                                                             ),
-                                                                            width:
-                                                                                300.0,
-                                                                            height:
-                                                                                200.0,
-                                                                            fit:
-                                                                                BoxFit.cover,
-                                                                            errorBuilder: (context, error, stackTrace) =>
-                                                                                Image.asset(
-                                                                              'assets/images/error_image.png',
-                                                                              width: 300.0,
-                                                                              height: 200.0,
-                                                                              fit: BoxFit.cover,
-                                                                            ),
-                                                                          ),
-                                                                        ),
                                                                       ),
-                                                                    ],
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                              Expanded(
-                                                                child: Column(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  crossAxisAlignment:
-                                                                      CrossAxisAlignment
-                                                                          .start,
-                                                                  children: [
-                                                                    Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          8.0),
-                                                                      child:
-                                                                          Text(
+                                                                      Text(
                                                                         '${getJsonField(
                                                                           widget!
                                                                               .list
                                                                               ?.elementAtOrNull(leadListItemIndex),
-                                                                          r'''$..leads_detail_house[:].insurer_name''',
+                                                                          r'''$..first_name''',
+                                                                        ).toString()} ${getJsonField(
+                                                                          widget!
+                                                                              .list
+                                                                              ?.elementAtOrNull(leadListItemIndex),
+                                                                          r'''$..last_name''',
+                                                                        ).toString()}',
+                                                                        maxLines:
+                                                                            2,
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Noto Sans Thai',
+                                                                              fontSize: 13.0,
+                                                                              letterSpacing: 0.0,
+                                                                              fontWeight: FontWeight.w600,
+                                                                            ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          8.0),
+                                                                  child: Row(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .spaceBetween,
+                                                                    children: [
+                                                                      Text(
+                                                                        'ประเภทประกัน',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Noto Sans Thai',
+                                                                              color: FlutterFlowTheme.of(context).primaryText,
+                                                                              fontSize: 13.0,
+                                                                              letterSpacing: 0.0,
+                                                                              fontWeight: FontWeight.w600,
+                                                                            ),
+                                                                      ),
+                                                                      Text(
+                                                                        'อัคคีภัย',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Noto Sans Thai',
+                                                                              color: FlutterFlowTheme.of(context).primaryText,
+                                                                              fontSize: 13.0,
+                                                                              letterSpacing: 0.0,
+                                                                              fontWeight: FontWeight.w600,
+                                                                            ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          8.0),
+                                                                  child: Row(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .spaceBetween,
+                                                                    children: [
+                                                                      Text(
+                                                                        'เเผนประกัน',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Noto Sans Thai',
+                                                                              color: FlutterFlowTheme.of(context).primaryText,
+                                                                              fontSize: 13.0,
+                                                                              letterSpacing: 0.0,
+                                                                              fontWeight: FontWeight.w600,
+                                                                            ),
+                                                                      ),
+                                                                      Text(
+                                                                        '${getJsonField(
+                                                                          widget!
+                                                                              .list
+                                                                              ?.elementAtOrNull(leadListItemIndex),
+                                                                          r'''$..leads_detail_house[:].package_name''',
                                                                         ).toString()}',
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
                                                                               fontFamily: 'Noto Sans Thai',
-                                                                              color: Color(0xFF1D4774),
+                                                                              color: FlutterFlowTheme.of(context).primaryText,
                                                                               fontSize: 13.0,
                                                                               letterSpacing: 0.0,
-                                                                              fontWeight: FontWeight.bold,
+                                                                              fontWeight: FontWeight.w600,
                                                                             ),
                                                                       ),
-                                                                    ),
-                                                                    Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,
                                                                           8.0),
-                                                                      child:
-                                                                          Row(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        mainAxisAlignment:
-                                                                            MainAxisAlignment.spaceBetween,
-                                                                        children: [
-                                                                          Text(
-                                                                            'ชื่อ',
-                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Noto Sans Thai',
-                                                                                  fontSize: 13.0,
-                                                                                  letterSpacing: 0.0,
-                                                                                  fontWeight: FontWeight.w600,
-                                                                                ),
-                                                                          ),
-                                                                          Text(
-                                                                            '${getJsonField(
-                                                                              widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                              r'''$..first_name''',
-                                                                            ).toString()} ${getJsonField(
-                                                                              widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                              r'''$..last_name''',
-                                                                            ).toString()}',
-                                                                            maxLines:
-                                                                                2,
-                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Noto Sans Thai',
-                                                                                  fontSize: 13.0,
-                                                                                  letterSpacing: 0.0,
-                                                                                  fontWeight: FontWeight.w600,
-                                                                                ),
-                                                                          ),
-                                                                        ],
-                                                                      ),
-                                                                    ),
-                                                                    Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          8.0),
-                                                                      child:
-                                                                          Row(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        mainAxisAlignment:
-                                                                            MainAxisAlignment.spaceBetween,
-                                                                        children: [
-                                                                          Text(
-                                                                            'ประเภทประกัน',
-                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Noto Sans Thai',
-                                                                                  color: FlutterFlowTheme.of(context).primaryText,
-                                                                                  fontSize: 13.0,
-                                                                                  letterSpacing: 0.0,
-                                                                                  fontWeight: FontWeight.w600,
-                                                                                ),
-                                                                          ),
-                                                                          Text(
-                                                                            'อัคคีภัย',
-                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Noto Sans Thai',
-                                                                                  color: FlutterFlowTheme.of(context).primaryText,
-                                                                                  fontSize: 13.0,
-                                                                                  letterSpacing: 0.0,
-                                                                                  fontWeight: FontWeight.w600,
-                                                                                ),
-                                                                          ),
-                                                                        ],
-                                                                      ),
-                                                                    ),
-                                                                    Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          8.0),
-                                                                      child:
-                                                                          Row(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        mainAxisAlignment:
-                                                                            MainAxisAlignment.spaceBetween,
-                                                                        children: [
-                                                                          Text(
-                                                                            'เเผนประกัน',
-                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Noto Sans Thai',
-                                                                                  color: FlutterFlowTheme.of(context).primaryText,
-                                                                                  fontSize: 13.0,
-                                                                                  letterSpacing: 0.0,
-                                                                                  fontWeight: FontWeight.w600,
-                                                                                ),
-                                                                          ),
-                                                                          Text(
-                                                                            '${getJsonField(
-                                                                              widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                              r'''$..leads_detail_house[:].package_name''',
-                                                                            ).toString()}',
-                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Noto Sans Thai',
-                                                                                  color: FlutterFlowTheme.of(context).primaryText,
-                                                                                  fontSize: 13.0,
-                                                                                  letterSpacing: 0.0,
-                                                                                  fontWeight: FontWeight.w600,
-                                                                                ),
-                                                                          ),
-                                                                        ],
-                                                                      ),
-                                                                    ),
-                                                                    Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          8.0),
-                                                                      child:
-                                                                          Row(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        mainAxisAlignment:
-                                                                            MainAxisAlignment.spaceBetween,
-                                                                        crossAxisAlignment:
-                                                                            CrossAxisAlignment.start,
-                                                                        children: [
-                                                                          Expanded(
-                                                                            flex:
-                                                                                1,
-                                                                            child:
-                                                                                Text(
-                                                                              'สถานะการดำเนินงาน',
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: 'Noto Sans Thai',
-                                                                                    color: FlutterFlowTheme.of(context).primaryText,
-                                                                                    fontSize: 13.0,
-                                                                                    letterSpacing: 0.0,
-                                                                                  ),
-                                                                            ),
-                                                                          ),
-                                                                          Expanded(
-                                                                            child:
-                                                                                Align(
-                                                                              alignment: AlignmentDirectional(1.0, 0.0),
-                                                                              child: Text(
-                                                                                '${'ปฏิเสธ' != functions.checkNullValueAndReturn('${getJsonField(
-                                                                                      widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                                      r'''$..leads_detail_house[:].insurer_status''',
-                                                                                    ).toString()}') ? getJsonField(
-                                                                                    widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                                    r'''$..quotation_status''',
-                                                                                  ).toString() : functions.checkNullValueAndReturn(getJsonField(
-                                                                                    widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                                    r'''$..leads_detail_house[:].insurer_status''',
-                                                                                  ).toString())}',
-                                                                                textAlign: TextAlign.end,
-                                                                                maxLines: 2,
-                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      fontFamily: 'Noto Sans Thai',
-                                                                                      color: FlutterFlowTheme.of(context).primaryText,
-                                                                                      fontSize: 13.0,
-                                                                                      letterSpacing: 0.0,
-                                                                                    ),
-                                                                              ),
-                                                                            ),
-                                                                          ),
-                                                                        ],
-                                                                      ),
-                                                                    ),
-                                                                    Row(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      mainAxisAlignment:
-                                                                          MainAxisAlignment
-                                                                              .spaceBetween,
-                                                                      children: [
-                                                                        Text(
-                                                                          'ใบเสนอราคา',
+                                                                  child: Row(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .spaceBetween,
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
+                                                                    children: [
+                                                                      Expanded(
+                                                                        flex: 1,
+                                                                        child:
+                                                                            Text(
+                                                                          'สถานะการดำเนินงาน',
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
@@ -1216,32 +1173,295 @@ class _MakeFireInsuranceListPageWidgetState
                                                                                 letterSpacing: 0.0,
                                                                               ),
                                                                         ),
-                                                                        FFButtonWidget(
+                                                                      ),
+                                                                      Expanded(
+                                                                        child:
+                                                                            Align(
+                                                                          alignment: AlignmentDirectional(
+                                                                              1.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Text(
+                                                                            '${'ปฏิเสธ' != functions.checkNullValueAndReturn('${getJsonField(
+                                                                                  widget!.list?.elementAtOrNull(leadListItemIndex),
+                                                                                  r'''$..leads_detail_house[:].insurer_status''',
+                                                                                ).toString()}') ? getJsonField(
+                                                                                widget!.list?.elementAtOrNull(leadListItemIndex),
+                                                                                r'''$..quotation_status''',
+                                                                              ).toString() : functions.checkNullValueAndReturn(getJsonField(
+                                                                                widget!.list?.elementAtOrNull(leadListItemIndex),
+                                                                                r'''$..leads_detail_house[:].insurer_status''',
+                                                                              ).toString())}',
+                                                                            textAlign:
+                                                                                TextAlign.end,
+                                                                            maxLines:
+                                                                                2,
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: 'Noto Sans Thai',
+                                                                                  color: FlutterFlowTheme.of(context).primaryText,
+                                                                                  fontSize: 13.0,
+                                                                                  letterSpacing: 0.0,
+                                                                                ),
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                                Row(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .spaceBetween,
+                                                                  children: [
+                                                                    Text(
+                                                                      'ใบเสนอราคา',
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Noto Sans Thai',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primaryText,
+                                                                            fontSize:
+                                                                                13.0,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
+                                                                    ),
+                                                                    FFButtonWidget(
+                                                                      onPressed:
+                                                                          () async {
+                                                                        FFAppState().jsonTemp = (widget!
+                                                                            .list!
+                                                                            .elementAtOrNull(leadListItemIndex))!;
+                                                                        safeSetState(
+                                                                            () {});
+
+                                                                        context
+                                                                            .pushNamed(
+                                                                          'QuotationCopy',
+                                                                          queryParameters:
+                                                                              {
+                                                                            'quotation':
+                                                                                serializeParam(
+                                                                              (getJsonField(
+                                                                                FFAppState().jsonTemp,
+                                                                                r'''$.pdf_quotation''',
+                                                                                true,
+                                                                              ) as List)
+                                                                                  .map<String>((s) => s.toString())
+                                                                                  .toList(),
+                                                                              ParamType.String,
+                                                                              isList: true,
+                                                                            ),
+                                                                          }.withoutNulls,
+                                                                        );
+                                                                      },
+                                                                      text:
+                                                                          'ดูใบเสนอราคา',
+                                                                      options:
+                                                                          FFButtonOptions(
+                                                                        width:
+                                                                            115.0,
+                                                                        height:
+                                                                            40.0,
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            24.0,
+                                                                            0.0,
+                                                                            24.0,
+                                                                            0.0),
+                                                                        iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                        color: Color(
+                                                                            0xFF5D78FF),
+                                                                        textStyle: FlutterFlowTheme.of(context)
+                                                                            .titleSmall
+                                                                            .override(
+                                                                              fontFamily: 'Noto Sans Thai',
+                                                                              color: Colors.white,
+                                                                              fontSize: 13.0,
+                                                                              letterSpacing: 0.0,
+                                                                              fontWeight: FontWeight.w500,
+                                                                            ),
+                                                                        elevation:
+                                                                            3.0,
+                                                                        borderSide:
+                                                                            BorderSide(
+                                                                          color:
+                                                                              Colors.transparent,
+                                                                          width:
+                                                                              1.0,
+                                                                        ),
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(15.0),
+                                                                      ),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          8.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                  child: Row(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .spaceBetween,
+                                                                    children: [
+                                                                      Text(
+                                                                        'กรมธรรม์',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Noto Sans Thai',
+                                                                              color: FlutterFlowTheme.of(context).primaryText,
+                                                                              fontSize: 13.0,
+                                                                              letterSpacing: 0.0,
+                                                                            ),
+                                                                      ),
+                                                                      Builder(
+                                                                        builder:
+                                                                            (context) =>
+                                                                                FFButtonWidget(
                                                                           onPressed:
                                                                               () async {
-                                                                            FFAppState().jsonTemp =
-                                                                                (widget!.list!.elementAtOrNull(leadListItemIndex))!;
-                                                                            safeSetState(() {});
-
-                                                                            context.pushNamed(
-                                                                              'QuotationCopy',
-                                                                              queryParameters: {
-                                                                                'quotation': serializeParam(
-                                                                                  (getJsonField(
-                                                                                    FFAppState().jsonTemp,
-                                                                                    r'''$.pdf_quotation''',
-                                                                                    true,
-                                                                                  ) as List)
-                                                                                      .map<String>((s) => s.toString())
-                                                                                      .toList(),
-                                                                                  ParamType.String,
-                                                                                  isList: true,
-                                                                                ),
-                                                                              }.withoutNulls,
+                                                                            var _shouldSetState =
+                                                                                false;
+                                                                            _model.getFileVmiButton =
+                                                                                await GetFileVmiApiCall.call(
+                                                                              apiUrl: FFAppState().apiUrlInsuranceAppState,
+                                                                              token: FFAppState().accessToken,
+                                                                              quotationId: getJsonField(
+                                                                                widget!.list?.elementAtOrNull(leadListItemIndex),
+                                                                                r'''$.quotation_id''',
+                                                                              ).toString(),
+                                                                              ownerId: FFAppState().employeeID,
                                                                             );
+
+                                                                            _shouldSetState =
+                                                                                true;
+                                                                            if ((_model.getFileVmiButton?.statusCode ?? 200) !=
+                                                                                200) {
+                                                                              await showDialog(
+                                                                                context: context,
+                                                                                builder: (alertDialogContext) {
+                                                                                  return WebViewAware(
+                                                                                    child: AlertDialog(
+                                                                                      content: Text('พบข้อผิดพลาดConnection (${(_model.getFileVmiButton?.statusCode ?? 200).toString()})'),
+                                                                                      actions: [
+                                                                                        TextButton(
+                                                                                          onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                          child: Text('Ok'),
+                                                                                        ),
+                                                                                      ],
+                                                                                    ),
+                                                                                  );
+                                                                                },
+                                                                              );
+                                                                              if (_shouldSetState)
+                                                                                safeSetState(() {});
+                                                                              return;
+                                                                            }
+                                                                            if (GetFileVmiApiCall.statusLayer1(
+                                                                                  (_model.getFileVmiButton?.jsonBody ?? ''),
+                                                                                ) !=
+                                                                                200) {
+                                                                              await showDialog(
+                                                                                context: context,
+                                                                                builder: (alertDialogContext) {
+                                                                                  return WebViewAware(
+                                                                                    child: AlertDialog(
+                                                                                      content: Text(GetFileVmiApiCall.messageLayer1(
+                                                                                        (_model.getFileVmiButton?.jsonBody ?? ''),
+                                                                                      )!),
+                                                                                      actions: [
+                                                                                        TextButton(
+                                                                                          onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                          child: Text('Ok'),
+                                                                                        ),
+                                                                                      ],
+                                                                                    ),
+                                                                                  );
+                                                                                },
+                                                                              );
+                                                                              if (_shouldSetState)
+                                                                                safeSetState(() {});
+                                                                              return;
+                                                                            }
+                                                                            if (('${getJsonField(
+                                                                                      widget!.list?.elementAtOrNull(leadListItemIndex),
+                                                                                      r'''$.insurer_short_name''',
+                                                                                    ).toString()}' ==
+                                                                                    'TNI') &&
+                                                                                ('${getJsonField(
+                                                                                      widget!.list?.elementAtOrNull(leadListItemIndex),
+                                                                                      r'''$.cover_type_name''',
+                                                                                    ).toString()}' ==
+                                                                                    'ชั้น 1') &&
+                                                                                ('${getJsonField(
+                                                                                      widget!.list?.elementAtOrNull(leadListItemIndex),
+                                                                                      r'''$.quotation_type''',
+                                                                                    ).toString()}' ==
+                                                                                    'auto')) {
+                                                                              if (!isAndroid) {
+                                                                                await showDialog(
+                                                                                  context: context,
+                                                                                  builder: (dialogContext) {
+                                                                                    return Dialog(
+                                                                                      elevation: 0,
+                                                                                      insetPadding: EdgeInsets.zero,
+                                                                                      backgroundColor: Colors.transparent,
+                                                                                      alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                                      child: WebViewAware(
+                                                                                        child: GestureDetector(
+                                                                                          onTap: () {
+                                                                                            FocusScope.of(dialogContext).unfocus();
+                                                                                            FocusManager.instance.primaryFocus?.unfocus();
+                                                                                          },
+                                                                                          child: CustomDialogComponentCopyWidget(
+                                                                                            linkUrl: '${GetFileVmiApiCall.vmiDocumentUrl(
+                                                                                              (_model.getFileVmiButton?.jsonBody ?? ''),
+                                                                                            )}',
+                                                                                          ),
+                                                                                        ),
+                                                                                      ),
+                                                                                    );
+                                                                                  },
+                                                                                );
+
+                                                                                if (_shouldSetState) safeSetState(() {});
+                                                                                return;
+                                                                              }
+                                                                              await actions.urlLauncherAction(
+                                                                                '${GetFileVmiApiCall.vmiDocumentUrl(
+                                                                                  (_model.getFileVmiButton?.jsonBody ?? ''),
+                                                                                )}',
+                                                                                'android',
+                                                                              );
+                                                                              if (_shouldSetState)
+                                                                                safeSetState(() {});
+                                                                              return;
+                                                                            }
+                                                                            await launchURL('${GetFileVmiApiCall.vmiDocumentUrl(
+                                                                              (_model.getFileVmiButton?.jsonBody ?? ''),
+                                                                            )}');
+                                                                            if (_shouldSetState)
+                                                                              safeSetState(() {});
                                                                           },
                                                                           text:
-                                                                              'ดูใบเสนอราคา',
+                                                                              'ดูกรมธรรม์',
                                                                           options:
                                                                               FFButtonOptions(
                                                                             width:
@@ -1259,7 +1479,7 @@ class _MakeFireInsuranceListPageWidgetState
                                                                                 0.0,
                                                                                 0.0),
                                                                             color:
-                                                                                Color(0xFF5D78FF),
+                                                                                Color(0xFFA75194),
                                                                             textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                   fontFamily: 'Noto Sans Thai',
                                                                                   color: Colors.white,
@@ -1278,969 +1498,739 @@ class _MakeFireInsuranceListPageWidgetState
                                                                                 BorderRadius.circular(15.0),
                                                                           ),
                                                                         ),
-                                                                      ],
-                                                                    ),
-                                                                    Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
                                                                           0.0,
                                                                           8.0,
                                                                           0.0,
                                                                           0.0),
-                                                                      child:
-                                                                          Row(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        mainAxisAlignment:
-                                                                            MainAxisAlignment.spaceBetween,
-                                                                        children: [
-                                                                          Text(
-                                                                            'กรมธรรม์',
-                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Noto Sans Thai',
-                                                                                  color: FlutterFlowTheme.of(context).primaryText,
-                                                                                  fontSize: 13.0,
-                                                                                  letterSpacing: 0.0,
-                                                                                ),
-                                                                          ),
-                                                                          Builder(
-                                                                            builder: (context) =>
-                                                                                FFButtonWidget(
-                                                                              onPressed: () async {
-                                                                                var _shouldSetState = false;
-                                                                                _model.getFileVmiButton = await GetFileVmiApiCall.call(
-                                                                                  apiUrl: FFAppState().apiUrlInsuranceAppState,
-                                                                                  token: FFAppState().accessToken,
-                                                                                  quotationId: getJsonField(
-                                                                                    widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                                    r'''$.quotation_id''',
-                                                                                  ).toString(),
-                                                                                  ownerId: FFAppState().employeeID,
-                                                                                );
-
-                                                                                _shouldSetState = true;
-                                                                                if ((_model.getFileVmiButton?.statusCode ?? 200) != 200) {
-                                                                                  await showDialog(
-                                                                                    context: context,
-                                                                                    builder: (alertDialogContext) {
-                                                                                      return WebViewAware(
-                                                                                        child: AlertDialog(
-                                                                                          content: Text('พบข้อผิดพลาดConnection (${(_model.getFileVmiButton?.statusCode ?? 200).toString()})'),
-                                                                                          actions: [
-                                                                                            TextButton(
-                                                                                              onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                              child: Text('Ok'),
-                                                                                            ),
-                                                                                          ],
-                                                                                        ),
-                                                                                      );
-                                                                                    },
-                                                                                  );
-                                                                                  if (_shouldSetState) safeSetState(() {});
-                                                                                  return;
-                                                                                }
-                                                                                if (GetFileVmiApiCall.statusLayer1(
-                                                                                      (_model.getFileVmiButton?.jsonBody ?? ''),
-                                                                                    ) !=
-                                                                                    200) {
-                                                                                  await showDialog(
-                                                                                    context: context,
-                                                                                    builder: (alertDialogContext) {
-                                                                                      return WebViewAware(
-                                                                                        child: AlertDialog(
-                                                                                          content: Text(GetFileVmiApiCall.messageLayer1(
-                                                                                            (_model.getFileVmiButton?.jsonBody ?? ''),
-                                                                                          )!),
-                                                                                          actions: [
-                                                                                            TextButton(
-                                                                                              onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                              child: Text('Ok'),
-                                                                                            ),
-                                                                                          ],
-                                                                                        ),
-                                                                                      );
-                                                                                    },
-                                                                                  );
-                                                                                  if (_shouldSetState) safeSetState(() {});
-                                                                                  return;
-                                                                                }
-                                                                                if (('${getJsonField(
-                                                                                          widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                                          r'''$.insurer_short_name''',
-                                                                                        ).toString()}' ==
-                                                                                        'TNI') &&
-                                                                                    ('${getJsonField(
-                                                                                          widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                                          r'''$.cover_type_name''',
-                                                                                        ).toString()}' ==
-                                                                                        'ชั้น 1') &&
-                                                                                    ('${getJsonField(
-                                                                                          widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                                          r'''$.quotation_type''',
-                                                                                        ).toString()}' ==
-                                                                                        'auto')) {
-                                                                                  if (!isAndroid) {
-                                                                                    await showDialog(
-                                                                                      context: context,
-                                                                                      builder: (dialogContext) {
-                                                                                        return Dialog(
-                                                                                          elevation: 0,
-                                                                                          insetPadding: EdgeInsets.zero,
-                                                                                          backgroundColor: Colors.transparent,
-                                                                                          alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
-                                                                                          child: WebViewAware(
-                                                                                            child: GestureDetector(
-                                                                                              onTap: () {
-                                                                                                FocusScope.of(dialogContext).unfocus();
-                                                                                                FocusManager.instance.primaryFocus?.unfocus();
-                                                                                              },
-                                                                                              child: CustomDialogComponentCopyWidget(
-                                                                                                linkUrl: '${GetFileVmiApiCall.vmiDocumentUrl(
-                                                                                                  (_model.getFileVmiButton?.jsonBody ?? ''),
-                                                                                                )}',
-                                                                                              ),
-                                                                                            ),
-                                                                                          ),
-                                                                                        );
-                                                                                      },
-                                                                                    );
-
-                                                                                    if (_shouldSetState) safeSetState(() {});
-                                                                                    return;
-                                                                                  }
-                                                                                  await actions.urlLauncherAction(
-                                                                                    '${GetFileVmiApiCall.vmiDocumentUrl(
-                                                                                      (_model.getFileVmiButton?.jsonBody ?? ''),
-                                                                                    )}',
-                                                                                    'android',
-                                                                                  );
-                                                                                  if (_shouldSetState) safeSetState(() {});
-                                                                                  return;
-                                                                                }
-                                                                                await launchURL('${GetFileVmiApiCall.vmiDocumentUrl(
-                                                                                  (_model.getFileVmiButton?.jsonBody ?? ''),
-                                                                                )}');
-                                                                                if (_shouldSetState) safeSetState(() {});
-                                                                              },
-                                                                              text: 'ดูกรมธรรม์',
-                                                                              options: FFButtonOptions(
-                                                                                width: 115.0,
-                                                                                height: 40.0,
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                                                                                iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                color: Color(0xFFA75194),
-                                                                                textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                      fontFamily: 'Noto Sans Thai',
-                                                                                      color: Colors.white,
-                                                                                      fontSize: 13.0,
-                                                                                      letterSpacing: 0.0,
-                                                                                      fontWeight: FontWeight.w500,
-                                                                                    ),
-                                                                                elevation: 3.0,
-                                                                                borderSide: BorderSide(
-                                                                                  color: Colors.transparent,
-                                                                                  width: 1.0,
-                                                                                ),
-                                                                                borderRadius: BorderRadius.circular(15.0),
-                                                                              ),
-                                                                            ),
-                                                                          ),
-                                                                        ],
-                                                                      ),
-                                                                    ),
-                                                                    Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          8.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                      child:
-                                                                          Row(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        mainAxisAlignment:
-                                                                            MainAxisAlignment.end,
-                                                                        children: [
-                                                                          FFButtonWidget(
-                                                                            onPressed:
-                                                                                () async {
-                                                                              var _shouldSetState = false;
-                                                                              _model.getHistory = await GetNonePackageHistoryAPICall.call(
-                                                                                token: FFAppState().accessToken,
-                                                                                quotationId: getJsonField(
-                                                                                  widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                                  r'''$.quotation_id''',
-                                                                                ).toString(),
-                                                                                apiUrl: FFAppState().apiUrlInsuranceAppState,
-                                                                              );
-
-                                                                              _shouldSetState = true;
-                                                                              if ((_model.getHistory?.statusCode ?? 200) != 200) {
-                                                                                await showDialog(
-                                                                                  context: context,
-                                                                                  builder: (alertDialogContext) {
-                                                                                    return WebViewAware(
-                                                                                      child: AlertDialog(
-                                                                                        content: Text('พบข้อผิดพลาดConnection (${(_model.getHistory?.statusCode ?? 200).toString()})'),
-                                                                                        actions: [
-                                                                                          TextButton(
-                                                                                            onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                            child: Text('Ok'),
-                                                                                          ),
-                                                                                        ],
-                                                                                      ),
-                                                                                    );
-                                                                                  },
-                                                                                );
-                                                                                if (_shouldSetState) safeSetState(() {});
-                                                                                return;
-                                                                              }
-                                                                              if (GetNonePackageHistoryAPICall.statusLayer1(
-                                                                                    (_model.getHistory?.jsonBody ?? ''),
-                                                                                  ) !=
-                                                                                  200) {
-                                                                                await showDialog(
-                                                                                  context: context,
-                                                                                  builder: (alertDialogContext) {
-                                                                                    return WebViewAware(
-                                                                                      child: AlertDialog(
-                                                                                        content: Text(GetNonePackageHistoryAPICall.messageLayer1(
-                                                                                          (_model.getHistory?.jsonBody ?? ''),
-                                                                                        )!),
-                                                                                        actions: [
-                                                                                          TextButton(
-                                                                                            onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                            child: Text('Ok'),
-                                                                                          ),
-                                                                                        ],
-                                                                                      ),
-                                                                                    );
-                                                                                  },
-                                                                                );
-                                                                                if (_shouldSetState) safeSetState(() {});
-                                                                                return;
-                                                                              }
-                                                                              await showModalBottomSheet(
-                                                                                isScrollControlled: true,
-                                                                                backgroundColor: Colors.transparent,
-                                                                                enableDrag: false,
-                                                                                context: context,
-                                                                                builder: (context) {
-                                                                                  return WebViewAware(
-                                                                                    child: GestureDetector(
-                                                                                      onTap: () {
-                                                                                        FocusScope.of(context).unfocus();
-                                                                                        FocusManager.instance.primaryFocus?.unfocus();
-                                                                                      },
-                                                                                      child: Padding(
-                                                                                        padding: MediaQuery.viewInsetsOf(context),
-                                                                                        child: Container(
-                                                                                          height: MediaQuery.sizeOf(context).height * 0.7,
-                                                                                          child: NonePackageShowStatusComponentWidget(
-                                                                                            quotationStatusList: GetNonePackageHistoryAPICall.quotationStatus(
-                                                                                              (_model.getHistory?.jsonBody ?? ''),
-                                                                                            )?.map((e) => e.toString()).toList(),
-                                                                                            updateAtList: GetNonePackageHistoryAPICall.updateAt(
-                                                                                              (_model.getHistory?.jsonBody ?? ''),
-                                                                                            )?.map((e) => e.toString()).toList(),
-                                                                                            updaterList: GetNonePackageHistoryAPICall.updaterName(
-                                                                                              (_model.getHistory?.jsonBody ?? ''),
-                                                                                            )?.map((e) => e.toString()).toList(),
-                                                                                            reasonNameList: GetNonePackageHistoryAPICall.reasonName(
-                                                                                              (_model.getHistory?.jsonBody ?? ''),
-                                                                                            )?.map((e) => e.toString()).toList(),
-                                                                                          ),
-                                                                                        ),
-                                                                                      ),
-                                                                                    ),
-                                                                                  );
-                                                                                },
-                                                                              ).then((value) => safeSetState(() {}));
-
-                                                                              if (_shouldSetState)
-                                                                                safeSetState(() {});
-                                                                            },
-                                                                            text:
-                                                                                'ติดตามงาน',
-                                                                            options:
-                                                                                FFButtonOptions(
-                                                                              width: 115.0,
-                                                                              height: 40.0,
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                              color: FlutterFlowTheme.of(context).secondary,
-                                                                              textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                    fontFamily: 'Noto Sans Thai',
-                                                                                    color: Colors.white,
-                                                                                    fontSize: 13.0,
-                                                                                    letterSpacing: 0.0,
-                                                                                    fontWeight: FontWeight.w500,
-                                                                                  ),
-                                                                              elevation: 3.0,
-                                                                              borderSide: BorderSide(
-                                                                                color: Colors.transparent,
-                                                                                width: 1.0,
-                                                                              ),
-                                                                              borderRadius: BorderRadius.circular(15.0),
-                                                                            ),
-                                                                          ),
-                                                                        ],
-                                                                      ),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      20.0,
-                                                                      0.0,
-                                                                      20.0,
-                                                                      20.0),
-                                                          child: Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .spaceBetween,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .center,
-                                                            children: [
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            15.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                child: Column(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  crossAxisAlignment:
-                                                                      CrossAxisAlignment
-                                                                          .start,
-                                                                  children: [
-                                                                    Text(
-                                                                      'ราคาเบี้ยประกัน/ปี (ไม่รวมภาษีเเละอากร)',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Noto Sans Thai',
-                                                                            fontSize:
-                                                                                13.0,
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                          ),
-                                                                    ),
-                                                                    Text(
-                                                                      '${'' != getJsonField(
-                                                                            widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                            r'''$..leads_detail_house[:].net_premium_total''',
-                                                                          ).toString() ? getJsonField(
-                                                                          widget!
-                                                                              .list
-                                                                              ?.elementAtOrNull(leadListItemIndex),
-                                                                          r'''$..leads_detail_house[:].net_premium_total''',
-                                                                        ).toString() : '-'}',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Noto Sans Thai',
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).primaryText,
-                                                                            fontSize:
-                                                                                13.0,
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            fontWeight:
-                                                                                FontWeight.w600,
-                                                                          ),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                              ),
-                                                              if ('CMI' ==
-                                                                  getJsonField(
-                                                                    widget!.list
-                                                                        ?.elementAtOrNull(
-                                                                            leadListItemIndex),
-                                                                    r'''$..sub_product''',
-                                                                  ).toString())
-                                                                Container(
-                                                                  width: 100.0,
-                                                                  height: 40.0,
-                                                                  decoration:
-                                                                      BoxDecoration(),
-                                                                ),
-                                                              FFButtonWidget(
-                                                                onPressed:
-                                                                    () async {
-                                                                  var _shouldSetState =
-                                                                      false;
-                                                                  if (columnHideInAppContentRecord!
-                                                                      .isShowContent) {}
-                                                                  FFAppState()
-                                                                          .nonePackageFlagCarrier =
-                                                                      false;
-                                                                  FFAppState()
-                                                                          .nonePackageVehicleType =
-                                                                      'กรุณาเลือกประเภทรถ';
-                                                                  FFAppState()
-                                                                          .nonePackageBrandName =
-                                                                      'กรุณาเลือกยี่ห้อรถ';
-                                                                  FFAppState()
-                                                                      .nonePackageBrandId = '';
-                                                                  FFAppState()
-                                                                          .nonePackageModelName =
-                                                                      'กรุณากรอกรุ่นรถ';
-                                                                  FFAppState()
-                                                                      .nonePackageModelCode = '';
-                                                                  FFAppState()
-                                                                          .nonePackageYear =
-                                                                      'กรุณาเลือกปีจดทะเบียน';
-                                                                  FFAppState()
-                                                                      .nonePackageUsedTypeId = '';
-                                                                  FFAppState()
-                                                                      .nonePackageSearchModelList = [];
-                                                                  FFAppState()
-                                                                      .nonePackageUsedTypeCode = '';
-                                                                  FFAppState()
-                                                                          .nonePackageUsedTypeName =
-                                                                      'กรุณาเลือกลักษณะการใช้รถ';
-                                                                  FFAppState()
-                                                                          .nonePackageCusFullname =
-                                                                      'กรุณากรอกชื่อ';
-                                                                  FFAppState()
-                                                                          .nonePackageCusPhone =
-                                                                      'กรุณากรอกเบอร์โทรศัพท์';
-                                                                  FFAppState()
-                                                                      .nonePackagePlate = '';
-                                                                  FFAppState()
-                                                                          .nonePackageProvince =
-                                                                      'กรุณาเลือกจังหวัดจดทะเบียน';
-                                                                  FFAppState()
-                                                                      .nonePackageProvinceId = '';
-                                                                  FFAppState()
-                                                                          .nonePackageSumInsured =
-                                                                      'กรุณากรอกทุนประกัน';
-                                                                  FFAppState()
-                                                                          .nonePackageFlagAct =
-                                                                      true;
-                                                                  FFAppState()
-                                                                          .nonePackageIsBrandSelect =
-                                                                      false;
-                                                                  FFAppState()
-                                                                      .nonePackageSearchModelIdList = [];
-                                                                  FFAppState()
-                                                                          .nonePackageCarrierType =
-                                                                      'กรุณาเลือกประเภทตู้เหล็ก';
-                                                                  FFAppState()
-                                                                          .nonePackageFlagCoop =
-                                                                      false;
-                                                                  FFAppState()
-                                                                          .nonePackageTruckPart =
-                                                                      'กรุณาเลือกส่วนของรถบรรทุก';
-                                                                  FFAppState()
-                                                                          .nonePackageCusMembership =
-                                                                      'กรุณาเลือกประเภทลูกค้า';
-                                                                  FFAppState()
-                                                                          .nonePackageTruckCurrentPrice =
-                                                                      'กรุณากรอกราคาซื้อขายปัจจุบัน';
-                                                                  FFAppState()
-                                                                          .nonePackagePlateAdditional =
-                                                                      'กรุณากรอกเลขทะเบียนหางพ่วง';
-                                                                  FFAppState()
-                                                                          .nonePackageTruckCarryPurpose =
-                                                                      'กรุณากรอกรถใช้บรรทุกอะไร';
-                                                                  FFAppState()
-                                                                          .nonePackageTrailerSumInsured =
-                                                                      'กรุณากรอกทุนประกันหางพ่วง';
-                                                                  FFAppState()
-                                                                      .nonePackageCarrierPrice = '';
-                                                                  FFAppState()
-                                                                      .nonePackageInsurerIdList = [];
-                                                                  FFAppState()
-                                                                      .nonePackageInsurerCodeList = [];
-                                                                  FFAppState()
-                                                                      .nonePackageInsurerShortNameList = [];
-                                                                  FFAppState()
-                                                                      .nonePackageInsurerNameList = [];
-                                                                  FFAppState()
-                                                                      .nonePackageInsurerDisplayName = [];
-                                                                  FFAppState()
-                                                                      .nonePackageInsurerIdOutputList = [];
-                                                                  FFAppState()
-                                                                      .nonePackageInsurerCodeOutputList = [];
-                                                                  FFAppState()
-                                                                      .nonePackageInsurerShortNameOutputList = [];
-                                                                  FFAppState()
-                                                                      .nonePackageInsurerNameOutputList = [];
-                                                                  FFAppState()
-                                                                      .nonePackageReason = [];
-                                                                  FFAppState()
-                                                                      .nonePackageInsurerSelectedList = [];
-                                                                  FFAppState()
-                                                                      .nonePackageCoverTypeId = '';
-                                                                  FFAppState()
-                                                                      .nonePackageCoverTypeCode = '';
-                                                                  FFAppState()
-                                                                          .nonePackageCoverTypeName =
-                                                                      'กรุณาเลือกประเภทชั้นประกัน';
-                                                                  FFAppState()
-                                                                      .nonePackageGarageTypeId = '';
-                                                                  FFAppState()
-                                                                          .nonePackageGarageTypeName =
-                                                                      'กรุณาเลือกประเภทการซ่อม';
-                                                                  FFAppState()
-                                                                      .nonePackageGarageTypeCode = '';
-                                                                  FFAppState()
-                                                                          .nonePackageFlagRenew =
-                                                                      false;
-                                                                  FFAppState()
-                                                                          .nonePackageOldVmiExpDate =
-                                                                      'กรุณาเลือกวันที่หมดอายุประกันเดิม';
-                                                                  FFAppState()
-                                                                      .nonePackageOldVmi = '';
-                                                                  FFAppState()
-                                                                      .nonePackageOldVmiImageUrl = '';
-                                                                  FFAppState()
-                                                                      .nonePackageIdCardImageUrl = '';
-                                                                  FFAppState()
-                                                                      .nonePackageRenewImageUrlList = [];
-                                                                  FFAppState()
-                                                                      .nonePackageRenewImageCheckList = [];
-                                                                  FFAppState()
-                                                                          .nonePackageOldVmiImageUploadedCheck =
-                                                                      false;
-                                                                  FFAppState()
-                                                                          .nonePackageIdCardWatermarkUploadedCheck =
-                                                                      false;
-                                                                  FFAppState()
-                                                                          .buttonOrdinary =
-                                                                      false;
-                                                                  FFAppState()
-                                                                          .buttonCorporation =
-                                                                      false;
-                                                                  FFAppState()
-                                                                      .nonePackageCustomerType = '';
-                                                                  FFAppState()
-                                                                      .nonePackageInsurerDisplayNameOutput = '';
-                                                                  FFAppState()
-                                                                      .nonePackageImageOther = [];
-                                                                  FFAppState()
-                                                                      .nonePackageImageFront = [];
-                                                                  FFAppState()
-                                                                      .nonePackageImageRightFront = [];
-                                                                  FFAppState()
-                                                                      .nonePackageImageRight = [];
-                                                                  FFAppState()
-                                                                      .nonePackageImageRightRear = [];
-                                                                  FFAppState()
-                                                                      .nonePackageImageRear = [];
-                                                                  FFAppState()
-                                                                      .nonePackageImageLeftRear = [];
-                                                                  FFAppState()
-                                                                      .nonePackageImageLeft = [];
-                                                                  FFAppState()
-                                                                      .nonePackageImageLeftFront = [];
-                                                                  FFAppState()
-                                                                      .nonePackageImageRoof = [];
-                                                                  FFAppState()
-                                                                      .nonePackageTrailerImageFront = [];
-                                                                  FFAppState()
-                                                                      .nonePackageTrailerImageRightFront = [];
-                                                                  FFAppState()
-                                                                      .nonePackageTrailerImageRight = [];
-                                                                  FFAppState()
-                                                                      .nonePackageTrailerImageRightRear = [];
-                                                                  FFAppState()
-                                                                      .nonePackageTrailerImageRear = [];
-                                                                  FFAppState()
-                                                                      .nonePackageTrailerImageLeftRear = [];
-                                                                  FFAppState()
-                                                                      .nonePackageTrailerImageLeft = [];
-                                                                  FFAppState()
-                                                                      .nonePackageTrailerImageLeftFront = [];
-                                                                  FFAppState()
-                                                                      .nonePackageInsurerOutputIndex = 0;
-                                                                  FFAppState()
-                                                                      .nonePackageLeadId = '';
-                                                                  FFAppState()
-                                                                      .nonePackageLeadNo = '';
-                                                                  FFAppState()
-                                                                      .nonePackageCarImageUploadedList = [];
-                                                                  FFAppState()
-                                                                      .nonePackageImageOldVmi = [];
-                                                                  FFAppState()
-                                                                      .nonePackageImageCompanyBook = [];
-                                                                  FFAppState()
-                                                                      .nonePackageImageIdCard = [];
-                                                                  FFAppState()
-                                                                      .nonePackageImageBlueBook = [];
-                                                                  FFAppState()
-                                                                          .nonePackageCompanyBookImageUploadedCheck =
-                                                                      false;
-                                                                  FFAppState()
-                                                                      .nonePackageCompanyBookImageUrl = '';
-                                                                  FFAppState()
-                                                                      .nonePackageImageFrontUploaded = '';
-                                                                  FFAppState()
-                                                                      .nonePackageImageRightFrontUploaded = '';
-                                                                  FFAppState()
-                                                                      .nonePackageImageRightUploaded = '';
-                                                                  FFAppState()
-                                                                      .nonePackageImageRightRearUploaded = '';
-                                                                  FFAppState()
-                                                                      .nonePackageImageRearUploaded = '';
-                                                                  FFAppState()
-                                                                      .nonePackageImageLeftRearUploaded = '';
-                                                                  FFAppState()
-                                                                      .nonePackageImageLeftUploaded = '';
-                                                                  FFAppState()
-                                                                      .nonePackageImageLeftFrontUploaded = '';
-                                                                  FFAppState()
-                                                                      .nonePackageImageRoofUploaded = '';
-                                                                  FFAppState()
-                                                                      .nonePackageTrailerImageFrontUploaded = '';
-                                                                  FFAppState()
-                                                                      .nonePackageTrailerImageRightFrontUploaded = '';
-                                                                  FFAppState()
-                                                                      .nonePackageTrailerImageRightUploaded = '';
-                                                                  FFAppState()
-                                                                      .nonePackageTrailerImageRightRearUploaded = '';
-                                                                  FFAppState()
-                                                                      .nonePackageTrailerImageRearUploaded = '';
-                                                                  FFAppState()
-                                                                      .nonePackageTrailerImageLeftRearUploaded = '';
-                                                                  FFAppState()
-                                                                      .nonePackageTrailerImageLeftUploaded = '';
-                                                                  FFAppState()
-                                                                      .nonePackageTrailerImageLeftFrontUploaded = '';
-                                                                  FFAppState()
-                                                                      .nonePackageImageBlueBookUploaded = '';
-                                                                  FFAppState()
-                                                                      .nonePackageImageOther1 = '';
-                                                                  FFAppState()
-                                                                      .nonePackageImageOther2 = '';
-                                                                  FFAppState()
-                                                                      .nonePackageImageOther3 = '';
-                                                                  FFAppState()
-                                                                      .nonePackageImageOther4 = '';
-                                                                  FFAppState()
-                                                                      .nonePackageImageOther5 = '';
-                                                                  FFAppState()
-                                                                      .nonePackageImageOtherNameList = [];
-                                                                  FFAppState()
-                                                                      .nonePackageSelectedInsurerShortName = '';
-                                                                  FFAppState()
-                                                                      .nonePackageSelectedInsurerName = '';
-                                                                  FFAppState()
-                                                                      .nonePackageSelectedInsurerShortNameList = [];
-                                                                  FFAppState()
-                                                                      .nonePackageSelectedInsurerNameList = [];
-                                                                  FFAppState()
-                                                                      .nonePackageFlagOldVmi = '';
-                                                                  FFAppState()
-                                                                      .nonePackageWorkType = '';
-                                                                  safeSetState(
-                                                                      () {});
-                                                                  if (widget!
-                                                                          .checkVMI ==
-                                                                      '0') {
-                                                                    if (('เตรียมข้อมูล' !=
-                                                                            getJsonField(
-                                                                              widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                              r'''$.quotation_status''',
-                                                                            ).toString()) &&
-                                                                        ('รอตัดสินใจ' !=
-                                                                            getJsonField(
-                                                                              widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                              r'''$.quotation_status''',
-                                                                            ).toString()) &&
-                                                                        ('ส่งเรื่องขอใบเสนอราคา' !=
-                                                                            getJsonField(
-                                                                              widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                              r'''$.quotation_status''',
-                                                                            ).toString())) {
-                                                                      if (('อยู่ระหว่างตรวจสอบสภาพรถ' ==
-                                                                              getJsonField(
-                                                                                widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                                r'''$.quotation_status''',
-                                                                              ).toString()) ||
-                                                                          ('อนุมัติ' ==
-                                                                              getJsonField(
-                                                                                widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                                r'''$.quotation_status''',
-                                                                              ).toString()) ||
-                                                                          ('ไม่อนุมัติ' ==
-                                                                              getJsonField(
-                                                                                widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                                r'''$.quotation_status''',
-                                                                              ).toString()) ||
-                                                                          ('ส่งเรื่องให้บริษัทประกันพิจารณา' ==
-                                                                              getJsonField(
-                                                                                widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                                r'''$.quotation_status''',
-                                                                              ).toString()) ||
-                                                                          ('ยกเลิก' ==
-                                                                              getJsonField(
-                                                                                widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                                r'''$.quotation_status''',
-                                                                              ).toString()) ||
-                                                                          ('ขอคืนเงิน' ==
-                                                                              getJsonField(
-                                                                                widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                                r'''$.quotation_status''',
-                                                                              ).toString()) ||
-                                                                          ('โยกเงิน' ==
-                                                                              getJsonField(
-                                                                                widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                                r'''$.quotation_status''',
-                                                                              ).toString())) {
-                                                                        context
-                                                                            .pushNamed(
-                                                                          'insuranceInfoPage5',
-                                                                          queryParameters:
-                                                                              {
-                                                                            'quotationId':
-                                                                                serializeParam(
-                                                                              getJsonField(
-                                                                                widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                                r'''$.quotation_id''',
-                                                                              ).toString(),
-                                                                              ParamType.String,
-                                                                            ),
-                                                                            'leadDtlId':
-                                                                                serializeParam(
-                                                                              getJsonField(
-                                                                                widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                                r'''$.lead_dtl_id''',
-                                                                              ),
-                                                                              ParamType.int,
-                                                                            ),
-                                                                          }.withoutNulls,
-                                                                        );
-
-                                                                        if (_shouldSetState)
-                                                                          safeSetState(
-                                                                              () {});
-                                                                        return;
-                                                                      }
-
-                                                                      context
-                                                                          .pushNamed(
-                                                                        'insuranceInfoPage4_2',
-                                                                        queryParameters:
-                                                                            {
-                                                                          'quotationId':
-                                                                              serializeParam(
-                                                                            getJsonField(
+                                                                  child: Row(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .end,
+                                                                    children: [
+                                                                      FFButtonWidget(
+                                                                        onPressed:
+                                                                            () async {
+                                                                          var _shouldSetState =
+                                                                              false;
+                                                                          _model.getHistory =
+                                                                              await GetNonePackageHistoryAPICall.call(
+                                                                            token:
+                                                                                FFAppState().accessToken,
+                                                                            quotationId:
+                                                                                getJsonField(
                                                                               widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                               r'''$.quotation_id''',
                                                                             ).toString(),
-                                                                            ParamType.String,
-                                                                          ),
-                                                                          'leadDetailId':
-                                                                              serializeParam(
-                                                                            getJsonField(
-                                                                              widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                              r'''$.lead_dtl_id''',
-                                                                            ),
-                                                                            ParamType.int,
-                                                                          ),
-                                                                        }.withoutNulls,
-                                                                      );
-
-                                                                      if (_shouldSetState)
-                                                                        safeSetState(
-                                                                            () {});
-                                                                      return;
-                                                                    } else {
-                                                                      if ('auto' ==
-                                                                          getJsonField(
-                                                                            widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                            r'''$.quotation_type''',
-                                                                          ).toString()) {
-                                                                        context
-                                                                            .pushNamed(
-                                                                          'insuranceInfoPage1',
-                                                                          queryParameters:
-                                                                              {
-                                                                            'quotationId':
-                                                                                serializeParam(
-                                                                              getJsonField(
-                                                                                widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                                r'''$.quotation_id''',
-                                                                              ).toString(),
-                                                                              ParamType.String,
-                                                                            ),
-                                                                            'leadDtailId':
-                                                                                serializeParam(
-                                                                              getJsonField(
-                                                                                widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                                r'''$.lead_dtl_id''',
-                                                                              ),
-                                                                              ParamType.int,
-                                                                            ),
-                                                                          }.withoutNulls,
-                                                                        );
-
-                                                                        if (_shouldSetState)
-                                                                          safeSetState(
-                                                                              () {});
-                                                                        return;
-                                                                      } else {
-                                                                        if ('รอตัดสินใจ' ==
-                                                                            getJsonField(
-                                                                              widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                              r'''$.quotation_status''',
-                                                                            ).toString()) {
-                                                                          FFAppState().insuranceInfoPage1SaveDataCheckBool =
-                                                                              false;
-                                                                          FFAppState().insuranceInfoPage2SaveDataCheckBool =
-                                                                              false;
-                                                                          FFAppState().insuranceInfoPage3SaveDataCheckBool =
-                                                                              false;
-                                                                          safeSetState(
-                                                                              () {});
-                                                                        } else {
-                                                                          context
-                                                                              .pushNamed(
-                                                                            'insuranceInfoPage1',
-                                                                            queryParameters:
-                                                                                {
-                                                                              'quotationId': serializeParam(
-                                                                                getJsonField(
-                                                                                  widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                                  r'''$.quotation_id''',
-                                                                                ).toString(),
-                                                                                ParamType.String,
-                                                                              ),
-                                                                              'leadDtailId': serializeParam(
-                                                                                getJsonField(
-                                                                                  widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                                  r'''$.lead_dtl_id''',
-                                                                                ),
-                                                                                ParamType.int,
-                                                                              ),
-                                                                            }.withoutNulls,
+                                                                            apiUrl:
+                                                                                FFAppState().apiUrlInsuranceAppState,
                                                                           );
+
+                                                                          _shouldSetState =
+                                                                              true;
+                                                                          if ((_model.getHistory?.statusCode ?? 200) !=
+                                                                              200) {
+                                                                            await showDialog(
+                                                                              context: context,
+                                                                              builder: (alertDialogContext) {
+                                                                                return WebViewAware(
+                                                                                  child: AlertDialog(
+                                                                                    content: Text('พบข้อผิดพลาดConnection (${(_model.getHistory?.statusCode ?? 200).toString()})'),
+                                                                                    actions: [
+                                                                                      TextButton(
+                                                                                        onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                        child: Text('Ok'),
+                                                                                      ),
+                                                                                    ],
+                                                                                  ),
+                                                                                );
+                                                                              },
+                                                                            );
+                                                                            if (_shouldSetState)
+                                                                              safeSetState(() {});
+                                                                            return;
+                                                                          }
+                                                                          if (GetNonePackageHistoryAPICall.statusLayer1(
+                                                                                (_model.getHistory?.jsonBody ?? ''),
+                                                                              ) !=
+                                                                              200) {
+                                                                            await showDialog(
+                                                                              context: context,
+                                                                              builder: (alertDialogContext) {
+                                                                                return WebViewAware(
+                                                                                  child: AlertDialog(
+                                                                                    content: Text(GetNonePackageHistoryAPICall.messageLayer1(
+                                                                                      (_model.getHistory?.jsonBody ?? ''),
+                                                                                    )!),
+                                                                                    actions: [
+                                                                                      TextButton(
+                                                                                        onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                        child: Text('Ok'),
+                                                                                      ),
+                                                                                    ],
+                                                                                  ),
+                                                                                );
+                                                                              },
+                                                                            );
+                                                                            if (_shouldSetState)
+                                                                              safeSetState(() {});
+                                                                            return;
+                                                                          }
+                                                                          await showModalBottomSheet(
+                                                                            isScrollControlled:
+                                                                                true,
+                                                                            backgroundColor:
+                                                                                Colors.transparent,
+                                                                            enableDrag:
+                                                                                false,
+                                                                            context:
+                                                                                context,
+                                                                            builder:
+                                                                                (context) {
+                                                                              return WebViewAware(
+                                                                                child: GestureDetector(
+                                                                                  onTap: () {
+                                                                                    FocusScope.of(context).unfocus();
+                                                                                    FocusManager.instance.primaryFocus?.unfocus();
+                                                                                  },
+                                                                                  child: Padding(
+                                                                                    padding: MediaQuery.viewInsetsOf(context),
+                                                                                    child: Container(
+                                                                                      height: MediaQuery.sizeOf(context).height * 0.7,
+                                                                                      child: NonePackageShowStatusComponentWidget(
+                                                                                        quotationStatusList: GetNonePackageHistoryAPICall.quotationStatus(
+                                                                                          (_model.getHistory?.jsonBody ?? ''),
+                                                                                        )?.map((e) => e.toString()).toList(),
+                                                                                        updateAtList: GetNonePackageHistoryAPICall.updateAt(
+                                                                                          (_model.getHistory?.jsonBody ?? ''),
+                                                                                        )?.map((e) => e.toString()).toList(),
+                                                                                        updaterList: GetNonePackageHistoryAPICall.updaterName(
+                                                                                          (_model.getHistory?.jsonBody ?? ''),
+                                                                                        )?.map((e) => e.toString()).toList(),
+                                                                                        reasonNameList: GetNonePackageHistoryAPICall.reasonName(
+                                                                                          (_model.getHistory?.jsonBody ?? ''),
+                                                                                        )?.map((e) => e.toString()).toList(),
+                                                                                      ),
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                              );
+                                                                            },
+                                                                          ).then((value) =>
+                                                                              safeSetState(() {}));
 
                                                                           if (_shouldSetState)
                                                                             safeSetState(() {});
-                                                                          return;
-                                                                        }
-
-                                                                        context
-                                                                            .pushNamed(
-                                                                          'NonePackageSelectedInsurerPage',
-                                                                          queryParameters:
-                                                                              {
-                                                                            'leadID':
-                                                                                serializeParam(
-                                                                              getJsonField(
-                                                                                widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                                r'''$.lead_id''',
-                                                                              ).toString(),
-                                                                              ParamType.String,
-                                                                            ),
-                                                                            'coverTypeName':
-                                                                                serializeParam(
-                                                                              getJsonField(
-                                                                                widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                                r'''$.cover_type_name''',
-                                                                              ).toString(),
-                                                                              ParamType.String,
-                                                                            ),
-                                                                            'garageTypeName':
-                                                                                serializeParam(
-                                                                              getJsonField(
-                                                                                widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                                r'''$.garage_type_name''',
-                                                                              ).toString(),
-                                                                              ParamType.String,
-                                                                            ),
-                                                                            'insurerShortName':
-                                                                                serializeParam(
-                                                                              getJsonField(
-                                                                                widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                                r'''$.insurer_short_name''',
-                                                                              ).toString(),
-                                                                              ParamType.String,
-                                                                            ),
-                                                                            'insurerName':
-                                                                                serializeParam(
-                                                                              getJsonField(
-                                                                                widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                                r'''$.insurer_name''',
-                                                                              ).toString(),
-                                                                              ParamType.String,
-                                                                            ),
-                                                                            'quotationId':
-                                                                                serializeParam(
-                                                                              getJsonField(
-                                                                                widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                                r'''$.quotation_id''',
-                                                                              ).toString(),
-                                                                              ParamType.String,
-                                                                            ),
-                                                                            'leadDtlId':
-                                                                                serializeParam(
-                                                                              getJsonField(
-                                                                                widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                                r'''$.lead_dtl_id''',
+                                                                        },
+                                                                        text:
+                                                                            'ติดตามงาน',
+                                                                        options:
+                                                                            FFButtonOptions(
+                                                                          width:
+                                                                              115.0,
+                                                                          height:
+                                                                              40.0,
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              24.0,
+                                                                              0.0,
+                                                                              24.0,
+                                                                              0.0),
+                                                                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              0.0,
+                                                                              0.0,
+                                                                              0.0),
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).secondary,
+                                                                          textStyle: FlutterFlowTheme.of(context)
+                                                                              .titleSmall
+                                                                              .override(
+                                                                                fontFamily: 'Noto Sans Thai',
+                                                                                color: Colors.white,
+                                                                                fontSize: 13.0,
+                                                                                letterSpacing: 0.0,
+                                                                                fontWeight: FontWeight.w500,
                                                                               ),
-                                                                              ParamType.int,
-                                                                            ),
-                                                                            'actFlag':
-                                                                                serializeParam(
-                                                                              '${getJsonField(
-                                                                                    widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                                    r'''$.flg_act''',
-                                                                                  ).toString()}' ==
-                                                                                  '1',
-                                                                              ParamType.bool,
-                                                                            ),
-                                                                            'masterActAmount':
-                                                                                serializeParam(
-                                                                              '${getJsonField(
-                                                                                        widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                                        r'''$.master_act_amount''',
-                                                                                      ).toString()}' ==
-                                                                                      'null'
-                                                                                  ? ''
-                                                                                  : '${getJsonField(
-                                                                                      widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                                      r'''$.master_act_amount''',
-                                                                                    ).toString()}',
-                                                                              ParamType.String,
-                                                                            ),
-                                                                          }.withoutNulls,
-                                                                        );
-                                                                      }
-                                                                    }
-                                                                  } else {
-                                                                    if ('CMI' ==
+                                                                          elevation:
+                                                                              3.0,
+                                                                          borderSide:
+                                                                              BorderSide(
+                                                                            color:
+                                                                                Colors.transparent,
+                                                                            width:
+                                                                                1.0,
+                                                                          ),
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(15.0),
+                                                                        ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  20.0,
+                                                                  0.0,
+                                                                  20.0,
+                                                                  20.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .center,
+                                                        children: [
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        15.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child: Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                Text(
+                                                                  'ราคาเบี้ยประกัน/ปี (ไม่รวมภาษีเเละอากร)',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Noto Sans Thai',
+                                                                        fontSize:
+                                                                            13.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
+                                                                ),
+                                                                Text(
+                                                                  '${'' != getJsonField(
+                                                                        widget!
+                                                                            .list
+                                                                            ?.elementAtOrNull(leadListItemIndex),
+                                                                        r'''$..leads_detail_house[:].net_premium_total''',
+                                                                      ).toString() ? getJsonField(
+                                                                      widget!
+                                                                          .list
+                                                                          ?.elementAtOrNull(
+                                                                              leadListItemIndex),
+                                                                      r'''$..leads_detail_house[:].net_premium_total''',
+                                                                    ).toString() : '-'}',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Noto Sans Thai',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primaryText,
+                                                                        fontSize:
+                                                                            13.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight:
+                                                                            FontWeight.w600,
+                                                                      ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                          if ('CMI' ==
+                                                              getJsonField(
+                                                                widget!.list
+                                                                    ?.elementAtOrNull(
+                                                                        leadListItemIndex),
+                                                                r'''$..sub_product''',
+                                                              ).toString())
+                                                            Container(
+                                                              width: 100.0,
+                                                              height: 40.0,
+                                                              decoration:
+                                                                  BoxDecoration(),
+                                                            ),
+                                                          FFButtonWidget(
+                                                            onPressed:
+                                                                () async {
+                                                              var _shouldSetState =
+                                                                  false;
+                                                              FFAppState()
+                                                                      .nonePackageFlagCarrier =
+                                                                  false;
+                                                              FFAppState()
+                                                                      .nonePackageVehicleType =
+                                                                  'กรุณาเลือกประเภทรถ';
+                                                              FFAppState()
+                                                                      .nonePackageBrandName =
+                                                                  'กรุณาเลือกยี่ห้อรถ';
+                                                              FFAppState()
+                                                                  .nonePackageBrandId = '';
+                                                              FFAppState()
+                                                                      .nonePackageModelName =
+                                                                  'กรุณากรอกรุ่นรถ';
+                                                              FFAppState()
+                                                                  .nonePackageModelCode = '';
+                                                              FFAppState()
+                                                                      .nonePackageYear =
+                                                                  'กรุณาเลือกปีจดทะเบียน';
+                                                              FFAppState()
+                                                                  .nonePackageUsedTypeId = '';
+                                                              FFAppState()
+                                                                  .nonePackageSearchModelList = [];
+                                                              FFAppState()
+                                                                  .nonePackageUsedTypeCode = '';
+                                                              FFAppState()
+                                                                      .nonePackageUsedTypeName =
+                                                                  'กรุณาเลือกลักษณะการใช้รถ';
+                                                              FFAppState()
+                                                                      .nonePackageCusFullname =
+                                                                  'กรุณากรอกชื่อ';
+                                                              FFAppState()
+                                                                      .nonePackageCusPhone =
+                                                                  'กรุณากรอกเบอร์โทรศัพท์';
+                                                              FFAppState()
+                                                                  .nonePackagePlate = '';
+                                                              FFAppState()
+                                                                      .nonePackageProvince =
+                                                                  'กรุณาเลือกจังหวัดจดทะเบียน';
+                                                              FFAppState()
+                                                                  .nonePackageProvinceId = '';
+                                                              FFAppState()
+                                                                      .nonePackageSumInsured =
+                                                                  'กรุณากรอกทุนประกัน';
+                                                              FFAppState()
+                                                                      .nonePackageFlagAct =
+                                                                  true;
+                                                              FFAppState()
+                                                                      .nonePackageIsBrandSelect =
+                                                                  false;
+                                                              FFAppState()
+                                                                  .nonePackageSearchModelIdList = [];
+                                                              FFAppState()
+                                                                      .nonePackageCarrierType =
+                                                                  'กรุณาเลือกประเภทตู้เหล็ก';
+                                                              FFAppState()
+                                                                      .nonePackageFlagCoop =
+                                                                  false;
+                                                              FFAppState()
+                                                                      .nonePackageTruckPart =
+                                                                  'กรุณาเลือกส่วนของรถบรรทุก';
+                                                              FFAppState()
+                                                                      .nonePackageCusMembership =
+                                                                  'กรุณาเลือกประเภทลูกค้า';
+                                                              FFAppState()
+                                                                      .nonePackageTruckCurrentPrice =
+                                                                  'กรุณากรอกราคาซื้อขายปัจจุบัน';
+                                                              FFAppState()
+                                                                      .nonePackagePlateAdditional =
+                                                                  'กรุณากรอกเลขทะเบียนหางพ่วง';
+                                                              FFAppState()
+                                                                      .nonePackageTruckCarryPurpose =
+                                                                  'กรุณากรอกรถใช้บรรทุกอะไร';
+                                                              FFAppState()
+                                                                      .nonePackageTrailerSumInsured =
+                                                                  'กรุณากรอกทุนประกันหางพ่วง';
+                                                              FFAppState()
+                                                                  .nonePackageCarrierPrice = '';
+                                                              FFAppState()
+                                                                  .nonePackageInsurerIdList = [];
+                                                              FFAppState()
+                                                                  .nonePackageInsurerCodeList = [];
+                                                              FFAppState()
+                                                                  .nonePackageInsurerShortNameList = [];
+                                                              FFAppState()
+                                                                  .nonePackageInsurerNameList = [];
+                                                              FFAppState()
+                                                                  .nonePackageInsurerDisplayName = [];
+                                                              FFAppState()
+                                                                  .nonePackageInsurerIdOutputList = [];
+                                                              FFAppState()
+                                                                  .nonePackageInsurerCodeOutputList = [];
+                                                              FFAppState()
+                                                                  .nonePackageInsurerShortNameOutputList = [];
+                                                              FFAppState()
+                                                                  .nonePackageInsurerNameOutputList = [];
+                                                              FFAppState()
+                                                                  .nonePackageReason = [];
+                                                              FFAppState()
+                                                                  .nonePackageInsurerSelectedList = [];
+                                                              FFAppState()
+                                                                  .nonePackageCoverTypeId = '';
+                                                              FFAppState()
+                                                                  .nonePackageCoverTypeCode = '';
+                                                              FFAppState()
+                                                                      .nonePackageCoverTypeName =
+                                                                  'กรุณาเลือกประเภทชั้นประกัน';
+                                                              FFAppState()
+                                                                  .nonePackageGarageTypeId = '';
+                                                              FFAppState()
+                                                                      .nonePackageGarageTypeName =
+                                                                  'กรุณาเลือกประเภทการซ่อม';
+                                                              FFAppState()
+                                                                  .nonePackageGarageTypeCode = '';
+                                                              FFAppState()
+                                                                      .nonePackageFlagRenew =
+                                                                  false;
+                                                              FFAppState()
+                                                                      .nonePackageOldVmiExpDate =
+                                                                  'กรุณาเลือกวันที่หมดอายุประกันเดิม';
+                                                              FFAppState()
+                                                                  .nonePackageOldVmi = '';
+                                                              FFAppState()
+                                                                  .nonePackageOldVmiImageUrl = '';
+                                                              FFAppState()
+                                                                  .nonePackageIdCardImageUrl = '';
+                                                              FFAppState()
+                                                                  .nonePackageRenewImageUrlList = [];
+                                                              FFAppState()
+                                                                  .nonePackageRenewImageCheckList = [];
+                                                              FFAppState()
+                                                                      .nonePackageOldVmiImageUploadedCheck =
+                                                                  false;
+                                                              FFAppState()
+                                                                      .nonePackageIdCardWatermarkUploadedCheck =
+                                                                  false;
+                                                              FFAppState()
+                                                                      .buttonOrdinary =
+                                                                  false;
+                                                              FFAppState()
+                                                                      .buttonCorporation =
+                                                                  false;
+                                                              FFAppState()
+                                                                  .nonePackageCustomerType = '';
+                                                              FFAppState()
+                                                                  .nonePackageInsurerDisplayNameOutput = '';
+                                                              FFAppState()
+                                                                  .nonePackageImageOther = [];
+                                                              FFAppState()
+                                                                  .nonePackageImageFront = [];
+                                                              FFAppState()
+                                                                  .nonePackageImageRightFront = [];
+                                                              FFAppState()
+                                                                  .nonePackageImageRight = [];
+                                                              FFAppState()
+                                                                  .nonePackageImageRightRear = [];
+                                                              FFAppState()
+                                                                  .nonePackageImageRear = [];
+                                                              FFAppState()
+                                                                  .nonePackageImageLeftRear = [];
+                                                              FFAppState()
+                                                                  .nonePackageImageLeft = [];
+                                                              FFAppState()
+                                                                  .nonePackageImageLeftFront = [];
+                                                              FFAppState()
+                                                                  .nonePackageImageRoof = [];
+                                                              FFAppState()
+                                                                  .nonePackageTrailerImageFront = [];
+                                                              FFAppState()
+                                                                  .nonePackageTrailerImageRightFront = [];
+                                                              FFAppState()
+                                                                  .nonePackageTrailerImageRight = [];
+                                                              FFAppState()
+                                                                  .nonePackageTrailerImageRightRear = [];
+                                                              FFAppState()
+                                                                  .nonePackageTrailerImageRear = [];
+                                                              FFAppState()
+                                                                  .nonePackageTrailerImageLeftRear = [];
+                                                              FFAppState()
+                                                                  .nonePackageTrailerImageLeft = [];
+                                                              FFAppState()
+                                                                  .nonePackageTrailerImageLeftFront = [];
+                                                              FFAppState()
+                                                                  .nonePackageInsurerOutputIndex = 0;
+                                                              FFAppState()
+                                                                  .nonePackageLeadId = '';
+                                                              FFAppState()
+                                                                  .nonePackageLeadNo = '';
+                                                              FFAppState()
+                                                                  .nonePackageCarImageUploadedList = [];
+                                                              FFAppState()
+                                                                  .nonePackageImageOldVmi = [];
+                                                              FFAppState()
+                                                                  .nonePackageImageCompanyBook = [];
+                                                              FFAppState()
+                                                                  .nonePackageImageIdCard = [];
+                                                              FFAppState()
+                                                                  .nonePackageImageBlueBook = [];
+                                                              FFAppState()
+                                                                      .nonePackageCompanyBookImageUploadedCheck =
+                                                                  false;
+                                                              FFAppState()
+                                                                  .nonePackageCompanyBookImageUrl = '';
+                                                              FFAppState()
+                                                                  .nonePackageImageFrontUploaded = '';
+                                                              FFAppState()
+                                                                  .nonePackageImageRightFrontUploaded = '';
+                                                              FFAppState()
+                                                                  .nonePackageImageRightUploaded = '';
+                                                              FFAppState()
+                                                                  .nonePackageImageRightRearUploaded = '';
+                                                              FFAppState()
+                                                                  .nonePackageImageRearUploaded = '';
+                                                              FFAppState()
+                                                                  .nonePackageImageLeftRearUploaded = '';
+                                                              FFAppState()
+                                                                  .nonePackageImageLeftUploaded = '';
+                                                              FFAppState()
+                                                                  .nonePackageImageLeftFrontUploaded = '';
+                                                              FFAppState()
+                                                                  .nonePackageImageRoofUploaded = '';
+                                                              FFAppState()
+                                                                  .nonePackageTrailerImageFrontUploaded = '';
+                                                              FFAppState()
+                                                                  .nonePackageTrailerImageRightFrontUploaded = '';
+                                                              FFAppState()
+                                                                  .nonePackageTrailerImageRightUploaded = '';
+                                                              FFAppState()
+                                                                  .nonePackageTrailerImageRightRearUploaded = '';
+                                                              FFAppState()
+                                                                  .nonePackageTrailerImageRearUploaded = '';
+                                                              FFAppState()
+                                                                  .nonePackageTrailerImageLeftRearUploaded = '';
+                                                              FFAppState()
+                                                                  .nonePackageTrailerImageLeftUploaded = '';
+                                                              FFAppState()
+                                                                  .nonePackageTrailerImageLeftFrontUploaded = '';
+                                                              FFAppState()
+                                                                  .nonePackageImageBlueBookUploaded = '';
+                                                              FFAppState()
+                                                                  .nonePackageImageOther1 = '';
+                                                              FFAppState()
+                                                                  .nonePackageImageOther2 = '';
+                                                              FFAppState()
+                                                                  .nonePackageImageOther3 = '';
+                                                              FFAppState()
+                                                                  .nonePackageImageOther4 = '';
+                                                              FFAppState()
+                                                                  .nonePackageImageOther5 = '';
+                                                              FFAppState()
+                                                                  .nonePackageImageOtherNameList = [];
+                                                              FFAppState()
+                                                                  .nonePackageSelectedInsurerShortName = '';
+                                                              FFAppState()
+                                                                  .nonePackageSelectedInsurerName = '';
+                                                              FFAppState()
+                                                                  .nonePackageSelectedInsurerShortNameList = [];
+                                                              FFAppState()
+                                                                  .nonePackageSelectedInsurerNameList = [];
+                                                              FFAppState()
+                                                                  .nonePackageFlagOldVmi = '';
+                                                              FFAppState()
+                                                                  .nonePackageWorkType = '';
+                                                              safeSetState(
+                                                                  () {});
+                                                              if (widget!
+                                                                      .checkVMI ==
+                                                                  '0') {
+                                                                if (('เตรียมข้อมูล' !=
                                                                         getJsonField(
                                                                           widget!
                                                                               .list
                                                                               ?.elementAtOrNull(leadListItemIndex),
-                                                                          r'''$.sub_product''',
+                                                                          r'''$.quotation_status''',
+                                                                        ).toString()) &&
+                                                                    ('รอตัดสินใจ' !=
+                                                                        getJsonField(
+                                                                          widget!
+                                                                              .list
+                                                                              ?.elementAtOrNull(leadListItemIndex),
+                                                                          r'''$.quotation_status''',
+                                                                        ).toString()) &&
+                                                                    ('ส่งเรื่องขอใบเสนอราคา' !=
+                                                                        getJsonField(
+                                                                          widget!
+                                                                              .list
+                                                                              ?.elementAtOrNull(leadListItemIndex),
+                                                                          r'''$.quotation_status''',
+                                                                        ).toString())) {
+                                                                  if (('อยู่ระหว่างตรวจสอบสภาพรถ' ==
+                                                                          getJsonField(
+                                                                            widget!.list?.elementAtOrNull(leadListItemIndex),
+                                                                            r'''$.quotation_status''',
+                                                                          ).toString()) ||
+                                                                      ('อนุมัติ' ==
+                                                                          getJsonField(
+                                                                            widget!.list?.elementAtOrNull(leadListItemIndex),
+                                                                            r'''$.quotation_status''',
+                                                                          ).toString()) ||
+                                                                      ('ไม่อนุมัติ' ==
+                                                                          getJsonField(
+                                                                            widget!.list?.elementAtOrNull(leadListItemIndex),
+                                                                            r'''$.quotation_status''',
+                                                                          ).toString()) ||
+                                                                      ('ส่งเรื่องให้บริษัทประกันพิจารณา' ==
+                                                                          getJsonField(
+                                                                            widget!.list?.elementAtOrNull(leadListItemIndex),
+                                                                            r'''$.quotation_status''',
+                                                                          ).toString()) ||
+                                                                      ('ยกเลิก' ==
+                                                                          getJsonField(
+                                                                            widget!.list?.elementAtOrNull(leadListItemIndex),
+                                                                            r'''$.quotation_status''',
+                                                                          ).toString()) ||
+                                                                      ('ขอคืนเงิน' ==
+                                                                          getJsonField(
+                                                                            widget!.list?.elementAtOrNull(leadListItemIndex),
+                                                                            r'''$.quotation_status''',
+                                                                          ).toString()) ||
+                                                                      ('โยกเงิน' ==
+                                                                          getJsonField(
+                                                                            widget!.list?.elementAtOrNull(leadListItemIndex),
+                                                                            r'''$.quotation_status''',
+                                                                          ).toString())) {
+                                                                    context
+                                                                        .pushNamed(
+                                                                      'insuranceInfoPage5',
+                                                                      queryParameters:
+                                                                          {
+                                                                        'quotationId':
+                                                                            serializeParam(
+                                                                          getJsonField(
+                                                                            widget!.list?.elementAtOrNull(leadListItemIndex),
+                                                                            r'''$.quotation_id''',
+                                                                          ).toString(),
+                                                                          ParamType
+                                                                              .String,
+                                                                        ),
+                                                                        'leadDtlId':
+                                                                            serializeParam(
+                                                                          getJsonField(
+                                                                            widget!.list?.elementAtOrNull(leadListItemIndex),
+                                                                            r'''$.lead_dtl_id''',
+                                                                          ),
+                                                                          ParamType
+                                                                              .int,
+                                                                        ),
+                                                                      }.withoutNulls,
+                                                                    );
+
+                                                                    if (_shouldSetState)
+                                                                      safeSetState(
+                                                                          () {});
+                                                                    return;
+                                                                  }
+
+                                                                  context
+                                                                      .pushNamed(
+                                                                    'insuranceInfoPage4_2',
+                                                                    queryParameters:
+                                                                        {
+                                                                      'quotationId':
+                                                                          serializeParam(
+                                                                        getJsonField(
+                                                                          widget!
+                                                                              .list
+                                                                              ?.elementAtOrNull(leadListItemIndex),
+                                                                          r'''$.quotation_id''',
+                                                                        ).toString(),
+                                                                        ParamType
+                                                                            .String,
+                                                                      ),
+                                                                      'leadDetailId':
+                                                                          serializeParam(
+                                                                        getJsonField(
+                                                                          widget!
+                                                                              .list
+                                                                              ?.elementAtOrNull(leadListItemIndex),
+                                                                          r'''$.lead_dtl_id''',
+                                                                        ),
+                                                                        ParamType
+                                                                            .int,
+                                                                      ),
+                                                                    }.withoutNulls,
+                                                                  );
+
+                                                                  if (_shouldSetState)
+                                                                    safeSetState(
+                                                                        () {});
+                                                                  return;
+                                                                } else {
+                                                                  if ('auto' ==
+                                                                      getJsonField(
+                                                                        widget!
+                                                                            .list
+                                                                            ?.elementAtOrNull(leadListItemIndex),
+                                                                        r'''$.quotation_type''',
+                                                                      ).toString()) {
+                                                                    context
+                                                                        .pushNamed(
+                                                                      'insuranceInfoPage1',
+                                                                      queryParameters:
+                                                                          {
+                                                                        'quotationId':
+                                                                            serializeParam(
+                                                                          getJsonField(
+                                                                            widget!.list?.elementAtOrNull(leadListItemIndex),
+                                                                            r'''$.quotation_id''',
+                                                                          ).toString(),
+                                                                          ParamType
+                                                                              .String,
+                                                                        ),
+                                                                        'leadDtailId':
+                                                                            serializeParam(
+                                                                          getJsonField(
+                                                                            widget!.list?.elementAtOrNull(leadListItemIndex),
+                                                                            r'''$.lead_dtl_id''',
+                                                                          ),
+                                                                          ParamType
+                                                                              .int,
+                                                                        ),
+                                                                      }.withoutNulls,
+                                                                    );
+
+                                                                    if (_shouldSetState)
+                                                                      safeSetState(
+                                                                          () {});
+                                                                    return;
+                                                                  } else {
+                                                                    if ('รอตัดสินใจ' ==
+                                                                        getJsonField(
+                                                                          widget!
+                                                                              .list
+                                                                              ?.elementAtOrNull(leadListItemIndex),
+                                                                          r'''$.quotation_status''',
                                                                         ).toString()) {
+                                                                      FFAppState()
+                                                                              .insuranceInfoPage1SaveDataCheckBool =
+                                                                          false;
+                                                                      FFAppState()
+                                                                              .insuranceInfoPage2SaveDataCheckBool =
+                                                                          false;
+                                                                      FFAppState()
+                                                                              .insuranceInfoPage3SaveDataCheckBool =
+                                                                          false;
+                                                                      safeSetState(
+                                                                          () {});
+                                                                    } else {
                                                                       context
                                                                           .pushNamed(
-                                                                        'insuranceInfoPage5',
+                                                                        'insuranceInfoPage1',
                                                                         queryParameters:
                                                                             {
                                                                           'quotationId':
@@ -2251,7 +2241,7 @@ class _MakeFireInsuranceListPageWidgetState
                                                                             ).toString(),
                                                                             ParamType.String,
                                                                           ),
-                                                                          'leadDtlId':
+                                                                          'leadDtailId':
                                                                               serializeParam(
                                                                             getJsonField(
                                                                               widget!.list?.elementAtOrNull(leadListItemIndex),
@@ -2266,180 +2256,305 @@ class _MakeFireInsuranceListPageWidgetState
                                                                         safeSetState(
                                                                             () {});
                                                                       return;
-                                                                    } else {
-                                                                      if ('' !=
+                                                                    }
+
+                                                                    context
+                                                                        .pushNamed(
+                                                                      'NonePackageSelectedInsurerPage',
+                                                                      queryParameters:
+                                                                          {
+                                                                        'leadID':
+                                                                            serializeParam(
                                                                           getJsonField(
                                                                             widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                            r'''$.VMI_documentUrl''',
-                                                                          ).toString()) {
-                                                                        _model.getFileVmi =
-                                                                            await GetFileVmiApiCall.call(
-                                                                          apiUrl:
-                                                                              FFAppState().apiUrlInsuranceAppState,
-                                                                          token:
-                                                                              FFAppState().accessToken,
-                                                                          quotationId:
-                                                                              getJsonField(
+                                                                            r'''$.lead_id''',
+                                                                          ).toString(),
+                                                                          ParamType
+                                                                              .String,
+                                                                        ),
+                                                                        'coverTypeName':
+                                                                            serializeParam(
+                                                                          getJsonField(
+                                                                            widget!.list?.elementAtOrNull(leadListItemIndex),
+                                                                            r'''$.cover_type_name''',
+                                                                          ).toString(),
+                                                                          ParamType
+                                                                              .String,
+                                                                        ),
+                                                                        'garageTypeName':
+                                                                            serializeParam(
+                                                                          getJsonField(
+                                                                            widget!.list?.elementAtOrNull(leadListItemIndex),
+                                                                            r'''$.garage_type_name''',
+                                                                          ).toString(),
+                                                                          ParamType
+                                                                              .String,
+                                                                        ),
+                                                                        'insurerShortName':
+                                                                            serializeParam(
+                                                                          getJsonField(
+                                                                            widget!.list?.elementAtOrNull(leadListItemIndex),
+                                                                            r'''$.insurer_short_name''',
+                                                                          ).toString(),
+                                                                          ParamType
+                                                                              .String,
+                                                                        ),
+                                                                        'insurerName':
+                                                                            serializeParam(
+                                                                          getJsonField(
+                                                                            widget!.list?.elementAtOrNull(leadListItemIndex),
+                                                                            r'''$.insurer_name''',
+                                                                          ).toString(),
+                                                                          ParamType
+                                                                              .String,
+                                                                        ),
+                                                                        'quotationId':
+                                                                            serializeParam(
+                                                                          getJsonField(
                                                                             widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                             r'''$.quotation_id''',
                                                                           ).toString(),
-                                                                          ownerId:
-                                                                              FFAppState().employeeID,
-                                                                        );
-
-                                                                        _shouldSetState =
-                                                                            true;
-                                                                        if ((_model.getFileVmi?.statusCode ??
-                                                                                200) !=
-                                                                            200) {
-                                                                          await showDialog(
-                                                                            context:
-                                                                                context,
-                                                                            builder:
-                                                                                (alertDialogContext) {
-                                                                              return WebViewAware(
-                                                                                child: AlertDialog(
-                                                                                  content: Text('พบข้อผิดพลาดConnection (${(_model.getFileVmi?.statusCode ?? 200).toString()})'),
-                                                                                  actions: [
-                                                                                    TextButton(
-                                                                                      onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                      child: Text('Ok'),
-                                                                                    ),
-                                                                                  ],
-                                                                                ),
-                                                                              );
-                                                                            },
-                                                                          );
-                                                                          if (_shouldSetState)
-                                                                            safeSetState(() {});
-                                                                          return;
-                                                                        }
-                                                                        if (GetFileVmiApiCall.statusLayer1(
-                                                                              (_model.getFileVmi?.jsonBody ?? ''),
-                                                                            ) !=
-                                                                            200) {
-                                                                          await showDialog(
-                                                                            context:
-                                                                                context,
-                                                                            builder:
-                                                                                (alertDialogContext) {
-                                                                              return WebViewAware(
-                                                                                child: AlertDialog(
-                                                                                  content: Text(GetFileVmiApiCall.messageLayer1(
-                                                                                    (_model.getFileVmi?.jsonBody ?? ''),
-                                                                                  )!),
-                                                                                  actions: [
-                                                                                    TextButton(
-                                                                                      onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                      child: Text('Ok'),
-                                                                                    ),
-                                                                                  ],
-                                                                                ),
-                                                                              );
-                                                                            },
-                                                                          );
-                                                                          if (_shouldSetState)
-                                                                            safeSetState(() {});
-                                                                          return;
-                                                                        }
-                                                                        await launchURL(
-                                                                            GetFileVmiApiCall.vmiDocumentUrl(
-                                                                          (_model.getFileVmi?.jsonBody ??
-                                                                              ''),
-                                                                        )!);
-                                                                        if (_shouldSetState)
-                                                                          safeSetState(
-                                                                              () {});
-                                                                        return;
-                                                                      } else {
-                                                                        await showDialog(
-                                                                          context:
-                                                                              context,
-                                                                          builder:
-                                                                              (alertDialogContext) {
-                                                                            return WebViewAware(
-                                                                              child: AlertDialog(
-                                                                                title: Text('ไม่พบไฟล์ในระบบ'),
-                                                                                content: Text('กรุณารอทางทีมประกันเพิ่มข้อมูลในระบบ'),
-                                                                                actions: [
-                                                                                  TextButton(
-                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                    child: Text('Ok'),
-                                                                                  ),
-                                                                                ],
-                                                                              ),
-                                                                            );
-                                                                          },
-                                                                        );
-                                                                        if (_shouldSetState)
-                                                                          safeSetState(
-                                                                              () {});
-                                                                        return;
-                                                                      }
-                                                                    }
+                                                                          ParamType
+                                                                              .String,
+                                                                        ),
+                                                                        'leadDtlId':
+                                                                            serializeParam(
+                                                                          getJsonField(
+                                                                            widget!.list?.elementAtOrNull(leadListItemIndex),
+                                                                            r'''$.lead_dtl_id''',
+                                                                          ),
+                                                                          ParamType
+                                                                              .int,
+                                                                        ),
+                                                                        'actFlag':
+                                                                            serializeParam(
+                                                                          '${getJsonField(
+                                                                                widget!.list?.elementAtOrNull(leadListItemIndex),
+                                                                                r'''$.flg_act''',
+                                                                              ).toString()}' ==
+                                                                              '1',
+                                                                          ParamType
+                                                                              .bool,
+                                                                        ),
+                                                                        'masterActAmount':
+                                                                            serializeParam(
+                                                                          '${getJsonField(
+                                                                                    widget!.list?.elementAtOrNull(leadListItemIndex),
+                                                                                    r'''$.master_act_amount''',
+                                                                                  ).toString()}' ==
+                                                                                  'null'
+                                                                              ? ''
+                                                                              : '${getJsonField(
+                                                                                  widget!.list?.elementAtOrNull(leadListItemIndex),
+                                                                                  r'''$.master_act_amount''',
+                                                                                ).toString()}',
+                                                                          ParamType
+                                                                              .String,
+                                                                        ),
+                                                                      }.withoutNulls,
+                                                                    );
                                                                   }
+                                                                }
+                                                              } else {
+                                                                if ('CMI' ==
+                                                                    getJsonField(
+                                                                      widget!
+                                                                          .list
+                                                                          ?.elementAtOrNull(
+                                                                              leadListItemIndex),
+                                                                      r'''$.sub_product''',
+                                                                    ).toString()) {
+                                                                  context
+                                                                      .pushNamed(
+                                                                    'insuranceInfoPage5',
+                                                                    queryParameters:
+                                                                        {
+                                                                      'quotationId':
+                                                                          serializeParam(
+                                                                        getJsonField(
+                                                                          widget!
+                                                                              .list
+                                                                              ?.elementAtOrNull(leadListItemIndex),
+                                                                          r'''$.quotation_id''',
+                                                                        ).toString(),
+                                                                        ParamType
+                                                                            .String,
+                                                                      ),
+                                                                      'leadDtlId':
+                                                                          serializeParam(
+                                                                        getJsonField(
+                                                                          widget!
+                                                                              .list
+                                                                              ?.elementAtOrNull(leadListItemIndex),
+                                                                          r'''$.lead_dtl_id''',
+                                                                        ),
+                                                                        ParamType
+                                                                            .int,
+                                                                      ),
+                                                                    }.withoutNulls,
+                                                                  );
 
                                                                   if (_shouldSetState)
                                                                     safeSetState(
                                                                         () {});
-                                                                },
-                                                                text: () {
-                                                                  if (widget!
-                                                                          .checkVMI ==
-                                                                      '0') {
-                                                                    return (('ยกเลิก' ==
-                                                                                getJsonField(
-                                                                                  widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                                  r'''$.quotation_status''',
-                                                                                ).toString()) ||
-                                                                            ('โยกเงิน' ==
-                                                                                getJsonField(
-                                                                                  widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                                  r'''$.quotation_status''',
-                                                                                ).toString()) ||
-                                                                            ('ขอคืนเงิน' ==
-                                                                                getJsonField(
-                                                                                  widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                                  r'''$.quotation_status''',
-                                                                                ).toString()) ||
-                                                                            ('ไม่อนุมัติ' ==
-                                                                                getJsonField(
-                                                                                  widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                                  r'''$.quotation_status''',
-                                                                                ).toString())
-                                                                        ? 'ดูรายละเอียด'
-                                                                        : 'ทำประกัน');
-                                                                  } else if ('CMI' ==
+                                                                  return;
+                                                                } else {
+                                                                  if ('' !=
                                                                       getJsonField(
                                                                         widget!
                                                                             .list
                                                                             ?.elementAtOrNull(leadListItemIndex),
-                                                                        r'''$.sub_product''',
+                                                                        r'''$.VMI_documentUrl''',
                                                                       ).toString()) {
-                                                                    return 'ทำ พ.ร.บ';
+                                                                    _model.getFileVmi =
+                                                                        await GetFileVmiApiCall
+                                                                            .call(
+                                                                      apiUrl: FFAppState()
+                                                                          .apiUrlInsuranceAppState,
+                                                                      token: FFAppState()
+                                                                          .accessToken,
+                                                                      quotationId:
+                                                                          getJsonField(
+                                                                        widget!
+                                                                            .list
+                                                                            ?.elementAtOrNull(leadListItemIndex),
+                                                                        r'''$.quotation_id''',
+                                                                      ).toString(),
+                                                                      ownerId:
+                                                                          FFAppState()
+                                                                              .employeeID,
+                                                                    );
+
+                                                                    _shouldSetState =
+                                                                        true;
+                                                                    if ((_model.getFileVmi?.statusCode ??
+                                                                            200) !=
+                                                                        200) {
+                                                                      await showDialog(
+                                                                        context:
+                                                                            context,
+                                                                        builder:
+                                                                            (alertDialogContext) {
+                                                                          return WebViewAware(
+                                                                            child:
+                                                                                AlertDialog(
+                                                                              content: Text('พบข้อผิดพลาดConnection (${(_model.getFileVmi?.statusCode ?? 200).toString()})'),
+                                                                              actions: [
+                                                                                TextButton(
+                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                  child: Text('Ok'),
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                          );
+                                                                        },
+                                                                      );
+                                                                      if (_shouldSetState)
+                                                                        safeSetState(
+                                                                            () {});
+                                                                      return;
+                                                                    }
+                                                                    if (GetFileVmiApiCall
+                                                                            .statusLayer1(
+                                                                          (_model.getFileVmi?.jsonBody ??
+                                                                              ''),
+                                                                        ) !=
+                                                                        200) {
+                                                                      await showDialog(
+                                                                        context:
+                                                                            context,
+                                                                        builder:
+                                                                            (alertDialogContext) {
+                                                                          return WebViewAware(
+                                                                            child:
+                                                                                AlertDialog(
+                                                                              content: Text(GetFileVmiApiCall.messageLayer1(
+                                                                                (_model.getFileVmi?.jsonBody ?? ''),
+                                                                              )!),
+                                                                              actions: [
+                                                                                TextButton(
+                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                  child: Text('Ok'),
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                          );
+                                                                        },
+                                                                      );
+                                                                      if (_shouldSetState)
+                                                                        safeSetState(
+                                                                            () {});
+                                                                      return;
+                                                                    }
+                                                                    await launchURL(
+                                                                        GetFileVmiApiCall
+                                                                            .vmiDocumentUrl(
+                                                                      (_model.getFileVmi
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )!);
+                                                                    if (_shouldSetState)
+                                                                      safeSetState(
+                                                                          () {});
+                                                                    return;
                                                                   } else {
-                                                                    return 'ดูกรมธรรม์';
+                                                                    await showDialog(
+                                                                      context:
+                                                                          context,
+                                                                      builder:
+                                                                          (alertDialogContext) {
+                                                                        return WebViewAware(
+                                                                          child:
+                                                                              AlertDialog(
+                                                                            title:
+                                                                                Text('ไม่พบไฟล์ในระบบ'),
+                                                                            content:
+                                                                                Text('กรุณารอทางทีมประกันเพิ่มข้อมูลในระบบ'),
+                                                                            actions: [
+                                                                              TextButton(
+                                                                                onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                child: Text('Ok'),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        );
+                                                                      },
+                                                                    );
+                                                                    if (_shouldSetState)
+                                                                      safeSetState(
+                                                                          () {});
+                                                                    return;
                                                                   }
-                                                                }(),
-                                                                options:
-                                                                    FFButtonOptions(
-                                                                  width: 115.0,
-                                                                  height: 40.0,
-                                                                  padding: EdgeInsetsDirectional
+                                                                }
+                                                              }
+
+                                                              if (_shouldSetState)
+                                                                safeSetState(
+                                                                    () {});
+                                                            },
+                                                            text: 'ทำประกัน',
+                                                            options:
+                                                                FFButtonOptions(
+                                                              width: 115.0,
+                                                              height: 40.0,
+                                                              padding:
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           24.0,
                                                                           0.0,
                                                                           24.0,
                                                                           0.0),
-                                                                  iconPadding: EdgeInsetsDirectional
+                                                              iconPadding:
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,
                                                                           0.0),
-                                                                  color: Color(
-                                                                      0xFFDB771A),
-                                                                  textStyle: FlutterFlowTheme.of(
+                                                              color: Color(
+                                                                  0xFFDB771A),
+                                                              textStyle:
+                                                                  FlutterFlowTheme.of(
                                                                           context)
                                                                       .titleSmall
                                                                       .override(
@@ -2454,77 +2569,72 @@ class _MakeFireInsuranceListPageWidgetState
                                                                         fontWeight:
                                                                             FontWeight.w500,
                                                                       ),
-                                                                  elevation:
-                                                                      3.0,
-                                                                  borderSide:
-                                                                      BorderSide(
-                                                                    color: Color(
-                                                                        0xFFDB771A),
-                                                                    width: 1.0,
-                                                                  ),
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              15.0),
-                                                                ),
+                                                              elevation: 3.0,
+                                                              borderSide:
+                                                                  BorderSide(
+                                                                color: Color(
+                                                                    0xFFDB771A),
+                                                                width: 1.0,
                                                               ),
-                                                            ],
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          15.0),
+                                                            ),
                                                           ),
-                                                        ),
-                                                      ],
+                                                        ],
+                                                      ),
                                                     ),
-                                                  ),
+                                                  ],
                                                 ),
-                                              );
-                                            },
+                                              ),
+                                            ),
                                           );
                                         },
+                                      );
+                                    },
+                                  ),
+                                ),
+                              ),
+                            ),
+                          if (widget!.checkTotal == 0 ? true : false)
+                            Expanded(
+                              child: Align(
+                                alignment: AlignmentDirectional(0.0, 0.0),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 20.0),
+                                  child: Container(
+                                    constraints: BoxConstraints(
+                                      minWidth:
+                                          MediaQuery.sizeOf(context).width *
+                                              0.9,
+                                      minHeight: 100.0,
+                                      maxWidth:
+                                          MediaQuery.sizeOf(context).width *
+                                              0.95,
+                                      maxHeight: 100.0,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20.0),
+                                    ),
+                                    child: Align(
+                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      child: Text(
+                                        'ไม่พบข้อมูลในระบบ',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Noto Sans Thai',
+                                              letterSpacing: 0.0,
+                                            ),
                                       ),
                                     ),
                                   ),
                                 ),
-                              if (widget!.checkTotal == 0 ? true : false)
-                                Expanded(
-                                  child: Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 20.0),
-                                      child: Container(
-                                        constraints: BoxConstraints(
-                                          minWidth:
-                                              MediaQuery.sizeOf(context).width *
-                                                  0.9,
-                                          minHeight: 100.0,
-                                          maxWidth:
-                                              MediaQuery.sizeOf(context).width *
-                                                  0.95,
-                                          maxHeight: 100.0,
-                                        ),
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(20.0),
-                                        ),
-                                        child: Align(
-                                          alignment:
-                                              AlignmentDirectional(0.0, 0.0),
-                                          child: Text(
-                                            'ไม่พบข้อมูลในระบบ',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Noto Sans Thai',
-                                                  letterSpacing: 0.0,
-                                                ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                            ],
-                          );
-                        },
+                              ),
+                            ),
+                        ],
                       ),
                     ),
                   ],
