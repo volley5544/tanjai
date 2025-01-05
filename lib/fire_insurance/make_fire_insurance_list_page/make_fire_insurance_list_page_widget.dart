@@ -895,66 +895,13 @@ class _MakeFireInsuranceListPageWidgetState
                                                   child: Container(
                                                     width: double.infinity,
                                                     decoration: BoxDecoration(
-                                                      color: () {
-                                                        if (getJsonField(
-                                                              widget!.list!
-                                                                  .elementAtOrNull(
-                                                                      leadListItemIndex),
-                                                              r'''$.payment_status_check''',
-                                                            ) &&
-                                                            (widget!.checkPayment ==
-                                                                '1')) {
-                                                          return Color(
-                                                              0xFFFFE090);
-                                                        } else if (getJsonField(
-                                                              widget!.list!
-                                                                  .elementAtOrNull(
-                                                                      leadListItemIndex),
-                                                              r'''$.payment_status_check_sec''',
-                                                            ) &&
-                                                            (widget!.checkPayment ==
-                                                                '1')) {
-                                                          return Color(
-                                                              0xFFCCEBE2);
-                                                        } else {
-                                                          return FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground;
-                                                        }
-                                                      }(),
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               20.0),
                                                       border: Border.all(
-                                                        color: () {
-                                                          if (getJsonField(
-                                                                widget!.list!
-                                                                    .elementAtOrNull(
-                                                                        leadListItemIndex),
-                                                                r'''$.payment_status_check''',
-                                                              ) &&
-                                                              (widget!.checkPayment ==
-                                                                  '1')) {
-                                                            return FlutterFlowTheme
-                                                                    .of(context)
-                                                                .warning;
-                                                          } else if (getJsonField(
-                                                                widget!.list!
-                                                                    .elementAtOrNull(
-                                                                        leadListItemIndex),
-                                                                r'''$.payment_status_check_sec''',
-                                                              ) &&
-                                                              (widget!.checkPayment ==
-                                                                  '1')) {
-                                                            return FlutterFlowTheme
-                                                                    .of(context)
-                                                                .success;
-                                                          } else {
-                                                            return FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryText;
-                                                          }
-                                                        }(),
                                                         width: 1.0,
                                                       ),
                                                     ),
