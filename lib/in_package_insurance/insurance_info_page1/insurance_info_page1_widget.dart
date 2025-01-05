@@ -83,6 +83,23 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
         },
       ).then((value) => safeSetState(() {}));
 
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              title: Text(widget!.quotationId!),
+              content: Text(widget!.leadDtailId!.toString()),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
       FFAppState().insuranceInfoEffectiveDateAct = '';
       FFAppState().insuranceInfoHaveLicenseBool = false;
       FFAppState().insuranceInfoIdCard = '';
