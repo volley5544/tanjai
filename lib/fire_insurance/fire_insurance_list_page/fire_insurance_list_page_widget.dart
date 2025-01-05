@@ -622,7 +622,7 @@ class _FireInsuranceListPageWidgetState
                         ),
                         child: Builder(
                           builder: (context) {
-                            final listLeads =
+                            final listLeadsItem =
                                 HouseInsuranceGroup.fireGetLeadsApiCall
                                         .data1(
                                           (_model.fireGetLeads?.jsonBody ?? ''),
@@ -639,9 +639,10 @@ class _FireInsuranceListPageWidgetState
                               ),
                               shrinkWrap: true,
                               scrollDirection: Axis.vertical,
-                              itemCount: listLeads.length,
-                              itemBuilder: (context, listLeadsIndex) {
-                                final listLeadsItem = listLeads[listLeadsIndex];
+                              itemCount: listLeadsItem.length,
+                              itemBuilder: (context, listLeadsItemIndex) {
+                                final listLeadsItemItem =
+                                    listLeadsItem[listLeadsItemIndex];
                                 return Visibility(
                                   visible: functions.containWordinStringUrl(
                                           _model.searchFirstnameTextController
@@ -654,7 +655,7 @@ class _FireInsuranceListPageWidgetState
                                                     ''),
                                               )
                                               ?.elementAtOrNull(
-                                                  listLeadsIndex))! ||
+                                                  listLeadsItemIndex))! ||
                                       (_model.searchFirstnameTextController
                                                   .text ==
                                               null ||
@@ -770,10 +771,10 @@ class _FireInsuranceListPageWidgetState
                                                                   '${functions.checkNullValueAndReturn(HouseInsuranceGroup.fireGetLeadsApiCall.firstName(
                                                                         (_model.fireGetLeads?.jsonBody ??
                                                                             ''),
-                                                                      )?.elementAtOrNull(listLeadsIndex))} ${functions.checkNullValueAndReturn(HouseInsuranceGroup.fireGetLeadsApiCall.lastName(
+                                                                      )?.elementAtOrNull(listLeadsItemIndex))} ${functions.checkNullValueAndReturn(HouseInsuranceGroup.fireGetLeadsApiCall.lastName(
                                                                         (_model.fireGetLeads?.jsonBody ??
                                                                             ''),
-                                                                      )?.elementAtOrNull(listLeadsIndex))}',
+                                                                      )?.elementAtOrNull(listLeadsItemIndex))}',
                                                                   maxLines: 2,
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
@@ -862,7 +863,7 @@ class _FireInsuranceListPageWidgetState
                                                                             ''),
                                                                       )
                                                                       ?.elementAtOrNull(
-                                                                          listLeadsIndex),
+                                                                          listLeadsItemIndex),
                                                                   'ประกันอัคคีภัย',
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
@@ -952,7 +953,7 @@ class _FireInsuranceListPageWidgetState
                                                                             ''),
                                                                       )
                                                                       ?.elementAtOrNull(
-                                                                          listLeadsIndex),
+                                                                          listLeadsItemIndex),
                                                                   'sabaide',
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
@@ -1042,7 +1043,7 @@ class _FireInsuranceListPageWidgetState
                                                                             ''),
                                                                       )
                                                                       ?.elementAtOrNull(
-                                                                          listLeadsIndex),
+                                                                          listLeadsItemIndex),
                                                                   '40000',
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
@@ -1075,7 +1076,7 @@ class _FireInsuranceListPageWidgetState
                                                                               ''),
                                                                         )
                                                                         ?.elementAtOrNull(
-                                                                            listLeadsIndex)) !=
+                                                                            listLeadsItemIndex)) !=
                                                                     null &&
                                                                 (HouseInsuranceGroup
                                                                         .fireGetLeadsApiCall
@@ -1084,7 +1085,7 @@ class _FireInsuranceListPageWidgetState
                                                                               ''),
                                                                         )
                                                                         ?.elementAtOrNull(
-                                                                            listLeadsIndex)) !=
+                                                                            listLeadsItemIndex)) !=
                                                                     '') &&
                                                             ((HouseInsuranceGroup
                                                                     .fireGetLeadsApiCall
@@ -1094,7 +1095,7 @@ class _FireInsuranceListPageWidgetState
                                                                           ''),
                                                                     )
                                                                     ?.elementAtOrNull(
-                                                                        listLeadsIndex)) !=
+                                                                        listLeadsItemIndex)) !=
                                                                 '')
                                                         ? true
                                                         : false) &&
@@ -1162,7 +1163,7 @@ class _FireInsuranceListPageWidgetState
                                                                               ''),
                                                                         )
                                                                         ?.elementAtOrNull(
-                                                                            listLeadsIndex)),
+                                                                            listLeadsItemIndex)),
                                                                   ));
                                                                 },
                                                                 child: Icon(
@@ -1231,288 +1232,42 @@ class _FireInsuranceListPageWidgetState
                                                                 ) ??
                                                                 false;
                                                         if (confirmDialogResponse) {
-                                                          FFAppState()
-                                                                  .nonePackageFlagCarrier =
-                                                              false;
-                                                          FFAppState()
-                                                                  .nonePackageVehicleType =
-                                                              'กรุณาเลือกประเภทรถ';
-                                                          FFAppState()
-                                                                  .nonePackageBrandName =
-                                                              'กรุณาเลือกยี่ห้อรถ';
-                                                          FFAppState()
-                                                              .nonePackageBrandId = '';
-                                                          FFAppState()
-                                                                  .nonePackageModelName =
-                                                              'กรุณากรอกรุ่นรถ';
-                                                          FFAppState()
-                                                              .nonePackageModelCode = '';
-                                                          FFAppState()
-                                                                  .nonePackageYear =
-                                                              'กรุณาเลือกปีจดทะเบียน';
-                                                          FFAppState()
-                                                              .nonePackageUsedTypeId = '';
-                                                          FFAppState()
-                                                              .nonePackageSearchModelList = [];
-                                                          FFAppState()
-                                                              .nonePackageUsedTypeCode = '';
-                                                          FFAppState()
-                                                                  .nonePackageUsedTypeName =
-                                                              'กรุณาเลือกลักษณะการใช้รถ';
-                                                          FFAppState()
-                                                                  .nonePackageCusFullname =
-                                                              'กรุณากรอกชื่อ';
-                                                          FFAppState()
-                                                                  .nonePackageCusPhone =
-                                                              'กรุณากรอกเบอร์โทรศัพท์';
-                                                          FFAppState()
-                                                              .nonePackagePlate = '';
-                                                          FFAppState()
-                                                                  .nonePackageProvince =
-                                                              'กรุณาเลือกจังหวัดจดทะเบียน';
-                                                          FFAppState()
-                                                              .nonePackageProvinceId = '';
-                                                          FFAppState()
-                                                                  .nonePackageSumInsured =
-                                                              'กรุณากรอกทุนประกัน';
-                                                          FFAppState()
-                                                                  .nonePackageFlagAct =
-                                                              true;
-                                                          FFAppState()
-                                                                  .nonePackageIsBrandSelect =
-                                                              false;
-                                                          FFAppState()
-                                                              .nonePackageSearchModelIdList = [];
-                                                          FFAppState()
-                                                                  .nonePackageCarrierType =
-                                                              'กรุณาเลือกประเภทตู้เหล็ก';
-                                                          FFAppState()
-                                                                  .nonePackageFlagCoop =
-                                                              false;
-                                                          FFAppState()
-                                                                  .nonePackageTruckPart =
-                                                              'กรุณาเลือกส่วนของรถบรรทุก';
-                                                          FFAppState()
-                                                                  .nonePackageCusMembership =
-                                                              'กรุณาเลือกประเภทลูกค้า';
-                                                          FFAppState()
-                                                                  .nonePackageTruckCurrentPrice =
-                                                              'กรุณากรอกราคาซื้อขายปัจจุบัน';
-                                                          FFAppState()
-                                                                  .nonePackagePlateAdditional =
-                                                              'กรุณากรอกเลขทะเบียนหางพ่วง';
-                                                          FFAppState()
-                                                                  .nonePackageTruckCarryPurpose =
-                                                              'กรุณากรอกรถใช้บรรทุกอะไร';
-                                                          FFAppState()
-                                                                  .nonePackageTrailerSumInsured =
-                                                              'กรุณากรอกทุนประกันหางพ่วง';
-                                                          FFAppState()
-                                                              .nonePackageCarrierPrice = '';
-                                                          FFAppState()
-                                                              .nonePackageInsurerIdList = [];
-                                                          FFAppState()
-                                                              .nonePackageInsurerCodeList = [];
-                                                          FFAppState()
-                                                              .nonePackageInsurerShortNameList = [];
-                                                          FFAppState()
-                                                              .nonePackageInsurerNameList = [];
-                                                          FFAppState()
-                                                              .nonePackageInsurerDisplayName = [];
-                                                          FFAppState()
-                                                              .nonePackageInsurerIdOutputList = [];
-                                                          FFAppState()
-                                                              .nonePackageInsurerCodeOutputList = [];
-                                                          FFAppState()
-                                                              .nonePackageInsurerShortNameOutputList = [];
-                                                          FFAppState()
-                                                              .nonePackageInsurerNameOutputList = [];
-                                                          FFAppState()
-                                                              .nonePackageReason = [];
-                                                          FFAppState()
-                                                              .nonePackageInsurerSelectedList = [];
-                                                          FFAppState()
-                                                              .nonePackageCoverTypeId = '';
-                                                          FFAppState()
-                                                              .nonePackageCoverTypeCode = '';
-                                                          FFAppState()
-                                                                  .nonePackageCoverTypeName =
-                                                              'กรุณาเลือกประเภทชั้นประกัน';
-                                                          FFAppState()
-                                                              .nonePackageGarageTypeId = '';
-                                                          FFAppState()
-                                                                  .nonePackageGarageTypeName =
-                                                              'กรุณาเลือกประเภทการซ่อม';
-                                                          FFAppState()
-                                                              .nonePackageGarageTypeCode = '';
-                                                          FFAppState()
-                                                                  .nonePackageFlagRenew =
-                                                              false;
-                                                          FFAppState()
-                                                                  .nonePackageOldVmiExpDate =
-                                                              'กรุณาเลือกวันที่หมดอายุประกันเดิม';
-                                                          FFAppState()
-                                                              .nonePackageOldVmi = '';
-                                                          FFAppState()
-                                                              .nonePackageOldVmiImageUrl = '';
-                                                          FFAppState()
-                                                              .nonePackageIdCardImageUrl = '';
-                                                          FFAppState()
-                                                              .nonePackageRenewImageUrlList = [];
-                                                          FFAppState()
-                                                              .nonePackageRenewImageCheckList = [];
-                                                          FFAppState()
-                                                                  .nonePackageOldVmiImageUploadedCheck =
-                                                              false;
-                                                          FFAppState()
-                                                                  .nonePackageIdCardWatermarkUploadedCheck =
-                                                              false;
-                                                          FFAppState()
-                                                                  .buttonOrdinary =
-                                                              false;
-                                                          FFAppState()
-                                                                  .buttonCorporation =
-                                                              false;
-                                                          FFAppState()
-                                                              .nonePackageCustomerType = '';
-                                                          FFAppState()
-                                                              .nonePackageInsurerDisplayNameOutput = '';
-                                                          FFAppState()
-                                                              .nonePackageImageOther = [];
-                                                          FFAppState()
-                                                              .nonePackageImageFront = [];
-                                                          FFAppState()
-                                                              .nonePackageImageRightFront = [];
-                                                          FFAppState()
-                                                              .nonePackageImageRight = [];
-                                                          FFAppState()
-                                                              .nonePackageImageRightRear = [];
-                                                          FFAppState()
-                                                              .nonePackageImageRear = [];
-                                                          FFAppState()
-                                                              .nonePackageImageLeftRear = [];
-                                                          FFAppState()
-                                                              .nonePackageImageLeft = [];
-                                                          FFAppState()
-                                                              .nonePackageImageLeftFront = [];
-                                                          FFAppState()
-                                                              .nonePackageImageRoof = [];
-                                                          FFAppState()
-                                                              .nonePackageTrailerImageFront = [];
-                                                          FFAppState()
-                                                              .nonePackageTrailerImageRightFront = [];
-                                                          FFAppState()
-                                                              .nonePackageTrailerImageRight = [];
-                                                          FFAppState()
-                                                              .nonePackageTrailerImageRightRear = [];
-                                                          FFAppState()
-                                                              .nonePackageTrailerImageRear = [];
-                                                          FFAppState()
-                                                              .nonePackageTrailerImageLeftRear = [];
-                                                          FFAppState()
-                                                              .nonePackageTrailerImageLeft = [];
-                                                          FFAppState()
-                                                              .nonePackageTrailerImageLeftFront = [];
-                                                          FFAppState()
-                                                              .nonePackageInsurerOutputIndex = 0;
-                                                          FFAppState()
-                                                              .nonePackageLeadId = '';
-                                                          FFAppState()
-                                                              .nonePackageLeadNo = '';
-                                                          FFAppState()
-                                                              .nonePackageCarImageUploadedList = [];
-                                                          FFAppState()
-                                                              .nonePackageImageOldVmi = [];
-                                                          FFAppState()
-                                                              .nonePackageImageCompanyBook = [];
-                                                          FFAppState()
-                                                              .nonePackageImageIdCard = [];
-                                                          FFAppState()
-                                                              .nonePackageImageBlueBook = [];
-                                                          FFAppState()
-                                                                  .nonePackageCompanyBookImageUploadedCheck =
-                                                              false;
-                                                          FFAppState()
-                                                              .nonePackageCompanyBookImageUrl = '';
-                                                          FFAppState()
-                                                              .nonePackageImageFrontUploaded = '';
-                                                          FFAppState()
-                                                              .nonePackageImageRightFrontUploaded = '';
-                                                          FFAppState()
-                                                              .nonePackageImageRightUploaded = '';
-                                                          FFAppState()
-                                                              .nonePackageImageRightRearUploaded = '';
-                                                          FFAppState()
-                                                              .nonePackageImageRearUploaded = '';
-                                                          FFAppState()
-                                                              .nonePackageImageLeftRearUploaded = '';
-                                                          FFAppState()
-                                                              .nonePackageImageLeftUploaded = '';
-                                                          FFAppState()
-                                                              .nonePackageImageLeftFrontUploaded = '';
-                                                          FFAppState()
-                                                              .nonePackageImageRoofUploaded = '';
-                                                          FFAppState()
-                                                              .nonePackageTrailerImageFrontUploaded = '';
-                                                          FFAppState()
-                                                              .nonePackageTrailerImageRightFrontUploaded = '';
-                                                          FFAppState()
-                                                              .nonePackageTrailerImageRightUploaded = '';
-                                                          FFAppState()
-                                                              .nonePackageTrailerImageRightRearUploaded = '';
-                                                          FFAppState()
-                                                              .nonePackageTrailerImageRearUploaded = '';
-                                                          FFAppState()
-                                                              .nonePackageTrailerImageLeftRearUploaded = '';
-                                                          FFAppState()
-                                                              .nonePackageTrailerImageLeftUploaded = '';
-                                                          FFAppState()
-                                                              .nonePackageTrailerImageLeftFrontUploaded = '';
-                                                          FFAppState()
-                                                              .nonePackageImageBlueBookUploaded = '';
-                                                          FFAppState()
-                                                              .nonePackageImageOther1 = '';
-                                                          FFAppState()
-                                                              .nonePackageImageOther2 = '';
-                                                          FFAppState()
-                                                              .nonePackageImageOther3 = '';
-                                                          FFAppState()
-                                                              .nonePackageImageOther4 = '';
-                                                          FFAppState()
-                                                              .nonePackageImageOther5 = '';
-                                                          FFAppState()
-                                                              .nonePackageImageOtherNameList = [];
-                                                          FFAppState()
-                                                              .nonePackageSelectedInsurerShortName = '';
-                                                          FFAppState()
-                                                              .nonePackageSelectedInsurerName = '';
-                                                          FFAppState()
-                                                              .nonePackageSelectedInsurerShortNameList = [];
-                                                          FFAppState()
-                                                              .nonePackageSelectedInsurerNameList = [];
-                                                          FFAppState()
-                                                              .nonePackageFlagOldVmi = '';
-                                                          FFAppState()
-                                                              .nonePackageWorkType = '';
-                                                          FFAppState()
-                                                              .nonePackageRemark = '';
-                                                          FFAppState()
-                                                              .nonePackageBranchCode = '';
-                                                          FFAppState()
-                                                              .nonePackageBranchName = '';
-                                                          FFAppState()
-                                                              .nonePackageInsurerShortNameDupList = [];
-                                                          safeSetState(() {});
                                                         } else {
                                                           return;
                                                         }
+
+                                                        await showDialog(
+                                                          context: context,
+                                                          builder:
+                                                              (alertDialogContext) {
+                                                            return WebViewAware(
+                                                              child:
+                                                                  AlertDialog(
+                                                                content: Text(
+                                                                    getJsonField(
+                                                                  listLeadsItemItem,
+                                                                  r'''$.lead_id''',
+                                                                ).toString()),
+                                                                actions: [
+                                                                  TextButton(
+                                                                    onPressed: () =>
+                                                                        Navigator.pop(
+                                                                            alertDialogContext),
+                                                                    child: Text(
+                                                                        'Ok'),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            );
+                                                          },
+                                                        );
 
                                                         context.pushNamed(
                                                           'MakeFireInsuranceListPage',
                                                           queryParameters: {
                                                             'list':
                                                                 serializeParam(
-                                                              widget!.checkType,
+                                                              listLeadsItemItem,
                                                               ParamType.JSON,
                                                               isList: true,
                                                             ),
@@ -1520,17 +1275,6 @@ class _FireInsuranceListPageWidgetState
                                                                 serializeParam(
                                                               '0',
                                                               ParamType.String,
-                                                            ),
-                                                            'checkTotal':
-                                                                serializeParam(
-                                                              HouseInsuranceGroup
-                                                                  .fireGetLeadsApiCall
-                                                                  .checkTotal(
-                                                                (_model.fireGetLeads
-                                                                        ?.jsonBody ??
-                                                                    ''),
-                                                              ),
-                                                              ParamType.int,
                                                             ),
                                                           }.withoutNulls,
                                                         );
@@ -1596,10 +1340,10 @@ class _FireInsuranceListPageWidgetState
                                                                   '${HouseInsuranceGroup.fireGetLeadsApiCall.quotationId(
                                                                         (_model.fireGetLeads?.jsonBody ??
                                                                             ''),
-                                                                      )?.elementAtOrNull(listLeadsIndex)}${HouseInsuranceGroup.fireGetLeadsApiCall.leadsHouseDtIid(
+                                                                      )?.elementAtOrNull(listLeadsItemIndex)}${HouseInsuranceGroup.fireGetLeadsApiCall.leadsHouseDtIid(
                                                                         (_model.fireGetLeads?.jsonBody ??
                                                                             ''),
-                                                                      )?.elementAtOrNull(listLeadsIndex)}'),
+                                                                      )?.elementAtOrNull(listLeadsItemIndex)}'),
                                                               actions: [
                                                                 TextButton(
                                                                   onPressed: () =>
@@ -1627,7 +1371,7 @@ class _FireInsuranceListPageWidgetState
                                                                       ''),
                                                                 )
                                                                 ?.elementAtOrNull(
-                                                                    listLeadsIndex),
+                                                                    listLeadsItemIndex),
                                                             ParamType.String,
                                                           ),
                                                           'leadDtailId':
@@ -1640,7 +1384,7 @@ class _FireInsuranceListPageWidgetState
                                                                       ''),
                                                                 )!
                                                                 .elementAtOrNull(
-                                                                    listLeadsIndex))!)),
+                                                                    listLeadsItemIndex))!)),
                                                             ParamType.int,
                                                           ),
                                                         }.withoutNulls,
