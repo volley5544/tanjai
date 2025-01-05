@@ -5389,3 +5389,7 @@ List<dynamic>? returnListDataType(dynamic dataTypeInput) {
 
   return outputList;
 }
+
+List<dynamic>? makeJsonList(dynamic jsonInput) {
+  return [jsonInput!];
+}

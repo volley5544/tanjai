@@ -1267,7 +1267,9 @@ class _FireInsuranceListPageWidgetState
                                                           queryParameters: {
                                                             'list':
                                                                 serializeParam(
-                                                              listLeadsItemItem,
+                                                              functions
+                                                                  .makeJsonList(
+                                                                      listLeadsItemItem),
                                                               ParamType.JSON,
                                                               isList: true,
                                                             ),
