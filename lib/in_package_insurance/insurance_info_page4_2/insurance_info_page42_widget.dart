@@ -196,6 +196,38 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
         Navigator.pop(context);
         return;
       }
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content: Text('before update'),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content: Text(widget!.leadDetailId!.toString()),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
       FFAppState().insuranceInfoGrossTotal =
           '${IbsApplicationsDetailCall.grosstotalnet(
         (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
