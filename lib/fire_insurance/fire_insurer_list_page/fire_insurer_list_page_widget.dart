@@ -278,7 +278,7 @@ class _FireInsurerListPageWidgetState extends State<FireInsurerListPageWidget>
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryText,
-                                                            size: 20.0,
+                                                            size: 18.0,
                                                           ),
                                                         ),
                                                         Align(
@@ -291,7 +291,7 @@ class _FireInsurerListPageWidgetState extends State<FireInsurerListPageWidget>
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryText,
-                                                            size: 20.0,
+                                                            size: 18.0,
                                                           ),
                                                         ),
                                                       ],
@@ -303,13 +303,14 @@ class _FireInsurerListPageWidgetState extends State<FireInsurerListPageWidget>
                                                             .fromSTEB(8.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: Text(
-                                                      'เรียงราคาทุนประกันภัย',
+                                                      'เรียงราคาเบี้ยประกันภัย/ปี',
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
                                                             fontFamily:
                                                                 'Noto Sans Thai',
+                                                            fontSize: 14.0,
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),

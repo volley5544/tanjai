@@ -1405,13 +1405,25 @@ class _MakeFireInsuranceListPageWidgetState
                                                                           ),
                                                                     ),
                                                                     Text(
-                                                                      '${'' != '${getJsonField(
-                                                                            leadListItemItem,
-                                                                            r'''$..net_premium_total''',
-                                                                          ).toString()}' ? functions.returnNumberWithComma2Decimal('${getJsonField(
-                                                                          leadListItemItem,
-                                                                          r'''$..net_premium_total''',
-                                                                        ).toString()}') : '-'}',
+                                                                      valueOrDefault<
+                                                                          String>(
+                                                                        ('' !=
+                                                                                    '${getJsonField(
+                                                                                      leadListItemItem,
+                                                                                      r'''$..app_detail_house[:].net_premium_total''',
+                                                                                    ).toString()}') &&
+                                                                                ('${getJsonField(
+                                                                                      leadListItemItem,
+                                                                                      r'''$..app_detail_house[:].net_premium_total''',
+                                                                                    ).toString()}' !=
+                                                                                    'null')
+                                                                            ? functions.returnNumberWithComma2Decimal('${getJsonField(
+                                                                                leadListItemItem,
+                                                                                r'''$..app_detail_house[:].net_premium_total''',
+                                                                              ).toString()}')
+                                                                            : '/',
+                                                                        'net_premium_total',
+                                                                      ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .bodyMedium

@@ -919,6 +919,10 @@ class _SearchPackageFireInsurancePageWidgetState
                                                 .centimeterSquarTextFieldTextController
                                                 ?.clear();
                                           });
+                                          FFAppState()
+                                                  .fireInsuranceSearchPackageData =
+                                              FireInsuranceSearchPackageDataStruct();
+                                          safeSetState(() {});
                                         },
                                         child: Material(
                                           color: Colors.transparent,
@@ -2158,7 +2162,7 @@ class _SearchPackageFireInsurancePageWidgetState
                                               EdgeInsetsDirectional.fromSTEB(
                                                   10.0, 0.0, 0.0, 0.0),
                                           child: Text(
-                                            '(กรุณากรอก หน่วย : บาท)',
+                                            '(กรุณากรอก)',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
