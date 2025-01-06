@@ -53,6 +53,7 @@ class LeadsDetailHouseStruct extends FFFirebaseStruct {
     String? updatedUserid,
     String? updatedAt,
     String? insurerLogo,
+    String? effectiveDateInsure,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _dtlId = dtlId,
         _leadId = leadId,
@@ -97,6 +98,7 @@ class LeadsDetailHouseStruct extends FFFirebaseStruct {
         _updatedUserid = updatedUserid,
         _updatedAt = updatedAt,
         _insurerLogo = insurerLogo,
+        _effectiveDateInsure = effectiveDateInsure,
         super(firestoreUtilData);
 
   // "dtl_id" field.
@@ -404,6 +406,13 @@ class LeadsDetailHouseStruct extends FFFirebaseStruct {
 
   bool hasInsurerLogo() => _insurerLogo != null;
 
+  // "effective_date_insure" field.
+  String? _effectiveDateInsure;
+  String get effectiveDateInsure => _effectiveDateInsure ?? '';
+  set effectiveDateInsure(String? val) => _effectiveDateInsure = val;
+
+  bool hasEffectiveDateInsure() => _effectiveDateInsure != null;
+
   static LeadsDetailHouseStruct fromMap(Map<String, dynamic> data) =>
       LeadsDetailHouseStruct(
         dtlId: castToType<int>(data['dtl_id']),
@@ -449,6 +458,7 @@ class LeadsDetailHouseStruct extends FFFirebaseStruct {
         updatedUserid: data['updated_userid'] as String?,
         updatedAt: data['updated_at'] as String?,
         insurerLogo: data['insurer_logo'] as String?,
+        effectiveDateInsure: data['effective_date_insure'] as String?,
       );
 
   static LeadsDetailHouseStruct? maybeFromMap(dynamic data) => data is Map
@@ -499,6 +509,7 @@ class LeadsDetailHouseStruct extends FFFirebaseStruct {
         'updated_userid': _updatedUserid,
         'updated_at': _updatedAt,
         'insurer_logo': _insurerLogo,
+        'effective_date_insure': _effectiveDateInsure,
       }.withoutNulls;
 
   @override
@@ -673,6 +684,10 @@ class LeadsDetailHouseStruct extends FFFirebaseStruct {
         ),
         'insurer_logo': serializeParam(
           _insurerLogo,
+          ParamType.String,
+        ),
+        'effective_date_insure': serializeParam(
+          _effectiveDateInsure,
           ParamType.String,
         ),
       }.withoutNulls;
@@ -895,6 +910,11 @@ class LeadsDetailHouseStruct extends FFFirebaseStruct {
           ParamType.String,
           false,
         ),
+        effectiveDateInsure: deserializeParam(
+          data['effective_date_insure'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -945,7 +965,8 @@ class LeadsDetailHouseStruct extends FFFirebaseStruct {
         createdAt == other.createdAt &&
         updatedUserid == other.updatedUserid &&
         updatedAt == other.updatedAt &&
-        insurerLogo == other.insurerLogo;
+        insurerLogo == other.insurerLogo &&
+        effectiveDateInsure == other.effectiveDateInsure;
   }
 
   @override
@@ -992,7 +1013,8 @@ class LeadsDetailHouseStruct extends FFFirebaseStruct {
         createdAt,
         updatedUserid,
         updatedAt,
-        insurerLogo
+        insurerLogo,
+        effectiveDateInsure
       ]);
 }
 
@@ -1040,6 +1062,7 @@ LeadsDetailHouseStruct createLeadsDetailHouseStruct({
   String? updatedUserid,
   String? updatedAt,
   String? insurerLogo,
+  String? effectiveDateInsure,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
@@ -1089,6 +1112,7 @@ LeadsDetailHouseStruct createLeadsDetailHouseStruct({
       updatedUserid: updatedUserid,
       updatedAt: updatedAt,
       insurerLogo: insurerLogo,
+      effectiveDateInsure: effectiveDateInsure,
       firestoreUtilData: FirestoreUtilData(
         clearUnsetFields: clearUnsetFields,
         create: create,

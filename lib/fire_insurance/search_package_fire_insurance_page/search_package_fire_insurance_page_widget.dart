@@ -1016,6 +1016,10 @@ class _SearchPackageFireInsurancePageWidgetState
                                             _model.longTextFieldTextController
                                                 ?.clear();
                                           });
+                                          FFAppState()
+                                                  .fireInsuranceSearchPackageData =
+                                              FireInsuranceSearchPackageDataStruct();
+                                          safeSetState(() {});
                                         },
                                         child: Material(
                                           color: Colors.transparent,

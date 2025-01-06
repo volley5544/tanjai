@@ -365,6 +365,10 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
           '${IbsApplicationsDetailCall.subproductname(
         (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
       )}';
+      FFAppState().insuranceinfoActType =
+          '${IbsApplicationsDetailCall.subProduct(
+        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+      )}';
       safeSetState(() {});
       await showDialog(
         context: context,
@@ -473,6 +477,8 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
             '${IbsApplicationsDetailCall.subProduct(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
         )}';
+        FFAppState().insuranceInfoEffectiveDateInsure =
+            FFAppState().leadsDetailHouse.firstOrNull!.effectiveDateInsure;
         safeSetState(() {});
       } else {
         FFAppState().insuranceInfoPage4PaymentType =
