@@ -730,7 +730,7 @@ class _DetailsFireInsurancePageWidgetState
                                       focusColor: Colors.transparent,
                                       hoverColor: Colors.transparent,
                                       highlightColor: Colors.transparent,
-                                      onLongPress: () async {
+                                      onTap: () async {
                                         await showDialog(
                                           context: context,
                                           builder: (dialogContext) {
@@ -924,7 +924,7 @@ class _DetailsFireInsurancePageWidgetState
                                     functions.showNumberWithComma(
                                         widget!.packageData?.strikeAndRiot),
                                     '0',
-                                  )}บาท',
+                                  )} บาท',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -954,7 +954,7 @@ class _DetailsFireInsurancePageWidgetState
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  'ภัยต่อเครื่องอุปกรณ์ไฟฟ้า วงเงินคุ้มครองไม่เกิน',
+                                  'ภัยต่อเครื่องอุปกรณ์ไฟฟ้า \nวงเงินคุ้มครองไม่เกิน',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -969,7 +969,7 @@ class _DetailsFireInsurancePageWidgetState
                                     functions.showNumberWithComma(widget!
                                         .packageData?.electricalAppliance),
                                     '0',
-                                  )}บาท',
+                                  )} บาท',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -1014,7 +1014,7 @@ class _DetailsFireInsurancePageWidgetState
                                     functions.showNumberWithComma(
                                         widget!.packageData?.flood),
                                     '0',
-                                  )}บาท',
+                                  )} บาท',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(

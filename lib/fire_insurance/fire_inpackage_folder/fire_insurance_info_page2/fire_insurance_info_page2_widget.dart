@@ -5689,6 +5689,36 @@ class _FireInsuranceInfoPage2WidgetState
                                                     safeSetState(() {});
                                                   return;
                                                 }
+                                                if (!(FFAppState()
+                                                            .insuranceInfoEffectiveDateInsure !=
+                                                        null &&
+                                                    FFAppState()
+                                                            .insuranceInfoEffectiveDateInsure !=
+                                                        '')) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'กรุณาเลือกวันที่เริ่มคุ้มครอง'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    safeSetState(() {});
+                                                  return;
+                                                }
                                                 showModalBottomSheet(
                                                   isScrollControlled: true,
                                                   backgroundColor:

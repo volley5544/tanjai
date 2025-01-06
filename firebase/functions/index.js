@@ -23,10 +23,7 @@ async function handleRequest(req, res) {
       res.status(403).send("URL is empty.");
     }
     https.get(url, (resp) => {
-      res.setHeader(
-        "content-type",
-        resp.headers["content-type"] || "image/jpeg",
-      );
+      res.setHeader("content-type", resp.headers["content-type"] || "image/jpeg");
       resp.pipe(res);
     });
   });
@@ -37,7 +34,7 @@ const firestore = admin.firestore();
 
 const kPushNotificationRuntimeOpts = {
   timeoutSeconds: 540,
-  memory: "2GB",
+  memory: "2GB"
 };
 
 exports.addFcmToken = functions.https.onCall(async (data, context) => {
@@ -102,6 +99,7 @@ exports.sendPushNotificationsTrigger = functions
       await snapshot.ref.update({ status: "failed", error: `${e}` });
     }
   });
+
 
 async function sendPushNotifications(snapshot) {
   const notificationData = snapshot.data();
@@ -174,7 +172,7 @@ async function sendPushNotifications(snapshot) {
       },
       data: {
         initialPageName,
-        parameterData,
+        parameterData
       },
       android: {
         notification: {
@@ -198,7 +196,7 @@ async function sendPushNotifications(snapshot) {
     messageBatches.map(async (messages) => {
       const response = await admin.messaging().sendEachForMulticast(messages);
       numSent += response.successCount;
-    }),
+    })
   );
 
   await snapshot.ref.update({ status: "succeeded", num_sent: numSent });
@@ -237,6 +235,6 @@ function getCharForIndex(charIdx) {
 }
 exports.onUserDeleted = functions.auth.user().onDelete(async (user) => {
   let firestore = admin.firestore();
-  let userRef = firestore.doc("Users/" + user.uid);
+  let userRef = firestore.doc('Users/' + user.uid);
   await firestore.collection("Users").doc(user.uid).delete();
 });

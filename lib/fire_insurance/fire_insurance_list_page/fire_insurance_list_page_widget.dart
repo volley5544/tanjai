@@ -594,7 +594,9 @@ class _FireInsuranceListPageWidgetState
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-                            context.goNamed('fireInsuranceListPage');
+                            safeSetState(() {
+                              _model.searchFirstnameTextController?.clear();
+                            });
                           },
                           child: Icon(
                             Icons.refresh_sharp,
@@ -1190,8 +1192,7 @@ class _FireInsuranceListPageWidgetState
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceEvenly,
+                                                    MainAxisAlignment.center,
                                                 children: [
                                                   Padding(
                                                     padding:
@@ -1330,104 +1331,107 @@ class _FireInsuranceListPageWidgetState
                                                       ),
                                                     ),
                                                   ),
-                                                  FFButtonWidget(
-                                                    onPressed: () async {
-                                                      await showDialog(
-                                                        context: context,
-                                                        builder:
-                                                            (alertDialogContext) {
-                                                          return WebViewAware(
-                                                            child: AlertDialog(
-                                                              content: Text(
-                                                                  '${HouseInsuranceGroup.fireGetLeadsApiCall.quotationId(
-                                                                        (_model.fireGetLeads?.jsonBody ??
-                                                                            ''),
-                                                                      )?.elementAtOrNull(listLeadsItemIndex)}${HouseInsuranceGroup.fireGetLeadsApiCall.leadsHouseDtIid(
-                                                                        (_model.fireGetLeads?.jsonBody ??
-                                                                            ''),
-                                                                      )?.elementAtOrNull(listLeadsItemIndex)}'),
-                                                              actions: [
-                                                                TextButton(
-                                                                  onPressed: () =>
-                                                                      Navigator.pop(
-                                                                          alertDialogContext),
-                                                                  child: Text(
-                                                                      'Ok'),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          );
-                                                        },
-                                                      );
-
-                                                      context.pushNamed(
-                                                        'insuranceInfoPage1',
-                                                        queryParameters: {
-                                                          'quotationId':
-                                                              serializeParam(
-                                                            HouseInsuranceGroup
-                                                                .fireGetLeadsApiCall
-                                                                .quotationId(
-                                                                  (_model.fireGetLeads
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                )
-                                                                ?.elementAtOrNull(
-                                                                    listLeadsItemIndex),
-                                                            ParamType.String,
-                                                          ),
-                                                          'leadDtailId':
-                                                              serializeParam(
-                                                            int.parse(((HouseInsuranceGroup
-                                                                .fireGetLeadsApiCall
-                                                                .leadsHouseDtIid(
-                                                                  (_model.fireGetLeads
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                )!
-                                                                .elementAtOrNull(
-                                                                    listLeadsItemIndex))!)),
-                                                            ParamType.int,
-                                                          ),
-                                                        }.withoutNulls,
-                                                      );
-                                                    },
-                                                    text: '1',
-                                                    options: FFButtonOptions(
-                                                      height: 40.0,
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  16.0,
-                                                                  0.0,
-                                                                  16.0,
-                                                                  0.0),
-                                                      iconPadding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      color: Color(0xFFD9761A),
-                                                      textStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleSmall
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                color: Colors
-                                                                    .white,
-                                                                letterSpacing:
-                                                                    0.0,
+                                                  if (false)
+                                                    FFButtonWidget(
+                                                      onPressed: () async {
+                                                        await showDialog(
+                                                          context: context,
+                                                          builder:
+                                                              (alertDialogContext) {
+                                                            return WebViewAware(
+                                                              child:
+                                                                  AlertDialog(
+                                                                content: Text(
+                                                                    '${HouseInsuranceGroup.fireGetLeadsApiCall.quotationId(
+                                                                          (_model.fireGetLeads?.jsonBody ??
+                                                                              ''),
+                                                                        )?.elementAtOrNull(listLeadsItemIndex)}${HouseInsuranceGroup.fireGetLeadsApiCall.leadsHouseDtIid(
+                                                                          (_model.fireGetLeads?.jsonBody ??
+                                                                              ''),
+                                                                        )?.elementAtOrNull(listLeadsItemIndex)}'),
+                                                                actions: [
+                                                                  TextButton(
+                                                                    onPressed: () =>
+                                                                        Navigator.pop(
+                                                                            alertDialogContext),
+                                                                    child: Text(
+                                                                        'Ok'),
+                                                                  ),
+                                                                ],
                                                               ),
-                                                      elevation: 0.0,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
+                                                            );
+                                                          },
+                                                        );
+
+                                                        context.pushNamed(
+                                                          'insuranceInfoPage1',
+                                                          queryParameters: {
+                                                            'quotationId':
+                                                                serializeParam(
+                                                              HouseInsuranceGroup
+                                                                  .fireGetLeadsApiCall
+                                                                  .quotationId(
+                                                                    (_model.fireGetLeads
+                                                                            ?.jsonBody ??
+                                                                        ''),
+                                                                  )
+                                                                  ?.elementAtOrNull(
+                                                                      listLeadsItemIndex),
+                                                              ParamType.String,
+                                                            ),
+                                                            'leadDtailId':
+                                                                serializeParam(
+                                                              int.parse(((HouseInsuranceGroup
+                                                                  .fireGetLeadsApiCall
+                                                                  .leadsHouseDtIid(
+                                                                    (_model.fireGetLeads
+                                                                            ?.jsonBody ??
+                                                                        ''),
+                                                                  )!
+                                                                  .elementAtOrNull(
+                                                                      listLeadsItemIndex))!)),
+                                                              ParamType.int,
+                                                            ),
+                                                          }.withoutNulls,
+                                                        );
+                                                      },
+                                                      text: '1',
+                                                      options: FFButtonOptions(
+                                                        height: 40.0,
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    16.0,
+                                                                    0.0,
+                                                                    16.0,
+                                                                    0.0),
+                                                        iconPadding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        color:
+                                                            Color(0xFFD9761A),
+                                                        textStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleSmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Noto Sans Thai',
+                                                                  color: Colors
+                                                                      .white,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                        elevation: 0.0,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                      ),
                                                     ),
-                                                  ),
                                                 ],
                                               ),
                                             ),

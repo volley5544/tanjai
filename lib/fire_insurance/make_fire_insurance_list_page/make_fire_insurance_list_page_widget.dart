@@ -896,7 +896,7 @@ class _MakeFireInsuranceListPageWidgetState
                                                                                       r'''$..leads_detail_house[:].insurer_status''',
                                                                                     ).toString()}') ? getJsonField(
                                                                                     leadListItemItem,
-                                                                                    r'''$..quotation_status''',
+                                                                                    r'''$.quotation_status''',
                                                                                   ).toString() : functions.checkNullValueAndReturn(getJsonField(
                                                                                     leadListItemItem,
                                                                                     r'''$..leads_detail_house[:].insurer_status''',
@@ -1421,7 +1421,10 @@ class _MakeFireInsuranceListPageWidgetState
                                                                                 leadListItemItem,
                                                                                 r'''$..app_detail_house[:].net_premium_total''',
                                                                               ).toString()}')
-                                                                            : '/',
+                                                                            : functions.returnNumberWithComma2Decimal('${getJsonField(
+                                                                                leadListItemItem,
+                                                                                r'''$..leads_detail_house[:].net_premium_total''',
+                                                                              ).toString()}'),
                                                                         'net_premium_total',
                                                                       ),
                                                                       style: FlutterFlowTheme.of(

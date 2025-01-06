@@ -103,6 +103,7 @@ class _NoticeTextWidgetState extends State<NoticeTextWidget> {
                       widget!.text,
                       '-',
                     ),
+                    textAlign: TextAlign.justify,
                     style: FlutterFlowTheme.of(context).labelMedium.override(
                           fontFamily: 'Noto Sans Thai',
                           fontSize: 12.0,
