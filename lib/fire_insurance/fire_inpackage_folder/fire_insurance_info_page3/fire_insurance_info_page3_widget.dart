@@ -2101,6 +2101,8 @@ class _FireInsuranceInfoPage3WidgetState
                                                           .sanctionConsentValue!
                                                       ? '1'
                                                       : '0',
+                                                  subProduct: FFAppState()
+                                                      .insuranceinfoActType,
                                                 );
 
                                                 _shouldSetState = true;

@@ -724,7 +724,7 @@ class _MakeFireInsuranceListPageWidgetState
                                                                           Text(
                                                                         '${getJsonField(
                                                                           leadListItemItem,
-                                                                          r'''$..leads_detail_house[:].insurer_name''',
+                                                                          r'''$..insurer_name''',
                                                                         ).toString()}',
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
@@ -803,7 +803,10 @@ class _MakeFireInsuranceListPageWidgetState
                                                                                 ),
                                                                           ),
                                                                           Text(
-                                                                            'อัคคีภัย',
+                                                                            '${getJsonField(
+                                                                              leadListItemItem,
+                                                                              r'''$..insurance_type''',
+                                                                            ).toString()}',
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Noto Sans Thai',
                                                                                   color: FlutterFlowTheme.of(context).primaryText,
@@ -841,7 +844,7 @@ class _MakeFireInsuranceListPageWidgetState
                                                                           Text(
                                                                             '${getJsonField(
                                                                               leadListItemItem,
-                                                                              r'''$..leads_detail_house[:].package_name''',
+                                                                              r'''$..package_name''',
                                                                             ).toString()}',
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Noto Sans Thai',
@@ -1369,7 +1372,7 @@ class _MakeFireInsuranceListPageWidgetState
                                                                           .start,
                                                                   children: [
                                                                     Text(
-                                                                      'ราคาเบี้ยประกัน/ปี (ไม่รวมภาษีเเละอากร)',
+                                                                      'ราคาเบี้ยประกัน/ปี \n(ไม่รวมภาษีเเละอากร)',
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .bodyMedium
@@ -1385,10 +1388,10 @@ class _MakeFireInsuranceListPageWidgetState
                                                                     Text(
                                                                       '${'' != '${getJsonField(
                                                                             leadListItemItem,
-                                                                            r'''$..leads_detail_house[:].net_premium_total''',
+                                                                            r'''$..net_premium_total''',
                                                                           ).toString()}' ? functions.returnNumberWithComma2Decimal('${getJsonField(
                                                                           leadListItemItem,
-                                                                          r'''$..leads_detail_house[:].net_premium_total''',
+                                                                          r'''$..net_premium_total''',
                                                                         ).toString()}') : '-'}',
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
@@ -1806,8 +1809,8 @@ class _MakeFireInsuranceListPageWidgetState
                                                                     } else {
                                                                       if ('auto' ==
                                                                           getJsonField(
-                                                                            widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                            r'''$.quotation_type''',
+                                                                            leadListItemItem,
+                                                                            r'''$..quotation_type''',
                                                                           ).toString()) {
                                                                         await showDialog(
                                                                           context:
@@ -1826,7 +1829,7 @@ class _MakeFireInsuranceListPageWidgetState
                                                                                             ).toString()}' !=
                                                                                             ''
                                                                                         ? ((String leadHouseDetailId) {
-                                                                                            return int.parse('leadHouseDetailId');
+                                                                                            return int.parse('$leadHouseDetailId');
                                                                                           }(getJsonField(
                                                                                             leadListItemItem,
                                                                                             r'''$..leads_detail_house[:].leads_house_dtl_id''',
@@ -1865,7 +1868,7 @@ class _MakeFireInsuranceListPageWidgetState
                                                                                       ).toString()}' !=
                                                                                       ''
                                                                                   ? ((String leadHouseDetailId) {
-                                                                                      return int.parse('leadHouseDetailId');
+                                                                                      return int.parse('$leadHouseDetailId');
                                                                                     }(getJsonField(
                                                                                       leadListItemItem,
                                                                                       r'''$..leads_detail_house[:].leads_house_dtl_id''',
