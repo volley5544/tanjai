@@ -480,6 +480,23 @@ class _MakeFireInsuranceListPageWidgetState
                                                   errorBorder: InputBorder.none,
                                                   focusedErrorBorder:
                                                       InputBorder.none,
+                                                  suffixIcon: _model
+                                                          .searchFirstnameTextController!
+                                                          .text
+                                                          .isNotEmpty
+                                                      ? InkWell(
+                                                          onTap: () async {
+                                                            _model
+                                                                .searchFirstnameTextController
+                                                                ?.clear();
+                                                            safeSetState(() {});
+                                                          },
+                                                          child: Icon(
+                                                            Icons.clear,
+                                                            size: 22,
+                                                          ),
+                                                        )
+                                                      : null,
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -722,10 +739,24 @@ class _MakeFireInsuranceListPageWidgetState
                                                                           8.0),
                                                                       child:
                                                                           Text(
-                                                                        '${getJsonField(
-                                                                          leadListItemItem,
-                                                                          r'''$..insurer_name''',
-                                                                        ).toString()}',
+                                                                        ('${getJsonField(
+                                                                                      leadListItemItem,
+                                                                                      r'''$.app_detail_house[:].insurer_name''',
+                                                                                    ).toString()}' !=
+                                                                                    '') &&
+                                                                                ('${getJsonField(
+                                                                                      leadListItemItem,
+                                                                                      r'''$.app_detail_house[:].insurer_name''',
+                                                                                    ).toString()}' !=
+                                                                                    'null')
+                                                                            ? getJsonField(
+                                                                                leadListItemItem,
+                                                                                r'''$.app_detail_house[:].insurer_name''',
+                                                                              ).toString()
+                                                                            : getJsonField(
+                                                                                leadListItemItem,
+                                                                                r'''$.leads_detail_house[:].insurer_name''',
+                                                                              ).toString(),
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
@@ -762,10 +793,10 @@ class _MakeFireInsuranceListPageWidgetState
                                                                           Text(
                                                                             '${getJsonField(
                                                                               leadListItemItem,
-                                                                              r'''$..first_name''',
+                                                                              r'''$.first_name''',
                                                                             ).toString()} ${getJsonField(
                                                                               leadListItemItem,
-                                                                              r'''$..last_name''',
+                                                                              r'''$.last_name''',
                                                                             ).toString()}',
                                                                             maxLines:
                                                                                 2,
@@ -805,7 +836,7 @@ class _MakeFireInsuranceListPageWidgetState
                                                                           Text(
                                                                             '${getJsonField(
                                                                               leadListItemItem,
-                                                                              r'''$..insurance_type''',
+                                                                              r'''$.insurance_type''',
                                                                             ).toString()}',
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Noto Sans Thai',
@@ -842,10 +873,24 @@ class _MakeFireInsuranceListPageWidgetState
                                                                                 ),
                                                                           ),
                                                                           Text(
-                                                                            '${getJsonField(
-                                                                              leadListItemItem,
-                                                                              r'''$..package_name''',
-                                                                            ).toString()}',
+                                                                            ('${getJsonField(
+                                                                                          leadListItemItem,
+                                                                                          r'''$.app_detail_house[:].package_name''',
+                                                                                        ).toString()}' !=
+                                                                                        '') &&
+                                                                                    ('${getJsonField(
+                                                                                          leadListItemItem,
+                                                                                          r'''$.app_detail_house[:].package_name''',
+                                                                                        ).toString()}' !=
+                                                                                        'null')
+                                                                                ? getJsonField(
+                                                                                    leadListItemItem,
+                                                                                    r'''$.app_detail_house[:].package_name''',
+                                                                                  ).toString()
+                                                                                : getJsonField(
+                                                                                    leadListItemItem,
+                                                                                    r'''$.leads_detail_house[:].package_name''',
+                                                                                  ).toString(),
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Noto Sans Thai',
                                                                                   color: FlutterFlowTheme.of(context).primaryText,
@@ -894,10 +939,10 @@ class _MakeFireInsuranceListPageWidgetState
                                                                                 '${'ปฏิเสธ' != functions.checkNullValueAndReturn('${getJsonField(
                                                                                       leadListItemItem,
                                                                                       r'''$..leads_detail_house[:].insurer_status''',
-                                                                                    ).toString()}') ? getJsonField(
+                                                                                    ).toString()}') ? '${getJsonField(
                                                                                     leadListItemItem,
                                                                                     r'''$.quotation_status''',
-                                                                                  ).toString() : functions.checkNullValueAndReturn(getJsonField(
+                                                                                  ).toString()}' : functions.checkNullValueAndReturn(getJsonField(
                                                                                     leadListItemItem,
                                                                                     r'''$..leads_detail_house[:].insurer_status''',
                                                                                   ).toString())}',
@@ -939,12 +984,12 @@ class _MakeFireInsuranceListPageWidgetState
                                                                               () async {
                                                                             if (!(('${getJsonField(
                                                                                       leadListItemItem,
-                                                                                      r'''$..leads_detail_house[:].pdf_quotation''',
+                                                                                      r'''$.leads_detail_house[:].pdf_quotation''',
                                                                                     ).toString()}' !=
                                                                                     '') &&
                                                                                 ('${getJsonField(
                                                                                       leadListItemItem,
-                                                                                      r'''$..leads_detail_house[:].pdf_quotation''',
+                                                                                      r'''$.leads_detail_house[:].pdf_quotation''',
                                                                                     ).toString()}' !=
                                                                                     'null'))) {
                                                                               await showDialog(
@@ -972,7 +1017,7 @@ class _MakeFireInsuranceListPageWidgetState
                                                                                   child: AlertDialog(
                                                                                     content: Text('${'${getJsonField(
                                                                                       leadListItemItem,
-                                                                                      r'''$..leads_detail_house[:].pdf_quotation''',
+                                                                                      r'''$.leads_detail_house[:].pdf_quotation''',
                                                                                     ).toString()}'}'),
                                                                                     actions: [
                                                                                       TextButton(
@@ -995,7 +1040,7 @@ class _MakeFireInsuranceListPageWidgetState
                                                                                     ];
                                                                                   }('${getJsonField(
                                                                                     leadListItemItem,
-                                                                                    r'''$..leads_detail_house[:].pdf_quotation''',
+                                                                                    r'''$.leads_detail_house[:].pdf_quotation''',
                                                                                   ).toString()}'),
                                                                                   ParamType.String,
                                                                                   isList: true,
@@ -1405,28 +1450,27 @@ class _MakeFireInsuranceListPageWidgetState
                                                                           ),
                                                                     ),
                                                                     Text(
-                                                                      valueOrDefault<
-                                                                          String>(
+                                                                      '${valueOrDefault<String>(
                                                                         ('' !=
                                                                                     '${getJsonField(
                                                                                       leadListItemItem,
-                                                                                      r'''$..app_detail_house[:].net_premium_total''',
+                                                                                      r'''$.app_detail_house[:].net_premium_total''',
                                                                                     ).toString()}') &&
                                                                                 ('${getJsonField(
                                                                                       leadListItemItem,
-                                                                                      r'''$..app_detail_house[:].net_premium_total''',
+                                                                                      r'''$.app_detail_house[:].net_premium_total''',
                                                                                     ).toString()}' !=
                                                                                     'null')
                                                                             ? functions.returnNumberWithComma2Decimal('${getJsonField(
                                                                                 leadListItemItem,
-                                                                                r'''$..app_detail_house[:].net_premium_total''',
+                                                                                r'''$.app_detail_house[:].net_premium_total''',
                                                                               ).toString()}')
                                                                             : functions.returnNumberWithComma2Decimal('${getJsonField(
                                                                                 leadListItemItem,
-                                                                                r'''$..leads_detail_house[:].net_premium_total''',
+                                                                                r'''$.leads_detail_house[:].net_premium_total''',
                                                                               ).toString()}'),
                                                                         'net_premium_total',
-                                                                      ),
+                                                                      )} บาท',
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .bodyMedium
@@ -1791,7 +1835,7 @@ class _MakeFireInsuranceListPageWidgetState
                                                                                 serializeParam(
                                                                               '${getJsonField(
                                                                                 leadListItemItem,
-                                                                                r'''$..quotation_id''',
+                                                                                r'''$.quotation_id''',
                                                                               ).toString()}',
                                                                               ParamType.String,
                                                                             ),
@@ -1799,15 +1843,15 @@ class _MakeFireInsuranceListPageWidgetState
                                                                                 serializeParam(
                                                                               '${getJsonField(
                                                                                         leadListItemItem,
-                                                                                        r'''$..leads_detail_house[:].leads_house_dtl_id''',
+                                                                                        r'''$.leads_detail_house[:].leads_house_dtl_id''',
                                                                                       ).toString()}' !=
                                                                                       ''
                                                                                   ? ((String leadHouseDetailId) {
                                                                                       return int.parse('$leadHouseDetailId');
-                                                                                    }(getJsonField(
+                                                                                    }('${getJsonField(
                                                                                       leadListItemItem,
-                                                                                      r'''$..leads_detail_house[:].leads_house_dtl_id''',
-                                                                                    ).toString()))
+                                                                                      r'''$.leads_detail_house[:].leads_house_dtl_id''',
+                                                                                    ).toString()}'))
                                                                                   : 0,
                                                                               ParamType.int,
                                                                             ),
@@ -1829,7 +1873,7 @@ class _MakeFireInsuranceListPageWidgetState
                                                                               serializeParam(
                                                                             '${getJsonField(
                                                                               leadListItemItem,
-                                                                              r'''$..quotation_id''',
+                                                                              r'''$.quotation_id''',
                                                                             ).toString()}',
                                                                             ParamType.String,
                                                                           ),
@@ -1837,15 +1881,15 @@ class _MakeFireInsuranceListPageWidgetState
                                                                               serializeParam(
                                                                             '${getJsonField(
                                                                                       leadListItemItem,
-                                                                                      r'''$..leads_detail_house[:].leads_house_dtl_id''',
+                                                                                      r'''$.leads_detail_house[:].leads_house_dtl_id''',
                                                                                     ).toString()}' !=
                                                                                     ''
                                                                                 ? ((String leadHouseDetailId) {
                                                                                     return int.parse('$leadHouseDetailId');
-                                                                                  }(getJsonField(
+                                                                                  }('${getJsonField(
                                                                                     leadListItemItem,
-                                                                                    r'''$..leads_detail_house[:].leads_house_dtl_id''',
-                                                                                  ).toString()))
+                                                                                    r'''$.leads_detail_house[:].leads_house_dtl_id''',
+                                                                                  ).toString()}'))
                                                                                 : 0,
                                                                             ParamType.int,
                                                                           ),
@@ -1871,19 +1915,19 @@ class _MakeFireInsuranceListPageWidgetState
                                                                               child: AlertDialog(
                                                                                 title: Text('${getJsonField(
                                                                                   leadListItemItem,
-                                                                                  r'''$..quotation_id''',
+                                                                                  r'''$.quotation_id''',
                                                                                 ).toString()}'),
                                                                                 content: Text(('${getJsonField(
                                                                                               leadListItemItem,
-                                                                                              r'''$..leads_detail_house[:].leads_house_dtl_id''',
+                                                                                              r'''$.leads_detail_house[:].leads_house_dtl_id''',
                                                                                             ).toString()}' !=
                                                                                             ''
                                                                                         ? ((String leadHouseDetailId) {
                                                                                             return int.parse('$leadHouseDetailId');
-                                                                                          }(getJsonField(
+                                                                                          }('${getJsonField(
                                                                                             leadListItemItem,
-                                                                                            r'''$..leads_detail_house[:].leads_house_dtl_id''',
-                                                                                          ).toString()))
+                                                                                            r'''$.leads_detail_house[:].leads_house_dtl_id''',
+                                                                                          ).toString()}'))
                                                                                         : 0)
                                                                                     .toString()),
                                                                                 actions: [
@@ -1906,7 +1950,7 @@ class _MakeFireInsuranceListPageWidgetState
                                                                                 serializeParam(
                                                                               '${getJsonField(
                                                                                 leadListItemItem,
-                                                                                r'''$..quotation_id''',
+                                                                                r'''$.quotation_id''',
                                                                               ).toString()}',
                                                                               ParamType.String,
                                                                             ),
@@ -1914,15 +1958,15 @@ class _MakeFireInsuranceListPageWidgetState
                                                                                 serializeParam(
                                                                               '${getJsonField(
                                                                                         leadListItemItem,
-                                                                                        r'''$..leads_detail_house[:].leads_house_dtl_id''',
+                                                                                        r'''$.leads_detail_house[:].leads_house_dtl_id''',
                                                                                       ).toString()}' !=
                                                                                       ''
                                                                                   ? ((String leadHouseDetailId) {
                                                                                       return int.parse('$leadHouseDetailId');
-                                                                                    }(getJsonField(
+                                                                                    }('${getJsonField(
                                                                                       leadListItemItem,
-                                                                                      r'''$..leads_detail_house[:].leads_house_dtl_id''',
-                                                                                    ).toString()))
+                                                                                      r'''$.leads_detail_house[:].leads_house_dtl_id''',
+                                                                                    ).toString()}'))
                                                                                   : 0,
                                                                               ParamType.int,
                                                                             ),

@@ -310,8 +310,10 @@ class _FireInsurerListPageWidgetState extends State<FireInsurerListPageWidget>
                                                           .override(
                                                             fontFamily:
                                                                 'Noto Sans Thai',
-                                                            fontSize: 14.0,
+                                                            fontSize: 13.0,
                                                             letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
                                                           ),
                                                     ),
                                                   ),
