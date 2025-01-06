@@ -794,16 +794,16 @@ class _FireInsuranceInfoPage3WidgetState
                                                         ),
                                                       ),
                                                       if (!((FFAppState()
-                                                                  .insuranceInfoPage3ImageExamination !=
+                                                                  .insuranceInfoPage4FileCancelLoan !=
                                                               '') &&
                                                           (FFAppState()
-                                                                  .insuranceInfoPage3ImageExamination !=
+                                                                  .insuranceInfoPage4FileCancelLoan !=
                                                               '') &&
                                                           (FFAppState()
-                                                                      .insuranceInfoPage3ImageExamination !=
+                                                                      .insuranceInfoPage4FileCancelLoan !=
                                                                   null &&
                                                               FFAppState()
-                                                                      .insuranceInfoPage3ImageExamination !=
+                                                                      .insuranceInfoPage4FileCancelLoan !=
                                                                   '')))
                                                         Text(
                                                           'ยังไม่อัพโหลด',
@@ -818,15 +818,15 @@ class _FireInsuranceInfoPage3WidgetState
                                                                     0.0,
                                                               ),
                                                         ),
-                                                      if ((FFAppState().insuranceInfoPage3ImageExamination != '') &&
+                                                      if ((FFAppState().insuranceInfoPage4FileCancelLoan != '') &&
                                                           (FFAppState()
-                                                                  .insuranceInfoPage3ImageExamination !=
+                                                                  .insuranceInfoPage4FileCancelLoan !=
                                                               '') &&
                                                           (FFAppState()
-                                                                      .insuranceInfoPage3ImageExamination !=
+                                                                      .insuranceInfoPage4FileCancelLoan !=
                                                                   null &&
                                                               FFAppState()
-                                                                      .insuranceInfoPage3ImageExamination !=
+                                                                      .insuranceInfoPage4FileCancelLoan !=
                                                                   ''))
                                                         Text(
                                                           'อัพโหลดสำเร็จ',
@@ -1290,16 +1290,16 @@ class _FireInsuranceInfoPage3WidgetState
                                                         ),
                                                       ),
                                                       if (!((FFAppState()
-                                                                  .insuranceInfoPage3ImageBluebook !=
+                                                                  .InsuranceInfoPage4PowerOfAttoney !=
                                                               '') &&
                                                           (FFAppState()
-                                                                  .insuranceInfoPage3ImageBluebook !=
+                                                                  .InsuranceInfoPage4PowerOfAttoney !=
                                                               '') &&
                                                           (FFAppState()
-                                                                      .insuranceInfoPage3ImageBluebook !=
+                                                                      .InsuranceInfoPage4PowerOfAttoney !=
                                                                   null &&
                                                               FFAppState()
-                                                                      .insuranceInfoPage3ImageBluebook !=
+                                                                      .InsuranceInfoPage4PowerOfAttoney !=
                                                                   '')))
                                                         Text(
                                                           'ยังไม่อัพโหลด',
@@ -1314,15 +1314,15 @@ class _FireInsuranceInfoPage3WidgetState
                                                                     0.0,
                                                               ),
                                                         ),
-                                                      if ((FFAppState().insuranceInfoPage3ImageBluebook != '') &&
+                                                      if ((FFAppState().InsuranceInfoPage4PowerOfAttoney != '') &&
                                                           (FFAppState()
-                                                                  .insuranceInfoPage3ImageBluebook !=
+                                                                  .InsuranceInfoPage4PowerOfAttoney !=
                                                               '') &&
                                                           (FFAppState()
-                                                                      .insuranceInfoPage3ImageBluebook !=
+                                                                      .InsuranceInfoPage4PowerOfAttoney !=
                                                                   null &&
                                                               FFAppState()
-                                                                      .insuranceInfoPage3ImageBluebook !=
+                                                                      .InsuranceInfoPage4PowerOfAttoney !=
                                                                   ''))
                                                         Text(
                                                           'อัพโหลดสำเร็จ',

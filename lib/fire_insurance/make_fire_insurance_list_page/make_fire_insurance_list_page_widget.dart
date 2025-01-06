@@ -965,6 +965,25 @@ class _MakeFireInsuranceListPageWidgetState
                                                                               );
                                                                               return;
                                                                             }
+                                                                            await showDialog(
+                                                                              context: context,
+                                                                              builder: (alertDialogContext) {
+                                                                                return WebViewAware(
+                                                                                  child: AlertDialog(
+                                                                                    content: Text('${'${getJsonField(
+                                                                                      leadListItemItem,
+                                                                                      r'''$..leads_detail_house[:].pdf_quotation''',
+                                                                                    ).toString()}'}'),
+                                                                                    actions: [
+                                                                                      TextButton(
+                                                                                        onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                        child: Text('Ok'),
+                                                                                      ),
+                                                                                    ],
+                                                                                  ),
+                                                                                );
+                                                                              },
+                                                                            );
 
                                                                             context.pushNamed(
                                                                               'FireQuotationCopy',

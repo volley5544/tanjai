@@ -77,7 +77,7 @@ class _ShowPeoplePageWidgetState extends State<ShowPeoplePageWidget> {
             },
           ),
           title: Text(
-            'เพิ่มผู้รับประกันภัย(${'${FFAppState().benefitorData.length == 1 ? ((FFAppState().benefitorData.length == 1) && ((FFAppState().benefitorData.firstOrNull?.firstNameTh != '') && (FFAppState().benefitorData.firstOrNull?.lastNameTh != '') && (FFAppState().benefitorData.firstOrNull?.birthDay != '') && (FFAppState().benefitorData.firstOrNull?.benefitorName != '') && (FFAppState().benefitorData.firstOrNull?.relationship != '')) ? FFAppState().benefitorData.length.toString() : '0') : FFAppState().benefitorData.length.toString()}/5'})',
+            'เพิ่มผู้รับประกันภัย(${'${FFAppState().benefitorData.length == 1 ? ((FFAppState().benefitorData.length == 1) && ((FFAppState().benefitorData.firstOrNull?.firstNameTh != '') && (FFAppState().benefitorData.firstOrNull?.lastNameTh != '') && (FFAppState().benefitorData.firstOrNull?.birthDay != '') && (FFAppState().benefitorData.firstOrNull?.beneficiaryName != '') && (FFAppState().benefitorData.firstOrNull?.relationName != '')) ? FFAppState().benefitorData.length.toString() : '0') : FFAppState().benefitorData.length.toString()}/5'})',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Noto Sans Thai',
                   color: Color(0xFF204A77),
@@ -114,31 +114,30 @@ class _ShowPeoplePageWidgetState extends State<ShowPeoplePageWidget> {
                         final peopleListItemItem =
                             peopleListItem[peopleListItemIndex];
                         return Visibility(
-                          visible:
-                              FFAppState().benefitorData.length == 1
-                                  ? ((FFAppState().benefitorData.length == 1) &&
-                                      ((FFAppState().benefitorData.firstOrNull?.firstNameTh != '') &&
-                                          (FFAppState()
-                                                  .benefitorData
-                                                  .firstOrNull
-                                                  ?.lastNameTh !=
-                                              '') &&
-                                          (FFAppState()
-                                                  .benefitorData
-                                                  .firstOrNull
-                                                  ?.birthDay !=
-                                              '') &&
-                                          (FFAppState()
-                                                  .benefitorData
-                                                  .firstOrNull
-                                                  ?.benefitorName !=
-                                              '') &&
-                                          (FFAppState()
-                                                  .benefitorData
-                                                  .firstOrNull
-                                                  ?.relationship !=
-                                              '')))
-                                  : true,
+                          visible: FFAppState().benefitorData.length == 1
+                              ? ((FFAppState().benefitorData.length == 1) &&
+                                  ((FFAppState().benefitorData.firstOrNull?.firstNameTh != '') &&
+                                      (FFAppState()
+                                              .benefitorData
+                                              .firstOrNull
+                                              ?.lastNameTh !=
+                                          '') &&
+                                      (FFAppState()
+                                              .benefitorData
+                                              .firstOrNull
+                                              ?.birthDay !=
+                                          '') &&
+                                      (FFAppState()
+                                              .benefitorData
+                                              .firstOrNull
+                                              ?.beneficiaryName !=
+                                          '') &&
+                                      (FFAppState()
+                                              .benefitorData
+                                              .firstOrNull
+                                              ?.relationName !=
+                                          '')))
+                              : true,
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 12.0, 0.0, 12.0, 16.0),
@@ -539,7 +538,7 @@ class _ShowPeoplePageWidgetState extends State<ShowPeoplePageWidget> {
                                                               children: [
                                                                 Text(
                                                                   peopleListItemItem
-                                                                      .benefitorName,
+                                                                      .beneficiaryName,
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
@@ -612,7 +611,7 @@ class _ShowPeoplePageWidgetState extends State<ShowPeoplePageWidget> {
                                                               children: [
                                                                 Text(
                                                                   peopleListItemItem
-                                                                      .relationship,
+                                                                      .relationName,
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
@@ -842,24 +841,14 @@ class _ShowPeoplePageWidgetState extends State<ShowPeoplePageWidget> {
                                   insuredPersonId: '',
                                   insuredPersonNo: '',
                                   applicationId: '',
-                                  idTypeId: '',
-                                  nationalThaiId: '',
-                                  licenseNo: '',
                                   gender: '',
                                   titleThId: '',
                                   titleTh: '',
                                   firstNameTh: '',
                                   lastNameTh: '',
                                   birthDay: '',
-                                  imageIdcard: '',
-                                  imageLicenseNo: '',
-                                  occupationId: '',
-                                  occupationCode: '',
-                                  occupationName: '',
-                                  occupationSubcode: '',
-                                  occupationSubname: '',
-                                  benefitorName: '',
-                                  relationship: '',
+                                  beneficiaryName: '',
+                                  relationName: '',
                                   insuredPersonType:
                                       FFAppState().benefitorData.length == 0
                                           ? 'I'
@@ -868,6 +857,7 @@ class _ShowPeoplePageWidgetState extends State<ShowPeoplePageWidget> {
                                       FFAppState().benefitorData.length == 0
                                           ? 'ผู้เอาประกัน'
                                           : '',
+                                  age: '',
                                 ));
                                 safeSetState(() {});
 

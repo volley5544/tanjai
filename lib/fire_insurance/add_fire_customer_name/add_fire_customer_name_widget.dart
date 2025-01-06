@@ -1098,8 +1098,36 @@ class _AddFireCustomerNameWidgetState extends State<AddFireCustomerNameWidget> {
                                     );
                                   },
                                 );
+                                if (widget!.button == 'doInsurance') {
+                                  context.goNamed(
+                                    'insuranceInfoPage1',
+                                    queryParameters: {
+                                      'quotationId': serializeParam(
+                                        '${getJsonField(
+                                          (_model.saveQuotationApiOutput
+                                                  ?.jsonBody ??
+                                              ''),
+                                          r'''$.results.data.quotation.quotation_id''',
+                                        ).toString()}',
+                                        ParamType.String,
+                                      ),
+                                      'leadDtailId': serializeParam(
+                                        int.parse('${getJsonField(
+                                          (_model.saveQuotationApiOutput
+                                                  ?.jsonBody ??
+                                              ''),
+                                          r'''$.results.data.detail_house[0].lead_house_dtl_id''',
+                                        ).toString()}'),
+                                        ParamType.int,
+                                      ),
+                                    }.withoutNulls,
+                                  );
 
-                                context.pushNamed(
+                                  if (_shouldSetState) safeSetState(() {});
+                                  return;
+                                }
+
+                                context.goNamed(
                                   'FireQuotationPage',
                                   queryParameters: {
                                     'pdfUrl': serializeParam(

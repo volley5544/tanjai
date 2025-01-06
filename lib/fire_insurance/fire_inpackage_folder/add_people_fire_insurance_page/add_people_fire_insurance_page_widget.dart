@@ -292,11 +292,11 @@ class _AddPeopleFireInsurancePageWidgetState
                                       .benefitorData
                                       .elementAtOrNull(widget!.index!)
                                       ?.birthDay
-                                  ..benefitorName = _model
+                                  ..beneficiaryName = _model
                                       .peopleFireInfomationFormComponentModel
                                       .benefitorNameTextfieldTextController
                                       .text
-                                  ..relationship = _model
+                                  ..relationName = _model
                                       .peopleFireInfomationFormComponentModel
                                       .relationshipTextFieldTextController
                                       .text

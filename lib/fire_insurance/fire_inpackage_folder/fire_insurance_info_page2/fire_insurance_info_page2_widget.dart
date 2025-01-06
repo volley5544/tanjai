@@ -4980,7 +4980,7 @@ class _FireInsuranceInfoPage2WidgetState
                                                                   0.0,
                                                                   0.0),
                                                       child: Text(
-                                                        '${FFAppState().benefitorData.length == 1 ? ((FFAppState().benefitorData.length == 1) && ((FFAppState().benefitorData.firstOrNull?.firstNameTh != '') && (FFAppState().benefitorData.firstOrNull?.lastNameTh != '') && (FFAppState().benefitorData.firstOrNull?.birthDay != '') && (FFAppState().benefitorData.firstOrNull?.benefitorName != '') && (FFAppState().benefitorData.firstOrNull?.relationship != '')) ? FFAppState().benefitorData.length.toString() : '0') : FFAppState().benefitorData.length.toString()}/5',
+                                                        '${FFAppState().benefitorData.length == 1 ? ((FFAppState().benefitorData.length == 1) && ((FFAppState().benefitorData.firstOrNull?.firstNameTh != '') && (FFAppState().benefitorData.firstOrNull?.lastNameTh != '') && (FFAppState().benefitorData.firstOrNull?.birthDay != '') && (FFAppState().benefitorData.firstOrNull?.beneficiaryName != '') && (FFAppState().benefitorData.firstOrNull?.relationName != '')) ? FFAppState().benefitorData.length.toString() : '0') : FFAppState().benefitorData.length.toString()}/5',
                                                         style: FlutterFlowTheme
                                                                 .of(context)
                                                             .bodyMedium
@@ -5612,12 +5612,12 @@ class _FireInsuranceInfoPage2WidgetState
                                                                     (FFAppState()
                                                                             .benefitorData
                                                                             .firstOrNull
-                                                                            ?.benefitorName !=
+                                                                            ?.beneficiaryName !=
                                                                         '') &&
                                                                     (FFAppState()
                                                                             .benefitorData
                                                                             .firstOrNull
-                                                                            ?.relationship !=
+                                                                            ?.relationName !=
                                                                         ''))
                                                             ? FFAppState()
                                                                 .benefitorData

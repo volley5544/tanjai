@@ -79,23 +79,23 @@ class _PeopleFireInfomationFormComponentWidgetState
         _model.benefitorNameTextfieldTextController?.text = FFAppState()
                     .benefitorData
                     .elementAtOrNull(widget!.index!)
-                    ?.benefitorName !=
+                    ?.beneficiaryName !=
                 ''
             ? FFAppState()
                 .benefitorData
                 .elementAtOrNull(widget!.index!)!
-                .benefitorName
+                .beneficiaryName
             : '';
 
         _model.relationshipTextFieldTextController?.text = FFAppState()
                     .benefitorData
                     .elementAtOrNull(widget!.index!)
-                    ?.relationship !=
+                    ?.relationName !=
                 ''
             ? FFAppState()
                 .benefitorData
                 .elementAtOrNull(widget!.index!)!
-                .relationship
+                .relationName
             : '';
       });
     });
@@ -130,12 +130,12 @@ class _PeopleFireInfomationFormComponentWidgetState
         text: FFAppState()
                     .benefitorData
                     .elementAtOrNull(widget!.index!)
-                    ?.benefitorName !=
+                    ?.beneficiaryName !=
                 ''
             ? FFAppState()
                 .benefitorData
                 .elementAtOrNull(widget!.index!)
-                ?.benefitorName
+                ?.beneficiaryName
             : '');
     _model.benefitorNameTextfieldFocusNode ??= FocusNode();
 
@@ -143,12 +143,12 @@ class _PeopleFireInfomationFormComponentWidgetState
         text: FFAppState()
                     .benefitorData
                     .elementAtOrNull(widget!.index!)
-                    ?.relationship !=
+                    ?.relationName !=
                 ''
             ? FFAppState()
                 .benefitorData
                 .elementAtOrNull(widget!.index!)
-                ?.relationship
+                ?.relationName
             : '');
     _model.relationshipTextFieldFocusNode ??= FocusNode();
 

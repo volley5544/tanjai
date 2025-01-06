@@ -366,6 +366,22 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
         (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
       )}';
       safeSetState(() {});
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content: Text('after update'),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
       if (FFAppState().insuranceinfoActType == 'House') {
         FFAppState().leadsHouse = IbsApplicationsDetailCall.apphouse(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
@@ -392,71 +408,140 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
         Navigator.pop(context);
         return;
       }
-      FFAppState().insuranceInfoPage4PaymentType =
-          '${IbsApplicationsDetailCall.paymenttype(
-        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-      )}';
-      FFAppState().insuranceInfoPage4PaymentChannel =
-          '${IbsApplicationsDetailCall.paymentchannel(
-        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-      )}';
-      FFAppState().insuranceInfo4pagePaymentStatus =
-          '${IbsApplicationsDetailCall.paymentstatus(
-        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-      )}';
-      FFAppState().insuranceInfoGrossTotal =
-          '${IbsApplicationsDetailCall.grosstotalnet(
-        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-      )}';
-      FFAppState().insuranceInfoActAmount =
-          '${IbsApplicationsDetailCall.acttotal(
-        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-      )}';
-      FFAppState().insuranceInfoVehicleCode =
-          '${IbsApplicationsDetailCall.vehiclecode(
-        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-      )}';
-      FFAppState().insuranceInfoQuotationId =
-          '${IbsApplicationsDetailCall.quotationId(
-        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-      )}';
-      FFAppState().insuranceInfoPage4SelectTenor =
-          '${IbsApplicationsDetailCall.tenor(
-        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-      )}';
-      FFAppState().insuranceInfo4pageStatus =
-          '${IbsApplicationsDetailCall.quotationstatus(
-        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-      )}';
-      FFAppState().insuranceInfoPage4SelectInstallMentFirstDue =
-          '${IbsApplicationsDetailCall.installmentfirstdue(
-        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-      )}';
-      FFAppState().insuranceInfoPage4SelectInstallMentLastDue =
-          '${IbsApplicationsDetailCall.installmentlastdue(
-        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-      )}';
-      FFAppState().insuranceInfoPage4FirstPay =
-          '${IbsApplicationsDetailCall.firstPayAmount(
-        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-      )}';
-      FFAppState().insuranceInfoFirstName =
-          '${IbsApplicationsDetailCall.firstnameth(
-        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-      )}';
-      FFAppState().insuranceInfoLastName =
-          '${IbsApplicationsDetailCall.lastnameth(
-        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-      )}';
-      FFAppState().insuranceInfoPage4NetPremiumTotal = '${getJsonField(
-        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        r'''$.results.data.app_detail[:].net_premium_total''',
-      ).toString().toString()}';
-      FFAppState().insuranceinfoActType =
-          '${IbsApplicationsDetailCall.subProduct(
-        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-      )}';
-      safeSetState(() {});
+      if (FFAppState().insuranceinfoActType == 'House') {
+        FFAppState().insuranceInfoPage4PaymentType =
+            '${IbsApplicationsDetailCall.paymenttype(
+          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+        )}';
+        FFAppState().insuranceInfoPage4PaymentChannel =
+            '${IbsApplicationsDetailCall.paymentchannel(
+          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+        )}';
+        FFAppState().insuranceInfo4pagePaymentStatus =
+            '${IbsApplicationsDetailCall.paymentstatus(
+          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+        )}';
+        FFAppState().insuranceInfoGrossTotal = '${'${getJsonField(
+          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+          r'''$.results.data.app_detail_house[:].gross_total''',
+        ).toString().toString()}'}';
+        FFAppState().insuranceInfoActAmount =
+            '${IbsApplicationsDetailCall.acttotal(
+          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+        )}';
+        FFAppState().insuranceInfoVehicleCode =
+            '${IbsApplicationsDetailCall.vehiclecode(
+          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+        )}';
+        FFAppState().insuranceInfoQuotationId =
+            '${IbsApplicationsDetailCall.quotationId(
+          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+        )}';
+        FFAppState().insuranceInfoPage4SelectTenor =
+            '${IbsApplicationsDetailCall.tenor(
+          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+        )}';
+        FFAppState().insuranceInfo4pageStatus =
+            '${IbsApplicationsDetailCall.quotationstatus(
+          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+        )}';
+        FFAppState().insuranceInfoPage4SelectInstallMentFirstDue =
+            '${IbsApplicationsDetailCall.installmentfirstdue(
+          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+        )}';
+        FFAppState().insuranceInfoPage4SelectInstallMentLastDue =
+            '${IbsApplicationsDetailCall.installmentlastdue(
+          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+        )}';
+        FFAppState().insuranceInfoPage4FirstPay =
+            '${IbsApplicationsDetailCall.firstPayAmount(
+          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+        )}';
+        FFAppState().insuranceInfoFirstName =
+            '${IbsApplicationsDetailCall.firstnameth(
+          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+        )}';
+        FFAppState().insuranceInfoLastName =
+            '${IbsApplicationsDetailCall.lastnameth(
+          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+        )}';
+        FFAppState().insuranceInfoPage4NetPremiumTotal = '${getJsonField(
+          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+          r'''$.results.data.app_detail_house[:].net_premium_total''',
+        ).toString().toString()}';
+        FFAppState().insuranceinfoActType =
+            '${IbsApplicationsDetailCall.subProduct(
+          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+        )}';
+        safeSetState(() {});
+      } else {
+        FFAppState().insuranceInfoPage4PaymentType =
+            '${IbsApplicationsDetailCall.paymenttype(
+          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+        )}';
+        FFAppState().insuranceInfoPage4PaymentChannel =
+            '${IbsApplicationsDetailCall.paymentchannel(
+          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+        )}';
+        FFAppState().insuranceInfo4pagePaymentStatus =
+            '${IbsApplicationsDetailCall.paymentstatus(
+          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+        )}';
+        FFAppState().insuranceInfoGrossTotal =
+            '${IbsApplicationsDetailCall.grosstotalnet(
+          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+        )}';
+        FFAppState().insuranceInfoActAmount =
+            '${IbsApplicationsDetailCall.acttotal(
+          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+        )}';
+        FFAppState().insuranceInfoVehicleCode =
+            '${IbsApplicationsDetailCall.vehiclecode(
+          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+        )}';
+        FFAppState().insuranceInfoQuotationId =
+            '${IbsApplicationsDetailCall.quotationId(
+          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+        )}';
+        FFAppState().insuranceInfoPage4SelectTenor =
+            '${IbsApplicationsDetailCall.tenor(
+          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+        )}';
+        FFAppState().insuranceInfo4pageStatus =
+            '${IbsApplicationsDetailCall.quotationstatus(
+          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+        )}';
+        FFAppState().insuranceInfoPage4SelectInstallMentFirstDue =
+            '${IbsApplicationsDetailCall.installmentfirstdue(
+          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+        )}';
+        FFAppState().insuranceInfoPage4SelectInstallMentLastDue =
+            '${IbsApplicationsDetailCall.installmentlastdue(
+          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+        )}';
+        FFAppState().insuranceInfoPage4FirstPay =
+            '${IbsApplicationsDetailCall.firstPayAmount(
+          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+        )}';
+        FFAppState().insuranceInfoFirstName =
+            '${IbsApplicationsDetailCall.firstnameth(
+          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+        )}';
+        FFAppState().insuranceInfoLastName =
+            '${IbsApplicationsDetailCall.lastnameth(
+          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+        )}';
+        FFAppState().insuranceInfoPage4NetPremiumTotal = '${getJsonField(
+          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+          r'''$.results.data.app_detail[:].net_premium_total''',
+        ).toString().toString()}';
+        FFAppState().insuranceinfoActType =
+            '${IbsApplicationsDetailCall.subProduct(
+          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+        )}';
+        safeSetState(() {});
+      }
+
       if (FFAppState().insuranceInfoPage4PaymentType == 'จ่ายเต็ม') {
         safeSetState(() {
           _model.paymentTypeTextController?.text =
@@ -1854,7 +1939,8 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                   ),
                                 ),
                               ),
-                            if (FFAppState().insuranceinfoActType != 'CMI')
+                            if ((FFAppState().insuranceinfoActType != 'CMI') &&
+                                (FFAppState().insuranceinfoActType != 'House'))
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 5.0, 0.0, 0.0),

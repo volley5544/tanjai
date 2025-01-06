@@ -14296,6 +14296,16 @@ class IbsApplicationsDetailCall {
           .map((x) => LeadsDetailHouseStruct.maybeFromMap(x))
           .withoutNulls
           .toList();
+  static List<BenefitorModelStruct>? appInsuredPerson(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.results.data.app_insured_person[:]''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => BenefitorModelStruct.maybeFromMap(x))
+          .withoutNulls
+          .toList();
 }
 
 class IbsApplicationsPaymentSaveCall {

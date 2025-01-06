@@ -100,6 +100,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
           );
         },
       );
+      FFAppState().benefitorData = [];
+      safeSetState(() {});
       FFAppState().insuranceInfoEffectiveDateAct = '';
       FFAppState().insuranceInfoHaveLicenseBool = false;
       FFAppState().insuranceInfoIdCard = '';
@@ -1036,6 +1038,31 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
         safeSetState(() {});
       }
 
+      if (IbsApplicationsDetailCall.appInsuredPerson(
+            (_model.detailAPIOutput?.jsonBody ?? ''),
+          )?.firstOrNull !=
+          BenefitorModelStruct(
+            insuredPersonId: '',
+            insuredPersonNo: '',
+            insuredPersonType: '',
+            applicationId: '',
+            gender: '',
+            titleThId: '',
+            titleTh: '',
+            firstNameTh: '',
+            lastNameTh: '',
+            birthDay: '',
+            beneficiaryName: '',
+            relationName: '',
+            age: '',
+          )) {
+        FFAppState().benefitorData = IbsApplicationsDetailCall.appInsuredPerson(
+          (_model.detailAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<BenefitorModelStruct>();
+        safeSetState(() {});
+      }
       FFAppState().insuranceInfoPage4FileLoanApplicationRegister =
           '${IbsApplicationsDetailCall.imgfileloanapplicationregister(
         (_model.detailAPIOutput?.jsonBody ?? ''),

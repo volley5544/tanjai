@@ -2206,7 +2206,7 @@ class _SearchPackageFireInsurancePageWidgetState
                                                             'Noto Sans Thai',
                                                         color:
                                                             Color(0xFFB3B1B1),
-                                                        fontSize: 18.0,
+                                                        fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                       ),
                                               enabledBorder: OutlineInputBorder(

@@ -67,6 +67,22 @@ class _FireQuotationCopyWidgetState extends State<FireQuotationCopyWidget> {
         },
       ).then((value) => safeSetState(() {}));
 
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content: Text(widget!.quotation!.firstOrNull!),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
       FFAppState().indexPdfQuotation = 0;
       FFAppState().lengthListPdfQuotation = widget!.quotation!.length;
       safeSetState(() {});
