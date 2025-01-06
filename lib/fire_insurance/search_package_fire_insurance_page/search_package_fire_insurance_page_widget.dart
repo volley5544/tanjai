@@ -2129,6 +2129,7 @@ class _SearchPackageFireInsurancePageWidgetState
                                     children: [
                                       Text(
                                         'ทรัพย์สินภายในสิ่งปลูกสร้าง',
+                                        textAlign: TextAlign.start,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -2138,19 +2139,22 @@ class _SearchPackageFireInsurancePageWidgetState
                                               letterSpacing: 0.0,
                                             ),
                                       ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 0.0, 0.0),
-                                        child: Text(
-                                          '(กรุณากรอก หน่วย : บาท)',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Noto Sans Thai',
-                                                color: Color(0xFFFF0202),
-                                                fontSize: 15.0,
-                                                letterSpacing: 0.0,
-                                              ),
+                                      Expanded(
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  10.0, 0.0, 0.0, 0.0),
+                                          child: Text(
+                                            '(กรุณากรอก หน่วย : บาท)',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Noto Sans Thai',
+                                                  color: Color(0xFFFF0202),
+                                                  fontSize: 15.0,
+                                                  letterSpacing: 0.0,
+                                                ),
+                                          ),
                                         ),
                                       ),
                                     ],

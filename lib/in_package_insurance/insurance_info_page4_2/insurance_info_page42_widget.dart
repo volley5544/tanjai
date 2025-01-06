@@ -573,7 +573,9 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
         Navigator.pop(context);
       } else {
         _model.calInstallmentAPIOutput = await IbsCalculateInstallmentCall.call(
-          grossTotalNet: FFAppState().insuranceInfoGrossTotal,
+          grossTotalNet: FFAppState().insuranceinfoActType == 'House'
+              ? FFAppState().leadsDetailHouse.firstOrNull?.grossTotalNet
+              : FFAppState().insuranceInfoGrossTotal,
           vehicleCode: FFAppState().insuranceInfoVehicleCode,
           actTotal: FFAppState().insuranceInfoActAmount,
           insuranceUrl: FFAppState().apiUrlInsuranceAppState,

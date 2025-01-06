@@ -1814,7 +1814,7 @@ class _MakeFireInsuranceListPageWidgetState
                                                                               serializeParam(
                                                                             getJsonField(
                                                                               widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                              r'''$.lead_dtl_id''',
+                                                                              r'''$..leads_detail_house[:].leads_house_dtl_id''',
                                                                             ),
                                                                             ParamType.int,
                                                                           ),
