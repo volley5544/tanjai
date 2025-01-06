@@ -819,7 +819,7 @@ class _SearchPackageFireInsurancePageWidgetState
                                                               'null')
                                                       ? Colors.black
                                                       : Color(0xFFB3B1B1),
-                                                  fontSize: 18.0,
+                                                  fontSize: 16.0,
                                                   letterSpacing: 0.0,
                                                 ),
                                           ),
@@ -1969,7 +1969,7 @@ class _SearchPackageFireInsurancePageWidgetState
                                                               'null')
                                                       ? Colors.black
                                                       : Color(0xFFB3B1B1),
-                                                  fontSize: 18.0,
+                                                  fontSize: 16.0,
                                                   letterSpacing: 0.0,
                                                 ),
                                           ),
@@ -2093,7 +2093,7 @@ class _SearchPackageFireInsurancePageWidgetState
                                                             'null')
                                                     ? Colors.black
                                                     : Color(0xFFB3B1B1),
-                                                fontSize: 18.0,
+                                                fontSize: 16.0,
                                                 letterSpacing: 0.0,
                                               ),
                                         ),

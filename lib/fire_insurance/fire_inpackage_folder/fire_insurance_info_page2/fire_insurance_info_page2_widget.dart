@@ -5819,6 +5819,11 @@ class _FireInsuranceInfoPage2WidgetState
                                                       .leadsHouse
                                                       .firstOrNull
                                                       ?.usableArea,
+                                                  appInsuredPersonJson:
+                                                      FFAppState()
+                                                          .benefitorData
+                                                          .map((e) => e.toMap())
+                                                          .toList(),
                                                 );
 
                                                 _shouldSetState = true;
