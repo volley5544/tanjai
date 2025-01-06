@@ -483,7 +483,7 @@ class GetListFireApiCall {
       ));
   List? waitingData(dynamic response) => getJsonField(
         response,
-        r'''$.results.data.waiting.data''',
+        r'''$.results.data.waiting.data[:]''',
         true,
       ) as List?;
   int? waitingTotal(dynamic response) => castToType<int>(getJsonField(
@@ -492,7 +492,7 @@ class GetListFireApiCall {
       ));
   List? approveData(dynamic response) => getJsonField(
         response,
-        r'''$.results.data.approve.data''',
+        r'''$.results.data.approve.data[:]''',
         true,
       ) as List?;
   int? approveTotal(dynamic response) => castToType<int>(getJsonField(
@@ -501,7 +501,7 @@ class GetListFireApiCall {
       ));
   List? cancelData(dynamic response) => getJsonField(
         response,
-        r'''$.results.data.cancel.data''',
+        r'''$.results.data.cancel.data[:]''',
         true,
       ) as List?;
   int? cancelTotal(dynamic response) => castToType<int>(getJsonField(

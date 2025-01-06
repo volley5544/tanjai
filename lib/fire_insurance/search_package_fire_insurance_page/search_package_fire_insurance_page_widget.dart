@@ -1324,6 +1324,9 @@ class _SearchPackageFireInsurancePageWidgetState
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
+                                                          keyboardType:
+                                                              TextInputType
+                                                                  .number,
                                                           cursorColor:
                                                               FlutterFlowTheme.of(
                                                                       context)
@@ -1512,6 +1515,9 @@ class _SearchPackageFireInsurancePageWidgetState
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
+                                                          keyboardType:
+                                                              TextInputType
+                                                                  .number,
                                                           cursorColor:
                                                               FlutterFlowTheme.of(
                                                                       context)
@@ -1768,6 +1774,9 @@ class _SearchPackageFireInsurancePageWidgetState
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
+                                                            keyboardType:
+                                                                TextInputType
+                                                                    .number,
                                                             cursorColor:
                                                                 FlutterFlowTheme.of(
                                                                         context)

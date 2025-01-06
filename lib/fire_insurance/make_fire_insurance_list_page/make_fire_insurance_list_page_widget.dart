@@ -1774,18 +1774,26 @@ class _MakeFireInsuranceListPageWidgetState
                                                                               {
                                                                             'quotationId':
                                                                                 serializeParam(
-                                                                              getJsonField(
-                                                                                widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                                r'''$.quotation_id''',
-                                                                              ).toString(),
+                                                                              '${getJsonField(
+                                                                                leadListItemItem,
+                                                                                r'''$..quotation_id''',
+                                                                              ).toString()}',
                                                                               ParamType.String,
                                                                             ),
                                                                             'leadDtlId':
                                                                                 serializeParam(
-                                                                              getJsonField(
-                                                                                widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                                r'''$.lead_dtl_id''',
-                                                                              ),
+                                                                              '${getJsonField(
+                                                                                        leadListItemItem,
+                                                                                        r'''$..leads_detail_house[:].leads_house_dtl_id''',
+                                                                                      ).toString()}' !=
+                                                                                      ''
+                                                                                  ? ((String leadHouseDetailId) {
+                                                                                      return int.parse('$leadHouseDetailId');
+                                                                                    }(getJsonField(
+                                                                                      leadListItemItem,
+                                                                                      r'''$..leads_detail_house[:].leads_house_dtl_id''',
+                                                                                    ).toString()))
+                                                                                  : 0,
                                                                               ParamType.int,
                                                                             ),
                                                                           }.withoutNulls,
@@ -1804,18 +1812,26 @@ class _MakeFireInsuranceListPageWidgetState
                                                                             {
                                                                           'quotationId':
                                                                               serializeParam(
-                                                                            getJsonField(
-                                                                              widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                              r'''$.quotation_id''',
-                                                                            ).toString(),
+                                                                            '${getJsonField(
+                                                                              leadListItemItem,
+                                                                              r'''$..quotation_id''',
+                                                                            ).toString()}',
                                                                             ParamType.String,
                                                                           ),
                                                                           'leadDetailId':
                                                                               serializeParam(
-                                                                            getJsonField(
-                                                                              widget!.list?.elementAtOrNull(leadListItemIndex),
-                                                                              r'''$..leads_detail_house[:].leads_house_dtl_id''',
-                                                                            ),
+                                                                            '${getJsonField(
+                                                                                      leadListItemItem,
+                                                                                      r'''$..leads_detail_house[:].leads_house_dtl_id''',
+                                                                                    ).toString()}' !=
+                                                                                    ''
+                                                                                ? ((String leadHouseDetailId) {
+                                                                                    return int.parse('$leadHouseDetailId');
+                                                                                  }(getJsonField(
+                                                                                    leadListItemItem,
+                                                                                    r'''$..leads_detail_house[:].leads_house_dtl_id''',
+                                                                                  ).toString()))
+                                                                                : 0,
                                                                             ParamType.int,
                                                                           ),
                                                                         }.withoutNulls,
