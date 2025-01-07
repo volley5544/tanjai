@@ -919,10 +919,6 @@ class _SearchPackageFireInsurancePageWidgetState
                                                 .centimeterSquarTextFieldTextController
                                                 ?.clear();
                                           });
-                                          FFAppState()
-                                                  .fireInsuranceSearchPackageData =
-                                              FireInsuranceSearchPackageDataStruct();
-                                          safeSetState(() {});
                                         },
                                         child: Material(
                                           color: Colors.transparent,
@@ -1020,10 +1016,6 @@ class _SearchPackageFireInsurancePageWidgetState
                                             _model.longTextFieldTextController
                                                 ?.clear();
                                           });
-                                          FFAppState()
-                                                  .fireInsuranceSearchPackageData =
-                                              FireInsuranceSearchPackageDataStruct();
-                                          safeSetState(() {});
                                         },
                                         child: Material(
                                           color: Colors.transparent,

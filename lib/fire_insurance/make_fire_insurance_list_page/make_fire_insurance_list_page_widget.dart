@@ -1778,52 +1778,52 @@ class _MakeFireInsuranceListPageWidgetState
                                                                       '0') {
                                                                     if (('เตรียมข้อมูล' !=
                                                                             getJsonField(
-                                                                              widget!.list?.elementAtOrNull(leadListItemIndex),
+                                                                              leadListItemItem,
                                                                               r'''$.quotation_status''',
                                                                             ).toString()) &&
                                                                         ('รอตัดสินใจ' !=
                                                                             getJsonField(
-                                                                              widget!.list?.elementAtOrNull(leadListItemIndex),
+                                                                              leadListItemItem,
                                                                               r'''$.quotation_status''',
                                                                             ).toString()) &&
                                                                         ('ส่งเรื่องขอใบเสนอราคา' !=
                                                                             getJsonField(
-                                                                              widget!.list?.elementAtOrNull(leadListItemIndex),
+                                                                              leadListItemItem,
                                                                               r'''$.quotation_status''',
                                                                             ).toString())) {
                                                                       if (('อยู่ระหว่างตรวจสอบสภาพรถ' ==
                                                                               getJsonField(
-                                                                                widget!.list?.elementAtOrNull(leadListItemIndex),
+                                                                                leadListItemItem,
                                                                                 r'''$.quotation_status''',
                                                                               ).toString()) ||
                                                                           ('อนุมัติ' ==
                                                                               getJsonField(
-                                                                                widget!.list?.elementAtOrNull(leadListItemIndex),
+                                                                                leadListItemItem,
                                                                                 r'''$.quotation_status''',
                                                                               ).toString()) ||
                                                                           ('ไม่อนุมัติ' ==
                                                                               getJsonField(
-                                                                                widget!.list?.elementAtOrNull(leadListItemIndex),
+                                                                                leadListItemItem,
                                                                                 r'''$.quotation_status''',
                                                                               ).toString()) ||
                                                                           ('ส่งเรื่องให้บริษัทประกันพิจารณา' ==
                                                                               getJsonField(
-                                                                                widget!.list?.elementAtOrNull(leadListItemIndex),
+                                                                                leadListItemItem,
                                                                                 r'''$.quotation_status''',
                                                                               ).toString()) ||
                                                                           ('ยกเลิก' ==
                                                                               getJsonField(
-                                                                                widget!.list?.elementAtOrNull(leadListItemIndex),
+                                                                                leadListItemItem,
                                                                                 r'''$.quotation_status''',
                                                                               ).toString()) ||
                                                                           ('ขอคืนเงิน' ==
                                                                               getJsonField(
-                                                                                widget!.list?.elementAtOrNull(leadListItemIndex),
+                                                                                leadListItemItem,
                                                                                 r'''$.quotation_status''',
                                                                               ).toString()) ||
                                                                           ('โยกเงิน' ==
                                                                               getJsonField(
-                                                                                widget!.list?.elementAtOrNull(leadListItemIndex),
+                                                                                leadListItemItem,
                                                                                 r'''$.quotation_status''',
                                                                               ).toString())) {
                                                                         context
@@ -1904,7 +1904,7 @@ class _MakeFireInsuranceListPageWidgetState
                                                                       if ('auto' ==
                                                                           getJsonField(
                                                                             leadListItemItem,
-                                                                            r'''$..quotation_type''',
+                                                                            r'''$.quotation_type''',
                                                                           ).toString()) {
                                                                         await showDialog(
                                                                           context:
@@ -1980,7 +1980,7 @@ class _MakeFireInsuranceListPageWidgetState
                                                                       } else {
                                                                         if ('รอตัดสินใจ' ==
                                                                             getJsonField(
-                                                                              widget!.list?.elementAtOrNull(leadListItemIndex),
+                                                                              leadListItemItem,
                                                                               r'''$.quotation_status''',
                                                                             ).toString()) {
                                                                           FFAppState().insuranceInfoPage1SaveDataCheckBool =
