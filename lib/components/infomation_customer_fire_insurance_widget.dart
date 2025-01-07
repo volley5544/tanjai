@@ -415,10 +415,14 @@ class _InfomationCustomerFireInsuranceWidgetState
                                 ),
                                 child: Text(
                                   valueOrDefault<String>(
-                                    FFAppState()
-                                        .leadsDetailHouse
-                                        .firstOrNull
-                                        ?.sumInsured,
+                                    functions.returnNumberWithComma2Decimal(
+                                        valueOrDefault<String>(
+                                      FFAppState()
+                                          .leadsDetailHouse
+                                          .firstOrNull
+                                          ?.sumInsured,
+                                      '-',
+                                    )),
                                     '-',
                                   ),
                                   style: FlutterFlowTheme.of(context)
@@ -478,10 +482,14 @@ class _InfomationCustomerFireInsuranceWidgetState
                                 ),
                                 child: Text(
                                   valueOrDefault<String>(
-                                    FFAppState()
-                                        .leadsDetailHouse
-                                        .firstOrNull
-                                        ?.grossTotalNet,
+                                    functions.returnNumberWithComma2Decimal(
+                                        valueOrDefault<String>(
+                                      FFAppState()
+                                          .leadsDetailHouse
+                                          .firstOrNull
+                                          ?.grossTotalNet,
+                                      '-',
+                                    )),
                                     '-',
                                   ),
                                   style: FlutterFlowTheme.of(context)

@@ -196,38 +196,6 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
         Navigator.pop(context);
         return;
       }
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
-              content: Text('before update'),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ),
-          );
-        },
-      );
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
-              content: Text(widget!.leadDetailId!.toString()),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ),
-          );
-        },
-      );
       FFAppState().insuranceInfoGrossTotal =
           '${IbsApplicationsDetailCall.grosstotalnet(
         (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
@@ -370,22 +338,6 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
         (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
       )}';
       safeSetState(() {});
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
-              content: Text('after update'),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ),
-          );
-        },
-      );
       if (FFAppState().insuranceinfoActType == 'House') {
         FFAppState().leadsHouse = IbsApplicationsDetailCall.apphouse(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
@@ -4033,31 +3985,8 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                                   (_model.getServerTime
                                                                           ?.jsonBody ??
                                                                       ''),
-                                                                ) ==
+                                                                ) !=
                                                                 200) {
-                                                              await showDialog(
-                                                                context:
-                                                                    context,
-                                                                builder:
-                                                                    (alertDialogContext) {
-                                                                  return WebViewAware(
-                                                                    child:
-                                                                        AlertDialog(
-                                                                      content: Text(
-                                                                          'before condition'),
-                                                                      actions: [
-                                                                        TextButton(
-                                                                          onPressed: () =>
-                                                                              Navigator.pop(alertDialogContext),
-                                                                          child:
-                                                                              Text('Ok'),
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                  );
-                                                                },
-                                                              );
-                                                            } else {
                                                               await showDialog(
                                                                 context:
                                                                     context,
@@ -4089,8 +4018,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                                     () {});
                                                               return;
                                                             }
-
-                                                            if (functions.checkCurrentDateIsBeforeInputDate(
+                                                            if (!(functions.checkCurrentDateIsBeforeInputDate(
                                                                     GetDateTimeAPICall.currentDateYMD(
                                                                       (_model.getServerTime
                                                                               ?.jsonBody ??
@@ -4109,30 +4037,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                                               ''),
                                                                         ),
                                                                         FFAppState().insuranceInfoEffectiveDateAct)!
-                                                                    : true)) {
-                                                              await showDialog(
-                                                                context:
-                                                                    context,
-                                                                builder:
-                                                                    (alertDialogContext) {
-                                                                  return WebViewAware(
-                                                                    child:
-                                                                        AlertDialog(
-                                                                      content: Text(
-                                                                          'true'),
-                                                                      actions: [
-                                                                        TextButton(
-                                                                          onPressed: () =>
-                                                                              Navigator.pop(alertDialogContext),
-                                                                          child:
-                                                                              Text('Ok'),
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                  );
-                                                                },
-                                                              );
-                                                            } else {
+                                                                    : true))) {
                                                               await showDialog(
                                                                 context:
                                                                     context,
@@ -4389,29 +4294,6 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                                 return;
                                                               }
                                                             }
-
-                                                            await showDialog(
-                                                              context: context,
-                                                              builder:
-                                                                  (alertDialogContext) {
-                                                                return WebViewAware(
-                                                                  child:
-                                                                      AlertDialog(
-                                                                    content: Text(
-                                                                        'before post api'),
-                                                                    actions: [
-                                                                      TextButton(
-                                                                        onPressed:
-                                                                            () =>
-                                                                                Navigator.pop(alertDialogContext),
-                                                                        child: Text(
-                                                                            'Ok'),
-                                                                      ),
-                                                                    ],
-                                                                  ),
-                                                                );
-                                                              },
-                                                            );
                                                             _model.postPolicyAPIOutPut =
                                                                 await PostInsurancePolicyApiCall
                                                                     .call(
@@ -4433,28 +4315,6 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
 
                                                             _shouldSetState =
                                                                 true;
-                                                            await showDialog(
-                                                              context: context,
-                                                              builder:
-                                                                  (alertDialogContext) {
-                                                                return WebViewAware(
-                                                                  child:
-                                                                      AlertDialog(
-                                                                    content: Text(
-                                                                        'after post api'),
-                                                                    actions: [
-                                                                      TextButton(
-                                                                        onPressed:
-                                                                            () =>
-                                                                                Navigator.pop(alertDialogContext),
-                                                                        child: Text(
-                                                                            'Ok'),
-                                                                      ),
-                                                                    ],
-                                                                  ),
-                                                                );
-                                                              },
-                                                            );
                                                             if ((_model.postPolicyAPIOutPut
                                                                         ?.statusCode ??
                                                                     200) !=

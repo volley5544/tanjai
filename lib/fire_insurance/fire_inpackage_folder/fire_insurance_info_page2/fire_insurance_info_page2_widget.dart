@@ -285,15 +285,18 @@ class _FireInsuranceInfoPage2WidgetState
     _model.textFieldFocusNode3 ??= FocusNode();
 
     _model.textController6 ??= TextEditingController(
-        text: FFAppState().leadsHouse.firstOrNull?.sumInsureHouse);
+        text: functions.returnNumberWithComma2Decimal(
+            FFAppState().leadsHouse.firstOrNull?.sumInsureHouse));
     _model.textFieldFocusNode4 ??= FocusNode();
 
     _model.textController7 ??= TextEditingController(
-        text: FFAppState().leadsHouse.firstOrNull?.sumInsureBuildin);
+        text: functions.returnNumberWithComma2Decimal(
+            FFAppState().leadsHouse.firstOrNull?.sumInsureBuildin));
     _model.textFieldFocusNode5 ??= FocusNode();
 
     _model.textController8 ??= TextEditingController(
-        text: FFAppState().leadsHouse.firstOrNull?.sumInsureTotal);
+        text: functions.returnNumberWithComma2Decimal(
+            FFAppState().leadsHouse.firstOrNull?.sumInsureTotal));
     _model.textFieldFocusNode6 ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));

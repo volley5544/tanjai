@@ -918,7 +918,16 @@ class _SearchPackageFireInsurancePageWidgetState
                                             _model
                                                 .centimeterSquarTextFieldTextController
                                                 ?.clear();
+                                            _model
+                                                .buildinAssetTextFieldTextController
+                                                ?.clear();
                                           });
+                                          FFAppState().calEstimatedData =
+                                              HouseCalEstimatedModelStruct();
+                                          FFAppState()
+                                                  .fireInsuranceSearchPackageData =
+                                              FireInsuranceSearchPackageDataStruct();
+                                          safeSetState(() {});
                                         },
                                         child: Material(
                                           color: Colors.transparent,
@@ -1015,7 +1024,16 @@ class _SearchPackageFireInsurancePageWidgetState
                                                 ?.clear();
                                             _model.longTextFieldTextController
                                                 ?.clear();
+                                            _model
+                                                .buildinAssetTextFieldTextController
+                                                ?.clear();
                                           });
+                                          FFAppState().calEstimatedData =
+                                              HouseCalEstimatedModelStruct();
+                                          FFAppState()
+                                                  .fireInsuranceSearchPackageData =
+                                              FireInsuranceSearchPackageDataStruct();
+                                          safeSetState(() {});
                                         },
                                         child: Material(
                                           color: Colors.transparent,
@@ -2465,8 +2483,7 @@ class _SearchPackageFireInsurancePageWidgetState
                                               ? '02'
                                               : '01'
                                       ..usableArea = _model.isSelectedCentimeterSquar
-                                          ? _model
-                                              .centimeterSquarTextFieldTextController
+                                          ? _model.centimeterSquarTextFieldTextController
                                               .text
                                           : ((int.parse((functions
                                                       .removeCommaFromNumber(_model
@@ -2475,7 +2492,10 @@ class _SearchPackageFireInsurancePageWidgetState
                                                   int.parse((functions
                                                       .removeCommaFromNumber(_model
                                                           .longTextFieldTextController
-                                                          .text)!)))
+                                                          .text)!)) *
+                                                  int.parse(FFAppState()
+                                                      .fireInsuranceSearchPackageData
+                                                      .houseFloor))
                                               .toString())
                                       ..sumInsureHouse = FFAppState()
                                           .calEstimatedData

@@ -37,10 +37,12 @@ class InsuranceInfoPage1Widget extends StatefulWidget {
     super.key,
     this.quotationId,
     this.leadDtailId,
+    this.fromPage,
   });
 
   final String? quotationId;
   final int? leadDtailId;
+  final String? fromPage;
 
   @override
   State<InsuranceInfoPage1Widget> createState() =>
@@ -1797,6 +1799,11 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
               ),
               onPressed: () async {
                 await Future.delayed(const Duration(milliseconds: 500));
+                if (widget!.fromPage == 'FireInsurance') {
+                  context.goNamed('fireLeadFollowUpPage');
+
+                  return;
+                }
 
                 context.goNamed('LeadFollowUpPage');
               },

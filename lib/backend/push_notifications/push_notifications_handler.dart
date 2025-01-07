@@ -169,6 +169,7 @@ final parametersBuilderMap =
         allParams: {
           'quotationId': getParameter<String>(data, 'quotationId'),
           'leadDtailId': getParameter<int>(data, 'leadDtailId'),
+          'fromPage': getParameter<String>(data, 'fromPage'),
         },
       ),
   'insuranceInfoPage3': ParameterData.none(),

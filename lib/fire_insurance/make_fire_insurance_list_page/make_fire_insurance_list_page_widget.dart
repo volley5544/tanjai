@@ -237,11 +237,6 @@ class _MakeFireInsuranceListPageWidgetState
                     size: 30.0,
                   ),
                   onPressed: () async {
-                    if (widget!.fromPage == 'FollowUpPage') {
-                      context.goNamed('fireLeadFollowUpPage');
-
-                      return;
-                    }
                     context.safePop();
                   },
                 ),
@@ -1901,11 +1896,12 @@ class _MakeFireInsuranceListPageWidgetState
                                                                             () {});
                                                                       return;
                                                                     } else {
-                                                                      if ('auto' ==
-                                                                          getJsonField(
-                                                                            leadListItemItem,
-                                                                            r'''$.quotation_type''',
-                                                                          ).toString()) {
+                                                                      if (('auto' ==
+                                                                              getJsonField(
+                                                                                leadListItemItem,
+                                                                                r'''$.quotation_type''',
+                                                                              ).toString()) ||
+                                                                          true) {
                                                                         await showDialog(
                                                                           context:
                                                                               context,
@@ -1969,6 +1965,11 @@ class _MakeFireInsuranceListPageWidgetState
                                                                                     ).toString()}'))
                                                                                   : 0,
                                                                               ParamType.int,
+                                                                            ),
+                                                                            'fromPage':
+                                                                                serializeParam(
+                                                                              'FireInsurance',
+                                                                              ParamType.String,
                                                                             ),
                                                                           }.withoutNulls,
                                                                         );
@@ -2260,8 +2261,13 @@ class _MakeFireInsuranceListPageWidgetState
                                                                     safeSetState(
                                                                         () {});
                                                                 },
-                                                                text:
-                                                                    'ทำประกัน',
+                                                                text: 'อนุมัติ' ==
+                                                                        getJsonField(
+                                                                          leadListItemItem,
+                                                                          r'''$.quotation_status''',
+                                                                        ).toString()
+                                                                    ? 'ดูกรมธรรม์'
+                                                                    : 'ทำประกัน',
                                                                 options:
                                                                     FFButtonOptions(
                                                                   width: 115.0,
