@@ -4207,6 +4207,9 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                                         ? FFAppState()
                                                                             .insuranceInfoEffectiveDateAct
                                                                         : '',
+                                                                subProduct:
+                                                                    FFAppState()
+                                                                        .insuranceinfoActType,
                                                               );
 
                                                               _shouldSetState =

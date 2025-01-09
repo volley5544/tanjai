@@ -626,7 +626,7 @@ class _DetailsFireInsurancePageWidgetState
                                       ),
                                 ),
                                 Text(
-                                  '${functions.showNumberWithCommaWithoutDot2('${widget!.sumInsureHouse}')} บาท',
+                                  '${functions.returnNumberWithComma2Decimal('${widget!.sumInsureHouse}')} บาท',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -1093,7 +1093,7 @@ class _DetailsFireInsurancePageWidgetState
                                                   },
                                                   child: NoticeTextWidget(
                                                     text:
-                                                        'หมายเหตุ : กรมธรรม์ฉบับนี้ประกันแบบการชดใช้ตามมูลค่าในการจัดการทดแทนทรัพย์สิน                  (Replacement Cost Value) ',
+                                                        'หมายเหตุ : กรมธรรม์ฉบับนี้ประกันแบบการชดใช้ตามมูลค่าในการจัดการทดแทนทรัพย์สิน (Replacement Cost Value) ',
                                                   ),
                                                 ),
                                               ),

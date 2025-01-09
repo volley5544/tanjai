@@ -882,6 +882,22 @@ class _FireSearchableListPageWidgetState
                                                     safeSetState(() {});
                                                   return;
                                                 }
+                                                if (widget!.titleText ==
+                                                    'เลือกจำนวนชั้นที่อยู่อาศัย') {
+                                                  FFAppState()
+                                                      .updateLeadsHouseAtIndex(
+                                                    0,
+                                                    (e) => e
+                                                      ..floor = widget!.dataList
+                                                          ?.elementAtOrNull(
+                                                              dataListIndex),
+                                                  );
+                                                  safeSetState(() {});
+                                                  context.safePop();
+                                                  if (_shouldSetState)
+                                                    safeSetState(() {});
+                                                  return;
+                                                }
                                               }
 
                                               if (_shouldSetState)

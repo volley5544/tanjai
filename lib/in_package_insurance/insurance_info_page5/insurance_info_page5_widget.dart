@@ -423,35 +423,39 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
               ) != '' ? GetInsurancePolicyApiCall.paymentChannel(
               (_model.getPolicy?.jsonBody ?? ''),
             ) : '-'}';
-      FFAppState().page5NetPremium =
-          '${GetInsurancePolicyApiCall.netPremiumTotal(
-                (_model.getPolicy?.jsonBody ?? ''),
-              ) != '' ? GetInsurancePolicyApiCall.netPremiumTotal(
-              (_model.getPolicy?.jsonBody ?? ''),
-            ) : '-'}';
+      FFAppState().page5NetPremium = '${GetInsurancePolicyApiCall.netPremiumTotal(
+            (_model.getPolicy?.jsonBody ?? ''),
+          ) != '' ? (FFAppState().insuranceinfoActType == 'House' ? GetInsurancePolicyApiCall.housenetpremiumtotal(
+          (_model.getPolicy?.jsonBody ?? ''),
+        ) : GetInsurancePolicyApiCall.netPremiumTotal(
+          (_model.getPolicy?.jsonBody ?? ''),
+        )) : '-'}';
       FFAppState().page5ActPrice = '${GetInsurancePolicyApiCall.actTotal(
             (_model.getPolicy?.jsonBody ?? ''),
           ) != '' ? GetInsurancePolicyApiCall.actTotal(
           (_model.getPolicy?.jsonBody ?? ''),
         ) : '-'}';
-      FFAppState().page5GrossTotalNet =
-          '${GetInsurancePolicyApiCall.grossTotalNet(
-                (_model.getPolicy?.jsonBody ?? ''),
-              ) != '' ? GetInsurancePolicyApiCall.grossTotalNet(
-              (_model.getPolicy?.jsonBody ?? ''),
-            ) : '-'}';
-      FFAppState().page5FirstDue =
-          '${GetInsurancePolicyApiCall.installmentFirstDue(
-                (_model.getPolicy?.jsonBody ?? ''),
-              ) != '' ? GetInsurancePolicyApiCall.installmentFirstDue(
-              (_model.getPolicy?.jsonBody ?? ''),
-            ) : '-'}';
-      FFAppState().page5LastDue =
-          '${GetInsurancePolicyApiCall.installmentLastDue(
-                (_model.getPolicy?.jsonBody ?? ''),
-              ) != '' ? GetInsurancePolicyApiCall.installmentLastDue(
-              (_model.getPolicy?.jsonBody ?? ''),
-            ) : '-'}';
+      FFAppState().page5GrossTotalNet = '${GetInsurancePolicyApiCall.grossTotalNet(
+            (_model.getPolicy?.jsonBody ?? ''),
+          ) != '' ? (FFAppState().insuranceinfoActType == 'House' ? GetInsurancePolicyApiCall.housegrosstotalnet(
+          (_model.getPolicy?.jsonBody ?? ''),
+        ) : GetInsurancePolicyApiCall.grossTotalNet(
+          (_model.getPolicy?.jsonBody ?? ''),
+        )) : '-'}';
+      FFAppState().page5FirstDue = '${GetInsurancePolicyApiCall.installmentFirstDue(
+            (_model.getPolicy?.jsonBody ?? ''),
+          ) != '' ? (FFAppState().insuranceinfoActType == 'House' ? GetInsurancePolicyApiCall.houseinstallmentfirstdue(
+          (_model.getPolicy?.jsonBody ?? ''),
+        ) : GetInsurancePolicyApiCall.installmentFirstDue(
+          (_model.getPolicy?.jsonBody ?? ''),
+        )) : '-'}';
+      FFAppState().page5LastDue = '${GetInsurancePolicyApiCall.installmentLastDue(
+            (_model.getPolicy?.jsonBody ?? ''),
+          ) != '' ? (FFAppState().insuranceinfoActType == 'House' ? GetInsurancePolicyApiCall.houseinstallmentlastdue(
+          (_model.getPolicy?.jsonBody ?? ''),
+        ) : GetInsurancePolicyApiCall.installmentLastDue(
+          (_model.getPolicy?.jsonBody ?? ''),
+        )) : '-'}';
       FFAppState().page5VloneContNo = '${GetInsurancePolicyApiCall.vloneContNo(
             (_model.getPolicy?.jsonBody ?? ''),
           ) != '' ? GetInsurancePolicyApiCall.vloneContNo(
@@ -2616,11 +2620,15 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                               (_model.getPolicyRefreshButton
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ) != '' ? GetInsurancePolicyApiCall.netPremiumTotal(
+                                                            ) != '' ? (FFAppState().insuranceinfoActType == 'House' ? GetInsurancePolicyApiCall.housenetpremiumtotal(
                                                             (_model.getPolicyRefreshButton
                                                                     ?.jsonBody ??
                                                                 ''),
-                                                          ) : '-'}';
+                                                          ) : GetInsurancePolicyApiCall.netPremiumTotal(
+                                                            (_model.getPolicyRefreshButton
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )) : '-'}';
                                                     FFAppState().page5ActPrice =
                                                         '${GetInsurancePolicyApiCall.actTotal(
                                                               (_model.getPolicyRefreshButton
@@ -2637,31 +2645,43 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                               (_model.getPolicyRefreshButton
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ) != '' ? GetInsurancePolicyApiCall.grossTotalNet(
+                                                            ) != '' ? (FFAppState().insuranceinfoActType == 'House' ? GetInsurancePolicyApiCall.housegrosstotalnet(
                                                             (_model.getPolicyRefreshButton
                                                                     ?.jsonBody ??
                                                                 ''),
-                                                          ) : '-'}';
+                                                          ) : GetInsurancePolicyApiCall.grossTotalNet(
+                                                            (_model.getPolicyRefreshButton
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )) : '-'}';
                                                     FFAppState().page5FirstDue =
                                                         '${GetInsurancePolicyApiCall.installmentFirstDue(
                                                               (_model.getPolicyRefreshButton
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ) != '' ? GetInsurancePolicyApiCall.installmentFirstDue(
+                                                            ) != '' ? (FFAppState().insuranceinfoActType == 'House' ? GetInsurancePolicyApiCall.houseinstallmentfirstdue(
                                                             (_model.getPolicyRefreshButton
                                                                     ?.jsonBody ??
                                                                 ''),
-                                                          ) : '-'}';
+                                                          ) : GetInsurancePolicyApiCall.installmentFirstDue(
+                                                            (_model.getPolicyRefreshButton
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )) : '-'}';
                                                     FFAppState().page5LastDue =
                                                         '${GetInsurancePolicyApiCall.installmentLastDue(
                                                               (_model.getPolicyRefreshButton
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ) != '' ? GetInsurancePolicyApiCall.installmentLastDue(
+                                                            ) != '' ? (FFAppState().insuranceinfoActType == 'House' ? GetInsurancePolicyApiCall.houseinstallmentlastdue(
                                                             (_model.getPolicyRefreshButton
                                                                     ?.jsonBody ??
                                                                 ''),
-                                                          ) : '-'}';
+                                                          ) : GetInsurancePolicyApiCall.installmentLastDue(
+                                                            (_model.getPolicyRefreshButton
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )) : '-'}';
                                                     FFAppState()
                                                             .page5VloneContNo =
                                                         '${GetInsurancePolicyApiCall.vloneContNo(
@@ -3557,7 +3577,8 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                               ),
                             if ((FFAppState().page5QuotationStatus ==
                                     'อนุมัติ') &&
-                                (FFAppState().insuranceinfoActType != 'CMI'))
+                                (FFAppState().insuranceinfoActType != 'CMI') &&
+                                (FFAppState().insuranceinfoActType != 'House'))
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 5.0, 0.0, 0.0),

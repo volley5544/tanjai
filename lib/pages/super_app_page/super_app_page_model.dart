@@ -4,6 +4,7 @@ import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/components/custom_dialog_component_widget.dart';
+import '/components/follow_up_custom_dialog_component_widget.dart';
 import '/components/license_select_component_widget.dart';
 import '/components/search_old_vmi_widget.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
@@ -64,8 +65,20 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   // State field(s) for Expandable widget.
   late ExpandableController expandableExpandableController;
 
+  // Stores action output result for [Alert Dialog - Custom Dialog] action in Container widget.
+  bool? selectedInsuranceTypeVmiExpanded;
+  // Stores action output result for [Alert Dialog - Custom Dialog] action in Container widget.
+  bool? selectedVmiTypeVmiExpanded;
+  // Stores action output result for [Alert Dialog - Custom Dialog] action in Container widget.
+  bool? selectedInsuranceTypeFollowUpExpanded;
   // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
   UrlLinkStorageRecord? getCmiApiUrl;
+  // Stores action output result for [Alert Dialog - Custom Dialog] action in Container widget.
+  bool? selectedInsuranceTypeVmiCollapse;
+  // Stores action output result for [Alert Dialog - Custom Dialog] action in Container widget.
+  bool? selectedVmiTypeVmiCollapse;
+  // Stores action output result for [Alert Dialog - Custom Dialog] action in Container widget.
+  bool? selectedInsuranceTypeFollowUpCollapse;
   // State field(s) for PageView widget.
   PageController? pageViewController1;
 

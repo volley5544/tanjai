@@ -14107,6 +14107,18 @@ class FFAppState extends ChangeNotifier {
       int index, LeadsDetailHouseStruct value) {
     leadsDetailHouse.insert(index, value);
   }
+
+  bool _isTouchFollowUpButton = false;
+  bool get isTouchFollowUpButton => _isTouchFollowUpButton;
+  set isTouchFollowUpButton(bool value) {
+    _isTouchFollowUpButton = value;
+  }
+
+  bool _isViewCarFollowUp = false;
+  bool get isViewCarFollowUp => _isViewCarFollowUp;
+  set isViewCarFollowUp(bool value) {
+    _isViewCarFollowUp = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

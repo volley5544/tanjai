@@ -302,7 +302,7 @@ class _FireInsurerListPageWidgetState extends State<FireInsurerListPageWidget>
                                                             .fromSTEB(8.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: Text(
-                                                      'เรียงทุนประกันภัย',
+                                                      'เรียงราคาเบี้ยประกัน/ปี',
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .bodyMedium
@@ -359,7 +359,7 @@ class _FireInsurerListPageWidgetState extends State<FireInsurerListPageWidget>
                                                       0,
                                                       4.0,
                                                       0,
-                                                      50.0,
+                                                      70.0,
                                                     ),
                                                     shrinkWrap: true,
                                                     scrollDirection:

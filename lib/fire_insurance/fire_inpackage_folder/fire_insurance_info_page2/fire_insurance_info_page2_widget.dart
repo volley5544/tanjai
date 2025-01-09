@@ -232,26 +232,11 @@ class _FireInsuranceInfoPage2WidgetState
         safeSetState(() {});
       },
     );
-    _model.textController2 ??= TextEditingController(
-        text: valueOrDefault<String>(
-      FFAppState().leadsHouse.firstOrNull?.floor,
-      'กรอกจำนวนชั้น',
-    ));
-    _model.textFieldFocusNode2 ??= FocusNode();
-    _model.textFieldFocusNode2!.addListener(
-      () async {
-        FFAppState().updateLeadsHouseAtIndex(
-          0,
-          (e) => e..floor = _model.textController2.text,
-        );
-        safeSetState(() {});
-      },
-    );
     _model.widthTextFieldTextController ??= TextEditingController(
-        text: valueOrDefault<String>(
+        text: functions.returnNumberWithComma2Decimal(valueOrDefault<String>(
       FFAppState().leadsHouse.firstOrNull?.width,
       'กว้าง',
-    ));
+    )));
     _model.widthTextFieldFocusNode ??= FocusNode();
     _model.widthTextFieldFocusNode!.addListener(
       () async {
@@ -263,10 +248,10 @@ class _FireInsuranceInfoPage2WidgetState
       },
     );
     _model.longTextFieldTextController ??= TextEditingController(
-        text: valueOrDefault<String>(
+        text: functions.returnNumberWithComma2Decimal(valueOrDefault<String>(
       FFAppState().leadsHouse.firstOrNull?.length,
       'ยาว',
-    ));
+    )));
     _model.longTextFieldFocusNode ??= FocusNode();
     _model.longTextFieldFocusNode!.addListener(
       () async {
@@ -277,27 +262,44 @@ class _FireInsuranceInfoPage2WidgetState
         safeSetState(() {});
       },
     );
-    _model.textController5 ??= TextEditingController(
+    _model.textController4 ??= TextEditingController(
         text: valueOrDefault<String>(
       FFAppState().leadsHouse.firstOrNull?.usableArea,
       '0',
     ));
-    _model.textFieldFocusNode3 ??= FocusNode();
+    _model.textFieldFocusNode2 ??= FocusNode();
 
-    _model.textController6 ??= TextEditingController(
+    _model.sumInsureHouseTextController ??= TextEditingController(
         text: functions.returnNumberWithComma2Decimal(
             FFAppState().leadsHouse.firstOrNull?.sumInsureHouse));
-    _model.textFieldFocusNode4 ??= FocusNode();
-
-    _model.textController7 ??= TextEditingController(
+    _model.sumInsureHouseFocusNode ??= FocusNode();
+    _model.sumInsureHouseFocusNode!.addListener(
+      () async {
+        FFAppState().updateLeadsHouseAtIndex(
+          0,
+          (e) => e..sumInsureHouse = _model.sumInsureHouseTextController.text,
+        );
+        safeSetState(() {});
+      },
+    );
+    _model.sumInsureBuildingTextController ??= TextEditingController(
         text: functions.returnNumberWithComma2Decimal(
             FFAppState().leadsHouse.firstOrNull?.sumInsureBuildin));
-    _model.textFieldFocusNode5 ??= FocusNode();
-
-    _model.textController8 ??= TextEditingController(
+    _model.sumInsureBuildingFocusNode ??= FocusNode();
+    _model.sumInsureBuildingFocusNode!.addListener(
+      () async {
+        FFAppState().updateLeadsHouseAtIndex(
+          0,
+          (e) =>
+              e..sumInsureBuildin = _model.sumInsureBuildingTextController.text,
+        );
+        safeSetState(() {});
+      },
+    );
+    _model.sumInsureTotalTextController ??= TextEditingController(
         text: functions.returnNumberWithComma2Decimal(
             FFAppState().leadsHouse.firstOrNull?.sumInsureTotal));
-    _model.textFieldFocusNode6 ??= FocusNode();
+    _model.sumInsureTotalFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -1211,9 +1213,19 @@ class _FireInsuranceInfoPage2WidgetState
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryText,
+                                                                  color:
+                                                                      valueOrDefault<
+                                                                          Color>(
+                                                                    '${FFAppState().leadsHouse.firstOrNull?.wall}' ==
+                                                                            ''
+                                                                        ? FlutterFlowTheme.of(context)
+                                                                            .secondaryText
+                                                                        : FlutterFlowTheme.of(context)
+                                                                            .primaryText,
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryText,
+                                                                  ),
                                                                   fontSize:
                                                                       15.0,
                                                                   letterSpacing:
@@ -1496,9 +1508,19 @@ class _FireInsuranceInfoPage2WidgetState
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryText,
+                                                                  color:
+                                                                      valueOrDefault<
+                                                                          Color>(
+                                                                    '${FFAppState().leadsHouse.firstOrNull?.floorUpper}' ==
+                                                                            ''
+                                                                        ? FlutterFlowTheme.of(context)
+                                                                            .secondaryText
+                                                                        : FlutterFlowTheme.of(context)
+                                                                            .primaryText,
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryText,
+                                                                  ),
                                                                   fontSize:
                                                                       15.0,
                                                                   letterSpacing:
@@ -1781,9 +1803,19 @@ class _FireInsuranceInfoPage2WidgetState
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryText,
+                                                                  color:
+                                                                      valueOrDefault<
+                                                                          Color>(
+                                                                    '${FFAppState().leadsHouse.firstOrNull?.floorGround}' ==
+                                                                            ''
+                                                                        ? FlutterFlowTheme.of(context)
+                                                                            .secondaryText
+                                                                        : FlutterFlowTheme.of(context)
+                                                                            .primaryText,
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryText,
+                                                                  ),
                                                                   fontSize:
                                                                       15.0,
                                                                   letterSpacing:
@@ -2066,9 +2098,19 @@ class _FireInsuranceInfoPage2WidgetState
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryText,
+                                                                  color:
+                                                                      valueOrDefault<
+                                                                          Color>(
+                                                                    '${FFAppState().leadsHouse.firstOrNull?.roofFrame}' ==
+                                                                            ''
+                                                                        ? FlutterFlowTheme.of(context)
+                                                                            .secondaryText
+                                                                        : FlutterFlowTheme.of(context)
+                                                                            .primaryText,
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryText,
+                                                                  ),
                                                                   fontSize:
                                                                       15.0,
                                                                   letterSpacing:
@@ -2351,9 +2393,19 @@ class _FireInsuranceInfoPage2WidgetState
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryText,
+                                                                  color:
+                                                                      valueOrDefault<
+                                                                          Color>(
+                                                                    '${FFAppState().leadsHouse.firstOrNull?.wall}' ==
+                                                                            ''
+                                                                        ? FlutterFlowTheme.of(context)
+                                                                            .secondaryText
+                                                                        : FlutterFlowTheme.of(context)
+                                                                            .primaryText,
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryText,
+                                                                  ),
                                                                   fontSize:
                                                                       15.0,
                                                                   letterSpacing:
@@ -2668,9 +2720,8 @@ class _FireInsuranceInfoPage2WidgetState
                                                       errorBorder:
                                                           OutlineInputBorder(
                                                         borderSide: BorderSide(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .error,
+                                                          color:
+                                                              Color(0x00000000),
                                                           width: 1.0,
                                                         ),
                                                         borderRadius:
@@ -2680,9 +2731,8 @@ class _FireInsuranceInfoPage2WidgetState
                                                       focusedErrorBorder:
                                                           OutlineInputBorder(
                                                         borderSide: BorderSide(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .error,
+                                                          color:
+                                                              Color(0x00000000),
                                                           width: 1.0,
                                                         ),
                                                         borderRadius:
@@ -2702,7 +2752,7 @@ class _FireInsuranceInfoPage2WidgetState
                                                               'Noto Sans Thai',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .secondaryText,
+                                                              .primaryText,
                                                           fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                         ),
@@ -2789,23 +2839,19 @@ class _FireInsuranceInfoPage2WidgetState
                                                   Colors.transparent,
                                               onTap: () async {
                                                 context.pushNamed(
-                                                  'SearchableListPage',
+                                                  'FireSearchableListPage',
                                                   queryParameters: {
                                                     'titleText': serializeParam(
-                                                      'เลือกปีที่ผลิต',
+                                                      'เลือกจำนวนชั้นที่อยู่อาศัย',
                                                       ParamType.String,
                                                     ),
                                                     'searchLabel':
                                                         serializeParam(
-                                                      'เลือกปี',
+                                                      'ระบุจำนวนชั้น',
                                                       ParamType.String,
                                                     ),
                                                     'dataList': serializeParam(
-                                                      functions.reverseList(
-                                                          functions
-                                                              .ganerateYearList(
-                                                                  1957, 2023)
-                                                              ?.toList()),
+                                                      ['1', '2', '3', '4', '5'],
                                                       ParamType.String,
                                                       isList: true,
                                                     ),
@@ -2814,16 +2860,7 @@ class _FireInsuranceInfoPage2WidgetState
                                                       false,
                                                       ParamType.bool,
                                                     ),
-                                                    'fromPage': serializeParam(
-                                                      'insuranceInfoPage2',
-                                                      ParamType.String,
-                                                    ),
                                                   }.withoutNulls,
-                                                );
-
-                                                await actions
-                                                    .hideKeyboardAction(
-                                                  context,
                                                 );
                                               },
                                               child: Container(
@@ -2843,114 +2880,170 @@ class _FireInsuranceInfoPage2WidgetState
                                                     color: Color(0xFFB3B3B3),
                                                   ),
                                                 ),
-                                                child: Container(
-                                                  width: 200.0,
-                                                  child: TextFormField(
-                                                    controller:
-                                                        _model.textController2,
-                                                    focusNode: _model
-                                                        .textFieldFocusNode2,
-                                                    autofocus: false,
-                                                    obscureText: false,
-                                                    decoration: InputDecoration(
-                                                      isDense: true,
-                                                      labelStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                letterSpacing:
-                                                                    0.0,
-                                                              ),
-                                                      hintStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryText,
-                                                                fontSize: 15.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                              ),
-                                                      enabledBorder:
-                                                          OutlineInputBorder(
-                                                        borderSide: BorderSide(
-                                                          color:
-                                                              Color(0x00000000),
-                                                          width: 1.0,
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  10.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Text(
+                                                        valueOrDefault<String>(
+                                                          FFAppState()
+                                                              .leadsHouse
+                                                              .firstOrNull
+                                                              ?.floor,
+                                                          'เลือกจำนวนชั้น',
                                                         ),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(8.0),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Noto Sans Thai',
+                                                                  color:
+                                                                      valueOrDefault<
+                                                                          Color>(
+                                                                    '${FFAppState().leadsHouse.firstOrNull?.floor}' ==
+                                                                            ''
+                                                                        ? FlutterFlowTheme.of(context)
+                                                                            .secondaryText
+                                                                        : FlutterFlowTheme.of(context)
+                                                                            .primaryText,
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryText,
+                                                                  ),
+                                                                  fontSize:
+                                                                      15.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                ),
                                                       ),
-                                                      focusedBorder:
-                                                          OutlineInputBorder(
-                                                        borderSide: BorderSide(
-                                                          color:
-                                                              Color(0x00000000),
-                                                          width: 1.0,
-                                                        ),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(8.0),
-                                                      ),
-                                                      errorBorder:
-                                                          OutlineInputBorder(
-                                                        borderSide: BorderSide(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .error,
-                                                          width: 1.0,
-                                                        ),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(8.0),
-                                                      ),
-                                                      focusedErrorBorder:
-                                                          OutlineInputBorder(
-                                                        borderSide: BorderSide(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .error,
-                                                          width: 1.0,
-                                                        ),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(8.0),
-                                                      ),
-                                                      filled: true,
-                                                      fillColor: FlutterFlowTheme
-                                                              .of(context)
-                                                          .secondaryBackground,
                                                     ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Noto Sans Thai',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryText,
-                                                          fontSize: 15.0,
-                                                          letterSpacing: 0.0,
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  20.0,
+                                                                  0.0),
+                                                      child: ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                        child: Image.network(
+                                                          getCORSProxyUrl(
+                                                            () {
+                                                              if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'รถเก๋ง') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=68ef0a76-99d9-4c43-ae86-b48970b7fb09';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'รถตู้') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B8%95%E0%B8%B9%E0%B9%89.png?alt=media&token=8969fa4a-52e0-4b0c-9c44-f349976bc624';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'รถกระบะ 2 ประตู') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%20%E0%B8%95%E0%B8%AD%E0%B8%99%E0%B9%80%E0%B8%94%E0%B8%B5%E0%B8%A2%E0%B8%A7%20(%E0%B8%A3%E0%B8%A7%E0%B8%A1).png?alt=media&token=bd62e47d-dd92-41ca-8f51-3632edfd54a6';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'รถกระบะ 4 ประตู') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%204%20%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%95%E0%B8%B9.png?alt=media&token=45bc2e60-3a29-47dc-aa4d-e9c82a113bbc';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'รถบรรทุก หัวลาก หางพ่วง') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B8%A5%E0%B8%B2%E0%B8%81%20%E0%B8%AB%E0%B8%B2%E0%B8%87%E0%B8%9E%E0%B9%88%E0%B8%A7%E0%B8%87.png?alt=media&token=1d749f04-0765-422a-b0b7-34a3d5d60519';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'รถแต่ง ต่อคอก') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B9%81%E0%B8%95%E0%B9%88%E0%B8%87%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B8%84%E0%B8%AD%E0%B8%81.png?alt=media&token=80501c24-fec4-4c34-ac0f-361db3b698b3';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'กระบะไม่ต่อเติม') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%202%20%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%95%E0%B8%B9%E0%B9%84%E0%B8%A1%E0%B9%88%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1.png?alt=media&token=ca1d014f-d1aa-4f27-bd54-3d97d5efba3f';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'กระบะต่อเติมเกินหัวเก๋ง') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1%E0%B9%80%E0%B8%81%E0%B8%B4%E0%B8%99%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=957c9ae1-6d8a-41d5-b7aa-23965926a562';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'กระบะต่อเติมเกินหัวเก๋ง') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1%E0%B9%80%E0%B8%81%E0%B8%B4%E0%B8%99%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=957c9ae1-6d8a-41d5-b7aa-23965926a562';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'กระบะตู้ทึบ/ตู้แห้ง') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F2_%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B8%B9%E0%B9%89%E0%B8%97%E0%B8%B6%E0%B8%9A_%E0%B8%95%E0%B8%B9%E0%B9%89%E0%B9%81%E0%B8%AB%E0%B9%89%E0%B8%87.png?alt=media&token=71715c79-6196-4a63-9a9e-c179033218ea';
+                                                              } else {
+                                                                return '-';
+                                                              }
+                                                            }(),
+                                                          ),
+                                                          width: () {
+                                                            if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถเก๋ง') {
+                                                              return 90;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถตู้') {
+                                                              return 90;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถกระบะ 2 ประตู') {
+                                                              return 90;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถกระบะ 4 ประตู') {
+                                                              return 90;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถบรรทุก หัวลาก หางพ่วง') {
+                                                              return 130;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถแต่ง ต่อคอก') {
+                                                              return 90;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'กระบะไม่ต่อเติม') {
+                                                              return 100;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'กระบะต่อเติมเกินหัวเก๋ง') {
+                                                              return 130;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'กระบะต่อเติมไม่เกินหัวเก๋ง') {
+                                                              return 130;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'กระบะตู้ทึบ/ตู้แห้ง') {
+                                                              return 100;
+                                                            } else {
+                                                              return 0;
+                                                            }
+                                                          }()
+                                                              .toDouble(),
+                                                          fit: BoxFit.cover,
                                                         ),
-                                                    keyboardType:
-                                                        TextInputType.number,
-                                                    cursorColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .primaryText,
-                                                    validator: _model
-                                                        .textController2Validator
-                                                        .asValidator(context),
-                                                  ),
+                                                      ),
+                                                    ),
+                                                  ],
                                                 ),
                                               ),
                                             ),
@@ -3172,8 +3265,14 @@ class _FireInsuranceInfoPage2WidgetState
                                                                       .override(
                                                                         fontFamily:
                                                                             'Noto Sans Thai',
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .secondaryText,
+                                                                        color: valueOrDefault<
+                                                                            Color>(
+                                                                          '${FFAppState().leadsHouse.firstOrNull?.width}' == ''
+                                                                              ? FlutterFlowTheme.of(context).secondaryText
+                                                                              : FlutterFlowTheme.of(context).primaryText,
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .secondaryText,
+                                                                        ),
                                                                         fontSize:
                                                                             14.0,
                                                                         letterSpacing:
@@ -3356,8 +3455,14 @@ class _FireInsuranceInfoPage2WidgetState
                                                                       .override(
                                                                         fontFamily:
                                                                             'Noto Sans Thai',
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .secondaryText,
+                                                                        color: valueOrDefault<
+                                                                            Color>(
+                                                                          '${FFAppState().leadsHouse.firstOrNull?.length}' == ''
+                                                                              ? FlutterFlowTheme.of(context).secondaryText
+                                                                              : FlutterFlowTheme.of(context).primaryText,
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .secondaryText,
+                                                                        ),
                                                                         fontSize:
                                                                             14.0,
                                                                         letterSpacing:
@@ -3509,9 +3614,9 @@ class _FireInsuranceInfoPage2WidgetState
                                                   width: 200.0,
                                                   child: TextFormField(
                                                     controller:
-                                                        _model.textController5,
+                                                        _model.textController4,
                                                     focusNode: _model
-                                                        .textFieldFocusNode3,
+                                                        .textFieldFocusNode2,
                                                     autofocus: false,
                                                     readOnly: true,
                                                     obscureText: false,
@@ -3600,7 +3705,7 @@ class _FireInsuranceInfoPage2WidgetState
                                                               'Noto Sans Thai',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .secondaryText,
+                                                              .primaryText,
                                                           fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                         ),
@@ -3609,7 +3714,7 @@ class _FireInsuranceInfoPage2WidgetState
                                                                 context)
                                                             .primaryText,
                                                     validator: _model
-                                                        .textController5Validator
+                                                        .textController4Validator
                                                         .asValidator(context),
                                                   ),
                                                 ),
@@ -3757,9 +3862,19 @@ class _FireInsuranceInfoPage2WidgetState
                                                                 .override(
                                                                   fontFamily:
                                                                       'Noto Sans Thai',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryText,
+                                                                  color:
+                                                                      valueOrDefault<
+                                                                          Color>(
+                                                                    '${FFAppState().leadsHouse.firstOrNull?.assured}' ==
+                                                                            ''
+                                                                        ? FlutterFlowTheme.of(context)
+                                                                            .secondaryText
+                                                                        : FlutterFlowTheme.of(context)
+                                                                            .primaryText,
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryText,
+                                                                  ),
                                                                   fontSize:
                                                                       15.0,
                                                                   letterSpacing:
@@ -4011,10 +4126,10 @@ class _FireInsuranceInfoPage2WidgetState
                                                 child: Container(
                                                   width: 200.0,
                                                   child: TextFormField(
-                                                    controller:
-                                                        _model.textController6,
+                                                    controller: _model
+                                                        .sumInsureHouseTextController,
                                                     focusNode: _model
-                                                        .textFieldFocusNode4,
+                                                        .sumInsureHouseFocusNode,
                                                     autofocus: false,
                                                     obscureText: false,
                                                     decoration: InputDecoration(
@@ -4102,7 +4217,7 @@ class _FireInsuranceInfoPage2WidgetState
                                                               'Noto Sans Thai',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .secondaryText,
+                                                              .primaryText,
                                                           fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                         ),
@@ -4113,7 +4228,7 @@ class _FireInsuranceInfoPage2WidgetState
                                                                 context)
                                                             .primaryText,
                                                     validator: _model
-                                                        .textController6Validator
+                                                        .sumInsureHouseTextControllerValidator
                                                         .asValidator(context),
                                                   ),
                                                 ),
@@ -4246,10 +4361,10 @@ class _FireInsuranceInfoPage2WidgetState
                                                 child: Container(
                                                   width: 200.0,
                                                   child: TextFormField(
-                                                    controller:
-                                                        _model.textController7,
+                                                    controller: _model
+                                                        .sumInsureBuildingTextController,
                                                     focusNode: _model
-                                                        .textFieldFocusNode5,
+                                                        .sumInsureBuildingFocusNode,
                                                     autofocus: false,
                                                     obscureText: false,
                                                     decoration: InputDecoration(
@@ -4337,7 +4452,7 @@ class _FireInsuranceInfoPage2WidgetState
                                                               'Noto Sans Thai',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .secondaryText,
+                                                              .primaryText,
                                                           fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                         ),
@@ -4348,7 +4463,7 @@ class _FireInsuranceInfoPage2WidgetState
                                                                 context)
                                                             .primaryText,
                                                     validator: _model
-                                                        .textController7Validator
+                                                        .sumInsureBuildingTextControllerValidator
                                                         .asValidator(context),
                                                   ),
                                                 ),
@@ -4481,10 +4596,10 @@ class _FireInsuranceInfoPage2WidgetState
                                                 child: Container(
                                                   width: 200.0,
                                                   child: TextFormField(
-                                                    controller:
-                                                        _model.textController8,
+                                                    controller: _model
+                                                        .sumInsureTotalTextController,
                                                     focusNode: _model
-                                                        .textFieldFocusNode6,
+                                                        .sumInsureTotalFocusNode,
                                                     autofocus: false,
                                                     readOnly: true,
                                                     obscureText: false,
@@ -4509,7 +4624,7 @@ class _FireInsuranceInfoPage2WidgetState
                                                                     'Noto Sans Thai',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .secondaryText,
+                                                                    .primaryText,
                                                                 fontSize: 15.0,
                                                                 letterSpacing:
                                                                     0.0,
@@ -4572,7 +4687,7 @@ class _FireInsuranceInfoPage2WidgetState
                                                               'Noto Sans Thai',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .secondaryText,
+                                                              .primaryText,
                                                           fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                         ),
@@ -4581,7 +4696,7 @@ class _FireInsuranceInfoPage2WidgetState
                                                                 context)
                                                             .primaryText,
                                                     validator: _model
-                                                        .textController8Validator
+                                                        .sumInsureTotalTextControllerValidator
                                                         .asValidator(context),
                                                   ),
                                                 ),
@@ -4917,9 +5032,11 @@ class _FireInsuranceInfoPage2WidgetState
                                                       MainAxisSize.max,
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.center,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
                                                   children: [
                                                     Text(
-                                                      'ระบุชื่อสมาชิกในครอบครัวขยายความคุ้ม',
+                                                      'ระบุชื่อเพื่อขยายความคุ้มครอง',
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .bodyMedium
@@ -4935,7 +5052,7 @@ class _FireInsuranceInfoPage2WidgetState
                                                           ),
                                                     ),
                                                     Text(
-                                                      'ครองประกันภัยอุบัติเหตุส่วนบุคคล',
+                                                      'ประกันภัยอุบัติเหตุส่วนบุคคล',
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .bodyMedium
@@ -4950,53 +5067,61 @@ class _FireInsuranceInfoPage2WidgetState
                                                                 FontWeight.w600,
                                                           ),
                                                     ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  5.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Text(
-                                                        '(กรุณาระบุอย่างน้อย 1 คน)',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Noto Sans Thai',
-                                                              color: Color(
-                                                                  0xFFFB0606),
-                                                              fontSize: 12.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                            ),
-                                                      ),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  5.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Text(
-                                                        '${FFAppState().benefitorData.length == 1 ? ((FFAppState().benefitorData.length == 1) && ((FFAppState().benefitorData.firstOrNull?.firstNameTh != '') && (FFAppState().benefitorData.firstOrNull?.lastNameTh != '') && (FFAppState().benefitorData.firstOrNull?.birthDay != '') && (FFAppState().benefitorData.firstOrNull?.beneficiaryName != '') && (FFAppState().benefitorData.firstOrNull?.relationName != '')) ? FFAppState().benefitorData.length.toString() : '0') : FFAppState().benefitorData.length.toString()}/5',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Noto Sans Thai',
-                                                              color: Color(
-                                                                  0xFFFB0606),
-                                                              fontSize: 12.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                            ),
-                                                      ),
+                                                    Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      5.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: Text(
+                                                            '(ระบุอย่างน้อย 1 คน)',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Noto Sans Thai',
+                                                                  color: Color(
+                                                                      0xFFFB0606),
+                                                                  fontSize:
+                                                                      12.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                          ),
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      5.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: Text(
+                                                            '${FFAppState().benefitorData.length == 1 ? ((FFAppState().benefitorData.length == 1) && ((FFAppState().benefitorData.firstOrNull?.firstNameTh != '') && (FFAppState().benefitorData.firstOrNull?.lastNameTh != '') && (FFAppState().benefitorData.firstOrNull?.birthDay != '') && (FFAppState().benefitorData.firstOrNull?.beneficiaryName != '') && (FFAppState().benefitorData.firstOrNull?.relationName != '')) ? FFAppState().benefitorData.length.toString() : '0') : FFAppState().benefitorData.length.toString()}/5',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Noto Sans Thai',
+                                                                  color: Color(
+                                                                      0xFFFB0606),
+                                                                  fontSize:
+                                                                      12.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                          ),
+                                                        ),
+                                                      ],
                                                     ),
                                                   ],
                                                 ),
@@ -5291,12 +5416,14 @@ class _FireInsuranceInfoPage2WidgetState
                                                               fontFamily:
                                                                   'Noto Sans Thai',
                                                               color: FFAppState()
-                                                                          .insuranceInfoEffectiveDateAct ==
+                                                                          .insuranceInfoEffectiveDateInsure ==
                                                                       ''
-                                                                  ? Color(
-                                                                      0xFF9F9F9F)
-                                                                  : Colors
-                                                                      .black,
+                                                                  ? FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryText
+                                                                  : FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
                                                               fontSize: 15.0,
                                                               letterSpacing:
                                                                   0.0,

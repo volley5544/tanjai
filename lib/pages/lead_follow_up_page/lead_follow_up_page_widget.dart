@@ -269,7 +269,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
               },
             ),
             title: Text(
-              'ติดตามสถานะ',
+              'ติดตามประกันรถ',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF003063),

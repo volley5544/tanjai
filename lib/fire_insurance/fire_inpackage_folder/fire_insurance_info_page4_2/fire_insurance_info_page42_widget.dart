@@ -4082,6 +4082,9 @@ class _FireInsuranceInfoPage42WidgetState
                                                                         ? FFAppState()
                                                                             .insuranceInfoEffectiveDateAct
                                                                         : '',
+                                                                subProduct:
+                                                                    FFAppState()
+                                                                        .insuranceinfoActType,
                                                               );
 
                                                               _shouldSetState =

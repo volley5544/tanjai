@@ -263,7 +263,7 @@ class _FireLeadFollowUpPageWidgetState extends State<FireLeadFollowUpPageWidget>
               },
             ),
             title: Text(
-              'ติดตามสถานะ',
+              'ติดตามประกันอัคคีภัย',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF003063),
@@ -410,6 +410,10 @@ class _FireLeadFollowUpPageWidgetState extends State<FireLeadFollowUpPageWidget>
                                   'FollowUpPage',
                                   ParamType.String,
                                 ),
+                                'checkVMI': serializeParam(
+                                  '0',
+                                  ParamType.String,
+                                ),
                               }.withoutNulls,
                             );
                           },
@@ -526,6 +530,10 @@ class _FireLeadFollowUpPageWidgetState extends State<FireLeadFollowUpPageWidget>
                                   'FollowUpPage',
                                   ParamType.String,
                                 ),
+                                'checkVMI': serializeParam(
+                                  '0',
+                                  ParamType.String,
+                                ),
                               }.withoutNulls,
                             );
                           },
@@ -562,7 +570,7 @@ class _FireLeadFollowUpPageWidgetState extends State<FireLeadFollowUpPageWidget>
                                       ),
                                     ),
                                     child: Icon(
-                                      Icons.directions_car_outlined,
+                                      Icons.cottage,
                                       color: Color(0xFF204A77),
                                       size: 30.0,
                                     ),
@@ -648,6 +656,10 @@ class _FireLeadFollowUpPageWidgetState extends State<FireLeadFollowUpPageWidget>
                                 ),
                                 'fromPage': serializeParam(
                                   'FollowUpPage',
+                                  ParamType.String,
+                                ),
+                                'checkVMI': serializeParam(
+                                  '0',
                                   ParamType.String,
                                 ),
                               }.withoutNulls,
@@ -769,6 +781,10 @@ class _FireLeadFollowUpPageWidgetState extends State<FireLeadFollowUpPageWidget>
                                 ),
                                 'fromPage': serializeParam(
                                   'FollowUpPage',
+                                  ParamType.String,
+                                ),
+                                'checkVMI': serializeParam(
+                                  '0',
                                   ParamType.String,
                                 ),
                               }.withoutNulls,
@@ -902,6 +918,10 @@ class _FireLeadFollowUpPageWidgetState extends State<FireLeadFollowUpPageWidget>
                                   'FollowUpPage',
                                   ParamType.String,
                                 ),
+                                'checkVMI': serializeParam(
+                                  '0',
+                                  ParamType.String,
+                                ),
                               }.withoutNulls,
                             );
                           },
@@ -1022,6 +1042,10 @@ class _FireLeadFollowUpPageWidgetState extends State<FireLeadFollowUpPageWidget>
                                 ),
                                 'fromPage': serializeParam(
                                   'FollowUpPage',
+                                  ParamType.String,
+                                ),
+                                'checkVMI': serializeParam(
+                                  '0',
                                   ParamType.String,
                                 ),
                               }.withoutNulls,

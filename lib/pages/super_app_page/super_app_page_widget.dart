@@ -4,6 +4,7 @@ import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/components/custom_dialog_component_widget.dart';
+import '/components/follow_up_custom_dialog_component_widget.dart';
 import '/components/license_select_component_widget.dart';
 import '/components/search_old_vmi_widget.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
@@ -1251,6 +1252,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                             .transparent,
                                                                     onTap:
                                                                         () async {
+                                                                      var _shouldSetState =
+                                                                          false;
                                                                       FFAppState()
                                                                               .isTouchVmiButton =
                                                                           false;
@@ -1279,15 +1282,70 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                                   FocusScope.of(dialogContext).unfocus();
                                                                                   FocusManager.instance.primaryFocus?.unfocus();
                                                                                 },
+                                                                                child: FollowUpCustomDialogComponentWidget(),
+                                                                              ),
+                                                                            ),
+                                                                          );
+                                                                        },
+                                                                      ).then((value) =>
+                                                                          safeSetState(() =>
+                                                                              _model.selectedInsuranceTypeVmiCollapse = value));
+
+                                                                      _shouldSetState =
+                                                                          true;
+                                                                      if (!_model
+                                                                          .selectedInsuranceTypeVmiCollapse!) {
+                                                                        if (_shouldSetState)
+                                                                          safeSetState(
+                                                                              () {});
+                                                                        return;
+                                                                      }
+                                                                      await showDialog(
+                                                                        barrierDismissible:
+                                                                            false,
+                                                                        context:
+                                                                            context,
+                                                                        builder:
+                                                                            (dialogContext) {
+                                                                          return Dialog(
+                                                                            elevation:
+                                                                                0,
+                                                                            insetPadding:
+                                                                                EdgeInsets.zero,
+                                                                            backgroundColor:
+                                                                                Colors.transparent,
+                                                                            alignment:
+                                                                                AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                            child:
+                                                                                WebViewAware(
+                                                                              child: GestureDetector(
+                                                                                onTap: () {
+                                                                                  FocusScope.of(dialogContext).unfocus();
+                                                                                  FocusManager.instance.primaryFocus?.unfocus();
+                                                                                },
                                                                                 child: CustomDialogComponentWidget(),
                                                                               ),
                                                                             ),
                                                                           );
                                                                         },
-                                                                      );
+                                                                      ).then((value) =>
+                                                                          safeSetState(() =>
+                                                                              _model.selectedVmiTypeVmiCollapse = value));
 
+                                                                      _shouldSetState =
+                                                                          true;
+                                                                      if (!_model
+                                                                          .selectedVmiTypeVmiCollapse!) {
+                                                                        if (_shouldSetState)
+                                                                          safeSetState(
+                                                                              () {});
+                                                                        return;
+                                                                      }
                                                                       if (!FFAppState()
                                                                           .isTouchVmiButton) {
+                                                                        if (_shouldSetState)
+                                                                          safeSetState(
+                                                                              () {});
                                                                         return;
                                                                       }
                                                                       if (FFAppState()
@@ -1313,7 +1371,9 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
                                                                                     height: MediaQuery.sizeOf(context).height * 0.3,
-                                                                                    child: SearchOldVmiWidget(),
+                                                                                    child: SearchOldVmiWidget(
+                                                                                      isSearchCarVmi: FFAppState().isViewCarFollowUp,
+                                                                                    ),
                                                                                   ),
                                                                                 ),
                                                                               ),
@@ -1322,6 +1382,36 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                         ).then((value) =>
                                                                             safeSetState(() {}));
                                                                       } else {
+                                                                        if (!FFAppState()
+                                                                            .isViewCarFollowUp) {
+                                                                          context
+                                                                              .goNamed(
+                                                                            'MakeFireInsuranceListPage',
+                                                                            queryParameters:
+                                                                                {
+                                                                              'list': serializeParam(
+                                                                                GetVMICall.houseApproveData(
+                                                                                  (_model.getVMIApi?.jsonBody ?? ''),
+                                                                                ),
+                                                                                ParamType.JSON,
+                                                                                isList: true,
+                                                                              ),
+                                                                              'checkPayment': serializeParam(
+                                                                                '0',
+                                                                                ParamType.String,
+                                                                              ),
+                                                                              'checkVMI': serializeParam(
+                                                                                '1',
+                                                                                ParamType.String,
+                                                                              ),
+                                                                            }.withoutNulls,
+                                                                          );
+
+                                                                          if (_shouldSetState)
+                                                                            safeSetState(() {});
+                                                                          return;
+                                                                        }
+
                                                                         context
                                                                             .pushNamed(
                                                                           'MakeInsuranceListPage',
@@ -1355,6 +1445,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                           }.withoutNulls,
                                                                         );
                                                                       }
+
+                                                                      if (_shouldSetState)
+                                                                        safeSetState(
+                                                                            () {});
                                                                     },
                                                                     child:
                                                                         Container(
@@ -1408,75 +1502,146 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                   ),
                                                                 ),
                                                               ),
-                                                              InkWell(
-                                                                splashColor: Colors
-                                                                    .transparent,
-                                                                focusColor: Colors
-                                                                    .transparent,
-                                                                hoverColor: Colors
-                                                                    .transparent,
-                                                                highlightColor:
-                                                                    Colors
-                                                                        .transparent,
-                                                                onTap:
-                                                                    () async {
-                                                                  context.goNamed(
-                                                                      'LeadFollowUpPage');
-                                                                },
-                                                                child:
-                                                                    Container(
-                                                                  width: MediaQuery.sizeOf(
-                                                                              context)
-                                                                          .width *
-                                                                      0.28,
-                                                                  height: 100.0,
-                                                                  decoration:
-                                                                      BoxDecoration(
-                                                                    color: Colors
-                                                                        .white,
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            15.0),
-                                                                    shape: BoxShape
-                                                                        .rectangle,
-                                                                  ),
-                                                                  child: Column(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .center,
-                                                                    children: [
-                                                                      Icon(
-                                                                        Icons
-                                                                            .task,
-                                                                        color: Color(
-                                                                            0xFFDF8633),
-                                                                        size:
-                                                                            35.0,
-                                                                      ),
-                                                                      Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            6.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            Text(
-                                                                          'ติดตามสถานะ',
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .override(
-                                                                                fontFamily: 'Noto Sans Thai',
-                                                                                color: Colors.black,
-                                                                                fontSize: 14.0,
-                                                                                letterSpacing: 0.0,
-                                                                                fontWeight: FontWeight.w600,
-                                                                              ),
+                                                              Builder(
+                                                                builder:
+                                                                    (context) =>
+                                                                        InkWell(
+                                                                  splashColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  focusColor: Colors
+                                                                      .transparent,
+                                                                  hoverColor: Colors
+                                                                      .transparent,
+                                                                  highlightColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  onTap:
+                                                                      () async {
+                                                                    var _shouldSetState =
+                                                                        false;
+                                                                    FFAppState()
+                                                                            .isTouchFollowUpButton =
+                                                                        false;
+                                                                    safeSetState(
+                                                                        () {});
+                                                                    await showDialog(
+                                                                      barrierDismissible:
+                                                                          false,
+                                                                      context:
+                                                                          context,
+                                                                      builder:
+                                                                          (dialogContext) {
+                                                                        return Dialog(
+                                                                          elevation:
+                                                                              0,
+                                                                          insetPadding:
+                                                                              EdgeInsets.zero,
+                                                                          backgroundColor:
+                                                                              Colors.transparent,
+                                                                          alignment:
+                                                                              AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                          child:
+                                                                              WebViewAware(
+                                                                            child:
+                                                                                GestureDetector(
+                                                                              onTap: () {
+                                                                                FocusScope.of(dialogContext).unfocus();
+                                                                                FocusManager.instance.primaryFocus?.unfocus();
+                                                                              },
+                                                                              child: FollowUpCustomDialogComponentWidget(),
+                                                                            ),
+                                                                          ),
+                                                                        );
+                                                                      },
+                                                                    ).then((value) =>
+                                                                        safeSetState(() =>
+                                                                            _model.selectedInsuranceTypeFollowUpCollapse =
+                                                                                value));
+
+                                                                    _shouldSetState =
+                                                                        true;
+                                                                    if (!_model
+                                                                        .selectedInsuranceTypeFollowUpCollapse!) {
+                                                                      if (_shouldSetState)
+                                                                        safeSetState(
+                                                                            () {});
+                                                                      return;
+                                                                    }
+                                                                    if (!FFAppState()
+                                                                        .isTouchFollowUpButton) {
+                                                                      if (_shouldSetState)
+                                                                        safeSetState(
+                                                                            () {});
+                                                                      return;
+                                                                    }
+                                                                    if (FFAppState()
+                                                                        .isViewCarFollowUp) {
+                                                                      context.goNamed(
+                                                                          'LeadFollowUpPage');
+                                                                    } else {
+                                                                      context.goNamed(
+                                                                          'fireLeadFollowUpPage');
+                                                                    }
+
+                                                                    if (_shouldSetState)
+                                                                      safeSetState(
+                                                                          () {});
+                                                                  },
+                                                                  child:
+                                                                      Container(
+                                                                    width: MediaQuery.sizeOf(context)
+                                                                            .width *
+                                                                        0.28,
+                                                                    height:
+                                                                        100.0,
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      color: Colors
+                                                                          .white,
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              15.0),
+                                                                      shape: BoxShape
+                                                                          .rectangle,
+                                                                    ),
+                                                                    child:
+                                                                        Column(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      mainAxisAlignment:
+                                                                          MainAxisAlignment
+                                                                              .center,
+                                                                      children: [
+                                                                        Icon(
+                                                                          Icons
+                                                                              .task,
+                                                                          color:
+                                                                              Color(0xFFDF8633),
+                                                                          size:
+                                                                              35.0,
                                                                         ),
-                                                                      ),
-                                                                    ],
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              6.0,
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Text(
+                                                                            'ติดตามสถานะ',
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: 'Noto Sans Thai',
+                                                                                  color: Colors.black,
+                                                                                  fontSize: 14.0,
+                                                                                  letterSpacing: 0.0,
+                                                                                  fontWeight: FontWeight.w600,
+                                                                                ),
+                                                                          ),
+                                                                        ),
+                                                                      ],
+                                                                    ),
                                                                   ),
                                                                 ),
                                                               ),
@@ -1665,10 +1830,47 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                               .transparent,
                                                                       onTap:
                                                                           () async {
+                                                                        var _shouldSetState =
+                                                                            false;
                                                                         FFAppState().isTouchVmiButton =
                                                                             false;
                                                                         safeSetState(
                                                                             () {});
+                                                                        await showDialog(
+                                                                          barrierDismissible:
+                                                                              false,
+                                                                          context:
+                                                                              context,
+                                                                          builder:
+                                                                              (dialogContext) {
+                                                                            return Dialog(
+                                                                              elevation: 0,
+                                                                              insetPadding: EdgeInsets.zero,
+                                                                              backgroundColor: Colors.transparent,
+                                                                              alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                              child: WebViewAware(
+                                                                                child: GestureDetector(
+                                                                                  onTap: () {
+                                                                                    FocusScope.of(dialogContext).unfocus();
+                                                                                    FocusManager.instance.primaryFocus?.unfocus();
+                                                                                  },
+                                                                                  child: FollowUpCustomDialogComponentWidget(),
+                                                                                ),
+                                                                              ),
+                                                                            );
+                                                                          },
+                                                                        ).then((value) =>
+                                                                            safeSetState(() =>
+                                                                                _model.selectedInsuranceTypeVmiExpanded = value));
+
+                                                                        _shouldSetState =
+                                                                            true;
+                                                                        if (!_model
+                                                                            .selectedInsuranceTypeVmiExpanded!) {
+                                                                          if (_shouldSetState)
+                                                                            safeSetState(() {});
+                                                                          return;
+                                                                        }
                                                                         await showDialog(
                                                                           barrierDismissible:
                                                                               false,
@@ -1692,10 +1894,22 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                               ),
                                                                             );
                                                                           },
-                                                                        );
+                                                                        ).then((value) =>
+                                                                            safeSetState(() =>
+                                                                                _model.selectedVmiTypeVmiExpanded = value));
 
+                                                                        _shouldSetState =
+                                                                            true;
+                                                                        if (!_model
+                                                                            .selectedVmiTypeVmiExpanded!) {
+                                                                          if (_shouldSetState)
+                                                                            safeSetState(() {});
+                                                                          return;
+                                                                        }
                                                                         if (!FFAppState()
                                                                             .isTouchVmiButton) {
+                                                                          if (_shouldSetState)
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         if (FFAppState()
@@ -1721,7 +1935,9 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                                     padding: MediaQuery.viewInsetsOf(context),
                                                                                     child: Container(
                                                                                       height: MediaQuery.sizeOf(context).height * 0.3,
-                                                                                      child: SearchOldVmiWidget(),
+                                                                                      child: SearchOldVmiWidget(
+                                                                                        isSearchCarVmi: FFAppState().isViewCarFollowUp,
+                                                                                      ),
                                                                                     ),
                                                                                   ),
                                                                                 ),
@@ -1730,6 +1946,34 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                           ).then((value) =>
                                                                               safeSetState(() {}));
                                                                         } else {
+                                                                          if (!FFAppState()
+                                                                              .isViewCarFollowUp) {
+                                                                            context.goNamed(
+                                                                              'MakeFireInsuranceListPage',
+                                                                              queryParameters: {
+                                                                                'list': serializeParam(
+                                                                                  GetVMICall.houseApproveData(
+                                                                                    (_model.getVMIApi?.jsonBody ?? ''),
+                                                                                  ),
+                                                                                  ParamType.JSON,
+                                                                                  isList: true,
+                                                                                ),
+                                                                                'checkPayment': serializeParam(
+                                                                                  '0',
+                                                                                  ParamType.String,
+                                                                                ),
+                                                                                'checkVMI': serializeParam(
+                                                                                  '1',
+                                                                                  ParamType.String,
+                                                                                ),
+                                                                              }.withoutNulls,
+                                                                            );
+
+                                                                            if (_shouldSetState)
+                                                                              safeSetState(() {});
+                                                                            return;
+                                                                          }
+
                                                                           context
                                                                               .pushNamed(
                                                                             'MakeInsuranceListPage',
@@ -1759,6 +2003,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                             }.withoutNulls,
                                                                           );
                                                                         }
+
+                                                                        if (_shouldSetState)
+                                                                          safeSetState(
+                                                                              () {});
                                                                       },
                                                                       child:
                                                                           Container(
@@ -1803,73 +2051,126 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                       ),
                                                                     ),
                                                                   ),
-                                                                  InkWell(
-                                                                    splashColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    focusColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    hoverColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    highlightColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    onTap:
-                                                                        () async {
-                                                                      context.goNamed(
-                                                                          'LeadFollowUpPage');
-                                                                    },
-                                                                    child:
-                                                                        Container(
-                                                                      width: MediaQuery.sizeOf(context)
-                                                                              .width *
-                                                                          0.28,
-                                                                      height:
-                                                                          100.0,
-                                                                      decoration:
-                                                                          BoxDecoration(
-                                                                        color: Colors
-                                                                            .white,
-                                                                        borderRadius:
-                                                                            BorderRadius.circular(15.0),
-                                                                        shape: BoxShape
-                                                                            .rectangle,
-                                                                      ),
+                                                                  Builder(
+                                                                    builder:
+                                                                        (context) =>
+                                                                            InkWell(
+                                                                      splashColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      focusColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      hoverColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      highlightColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      onTap:
+                                                                          () async {
+                                                                        var _shouldSetState =
+                                                                            false;
+                                                                        FFAppState().isTouchFollowUpButton =
+                                                                            false;
+                                                                        safeSetState(
+                                                                            () {});
+                                                                        await showDialog(
+                                                                          barrierDismissible:
+                                                                              false,
+                                                                          context:
+                                                                              context,
+                                                                          builder:
+                                                                              (dialogContext) {
+                                                                            return Dialog(
+                                                                              elevation: 0,
+                                                                              insetPadding: EdgeInsets.zero,
+                                                                              backgroundColor: Colors.transparent,
+                                                                              alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                              child: WebViewAware(
+                                                                                child: GestureDetector(
+                                                                                  onTap: () {
+                                                                                    FocusScope.of(dialogContext).unfocus();
+                                                                                    FocusManager.instance.primaryFocus?.unfocus();
+                                                                                  },
+                                                                                  child: FollowUpCustomDialogComponentWidget(),
+                                                                                ),
+                                                                              ),
+                                                                            );
+                                                                          },
+                                                                        ).then((value) =>
+                                                                            safeSetState(() =>
+                                                                                _model.selectedInsuranceTypeFollowUpExpanded = value));
+
+                                                                        _shouldSetState =
+                                                                            true;
+                                                                        if (!_model
+                                                                            .selectedInsuranceTypeFollowUpExpanded!) {
+                                                                          if (_shouldSetState)
+                                                                            safeSetState(() {});
+                                                                          return;
+                                                                        }
+                                                                        if (!FFAppState()
+                                                                            .isTouchFollowUpButton) {
+                                                                          if (_shouldSetState)
+                                                                            safeSetState(() {});
+                                                                          return;
+                                                                        }
+                                                                        if (FFAppState()
+                                                                            .isViewCarFollowUp) {
+                                                                          context
+                                                                              .goNamed('LeadFollowUpPage');
+                                                                        } else {
+                                                                          context
+                                                                              .goNamed('fireLeadFollowUpPage');
+                                                                        }
+
+                                                                        if (_shouldSetState)
+                                                                          safeSetState(
+                                                                              () {});
+                                                                      },
                                                                       child:
-                                                                          Column(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        mainAxisAlignment:
-                                                                            MainAxisAlignment.center,
-                                                                        children: [
-                                                                          Icon(
-                                                                            Icons.task,
-                                                                            color:
-                                                                                Color(0xFFDF8633),
-                                                                            size:
-                                                                                35.0,
-                                                                          ),
-                                                                          Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0.0,
-                                                                                6.0,
-                                                                                0.0,
-                                                                                0.0),
-                                                                            child:
-                                                                                Text(
-                                                                              'ติดตามสถานะ',
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: 'Noto Sans Thai',
-                                                                                    color: Colors.black,
-                                                                                    fontSize: 14.0,
-                                                                                    letterSpacing: 0.0,
-                                                                                    fontWeight: FontWeight.w600,
-                                                                                  ),
+                                                                          Container(
+                                                                        width: MediaQuery.sizeOf(context).width *
+                                                                            0.28,
+                                                                        height:
+                                                                            100.0,
+                                                                        decoration:
+                                                                            BoxDecoration(
+                                                                          color:
+                                                                              Colors.white,
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(15.0),
+                                                                          shape:
+                                                                              BoxShape.rectangle,
+                                                                        ),
+                                                                        child:
+                                                                            Column(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          mainAxisAlignment:
+                                                                              MainAxisAlignment.center,
+                                                                          children: [
+                                                                            Icon(
+                                                                              Icons.task,
+                                                                              color: Color(0xFFDF8633),
+                                                                              size: 35.0,
                                                                             ),
-                                                                          ),
-                                                                        ],
+                                                                            Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
+                                                                              child: Text(
+                                                                                'ติดตามสถานะ',
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Noto Sans Thai',
+                                                                                      color: Colors.black,
+                                                                                      fontSize: 14.0,
+                                                                                      letterSpacing: 0.0,
+                                                                                      fontWeight: FontWeight.w600,
+                                                                                    ),
+                                                                              ),
+                                                                            ),
+                                                                          ],
+                                                                        ),
                                                                       ),
                                                                     ),
                                                                   ),
@@ -3091,7 +3392,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                             Padding(
                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
                                                                               child: Icon(
-                                                                                Icons.house_sharp,
+                                                                                Icons.cottage,
                                                                                 color: Color(0xFFDB771A),
                                                                                 size: 30.0,
                                                                               ),
@@ -3102,161 +3403,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                               child: Padding(
                                                                                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 7.0, 0.0, 0.0),
                                                                                 child: Text(
-                                                                                  'อัคคีภัย',
-                                                                                  textAlign: TextAlign.center,
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Noto Sans Thai',
-                                                                                        color: Colors.black,
-                                                                                        fontSize: 14.0,
-                                                                                        letterSpacing: 0.0,
-                                                                                        fontWeight: FontWeight.w600,
-                                                                                      ),
-                                                                                ),
-                                                                              ),
-                                                                            ),
-                                                                          ],
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                  InkWell(
-                                                                    splashColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    focusColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    hoverColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    highlightColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    onTap:
-                                                                        () async {
-                                                                      context.pushNamed(
-                                                                          'fireInsuranceListPage');
-                                                                    },
-                                                                    child:
-                                                                        Container(
-                                                                      width: MediaQuery.sizeOf(context)
-                                                                              .width *
-                                                                          0.28,
-                                                                      height:
-                                                                          100.0,
-                                                                      decoration:
-                                                                          BoxDecoration(
-                                                                        color: Colors
-                                                                            .white,
-                                                                        borderRadius:
-                                                                            BorderRadius.circular(15.0),
-                                                                      ),
-                                                                      child:
-                                                                          Align(
-                                                                        alignment: AlignmentDirectional(
-                                                                            0.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            Column(
-                                                                          mainAxisSize:
-                                                                              MainAxisSize.max,
-                                                                          mainAxisAlignment:
-                                                                              MainAxisAlignment.center,
-                                                                          crossAxisAlignment:
-                                                                              CrossAxisAlignment.center,
-                                                                          children: [
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
-                                                                              child: Icon(
-                                                                                Icons.document_scanner,
-                                                                                color: Color(0xFFDB771A),
-                                                                                size: 30.0,
-                                                                              ),
-                                                                            ),
-                                                                            Container(
-                                                                              width: 100.0,
-                                                                              decoration: BoxDecoration(),
-                                                                              child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 7.0, 0.0, 0.0),
-                                                                                child: Text(
-                                                                                  'ทำประกัน',
-                                                                                  textAlign: TextAlign.center,
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Noto Sans Thai',
-                                                                                        color: Colors.black,
-                                                                                        fontSize: 14.0,
-                                                                                        letterSpacing: 0.0,
-                                                                                        fontWeight: FontWeight.w600,
-                                                                                      ),
-                                                                                ),
-                                                                              ),
-                                                                            ),
-                                                                          ],
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                  InkWell(
-                                                                    splashColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    focusColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    hoverColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    highlightColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    onTap:
-                                                                        () async {
-                                                                      context.pushNamed(
-                                                                          'fireLeadFollowUpPage');
-                                                                    },
-                                                                    child:
-                                                                        Container(
-                                                                      width: MediaQuery.sizeOf(context)
-                                                                              .width *
-                                                                          0.28,
-                                                                      height:
-                                                                          100.0,
-                                                                      decoration:
-                                                                          BoxDecoration(
-                                                                        color: Colors
-                                                                            .white,
-                                                                        borderRadius:
-                                                                            BorderRadius.circular(15.0),
-                                                                      ),
-                                                                      child:
-                                                                          Align(
-                                                                        alignment: AlignmentDirectional(
-                                                                            0.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            Column(
-                                                                          mainAxisSize:
-                                                                              MainAxisSize.max,
-                                                                          mainAxisAlignment:
-                                                                              MainAxisAlignment.center,
-                                                                          crossAxisAlignment:
-                                                                              CrossAxisAlignment.center,
-                                                                          children: [
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
-                                                                              child: Icon(
-                                                                                Icons.document_scanner,
-                                                                                color: Color(0xFFDB771A),
-                                                                                size: 30.0,
-                                                                              ),
-                                                                            ),
-                                                                            Container(
-                                                                              width: 100.0,
-                                                                              decoration: BoxDecoration(),
-                                                                              child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 7.0, 0.0, 0.0),
-                                                                                child: Text(
-                                                                                  'ติดตามสถานะ',
+                                                                                  'ประกันอัคคีภัย',
                                                                                   textAlign: TextAlign.center,
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Noto Sans Thai',
@@ -3352,39 +3499,75 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                         ? textDataListRecordList.first
                                         : null;
 
-                                return InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    context.pushNamed(
-                                      'showPeoplePage',
-                                      queryParameters: {
-                                        'firestoreDataConfigList':
-                                            serializeParam(
-                                          textDataListRecord,
-                                          ParamType.Document,
+                                return Text(
+                                  'ใบเสนอราคาของฉัน',
+                                  style: FlutterFlowTheme.of(context)
+                                      .headlineMedium
+                                      .override(
+                                        fontFamily: 'Noto Sans Thai',
+                                        color: Color(0xFF003063),
+                                        fontSize: 16.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                );
+                              },
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(20.0, 8.0, 20.0, 4.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                4.0, 0.0, 0.0, 0.0),
+                            child: FutureBuilder<List<DataListRecord>>(
+                              future: queryDataListRecordOnce(
+                                singleRecord: true,
+                              ),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 50.0,
+                                      height: 50.0,
+                                      child: CircularProgressIndicator(
+                                        valueColor:
+                                            AlwaysStoppedAnimation<Color>(
+                                          FlutterFlowTheme.of(context).primary,
                                         ),
-                                      }.withoutNulls,
-                                      extra: <String, dynamic>{
-                                        'firestoreDataConfigList':
-                                            textDataListRecord,
-                                      },
-                                    );
-                                  },
-                                  child: Text(
-                                    'ใบเสนอราคาของฉัน',
-                                    style: FlutterFlowTheme.of(context)
-                                        .headlineMedium
-                                        .override(
-                                          fontFamily: 'Noto Sans Thai',
-                                          color: Color(0xFF003063),
-                                          fontSize: 16.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                  ),
+                                      ),
+                                    ),
+                                  );
+                                }
+                                List<DataListRecord> textDataListRecordList =
+                                    snapshot.data!;
+                                final textDataListRecord =
+                                    textDataListRecordList.isNotEmpty
+                                        ? textDataListRecordList.first
+                                        : null;
+
+                                return Text(
+                                  'ประกันรถยนต์',
+                                  style: FlutterFlowTheme.of(context)
+                                      .headlineMedium
+                                      .override(
+                                        fontFamily: 'Noto Sans Thai',
+                                        color: Color(0xFF003063),
+                                        fontSize: 16.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                 );
                               },
                             ),
@@ -3423,31 +3606,917 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Container(
-                        width: MediaQuery.sizeOf(context).width * 1.0,
+                        width: double.infinity,
                         height: 300.0,
                         decoration: BoxDecoration(),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            if (GetVMICall.quotationTotal(
+                            Container(
+                              width: MediaQuery.sizeOf(context).width * 1.0,
+                              decoration: BoxDecoration(),
+                              child: Builder(
+                                builder: (context) {
+                                  if (GetVMICall.dataQuotationTotal(
+                                        (_model.getVMIApi?.jsonBody ?? ''),
+                                      ) !=
+                                      0) {
+                                    return Align(
+                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      child: Builder(
+                                        builder: (context) {
+                                          final leadList =
+                                              (GetVMICall.leadIdList(
+                                                        (_model.getVMIApi
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      )?.toList() ??
+                                                      [])
+                                                  .take(5)
+                                                  .toList();
+
+                                          return Container(
+                                            width: double.infinity,
+                                            child: Stack(
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          4.0, 4.0, 4.0, 4.0),
+                                                  child: PageView.builder(
+                                                    controller: _model
+                                                            .pageViewController1 ??=
+                                                        PageController(
+                                                            initialPage: max(
+                                                                0,
+                                                                min(
+                                                                    0,
+                                                                    leadList.length -
+                                                                        1))),
+                                                    scrollDirection:
+                                                        Axis.horizontal,
+                                                    itemCount: leadList.length,
+                                                    itemBuilder: (context,
+                                                        leadListIndex) {
+                                                      final leadListItem =
+                                                          leadList[
+                                                              leadListIndex];
+                                                      return Align(
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                0.0, -1.0),
+                                                        child: Container(
+                                                          width:
+                                                              MediaQuery.sizeOf(
+                                                                          context)
+                                                                      .width *
+                                                                  0.9,
+                                                          constraints:
+                                                              BoxConstraints(
+                                                            maxHeight: 260.0,
+                                                          ),
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground,
+                                                            boxShadow: [
+                                                              BoxShadow(
+                                                                blurRadius: 4.0,
+                                                                color: Color(
+                                                                    0x33000000),
+                                                                offset: Offset(
+                                                                  0.0,
+                                                                  2.0,
+                                                                ),
+                                                              )
+                                                            ],
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        20.0),
+                                                            border: Border.all(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .grayIcon,
+                                                              width: 2.0,
+                                                            ),
+                                                          ),
+                                                          child: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        12.0,
+                                                                        0.0,
+                                                                        12.0,
+                                                                        0.0),
+                                                            child: Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .spaceBetween,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .center,
+                                                              children: [
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          12.0,
+                                                                          12.0,
+                                                                          12.0,
+                                                                          0.0),
+                                                                  child: Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
+                                                                    children: [
+                                                                      Row(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        mainAxisAlignment:
+                                                                            MainAxisAlignment.end,
+                                                                        children: [
+                                                                          Expanded(
+                                                                            flex:
+                                                                                5,
+                                                                            child:
+                                                                                Container(
+                                                                              width: MediaQuery.sizeOf(context).width * 0.37,
+                                                                              decoration: BoxDecoration(),
+                                                                              child: Text(
+                                                                                'ชื่อลูกค้า',
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Noto Sans Thai',
+                                                                                      color: FlutterFlowTheme.of(context).black600,
+                                                                                      fontSize: 14.0,
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                          Container(
+                                                                            width:
+                                                                                10.0,
+                                                                            decoration:
+                                                                                BoxDecoration(),
+                                                                            child:
+                                                                                Text(
+                                                                              ':',
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Noto Sans Thai',
+                                                                                    color: FlutterFlowTheme.of(context).black600,
+                                                                                    letterSpacing: 0.0,
+                                                                                  ),
+                                                                            ),
+                                                                          ),
+                                                                          Expanded(
+                                                                            flex:
+                                                                                5,
+                                                                            child:
+                                                                                Container(
+                                                                              decoration: BoxDecoration(),
+                                                                              child: Text(
+                                                                                '${functions.checkNullValueAndReturn(GetVMICall.firstNameList(
+                                                                                  (_model.getVMIApi?.jsonBody ?? ''),
+                                                                                )?.elementAtOrNull(leadListIndex))} ${functions.checkNullValueAndReturn(GetVMICall.lastNameList(
+                                                                                  (_model.getVMIApi?.jsonBody ?? ''),
+                                                                                )?.elementAtOrNull(leadListIndex))}',
+                                                                                maxLines: 2,
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Noto Sans Thai',
+                                                                                      color: FlutterFlowTheme.of(context).black600,
+                                                                                      fontSize: 14.0,
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                      Row(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        children: [
+                                                                          Expanded(
+                                                                            flex:
+                                                                                5,
+                                                                            child:
+                                                                                Container(
+                                                                              width: MediaQuery.sizeOf(context).width * 0.37,
+                                                                              decoration: BoxDecoration(),
+                                                                              child: Text(
+                                                                                'ขอเบี้ย',
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Noto Sans Thai',
+                                                                                      color: FlutterFlowTheme.of(context).black600,
+                                                                                      fontSize: 14.0,
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                          Container(
+                                                                            width:
+                                                                                10.0,
+                                                                            decoration:
+                                                                                BoxDecoration(),
+                                                                            child:
+                                                                                Text(
+                                                                              ':',
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Noto Sans Thai',
+                                                                                    color: FlutterFlowTheme.of(context).black600,
+                                                                                    letterSpacing: 0.0,
+                                                                                  ),
+                                                                            ),
+                                                                          ),
+                                                                          Expanded(
+                                                                            flex:
+                                                                                5,
+                                                                            child:
+                                                                                Container(
+                                                                              decoration: BoxDecoration(),
+                                                                              child: Text(
+                                                                                functions.checkNullValueAndReturn(GetVMICall.quotationtypebakname(
+                                                                                  (_model.getVMIApi?.jsonBody ?? ''),
+                                                                                )?.elementAtOrNull(leadListIndex)),
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Noto Sans Thai',
+                                                                                      color: FlutterFlowTheme.of(context).black600,
+                                                                                      fontSize: 14.0,
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                      Row(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        children: [
+                                                                          Expanded(
+                                                                            flex:
+                                                                                5,
+                                                                            child:
+                                                                                Container(
+                                                                              width: MediaQuery.sizeOf(context).width * 0.37,
+                                                                              decoration: BoxDecoration(),
+                                                                              child: Text(
+                                                                                'แจ้งงาน',
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Noto Sans Thai',
+                                                                                      color: FlutterFlowTheme.of(context).black600,
+                                                                                      fontSize: 14.0,
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                          Container(
+                                                                            width:
+                                                                                10.0,
+                                                                            decoration:
+                                                                                BoxDecoration(),
+                                                                            child:
+                                                                                Text(
+                                                                              ':',
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Noto Sans Thai',
+                                                                                    color: FlutterFlowTheme.of(context).black600,
+                                                                                    letterSpacing: 0.0,
+                                                                                  ),
+                                                                            ),
+                                                                          ),
+                                                                          Expanded(
+                                                                            flex:
+                                                                                5,
+                                                                            child:
+                                                                                Container(
+                                                                              decoration: BoxDecoration(),
+                                                                              child: Text(
+                                                                                functions.checkNullValueAndReturn(GetVMICall.quotationtypename(
+                                                                                  (_model.getVMIApi?.jsonBody ?? ''),
+                                                                                )?.elementAtOrNull(leadListIndex)),
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Noto Sans Thai',
+                                                                                      color: FlutterFlowTheme.of(context).black600,
+                                                                                      fontSize: 14.0,
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                      Row(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        children: [
+                                                                          Expanded(
+                                                                            flex:
+                                                                                5,
+                                                                            child:
+                                                                                Container(
+                                                                              width: MediaQuery.sizeOf(context).width * 0.37,
+                                                                              decoration: BoxDecoration(),
+                                                                              child: Text(
+                                                                                'ผลิตภัณฑ์',
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Noto Sans Thai',
+                                                                                      color: FlutterFlowTheme.of(context).black600,
+                                                                                      fontSize: 14.0,
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                          Container(
+                                                                            width:
+                                                                                10.0,
+                                                                            decoration:
+                                                                                BoxDecoration(),
+                                                                            child:
+                                                                                Text(
+                                                                              ':',
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Noto Sans Thai',
+                                                                                    color: FlutterFlowTheme.of(context).black600,
+                                                                                    letterSpacing: 0.0,
+                                                                                  ),
+                                                                            ),
+                                                                          ),
+                                                                          Expanded(
+                                                                            flex:
+                                                                                5,
+                                                                            child:
+                                                                                Container(
+                                                                              decoration: BoxDecoration(),
+                                                                              child: Text(
+                                                                                functions.checkNullValueAndReturn(GetVMICall.subproductname(
+                                                                                  (_model.getVMIApi?.jsonBody ?? ''),
+                                                                                )?.elementAtOrNull(leadListIndex)),
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Noto Sans Thai',
+                                                                                      color: FlutterFlowTheme.of(context).black600,
+                                                                                      fontSize: 14.0,
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                      Row(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        children: [
+                                                                          Expanded(
+                                                                            flex:
+                                                                                5,
+                                                                            child:
+                                                                                Container(
+                                                                              width: MediaQuery.sizeOf(context).width * 0.37,
+                                                                              decoration: BoxDecoration(),
+                                                                              child: Text(
+                                                                                'ใบเสนอราคามีผลใช้ถึง',
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Noto Sans Thai',
+                                                                                      color: FlutterFlowTheme.of(context).black600,
+                                                                                      fontSize: 14.0,
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                          Container(
+                                                                            width:
+                                                                                10.0,
+                                                                            decoration:
+                                                                                BoxDecoration(),
+                                                                            child:
+                                                                                Text(
+                                                                              ':',
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Noto Sans Thai',
+                                                                                    color: FlutterFlowTheme.of(context).black600,
+                                                                                    letterSpacing: 0.0,
+                                                                                  ),
+                                                                            ),
+                                                                          ),
+                                                                          Expanded(
+                                                                            flex:
+                                                                                5,
+                                                                            child:
+                                                                                Container(
+                                                                              decoration: BoxDecoration(),
+                                                                              child: Text(
+                                                                                functions.checkNullValueAndReturn(GetVMICall.expireDate(
+                                                                                  (_model.getVMIApi?.jsonBody ?? ''),
+                                                                                )?.elementAtOrNull(leadListIndex)),
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Noto Sans Thai',
+                                                                                      color: FlutterFlowTheme.of(context).black600,
+                                                                                      fontSize: 14.0,
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                      Row(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        children: [
+                                                                          Expanded(
+                                                                            flex:
+                                                                                5,
+                                                                            child:
+                                                                                Container(
+                                                                              width: MediaQuery.sizeOf(context).width * 0.37,
+                                                                              decoration: BoxDecoration(),
+                                                                              child: Text(
+                                                                                'สถานะ',
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Noto Sans Thai',
+                                                                                      color: FlutterFlowTheme.of(context).black600,
+                                                                                      fontSize: 14.0,
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                          Container(
+                                                                            width:
+                                                                                10.0,
+                                                                            decoration:
+                                                                                BoxDecoration(),
+                                                                            child:
+                                                                                Text(
+                                                                              ':',
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Noto Sans Thai',
+                                                                                    color: FlutterFlowTheme.of(context).black600,
+                                                                                    letterSpacing: 0.0,
+                                                                                  ),
+                                                                            ),
+                                                                          ),
+                                                                          Expanded(
+                                                                            flex:
+                                                                                5,
+                                                                            child:
+                                                                                Container(
+                                                                              decoration: BoxDecoration(),
+                                                                              child: Text(
+                                                                                functions.checkNullValueAndReturn(GetVMICall.quotationStatus(
+                                                                                  (_model.getVMIApi?.jsonBody ?? ''),
+                                                                                )?.elementAtOrNull(leadListIndex)),
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Noto Sans Thai',
+                                                                                      color: FlutterFlowTheme.of(context).black600,
+                                                                                      fontSize: 14.0,
+                                                                                      letterSpacing: 0.0,
+                                                                                      fontWeight: FontWeight.bold,
+                                                                                    ),
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    ].divide(SizedBox(
+                                                                        height:
+                                                                            6.0)),
+                                                                  ),
+                                                                ),
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          20.0),
+                                                                  child: Row(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .center,
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
+                                                                    children: [
+                                                                      Align(
+                                                                        alignment: AlignmentDirectional(
+                                                                            -1.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            FFButtonWidget(
+                                                                          onPressed:
+                                                                              () async {
+                                                                            var _shouldSetState =
+                                                                                false;
+                                                                            var confirmDialogResponse = await showDialog<bool>(
+                                                                                  context: context,
+                                                                                  builder: (alertDialogContext) {
+                                                                                    return WebViewAware(
+                                                                                      child: AlertDialog(
+                                                                                        content: Text('ต้องการจะบันทึกเตรียมข้อมูลใช่หรือไม่?'),
+                                                                                        actions: [
+                                                                                          TextButton(
+                                                                                            onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                            child: Text('ยกเลิก'),
+                                                                                          ),
+                                                                                          TextButton(
+                                                                                            onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                            child: Text('ยืนยัน'),
+                                                                                          ),
+                                                                                        ],
+                                                                                      ),
+                                                                                    );
+                                                                                  },
+                                                                                ) ??
+                                                                                false;
+                                                                            if (confirmDialogResponse) {
+                                                                              _model.listFromDash = await InsuranceRequestListAPIDashBoardCall.call(
+                                                                                apiUrl: FFAppState().apiUrlInsuranceAppState,
+                                                                                token: FFAppState().accessToken,
+                                                                                leadId: GetVMICall.leadIdList(
+                                                                                  (_model.getVMIApi?.jsonBody ?? ''),
+                                                                                )?.elementAtOrNull(leadListIndex),
+                                                                                list: FFAppState().typeList,
+                                                                                mode: 'arunsawad',
+                                                                              );
+
+                                                                              _shouldSetState = true;
+                                                                              if ((_model.listFromDash?.statusCode ?? 200) == 200) {
+                                                                                if (InsuranceRequestListAPIDashBoardCall.statusLayer2(
+                                                                                      (_model.listFromDash?.jsonBody ?? ''),
+                                                                                    ) ==
+                                                                                    200) {
+                                                                                } else {
+                                                                                  await showDialog(
+                                                                                    context: context,
+                                                                                    builder: (alertDialogContext) {
+                                                                                      return WebViewAware(
+                                                                                        child: AlertDialog(
+                                                                                          title: Text('พบข้อผิดพลาด'),
+                                                                                          content: Text('${InsuranceRequestListAPIDashBoardCall.messageLayer2(
+                                                                                            (_model.listFromDash?.jsonBody ?? ''),
+                                                                                          )}(${InsuranceRequestListAPIDashBoardCall.statusLayer2(
+                                                                                            (_model.listFromDash?.jsonBody ?? ''),
+                                                                                          )?.toString()})'),
+                                                                                          actions: [
+                                                                                            TextButton(
+                                                                                              onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                              child: Text('Ok'),
+                                                                                            ),
+                                                                                          ],
+                                                                                        ),
+                                                                                      );
+                                                                                    },
+                                                                                  );
+                                                                                  if (_shouldSetState) safeSetState(() {});
+                                                                                  return;
+                                                                                }
+
+                                                                                _model.isShowVideoFirebaseBool = await queryHideInAppContentRecordOnce(
+                                                                                  queryBuilder: (hideInAppContentRecord) => hideInAppContentRecord.where(
+                                                                                    'content_name',
+                                                                                    isEqualTo: 'video_call',
+                                                                                  ),
+                                                                                  singleRecord: true,
+                                                                                ).then((s) => s.firstOrNull);
+                                                                                _shouldSetState = true;
+                                                                                if (_model.isShowVideoFirebaseBool!.isShowContent
+                                                                                    ? (FFAppState().profileIsHaveInsuranceCard ||
+                                                                                        (InsuranceRequestListAPIDashBoardCall.videourl(
+                                                                                              (_model.listFromDash?.jsonBody ?? ''),
+                                                                                            )?.firstOrNull !=
+                                                                                            ''))
+                                                                                    : true) {
+                                                                                  context.pushNamed(
+                                                                                    'MakeInsuranceListPage',
+                                                                                    queryParameters: {
+                                                                                      'checkTotal': serializeParam(
+                                                                                        InsuranceRequestListAPIDashBoardCall.waitingInfo(
+                                                                                          (_model.listFromDash?.jsonBody ?? ''),
+                                                                                        ),
+                                                                                        ParamType.int,
+                                                                                      ),
+                                                                                      'list': serializeParam(
+                                                                                        InsuranceRequestListAPIDashBoardCall.waitingInfoList(
+                                                                                          (_model.listFromDash?.jsonBody ?? ''),
+                                                                                        ),
+                                                                                        ParamType.JSON,
+                                                                                        isList: true,
+                                                                                      ),
+                                                                                      'checkPayment': serializeParam(
+                                                                                        '0',
+                                                                                        ParamType.String,
+                                                                                      ),
+                                                                                    }.withoutNulls,
+                                                                                  );
+                                                                                } else {
+                                                                                  FFAppState().licenseSelectBeforeStep1 = '${InsuranceRequestListAPIDashBoardCall.employeecodelicense(
+                                                                                    (_model.listFromDash?.jsonBody ?? ''),
+                                                                                  )?.firstOrNull}';
+                                                                                  safeSetState(() {});
+                                                                                  await showModalBottomSheet(
+                                                                                    isScrollControlled: true,
+                                                                                    backgroundColor: Colors.transparent,
+                                                                                    enableDrag: false,
+                                                                                    context: context,
+                                                                                    builder: (context) {
+                                                                                      return WebViewAware(
+                                                                                        child: GestureDetector(
+                                                                                          onTap: () {
+                                                                                            FocusScope.of(context).unfocus();
+                                                                                            FocusManager.instance.primaryFocus?.unfocus();
+                                                                                          },
+                                                                                          child: Padding(
+                                                                                            padding: MediaQuery.viewInsetsOf(context),
+                                                                                            child: LicenseSelectComponentWidget(
+                                                                                              leadID: InsuranceRequestListAPIDashBoardCall.watingInfoleadid(
+                                                                                                (_model.listFromDash?.jsonBody ?? ''),
+                                                                                              )!
+                                                                                                  .firstOrNull!,
+                                                                                              quotationID: InsuranceRequestListAPIDashBoardCall.watingInfoquotationid(
+                                                                                                (_model.listFromDash?.jsonBody ?? ''),
+                                                                                              )!
+                                                                                                  .firstOrNull!,
+                                                                                            ),
+                                                                                          ),
+                                                                                        ),
+                                                                                      );
+                                                                                    },
+                                                                                  ).then((value) => safeSetState(() {}));
+                                                                                }
+                                                                              } else {
+                                                                                await showDialog(
+                                                                                  context: context,
+                                                                                  builder: (alertDialogContext) {
+                                                                                    return WebViewAware(
+                                                                                      child: AlertDialog(
+                                                                                        title: Text('connection'),
+                                                                                        content: Text('${InsuranceRequestListAPIDashBoardCall.messageLayer1(
+                                                                                          (_model.listFromDash?.jsonBody ?? ''),
+                                                                                        )}(${InsuranceRequestListAPIDashBoardCall.statusLayer1(
+                                                                                          (_model.listFromDash?.jsonBody ?? ''),
+                                                                                        )?.toString()})'),
+                                                                                        actions: [
+                                                                                          TextButton(
+                                                                                            onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                            child: Text('Ok'),
+                                                                                          ),
+                                                                                        ],
+                                                                                      ),
+                                                                                    );
+                                                                                  },
+                                                                                );
+                                                                                if (_shouldSetState) safeSetState(() {});
+                                                                                return;
+                                                                              }
+                                                                            } else {
+                                                                              if (_shouldSetState)
+                                                                                safeSetState(() {});
+                                                                              return;
+                                                                            }
+
+                                                                            if (_shouldSetState)
+                                                                              safeSetState(() {});
+                                                                          },
+                                                                          text:
+                                                                              'ทำประกัน',
+                                                                          options:
+                                                                              FFButtonOptions(
+                                                                            width:
+                                                                                100.0,
+                                                                            height:
+                                                                                35.0,
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                24.0,
+                                                                                0.0,
+                                                                                24.0,
+                                                                                0.0),
+                                                                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                0.0,
+                                                                                0.0,
+                                                                                0.0),
+                                                                            color:
+                                                                                Color(0xFFD9761A),
+                                                                            textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                  fontFamily: 'Noto Sans Thai',
+                                                                                  color: Colors.white,
+                                                                                  fontSize: 15.0,
+                                                                                  letterSpacing: 0.0,
+                                                                                  fontWeight: FontWeight.w600,
+                                                                                ),
+                                                                            elevation:
+                                                                                3.0,
+                                                                            borderSide:
+                                                                                BorderSide(
+                                                                              color: Colors.transparent,
+                                                                              width: 0.0,
+                                                                            ),
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(10.0),
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      );
+                                                    },
+                                                  ),
+                                                ),
+                                                Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0.0, 1.0),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsets.all(9.0),
+                                                    child: smooth_page_indicator
+                                                        .SmoothPageIndicator(
+                                                      controller: _model
+                                                              .pageViewController1 ??=
+                                                          PageController(
+                                                              initialPage: max(
+                                                                  0,
+                                                                  min(
+                                                                      0,
+                                                                      leadList.length -
+                                                                          1))),
+                                                      count: leadList.length,
+                                                      axisDirection:
+                                                          Axis.horizontal,
+                                                      onDotClicked: (i) async {
+                                                        await _model
+                                                            .pageViewController1!
+                                                            .animateToPage(
+                                                          i,
+                                                          duration: Duration(
+                                                              milliseconds:
+                                                                  500),
+                                                          curve: Curves.ease,
+                                                        );
+                                                        safeSetState(() {});
+                                                      },
+                                                      effect: smooth_page_indicator
+                                                          .ExpandingDotsEffect(
+                                                        expansionFactor: 2.0,
+                                                        spacing: 8.0,
+                                                        radius: 16.0,
+                                                        dotWidth: 16.0,
+                                                        dotHeight: 8.0,
+                                                        dotColor:
+                                                            Color(0xFFF3C5A2),
+                                                        activeDotColor:
+                                                            Color(0xFFD9761A),
+                                                        paintStyle:
+                                                            PaintingStyle.fill,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          );
+                                        },
+                                      ),
+                                    );
+                                  } else {
+                                    return Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
+                                          child: Text(
+                                            'ไม่พบข้อมูล',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodySmall
+                                                .override(
+                                                  fontFamily: 'Noto Sans Thai',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                  fontSize: 14.0,
+                                                  letterSpacing: 0.0,
+                                                ),
+                                          ),
+                                        ),
+                                      ],
+                                    );
+                                  }
+                                },
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(20.0, 12.0, 20.0, 4.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                4.0, 0.0, 0.0, 0.0),
+                            child: Text(
+                              'ประกันอัคคีภัย',
+                              style: FlutterFlowTheme.of(context)
+                                  .headlineMedium
+                                  .override(
+                                    fontFamily: 'Noto Sans Thai',
+                                    color: Color(0xFF003063),
+                                    fontSize: 16.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 3.0, 0.0, 0.0),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              context.goNamed('fireInsuranceListPage');
+                            },
+                            child: Text(
+                              'ดูทั้งหมด',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Noto Sans Thai',
+                                    color: Color(0xFFEDA44C),
+                                    fontSize: 16.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w600,
+                                    decoration: TextDecoration.underline,
+                                  ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    width: MediaQuery.sizeOf(context).width * 1.0,
+                    height: 230.0,
+                    decoration: BoxDecoration(),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          child: Align(
+                            alignment: AlignmentDirectional(0.0, 0.0),
+                            child: Builder(
+                              builder: (context) {
+                                if (GetVMICall.dataHouseTotal(
                                       (_model.getVMIApi?.jsonBody ?? ''),
                                     ) !=
-                                    0
-                                ? true
-                                : false)
-                              Expanded(
-                                child: Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
-                                  child: Builder(
+                                    0) {
+                                  return Builder(
                                     builder: (context) {
-                                      final leadList = (GetVMICall.leadIdList(
-                                                (_model.getVMIApi?.jsonBody ??
-                                                    ''),
-                                              )?.toList() ??
-                                              [])
-                                          .take(5)
-                                          .toList();
+                                      final listleadsHouse =
+                                          (GetVMICall.dataHouse(
+                                                    (_model.getVMIApi
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  )?.toList() ??
+                                                  [])
+                                              .take(5)
+                                              .toList();
 
                                       return Container(
                                         width: double.infinity,
@@ -3457,21 +4526,24 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                               padding: EdgeInsets.all(4.0),
                                               child: PageView.builder(
                                                 controller: _model
-                                                        .pageViewController1 ??=
+                                                        .pageViewController2 ??=
                                                     PageController(
                                                         initialPage: max(
                                                             0,
                                                             min(
                                                                 0,
-                                                                leadList.length -
+                                                                listleadsHouse
+                                                                        .length -
                                                                     1))),
                                                 scrollDirection:
                                                     Axis.horizontal,
-                                                itemCount: leadList.length,
-                                                itemBuilder:
-                                                    (context, leadListIndex) {
-                                                  final leadListItem =
-                                                      leadList[leadListIndex];
+                                                itemCount:
+                                                    listleadsHouse.length,
+                                                itemBuilder: (context,
+                                                    listleadsHouseIndex) {
+                                                  final listleadsHouseItem =
+                                                      listleadsHouse[
+                                                          listleadsHouseIndex];
                                                   return Align(
                                                     alignment:
                                                         AlignmentDirectional(
@@ -3483,7 +4555,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                           0.9,
                                                       constraints:
                                                           BoxConstraints(
-                                                        maxHeight: 260.0,
+                                                        maxHeight: 200.0,
                                                       ),
                                                       decoration: BoxDecoration(
                                                         color: FlutterFlowTheme
@@ -3528,418 +4600,332 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                               CrossAxisAlignment
                                                                   .center,
                                                           children: [
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
+                                                            Stack(
+                                                              children: [
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           12.0,
                                                                           12.0,
                                                                           12.0,
+                                                                          12.0),
+                                                                  child: Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
+                                                                    children: [
+                                                                      Expanded(
+                                                                        child:
+                                                                            Row(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          mainAxisAlignment:
+                                                                              MainAxisAlignment.start,
+                                                                          children: [
+                                                                            Expanded(
+                                                                              flex: 5,
+                                                                              child: Container(
+                                                                                width: MediaQuery.sizeOf(context).width * 0.37,
+                                                                                decoration: BoxDecoration(),
+                                                                                child: Text(
+                                                                                  'ชื่อลูกค้า',
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                        fontFamily: 'Noto Sans Thai',
+                                                                                        color: FlutterFlowTheme.of(context).black600,
+                                                                                        fontSize: 15.0,
+                                                                                        letterSpacing: 0.0,
+                                                                                      ),
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                            Container(
+                                                                              width: 10.0,
+                                                                              decoration: BoxDecoration(),
+                                                                              child: Text(
+                                                                                ':',
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Noto Sans Thai',
+                                                                                      color: FlutterFlowTheme.of(context).black600,
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
+                                                                              ),
+                                                                            ),
+                                                                            Expanded(
+                                                                              flex: 6,
+                                                                              child: Container(
+                                                                                width: 100.0,
+                                                                                decoration: BoxDecoration(),
+                                                                                child: Text(
+                                                                                  '${functions.checkNullValueAndReturn(GetVMICall.firstNameListHouse(
+                                                                                    (_model.getVMIApi?.jsonBody ?? ''),
+                                                                                  )?.elementAtOrNull(listleadsHouseIndex))} ${functions.checkNullValueAndReturn(GetVMICall.lastNameListHouse(
+                                                                                    (_model.getVMIApi?.jsonBody ?? ''),
+                                                                                  )?.elementAtOrNull(listleadsHouseIndex))}',
+                                                                                  maxLines: 2,
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                        fontFamily: 'Noto Sans Thai',
+                                                                                        color: FlutterFlowTheme.of(context).black600,
+                                                                                        fontSize: 15.0,
+                                                                                        letterSpacing: 0.0,
+                                                                                      ),
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                      ),
+                                                                      Row(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        children: [
+                                                                          Expanded(
+                                                                            flex:
+                                                                                5,
+                                                                            child:
+                                                                                Container(
+                                                                              width: MediaQuery.sizeOf(context).width * 0.37,
+                                                                              decoration: BoxDecoration(),
+                                                                              child: Text(
+                                                                                'ประเภทประกัน',
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Noto Sans Thai',
+                                                                                      color: FlutterFlowTheme.of(context).black600,
+                                                                                      fontSize: 15.0,
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                          Container(
+                                                                            width:
+                                                                                10.0,
+                                                                            decoration:
+                                                                                BoxDecoration(),
+                                                                            child:
+                                                                                Text(
+                                                                              ':',
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Noto Sans Thai',
+                                                                                    color: FlutterFlowTheme.of(context).black600,
+                                                                                    letterSpacing: 0.0,
+                                                                                  ),
+                                                                            ),
+                                                                          ),
+                                                                          Expanded(
+                                                                            flex:
+                                                                                6,
+                                                                            child:
+                                                                                Container(
+                                                                              decoration: BoxDecoration(),
+                                                                              child: Text(
+                                                                                valueOrDefault<String>(
+                                                                                  GetVMICall.insuranceType(
+                                                                                    (_model.getVMIApi?.jsonBody ?? ''),
+                                                                                  )?.elementAtOrNull(listleadsHouseIndex),
+                                                                                  'อัคคีภัย',
+                                                                                ),
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Noto Sans Thai',
+                                                                                      color: FlutterFlowTheme.of(context).black600,
+                                                                                      fontSize: 15.0,
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                      Row(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        children: [
+                                                                          Expanded(
+                                                                            flex:
+                                                                                5,
+                                                                            child:
+                                                                                Container(
+                                                                              width: MediaQuery.sizeOf(context).width * 0.37,
+                                                                              decoration: BoxDecoration(),
+                                                                              child: Text(
+                                                                                'เเผนประกัน',
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Noto Sans Thai',
+                                                                                      color: FlutterFlowTheme.of(context).black600,
+                                                                                      fontSize: 15.0,
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                          Container(
+                                                                            width:
+                                                                                10.0,
+                                                                            decoration:
+                                                                                BoxDecoration(),
+                                                                            child:
+                                                                                Text(
+                                                                              ':',
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Noto Sans Thai',
+                                                                                    color: FlutterFlowTheme.of(context).black600,
+                                                                                    letterSpacing: 0.0,
+                                                                                  ),
+                                                                            ),
+                                                                          ),
+                                                                          Expanded(
+                                                                            flex:
+                                                                                6,
+                                                                            child:
+                                                                                Container(
+                                                                              decoration: BoxDecoration(),
+                                                                              child: Text(
+                                                                                valueOrDefault<String>(
+                                                                                  GetVMICall.leadsDetailHouse(
+                                                                                    (_model.getVMIApi?.jsonBody ?? ''),
+                                                                                  )?.elementAtOrNull(listleadsHouseIndex),
+                                                                                  'sabaide',
+                                                                                ),
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Noto Sans Thai',
+                                                                                      color: FlutterFlowTheme.of(context).black600,
+                                                                                      fontSize: 15.0,
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                      Row(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        children: [
+                                                                          Expanded(
+                                                                            flex:
+                                                                                5,
+                                                                            child:
+                                                                                Container(
+                                                                              width: MediaQuery.sizeOf(context).width * 0.37,
+                                                                              decoration: BoxDecoration(),
+                                                                              child: Text(
+                                                                                'ทุนประกัน',
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Noto Sans Thai',
+                                                                                      color: FlutterFlowTheme.of(context).black600,
+                                                                                      fontSize: 15.0,
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                          Container(
+                                                                            width:
+                                                                                10.0,
+                                                                            decoration:
+                                                                                BoxDecoration(),
+                                                                            child:
+                                                                                Text(
+                                                                              ':',
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Noto Sans Thai',
+                                                                                    color: FlutterFlowTheme.of(context).black600,
+                                                                                    letterSpacing: 0.0,
+                                                                                  ),
+                                                                            ),
+                                                                          ),
+                                                                          Expanded(
+                                                                            flex:
+                                                                                6,
+                                                                            child:
+                                                                                Container(
+                                                                              decoration: BoxDecoration(),
+                                                                              child: Text(
+                                                                                valueOrDefault<String>(
+                                                                                  GetVMICall.suminSureName(
+                                                                                    (_model.getVMIApi?.jsonBody ?? ''),
+                                                                                  )?.elementAtOrNull(listleadsHouseIndex),
+                                                                                  '40000',
+                                                                                ),
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Noto Sans Thai',
+                                                                                      color: FlutterFlowTheme.of(context).black600,
+                                                                                      fontSize: 15.0,
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    ].divide(SizedBox(
+                                                                        height:
+                                                                            4.0)),
+                                                                  ),
+                                                                ),
+                                                                if (false &&
+                                                                    responsiveVisibility(
+                                                                      context:
+                                                                          context,
+                                                                      tablet:
+                                                                          false,
+                                                                    ))
+                                                                  Align(
+                                                                    alignment:
+                                                                        AlignmentDirectional(
+                                                                            1.0,
+                                                                            -1.0),
+                                                                    child:
+                                                                        Padding(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          10.0,
+                                                                          10.0,
                                                                           0.0),
-                                                              child: Column(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .start,
-                                                                children: [
-                                                                  Row(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .end,
-                                                                    children: [
-                                                                      Expanded(
-                                                                        flex: 5,
-                                                                        child:
-                                                                            Container(
-                                                                          width:
-                                                                              MediaQuery.sizeOf(context).width * 0.37,
-                                                                          decoration:
-                                                                              BoxDecoration(),
-                                                                          child:
-                                                                              Text(
-                                                                            'ชื่อลูกค้า',
-                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Noto Sans Thai',
-                                                                                  color: FlutterFlowTheme.of(context).black600,
-                                                                                  fontSize: 14.0,
-                                                                                  letterSpacing: 0.0,
-                                                                                ),
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                      Container(
+                                                                      child:
+                                                                          Container(
                                                                         width:
-                                                                            10.0,
+                                                                            55.0,
+                                                                        height:
+                                                                            55.0,
                                                                         decoration:
-                                                                            BoxDecoration(),
+                                                                            BoxDecoration(
+                                                                          shape:
+                                                                              BoxShape.circle,
+                                                                          border:
+                                                                              Border.all(
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).black600,
+                                                                          ),
+                                                                        ),
                                                                         child:
-                                                                            Text(
-                                                                          ':',
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .override(
-                                                                                fontFamily: 'Noto Sans Thai',
-                                                                                color: FlutterFlowTheme.of(context).black600,
-                                                                                letterSpacing: 0.0,
+                                                                            Row(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          children: [
+                                                                            Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                                                                              child: InkWell(
+                                                                                splashColor: Colors.transparent,
+                                                                                focusColor: Colors.transparent,
+                                                                                hoverColor: Colors.transparent,
+                                                                                highlightColor: Colors.transparent,
+                                                                                onTap: () async {},
+                                                                                child: Icon(
+                                                                                  Icons.phone_in_talk_outlined,
+                                                                                  color: FlutterFlowTheme.of(context).black600,
+                                                                                  size: 30.0,
+                                                                                ),
                                                                               ),
+                                                                            ),
+                                                                          ],
                                                                         ),
                                                                       ),
-                                                                      Expanded(
-                                                                        flex: 5,
-                                                                        child:
-                                                                            Container(
-                                                                          decoration:
-                                                                              BoxDecoration(),
-                                                                          child:
-                                                                              Text(
-                                                                            '${functions.checkNullValueAndReturn(GetVMICall.firstNameList(
-                                                                              (_model.getVMIApi?.jsonBody ?? ''),
-                                                                            )?.elementAtOrNull(leadListIndex))} ${functions.checkNullValueAndReturn(GetVMICall.lastNameList(
-                                                                              (_model.getVMIApi?.jsonBody ?? ''),
-                                                                            )?.elementAtOrNull(leadListIndex))}',
-                                                                            maxLines:
-                                                                                2,
-                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Noto Sans Thai',
-                                                                                  color: FlutterFlowTheme.of(context).black600,
-                                                                                  fontSize: 14.0,
-                                                                                  letterSpacing: 0.0,
-                                                                                ),
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                    ],
+                                                                    ),
                                                                   ),
-                                                                  Row(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    children: [
-                                                                      Expanded(
-                                                                        flex: 5,
-                                                                        child:
-                                                                            Container(
-                                                                          width:
-                                                                              MediaQuery.sizeOf(context).width * 0.37,
-                                                                          decoration:
-                                                                              BoxDecoration(),
-                                                                          child:
-                                                                              Text(
-                                                                            'ขอเบี้ย',
-                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Noto Sans Thai',
-                                                                                  color: FlutterFlowTheme.of(context).black600,
-                                                                                  fontSize: 14.0,
-                                                                                  letterSpacing: 0.0,
-                                                                                ),
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                      Container(
-                                                                        width:
-                                                                            10.0,
-                                                                        decoration:
-                                                                            BoxDecoration(),
-                                                                        child:
-                                                                            Text(
-                                                                          ':',
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .override(
-                                                                                fontFamily: 'Noto Sans Thai',
-                                                                                color: FlutterFlowTheme.of(context).black600,
-                                                                                letterSpacing: 0.0,
-                                                                              ),
-                                                                        ),
-                                                                      ),
-                                                                      Expanded(
-                                                                        flex: 5,
-                                                                        child:
-                                                                            Container(
-                                                                          decoration:
-                                                                              BoxDecoration(),
-                                                                          child:
-                                                                              Text(
-                                                                            functions.checkNullValueAndReturn(GetVMICall.quotationtypebakname(
-                                                                              (_model.getVMIApi?.jsonBody ?? ''),
-                                                                            )?.elementAtOrNull(leadListIndex)),
-                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Noto Sans Thai',
-                                                                                  color: FlutterFlowTheme.of(context).black600,
-                                                                                  fontSize: 14.0,
-                                                                                  letterSpacing: 0.0,
-                                                                                ),
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                    ],
-                                                                  ),
-                                                                  Row(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    children: [
-                                                                      Expanded(
-                                                                        flex: 5,
-                                                                        child:
-                                                                            Container(
-                                                                          width:
-                                                                              MediaQuery.sizeOf(context).width * 0.37,
-                                                                          decoration:
-                                                                              BoxDecoration(),
-                                                                          child:
-                                                                              Text(
-                                                                            'แจ้งงาน',
-                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Noto Sans Thai',
-                                                                                  color: FlutterFlowTheme.of(context).black600,
-                                                                                  fontSize: 14.0,
-                                                                                  letterSpacing: 0.0,
-                                                                                ),
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                      Container(
-                                                                        width:
-                                                                            10.0,
-                                                                        decoration:
-                                                                            BoxDecoration(),
-                                                                        child:
-                                                                            Text(
-                                                                          ':',
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .override(
-                                                                                fontFamily: 'Noto Sans Thai',
-                                                                                color: FlutterFlowTheme.of(context).black600,
-                                                                                letterSpacing: 0.0,
-                                                                              ),
-                                                                        ),
-                                                                      ),
-                                                                      Expanded(
-                                                                        flex: 5,
-                                                                        child:
-                                                                            Container(
-                                                                          decoration:
-                                                                              BoxDecoration(),
-                                                                          child:
-                                                                              Text(
-                                                                            functions.checkNullValueAndReturn(GetVMICall.quotationtypename(
-                                                                              (_model.getVMIApi?.jsonBody ?? ''),
-                                                                            )?.elementAtOrNull(leadListIndex)),
-                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Noto Sans Thai',
-                                                                                  color: FlutterFlowTheme.of(context).black600,
-                                                                                  fontSize: 14.0,
-                                                                                  letterSpacing: 0.0,
-                                                                                ),
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                    ],
-                                                                  ),
-                                                                  Row(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    children: [
-                                                                      Expanded(
-                                                                        flex: 5,
-                                                                        child:
-                                                                            Container(
-                                                                          width:
-                                                                              MediaQuery.sizeOf(context).width * 0.37,
-                                                                          decoration:
-                                                                              BoxDecoration(),
-                                                                          child:
-                                                                              Text(
-                                                                            'ผลิตภัณฑ์',
-                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Noto Sans Thai',
-                                                                                  color: FlutterFlowTheme.of(context).black600,
-                                                                                  fontSize: 14.0,
-                                                                                  letterSpacing: 0.0,
-                                                                                ),
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                      Container(
-                                                                        width:
-                                                                            10.0,
-                                                                        decoration:
-                                                                            BoxDecoration(),
-                                                                        child:
-                                                                            Text(
-                                                                          ':',
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .override(
-                                                                                fontFamily: 'Noto Sans Thai',
-                                                                                color: FlutterFlowTheme.of(context).black600,
-                                                                                letterSpacing: 0.0,
-                                                                              ),
-                                                                        ),
-                                                                      ),
-                                                                      Expanded(
-                                                                        flex: 5,
-                                                                        child:
-                                                                            Container(
-                                                                          decoration:
-                                                                              BoxDecoration(),
-                                                                          child:
-                                                                              Text(
-                                                                            functions.checkNullValueAndReturn(GetVMICall.subproductname(
-                                                                              (_model.getVMIApi?.jsonBody ?? ''),
-                                                                            )?.elementAtOrNull(leadListIndex)),
-                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Noto Sans Thai',
-                                                                                  color: FlutterFlowTheme.of(context).black600,
-                                                                                  fontSize: 14.0,
-                                                                                  letterSpacing: 0.0,
-                                                                                ),
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                    ],
-                                                                  ),
-                                                                  Row(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    children: [
-                                                                      Expanded(
-                                                                        flex: 5,
-                                                                        child:
-                                                                            Container(
-                                                                          width:
-                                                                              MediaQuery.sizeOf(context).width * 0.37,
-                                                                          decoration:
-                                                                              BoxDecoration(),
-                                                                          child:
-                                                                              Text(
-                                                                            'ใบเสนอราคามีผลใช้ถึง',
-                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Noto Sans Thai',
-                                                                                  color: FlutterFlowTheme.of(context).black600,
-                                                                                  fontSize: 14.0,
-                                                                                  letterSpacing: 0.0,
-                                                                                ),
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                      Container(
-                                                                        width:
-                                                                            10.0,
-                                                                        decoration:
-                                                                            BoxDecoration(),
-                                                                        child:
-                                                                            Text(
-                                                                          ':',
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .override(
-                                                                                fontFamily: 'Noto Sans Thai',
-                                                                                color: FlutterFlowTheme.of(context).black600,
-                                                                                letterSpacing: 0.0,
-                                                                              ),
-                                                                        ),
-                                                                      ),
-                                                                      Expanded(
-                                                                        flex: 5,
-                                                                        child:
-                                                                            Container(
-                                                                          decoration:
-                                                                              BoxDecoration(),
-                                                                          child:
-                                                                              Text(
-                                                                            functions.checkNullValueAndReturn(GetVMICall.expireDate(
-                                                                              (_model.getVMIApi?.jsonBody ?? ''),
-                                                                            )?.elementAtOrNull(leadListIndex)),
-                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Noto Sans Thai',
-                                                                                  color: FlutterFlowTheme.of(context).black600,
-                                                                                  fontSize: 14.0,
-                                                                                  letterSpacing: 0.0,
-                                                                                ),
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                    ],
-                                                                  ),
-                                                                  Row(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    children: [
-                                                                      Expanded(
-                                                                        flex: 5,
-                                                                        child:
-                                                                            Container(
-                                                                          width:
-                                                                              MediaQuery.sizeOf(context).width * 0.37,
-                                                                          decoration:
-                                                                              BoxDecoration(),
-                                                                          child:
-                                                                              Text(
-                                                                            'สถานะ',
-                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Noto Sans Thai',
-                                                                                  color: FlutterFlowTheme.of(context).black600,
-                                                                                  fontSize: 14.0,
-                                                                                  letterSpacing: 0.0,
-                                                                                ),
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                      Container(
-                                                                        width:
-                                                                            10.0,
-                                                                        decoration:
-                                                                            BoxDecoration(),
-                                                                        child:
-                                                                            Text(
-                                                                          ':',
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .override(
-                                                                                fontFamily: 'Noto Sans Thai',
-                                                                                color: FlutterFlowTheme.of(context).black600,
-                                                                                letterSpacing: 0.0,
-                                                                              ),
-                                                                        ),
-                                                                      ),
-                                                                      Expanded(
-                                                                        flex: 5,
-                                                                        child:
-                                                                            Container(
-                                                                          decoration:
-                                                                              BoxDecoration(),
-                                                                          child:
-                                                                              Text(
-                                                                            functions.checkNullValueAndReturn(GetVMICall.quotationStatus(
-                                                                              (_model.getVMIApi?.jsonBody ?? ''),
-                                                                            )?.elementAtOrNull(leadListIndex)),
-                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Noto Sans Thai',
-                                                                                  color: FlutterFlowTheme.of(context).black600,
-                                                                                  fontSize: 14.0,
-                                                                                  letterSpacing: 0.0,
-                                                                                  fontWeight: FontWeight.bold,
-                                                                                ),
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                    ],
-                                                                  ),
-                                                                ].divide(SizedBox(
-                                                                    height:
-                                                                        6.0)),
-                                                              ),
+                                                              ],
                                                             ),
                                                             Padding(
                                                               padding:
@@ -3960,17 +4946,17 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                     CrossAxisAlignment
                                                                         .start,
                                                                 children: [
-                                                                  Align(
-                                                                    alignment:
-                                                                        AlignmentDirectional(
-                                                                            -1.0,
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            5.0,
+                                                                            0.0,
+                                                                            0.0,
                                                                             0.0),
                                                                     child:
                                                                         FFButtonWidget(
                                                                       onPressed:
                                                                           () async {
-                                                                        var _shouldSetState =
-                                                                            false;
                                                                         var confirmDialogResponse = await showDialog<bool>(
                                                                               context: context,
                                                                               builder: (alertDialogContext) {
@@ -3993,173 +4979,35 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                             ) ??
                                                                             false;
                                                                         if (confirmDialogResponse) {
-                                                                          _model.listFromDash =
-                                                                              await InsuranceRequestListAPIDashBoardCall.call(
-                                                                            apiUrl:
-                                                                                FFAppState().apiUrlInsuranceAppState,
-                                                                            token:
-                                                                                FFAppState().accessToken,
-                                                                            leadId:
-                                                                                GetVMICall.leadIdList(
-                                                                              (_model.getVMIApi?.jsonBody ?? ''),
-                                                                            )?.elementAtOrNull(leadListIndex),
-                                                                            list:
-                                                                                FFAppState().typeList,
-                                                                            mode:
-                                                                                'arunsawad',
-                                                                          );
-
-                                                                          _shouldSetState =
-                                                                              true;
-                                                                          if ((_model.listFromDash?.statusCode ?? 200) ==
-                                                                              200) {
-                                                                            if (InsuranceRequestListAPIDashBoardCall.statusLayer2(
-                                                                                  (_model.listFromDash?.jsonBody ?? ''),
-                                                                                ) ==
-                                                                                200) {
-                                                                            } else {
-                                                                              await showDialog(
-                                                                                context: context,
-                                                                                builder: (alertDialogContext) {
-                                                                                  return WebViewAware(
-                                                                                    child: AlertDialog(
-                                                                                      title: Text('พบข้อผิดพลาด'),
-                                                                                      content: Text('${InsuranceRequestListAPIDashBoardCall.messageLayer2(
-                                                                                        (_model.listFromDash?.jsonBody ?? ''),
-                                                                                      )}(${InsuranceRequestListAPIDashBoardCall.statusLayer2(
-                                                                                        (_model.listFromDash?.jsonBody ?? ''),
-                                                                                      )?.toString()})'),
-                                                                                      actions: [
-                                                                                        TextButton(
-                                                                                          onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                          child: Text('Ok'),
-                                                                                        ),
-                                                                                      ],
-                                                                                    ),
-                                                                                  );
-                                                                                },
-                                                                              );
-                                                                              if (_shouldSetState)
-                                                                                safeSetState(() {});
-                                                                              return;
-                                                                            }
-
-                                                                            _model.isShowVideoFirebaseBool =
-                                                                                await queryHideInAppContentRecordOnce(
-                                                                              queryBuilder: (hideInAppContentRecord) => hideInAppContentRecord.where(
-                                                                                'content_name',
-                                                                                isEqualTo: 'video_call',
-                                                                              ),
-                                                                              singleRecord: true,
-                                                                            ).then((s) => s.firstOrNull);
-                                                                            _shouldSetState =
-                                                                                true;
-                                                                            if (_model.isShowVideoFirebaseBool!.isShowContent
-                                                                                ? (FFAppState().profileIsHaveInsuranceCard ||
-                                                                                    (InsuranceRequestListAPIDashBoardCall.videourl(
-                                                                                          (_model.listFromDash?.jsonBody ?? ''),
-                                                                                        )?.firstOrNull !=
-                                                                                        ''))
-                                                                                : true) {
-                                                                              context.pushNamed(
-                                                                                'MakeInsuranceListPage',
-                                                                                queryParameters: {
-                                                                                  'checkTotal': serializeParam(
-                                                                                    InsuranceRequestListAPIDashBoardCall.waitingInfo(
-                                                                                      (_model.listFromDash?.jsonBody ?? ''),
-                                                                                    ),
-                                                                                    ParamType.int,
-                                                                                  ),
-                                                                                  'list': serializeParam(
-                                                                                    InsuranceRequestListAPIDashBoardCall.waitingInfoList(
-                                                                                      (_model.listFromDash?.jsonBody ?? ''),
-                                                                                    ),
-                                                                                    ParamType.JSON,
-                                                                                    isList: true,
-                                                                                  ),
-                                                                                  'checkPayment': serializeParam(
-                                                                                    '0',
-                                                                                    ParamType.String,
-                                                                                  ),
-                                                                                }.withoutNulls,
-                                                                              );
-                                                                            } else {
-                                                                              FFAppState().licenseSelectBeforeStep1 = '${InsuranceRequestListAPIDashBoardCall.employeecodelicense(
-                                                                                (_model.listFromDash?.jsonBody ?? ''),
-                                                                              )?.firstOrNull}';
-                                                                              safeSetState(() {});
-                                                                              await showModalBottomSheet(
-                                                                                isScrollControlled: true,
-                                                                                backgroundColor: Colors.transparent,
-                                                                                enableDrag: false,
-                                                                                context: context,
-                                                                                builder: (context) {
-                                                                                  return WebViewAware(
-                                                                                    child: GestureDetector(
-                                                                                      onTap: () {
-                                                                                        FocusScope.of(context).unfocus();
-                                                                                        FocusManager.instance.primaryFocus?.unfocus();
-                                                                                      },
-                                                                                      child: Padding(
-                                                                                        padding: MediaQuery.viewInsetsOf(context),
-                                                                                        child: LicenseSelectComponentWidget(
-                                                                                          leadID: InsuranceRequestListAPIDashBoardCall.watingInfoleadid(
-                                                                                            (_model.listFromDash?.jsonBody ?? ''),
-                                                                                          )!
-                                                                                              .firstOrNull!,
-                                                                                          quotationID: InsuranceRequestListAPIDashBoardCall.watingInfoquotationid(
-                                                                                            (_model.listFromDash?.jsonBody ?? ''),
-                                                                                          )!
-                                                                                              .firstOrNull!,
-                                                                                        ),
-                                                                                      ),
-                                                                                    ),
-                                                                                  );
-                                                                                },
-                                                                              ).then((value) => safeSetState(() {}));
-                                                                            }
-                                                                          } else {
-                                                                            await showDialog(
-                                                                              context: context,
-                                                                              builder: (alertDialogContext) {
-                                                                                return WebViewAware(
-                                                                                  child: AlertDialog(
-                                                                                    title: Text('connection'),
-                                                                                    content: Text('${InsuranceRequestListAPIDashBoardCall.messageLayer1(
-                                                                                      (_model.listFromDash?.jsonBody ?? ''),
-                                                                                    )}(${InsuranceRequestListAPIDashBoardCall.statusLayer1(
-                                                                                      (_model.listFromDash?.jsonBody ?? ''),
-                                                                                    )?.toString()})'),
-                                                                                    actions: [
-                                                                                      TextButton(
-                                                                                        onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                        child: Text('Ok'),
-                                                                                      ),
-                                                                                    ],
-                                                                                  ),
-                                                                                );
-                                                                              },
-                                                                            );
-                                                                            if (_shouldSetState)
-                                                                              safeSetState(() {});
-                                                                            return;
-                                                                          }
                                                                         } else {
-                                                                          if (_shouldSetState)
-                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
 
-                                                                        if (_shouldSetState)
-                                                                          safeSetState(
-                                                                              () {});
+                                                                        context
+                                                                            .pushNamed(
+                                                                          'MakeFireInsuranceListPage',
+                                                                          queryParameters:
+                                                                              {
+                                                                            'list':
+                                                                                serializeParam(
+                                                                              functions.makeJsonList(listleadsHouseItem),
+                                                                              ParamType.JSON,
+                                                                              isList: true,
+                                                                            ),
+                                                                            'checkPayment':
+                                                                                serializeParam(
+                                                                              '0',
+                                                                              ParamType.String,
+                                                                            ),
+                                                                          }.withoutNulls,
+                                                                        );
                                                                       },
                                                                       text:
                                                                           'ทำประกัน',
                                                                       options:
                                                                           FFButtonOptions(
                                                                         width:
-                                                                            100.0,
+                                                                            110.0,
                                                                         height:
                                                                             35.0,
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
@@ -4214,871 +5062,6 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                               child: smooth_page_indicator
                                                   .SmoothPageIndicator(
                                                 controller: _model
-                                                        .pageViewController1 ??=
-                                                    PageController(
-                                                        initialPage: max(
-                                                            0,
-                                                            min(
-                                                                0,
-                                                                leadList.length -
-                                                                    1))),
-                                                count: leadList.length,
-                                                axisDirection: Axis.horizontal,
-                                                onDotClicked: (i) async {
-                                                  await _model
-                                                      .pageViewController1!
-                                                      .animateToPage(
-                                                    i,
-                                                    duration: Duration(
-                                                        milliseconds: 500),
-                                                    curve: Curves.ease,
-                                                  );
-                                                  safeSetState(() {});
-                                                },
-                                                effect: smooth_page_indicator
-                                                    .ExpandingDotsEffect(
-                                                  expansionFactor: 2.0,
-                                                  spacing: 8.0,
-                                                  radius: 16.0,
-                                                  dotWidth: 16.0,
-                                                  dotHeight: 8.0,
-                                                  dotColor: Color(0xFFF3C5A2),
-                                                  activeDotColor:
-                                                      Color(0xFFD9761A),
-                                                  paintStyle:
-                                                      PaintingStyle.fill,
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      );
-                                    },
-                                  ),
-                                ),
-                              ),
-                            if (GetVMICall.quotationTotal(
-                                      (_model.getVMIApi?.jsonBody ?? ''),
-                                    ) ==
-                                    0
-                                ? true
-                                : false)
-                              Expanded(
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
-                                      child: Text(
-                                        'ไม่พบข้อมูล',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodySmall
-                                            .override(
-                                              fontFamily: 'Noto Sans Thai',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
-                                              fontSize: 14.0,
-                                              letterSpacing: 0.0,
-                                            ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        width: MediaQuery.sizeOf(context).width * 1.0,
-                        height: 300.0,
-                        decoration: BoxDecoration(),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            if (GetVMICall.quotationTotal(
-                                      (_model.getVMIApi?.jsonBody ?? ''),
-                                    ) !=
-                                    0
-                                ? true
-                                : false)
-                              Expanded(
-                                child: Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
-                                  child: Builder(
-                                    builder: (context) {
-                                      final listleadsHouse =
-                                          (GetVMICall.leadListHouse(
-                                                    (_model.getVMIApi
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  )?.toList() ??
-                                                  [])
-                                              .take(5)
-                                              .toList();
-
-                                      return Container(
-                                        width: double.infinity,
-                                        child: Stack(
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsets.all(4.0),
-                                              child: PageView.builder(
-                                                controller: _model
-                                                        .pageViewController2 ??=
-                                                    PageController(
-                                                        initialPage: max(
-                                                            0,
-                                                            min(
-                                                                0,
-                                                                listleadsHouse
-                                                                        .length -
-                                                                    1))),
-                                                scrollDirection:
-                                                    Axis.horizontal,
-                                                itemCount:
-                                                    listleadsHouse.length,
-                                                itemBuilder: (context,
-                                                    listleadsHouseIndex) {
-                                                  final listleadsHouseItem =
-                                                      listleadsHouse[
-                                                          listleadsHouseIndex];
-                                                  return Align(
-                                                    alignment:
-                                                        AlignmentDirectional(
-                                                            0.0, -1.0),
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  20.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Container(
-                                                        width:
-                                                            MediaQuery.sizeOf(
-                                                                        context)
-                                                                    .width *
-                                                                0.9,
-                                                        height: 220.0,
-                                                        constraints:
-                                                            BoxConstraints(
-                                                          maxHeight: 260.0,
-                                                        ),
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                          boxShadow: [
-                                                            BoxShadow(
-                                                              blurRadius: 4.0,
-                                                              color: Color(
-                                                                  0x33000000),
-                                                              offset: Offset(
-                                                                0.0,
-                                                                2.0,
-                                                              ),
-                                                            )
-                                                          ],
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      20.0),
-                                                          border: Border.all(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .grayIcon,
-                                                            width: 2.0,
-                                                          ),
-                                                        ),
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      12.0,
-                                                                      0.0,
-                                                                      12.0,
-                                                                      0.0),
-                                                          child: Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .spaceBetween,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .center,
-                                                            children: [
-                                                              Stack(
-                                                                children: [
-                                                                  Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            12.0,
-                                                                            12.0,
-                                                                            12.0,
-                                                                            12.0),
-                                                                    child:
-                                                                        Column(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      crossAxisAlignment:
-                                                                          CrossAxisAlignment
-                                                                              .start,
-                                                                      children:
-                                                                          [
-                                                                        Expanded(
-                                                                          child:
-                                                                              Row(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            mainAxisAlignment:
-                                                                                MainAxisAlignment.start,
-                                                                            children: [
-                                                                              Expanded(
-                                                                                flex: 5,
-                                                                                child: Container(
-                                                                                  width: MediaQuery.sizeOf(context).width * 0.37,
-                                                                                  decoration: BoxDecoration(),
-                                                                                  child: Text(
-                                                                                    'ชื่อลูกค้า',
-                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: 'Noto Sans Thai',
-                                                                                          color: FlutterFlowTheme.of(context).black600,
-                                                                                          fontSize: 15.0,
-                                                                                          letterSpacing: 0.0,
-                                                                                        ),
-                                                                                  ),
-                                                                                ),
-                                                                              ),
-                                                                              Container(
-                                                                                width: 10.0,
-                                                                                decoration: BoxDecoration(),
-                                                                                child: Text(
-                                                                                  ':',
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Noto Sans Thai',
-                                                                                        color: FlutterFlowTheme.of(context).black600,
-                                                                                        letterSpacing: 0.0,
-                                                                                      ),
-                                                                                ),
-                                                                              ),
-                                                                              Expanded(
-                                                                                flex: 6,
-                                                                                child: Container(
-                                                                                  width: 100.0,
-                                                                                  decoration: BoxDecoration(),
-                                                                                  child: Text(
-                                                                                    '${functions.checkNullValueAndReturn(GetVMICall.firstNameListHouse(
-                                                                                      (_model.getVMIApi?.jsonBody ?? ''),
-                                                                                    )?.elementAtOrNull(listleadsHouseIndex))} ${functions.checkNullValueAndReturn(GetVMICall.lastNameListHouse(
-                                                                                      (_model.getVMIApi?.jsonBody ?? ''),
-                                                                                    )?.elementAtOrNull(listleadsHouseIndex))}',
-                                                                                    maxLines: 2,
-                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: 'Noto Sans Thai',
-                                                                                          color: FlutterFlowTheme.of(context).black600,
-                                                                                          fontSize: 15.0,
-                                                                                          letterSpacing: 0.0,
-                                                                                        ),
-                                                                                  ),
-                                                                                ),
-                                                                              ),
-                                                                            ],
-                                                                          ),
-                                                                        ),
-                                                                        Row(
-                                                                          mainAxisSize:
-                                                                              MainAxisSize.max,
-                                                                          children: [
-                                                                            Expanded(
-                                                                              flex: 5,
-                                                                              child: Container(
-                                                                                width: MediaQuery.sizeOf(context).width * 0.37,
-                                                                                decoration: BoxDecoration(),
-                                                                                child: Text(
-                                                                                  'ประเภทประกัน',
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Noto Sans Thai',
-                                                                                        color: FlutterFlowTheme.of(context).black600,
-                                                                                        fontSize: 15.0,
-                                                                                        letterSpacing: 0.0,
-                                                                                      ),
-                                                                                ),
-                                                                              ),
-                                                                            ),
-                                                                            Container(
-                                                                              width: 10.0,
-                                                                              decoration: BoxDecoration(),
-                                                                              child: Text(
-                                                                                ':',
-                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      fontFamily: 'Noto Sans Thai',
-                                                                                      color: FlutterFlowTheme.of(context).black600,
-                                                                                      letterSpacing: 0.0,
-                                                                                    ),
-                                                                              ),
-                                                                            ),
-                                                                            Expanded(
-                                                                              flex: 6,
-                                                                              child: Container(
-                                                                                decoration: BoxDecoration(),
-                                                                                child: Text(
-                                                                                  valueOrDefault<String>(
-                                                                                    GetVMICall.insuranceType(
-                                                                                      (_model.getVMIApi?.jsonBody ?? ''),
-                                                                                    )?.elementAtOrNull(listleadsHouseIndex),
-                                                                                    'อัคคีภัย',
-                                                                                  ),
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Noto Sans Thai',
-                                                                                        color: FlutterFlowTheme.of(context).black600,
-                                                                                        fontSize: 15.0,
-                                                                                        letterSpacing: 0.0,
-                                                                                      ),
-                                                                                ),
-                                                                              ),
-                                                                            ),
-                                                                          ],
-                                                                        ),
-                                                                        Row(
-                                                                          mainAxisSize:
-                                                                              MainAxisSize.max,
-                                                                          children: [
-                                                                            Expanded(
-                                                                              flex: 5,
-                                                                              child: Container(
-                                                                                width: MediaQuery.sizeOf(context).width * 0.37,
-                                                                                decoration: BoxDecoration(),
-                                                                                child: Text(
-                                                                                  'เเผนประกัน',
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Noto Sans Thai',
-                                                                                        color: FlutterFlowTheme.of(context).black600,
-                                                                                        fontSize: 15.0,
-                                                                                        letterSpacing: 0.0,
-                                                                                      ),
-                                                                                ),
-                                                                              ),
-                                                                            ),
-                                                                            Container(
-                                                                              width: 10.0,
-                                                                              decoration: BoxDecoration(),
-                                                                              child: Text(
-                                                                                ':',
-                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      fontFamily: 'Noto Sans Thai',
-                                                                                      color: FlutterFlowTheme.of(context).black600,
-                                                                                      letterSpacing: 0.0,
-                                                                                    ),
-                                                                              ),
-                                                                            ),
-                                                                            Expanded(
-                                                                              flex: 6,
-                                                                              child: Container(
-                                                                                decoration: BoxDecoration(),
-                                                                                child: Text(
-                                                                                  valueOrDefault<String>(
-                                                                                    GetVMICall.leadsDetailHouse(
-                                                                                      (_model.getVMIApi?.jsonBody ?? ''),
-                                                                                    )?.elementAtOrNull(listleadsHouseIndex),
-                                                                                    'sabaide',
-                                                                                  ),
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Noto Sans Thai',
-                                                                                        color: FlutterFlowTheme.of(context).black600,
-                                                                                        fontSize: 15.0,
-                                                                                        letterSpacing: 0.0,
-                                                                                      ),
-                                                                                ),
-                                                                              ),
-                                                                            ),
-                                                                          ],
-                                                                        ),
-                                                                        Row(
-                                                                          mainAxisSize:
-                                                                              MainAxisSize.max,
-                                                                          children: [
-                                                                            Expanded(
-                                                                              flex: 5,
-                                                                              child: Container(
-                                                                                width: MediaQuery.sizeOf(context).width * 0.37,
-                                                                                decoration: BoxDecoration(),
-                                                                                child: Text(
-                                                                                  'ทุนประกัน',
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Noto Sans Thai',
-                                                                                        color: FlutterFlowTheme.of(context).black600,
-                                                                                        fontSize: 15.0,
-                                                                                        letterSpacing: 0.0,
-                                                                                      ),
-                                                                                ),
-                                                                              ),
-                                                                            ),
-                                                                            Container(
-                                                                              width: 10.0,
-                                                                              decoration: BoxDecoration(),
-                                                                              child: Text(
-                                                                                ':',
-                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      fontFamily: 'Noto Sans Thai',
-                                                                                      color: FlutterFlowTheme.of(context).black600,
-                                                                                      letterSpacing: 0.0,
-                                                                                    ),
-                                                                              ),
-                                                                            ),
-                                                                            Expanded(
-                                                                              flex: 6,
-                                                                              child: Container(
-                                                                                decoration: BoxDecoration(),
-                                                                                child: Text(
-                                                                                  valueOrDefault<String>(
-                                                                                    GetVMICall.suminSureName(
-                                                                                      (_model.getVMIApi?.jsonBody ?? ''),
-                                                                                    )?.elementAtOrNull(listleadsHouseIndex),
-                                                                                    '40000',
-                                                                                  ),
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Noto Sans Thai',
-                                                                                        color: FlutterFlowTheme.of(context).black600,
-                                                                                        fontSize: 15.0,
-                                                                                        letterSpacing: 0.0,
-                                                                                      ),
-                                                                                ),
-                                                                              ),
-                                                                            ),
-                                                                          ],
-                                                                        ),
-                                                                      ].divide(SizedBox(
-                                                                              height: 4.0)),
-                                                                    ),
-                                                                  ),
-                                                                  if (false &&
-                                                                      responsiveVisibility(
-                                                                        context:
-                                                                            context,
-                                                                        tablet:
-                                                                            false,
-                                                                      ))
-                                                                    Align(
-                                                                      alignment:
-                                                                          AlignmentDirectional(
-                                                                              1.0,
-                                                                              -1.0),
-                                                                      child:
-                                                                          Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            10.0,
-                                                                            10.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            Container(
-                                                                          width:
-                                                                              55.0,
-                                                                          height:
-                                                                              55.0,
-                                                                          decoration:
-                                                                              BoxDecoration(
-                                                                            shape:
-                                                                                BoxShape.circle,
-                                                                            border:
-                                                                                Border.all(
-                                                                              color: FlutterFlowTheme.of(context).black600,
-                                                                            ),
-                                                                          ),
-                                                                          child:
-                                                                              Row(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            children: [
-                                                                              Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                child: InkWell(
-                                                                                  splashColor: Colors.transparent,
-                                                                                  focusColor: Colors.transparent,
-                                                                                  hoverColor: Colors.transparent,
-                                                                                  highlightColor: Colors.transparent,
-                                                                                  onTap: () async {},
-                                                                                  child: Icon(
-                                                                                    Icons.phone_in_talk_outlined,
-                                                                                    color: FlutterFlowTheme.of(context).black600,
-                                                                                    size: 30.0,
-                                                                                  ),
-                                                                                ),
-                                                                              ),
-                                                                            ],
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                ],
-                                                              ),
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            20.0),
-                                                                child: Row(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  mainAxisAlignment:
-                                                                      MainAxisAlignment
-                                                                          .center,
-                                                                  crossAxisAlignment:
-                                                                      CrossAxisAlignment
-                                                                          .start,
-                                                                  children: [
-                                                                    Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          5.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                      child:
-                                                                          FFButtonWidget(
-                                                                        onPressed:
-                                                                            () async {
-                                                                          var confirmDialogResponse = await showDialog<bool>(
-                                                                                context: context,
-                                                                                builder: (alertDialogContext) {
-                                                                                  return WebViewAware(
-                                                                                    child: AlertDialog(
-                                                                                      content: Text('ต้องการจะบันทึกเตรียมข้อมูลใช่หรือไม่?'),
-                                                                                      actions: [
-                                                                                        TextButton(
-                                                                                          onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                                          child: Text('ยกเลิก'),
-                                                                                        ),
-                                                                                        TextButton(
-                                                                                          onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                                          child: Text('ยืนยัน'),
-                                                                                        ),
-                                                                                      ],
-                                                                                    ),
-                                                                                  );
-                                                                                },
-                                                                              ) ??
-                                                                              false;
-                                                                          if (confirmDialogResponse) {
-                                                                            FFAppState().nonePackageFlagCarrier =
-                                                                                false;
-                                                                            FFAppState().nonePackageVehicleType =
-                                                                                'กรุณาเลือกประเภทรถ';
-                                                                            FFAppState().nonePackageBrandName =
-                                                                                'กรุณาเลือกยี่ห้อรถ';
-                                                                            FFAppState().nonePackageBrandId =
-                                                                                '';
-                                                                            FFAppState().nonePackageModelName =
-                                                                                'กรุณากรอกรุ่นรถ';
-                                                                            FFAppState().nonePackageModelCode =
-                                                                                '';
-                                                                            FFAppState().nonePackageYear =
-                                                                                'กรุณาเลือกปีจดทะเบียน';
-                                                                            FFAppState().nonePackageUsedTypeId =
-                                                                                '';
-                                                                            FFAppState().nonePackageSearchModelList =
-                                                                                [];
-                                                                            FFAppState().nonePackageUsedTypeCode =
-                                                                                '';
-                                                                            FFAppState().nonePackageUsedTypeName =
-                                                                                'กรุณาเลือกลักษณะการใช้รถ';
-                                                                            FFAppState().nonePackageCusFullname =
-                                                                                'กรุณากรอกชื่อ';
-                                                                            FFAppState().nonePackageCusPhone =
-                                                                                'กรุณากรอกเบอร์โทรศัพท์';
-                                                                            FFAppState().nonePackagePlate =
-                                                                                '';
-                                                                            FFAppState().nonePackageProvince =
-                                                                                'กรุณาเลือกจังหวัดจดทะเบียน';
-                                                                            FFAppState().nonePackageProvinceId =
-                                                                                '';
-                                                                            FFAppState().nonePackageSumInsured =
-                                                                                'กรุณากรอกทุนประกัน';
-                                                                            FFAppState().nonePackageFlagAct =
-                                                                                true;
-                                                                            FFAppState().nonePackageIsBrandSelect =
-                                                                                false;
-                                                                            FFAppState().nonePackageSearchModelIdList =
-                                                                                [];
-                                                                            FFAppState().nonePackageCarrierType =
-                                                                                'กรุณาเลือกประเภทตู้เหล็ก';
-                                                                            FFAppState().nonePackageFlagCoop =
-                                                                                false;
-                                                                            FFAppState().nonePackageTruckPart =
-                                                                                'กรุณาเลือกส่วนของรถบรรทุก';
-                                                                            FFAppState().nonePackageCusMembership =
-                                                                                'กรุณาเลือกประเภทลูกค้า';
-                                                                            FFAppState().nonePackageTruckCurrentPrice =
-                                                                                'กรุณากรอกราคาซื้อขายปัจจุบัน';
-                                                                            FFAppState().nonePackagePlateAdditional =
-                                                                                'กรุณากรอกเลขทะเบียนหางพ่วง';
-                                                                            FFAppState().nonePackageTruckCarryPurpose =
-                                                                                'กรุณากรอกรถใช้บรรทุกอะไร';
-                                                                            FFAppState().nonePackageTrailerSumInsured =
-                                                                                'กรุณากรอกทุนประกันหางพ่วง';
-                                                                            FFAppState().nonePackageCarrierPrice =
-                                                                                '';
-                                                                            FFAppState().nonePackageInsurerIdList =
-                                                                                [];
-                                                                            FFAppState().nonePackageInsurerCodeList =
-                                                                                [];
-                                                                            FFAppState().nonePackageInsurerShortNameList =
-                                                                                [];
-                                                                            FFAppState().nonePackageInsurerNameList =
-                                                                                [];
-                                                                            FFAppState().nonePackageInsurerDisplayName =
-                                                                                [];
-                                                                            FFAppState().nonePackageInsurerIdOutputList =
-                                                                                [];
-                                                                            FFAppState().nonePackageInsurerCodeOutputList =
-                                                                                [];
-                                                                            FFAppState().nonePackageInsurerShortNameOutputList =
-                                                                                [];
-                                                                            FFAppState().nonePackageInsurerNameOutputList =
-                                                                                [];
-                                                                            FFAppState().nonePackageReason =
-                                                                                [];
-                                                                            FFAppState().nonePackageInsurerSelectedList =
-                                                                                [];
-                                                                            FFAppState().nonePackageCoverTypeId =
-                                                                                '';
-                                                                            FFAppState().nonePackageCoverTypeCode =
-                                                                                '';
-                                                                            FFAppState().nonePackageCoverTypeName =
-                                                                                'กรุณาเลือกประเภทชั้นประกัน';
-                                                                            FFAppState().nonePackageGarageTypeId =
-                                                                                '';
-                                                                            FFAppState().nonePackageGarageTypeName =
-                                                                                'กรุณาเลือกประเภทการซ่อม';
-                                                                            FFAppState().nonePackageGarageTypeCode =
-                                                                                '';
-                                                                            FFAppState().nonePackageFlagRenew =
-                                                                                false;
-                                                                            FFAppState().nonePackageOldVmiExpDate =
-                                                                                'กรุณาเลือกวันที่หมดอายุประกันเดิม';
-                                                                            FFAppState().nonePackageOldVmi =
-                                                                                '';
-                                                                            FFAppState().nonePackageOldVmiImageUrl =
-                                                                                '';
-                                                                            FFAppState().nonePackageIdCardImageUrl =
-                                                                                '';
-                                                                            FFAppState().nonePackageRenewImageUrlList =
-                                                                                [];
-                                                                            FFAppState().nonePackageRenewImageCheckList =
-                                                                                [];
-                                                                            FFAppState().nonePackageOldVmiImageUploadedCheck =
-                                                                                false;
-                                                                            FFAppState().nonePackageIdCardWatermarkUploadedCheck =
-                                                                                false;
-                                                                            FFAppState().buttonOrdinary =
-                                                                                false;
-                                                                            FFAppState().buttonCorporation =
-                                                                                false;
-                                                                            FFAppState().nonePackageCustomerType =
-                                                                                '';
-                                                                            FFAppState().nonePackageInsurerDisplayNameOutput =
-                                                                                '';
-                                                                            FFAppState().nonePackageImageOther =
-                                                                                [];
-                                                                            FFAppState().nonePackageImageFront =
-                                                                                [];
-                                                                            FFAppState().nonePackageImageRightFront =
-                                                                                [];
-                                                                            FFAppState().nonePackageImageRight =
-                                                                                [];
-                                                                            FFAppState().nonePackageImageRightRear =
-                                                                                [];
-                                                                            FFAppState().nonePackageImageRear =
-                                                                                [];
-                                                                            FFAppState().nonePackageImageLeftRear =
-                                                                                [];
-                                                                            FFAppState().nonePackageImageLeft =
-                                                                                [];
-                                                                            FFAppState().nonePackageImageLeftFront =
-                                                                                [];
-                                                                            FFAppState().nonePackageImageRoof =
-                                                                                [];
-                                                                            FFAppState().nonePackageTrailerImageFront =
-                                                                                [];
-                                                                            FFAppState().nonePackageTrailerImageRightFront =
-                                                                                [];
-                                                                            FFAppState().nonePackageTrailerImageRight =
-                                                                                [];
-                                                                            FFAppState().nonePackageTrailerImageRightRear =
-                                                                                [];
-                                                                            FFAppState().nonePackageTrailerImageRear =
-                                                                                [];
-                                                                            FFAppState().nonePackageTrailerImageLeftRear =
-                                                                                [];
-                                                                            FFAppState().nonePackageTrailerImageLeft =
-                                                                                [];
-                                                                            FFAppState().nonePackageTrailerImageLeftFront =
-                                                                                [];
-                                                                            FFAppState().nonePackageInsurerOutputIndex =
-                                                                                0;
-                                                                            FFAppState().nonePackageLeadId =
-                                                                                '';
-                                                                            FFAppState().nonePackageLeadNo =
-                                                                                '';
-                                                                            FFAppState().nonePackageCarImageUploadedList =
-                                                                                [];
-                                                                            FFAppState().nonePackageImageOldVmi =
-                                                                                [];
-                                                                            FFAppState().nonePackageImageCompanyBook =
-                                                                                [];
-                                                                            FFAppState().nonePackageImageIdCard =
-                                                                                [];
-                                                                            FFAppState().nonePackageImageBlueBook =
-                                                                                [];
-                                                                            FFAppState().nonePackageCompanyBookImageUploadedCheck =
-                                                                                false;
-                                                                            FFAppState().nonePackageCompanyBookImageUrl =
-                                                                                '';
-                                                                            FFAppState().nonePackageImageFrontUploaded =
-                                                                                '';
-                                                                            FFAppState().nonePackageImageRightFrontUploaded =
-                                                                                '';
-                                                                            FFAppState().nonePackageImageRightUploaded =
-                                                                                '';
-                                                                            FFAppState().nonePackageImageRightRearUploaded =
-                                                                                '';
-                                                                            FFAppState().nonePackageImageRearUploaded =
-                                                                                '';
-                                                                            FFAppState().nonePackageImageLeftRearUploaded =
-                                                                                '';
-                                                                            FFAppState().nonePackageImageLeftUploaded =
-                                                                                '';
-                                                                            FFAppState().nonePackageImageLeftFrontUploaded =
-                                                                                '';
-                                                                            FFAppState().nonePackageImageRoofUploaded =
-                                                                                '';
-                                                                            FFAppState().nonePackageTrailerImageFrontUploaded =
-                                                                                '';
-                                                                            FFAppState().nonePackageTrailerImageRightFrontUploaded =
-                                                                                '';
-                                                                            FFAppState().nonePackageTrailerImageRightUploaded =
-                                                                                '';
-                                                                            FFAppState().nonePackageTrailerImageRightRearUploaded =
-                                                                                '';
-                                                                            FFAppState().nonePackageTrailerImageRearUploaded =
-                                                                                '';
-                                                                            FFAppState().nonePackageTrailerImageLeftRearUploaded =
-                                                                                '';
-                                                                            FFAppState().nonePackageTrailerImageLeftUploaded =
-                                                                                '';
-                                                                            FFAppState().nonePackageTrailerImageLeftFrontUploaded =
-                                                                                '';
-                                                                            FFAppState().nonePackageImageBlueBookUploaded =
-                                                                                '';
-                                                                            FFAppState().nonePackageImageOther1 =
-                                                                                '';
-                                                                            FFAppState().nonePackageImageOther2 =
-                                                                                '';
-                                                                            FFAppState().nonePackageImageOther3 =
-                                                                                '';
-                                                                            FFAppState().nonePackageImageOther4 =
-                                                                                '';
-                                                                            FFAppState().nonePackageImageOther5 =
-                                                                                '';
-                                                                            FFAppState().nonePackageImageOtherNameList =
-                                                                                [];
-                                                                            FFAppState().nonePackageSelectedInsurerShortName =
-                                                                                '';
-                                                                            FFAppState().nonePackageSelectedInsurerName =
-                                                                                '';
-                                                                            FFAppState().nonePackageSelectedInsurerShortNameList =
-                                                                                [];
-                                                                            FFAppState().nonePackageSelectedInsurerNameList =
-                                                                                [];
-                                                                            FFAppState().nonePackageFlagOldVmi =
-                                                                                '';
-                                                                            FFAppState().nonePackageWorkType =
-                                                                                '';
-                                                                            FFAppState().nonePackageRemark =
-                                                                                '';
-                                                                            FFAppState().nonePackageBranchCode =
-                                                                                '';
-                                                                            FFAppState().nonePackageBranchName =
-                                                                                '';
-                                                                            FFAppState().nonePackageInsurerShortNameDupList =
-                                                                                [];
-                                                                            safeSetState(() {});
-                                                                          } else {
-                                                                            return;
-                                                                          }
-                                                                        },
-                                                                        text:
-                                                                            'ทำประกัน',
-                                                                        options:
-                                                                            FFButtonOptions(
-                                                                          width:
-                                                                              110.0,
-                                                                          height:
-                                                                              35.0,
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              24.0,
-                                                                              0.0,
-                                                                              24.0,
-                                                                              0.0),
-                                                                          iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0.0,
-                                                                              0.0,
-                                                                              0.0,
-                                                                              0.0),
-                                                                          color:
-                                                                              Color(0xFFD9761A),
-                                                                          textStyle: FlutterFlowTheme.of(context)
-                                                                              .titleSmall
-                                                                              .override(
-                                                                                fontFamily: 'Noto Sans Thai',
-                                                                                color: Colors.white,
-                                                                                fontSize: 15.0,
-                                                                                letterSpacing: 0.0,
-                                                                                fontWeight: FontWeight.w600,
-                                                                              ),
-                                                                          elevation:
-                                                                              3.0,
-                                                                          borderSide:
-                                                                              BorderSide(
-                                                                            color:
-                                                                                Colors.transparent,
-                                                                            width:
-                                                                                0.0,
-                                                                          ),
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(10.0),
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  );
-                                                },
-                                              ),
-                                            ),
-                                            Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 1.0),
-                                              child: smooth_page_indicator
-                                                  .SmoothPageIndicator(
-                                                controller: _model
                                                         .pageViewController2 ??=
                                                     PageController(
                                                         initialPage: max(
@@ -5120,43 +5103,38 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                         ),
                                       );
                                     },
-                                  ),
-                                ),
-                              ),
-                            if (GetVMICall.quotationTotal(
-                                      (_model.getVMIApi?.jsonBody ?? ''),
-                                    ) ==
-                                    0
-                                ? true
-                                : false)
-                              Expanded(
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
-                                      child: Text(
-                                        'ไม่พบข้อมูล',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodySmall
-                                            .override(
-                                              fontFamily: 'Noto Sans Thai',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
-                                              fontSize: 14.0,
-                                              letterSpacing: 0.0,
-                                            ),
+                                  );
+                                } else {
+                                  return Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
+                                        child: Text(
+                                          'ไม่พบข้อมูล',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodySmall
+                                              .override(
+                                                fontFamily: 'Noto Sans Thai',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                fontSize: 14.0,
+                                                letterSpacing: 0.0,
+                                              ),
+                                        ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                          ],
+                                    ],
+                                  );
+                                }
+                              },
+                            ),
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                   if (false)
                     Padding(
@@ -5245,7 +5223,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                     ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 12.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [

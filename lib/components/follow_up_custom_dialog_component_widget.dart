@@ -5,20 +5,20 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'custom_dialog_component_model.dart';
-export 'custom_dialog_component_model.dart';
+import 'follow_up_custom_dialog_component_model.dart';
+export 'follow_up_custom_dialog_component_model.dart';
 
-class CustomDialogComponentWidget extends StatefulWidget {
-  const CustomDialogComponentWidget({super.key});
+class FollowUpCustomDialogComponentWidget extends StatefulWidget {
+  const FollowUpCustomDialogComponentWidget({super.key});
 
   @override
-  State<CustomDialogComponentWidget> createState() =>
-      _CustomDialogComponentWidgetState();
+  State<FollowUpCustomDialogComponentWidget> createState() =>
+      _FollowUpCustomDialogComponentWidgetState();
 }
 
-class _CustomDialogComponentWidgetState
-    extends State<CustomDialogComponentWidget> {
-  late CustomDialogComponentModel _model;
+class _FollowUpCustomDialogComponentWidgetState
+    extends State<FollowUpCustomDialogComponentWidget> {
+  late FollowUpCustomDialogComponentModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -29,7 +29,7 @@ class _CustomDialogComponentWidgetState
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => CustomDialogComponentModel());
+    _model = createModel(context, () => FollowUpCustomDialogComponentModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -43,15 +43,13 @@ class _CustomDialogComponentWidgetState
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Align(
       alignment: AlignmentDirectional(0.0, 0.0),
       child: Padding(
         padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
         child: Container(
           width: double.infinity,
-          height: 200.0,
+          height: 210.0,
           decoration: BoxDecoration(
             color: FlutterFlowTheme.of(context).secondaryBackground,
             borderRadius: BorderRadius.circular(12.0),
@@ -94,7 +92,7 @@ class _CustomDialogComponentWidgetState
                           child: Align(
                             alignment: AlignmentDirectional(-1.0, -1.0),
                             child: Text(
-                              'กรุณาเลือกประเภทการดูกรมธรรม์${FFAppState().isViewCarFollowUp ? 'ประกันรถ' : 'ประกันอัคคีภัย'}',
+                              'กรุณาเลือกประเภทประกันที่จะติดตามงาน',
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -116,16 +114,20 @@ class _CustomDialogComponentWidgetState
                       Expanded(
                         child: FFButtonWidget(
                           onPressed: () async {
-                            FFAppState().viewVmiButtonIsOldVmi = false;
-                            FFAppState().isTouchVmiButton = true;
+                            FFAppState().isTouchFollowUpButton = true;
+                            FFAppState().isViewCarFollowUp = true;
                             safeSetState(() {});
                             Navigator.pop(context, true);
                           },
-                          text: 'เดือนปัจจุบัน',
+                          text: 'ประกันรถ',
+                          icon: Icon(
+                            Icons.directions_car_filled,
+                            size: 24.0,
+                          ),
                           options: FFButtonOptions(
                             height: 40.0,
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                24.0, 0.0, 24.0, 0.0),
+                                8.0, 0.0, 8.0, 0.0),
                             iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
                             color: Colors.white,
@@ -148,16 +150,20 @@ class _CustomDialogComponentWidgetState
                       Expanded(
                         child: FFButtonWidget(
                           onPressed: () async {
-                            FFAppState().viewVmiButtonIsOldVmi = true;
-                            FFAppState().isTouchVmiButton = true;
+                            FFAppState().isTouchFollowUpButton = true;
+                            FFAppState().isViewCarFollowUp = false;
                             safeSetState(() {});
                             Navigator.pop(context, true);
                           },
-                          text: 'ย้อนหลัง',
+                          text: 'ประกันอัคคีภัย',
+                          icon: Icon(
+                            Icons.cottage,
+                            size: 24.0,
+                          ),
                           options: FFButtonOptions(
                             height: 40.0,
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                24.0, 0.0, 24.0, 0.0),
+                                8.0, 0.0, 8.0, 0.0),
                             iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
                             color: Color(0xFFFF9000),

@@ -56,10 +56,6 @@ class FireInsuranceInfoPage2Model
   FocusNode? textFieldFocusNode1;
   TextEditingController? textController1;
   String? Function(BuildContext, String?)? textController1Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode2;
-  TextEditingController? textController2;
-  String? Function(BuildContext, String?)? textController2Validator;
   // State field(s) for WidthTextField widget.
   FocusNode? widthTextFieldFocusNode;
   TextEditingController? widthTextFieldTextController;
@@ -70,21 +66,24 @@ class FireInsuranceInfoPage2Model
   TextEditingController? longTextFieldTextController;
   String? Function(BuildContext, String?)? longTextFieldTextControllerValidator;
   // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode3;
-  TextEditingController? textController5;
-  String? Function(BuildContext, String?)? textController5Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode4;
-  TextEditingController? textController6;
-  String? Function(BuildContext, String?)? textController6Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode5;
-  TextEditingController? textController7;
-  String? Function(BuildContext, String?)? textController7Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode6;
-  TextEditingController? textController8;
-  String? Function(BuildContext, String?)? textController8Validator;
+  FocusNode? textFieldFocusNode2;
+  TextEditingController? textController4;
+  String? Function(BuildContext, String?)? textController4Validator;
+  // State field(s) for sumInsureHouse widget.
+  FocusNode? sumInsureHouseFocusNode;
+  TextEditingController? sumInsureHouseTextController;
+  String? Function(BuildContext, String?)?
+      sumInsureHouseTextControllerValidator;
+  // State field(s) for sumInsureBuilding widget.
+  FocusNode? sumInsureBuildingFocusNode;
+  TextEditingController? sumInsureBuildingTextController;
+  String? Function(BuildContext, String?)?
+      sumInsureBuildingTextControllerValidator;
+  // State field(s) for sumInsureTotal widget.
+  FocusNode? sumInsureTotalFocusNode;
+  TextEditingController? sumInsureTotalTextController;
+  String? Function(BuildContext, String?)?
+      sumInsureTotalTextControllerValidator;
   DateTime? datePicked;
   // Stores action output result for [Backend Call - API (ibsApplicationsSave)] action in Button widget.
   ApiCallResponse? ibsAppAPIOutput;
@@ -109,25 +108,22 @@ class FireInsuranceInfoPage2Model
     textFieldFocusNode1?.dispose();
     textController1?.dispose();
 
-    textFieldFocusNode2?.dispose();
-    textController2?.dispose();
-
     widthTextFieldFocusNode?.dispose();
     widthTextFieldTextController?.dispose();
 
     longTextFieldFocusNode?.dispose();
     longTextFieldTextController?.dispose();
 
-    textFieldFocusNode3?.dispose();
-    textController5?.dispose();
+    textFieldFocusNode2?.dispose();
+    textController4?.dispose();
 
-    textFieldFocusNode4?.dispose();
-    textController6?.dispose();
+    sumInsureHouseFocusNode?.dispose();
+    sumInsureHouseTextController?.dispose();
 
-    textFieldFocusNode5?.dispose();
-    textController7?.dispose();
+    sumInsureBuildingFocusNode?.dispose();
+    sumInsureBuildingTextController?.dispose();
 
-    textFieldFocusNode6?.dispose();
-    textController8?.dispose();
+    sumInsureTotalFocusNode?.dispose();
+    sumInsureTotalTextController?.dispose();
   }
 }

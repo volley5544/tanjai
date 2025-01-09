@@ -272,17 +272,7 @@ class _FireInsuranceListPageWidgetState
                 size: 30.0,
               ),
               onPressed: () async {
-                await Future.delayed(const Duration(milliseconds: 500));
-
-                context.goNamed(
-                  'SuperAppPage',
-                  queryParameters: {
-                    'dailyText': serializeParam(
-                      '',
-                      ParamType.String,
-                    ),
-                  }.withoutNulls,
-                );
+                context.goNamed('SuperAppPage');
               },
             ),
             title: Align(
@@ -1143,6 +1133,11 @@ class _FireInsuranceListPageWidgetState
                                                               isList: true,
                                                             ),
                                                             'checkPayment':
+                                                                serializeParam(
+                                                              '0',
+                                                              ParamType.String,
+                                                            ),
+                                                            'checkVMI':
                                                                 serializeParam(
                                                               '0',
                                                               ParamType.String,
