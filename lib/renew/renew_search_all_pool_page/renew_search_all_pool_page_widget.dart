@@ -112,8 +112,8 @@ class _RenewSearchAllPoolPageWidgetState
           return;
         }
       } else {
-        if (!((_model.buildVersionQuery?.buildNumberIos ==
-                _model.deviceBuildNumber) ||
+        if (!((_model.buildVersionQuery!.buildNumberIos <=
+                _model.deviceBuildNumber!) ||
             _model.adminVersionQuery!.employeeIdList
                 .contains(FFAppState().employeeID))) {
           await showDialog(

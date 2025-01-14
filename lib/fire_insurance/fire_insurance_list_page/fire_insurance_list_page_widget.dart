@@ -8,7 +8,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/super_app/components/insurance_type_color/insurance_type_color_widget.dart';
 import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
 import 'dart:convert';
 import 'dart:math';
@@ -21,7 +20,6 @@ import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -277,63 +275,21 @@ class _FireInsuranceListPageWidgetState
             ),
             title: Align(
               alignment: AlignmentDirectional(0.0, 0.0),
-              child: Text(
-                'จำนวนลูกค้าทั้งหมด',
-                style: FlutterFlowTheme.of(context).headlineSmall.override(
-                      fontFamily: 'Noto Sans Thai',
-                      color: Color(0xFF003063),
-                      fontSize: 18.0,
-                      letterSpacing: 0.0,
-                      fontWeight: FontWeight.w600,
-                    ),
-              ),
-            ),
-            actions: [
-              Visibility(
-                visible: false,
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
-                  child: FlutterFlowIconButton(
-                    borderColor: Colors.transparent,
-                    borderRadius: 20.0,
-                    borderWidth: 1.0,
-                    buttonSize: 40.0,
-                    icon: FaIcon(
-                      FontAwesomeIcons.exclamationTriangle,
-                      color: Color(0xFFDB771A),
-                      size: 30.0,
-                    ),
-                    onPressed: () async {
-                      showModalBottomSheet(
-                        isScrollControlled: true,
-                        backgroundColor: Colors.transparent,
-                        isDismissible: false,
-                        enableDrag: false,
-                        context: context,
-                        builder: (context) {
-                          return WebViewAware(
-                            child: GestureDetector(
-                              onTap: () {
-                                FocusScope.of(context).unfocus();
-                                FocusManager.instance.primaryFocus?.unfocus();
-                              },
-                              child: Padding(
-                                padding: MediaQuery.viewInsetsOf(context),
-                                child: Container(
-                                  height:
-                                      MediaQuery.sizeOf(context).height * 0.7,
-                                  child: InsuranceTypeColorWidget(),
-                                ),
-                              ),
-                            ),
-                          );
-                        },
-                      ).then((value) => safeSetState(() {}));
-                    },
-                  ),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 50.0, 0.0),
+                child: Text(
+                  'จำนวนลูกค้าทั้งหมด',
+                  style: FlutterFlowTheme.of(context).headlineSmall.override(
+                        fontFamily: 'Noto Sans Thai',
+                        color: Color(0xFF003063),
+                        fontSize: 18.0,
+                        letterSpacing: 0.0,
+                        fontWeight: FontWeight.w600,
+                      ),
                 ),
               ),
-            ],
+            ),
+            actions: [],
             centerTitle: false,
             elevation: 0.0,
           ),
@@ -458,7 +414,10 @@ class _FireInsuranceListPageWidgetState
                           },
                           child: Icon(
                             Icons.refresh_sharp,
-                            color: FlutterFlowTheme.of(context).secondaryText,
+                            color:
+                                _model.searchFirstnameTextController.text == ''
+                                    ? Color(0xFFB3B3B3)
+                                    : Colors.black,
                             size: 24.0,
                           ),
                         ),
@@ -975,68 +934,81 @@ class _FireInsuranceListPageWidgetState
                                                                   10.0,
                                                                   10.0,
                                                                   0.0),
-                                                      child: Container(
-                                                        width: 55.0,
-                                                        height: 55.0,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          shape:
-                                                              BoxShape.circle,
-                                                          border: Border.all(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .black600,
+                                                      child: InkWell(
+                                                        splashColor:
+                                                            Colors.transparent,
+                                                        focusColor:
+                                                            Colors.transparent,
+                                                        hoverColor:
+                                                            Colors.transparent,
+                                                        highlightColor:
+                                                            Colors.transparent,
+                                                        onTap: () async {
+                                                          await launchUrl(Uri(
+                                                            scheme: 'tel',
+                                                            path: functions.checkNullValueAndReturn(
+                                                                HouseInsuranceGroup
+                                                                    .fireGetLeadsApiCall
+                                                                    .phoneNumber(
+                                                                      (_model.fireGetLeads
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )
+                                                                    ?.elementAtOrNull(
+                                                                        listLeadsItemIndex)),
+                                                          ));
+                                                        },
+                                                        child: Container(
+                                                          width: 55.0,
+                                                          height: 55.0,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            shape:
+                                                                BoxShape.circle,
+                                                            border: Border.all(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .black600,
+                                                            ),
                                                           ),
-                                                        ),
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          10.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                              child: InkWell(
-                                                                splashColor: Colors
-                                                                    .transparent,
-                                                                focusColor: Colors
-                                                                    .transparent,
-                                                                hoverColor: Colors
-                                                                    .transparent,
-                                                                highlightColor:
-                                                                    Colors
-                                                                        .transparent,
-                                                                onTap:
-                                                                    () async {
-                                                                  await launchUrl(
-                                                                      Uri(
-                                                                    scheme:
-                                                                        'tel',
-                                                                    path: functions.checkNullValueAndReturn(HouseInsuranceGroup
-                                                                        .fireGetLeadsApiCall
-                                                                        .phoneNumber(
-                                                                          (_model.fireGetLeads?.jsonBody ??
-                                                                              ''),
-                                                                        )
-                                                                        ?.elementAtOrNull(
-                                                                            listLeadsItemIndex)),
-                                                                  ));
-                                                                },
-                                                                child: Icon(
-                                                                  Icons
-                                                                      .phone_in_talk_outlined,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .black600,
-                                                                  size: 30.0,
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            10.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                child: InkWell(
+                                                                  splashColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  focusColor: Colors
+                                                                      .transparent,
+                                                                  hoverColor: Colors
+                                                                      .transparent,
+                                                                  highlightColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  onTap:
+                                                                      () async {},
+                                                                  child: Icon(
+                                                                    Icons
+                                                                        .phone_in_talk_outlined,
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .black600,
+                                                                    size: 30.0,
+                                                                  ),
                                                                 ),
                                                               ),
-                                                            ),
-                                                          ],
+                                                            ],
+                                                          ),
                                                         ),
                                                       ),
                                                     ),
@@ -1095,32 +1067,6 @@ class _FireInsuranceListPageWidgetState
                                                           return;
                                                         }
 
-                                                        await showDialog(
-                                                          context: context,
-                                                          builder:
-                                                              (alertDialogContext) {
-                                                            return WebViewAware(
-                                                              child:
-                                                                  AlertDialog(
-                                                                content: Text(
-                                                                    getJsonField(
-                                                                  listLeadsItemItem,
-                                                                  r'''$.lead_id''',
-                                                                ).toString()),
-                                                                actions: [
-                                                                  TextButton(
-                                                                    onPressed: () =>
-                                                                        Navigator.pop(
-                                                                            alertDialogContext),
-                                                                    child: Text(
-                                                                        'Ok'),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            );
-                                                          },
-                                                        );
-
                                                         context.pushNamed(
                                                           'MakeFireInsuranceListPage',
                                                           queryParameters: {
@@ -1141,6 +1087,11 @@ class _FireInsuranceListPageWidgetState
                                                                 serializeParam(
                                                               '0',
                                                               ParamType.String,
+                                                            ),
+                                                            'checkTotal':
+                                                                serializeParam(
+                                                              1,
+                                                              ParamType.int,
                                                             ),
                                                           }.withoutNulls,
                                                         );

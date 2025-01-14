@@ -103,7 +103,24 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
         },
       );
       FFAppState().benefitorData = [];
+      FFAppState().leadsHouse = [];
       safeSetState(() {});
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content: Text(FFAppState().leadsHouse.firstOrNull!.roof),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
       FFAppState().insuranceInfoEffectiveDateAct = '';
       FFAppState().insuranceInfoHaveLicenseBool = false;
       FFAppState().insuranceInfoIdCard = '';
@@ -996,6 +1013,10 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
       }
       FFAppState().DriverList = [];
       safeSetState(() {});
+      if (!FFAppState().isCorporate) {
+        FFAppState().insuranceInfoCardType = '1';
+        safeSetState(() {});
+      }
       if (IbsApplicationsDetailCall.appdriver(
                 (_model.detailAPIOutput?.jsonBody ?? ''),
               ) !=
@@ -1709,6 +1730,25 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
         });
         Navigator.pop(context);
       }
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content: Text(valueOrDefault<String>(
+                FFAppState().leadsHouse.firstOrNull?.roof,
+                'เลือกฝาผนัง',
+              )),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
     });
 
     _model.idCardTextFieldTextController1 ??= TextEditingController();
@@ -5024,7 +5064,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                   width:
                                                       MediaQuery.sizeOf(context)
                                                               .width *
-                                                          0.37,
+                                                          0.35,
                                                   height: 60.0,
                                                   decoration: BoxDecoration(
                                                     color: Color(0xFFF6F6F6),

@@ -2486,7 +2486,7 @@ class _CompareInsurancePageWidgetState
                           ],
                         ),
                       ),
-                    ],
+                    ].addToEnd(SizedBox(height: 50.0)),
                   ),
                 );
               },

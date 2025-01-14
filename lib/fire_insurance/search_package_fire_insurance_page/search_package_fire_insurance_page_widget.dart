@@ -821,6 +821,7 @@ class _SearchPackageFireInsurancePageWidgetState
                                                       : Color(0xFFB3B1B1),
                                                   fontSize: 16.0,
                                                   letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w500,
                                                 ),
                                           ),
                                         ),
@@ -925,8 +926,16 @@ class _SearchPackageFireInsurancePageWidgetState
                                           FFAppState().calEstimatedData =
                                               HouseCalEstimatedModelStruct();
                                           FFAppState()
-                                                  .fireInsuranceSearchPackageData =
-                                              FireInsuranceSearchPackageDataStruct();
+                                              .updateFireInsuranceSearchPackageDataStruct(
+                                            (e) => e
+                                              ..houseAreaType = null
+                                              ..usableArea = null
+                                              ..houseFloor = null
+                                              ..sumInsureHouse = null
+                                              ..sumInsureBuildin = null
+                                              ..houseWidth = null
+                                              ..houseLong = null,
+                                          );
                                           safeSetState(() {});
                                         },
                                         child: Material(
@@ -1031,8 +1040,16 @@ class _SearchPackageFireInsurancePageWidgetState
                                           FFAppState().calEstimatedData =
                                               HouseCalEstimatedModelStruct();
                                           FFAppState()
-                                                  .fireInsuranceSearchPackageData =
-                                              FireInsuranceSearchPackageDataStruct();
+                                              .updateFireInsuranceSearchPackageDataStruct(
+                                            (e) => e
+                                              ..houseAreaType = null
+                                              ..usableArea = null
+                                              ..houseFloor = null
+                                              ..sumInsureHouse = null
+                                              ..sumInsureBuildin = null
+                                              ..houseWidth = null
+                                              ..houseLong = null,
+                                          );
                                           safeSetState(() {});
                                         },
                                         child: Material(
@@ -1998,6 +2015,7 @@ class _SearchPackageFireInsurancePageWidgetState
                                                       : Color(0xFFB3B1B1),
                                                   fontSize: 16.0,
                                                   letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w500,
                                                 ),
                                           ),
                                         ),
@@ -2122,6 +2140,7 @@ class _SearchPackageFireInsurancePageWidgetState
                                                     : Color(0xFFB3B1B1),
                                                 fontSize: 16.0,
                                                 letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w500,
                                               ),
                                         ),
                                       ),

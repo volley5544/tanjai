@@ -4038,28 +4038,6 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                                         ),
                                                                         FFAppState().insuranceInfoEffectiveDateAct)!
                                                                     : true))) {
-                                                              await showDialog(
-                                                                context:
-                                                                    context,
-                                                                builder:
-                                                                    (alertDialogContext) {
-                                                                  return WebViewAware(
-                                                                    child:
-                                                                        AlertDialog(
-                                                                      content: Text(
-                                                                          'false'),
-                                                                      actions: [
-                                                                        TextButton(
-                                                                          onPressed: () =>
-                                                                              Navigator.pop(alertDialogContext),
-                                                                          child:
-                                                                              Text('Ok'),
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                  );
-                                                                },
-                                                              );
                                                               await showModalBottomSheet(
                                                                 isScrollControlled:
                                                                     true,

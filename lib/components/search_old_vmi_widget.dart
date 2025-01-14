@@ -449,6 +449,13 @@ class _SearchOldVmiWidgetState extends State<SearchOldVmiWidget> {
                                         '1',
                                         ParamType.String,
                                       ),
+                                      'checkTotal': serializeParam(
+                                        SearchOldVmiApiCall.approve(
+                                          (_model.searchVmiOutput?.jsonBody ??
+                                              ''),
+                                        ),
+                                        ParamType.int,
+                                      ),
                                     }.withoutNulls,
                                   );
 

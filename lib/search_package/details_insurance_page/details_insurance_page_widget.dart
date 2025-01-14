@@ -1953,7 +1953,7 @@ class _DetailsInsurancePageWidgetState
                           ),
                         ],
                       ),
-                    ].addToEnd(SizedBox(height: 50.0)),
+                    ].addToEnd(SizedBox(height: 100.0)),
                   ),
                 );
               },

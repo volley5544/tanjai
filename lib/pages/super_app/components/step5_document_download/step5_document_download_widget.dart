@@ -79,9 +79,12 @@ class _Step5DocumentDownloadWidgetState
                         ),
                   ),
                 ),
-                if ((FFAppState().insuranceInfoPage5QuotationType == 'auto') ||
-                    ((FFAppState().insuranceInfoPage5QuotationType != 'auto') &&
-                        (FFAppState().insuranceInfoCompayId != 'Allianz')))
+                if (((FFAppState().insuranceInfoPage5QuotationType == 'auto') ||
+                        ((FFAppState().insuranceInfoPage5QuotationType !=
+                                'auto') &&
+                            (FFAppState().insuranceInfoCompayId !=
+                                'Allianz'))) &&
+                    (FFAppState().insuranceinfoActType != 'House'))
                   InkWell(
                     splashColor: Colors.transparent,
                     focusColor: Colors.transparent,
@@ -137,7 +140,8 @@ class _Step5DocumentDownloadWidgetState
                     ),
                   ),
                 if ((FFAppState().insuranceInfoPage5QuotationType != 'auto') &&
-                    (FFAppState().insuranceInfoCompayId == 'Allianz'))
+                    (FFAppState().insuranceInfoCompayId == 'Allianz') &&
+                    (FFAppState().insuranceinfoActType != 'House'))
                   InkWell(
                     splashColor: Colors.transparent,
                     focusColor: Colors.transparent,

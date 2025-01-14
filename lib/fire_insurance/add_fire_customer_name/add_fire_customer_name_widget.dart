@@ -777,7 +777,7 @@ class _AddFireCustomerNameWidgetState extends State<AddFireCustomerNameWidget> {
                                       return WebViewAware(
                                         child: AlertDialog(
                                           content:
-                                              Text('บังคับกรอกเบอร์โทรศัพ'),
+                                              Text('บังคับกรอกเบอร์โทรศัพท์'),
                                           actions: [
                                             TextButton(
                                               onPressed: () => Navigator.pop(
@@ -872,23 +872,6 @@ class _AddFireCustomerNameWidgetState extends State<AddFireCustomerNameWidget> {
                                   if (_shouldSetState) safeSetState(() {});
                                   return;
                                 }
-                                await showDialog(
-                                  context: context,
-                                  builder: (alertDialogContext) {
-                                    return WebViewAware(
-                                      child: AlertDialog(
-                                        content: Text(FFAppState().accessToken),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      ),
-                                    );
-                                  },
-                                );
                                 _model.saveQuotationApiOutput =
                                     await HouseInsuranceGroup.saveQuotationCall
                                         .call(
@@ -950,27 +933,6 @@ class _AddFireCustomerNameWidgetState extends State<AddFireCustomerNameWidget> {
                                 );
 
                                 _shouldSetState = true;
-                                await showDialog(
-                                  context: context,
-                                  builder: (alertDialogContext) {
-                                    return WebViewAware(
-                                      child: AlertDialog(
-                                        content: Text((_model
-                                                    .saveQuotationApiOutput
-                                                    ?.jsonBody ??
-                                                '')
-                                            .toString()),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      ),
-                                    );
-                                  },
-                                );
                                 if ((_model.saveQuotationApiOutput
                                             ?.statusCode ??
                                         200) !=
@@ -1053,51 +1015,6 @@ class _AddFireCustomerNameWidgetState extends State<AddFireCustomerNameWidget> {
                                   if (_shouldSetState) safeSetState(() {});
                                   return;
                                 }
-                                await showDialog(
-                                  context: context,
-                                  builder: (alertDialogContext) {
-                                    return WebViewAware(
-                                      child: AlertDialog(
-                                        title: Text('สำเร็จซ้าย'),
-                                        content: Text(getJsonField(
-                                          (_model.saveQuotationApiOutput
-                                                  ?.jsonBody ??
-                                              ''),
-                                          r'''$.message''',
-                                        ).toString()),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      ),
-                                    );
-                                  },
-                                );
-                                await showDialog(
-                                  context: context,
-                                  builder: (alertDialogContext) {
-                                    return WebViewAware(
-                                      child: AlertDialog(
-                                        content: Text(getJsonField(
-                                          (_model.saveQuotationApiOutput
-                                                  ?.jsonBody ??
-                                              ''),
-                                          r'''$.results.data.detail_house[0].url''',
-                                        ).toString()),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      ),
-                                    );
-                                  },
-                                );
                                 if (widget!.button == 'doInsurance') {
                                   context.goNamed(
                                     'insuranceInfoPage1',

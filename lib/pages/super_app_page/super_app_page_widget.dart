@@ -1404,6 +1404,15 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                                 '1',
                                                                                 ParamType.String,
                                                                               ),
+                                                                              'checkTotal': serializeParam(
+                                                                                valueOrDefault<int>(
+                                                                                  GetVMICall.approveHouse(
+                                                                                    (_model.getVMIApi?.jsonBody ?? ''),
+                                                                                  ),
+                                                                                  0,
+                                                                                ),
+                                                                                ParamType.int,
+                                                                              ),
                                                                             }.withoutNulls,
                                                                           );
 
@@ -1965,6 +1974,12 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                                 'checkVMI': serializeParam(
                                                                                   '1',
                                                                                   ParamType.String,
+                                                                                ),
+                                                                                'checkTotal': serializeParam(
+                                                                                  GetVMICall.approveHouse(
+                                                                                    (_model.getVMIApi?.jsonBody ?? ''),
+                                                                                  ),
+                                                                                  ParamType.int,
                                                                                 ),
                                                                               }.withoutNulls,
                                                                             );
@@ -3558,7 +3573,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                         : null;
 
                                 return Text(
-                                  'ประกันรถยนต์',
+                                  'ประกันรถ',
                                   style: FlutterFlowTheme.of(context)
                                       .headlineMedium
                                       .override(
@@ -4998,6 +5013,16 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                                 serializeParam(
                                                                               '0',
                                                                               ParamType.String,
+                                                                            ),
+                                                                            'checkVMI':
+                                                                                serializeParam(
+                                                                              '0',
+                                                                              ParamType.String,
+                                                                            ),
+                                                                            'checkTotal':
+                                                                                serializeParam(
+                                                                              1,
+                                                                              ParamType.int,
                                                                             ),
                                                                           }.withoutNulls,
                                                                         );

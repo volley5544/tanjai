@@ -178,20 +178,22 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                       ),
                                 ),
                               ),
-                              Container(
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                ),
-                                child: Text(
-                                  '${FFAppState().insuranceInfoFirstName}  ${FFAppState().insuranceInfoLastName}',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Noto Sans Thai',
-                                        fontSize: 15.0,
-                                        letterSpacing: 0.0,
-                                      ),
+                              Expanded(
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                  ),
+                                  child: Text(
+                                    '${FFAppState().insuranceInfoFirstName}  ${FFAppState().insuranceInfoLastName}',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Noto Sans Thai',
+                                          fontSize: 15.0,
+                                          letterSpacing: 0.0,
+                                        ),
+                                  ),
                                 ),
                               ),
                             ],

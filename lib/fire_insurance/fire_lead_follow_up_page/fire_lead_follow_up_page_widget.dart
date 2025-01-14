@@ -339,7 +339,7 @@ class _FireLeadFollowUpPageWidgetState extends State<FireLeadFollowUpPageWidget>
                                                   ''),
                                             )
                                             ?.toString(),
-                                        '5',
+                                        '0',
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .titleMedium
@@ -469,7 +469,7 @@ class _FireLeadFollowUpPageWidgetState extends State<FireLeadFollowUpPageWidget>
                                                   ''),
                                             )
                                             ?.toString(),
-                                        '5',
+                                        '0',
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .titleMedium
@@ -587,7 +587,7 @@ class _FireLeadFollowUpPageWidgetState extends State<FireLeadFollowUpPageWidget>
                                                   ''),
                                             )
                                             ?.toString(),
-                                        '5',
+                                        '0',
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .titleMedium
@@ -722,7 +722,7 @@ class _FireLeadFollowUpPageWidgetState extends State<FireLeadFollowUpPageWidget>
                                                   ''),
                                             )
                                             ?.toString(),
-                                        '5',
+                                        '0',
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .titleMedium
@@ -847,7 +847,7 @@ class _FireLeadFollowUpPageWidgetState extends State<FireLeadFollowUpPageWidget>
                                                   ''),
                                             )
                                             ?.toString(),
-                                        '5',
+                                        '0',
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .titleMedium
@@ -983,7 +983,7 @@ class _FireLeadFollowUpPageWidgetState extends State<FireLeadFollowUpPageWidget>
                                                   ''),
                                             )
                                             ?.toString(),
-                                        '5',
+                                        '0',
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .titleMedium

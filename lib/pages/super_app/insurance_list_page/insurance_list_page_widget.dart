@@ -588,7 +588,10 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                           },
                           child: Icon(
                             Icons.refresh_sharp,
-                            color: FlutterFlowTheme.of(context).secondaryText,
+                            color:
+                                _model.searchFirstnameTextController.text == ''
+                                    ? Color(0xFFB3B3B3)
+                                    : Colors.black,
                             size: 24.0,
                           ),
                         ),

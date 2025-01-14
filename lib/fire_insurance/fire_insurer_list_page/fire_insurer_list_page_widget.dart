@@ -248,6 +248,7 @@ class _FireInsurerListPageWidgetState extends State<FireInsurerListPageWidget>
                                             safeSetState(() {});
                                           },
                                           child: Container(
+                                            width: 190.0,
                                             height: 40.0,
                                             decoration: BoxDecoration(
                                               color: Color(0x3EA6A6A6),

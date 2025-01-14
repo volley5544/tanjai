@@ -1004,7 +1004,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                       return WebViewAware(
                                         child: AlertDialog(
                                           content:
-                                              Text('บังคับกรอกเบอร์โทรศัพ'),
+                                              Text('บังคับกรอกเบอร์โทรศัพท์'),
                                           actions: [
                                             TextButton(
                                               onPressed: () => Navigator.pop(

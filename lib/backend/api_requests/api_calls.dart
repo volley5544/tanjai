@@ -12879,6 +12879,10 @@ class GetVMICall {
         r'''$.results.info.approve_house[:]''',
         true,
       ) as List?;
+  static int? approveHouse(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.results.info.count.status_approve_house''',
+      ));
 }
 
 class ConfirmLeadStatusCall {

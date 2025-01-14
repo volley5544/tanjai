@@ -31,15 +31,16 @@ export 'make_fire_insurance_list_page_model.dart';
 class MakeFireInsuranceListPageWidget extends StatefulWidget {
   const MakeFireInsuranceListPageWidget({
     super.key,
-    this.checkTotal,
+    int? checkTotal,
     required this.list,
     required this.checkPayment,
     String? checkVMI,
     this.fromPage,
     this.type,
-  }) : this.checkVMI = checkVMI ?? '3';
+  })  : this.checkTotal = checkTotal ?? 0,
+        this.checkVMI = checkVMI ?? '3';
 
-  final int? checkTotal;
+  final int checkTotal;
   final List<dynamic>? list;
   final String? checkPayment;
   final String checkVMI;
@@ -92,23 +93,6 @@ class _MakeFireInsuranceListPageWidgetState
         },
       ).then((value) => safeSetState(() {}));
 
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
-              title: Text('checkVMI'),
-              content: Text(widget!.checkVMI),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ),
-          );
-        },
-      );
       _model.getBuildVersion = await actions.getBuildVersion1();
       _model.deviceBuildNumber = await actions.getBuildNumber();
       _model.buildVersionQuery = await queryBuildVersionRecordOnce(
@@ -617,32 +601,7 @@ class _MakeFireInsuranceListPageWidgetState
                                                       Colors.transparent,
                                                   highlightColor:
                                                       Colors.transparent,
-                                                  onTap: () async {
-                                                    await showDialog(
-                                                      context: context,
-                                                      builder:
-                                                          (alertDialogContext) {
-                                                        return WebViewAware(
-                                                          child: AlertDialog(
-                                                            content: Text(
-                                                                getJsonField(
-                                                              leadListItemItem,
-                                                              r'''$.quotation_id''',
-                                                            ).toString()),
-                                                            actions: [
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext),
-                                                                child:
-                                                                    Text('Ok'),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        );
-                                                      },
-                                                    );
-                                                  },
+                                                  onTap: () async {},
                                                   child: Container(
                                                     width: double.infinity,
                                                     decoration: BoxDecoration(
@@ -818,31 +777,50 @@ class _MakeFireInsuranceListPageWidgetState
                                                                         mainAxisAlignment:
                                                                             MainAxisAlignment.spaceBetween,
                                                                         children: [
-                                                                          Text(
-                                                                            'ชื่อ',
-                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Noto Sans Thai',
-                                                                                  fontSize: 13.0,
-                                                                                  letterSpacing: 0.0,
-                                                                                  fontWeight: FontWeight.w600,
-                                                                                ),
-                                                                          ),
-                                                                          Text(
-                                                                            '${getJsonField(
-                                                                              leadListItemItem,
-                                                                              r'''$.first_name''',
-                                                                            ).toString()} ${getJsonField(
-                                                                              leadListItemItem,
-                                                                              r'''$.last_name''',
-                                                                            ).toString()}',
-                                                                            maxLines:
+                                                                          Expanded(
+                                                                            flex:
                                                                                 2,
-                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Noto Sans Thai',
-                                                                                  fontSize: 13.0,
-                                                                                  letterSpacing: 0.0,
-                                                                                  fontWeight: FontWeight.w600,
+                                                                            child:
+                                                                                Container(
+                                                                              decoration: BoxDecoration(),
+                                                                              child: Text(
+                                                                                'ชื่อ',
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Noto Sans Thai',
+                                                                                      fontSize: 13.0,
+                                                                                      letterSpacing: 0.0,
+                                                                                      fontWeight: FontWeight.w600,
+                                                                                    ),
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                          Expanded(
+                                                                            flex:
+                                                                                3,
+                                                                            child:
+                                                                                Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                                                                              child: Container(
+                                                                                decoration: BoxDecoration(),
+                                                                                child: Text(
+                                                                                  '${getJsonField(
+                                                                                    leadListItemItem,
+                                                                                    r'''$.first_name''',
+                                                                                  ).toString()} ${getJsonField(
+                                                                                    leadListItemItem,
+                                                                                    r'''$.last_name''',
+                                                                                  ).toString()}',
+                                                                                  textAlign: TextAlign.end,
+                                                                                  maxLines: 2,
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                        fontFamily: 'Noto Sans Thai',
+                                                                                        fontSize: 13.0,
+                                                                                        letterSpacing: 0.0,
+                                                                                        fontWeight: FontWeight.w600,
+                                                                                      ),
                                                                                 ),
+                                                                              ),
+                                                                            ),
                                                                           ),
                                                                         ],
                                                                       ),
@@ -1963,41 +1941,6 @@ class _MakeFireInsuranceListPageWidgetState
                                                                                   r'''$.quotation_type''',
                                                                                 ).toString()) ||
                                                                             true) {
-                                                                          await showDialog(
-                                                                            context:
-                                                                                context,
-                                                                            builder:
-                                                                                (alertDialogContext) {
-                                                                              return WebViewAware(
-                                                                                child: AlertDialog(
-                                                                                  title: Text('${getJsonField(
-                                                                                    leadListItemItem,
-                                                                                    r'''$.quotation_id''',
-                                                                                  ).toString()}'),
-                                                                                  content: Text(('${getJsonField(
-                                                                                                leadListItemItem,
-                                                                                                r'''$.leads_detail_house[:].leads_house_dtl_id''',
-                                                                                              ).toString()}' !=
-                                                                                              ''
-                                                                                          ? ((String leadHouseDetailId) {
-                                                                                              return int.parse('$leadHouseDetailId');
-                                                                                            }('${getJsonField(
-                                                                                              leadListItemItem,
-                                                                                              r'''$.leads_detail_house[:].leads_house_dtl_id''',
-                                                                                            ).toString()}'))
-                                                                                          : 0)
-                                                                                      .toString()),
-                                                                                  actions: [
-                                                                                    TextButton(
-                                                                                      onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                      child: Text('Ok'),
-                                                                                    ),
-                                                                                  ],
-                                                                                ),
-                                                                              );
-                                                                            },
-                                                                          );
-
                                                                           context
                                                                               .pushNamed(
                                                                             'insuranceInfoPage1',

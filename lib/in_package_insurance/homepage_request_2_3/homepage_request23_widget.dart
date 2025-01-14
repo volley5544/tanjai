@@ -263,7 +263,7 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          30.0, 0.0, 0.0, 0.0),
+                                          16.0, 0.0, 0.0, 0.0),
                                       child: Text(
                                         'ผู้รับประโยชน์เป็นผู้เอาประกัน',
                                         style: FlutterFlowTheme.of(context)
@@ -596,7 +596,7 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                   alignment: AlignmentDirectional(-1.0, 0.0),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        30.0, 0.0, 0.0, 0.0),
+                                        16.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       FFAppState().insuranceInfoBeneficiaryName,
                                       style: FlutterFlowTheme.of(context)
@@ -678,7 +678,7 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                 ),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      30.0, 0.0, 8.0, 0.0),
+                                      0.0, 0.0, 8.0, 0.0),
                                   child: TextFormField(
                                     controller: _model.textController,
                                     focusNode: _model.textFieldFocusNode,
@@ -705,6 +705,9 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                       focusedBorder: InputBorder.none,
                                       errorBorder: InputBorder.none,
                                       focusedErrorBorder: InputBorder.none,
+                                      contentPadding:
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              16.0, 0.0, 0.0, 0.0),
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
