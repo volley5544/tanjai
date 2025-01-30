@@ -513,6 +513,8 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                                               .InsuranceInfoPage4PowerOfAttoney,
                                           idCardPowerOfAttorney: FFAppState()
                                               .insuranceInfoPage4IdCardPowerattorney,
+                                          imageApplication2: FFAppState()
+                                              .insuranceInfoPage4ImageApp2,
                                         );
 
                                         _shouldSetState = true;

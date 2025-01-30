@@ -80,6 +80,22 @@ List<String> convertDynamicListToStringList(List<dynamic>? dynamicList) {
   return outputList;
 }
 
+List<FFUploadedFile>? createFileUploadedListPage3Copy(
+  FFUploadedFile? image1,
+  FFUploadedFile? image2,
+) {
+  List<FFUploadedFile> fileList = [];
+
+  if (image1!.name != null) {
+    fileList.add(image1!);
+  }
+  if (image2!.name != null) {
+    fileList.add(image2!);
+  }
+
+  return fileList!;
+}
+
 dynamic sendJsonDataAddress(
   List<String>? addresstype,
   List<String>? addressline1,
@@ -5396,4 +5412,11 @@ List<dynamic>? makeJsonList(dynamic jsonInput) {
 
 String? getString() {
   return "ความคุ้มครองเพิ่มเติม :\n1. ค่าเช่าที่อยู่อาศัยชั่วคราว / สูญเสียค่าเช่า (วงเงิน 2,500 ต่อวัน / ไม่เกิน 30 วัน)\n2. ค่าใช้จ่ายในการดับเพลิง (วงเงิน 10,000 บาทต่อครั้ง และไม่เกิน 50,000 บาทตลอดระยะเวลาเอาประกันภัย)\n3. ค่าใช้จ่ายในการขนย้ายซากทรัพย์สิน (วงเงิน 10,000 บาทต่อครั้ง และไม่เกิน 50,000 บาทตลอดระยะเวลาเอาประกันภัย)\n4. ค่าใช้จ่ายค่าวิชาชีพ (วงเงิน 10,000 บาทต่อครั้ง และไม่เกิน 50,000 บาทตลอดระยะเวลาเอาประกันภัย)\n5. ค่าใช้จ่ายของตัวล็อกและกุญแจที่จัดหามาทดแทน และค่าใช้จ่ายในการติดตั้งต่อประตูและหรือหน้าต่างด้านนอก (วงเงิน 5,000 บาทต่อครั้งและตลอดระยะเลาเอาประกันภัย)\n6. ค่าใช้จ่ายเพื่อการทดแทนอาหารและเครื่องดื่มที่เน่าเปื่อยหรือเสียหาย (วงเงิน 5,000 บาทต่อครั้งและตลอดระยะเลาเอาประกันภัย)\n7. ค่าใช้จ่ายการตกแต่งภูมิทัศน์ (วงเงิน 5,000 บาทต่อต้น ไม่เกิน 100,000 บาทต่อครั้งและตลอดระยะเลาเอาประกันภัย)";
+}
+
+List<BenefitorModelStruct>? returnBenefitorModelList(
+    BenefitorModelStruct? benefitorModelInput) {
+  List<BenefitorModelStruct> outputList = [benefitorModelInput!];
+
+  return outputList;
 }

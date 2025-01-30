@@ -417,30 +417,6 @@ class _FireSearchableListPageWidgetState
                                                       );
 
                                                       _shouldSetState = true;
-                                                      await showDialog(
-                                                        context: context,
-                                                        builder:
-                                                            (alertDialogContext) {
-                                                          return WebViewAware(
-                                                            child: AlertDialog(
-                                                              content: Text((_model
-                                                                          .calEstimatedOutputFloorSq
-                                                                          ?.jsonBody ??
-                                                                      '')
-                                                                  .toString()),
-                                                              actions: [
-                                                                TextButton(
-                                                                  onPressed: () =>
-                                                                      Navigator.pop(
-                                                                          alertDialogContext),
-                                                                  child: Text(
-                                                                      'Ok'),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          );
-                                                        },
-                                                      );
                                                       if ((_model.calEstimatedOutputFloorSq
                                                                   ?.statusCode ??
                                                               200) ==

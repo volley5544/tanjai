@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'dart:ui';
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -763,9 +764,11 @@ class _FireInsuranceInfoPage4WidgetState
                                                         highlightColor:
                                                             Colors.transparent,
                                                         onTap: () async {
-                                                          await launchURL(
-                                                              FFAppState()
-                                                                  .insuranceinfoPage3PdfFileapplication);
+                                                          await actions
+                                                              .urlLauncherActionCopy(
+                                                            FFAppState()
+                                                                .insuranceinfoPage3PdfFileapplication,
+                                                          );
                                                         },
                                                         child: Container(
                                                           width:
@@ -841,8 +844,10 @@ class _FireInsuranceInfoPage4WidgetState
                                                         highlightColor:
                                                             Colors.transparent,
                                                         onTap: () async {
-                                                          await launchURL(
-                                                              'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/filePDF%2F%E0%B9%83%E0%B8%9A%E0%B8%84%E0%B8%B3%E0%B8%82%E0%B8%AD%E0%B9%80%E0%B8%AD%E0%B8%B2%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%81%E0%B8%B1%E0%B8%99%E0%B8%A0%E0%B8%B1%E0%B8%A2%E0%B8%9A%E0%B9%89%E0%B8%B2%E0%B8%99_25122024.pdf?alt=media&token=b0377c52-a6cc-42ed-ae13-11c3e70491c6');
+                                                          await actions
+                                                              .urlLauncherActionCopy(
+                                                            'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/filePDF%2F%E0%B8%84%E0%B8%B3%E0%B8%82%E0%B8%AD%E0%B9%81%E0%B8%9A%E0%B9%88%E0%B8%87%E0%B8%8A%E0%B8%B3%E0%B8%A3%E0%B8%B0%E0%B8%84%E0%B9%88%E0%B8%B2%E0%B9%80%E0%B8%9A%E0%B8%B5%E0%B9%89%E0%B8%A2%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%81%E0%B8%B1%E0%B8%99%E0%B8%A0%E0%B8%B1%E0%B8%A2_%E0%B8%AD%E0%B8%B1%E0%B8%84%E0%B8%84%E0%B8%B5%E0%B8%A0%E0%B8%B1%E0%B8%A2-v1_271.pdf?alt=media&token=963cdead-fe30-4cb8-b4d8-ff0f8bd7e58f',
+                                                          );
                                                         },
                                                         child: Container(
                                                           width:
@@ -914,7 +919,6 @@ class _FireInsuranceInfoPage4WidgetState
                                                                         context)
                                                                     .width *
                                                                 1.0,
-                                                        height: 80.0,
                                                         decoration:
                                                             BoxDecoration(),
                                                         child: Column(
@@ -927,7 +931,7 @@ class _FireInsuranceInfoPage4WidgetState
                                                                       .max,
                                                               children: [
                                                                 Text(
-                                                                  '1. ใบคําขอเอาประกันอัคคีภัยสําหรับที่อยู่อาศัย',
+                                                                  'ใบคําขอเอาประกันอัคคีภัยสําหรับที่อยู่อาศัย',
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
@@ -945,7 +949,7 @@ class _FireInsuranceInfoPage4WidgetState
                                                                 Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          10.0,
+                                                                          5.0,
                                                                           0.0,
                                                                           0.0,
                                                                           0.0),
@@ -975,7 +979,7 @@ class _FireInsuranceInfoPage4WidgetState
                                                                           0.0,
                                                                           5.0,
                                                                           0.0,
-                                                                          0.0),
+                                                                          10.0),
                                                               child: Container(
                                                                 width: MediaQuery.sizeOf(
                                                                             context)
@@ -1101,7 +1105,7 @@ class _FireInsuranceInfoPage4WidgetState
                                                                                   }
                                                                                 },
                                                                                 child: Container(
-                                                                                  width: MediaQuery.sizeOf(context).width * 0.35,
+                                                                                  width: 150.0,
                                                                                   height: 60.0,
                                                                                   decoration: BoxDecoration(
                                                                                     color: Color(0xFFFCEFE4),
@@ -1122,7 +1126,7 @@ class _FireInsuranceInfoPage4WidgetState
                                                                                           Padding(
                                                                                             padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                                                                                             child: Text(
-                                                                                              'อัพโหลดรูป',
+                                                                                              'อัพโหลดรูปที่ 1',
                                                                                               textAlign: TextAlign.start,
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                     fontFamily: 'Noto Sans Thai',
@@ -1289,6 +1293,313 @@ class _FireInsuranceInfoPage4WidgetState
                                                                 ),
                                                               ),
                                                             ),
+                                                            if (_model.uploadedFileUrl1 !=
+                                                                    null &&
+                                                                _model.uploadedFileUrl1 !=
+                                                                    '')
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            5.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                child:
+                                                                    Container(
+                                                                  width: MediaQuery.sizeOf(
+                                                                              context)
+                                                                          .width *
+                                                                      1.0,
+                                                                  height: 45.0,
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            8.0),
+                                                                  ),
+                                                                  child: Row(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .spaceBetween,
+                                                                    children: [
+                                                                      Align(
+                                                                        alignment: AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            Container(
+                                                                          width:
+                                                                              MediaQuery.sizeOf(context).width * 0.74,
+                                                                          height:
+                                                                              100.0,
+                                                                          decoration:
+                                                                              BoxDecoration(),
+                                                                          alignment: AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Row(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.max,
+                                                                            children: [
+                                                                              Align(
+                                                                                alignment: AlignmentDirectional(-1.0, 0.0),
+                                                                                child: InkWell(
+                                                                                  splashColor: Colors.transparent,
+                                                                                  focusColor: Colors.transparent,
+                                                                                  hoverColor: Colors.transparent,
+                                                                                  highlightColor: Colors.transparent,
+                                                                                  onTap: () async {
+                                                                                    final selectedMedia = await selectMediaWithSourceBottomSheet(
+                                                                                      context: context,
+                                                                                      imageQuality: 30,
+                                                                                      allowPhoto: true,
+                                                                                    );
+                                                                                    if (selectedMedia != null && selectedMedia.every((m) => validateFileFormat(m.storagePath, context))) {
+                                                                                      safeSetState(() => _model.isDataUploading2 = true);
+                                                                                      var selectedUploadedFiles = <FFUploadedFile>[];
+
+                                                                                      var downloadUrls = <String>[];
+                                                                                      try {
+                                                                                        selectedUploadedFiles = selectedMedia
+                                                                                            .map((m) => FFUploadedFile(
+                                                                                                  name: m.storagePath.split('/').last,
+                                                                                                  bytes: m.bytes,
+                                                                                                  height: m.dimensions?.height,
+                                                                                                  width: m.dimensions?.width,
+                                                                                                  blurHash: m.blurHash,
+                                                                                                ))
+                                                                                            .toList();
+
+                                                                                        downloadUrls = (await Future.wait(
+                                                                                          selectedMedia.map(
+                                                                                            (m) async => await uploadData(m.storagePath, m.bytes),
+                                                                                          ),
+                                                                                        ))
+                                                                                            .where((u) => u != null)
+                                                                                            .map((u) => u!)
+                                                                                            .toList();
+                                                                                      } finally {
+                                                                                        _model.isDataUploading2 = false;
+                                                                                      }
+                                                                                      if (selectedUploadedFiles.length == selectedMedia.length && downloadUrls.length == selectedMedia.length) {
+                                                                                        safeSetState(() {
+                                                                                          _model.uploadedLocalFile2 = selectedUploadedFiles.first;
+                                                                                          _model.uploadedFileUrl2 = downloadUrls.first;
+                                                                                        });
+                                                                                      } else {
+                                                                                        safeSetState(() {});
+                                                                                        return;
+                                                                                      }
+                                                                                    }
+
+                                                                                    FFAppState().insuranceInfoPage4ImageApp2 = _model.uploadedFileUrl2;
+                                                                                    safeSetState(() {});
+                                                                                    if (_model.uploadedFileUrl2 != null && _model.uploadedFileUrl2 != '') {
+                                                                                      ScaffoldMessenger.of(context).showSnackBar(
+                                                                                        SnackBar(
+                                                                                          content: Text(
+                                                                                            'เลือกรูปสำเร็จ!',
+                                                                                            style: TextStyle(
+                                                                                              color: Colors.white,
+                                                                                            ),
+                                                                                          ),
+                                                                                          duration: Duration(milliseconds: 3000),
+                                                                                          backgroundColor: Color(0xB2000000),
+                                                                                        ),
+                                                                                      );
+                                                                                    } else {
+                                                                                      ScaffoldMessenger.of(context).showSnackBar(
+                                                                                        SnackBar(
+                                                                                          content: Text(
+                                                                                            'เลือกรูปล้มเหลว กรุณาลองอีกครั้ง',
+                                                                                            style: TextStyle(
+                                                                                              color: Colors.white,
+                                                                                            ),
+                                                                                          ),
+                                                                                          duration: Duration(milliseconds: 3000),
+                                                                                          backgroundColor: Color(0xB2000000),
+                                                                                        ),
+                                                                                      );
+                                                                                    }
+                                                                                  },
+                                                                                  child: Container(
+                                                                                    width: 150.0,
+                                                                                    height: 60.0,
+                                                                                    decoration: BoxDecoration(
+                                                                                      color: Color(0xFFFCEFE4),
+                                                                                      borderRadius: BorderRadius.circular(16.0),
+                                                                                    ),
+                                                                                    child: Align(
+                                                                                      alignment: AlignmentDirectional(-1.0, 0.0),
+                                                                                      child: Padding(
+                                                                                        padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                                                                                        child: Row(
+                                                                                          mainAxisSize: MainAxisSize.max,
+                                                                                          children: [
+                                                                                            Icon(
+                                                                                              Icons.file_upload_outlined,
+                                                                                              color: FlutterFlowTheme.of(context).primaryText,
+                                                                                              size: 22.0,
+                                                                                            ),
+                                                                                            Padding(
+                                                                                              padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                                                                                              child: Text(
+                                                                                                'อัพโหลดรูปที่ 2',
+                                                                                                textAlign: TextAlign.start,
+                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                      fontFamily: 'Noto Sans Thai',
+                                                                                                      color: Color(0xFFD9761A),
+                                                                                                      fontSize: 16.0,
+                                                                                                      letterSpacing: 0.0,
+                                                                                                    ),
+                                                                                              ),
+                                                                                            ),
+                                                                                          ],
+                                                                                        ),
+                                                                                      ),
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                              Padding(
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 5.0, 0.0),
+                                                                                child: Text(
+                                                                                  'สถานะ :',
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                        fontFamily: 'Noto Sans Thai',
+                                                                                        fontSize: 14.0,
+                                                                                        letterSpacing: 0.0,
+                                                                                      ),
+                                                                                ),
+                                                                              ),
+                                                                              if (_model.uploadedFileUrl2 == null || _model.uploadedFileUrl2 == '')
+                                                                                Text(
+                                                                                  'ยังไม่อัพโหลด',
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                        fontFamily: 'Noto Sans Thai',
+                                                                                        fontSize: 14.0,
+                                                                                        letterSpacing: 0.0,
+                                                                                      ),
+                                                                                ),
+                                                                              if (_model.uploadedFileUrl2 != null && _model.uploadedFileUrl2 != '')
+                                                                                Text(
+                                                                                  'อัพโหลดสำเร็จ',
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                        fontFamily: 'Noto Sans Thai',
+                                                                                        fontSize: 14.0,
+                                                                                        letterSpacing: 0.0,
+                                                                                      ),
+                                                                                ),
+                                                                            ],
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                      if ((FFAppState().insuranceInfoPage4ImageApp2 != '') &&
+                                                                          (FFAppState().insuranceInfoPage4ImageApp2 !=
+                                                                              '') &&
+                                                                          (FFAppState().insuranceInfoPage4ImageApp2 != null &&
+                                                                              FFAppState().insuranceInfoPage4ImageApp2 != ''))
+                                                                        InkWell(
+                                                                          splashColor:
+                                                                              Colors.transparent,
+                                                                          focusColor:
+                                                                              Colors.transparent,
+                                                                          hoverColor:
+                                                                              Colors.transparent,
+                                                                          highlightColor:
+                                                                              Colors.transparent,
+                                                                          onTap:
+                                                                              () async {
+                                                                            await showModalBottomSheet(
+                                                                              isScrollControlled: true,
+                                                                              backgroundColor: Color(0xB3000000),
+                                                                              enableDrag: false,
+                                                                              context: context,
+                                                                              builder: (context) {
+                                                                                return WebViewAware(
+                                                                                  child: GestureDetector(
+                                                                                    onTap: () {
+                                                                                      FocusScope.of(context).unfocus();
+                                                                                      FocusManager.instance.primaryFocus?.unfocus();
+                                                                                    },
+                                                                                    child: Padding(
+                                                                                      padding: MediaQuery.viewInsetsOf(context),
+                                                                                      child: Container(
+                                                                                        height: double.infinity,
+                                                                                        child: ShowImageComponentWidget(
+                                                                                          imageUrl: FFAppState().insuranceInfoPage4ImageApp2 != '' ? functions.stringToImgPath(FFAppState().insuranceInfoPage4ImageApp2)! : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                                        ),
+                                                                                      ),
+                                                                                    ),
+                                                                                  ),
+                                                                                );
+                                                                              },
+                                                                            ).then((value) =>
+                                                                                safeSetState(() {}));
+                                                                          },
+                                                                          child:
+                                                                              Container(
+                                                                            height:
+                                                                                100.0,
+                                                                            decoration:
+                                                                                BoxDecoration(),
+                                                                            child:
+                                                                                Icon(
+                                                                              Icons.content_paste_search_rounded,
+                                                                              color: Color(0xFF354052),
+                                                                              size: 24.0,
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      if (!((FFAppState().insuranceInfoPage4ImageApp2 != '') &&
+                                                                          (FFAppState().insuranceInfoPage4ImageApp2 !=
+                                                                              '') &&
+                                                                          (FFAppState().insuranceInfoPage4ImageApp2 != null &&
+                                                                              FFAppState().insuranceInfoPage4ImageApp2 != '')))
+                                                                        Flexible(
+                                                                          child:
+                                                                              Container(
+                                                                            height:
+                                                                                100.0,
+                                                                            decoration:
+                                                                                BoxDecoration(),
+                                                                            child:
+                                                                                Icon(
+                                                                              Icons.close,
+                                                                              color: Color(0xFFFC0A0A),
+                                                                              size: 24.0,
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      if ((FFAppState().insuranceInfoPage4ImageApp2 != '') &&
+                                                                          (FFAppState().insuranceInfoPage4ImageApp2 !=
+                                                                              '') &&
+                                                                          (FFAppState().insuranceInfoPage4ImageApp2 != null &&
+                                                                              FFAppState().insuranceInfoPage4ImageApp2 != ''))
+                                                                        Flexible(
+                                                                          child:
+                                                                              Container(
+                                                                            height:
+                                                                                100.0,
+                                                                            decoration:
+                                                                                BoxDecoration(),
+                                                                            child:
+                                                                                Icon(
+                                                                              Icons.check_sharp,
+                                                                              color: Color(0xFF00FD76),
+                                                                              size: 24.0,
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                              ),
                                                           ],
                                                         ),
                                                       ),
@@ -1320,22 +1631,6 @@ class _FireInsuranceInfoPage4WidgetState
                                                                       .max,
                                                               children: [
                                                                 Text(
-                                                                  '2.',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Noto Sans Thai',
-                                                                        fontSize:
-                                                                            14.0,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        fontWeight:
-                                                                            FontWeight.w500,
-                                                                      ),
-                                                                ),
-                                                                Text(
                                                                   'คําขอแบ่งชําระค่าเบี้ยประกันอัคคีภัย (เป้า ง)',
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
@@ -1354,7 +1649,7 @@ class _FireInsuranceInfoPage4WidgetState
                                                                 Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          10.0,
+                                                                          5.0,
                                                                           0.0,
                                                                           0.0,
                                                                           0.0),
@@ -1441,7 +1736,7 @@ class _FireInsuranceInfoPage4WidgetState
                                                                                     allowPhoto: true,
                                                                                   );
                                                                                   if (selectedMedia != null && selectedMedia.every((m) => validateFileFormat(m.storagePath, context))) {
-                                                                                    safeSetState(() => _model.isDataUploading2 = true);
+                                                                                    safeSetState(() => _model.isDataUploading3 = true);
                                                                                     var selectedUploadedFiles = <FFUploadedFile>[];
 
                                                                                     var downloadUrls = <String>[];
@@ -1465,12 +1760,12 @@ class _FireInsuranceInfoPage4WidgetState
                                                                                           .map((u) => u!)
                                                                                           .toList();
                                                                                     } finally {
-                                                                                      _model.isDataUploading2 = false;
+                                                                                      _model.isDataUploading3 = false;
                                                                                     }
                                                                                     if (selectedUploadedFiles.length == selectedMedia.length && downloadUrls.length == selectedMedia.length) {
                                                                                       safeSetState(() {
-                                                                                        _model.uploadedLocalFile2 = selectedUploadedFiles.first;
-                                                                                        _model.uploadedFileUrl2 = downloadUrls.first;
+                                                                                        _model.uploadedLocalFile3 = selectedUploadedFiles.first;
+                                                                                        _model.uploadedFileUrl3 = downloadUrls.first;
                                                                                       });
                                                                                     } else {
                                                                                       safeSetState(() {});
@@ -1478,10 +1773,10 @@ class _FireInsuranceInfoPage4WidgetState
                                                                                     }
                                                                                   }
 
-                                                                                  FFAppState().insuranceInfoImageFileloanApplicationRegister = _model.uploadedFileUrl2;
-                                                                                  FFAppState().insuranceInfoPage4FileLoanApplicationRegister = _model.uploadedFileUrl2;
+                                                                                  FFAppState().insuranceInfoImageFileloanApplicationRegister = _model.uploadedFileUrl3;
+                                                                                  FFAppState().insuranceInfoPage4FileLoanApplicationRegister = _model.uploadedFileUrl3;
                                                                                   safeSetState(() {});
-                                                                                  if (_model.uploadedFileUrl2 != null && _model.uploadedFileUrl2 != '') {
+                                                                                  if (_model.uploadedFileUrl3 != null && _model.uploadedFileUrl3 != '') {
                                                                                     ScaffoldMessenger.of(context).showSnackBar(
                                                                                       SnackBar(
                                                                                         content: Text(
@@ -1559,8 +1854,8 @@ class _FireInsuranceInfoPage4WidgetState
                                                                                     ),
                                                                               ),
                                                                             ),
-                                                                            if (_model.uploadedFileUrl2 == null ||
-                                                                                _model.uploadedFileUrl2 == '')
+                                                                            if (_model.uploadedFileUrl3 == null ||
+                                                                                _model.uploadedFileUrl3 == '')
                                                                               Text(
                                                                                 'ยังไม่อัพโหลด',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1569,8 +1864,8 @@ class _FireInsuranceInfoPage4WidgetState
                                                                                       letterSpacing: 0.0,
                                                                                     ),
                                                                               ),
-                                                                            if (_model.uploadedFileUrl2 != null &&
-                                                                                _model.uploadedFileUrl2 != '')
+                                                                            if (_model.uploadedFileUrl3 != null &&
+                                                                                _model.uploadedFileUrl3 != '')
                                                                               Text(
                                                                                 'อัพโหลดสำเร็จ',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(

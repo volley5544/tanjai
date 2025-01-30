@@ -80,10 +80,15 @@ class FireInsuranceInfoPage2Model
   String? Function(BuildContext, String?)?
       sumInsureBuildingTextControllerValidator;
   // State field(s) for sumInsureTotal widget.
-  FocusNode? sumInsureTotalFocusNode;
-  TextEditingController? sumInsureTotalTextController;
+  FocusNode? sumInsureTotalFocusNode1;
+  TextEditingController? sumInsureTotalTextController1;
   String? Function(BuildContext, String?)?
-      sumInsureTotalTextControllerValidator;
+      sumInsureTotalTextController1Validator;
+  // State field(s) for sumInsureTotal widget.
+  FocusNode? sumInsureTotalFocusNode2;
+  TextEditingController? sumInsureTotalTextController2;
+  String? Function(BuildContext, String?)?
+      sumInsureTotalTextController2Validator;
   DateTime? datePicked;
   // Stores action output result for [Backend Call - API (ibsApplicationsSave)] action in Button widget.
   ApiCallResponse? ibsAppAPIOutput;
@@ -123,7 +128,10 @@ class FireInsuranceInfoPage2Model
     sumInsureBuildingFocusNode?.dispose();
     sumInsureBuildingTextController?.dispose();
 
-    sumInsureTotalFocusNode?.dispose();
-    sumInsureTotalTextController?.dispose();
+    sumInsureTotalFocusNode1?.dispose();
+    sumInsureTotalTextController1?.dispose();
+
+    sumInsureTotalFocusNode2?.dispose();
+    sumInsureTotalTextController2?.dispose();
   }
 }

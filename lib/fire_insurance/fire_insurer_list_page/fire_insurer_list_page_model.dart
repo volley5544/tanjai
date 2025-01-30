@@ -39,6 +39,8 @@ class FireInsurerListPageModel
           int index, Function(GetPackageFireInsurerDataTypeStruct) updateFn) =>
       packagePageStage[index] = updateFn(packagePageStage[index]);
 
+  bool? textBool = false;
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Backend Call - API (getPackageFireInsurance)] action in fireInsurerListPage widget.

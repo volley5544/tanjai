@@ -85,42 +85,9 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
         },
       ).then((value) => safeSetState(() {}));
 
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
-              title: Text(widget!.quotationId!),
-              content: Text(widget!.leadDtailId!.toString()),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ),
-          );
-        },
-      );
       FFAppState().benefitorData = [];
       FFAppState().leadsHouse = [];
       safeSetState(() {});
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
-              content: Text(FFAppState().leadsHouse.firstOrNull!.roof),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ),
-          );
-        },
-      );
       FFAppState().insuranceInfoEffectiveDateAct = '';
       FFAppState().insuranceInfoHaveLicenseBool = false;
       FFAppState().insuranceInfoIdCard = '';
@@ -1079,9 +1046,11 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
             relationName: '',
             age: '',
           )) {
-        FFAppState().benefitorData = IbsApplicationsDetailCall.appInsuredPerson(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )!
+        FFAppState().benefitorData = functions
+            .returnBenefitorModelList(
+                IbsApplicationsDetailCall.appInsuredPerson(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            )?.firstOrNull)!
             .toList()
             .cast<BenefitorModelStruct>();
         safeSetState(() {});
@@ -1158,6 +1127,10 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
           '${IbsApplicationsDetailCall.idcardpowerofattorney(
         (_model.detailAPIOutput?.jsonBody ?? ''),
       )}';
+      FFAppState().insuranceInfoPage4ImageApp2 =
+          '${IbsApplicationsDetailCall.imageapplication2(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      ).toString()}';
       safeSetState(() {});
       FFAppState().insuranceInfoPage3ImageWound = functions
           .addImgUrlToList(
@@ -1502,6 +1475,9 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                   .toList()
                   .cast<LeadsDetailHouseStruct>();
           safeSetState(() {});
+          FFAppState().insuranceInfoEffectiveDateInsure =
+              FFAppState().leadsDetailHouse.firstOrNull!.effectiveDateInsure;
+          safeSetState(() {});
         } else {
           FFAppState().leadsHouse = IbsApplicationsDetailCall.leadshouse(
             (_model.detailAPIOutput?.jsonBody ?? ''),
@@ -1730,25 +1706,6 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
         });
         Navigator.pop(context);
       }
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
-              content: Text(valueOrDefault<String>(
-                FFAppState().leadsHouse.firstOrNull?.roof,
-                'เลือกฝาผนัง',
-              )),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ),
-          );
-        },
-      );
     });
 
     _model.idCardTextFieldTextController1 ??= TextEditingController();
@@ -9662,6 +9619,94 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                           'House'
                                                       ? true
                                                       : false) {
+                                                    if (FFAppState()
+                                                            .benefitorData
+                                                            .length <=
+                                                        0) {
+                                                      FFAppState()
+                                                              .benefitorData =
+                                                          functions
+                                                              .returnBenefitorModelList(
+                                                                  BenefitorModelStruct(
+                                                                insuredPersonId:
+                                                                    '',
+                                                                insuredPersonNo:
+                                                                    '1',
+                                                                insuredPersonType:
+                                                                    'I',
+                                                                applicationId:
+                                                                    FFAppState()
+                                                                        .insuranceInfoApplicationId,
+                                                                gender: () {
+                                                                  if ((FFAppState()
+                                                                              .insuranceInfoGender ==
+                                                                          'MALE') ||
+                                                                      (FFAppState()
+                                                                              .insuranceInfoGender ==
+                                                                          'ชาย')) {
+                                                                    return 'MALE';
+                                                                  } else if ((FFAppState()
+                                                                              .insuranceInfoGender ==
+                                                                          'FEMALE') ||
+                                                                      (FFAppState()
+                                                                              .insuranceInfoGender ==
+                                                                          'หญิง')) {
+                                                                    return 'FEMALE';
+                                                                  } else {
+                                                                    return 'กรุณาเลือกเพศ';
+                                                                  }
+                                                                }(),
+                                                                titleThId: '',
+                                                                titleTh:
+                                                                    FFAppState()
+                                                                        .insuranceInfoTitle,
+                                                                firstNameTh: _model
+                                                                    .cusNameTextFieldTextController
+                                                                    .text,
+                                                                lastNameTh: _model
+                                                                    .cusLastnameTextFieldTextController
+                                                                    .text,
+                                                                birthDay:
+                                                                    valueOrDefault<
+                                                                        String>(
+                                                                  () {
+                                                                    if (_model
+                                                                            .datePicked !=
+                                                                        null) {
+                                                                      return functions
+                                                                          .getDateFormat(
+                                                                              _model.datePicked);
+                                                                    } else if ((FFAppState().insuranceInfoBirthDate !=
+                                                                                null &&
+                                                                            FFAppState().insuranceInfoBirthDate !=
+                                                                                '') &&
+                                                                        (FFAppState().insuranceInfoBirthDate !=
+                                                                            '') &&
+                                                                        (FFAppState().insuranceInfoBirthDate !=
+                                                                            '')) {
+                                                                      return FFAppState()
+                                                                          .insuranceInfoBirthDate;
+                                                                    } else {
+                                                                      return 'กรุณาเลือก วัน/เดือน/ปี เกิด';
+                                                                    }
+                                                                  }(),
+                                                                  'กรุณาเลือก วัน/เดือน/ปี เกิด',
+                                                                ),
+                                                                beneficiaryName:
+                                                                    '',
+                                                                relationName:
+                                                                    '',
+                                                                insuredPersonTypeName:
+                                                                    'ผู้เอาประกัน',
+                                                                age: FFAppState()
+                                                                    .insuranceInfoAge,
+                                                              ))!
+                                                              .toList()
+                                                              .cast<
+                                                                  BenefitorModelStruct>();
+                                                      safeSetState(() {});
+                                                    }
+
                                                     context.pushNamed(
                                                       'fireInsuranceInfoPage2',
                                                       queryParameters: {

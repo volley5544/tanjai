@@ -296,10 +296,15 @@ class _FireInsuranceInfoPage2WidgetState
         safeSetState(() {});
       },
     );
-    _model.sumInsureTotalTextController ??= TextEditingController(
+    _model.sumInsureTotalTextController1 ??= TextEditingController(
         text: functions.returnNumberWithComma2Decimal(
             FFAppState().leadsHouse.firstOrNull?.sumInsureTotal));
-    _model.sumInsureTotalFocusNode ??= FocusNode();
+    _model.sumInsureTotalFocusNode1 ??= FocusNode();
+
+    _model.sumInsureTotalTextController2 ??= TextEditingController(
+        text: functions.returnNumberWithComma2Decimal(
+            FFAppState().leadsDetailHouse.firstOrNull?.sumInsured));
+    _model.sumInsureTotalFocusNode2 ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -1050,6 +1055,301 @@ class _FireInsuranceInfoPage2WidgetState
                                                               width: 90.0,
                                                               fit: BoxFit
                                                                   .contain,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 5.0, 0.0, 0.0),
+                                        child: Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  1.0,
+                                          decoration: BoxDecoration(),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        12.0, 0.0, 12.0, 0.0),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Text(
+                                                      'ผู้เอาประกันภัย',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            fontSize: 15.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  10.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Text(
+                                                        '(กรุณาเลือก)',
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Noto Sans Thai',
+                                                              color: Color(
+                                                                  0xFFFB0606),
+                                                              fontSize: 12.0,
+                                                              letterSpacing:
+                                                                  0.0,
+                                                            ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 5.0, 0.0, 0.0),
+                                                child: InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    context.pushNamed(
+                                                      'FireSearchableListPage',
+                                                      queryParameters: {
+                                                        'titleText':
+                                                            serializeParam(
+                                                          'เลือกผู้เอาประกันภัย',
+                                                          ParamType.String,
+                                                        ),
+                                                        'searchLabel':
+                                                            serializeParam(
+                                                          'ระบุผู้เอาประกันภัย',
+                                                          ParamType.String,
+                                                        ),
+                                                        'dataList':
+                                                            serializeParam(
+                                                          widget!
+                                                              .masterDataFirebase
+                                                              ?.assured,
+                                                          ParamType.String,
+                                                          isList: true,
+                                                        ),
+                                                        'multiSelect':
+                                                            serializeParam(
+                                                          false,
+                                                          ParamType.bool,
+                                                        ),
+                                                      }.withoutNulls,
+                                                    );
+                                                  },
+                                                  child: Container(
+                                                    width: MediaQuery.sizeOf(
+                                                                context)
+                                                            .width *
+                                                        1.0,
+                                                    height: 60.0,
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              8.0),
+                                                      border: Border.all(
+                                                        color:
+                                                            Color(0xFFB3B3B3),
+                                                      ),
+                                                    ),
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      10.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: Text(
+                                                            valueOrDefault<
+                                                                String>(
+                                                              FFAppState()
+                                                                  .leadsHouse
+                                                                  .firstOrNull
+                                                                  ?.assured,
+                                                              'เลือกผู้เอาประกันภัย',
+                                                            ),
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Noto Sans Thai',
+                                                                  color:
+                                                                      valueOrDefault<
+                                                                          Color>(
+                                                                    '${FFAppState().leadsHouse.firstOrNull?.assured}' ==
+                                                                            ''
+                                                                        ? FlutterFlowTheme.of(context)
+                                                                            .secondaryText
+                                                                        : FlutterFlowTheme.of(context)
+                                                                            .primaryText,
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryText,
+                                                                  ),
+                                                                  fontSize:
+                                                                      15.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                ),
+                                                          ),
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      20.0,
+                                                                      0.0),
+                                                          child: ClipRRect(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.0),
+                                                            child:
+                                                                Image.network(
+                                                              getCORSProxyUrl(
+                                                                () {
+                                                                  if (FFAppState()
+                                                                          .insuranceInfoCarTypeDetail ==
+                                                                      'รถเก๋ง') {
+                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=68ef0a76-99d9-4c43-ae86-b48970b7fb09';
+                                                                  } else if (FFAppState()
+                                                                          .insuranceInfoCarTypeDetail ==
+                                                                      'รถตู้') {
+                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B8%95%E0%B8%B9%E0%B9%89.png?alt=media&token=8969fa4a-52e0-4b0c-9c44-f349976bc624';
+                                                                  } else if (FFAppState()
+                                                                          .insuranceInfoCarTypeDetail ==
+                                                                      'รถกระบะ 2 ประตู') {
+                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%20%E0%B8%95%E0%B8%AD%E0%B8%99%E0%B9%80%E0%B8%94%E0%B8%B5%E0%B8%A2%E0%B8%A7%20(%E0%B8%A3%E0%B8%A7%E0%B8%A1).png?alt=media&token=bd62e47d-dd92-41ca-8f51-3632edfd54a6';
+                                                                  } else if (FFAppState()
+                                                                          .insuranceInfoCarTypeDetail ==
+                                                                      'รถกระบะ 4 ประตู') {
+                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%204%20%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%95%E0%B8%B9.png?alt=media&token=45bc2e60-3a29-47dc-aa4d-e9c82a113bbc';
+                                                                  } else if (FFAppState()
+                                                                          .insuranceInfoCarTypeDetail ==
+                                                                      'รถบรรทุก หัวลาก หางพ่วง') {
+                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B8%A5%E0%B8%B2%E0%B8%81%20%E0%B8%AB%E0%B8%B2%E0%B8%87%E0%B8%9E%E0%B9%88%E0%B8%A7%E0%B8%87.png?alt=media&token=1d749f04-0765-422a-b0b7-34a3d5d60519';
+                                                                  } else if (FFAppState()
+                                                                          .insuranceInfoCarTypeDetail ==
+                                                                      'รถแต่ง ต่อคอก') {
+                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B9%81%E0%B8%95%E0%B9%88%E0%B8%87%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B8%84%E0%B8%AD%E0%B8%81.png?alt=media&token=80501c24-fec4-4c34-ac0f-361db3b698b3';
+                                                                  } else if (FFAppState()
+                                                                          .insuranceInfoCarTypeDetail ==
+                                                                      'กระบะไม่ต่อเติม') {
+                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%202%20%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%95%E0%B8%B9%E0%B9%84%E0%B8%A1%E0%B9%88%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1.png?alt=media&token=ca1d014f-d1aa-4f27-bd54-3d97d5efba3f';
+                                                                  } else if (FFAppState()
+                                                                          .insuranceInfoCarTypeDetail ==
+                                                                      'กระบะต่อเติมเกินหัวเก๋ง') {
+                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1%E0%B9%80%E0%B8%81%E0%B8%B4%E0%B8%99%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=957c9ae1-6d8a-41d5-b7aa-23965926a562';
+                                                                  } else if (FFAppState()
+                                                                          .insuranceInfoCarTypeDetail ==
+                                                                      'กระบะต่อเติมเกินหัวเก๋ง') {
+                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1%E0%B9%80%E0%B8%81%E0%B8%B4%E0%B8%99%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=957c9ae1-6d8a-41d5-b7aa-23965926a562';
+                                                                  } else if (FFAppState()
+                                                                          .insuranceInfoCarTypeDetail ==
+                                                                      'กระบะตู้ทึบ/ตู้แห้ง') {
+                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F2_%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B8%B9%E0%B9%89%E0%B8%97%E0%B8%B6%E0%B8%9A_%E0%B8%95%E0%B8%B9%E0%B9%89%E0%B9%81%E0%B8%AB%E0%B9%89%E0%B8%87.png?alt=media&token=71715c79-6196-4a63-9a9e-c179033218ea';
+                                                                  } else {
+                                                                    return '-';
+                                                                  }
+                                                                }(),
+                                                              ),
+                                                              width: () {
+                                                                if (FFAppState()
+                                                                        .insuranceInfoCarTypeDetail ==
+                                                                    'รถเก๋ง') {
+                                                                  return 90;
+                                                                } else if (FFAppState()
+                                                                        .insuranceInfoCarTypeDetail ==
+                                                                    'รถตู้') {
+                                                                  return 90;
+                                                                } else if (FFAppState()
+                                                                        .insuranceInfoCarTypeDetail ==
+                                                                    'รถกระบะ 2 ประตู') {
+                                                                  return 90;
+                                                                } else if (FFAppState()
+                                                                        .insuranceInfoCarTypeDetail ==
+                                                                    'รถกระบะ 4 ประตู') {
+                                                                  return 90;
+                                                                } else if (FFAppState()
+                                                                        .insuranceInfoCarTypeDetail ==
+                                                                    'รถบรรทุก หัวลาก หางพ่วง') {
+                                                                  return 130;
+                                                                } else if (FFAppState()
+                                                                        .insuranceInfoCarTypeDetail ==
+                                                                    'รถแต่ง ต่อคอก') {
+                                                                  return 90;
+                                                                } else if (FFAppState()
+                                                                        .insuranceInfoCarTypeDetail ==
+                                                                    'กระบะไม่ต่อเติม') {
+                                                                  return 100;
+                                                                } else if (FFAppState()
+                                                                        .insuranceInfoCarTypeDetail ==
+                                                                    'กระบะต่อเติมเกินหัวเก๋ง') {
+                                                                  return 130;
+                                                                } else if (FFAppState()
+                                                                        .insuranceInfoCarTypeDetail ==
+                                                                    'กระบะต่อเติมไม่เกินหัวเก๋ง') {
+                                                                  return 130;
+                                                                } else if (FFAppState()
+                                                                        .insuranceInfoCarTypeDetail ==
+                                                                    'กระบะตู้ทึบ/ตู้แห้ง') {
+                                                                  return 100;
+                                                                } else {
+                                                                  return 0;
+                                                                }
+                                                              }()
+                                                                  .toDouble(),
+                                                              fit: BoxFit.cover,
                                                             ),
                                                           ),
                                                         ),
@@ -3745,285 +4045,6 @@ class _FireInsuranceInfoPage2WidgetState
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Text(
-                                                  'ผู้เอาประกันภัย',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Noto Sans Thai',
-                                                        fontSize: 15.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                      ),
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          10.0, 0.0, 0.0, 0.0),
-                                                  child: Text(
-                                                    '(กรุณาเลือก)',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Noto Sans Thai',
-                                                          color:
-                                                              Color(0xFFFB0606),
-                                                          fontSize: 12.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 5.0, 0.0, 0.0),
-                                            child: InkWell(
-                                              splashColor: Colors.transparent,
-                                              focusColor: Colors.transparent,
-                                              hoverColor: Colors.transparent,
-                                              highlightColor:
-                                                  Colors.transparent,
-                                              onTap: () async {
-                                                context.pushNamed(
-                                                  'FireSearchableListPage',
-                                                  queryParameters: {
-                                                    'titleText': serializeParam(
-                                                      'เลือกผู้เอาประกันภัย',
-                                                      ParamType.String,
-                                                    ),
-                                                    'searchLabel':
-                                                        serializeParam(
-                                                      'ระบุผู้เอาประกันภัย',
-                                                      ParamType.String,
-                                                    ),
-                                                    'dataList': serializeParam(
-                                                      widget!.masterDataFirebase
-                                                          ?.assured,
-                                                      ParamType.String,
-                                                      isList: true,
-                                                    ),
-                                                    'multiSelect':
-                                                        serializeParam(
-                                                      false,
-                                                      ParamType.bool,
-                                                    ),
-                                                  }.withoutNulls,
-                                                );
-                                              },
-                                              child: Container(
-                                                width:
-                                                    MediaQuery.sizeOf(context)
-                                                            .width *
-                                                        1.0,
-                                                height: 60.0,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryBackground,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
-                                                  border: Border.all(
-                                                    color: Color(0xFFB3B3B3),
-                                                  ),
-                                                ),
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  children: [
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Text(
-                                                        valueOrDefault<String>(
-                                                          FFAppState()
-                                                              .leadsHouse
-                                                              .firstOrNull
-                                                              ?.assured,
-                                                          'เลือกผู้เอาประกันภัย',
-                                                        ),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  color:
-                                                                      valueOrDefault<
-                                                                          Color>(
-                                                                    '${FFAppState().leadsHouse.firstOrNull?.assured}' ==
-                                                                            ''
-                                                                        ? FlutterFlowTheme.of(context)
-                                                                            .secondaryText
-                                                                        : FlutterFlowTheme.of(context)
-                                                                            .primaryText,
-                                                                    FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .secondaryText,
-                                                                  ),
-                                                                  fontSize:
-                                                                      15.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                ),
-                                                      ),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  20.0,
-                                                                  0.0),
-                                                      child: ClipRRect(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(8.0),
-                                                        child: Image.network(
-                                                          getCORSProxyUrl(
-                                                            () {
-                                                              if (FFAppState()
-                                                                      .insuranceInfoCarTypeDetail ==
-                                                                  'รถเก๋ง') {
-                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=68ef0a76-99d9-4c43-ae86-b48970b7fb09';
-                                                              } else if (FFAppState()
-                                                                      .insuranceInfoCarTypeDetail ==
-                                                                  'รถตู้') {
-                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B8%95%E0%B8%B9%E0%B9%89.png?alt=media&token=8969fa4a-52e0-4b0c-9c44-f349976bc624';
-                                                              } else if (FFAppState()
-                                                                      .insuranceInfoCarTypeDetail ==
-                                                                  'รถกระบะ 2 ประตู') {
-                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%20%E0%B8%95%E0%B8%AD%E0%B8%99%E0%B9%80%E0%B8%94%E0%B8%B5%E0%B8%A2%E0%B8%A7%20(%E0%B8%A3%E0%B8%A7%E0%B8%A1).png?alt=media&token=bd62e47d-dd92-41ca-8f51-3632edfd54a6';
-                                                              } else if (FFAppState()
-                                                                      .insuranceInfoCarTypeDetail ==
-                                                                  'รถกระบะ 4 ประตู') {
-                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%204%20%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%95%E0%B8%B9.png?alt=media&token=45bc2e60-3a29-47dc-aa4d-e9c82a113bbc';
-                                                              } else if (FFAppState()
-                                                                      .insuranceInfoCarTypeDetail ==
-                                                                  'รถบรรทุก หัวลาก หางพ่วง') {
-                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B8%A5%E0%B8%B2%E0%B8%81%20%E0%B8%AB%E0%B8%B2%E0%B8%87%E0%B8%9E%E0%B9%88%E0%B8%A7%E0%B8%87.png?alt=media&token=1d749f04-0765-422a-b0b7-34a3d5d60519';
-                                                              } else if (FFAppState()
-                                                                      .insuranceInfoCarTypeDetail ==
-                                                                  'รถแต่ง ต่อคอก') {
-                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B9%81%E0%B8%95%E0%B9%88%E0%B8%87%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B8%84%E0%B8%AD%E0%B8%81.png?alt=media&token=80501c24-fec4-4c34-ac0f-361db3b698b3';
-                                                              } else if (FFAppState()
-                                                                      .insuranceInfoCarTypeDetail ==
-                                                                  'กระบะไม่ต่อเติม') {
-                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%202%20%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%95%E0%B8%B9%E0%B9%84%E0%B8%A1%E0%B9%88%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1.png?alt=media&token=ca1d014f-d1aa-4f27-bd54-3d97d5efba3f';
-                                                              } else if (FFAppState()
-                                                                      .insuranceInfoCarTypeDetail ==
-                                                                  'กระบะต่อเติมเกินหัวเก๋ง') {
-                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1%E0%B9%80%E0%B8%81%E0%B8%B4%E0%B8%99%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=957c9ae1-6d8a-41d5-b7aa-23965926a562';
-                                                              } else if (FFAppState()
-                                                                      .insuranceInfoCarTypeDetail ==
-                                                                  'กระบะต่อเติมเกินหัวเก๋ง') {
-                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1%E0%B9%80%E0%B8%81%E0%B8%B4%E0%B8%99%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=957c9ae1-6d8a-41d5-b7aa-23965926a562';
-                                                              } else if (FFAppState()
-                                                                      .insuranceInfoCarTypeDetail ==
-                                                                  'กระบะตู้ทึบ/ตู้แห้ง') {
-                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F2_%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B8%B9%E0%B9%89%E0%B8%97%E0%B8%B6%E0%B8%9A_%E0%B8%95%E0%B8%B9%E0%B9%89%E0%B9%81%E0%B8%AB%E0%B9%89%E0%B8%87.png?alt=media&token=71715c79-6196-4a63-9a9e-c179033218ea';
-                                                              } else {
-                                                                return '-';
-                                                              }
-                                                            }(),
-                                                          ),
-                                                          width: () {
-                                                            if (FFAppState()
-                                                                    .insuranceInfoCarTypeDetail ==
-                                                                'รถเก๋ง') {
-                                                              return 90;
-                                                            } else if (FFAppState()
-                                                                    .insuranceInfoCarTypeDetail ==
-                                                                'รถตู้') {
-                                                              return 90;
-                                                            } else if (FFAppState()
-                                                                    .insuranceInfoCarTypeDetail ==
-                                                                'รถกระบะ 2 ประตู') {
-                                                              return 90;
-                                                            } else if (FFAppState()
-                                                                    .insuranceInfoCarTypeDetail ==
-                                                                'รถกระบะ 4 ประตู') {
-                                                              return 90;
-                                                            } else if (FFAppState()
-                                                                    .insuranceInfoCarTypeDetail ==
-                                                                'รถบรรทุก หัวลาก หางพ่วง') {
-                                                              return 130;
-                                                            } else if (FFAppState()
-                                                                    .insuranceInfoCarTypeDetail ==
-                                                                'รถแต่ง ต่อคอก') {
-                                                              return 90;
-                                                            } else if (FFAppState()
-                                                                    .insuranceInfoCarTypeDetail ==
-                                                                'กระบะไม่ต่อเติม') {
-                                                              return 100;
-                                                            } else if (FFAppState()
-                                                                    .insuranceInfoCarTypeDetail ==
-                                                                'กระบะต่อเติมเกินหัวเก๋ง') {
-                                                              return 130;
-                                                            } else if (FFAppState()
-                                                                    .insuranceInfoCarTypeDetail ==
-                                                                'กระบะต่อเติมไม่เกินหัวเก๋ง') {
-                                                              return 130;
-                                                            } else if (FFAppState()
-                                                                    .insuranceInfoCarTypeDetail ==
-                                                                'กระบะตู้ทึบ/ตู้แห้ง') {
-                                                              return 100;
-                                                            } else {
-                                                              return 0;
-                                                            }
-                                                          }()
-                                                              .toDouble(),
-                                                          fit: BoxFit.cover,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 5.0, 0.0, 0.0),
-                                    child: Container(
-                                      width: MediaQuery.sizeOf(context).width *
-                                          1.0,
-                                      decoration: BoxDecoration(),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    12.0, 0.0, 12.0, 0.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Text(
                                                   'สิ่งปลูกสร้าง (ไม่รวมรากฐาน)',
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -4540,39 +4561,6 @@ class _FireInsuranceInfoPage2WidgetState
                                               highlightColor:
                                                   Colors.transparent,
                                               onTap: () async {
-                                                context.pushNamed(
-                                                  'SearchableListPage',
-                                                  queryParameters: {
-                                                    'titleText': serializeParam(
-                                                      'เลือกปีที่ผลิต',
-                                                      ParamType.String,
-                                                    ),
-                                                    'searchLabel':
-                                                        serializeParam(
-                                                      'เลือกปี',
-                                                      ParamType.String,
-                                                    ),
-                                                    'dataList': serializeParam(
-                                                      functions.reverseList(
-                                                          functions
-                                                              .ganerateYearList(
-                                                                  1957, 2023)
-                                                              ?.toList()),
-                                                      ParamType.String,
-                                                      isList: true,
-                                                    ),
-                                                    'multiSelect':
-                                                        serializeParam(
-                                                      false,
-                                                      ParamType.bool,
-                                                    ),
-                                                    'fromPage': serializeParam(
-                                                      'insuranceInfoPage2',
-                                                      ParamType.String,
-                                                    ),
-                                                  }.withoutNulls,
-                                                );
-
                                                 await actions
                                                     .hideKeyboardAction(
                                                   context,
@@ -4597,9 +4585,9 @@ class _FireInsuranceInfoPage2WidgetState
                                                   width: 200.0,
                                                   child: TextFormField(
                                                     controller: _model
-                                                        .sumInsureTotalTextController,
+                                                        .sumInsureTotalTextController1,
                                                     focusNode: _model
-                                                        .sumInsureTotalFocusNode,
+                                                        .sumInsureTotalFocusNode1,
                                                     autofocus: false,
                                                     readOnly: true,
                                                     obscureText: false,
@@ -4694,7 +4682,184 @@ class _FireInsuranceInfoPage2WidgetState
                                                                 context)
                                                             .primaryText,
                                                     validator: _model
-                                                        .sumInsureTotalTextControllerValidator
+                                                        .sumInsureTotalTextController1Validator
+                                                        .asValidator(context),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 5.0, 0.0, 0.0),
+                                    child: Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          1.0,
+                                      decoration: BoxDecoration(),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 0.0, 12.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Text(
+                                                  'ทุนประกันภัย',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        fontSize: 15.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 5.0, 0.0, 0.0),
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                await actions
+                                                    .hideKeyboardAction(
+                                                  context,
+                                                );
+                                              },
+                                              child: Container(
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        1.0,
+                                                height: 60.0,
+                                                decoration: BoxDecoration(
+                                                  color: Color(0xFFF6F6F6),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                  border: Border.all(
+                                                    color: Color(0xFFB3B3B3),
+                                                  ),
+                                                ),
+                                                child: Container(
+                                                  width: 200.0,
+                                                  child: TextFormField(
+                                                    controller: _model
+                                                        .sumInsureTotalTextController2,
+                                                    focusNode: _model
+                                                        .sumInsureTotalFocusNode2,
+                                                    autofocus: false,
+                                                    readOnly: true,
+                                                    obscureText: false,
+                                                    decoration: InputDecoration(
+                                                      isDense: true,
+                                                      labelStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Noto Sans Thai',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                      hintStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Noto Sans Thai',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
+                                                                fontSize: 15.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                      enabledBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color:
+                                                              Color(0x00000000),
+                                                          width: 1.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                      ),
+                                                      focusedBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color:
+                                                              Color(0x00000000),
+                                                          width: 1.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                      ),
+                                                      errorBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color:
+                                                              Color(0x00000000),
+                                                          width: 1.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                      ),
+                                                      focusedErrorBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color:
+                                                              Color(0x00000000),
+                                                          width: 1.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                      ),
+                                                      filled: true,
+                                                      fillColor:
+                                                          Color(0xFFF6F6F6),
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                          fontSize: 15.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                    cursorColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryText,
+                                                    validator: _model
+                                                        .sumInsureTotalTextController2Validator
                                                         .asValidator(context),
                                                   ),
                                                 ),
@@ -4822,8 +4987,9 @@ class _FireInsuranceInfoPage2WidgetState
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                color: Color(
-                                                                    0xFF003063),
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
                                                                 fontSize: 15.0,
                                                                 letterSpacing:
                                                                     0.0,
@@ -4882,7 +5048,7 @@ class _FireInsuranceInfoPage2WidgetState
                                                                     'Noto Sans Thai',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .info,
+                                                                    .primaryText,
                                                                 fontSize: 15.0,
                                                                 letterSpacing:
                                                                     0.0,
@@ -5041,8 +5207,9 @@ class _FireInsuranceInfoPage2WidgetState
                                                           .override(
                                                             fontFamily:
                                                                 'Noto Sans Thai',
-                                                            color: Color(
-                                                                0xFF003063),
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText,
                                                             fontSize: 15.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
@@ -5057,8 +5224,9 @@ class _FireInsuranceInfoPage2WidgetState
                                                           .override(
                                                             fontFamily:
                                                                 'Noto Sans Thai',
-                                                            color: Color(
-                                                                0xFF003063),
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText,
                                                             fontSize: 15.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
@@ -5078,7 +5246,7 @@ class _FireInsuranceInfoPage2WidgetState
                                                                       0.0,
                                                                       0.0),
                                                           child: Text(
-                                                            '(ระบุอย่างน้อย 1 คน)',
+                                                            '(บังคับระบุ 1 คน)',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
@@ -5103,7 +5271,7 @@ class _FireInsuranceInfoPage2WidgetState
                                                                       0.0,
                                                                       0.0),
                                                           child: Text(
-                                                            '${FFAppState().benefitorData.length == 1 ? ((FFAppState().benefitorData.length == 1) && ((FFAppState().benefitorData.firstOrNull?.firstNameTh != '') && (FFAppState().benefitorData.firstOrNull?.lastNameTh != '') && (FFAppState().benefitorData.firstOrNull?.birthDay != '') && (FFAppState().benefitorData.firstOrNull?.beneficiaryName != '') && (FFAppState().benefitorData.firstOrNull?.relationName != '')) ? FFAppState().benefitorData.length.toString() : '0') : FFAppState().benefitorData.length.toString()}/5',
+                                                            '${FFAppState().benefitorData.length == 1 ? ((FFAppState().benefitorData.length == 1) && ((FFAppState().benefitorData.firstOrNull?.firstNameTh != '') && (FFAppState().benefitorData.firstOrNull?.lastNameTh != '') && (FFAppState().benefitorData.firstOrNull?.birthDay != '') && (FFAppState().benefitorData.firstOrNull?.beneficiaryName != '') && (FFAppState().benefitorData.firstOrNull?.relationName != '')) ? FFAppState().benefitorData.length.toString() : '0') : FFAppState().benefitorData.length.toString()}/1',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
@@ -5274,49 +5442,6 @@ class _FireInsuranceInfoPage2WidgetState
                                                 }
 
                                                 if (_model.datePicked != null) {
-                                                  await showDialog(
-                                                    context: context,
-                                                    builder:
-                                                        (alertDialogContext) {
-                                                      return WebViewAware(
-                                                        child: AlertDialog(
-                                                          content: Text(_model
-                                                              .datePicked!
-                                                              .toString()),
-                                                          actions: [
-                                                            TextButton(
-                                                              onPressed: () =>
-                                                                  Navigator.pop(
-                                                                      alertDialogContext),
-                                                              child: Text('Ok'),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      );
-                                                    },
-                                                  );
-                                                  await showDialog(
-                                                    context: context,
-                                                    builder:
-                                                        (alertDialogContext) {
-                                                      return WebViewAware(
-                                                        child: AlertDialog(
-                                                          content: Text(
-                                                              columnEffectiveDayConfigRecord!
-                                                                  .effectiveDaysInsure
-                                                                  .toString()),
-                                                          actions: [
-                                                            TextButton(
-                                                              onPressed: () =>
-                                                                  Navigator.pop(
-                                                                      alertDialogContext),
-                                                              child: Text('Ok'),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      );
-                                                    },
-                                                  );
                                                 } else {
                                                   await actions
                                                       .hideKeyboardAction(
@@ -5397,16 +5522,15 @@ class _FireInsuranceInfoPage2WidgetState
                                                                   0.0,
                                                                   0.0),
                                                       child: Text(
-                                                        FFAppState().insuranceInfoEffectiveDateInsure ==
-                                                                ''
-                                                            ? 'กรุณาเลือกวันที่ต้องการเริ่มคุ้มครองประกัน'
-                                                            : valueOrDefault<
-                                                                String>(
-                                                                functions.showDateBE(_model
-                                                                    .datePicked
-                                                                    ?.toString()),
-                                                                '0',
-                                                              ),
+                                                        valueOrDefault<String>(
+                                                          FFAppState().insuranceInfoEffectiveDateInsure ==
+                                                                  ''
+                                                              ? 'กรุณาเลือกวันที่ต้องการเริ่มคุ้มครองประกัน'
+                                                              : functions.showDateBE(
+                                                                  FFAppState()
+                                                                      .insuranceInfoEffectiveDateInsure),
+                                                          '-',
+                                                        ),
                                                         style: FlutterFlowTheme
                                                                 .of(context)
                                                             .bodyMedium
@@ -5480,13 +5604,7 @@ class _FireInsuranceInfoPage2WidgetState
                                             FFButtonWidget(
                                               onPressed: () async {
                                                 var _shouldSetState = false;
-                                                if (valueOrDefault<String>(
-                                                      FFAppState()
-                                                          .leadsHouse
-                                                          .firstOrNull
-                                                          ?.wall,
-                                                      'เลือกฝาผนัง',
-                                                    ) ==
+                                                if ('${FFAppState().leadsHouse.firstOrNull?.wall}' ==
                                                     '') {
                                                   await showDialog(
                                                     context: context,
@@ -5512,13 +5630,7 @@ class _FireInsuranceInfoPage2WidgetState
                                                     safeSetState(() {});
                                                   return;
                                                 }
-                                                if (valueOrDefault<String>(
-                                                      FFAppState()
-                                                          .leadsHouse
-                                                          .firstOrNull
-                                                          ?.floorUpper,
-                                                      'เลือกฝาผนัง',
-                                                    ) ==
+                                                if ('${FFAppState().leadsHouse.firstOrNull?.floorUpper}' ==
                                                     '') {
                                                   await showDialog(
                                                     context: context,
@@ -5544,13 +5656,7 @@ class _FireInsuranceInfoPage2WidgetState
                                                     safeSetState(() {});
                                                   return;
                                                 }
-                                                if (valueOrDefault<String>(
-                                                      FFAppState()
-                                                          .leadsHouse
-                                                          .firstOrNull
-                                                          ?.floorGround,
-                                                      'เลือกฝาผนัง',
-                                                    ) ==
+                                                if ('${FFAppState().leadsHouse.firstOrNull?.floorGround}' ==
                                                     '') {
                                                   await showDialog(
                                                     context: context,
@@ -5576,13 +5682,7 @@ class _FireInsuranceInfoPage2WidgetState
                                                     safeSetState(() {});
                                                   return;
                                                 }
-                                                if (valueOrDefault<String>(
-                                                      FFAppState()
-                                                          .leadsHouse
-                                                          .firstOrNull
-                                                          ?.roofFrame,
-                                                      'เลือกฝาผนัง',
-                                                    ) ==
+                                                if ('${FFAppState().leadsHouse.firstOrNull?.roofFrame}' ==
                                                     '') {
                                                   await showDialog(
                                                     context: context,
@@ -5608,40 +5708,7 @@ class _FireInsuranceInfoPage2WidgetState
                                                     safeSetState(() {});
                                                   return;
                                                 }
-                                                await showDialog(
-                                                  context: context,
-                                                  builder:
-                                                      (alertDialogContext) {
-                                                    return WebViewAware(
-                                                      child: AlertDialog(
-                                                        content: Text(
-                                                            valueOrDefault<
-                                                                String>(
-                                                          FFAppState()
-                                                              .leadsHouse
-                                                              .firstOrNull
-                                                              ?.roof,
-                                                          'เลือกฝาผนัง',
-                                                        )),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () =>
-                                                                Navigator.pop(
-                                                                    alertDialogContext),
-                                                            child: Text('Ok'),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    );
-                                                  },
-                                                );
-                                                if (valueOrDefault<String>(
-                                                      FFAppState()
-                                                          .leadsHouse
-                                                          .firstOrNull
-                                                          ?.roof,
-                                                      'เลือกฝาผนัง',
-                                                    ) ==
+                                                if ('${FFAppState().leadsHouse.firstOrNull?.roof}' ==
                                                     '') {
                                                   await showDialog(
                                                     context: context,
@@ -5651,6 +5718,32 @@ class _FireInsuranceInfoPage2WidgetState
                                                         child: AlertDialog(
                                                           content: Text(
                                                               'กรุณาเลือกหลังคา'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    safeSetState(() {});
+                                                  return;
+                                                }
+                                                if ('${FFAppState().leadsHouse.firstOrNull?.assured}' ==
+                                                    '') {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'กรุณาเลือกผู้เอาประกันภัย'),
                                                           actions: [
                                                             TextButton(
                                                               onPressed: () =>
@@ -5745,7 +5838,7 @@ class _FireInsuranceInfoPage2WidgetState
                                                       return WebViewAware(
                                                         child: AlertDialog(
                                                           content: Text(
-                                                              'กรุณาเพิ่มผู้รับประกันภัยอย่างน้อย 1 คน'),
+                                                              'บังคับเพิ่มผู้รับประกันภัย 1 คน'),
                                                           actions: [
                                                             TextButton(
                                                               onPressed: () =>
@@ -5978,11 +6071,8 @@ class _FireInsuranceInfoPage2WidgetState
                                                         (alertDialogContext) {
                                                       return WebViewAware(
                                                         child: AlertDialog(
-                                                          content: Text((_model
-                                                                      .ibsAppAPIOutput
-                                                                      ?.statusCode ??
-                                                                  200)
-                                                              .toString()),
+                                                          content: Text(
+                                                              'พบข้อผิดพลาด connection (${(_model.ibsAppAPIOutput?.statusCode ?? 200).toString()})'),
                                                           actions: [
                                                             TextButton(
                                                               onPressed: () =>

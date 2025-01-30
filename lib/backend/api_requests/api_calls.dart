@@ -13292,12 +13292,14 @@ class IbsApplicationsSaveCall {
     String? houseTypeName = '',
     String? usableArea = '',
     dynamic? appInsuredPersonJson,
+    String? imageApplication2 = '',
   }) async {
     final address = _serializeJson(addressJson);
     final appDriver = _serializeJson(appDriverJson, true);
     final appInsuredPerson = _serializeJson(appInsuredPersonJson, true);
     final ffApiRequestBody = '''
 {
+"image_application_2":"${imageApplication2}",
   "app_insured_person": ${appInsuredPerson},
   "sum_insure_house": "${sumInsureHouse}",
   "sum_insure_buildin": "${sumInsureBuildin}",
@@ -14778,6 +14780,10 @@ class IbsApplicationsDetailCall {
           .map((x) => BenefitorModelStruct.maybeFromMap(x))
           .withoutNulls
           .toList();
+  static dynamic imageapplication2(dynamic response) => getJsonField(
+        response,
+        r'''$.results.data.app_document[:].image_application_2''',
+      );
 }
 
 class IbsApplicationsPaymentSaveCall {

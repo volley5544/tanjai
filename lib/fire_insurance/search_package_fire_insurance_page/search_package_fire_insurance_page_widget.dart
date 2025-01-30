@@ -1,7 +1,5 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
-import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -13,7 +11,6 @@ import 'dart:convert';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -89,20 +86,6 @@ class _SearchPackageFireInsurancePageWidgetState
       FFAppState().employeeID = FFAppState().userProfileData.ownerId;
       FFAppState().branchCode = FFAppState().userProfileData.branchCode;
       safeSetState(() {});
-      if (FFAppState().isProduction) {
-        _model.queryApiUrlProdOutput = await KeyStorageRecord.getDocumentOnce(
-            FFAppState().KeyStorageProdDocRef!);
-        FFAppState().apiUrlInsuranceAppState =
-            _model.queryApiUrlProdOutput!.apiURL;
-        safeSetState(() {});
-      } else {
-        _model.queryApiUrlUatOutput = await KeyStorage3Record.getDocumentOnce(
-            FFAppState().KeyStorageUatDocRef!);
-        FFAppState().apiUrlInsuranceAppState =
-            _model.queryApiUrlUatOutput!.uat2ApiUrl;
-        safeSetState(() {});
-      }
-
       Navigator.pop(context);
     });
 
@@ -369,48 +352,12 @@ class _SearchPackageFireInsurancePageWidgetState
               long: '0',
             );
 
-            await showDialog(
-              context: context,
-              builder: (alertDialogContext) {
-                return WebViewAware(
-                  child: AlertDialog(
-                    content: Text(
-                        (_model.calEstimatedOutputCmSq?.jsonBody ?? '')
-                            .toString()),
-                    actions: [
-                      TextButton(
-                        onPressed: () => Navigator.pop(alertDialogContext),
-                        child: Text('Ok'),
-                      ),
-                    ],
-                  ),
-                );
-              },
-            );
             if ((_model.calEstimatedOutputCmSq?.statusCode ?? 200) == 200) {
               if ('${getJsonField(
                     (_model.calEstimatedOutputCmSq?.jsonBody ?? ''),
                     r'''$.code''',
                   ).toString().toString()}' ==
                   '200') {
-                await showDialog(
-                  context: context,
-                  builder: (alertDialogContext) {
-                    return WebViewAware(
-                      child: AlertDialog(
-                        content: Text(
-                            (_model.calEstimatedOutputCmSq?.jsonBody ?? '')
-                                .toString()),
-                        actions: [
-                          TextButton(
-                            onPressed: () => Navigator.pop(alertDialogContext),
-                            child: Text('Ok'),
-                          ),
-                        ],
-                      ),
-                    );
-                  },
-                );
                 FFAppState().calEstimatedData =
                     HouseInsuranceGroup.houseCalEstimatedApiCall.data(
                   (_model.calEstimatedOutputCmSq?.jsonBody ?? ''),

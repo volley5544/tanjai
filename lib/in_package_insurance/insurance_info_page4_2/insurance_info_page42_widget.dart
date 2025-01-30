@@ -351,6 +351,9 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                 .toList()
                 .cast<LeadsDetailHouseStruct>();
         safeSetState(() {});
+        FFAppState().insuranceInfoEffectiveDateInsure =
+            FFAppState().leadsDetailHouse.firstOrNull!.effectiveDateInsure;
+        safeSetState(() {});
       }
       if (IbsApplicationsDetailCall.quotationstatus(
             (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
@@ -360,8 +363,6 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
             '${IbsApplicationsDetailCall.quotationstatus(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
         )}';
-        FFAppState().insuranceInfoEffectiveDateInsure =
-            FFAppState().leadsDetailHouse.firstOrNull!.effectiveDateInsure;
         safeSetState(() {});
         Navigator.pop(context);
         return;
@@ -404,13 +405,9 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
         )}';
         FFAppState().insuranceInfoPage4SelectInstallMentFirstDue =
-            '${IbsApplicationsDetailCall.installmentfirstdue(
-          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        )}';
+            '${FFAppState().leadsDetailHouse.firstOrNull?.installmentFirstDue}';
         FFAppState().insuranceInfoPage4SelectInstallMentLastDue =
-            '${IbsApplicationsDetailCall.installmentlastdue(
-          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        )}';
+            '${FFAppState().leadsDetailHouse.firstOrNull?.installmentLastDue}';
         FFAppState().insuranceInfoPage4FirstPay =
             '${IbsApplicationsDetailCall.firstPayAmount(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
@@ -425,7 +422,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
         )}';
         FFAppState().insuranceInfoPage4NetPremiumTotal = '${getJsonField(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-          r'''$.results.data.app_detail_house[:].net_premium_total''',
+          r'''$.results.data.app_detail_house[0].net_premium_total''',
         ).toString().toString()}';
         FFAppState().insuranceinfoActType =
             '${IbsApplicationsDetailCall.subProduct(
@@ -525,10 +522,10 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
         });
         safeSetState(() {
           _model.netPremiumTotalTextController?.text =
-              functions.showNumberWithComma(
-                  IbsApplicationsDetailCall.netpremiumtotalAppdetail(
+              functions.showNumberWithComma('${getJsonField(
             (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-          ))!;
+            r'''$.results.data.app_detail_house[0].net_premium_total''',
+          ).toString().toString()}')!;
         });
         Navigator.pop(context);
       } else {
@@ -625,10 +622,10 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
         });
         safeSetState(() {
           _model.netPremiumTotalTextController?.text =
-              functions.showNumberWithComma(
-                  IbsApplicationsDetailCall.netpremiumtotalAppdetail(
+              functions.showNumberWithComma('${getJsonField(
             (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-          ))!;
+            r'''$.results.data.app_detail_house[0].net_premium_total''',
+          ).toString().toString()}')!;
         });
         safeSetState(() {
           _model.actTotalTextController?.text =

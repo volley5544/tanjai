@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'serialization_util.dart';
-import '../backend.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '../../flutter_flow/flutter_flow_util.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -719,6 +719,13 @@ final parametersBuilderMap =
       ),
   'FireQuotationCopy': (data) async => ParameterData(
         allParams: {},
+      ),
+  'uploadImgFireInsurerPage': (data) async => ParameterData(
+        allParams: {
+          'titleText': getParameter<String>(data, 'titleText'),
+          'searchLabel': getParameter<String>(data, 'searchLabel'),
+          'fromPage': getParameter<String>(data, 'fromPage'),
+        },
       ),
 };
 

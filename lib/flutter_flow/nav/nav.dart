@@ -2467,11 +2467,32 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'FireQuotationCopy',
               path: 'FireQuotationCopy',
-              builder: (context, params) => FireQuotationCopyWidget(
-                quotation: params.getParam<String>(
-                  'quotation',
+              builder: (context, params) => NavBarPage(
+                initialPage: '',
+                page: FireQuotationCopyWidget(
+                  quotation: params.getParam<String>(
+                    'quotation',
+                    ParamType.String,
+                    isList: true,
+                  ),
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'uploadImgFireInsurerPage',
+              path: 'uploadImgFireInsurerPage',
+              builder: (context, params) => UploadImgFireInsurerPageWidget(
+                titleText: params.getParam(
+                  'titleText',
                   ParamType.String,
-                  isList: true,
+                ),
+                searchLabel: params.getParam(
+                  'searchLabel',
+                  ParamType.String,
+                ),
+                fromPage: params.getParam(
+                  'fromPage',
+                  ParamType.String,
                 ),
               ),
             )

@@ -54,6 +54,9 @@ class LeadsDetailHouseStruct extends FFFirebaseStruct {
     String? updatedAt,
     String? insurerLogo,
     String? effectiveDateInsure,
+    String? installment,
+    String? installmentFirstDue,
+    String? installmentLastDue,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _dtlId = dtlId,
         _leadId = leadId,
@@ -99,6 +102,9 @@ class LeadsDetailHouseStruct extends FFFirebaseStruct {
         _updatedAt = updatedAt,
         _insurerLogo = insurerLogo,
         _effectiveDateInsure = effectiveDateInsure,
+        _installment = installment,
+        _installmentFirstDue = installmentFirstDue,
+        _installmentLastDue = installmentLastDue,
         super(firestoreUtilData);
 
   // "dtl_id" field.
@@ -413,6 +419,27 @@ class LeadsDetailHouseStruct extends FFFirebaseStruct {
 
   bool hasEffectiveDateInsure() => _effectiveDateInsure != null;
 
+  // "installment" field.
+  String? _installment;
+  String get installment => _installment ?? '';
+  set installment(String? val) => _installment = val;
+
+  bool hasInstallment() => _installment != null;
+
+  // "installment_first_due" field.
+  String? _installmentFirstDue;
+  String get installmentFirstDue => _installmentFirstDue ?? '';
+  set installmentFirstDue(String? val) => _installmentFirstDue = val;
+
+  bool hasInstallmentFirstDue() => _installmentFirstDue != null;
+
+  // "installment_last_due" field.
+  String? _installmentLastDue;
+  String get installmentLastDue => _installmentLastDue ?? '';
+  set installmentLastDue(String? val) => _installmentLastDue = val;
+
+  bool hasInstallmentLastDue() => _installmentLastDue != null;
+
   static LeadsDetailHouseStruct fromMap(Map<String, dynamic> data) =>
       LeadsDetailHouseStruct(
         dtlId: castToType<int>(data['dtl_id']),
@@ -459,6 +486,9 @@ class LeadsDetailHouseStruct extends FFFirebaseStruct {
         updatedAt: data['updated_at'] as String?,
         insurerLogo: data['insurer_logo'] as String?,
         effectiveDateInsure: data['effective_date_insure'] as String?,
+        installment: data['installment'] as String?,
+        installmentFirstDue: data['installment_first_due'] as String?,
+        installmentLastDue: data['installment_last_due'] as String?,
       );
 
   static LeadsDetailHouseStruct? maybeFromMap(dynamic data) => data is Map
@@ -510,6 +540,9 @@ class LeadsDetailHouseStruct extends FFFirebaseStruct {
         'updated_at': _updatedAt,
         'insurer_logo': _insurerLogo,
         'effective_date_insure': _effectiveDateInsure,
+        'installment': _installment,
+        'installment_first_due': _installmentFirstDue,
+        'installment_last_due': _installmentLastDue,
       }.withoutNulls;
 
   @override
@@ -688,6 +721,18 @@ class LeadsDetailHouseStruct extends FFFirebaseStruct {
         ),
         'effective_date_insure': serializeParam(
           _effectiveDateInsure,
+          ParamType.String,
+        ),
+        'installment': serializeParam(
+          _installment,
+          ParamType.String,
+        ),
+        'installment_first_due': serializeParam(
+          _installmentFirstDue,
+          ParamType.String,
+        ),
+        'installment_last_due': serializeParam(
+          _installmentLastDue,
           ParamType.String,
         ),
       }.withoutNulls;
@@ -915,6 +960,21 @@ class LeadsDetailHouseStruct extends FFFirebaseStruct {
           ParamType.String,
           false,
         ),
+        installment: deserializeParam(
+          data['installment'],
+          ParamType.String,
+          false,
+        ),
+        installmentFirstDue: deserializeParam(
+          data['installment_first_due'],
+          ParamType.String,
+          false,
+        ),
+        installmentLastDue: deserializeParam(
+          data['installment_last_due'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -966,7 +1026,10 @@ class LeadsDetailHouseStruct extends FFFirebaseStruct {
         updatedUserid == other.updatedUserid &&
         updatedAt == other.updatedAt &&
         insurerLogo == other.insurerLogo &&
-        effectiveDateInsure == other.effectiveDateInsure;
+        effectiveDateInsure == other.effectiveDateInsure &&
+        installment == other.installment &&
+        installmentFirstDue == other.installmentFirstDue &&
+        installmentLastDue == other.installmentLastDue;
   }
 
   @override
@@ -1014,7 +1077,10 @@ class LeadsDetailHouseStruct extends FFFirebaseStruct {
         updatedUserid,
         updatedAt,
         insurerLogo,
-        effectiveDateInsure
+        effectiveDateInsure,
+        installment,
+        installmentFirstDue,
+        installmentLastDue
       ]);
 }
 
@@ -1063,6 +1129,9 @@ LeadsDetailHouseStruct createLeadsDetailHouseStruct({
   String? updatedAt,
   String? insurerLogo,
   String? effectiveDateInsure,
+  String? installment,
+  String? installmentFirstDue,
+  String? installmentLastDue,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
@@ -1113,6 +1182,9 @@ LeadsDetailHouseStruct createLeadsDetailHouseStruct({
       updatedAt: updatedAt,
       insurerLogo: insurerLogo,
       effectiveDateInsure: effectiveDateInsure,
+      installment: installment,
+      installmentFirstDue: installmentFirstDue,
+      installmentLastDue: installmentLastDue,
       firestoreUtilData: FirestoreUtilData(
         clearUnsetFields: clearUnsetFields,
         create: create,

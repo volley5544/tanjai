@@ -14007,7 +14007,7 @@ class FFAppState extends ChangeNotifier {
   }
 
   DocumentReference? _KeyStorageProdDocRef =
-      FirebaseFirestore.instance.doc('/Key_Storage/hzG7y4qinXyW313ukzON');
+      FirebaseFirestore.instance.doc('/Key_Storage/ZRFrQlF71fd8Hq36FOuR');
   DocumentReference? get KeyStorageProdDocRef => _KeyStorageProdDocRef;
   set KeyStorageProdDocRef(DocumentReference? value) {
     _KeyStorageProdDocRef = value;
@@ -14118,6 +14118,12 @@ class FFAppState extends ChangeNotifier {
   bool get isViewCarFollowUp => _isViewCarFollowUp;
   set isViewCarFollowUp(bool value) {
     _isViewCarFollowUp = value;
+  }
+
+  String _insuranceInfoPage4ImageApp2 = '';
+  String get insuranceInfoPage4ImageApp2 => _insuranceInfoPage4ImageApp2;
+  set insuranceInfoPage4ImageApp2(String value) {
+    _insuranceInfoPage4ImageApp2 = value;
   }
 }
 

@@ -1,5 +1,6 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
+import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/components/infomation_customer_fire_insurance_widget.dart';
 import '/components/show_image_component_widget.dart';
@@ -11,6 +12,7 @@ import '/flutter_flow/upload_data.dart';
 import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
 import 'dart:convert';
 import 'dart:ui';
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'fire_insurance_info_page3_widget.dart'
     show FireInsuranceInfoPage3Widget;
@@ -35,6 +37,16 @@ class FireInsuranceInfoPage3Model
   FFUploadedFile uploadedLocalFile2 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
   String uploadedFileUrl2 = '';
+
+  bool isDataUploading3 = false;
+  FFUploadedFile uploadedLocalFile3 =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+  String uploadedFileUrl3 = '';
+
+  bool isDataUploading4 = false;
+  FFUploadedFile uploadedLocalFile4 =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+  String uploadedFileUrl4 = '';
 
   // State field(s) for sensitive_consent widget.
   bool? sensitiveConsentValue;

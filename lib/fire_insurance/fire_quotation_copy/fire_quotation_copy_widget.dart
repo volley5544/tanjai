@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
 import 'dart:ui';
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
@@ -67,22 +68,6 @@ class _FireQuotationCopyWidgetState extends State<FireQuotationCopyWidget> {
         },
       ).then((value) => safeSetState(() {}));
 
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
-              content: Text(widget!.quotation!.firstOrNull!),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ),
-          );
-        },
-      );
       FFAppState().indexPdfQuotation = 0;
       FFAppState().lengthListPdfQuotation = widget!.quotation!.length;
       safeSetState(() {});
@@ -218,9 +203,10 @@ class _FireQuotationCopyWidgetState extends State<FireQuotationCopyWidget> {
                             true)
                           FFButtonWidget(
                             onPressed: () async {
-                              await launchURL((widget!.quotation!
-                                  .elementAtOrNull(
-                                      FFAppState().indexPdfQuotation))!);
+                              await actions.urlLauncherActionCopy(
+                                widget!.quotation?.elementAtOrNull(
+                                    FFAppState().indexPdfQuotation),
+                              );
                             },
                             text: 'ดาวน์โหลด PDF',
                             options: FFButtonOptions(

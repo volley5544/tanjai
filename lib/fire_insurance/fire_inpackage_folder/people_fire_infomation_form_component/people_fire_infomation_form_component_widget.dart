@@ -466,6 +466,10 @@ class _PeopleFireInfomationFormComponentWidgetState
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
+                          if (true) {
+                            return;
+                          }
+
                           context.pushNamed(
                             'FireSearchableListPage',
                             queryParameters: {
@@ -637,6 +641,10 @@ class _PeopleFireInfomationFormComponentWidgetState
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
+                              if (true) {
+                                return;
+                              }
+
                               context.pushNamed(
                                 'FireSearchableListPage',
                                 queryParameters: {
@@ -842,6 +850,7 @@ class _PeopleFireInfomationFormComponentWidgetState
                                         () => safeSetState(() {}),
                                       ),
                                       autofocus: false,
+                                      readOnly: true,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         labelStyle: FlutterFlowTheme.of(context)
@@ -977,6 +986,7 @@ class _PeopleFireInfomationFormComponentWidgetState
                                         () => safeSetState(() {}),
                                       ),
                                       autofocus: false,
+                                      readOnly: true,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         labelStyle: FlutterFlowTheme.of(context)
@@ -1086,6 +1096,9 @@ class _PeopleFireInfomationFormComponentWidgetState
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
+                            if (true) {
+                              return;
+                            }
                             if (kIsWeb) {
                               final _datePickedDate = await showDatePicker(
                                 context: context,
