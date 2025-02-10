@@ -467,12 +467,8 @@ class _FireInsuranceInfoPage2WidgetState
                                             BorderRadius.circular(8.0),
                                       ),
                                       child: Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                1.0,
-                                        height:
-                                            MediaQuery.sizeOf(context).height *
-                                                0.1,
+                                        width: double.infinity,
+                                        height: 80.0,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
@@ -805,42 +801,134 @@ class _FireInsuranceInfoPage2WidgetState
                                       ),
                                     ),
                                   ),
-                                  Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 5.0, 0.0, 0.0),
-                                        child: Container(
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  1.0,
-                                          decoration: BoxDecoration(),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        12.0, 0.0, 12.0, 0.0),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 5.0, 0.0, 0.0),
+                                    child: Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          1.0,
+                                      decoration: BoxDecoration(),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 0.0, 12.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Text(
+                                                  'ประเภทที่อยู่อาศัย',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        fontSize: 15.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          10.0, 0.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    '(บังคับเลือก)',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          color:
+                                                              Color(0xFFFB0606),
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 5.0, 0.0, 0.0),
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                if (FFAppState().flagRenew !=
+                                                    '1') {
+                                                  return;
+                                                }
+
+                                                context.pushNamed(
+                                                  'SearchableCarListPage',
+                                                  queryParameters: {
+                                                    'titleText': serializeParam(
+                                                      'เลือกประเภทรถ',
+                                                      ParamType.String,
+                                                    ),
+                                                    'searchLabel':
+                                                        serializeParam(
+                                                      'ระบุประเภทรถ',
+                                                      ParamType.String,
+                                                    ),
+                                                    'dataList': serializeParam(
+                                                      FFAppState()
+                                                          .insuranceBasicVehicleTypeDropdownList,
+                                                      ParamType.String,
+                                                      isList: true,
+                                                    ),
+                                                    'multiSelect':
+                                                        serializeParam(
+                                                      false,
+                                                      ParamType.bool,
+                                                    ),
+                                                    'maxSelected':
+                                                        serializeParam(
+                                                      0,
+                                                      ParamType.int,
+                                                    ),
+                                                    'fromPage': serializeParam(
+                                                      'RenewStep2',
+                                                      ParamType.String,
+                                                    ),
+                                                  }.withoutNulls,
+                                                );
+                                              },
+                                              child: Container(
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        1.0,
+                                                height: 60.0,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                  border: Border.all(
+                                                    color: Color(0xFFB3B3B3),
+                                                  ),
+                                                ),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
                                                   children: [
-                                                    Text(
-                                                      'ประเภทที่อยู่อาศัย',
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Noto Sans Thai',
-                                                            fontSize: 15.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w500,
-                                                          ),
-                                                    ),
                                                     Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
@@ -850,126 +938,16 @@ class _FireInsuranceInfoPage2WidgetState
                                                                   0.0,
                                                                   0.0),
                                                       child: Text(
-                                                        '(บังคับเลือก)',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Noto Sans Thai',
-                                                              color: Color(
-                                                                  0xFFFB0606),
-                                                              fontSize: 12.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                            ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 5.0, 0.0, 0.0),
-                                                child: InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    if (FFAppState()
-                                                            .flagRenew !=
-                                                        '1') {
-                                                      return;
-                                                    }
-
-                                                    context.pushNamed(
-                                                      'SearchableCarListPage',
-                                                      queryParameters: {
-                                                        'titleText':
-                                                            serializeParam(
-                                                          'เลือกประเภทรถ',
-                                                          ParamType.String,
-                                                        ),
-                                                        'searchLabel':
-                                                            serializeParam(
-                                                          'ระบุประเภทรถ',
-                                                          ParamType.String,
-                                                        ),
-                                                        'dataList':
-                                                            serializeParam(
+                                                        valueOrDefault<String>(
                                                           FFAppState()
-                                                              .insuranceBasicVehicleTypeDropdownList,
-                                                          ParamType.String,
-                                                          isList: true,
+                                                              .leadsHouse
+                                                              .firstOrNull
+                                                              ?.houseTypeName,
+                                                          'ประเภทที่อยู่อาศัย',
                                                         ),
-                                                        'multiSelect':
-                                                            serializeParam(
-                                                          false,
-                                                          ParamType.bool,
-                                                        ),
-                                                        'maxSelected':
-                                                            serializeParam(
-                                                          0,
-                                                          ParamType.int,
-                                                        ),
-                                                        'fromPage':
-                                                            serializeParam(
-                                                          'RenewStep2',
-                                                          ParamType.String,
-                                                        ),
-                                                      }.withoutNulls,
-                                                    );
-                                                  },
-                                                  child: Container(
-                                                    width: MediaQuery.sizeOf(
-                                                                context)
-                                                            .width *
-                                                        1.0,
-                                                    height: 60.0,
-                                                    decoration: BoxDecoration(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .secondaryBackground,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
-                                                      border: Border.all(
-                                                        color:
-                                                            Color(0xFFB3B3B3),
-                                                      ),
-                                                    ),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceBetween,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      10.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            valueOrDefault<
-                                                                String>(
-                                                              FFAppState()
-                                                                  .leadsHouse
-                                                                  .firstOrNull
-                                                                  ?.houseTypeName,
-                                                              'ประเภทที่อยู่อาศัย',
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
                                                                 .bodyMedium
                                                                 .override(
                                                                   fontFamily:
@@ -985,120 +963,198 @@ class _FireInsuranceInfoPage2WidgetState
                                                                       FontWeight
                                                                           .w600,
                                                                 ),
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      20.0,
-                                                                      0.0),
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        8.0),
-                                                            child:
-                                                                Image.network(
-                                                              getCORSProxyUrl(
-                                                                () {
-                                                                  if (FFAppState()
-                                                                          .leadsHouse
-                                                                          .firstOrNull
-                                                                          ?.houseTypeCode ==
-                                                                      '01') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/HouseIconImage%2F%E0%B8%9A%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B9%80%E0%B8%94%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%A7.png?alt=media&token=83ea9fa1-4e9e-4cd7-986e-1953e1f1d7af';
-                                                                  } else if (FFAppState()
-                                                                          .leadsHouse
-                                                                          .firstOrNull
-                                                                          ?.houseTypeCode ==
-                                                                      '02') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/HouseIconImage%2F%E0%B8%9A%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B9%81%E0%B8%9D%E0%B8%94.png?alt=media&token=ceefec3b-2110-4d24-8134-b00849d149e8';
-                                                                  } else if (FFAppState()
-                                                                          .leadsHouse
-                                                                          .firstOrNull
-                                                                          ?.houseTypeCode ==
-                                                                      '03') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/HouseIconImage%2F%E0%B8%97%E0%B8%B2%E0%B8%A7%E0%B8%99%E0%B9%8C%E0%B9%82%E0%B8%AE%E0%B8%A1.png?alt=media&token=3afddb2c-f586-442a-961a-93a674404956';
-                                                                  } else if (FFAppState()
-                                                                          .leadsHouse
-                                                                          .firstOrNull
-                                                                          ?.houseTypeCode ==
-                                                                      '04') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/HouseIconImage%2F%E0%B8%97%E0%B8%B2%E0%B8%A7%E0%B9%82%E0%B8%AE%E0%B8%A1.png?alt=media&token=1442ab05-762c-4e71-bd91-6ebccdf53d24';
-                                                                  } else if (FFAppState()
-                                                                          .leadsHouse
-                                                                          .firstOrNull
-                                                                          ?.houseTypeCode ==
-                                                                      '05') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/HouseIconImage%2F%E0%B8%AD%E0%B8%B2%E0%B8%84%E0%B8%B2%E0%B8%A3%E0%B8%9E%E0%B8%B2%E0%B8%99%E0%B8%B4%E0%B8%8A%E0%B8%A2%E0%B9%8C.png?alt=media&token=910f1d50-5a81-44f4-bcf7-c0f52c3bb4ec';
-                                                                  } else if (FFAppState()
-                                                                          .leadsHouse
-                                                                          .firstOrNull
-                                                                          ?.houseTypeCode ==
-                                                                      '06') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/HouseIconImage%2F%E0%B8%95%E0%B8%B6%E0%B8%81%E0%B9%81%E0%B8%96%E0%B8%A7.png?alt=media&token=ba2c7eac-e698-42c3-9b5e-d5cac2c5bafa';
-                                                                  } else if (FFAppState()
-                                                                          .leadsHouse
-                                                                          .firstOrNull
-                                                                          ?.houseTypeCode ==
-                                                                      '07') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/HouseIconImage%2F%E0%B8%84%E0%B8%AD%E0%B8%99%E0%B9%82%E0%B8%94.png?alt=media&token=d1956b42-ac8d-4a81-9cef-35878e4e4ee6';
-                                                                  } else {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/HouseIconImage%2F%E0%B9%81%E0%B8%9F%E0%B8%A5%E0%B8%95.png?alt=media&token=9d47e673-5fef-4986-a801-9790459f24e2';
-                                                                  }
-                                                                }(),
-                                                              ),
-                                                              width: 90.0,
-                                                              fit: BoxFit
-                                                                  .contain,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ],
+                                                      ),
                                                     ),
-                                                  ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  20.0,
+                                                                  0.0),
+                                                      child: ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                        child: Image.network(
+                                                          getCORSProxyUrl(
+                                                            () {
+                                                              if (FFAppState()
+                                                                      .leadsHouse
+                                                                      .firstOrNull
+                                                                      ?.houseTypeCode ==
+                                                                  '01') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/HouseIconImage%2F%E0%B8%9A%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B9%80%E0%B8%94%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%A7.png?alt=media&token=83ea9fa1-4e9e-4cd7-986e-1953e1f1d7af';
+                                                              } else if (FFAppState()
+                                                                      .leadsHouse
+                                                                      .firstOrNull
+                                                                      ?.houseTypeCode ==
+                                                                  '02') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/HouseIconImage%2F%E0%B8%9A%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B9%81%E0%B8%9D%E0%B8%94.png?alt=media&token=ceefec3b-2110-4d24-8134-b00849d149e8';
+                                                              } else if (FFAppState()
+                                                                      .leadsHouse
+                                                                      .firstOrNull
+                                                                      ?.houseTypeCode ==
+                                                                  '03') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/HouseIconImage%2F%E0%B8%97%E0%B8%B2%E0%B8%A7%E0%B8%99%E0%B9%8C%E0%B9%82%E0%B8%AE%E0%B8%A1.png?alt=media&token=3afddb2c-f586-442a-961a-93a674404956';
+                                                              } else if (FFAppState()
+                                                                      .leadsHouse
+                                                                      .firstOrNull
+                                                                      ?.houseTypeCode ==
+                                                                  '04') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/HouseIconImage%2F%E0%B8%97%E0%B8%B2%E0%B8%A7%E0%B9%82%E0%B8%AE%E0%B8%A1.png?alt=media&token=1442ab05-762c-4e71-bd91-6ebccdf53d24';
+                                                              } else if (FFAppState()
+                                                                      .leadsHouse
+                                                                      .firstOrNull
+                                                                      ?.houseTypeCode ==
+                                                                  '05') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/HouseIconImage%2F%E0%B8%AD%E0%B8%B2%E0%B8%84%E0%B8%B2%E0%B8%A3%E0%B8%9E%E0%B8%B2%E0%B8%99%E0%B8%B4%E0%B8%8A%E0%B8%A2%E0%B9%8C.png?alt=media&token=910f1d50-5a81-44f4-bcf7-c0f52c3bb4ec';
+                                                              } else if (FFAppState()
+                                                                      .leadsHouse
+                                                                      .firstOrNull
+                                                                      ?.houseTypeCode ==
+                                                                  '06') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/HouseIconImage%2F%E0%B8%95%E0%B8%B6%E0%B8%81%E0%B9%81%E0%B8%96%E0%B8%A7.png?alt=media&token=ba2c7eac-e698-42c3-9b5e-d5cac2c5bafa';
+                                                              } else if (FFAppState()
+                                                                      .leadsHouse
+                                                                      .firstOrNull
+                                                                      ?.houseTypeCode ==
+                                                                  '07') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/HouseIconImage%2F%E0%B8%84%E0%B8%AD%E0%B8%99%E0%B9%82%E0%B8%94.png?alt=media&token=d1956b42-ac8d-4a81-9cef-35878e4e4ee6';
+                                                              } else {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/HouseIconImage%2F%E0%B9%81%E0%B8%9F%E0%B8%A5%E0%B8%95.png?alt=media&token=9d47e673-5fef-4986-a801-9790459f24e2';
+                                                              }
+                                                            }(),
+                                                          ),
+                                                          width: 90.0,
+                                                          fit: BoxFit.contain,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
                                                 ),
                                               ),
-                                            ],
+                                            ),
                                           ),
-                                        ),
+                                        ],
                                       ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 5.0, 0.0, 0.0),
-                                        child: Container(
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  1.0,
-                                          decoration: BoxDecoration(),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        12.0, 0.0, 12.0, 0.0),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 5.0, 0.0, 0.0),
+                                    child: Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          1.0,
+                                      decoration: BoxDecoration(),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 0.0, 12.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Text(
+                                                  'ผู้เอาประกันภัย',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        fontSize: 15.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          10.0, 0.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    '(กรุณาเลือก)',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          color:
+                                                              Color(0xFFFB0606),
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 5.0, 0.0, 0.0),
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                context.pushNamed(
+                                                  'FireSearchableListPage',
+                                                  queryParameters: {
+                                                    'titleText': serializeParam(
+                                                      'เลือกผู้เอาประกันภัย',
+                                                      ParamType.String,
+                                                    ),
+                                                    'searchLabel':
+                                                        serializeParam(
+                                                      'ระบุผู้เอาประกันภัย',
+                                                      ParamType.String,
+                                                    ),
+                                                    'dataList': serializeParam(
+                                                      widget!.masterDataFirebase
+                                                          ?.assured,
+                                                      ParamType.String,
+                                                      isList: true,
+                                                    ),
+                                                    'multiSelect':
+                                                        serializeParam(
+                                                      false,
+                                                      ParamType.bool,
+                                                    ),
+                                                  }.withoutNulls,
+                                                );
+                                              },
+                                              child: Container(
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        1.0,
+                                                height: 60.0,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                  border: Border.all(
+                                                    color: Color(0xFFB3B3B3),
+                                                  ),
+                                                ),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
                                                   children: [
-                                                    Text(
-                                                      'ผู้เอาประกันภัย',
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Noto Sans Thai',
-                                                            fontSize: 15.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w500,
-                                                          ),
-                                                    ),
                                                     Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
@@ -1108,111 +1164,16 @@ class _FireInsuranceInfoPage2WidgetState
                                                                   0.0,
                                                                   0.0),
                                                       child: Text(
-                                                        '(กรุณาเลือก)',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Noto Sans Thai',
-                                                              color: Color(
-                                                                  0xFFFB0606),
-                                                              fontSize: 12.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                            ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 5.0, 0.0, 0.0),
-                                                child: InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    context.pushNamed(
-                                                      'FireSearchableListPage',
-                                                      queryParameters: {
-                                                        'titleText':
-                                                            serializeParam(
-                                                          'เลือกผู้เอาประกันภัย',
-                                                          ParamType.String,
-                                                        ),
-                                                        'searchLabel':
-                                                            serializeParam(
-                                                          'ระบุผู้เอาประกันภัย',
-                                                          ParamType.String,
-                                                        ),
-                                                        'dataList':
-                                                            serializeParam(
-                                                          widget!
-                                                              .masterDataFirebase
+                                                        valueOrDefault<String>(
+                                                          FFAppState()
+                                                              .leadsHouse
+                                                              .firstOrNull
                                                               ?.assured,
-                                                          ParamType.String,
-                                                          isList: true,
+                                                          'เลือกผู้เอาประกันภัย',
                                                         ),
-                                                        'multiSelect':
-                                                            serializeParam(
-                                                          false,
-                                                          ParamType.bool,
-                                                        ),
-                                                      }.withoutNulls,
-                                                    );
-                                                  },
-                                                  child: Container(
-                                                    width: MediaQuery.sizeOf(
-                                                                context)
-                                                            .width *
-                                                        1.0,
-                                                    height: 60.0,
-                                                    decoration: BoxDecoration(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .secondaryBackground,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
-                                                      border: Border.all(
-                                                        color:
-                                                            Color(0xFFB3B3B3),
-                                                      ),
-                                                    ),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceBetween,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      10.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            valueOrDefault<
-                                                                String>(
-                                                              FFAppState()
-                                                                  .leadsHouse
-                                                                  .firstOrNull
-                                                                  ?.assured,
-                                                              'เลือกผู้เอาประกันภัย',
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
                                                                 .bodyMedium
                                                                 .override(
                                                                   fontFamily:
@@ -1238,162 +1199,241 @@ class _FireInsuranceInfoPage2WidgetState
                                                                       FontWeight
                                                                           .w600,
                                                                 ),
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      20.0,
-                                                                      0.0),
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        8.0),
-                                                            child:
-                                                                Image.network(
-                                                              getCORSProxyUrl(
-                                                                () {
-                                                                  if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'รถเก๋ง') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=68ef0a76-99d9-4c43-ae86-b48970b7fb09';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'รถตู้') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B8%95%E0%B8%B9%E0%B9%89.png?alt=media&token=8969fa4a-52e0-4b0c-9c44-f349976bc624';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'รถกระบะ 2 ประตู') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%20%E0%B8%95%E0%B8%AD%E0%B8%99%E0%B9%80%E0%B8%94%E0%B8%B5%E0%B8%A2%E0%B8%A7%20(%E0%B8%A3%E0%B8%A7%E0%B8%A1).png?alt=media&token=bd62e47d-dd92-41ca-8f51-3632edfd54a6';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'รถกระบะ 4 ประตู') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%204%20%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%95%E0%B8%B9.png?alt=media&token=45bc2e60-3a29-47dc-aa4d-e9c82a113bbc';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'รถบรรทุก หัวลาก หางพ่วง') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B8%A5%E0%B8%B2%E0%B8%81%20%E0%B8%AB%E0%B8%B2%E0%B8%87%E0%B8%9E%E0%B9%88%E0%B8%A7%E0%B8%87.png?alt=media&token=1d749f04-0765-422a-b0b7-34a3d5d60519';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'รถแต่ง ต่อคอก') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B9%81%E0%B8%95%E0%B9%88%E0%B8%87%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B8%84%E0%B8%AD%E0%B8%81.png?alt=media&token=80501c24-fec4-4c34-ac0f-361db3b698b3';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'กระบะไม่ต่อเติม') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%202%20%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%95%E0%B8%B9%E0%B9%84%E0%B8%A1%E0%B9%88%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1.png?alt=media&token=ca1d014f-d1aa-4f27-bd54-3d97d5efba3f';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'กระบะต่อเติมเกินหัวเก๋ง') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1%E0%B9%80%E0%B8%81%E0%B8%B4%E0%B8%99%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=957c9ae1-6d8a-41d5-b7aa-23965926a562';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'กระบะต่อเติมเกินหัวเก๋ง') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1%E0%B9%80%E0%B8%81%E0%B8%B4%E0%B8%99%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=957c9ae1-6d8a-41d5-b7aa-23965926a562';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'กระบะตู้ทึบ/ตู้แห้ง') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F2_%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B8%B9%E0%B9%89%E0%B8%97%E0%B8%B6%E0%B8%9A_%E0%B8%95%E0%B8%B9%E0%B9%89%E0%B9%81%E0%B8%AB%E0%B9%89%E0%B8%87.png?alt=media&token=71715c79-6196-4a63-9a9e-c179033218ea';
-                                                                  } else {
-                                                                    return '-';
-                                                                  }
-                                                                }(),
-                                                              ),
-                                                              width: () {
-                                                                if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'รถเก๋ง') {
-                                                                  return 90;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'รถตู้') {
-                                                                  return 90;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'รถกระบะ 2 ประตู') {
-                                                                  return 90;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'รถกระบะ 4 ประตู') {
-                                                                  return 90;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'รถบรรทุก หัวลาก หางพ่วง') {
-                                                                  return 130;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'รถแต่ง ต่อคอก') {
-                                                                  return 90;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'กระบะไม่ต่อเติม') {
-                                                                  return 100;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'กระบะต่อเติมเกินหัวเก๋ง') {
-                                                                  return 130;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'กระบะต่อเติมไม่เกินหัวเก๋ง') {
-                                                                  return 130;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'กระบะตู้ทึบ/ตู้แห้ง') {
-                                                                  return 100;
-                                                                } else {
-                                                                  return 0;
-                                                                }
-                                                              }()
-                                                                  .toDouble(),
-                                                              fit: BoxFit.cover,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ],
+                                                      ),
                                                     ),
-                                                  ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  20.0,
+                                                                  0.0),
+                                                      child: ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                        child: Image.network(
+                                                          getCORSProxyUrl(
+                                                            () {
+                                                              if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'รถเก๋ง') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=68ef0a76-99d9-4c43-ae86-b48970b7fb09';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'รถตู้') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B8%95%E0%B8%B9%E0%B9%89.png?alt=media&token=8969fa4a-52e0-4b0c-9c44-f349976bc624';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'รถกระบะ 2 ประตู') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%20%E0%B8%95%E0%B8%AD%E0%B8%99%E0%B9%80%E0%B8%94%E0%B8%B5%E0%B8%A2%E0%B8%A7%20(%E0%B8%A3%E0%B8%A7%E0%B8%A1).png?alt=media&token=bd62e47d-dd92-41ca-8f51-3632edfd54a6';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'รถกระบะ 4 ประตู') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%204%20%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%95%E0%B8%B9.png?alt=media&token=45bc2e60-3a29-47dc-aa4d-e9c82a113bbc';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'รถบรรทุก หัวลาก หางพ่วง') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B8%A5%E0%B8%B2%E0%B8%81%20%E0%B8%AB%E0%B8%B2%E0%B8%87%E0%B8%9E%E0%B9%88%E0%B8%A7%E0%B8%87.png?alt=media&token=1d749f04-0765-422a-b0b7-34a3d5d60519';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'รถแต่ง ต่อคอก') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B9%81%E0%B8%95%E0%B9%88%E0%B8%87%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B8%84%E0%B8%AD%E0%B8%81.png?alt=media&token=80501c24-fec4-4c34-ac0f-361db3b698b3';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'กระบะไม่ต่อเติม') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%202%20%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%95%E0%B8%B9%E0%B9%84%E0%B8%A1%E0%B9%88%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1.png?alt=media&token=ca1d014f-d1aa-4f27-bd54-3d97d5efba3f';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'กระบะต่อเติมเกินหัวเก๋ง') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1%E0%B9%80%E0%B8%81%E0%B8%B4%E0%B8%99%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=957c9ae1-6d8a-41d5-b7aa-23965926a562';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'กระบะต่อเติมเกินหัวเก๋ง') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1%E0%B9%80%E0%B8%81%E0%B8%B4%E0%B8%99%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=957c9ae1-6d8a-41d5-b7aa-23965926a562';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'กระบะตู้ทึบ/ตู้แห้ง') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F2_%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B8%B9%E0%B9%89%E0%B8%97%E0%B8%B6%E0%B8%9A_%E0%B8%95%E0%B8%B9%E0%B9%89%E0%B9%81%E0%B8%AB%E0%B9%89%E0%B8%87.png?alt=media&token=71715c79-6196-4a63-9a9e-c179033218ea';
+                                                              } else {
+                                                                return '-';
+                                                              }
+                                                            }(),
+                                                          ),
+                                                          width: () {
+                                                            if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถเก๋ง') {
+                                                              return 90;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถตู้') {
+                                                              return 90;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถกระบะ 2 ประตู') {
+                                                              return 90;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถกระบะ 4 ประตู') {
+                                                              return 90;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถบรรทุก หัวลาก หางพ่วง') {
+                                                              return 130;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถแต่ง ต่อคอก') {
+                                                              return 90;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'กระบะไม่ต่อเติม') {
+                                                              return 100;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'กระบะต่อเติมเกินหัวเก๋ง') {
+                                                              return 130;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'กระบะต่อเติมไม่เกินหัวเก๋ง') {
+                                                              return 130;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'กระบะตู้ทึบ/ตู้แห้ง') {
+                                                              return 100;
+                                                            } else {
+                                                              return 0;
+                                                            }
+                                                          }()
+                                                              .toDouble(),
+                                                          fit: BoxFit.cover,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
                                                 ),
                                               ),
-                                            ],
+                                            ),
                                           ),
-                                        ),
+                                        ],
                                       ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 5.0, 0.0, 0.0),
-                                        child: Container(
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  1.0,
-                                          decoration: BoxDecoration(),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        12.0, 0.0, 12.0, 0.0),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 5.0, 0.0, 0.0),
+                                    child: Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          1.0,
+                                      decoration: BoxDecoration(),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 0.0, 12.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Text(
+                                                  'ฝาผนัง',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        fontSize: 15.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          10.0, 0.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    '(บังคับเลือก)',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          color:
+                                                              Color(0xFFFB0606),
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 5.0, 0.0, 0.0),
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                context.pushNamed(
+                                                  'FireSearchableListPage',
+                                                  queryParameters: {
+                                                    'titleText': serializeParam(
+                                                      'เลือกฝาผนัง',
+                                                      ParamType.String,
+                                                    ),
+                                                    'searchLabel':
+                                                        serializeParam(
+                                                      'ระบุฝาผนัง',
+                                                      ParamType.String,
+                                                    ),
+                                                    'dataList': serializeParam(
+                                                      widget!.masterDataFirebase
+                                                          ?.wall,
+                                                      ParamType.String,
+                                                      isList: true,
+                                                    ),
+                                                    'multiSelect':
+                                                        serializeParam(
+                                                      false,
+                                                      ParamType.bool,
+                                                    ),
+                                                  }.withoutNulls,
+                                                );
+                                              },
+                                              child: Container(
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        1.0,
+                                                height: 60.0,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                  border: Border.all(
+                                                    color: Color(0xFFB3B3B3),
+                                                  ),
+                                                ),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
                                                   children: [
-                                                    Text(
-                                                      'ฝาผนัง',
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Noto Sans Thai',
-                                                            fontSize: 15.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w500,
-                                                          ),
-                                                    ),
                                                     Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
@@ -1403,111 +1443,16 @@ class _FireInsuranceInfoPage2WidgetState
                                                                   0.0,
                                                                   0.0),
                                                       child: Text(
-                                                        '(บังคับเลือก)',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Noto Sans Thai',
-                                                              color: Color(
-                                                                  0xFFFB0606),
-                                                              fontSize: 12.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                            ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 5.0, 0.0, 0.0),
-                                                child: InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    context.pushNamed(
-                                                      'FireSearchableListPage',
-                                                      queryParameters: {
-                                                        'titleText':
-                                                            serializeParam(
-                                                          'เลือกฝาผนัง',
-                                                          ParamType.String,
-                                                        ),
-                                                        'searchLabel':
-                                                            serializeParam(
-                                                          'ระบุฝาผนัง',
-                                                          ParamType.String,
-                                                        ),
-                                                        'dataList':
-                                                            serializeParam(
-                                                          widget!
-                                                              .masterDataFirebase
+                                                        valueOrDefault<String>(
+                                                          FFAppState()
+                                                              .leadsHouse
+                                                              .firstOrNull
                                                               ?.wall,
-                                                          ParamType.String,
-                                                          isList: true,
+                                                          'เลือกฝาผนัง',
                                                         ),
-                                                        'multiSelect':
-                                                            serializeParam(
-                                                          false,
-                                                          ParamType.bool,
-                                                        ),
-                                                      }.withoutNulls,
-                                                    );
-                                                  },
-                                                  child: Container(
-                                                    width: MediaQuery.sizeOf(
-                                                                context)
-                                                            .width *
-                                                        1.0,
-                                                    height: 60.0,
-                                                    decoration: BoxDecoration(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .secondaryBackground,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
-                                                      border: Border.all(
-                                                        color:
-                                                            Color(0xFFB3B3B3),
-                                                      ),
-                                                    ),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceBetween,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      10.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            valueOrDefault<
-                                                                String>(
-                                                              FFAppState()
-                                                                  .leadsHouse
-                                                                  .firstOrNull
-                                                                  ?.wall,
-                                                              'เลือกฝาผนัง',
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
                                                                 .bodyMedium
                                                                 .override(
                                                                   fontFamily:
@@ -1533,162 +1478,241 @@ class _FireInsuranceInfoPage2WidgetState
                                                                       FontWeight
                                                                           .w600,
                                                                 ),
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      20.0,
-                                                                      0.0),
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        8.0),
-                                                            child:
-                                                                Image.network(
-                                                              getCORSProxyUrl(
-                                                                () {
-                                                                  if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'รถเก๋ง') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=68ef0a76-99d9-4c43-ae86-b48970b7fb09';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'รถตู้') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B8%95%E0%B8%B9%E0%B9%89.png?alt=media&token=8969fa4a-52e0-4b0c-9c44-f349976bc624';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'รถกระบะ 2 ประตู') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%20%E0%B8%95%E0%B8%AD%E0%B8%99%E0%B9%80%E0%B8%94%E0%B8%B5%E0%B8%A2%E0%B8%A7%20(%E0%B8%A3%E0%B8%A7%E0%B8%A1).png?alt=media&token=bd62e47d-dd92-41ca-8f51-3632edfd54a6';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'รถกระบะ 4 ประตู') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%204%20%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%95%E0%B8%B9.png?alt=media&token=45bc2e60-3a29-47dc-aa4d-e9c82a113bbc';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'รถบรรทุก หัวลาก หางพ่วง') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B8%A5%E0%B8%B2%E0%B8%81%20%E0%B8%AB%E0%B8%B2%E0%B8%87%E0%B8%9E%E0%B9%88%E0%B8%A7%E0%B8%87.png?alt=media&token=1d749f04-0765-422a-b0b7-34a3d5d60519';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'รถแต่ง ต่อคอก') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B9%81%E0%B8%95%E0%B9%88%E0%B8%87%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B8%84%E0%B8%AD%E0%B8%81.png?alt=media&token=80501c24-fec4-4c34-ac0f-361db3b698b3';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'กระบะไม่ต่อเติม') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%202%20%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%95%E0%B8%B9%E0%B9%84%E0%B8%A1%E0%B9%88%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1.png?alt=media&token=ca1d014f-d1aa-4f27-bd54-3d97d5efba3f';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'กระบะต่อเติมเกินหัวเก๋ง') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1%E0%B9%80%E0%B8%81%E0%B8%B4%E0%B8%99%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=957c9ae1-6d8a-41d5-b7aa-23965926a562';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'กระบะต่อเติมเกินหัวเก๋ง') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1%E0%B9%80%E0%B8%81%E0%B8%B4%E0%B8%99%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=957c9ae1-6d8a-41d5-b7aa-23965926a562';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'กระบะตู้ทึบ/ตู้แห้ง') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F2_%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B8%B9%E0%B9%89%E0%B8%97%E0%B8%B6%E0%B8%9A_%E0%B8%95%E0%B8%B9%E0%B9%89%E0%B9%81%E0%B8%AB%E0%B9%89%E0%B8%87.png?alt=media&token=71715c79-6196-4a63-9a9e-c179033218ea';
-                                                                  } else {
-                                                                    return '-';
-                                                                  }
-                                                                }(),
-                                                              ),
-                                                              width: () {
-                                                                if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'รถเก๋ง') {
-                                                                  return 90;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'รถตู้') {
-                                                                  return 90;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'รถกระบะ 2 ประตู') {
-                                                                  return 90;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'รถกระบะ 4 ประตู') {
-                                                                  return 90;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'รถบรรทุก หัวลาก หางพ่วง') {
-                                                                  return 130;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'รถแต่ง ต่อคอก') {
-                                                                  return 90;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'กระบะไม่ต่อเติม') {
-                                                                  return 100;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'กระบะต่อเติมเกินหัวเก๋ง') {
-                                                                  return 130;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'กระบะต่อเติมไม่เกินหัวเก๋ง') {
-                                                                  return 130;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'กระบะตู้ทึบ/ตู้แห้ง') {
-                                                                  return 100;
-                                                                } else {
-                                                                  return 0;
-                                                                }
-                                                              }()
-                                                                  .toDouble(),
-                                                              fit: BoxFit.cover,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ],
+                                                      ),
                                                     ),
-                                                  ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  20.0,
+                                                                  0.0),
+                                                      child: ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                        child: Image.network(
+                                                          getCORSProxyUrl(
+                                                            () {
+                                                              if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'รถเก๋ง') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=68ef0a76-99d9-4c43-ae86-b48970b7fb09';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'รถตู้') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B8%95%E0%B8%B9%E0%B9%89.png?alt=media&token=8969fa4a-52e0-4b0c-9c44-f349976bc624';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'รถกระบะ 2 ประตู') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%20%E0%B8%95%E0%B8%AD%E0%B8%99%E0%B9%80%E0%B8%94%E0%B8%B5%E0%B8%A2%E0%B8%A7%20(%E0%B8%A3%E0%B8%A7%E0%B8%A1).png?alt=media&token=bd62e47d-dd92-41ca-8f51-3632edfd54a6';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'รถกระบะ 4 ประตู') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%204%20%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%95%E0%B8%B9.png?alt=media&token=45bc2e60-3a29-47dc-aa4d-e9c82a113bbc';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'รถบรรทุก หัวลาก หางพ่วง') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B8%A5%E0%B8%B2%E0%B8%81%20%E0%B8%AB%E0%B8%B2%E0%B8%87%E0%B8%9E%E0%B9%88%E0%B8%A7%E0%B8%87.png?alt=media&token=1d749f04-0765-422a-b0b7-34a3d5d60519';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'รถแต่ง ต่อคอก') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B9%81%E0%B8%95%E0%B9%88%E0%B8%87%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B8%84%E0%B8%AD%E0%B8%81.png?alt=media&token=80501c24-fec4-4c34-ac0f-361db3b698b3';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'กระบะไม่ต่อเติม') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%202%20%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%95%E0%B8%B9%E0%B9%84%E0%B8%A1%E0%B9%88%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1.png?alt=media&token=ca1d014f-d1aa-4f27-bd54-3d97d5efba3f';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'กระบะต่อเติมเกินหัวเก๋ง') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1%E0%B9%80%E0%B8%81%E0%B8%B4%E0%B8%99%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=957c9ae1-6d8a-41d5-b7aa-23965926a562';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'กระบะต่อเติมเกินหัวเก๋ง') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1%E0%B9%80%E0%B8%81%E0%B8%B4%E0%B8%99%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=957c9ae1-6d8a-41d5-b7aa-23965926a562';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'กระบะตู้ทึบ/ตู้แห้ง') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F2_%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B8%B9%E0%B9%89%E0%B8%97%E0%B8%B6%E0%B8%9A_%E0%B8%95%E0%B8%B9%E0%B9%89%E0%B9%81%E0%B8%AB%E0%B9%89%E0%B8%87.png?alt=media&token=71715c79-6196-4a63-9a9e-c179033218ea';
+                                                              } else {
+                                                                return '-';
+                                                              }
+                                                            }(),
+                                                          ),
+                                                          width: () {
+                                                            if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถเก๋ง') {
+                                                              return 90;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถตู้') {
+                                                              return 90;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถกระบะ 2 ประตู') {
+                                                              return 90;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถกระบะ 4 ประตู') {
+                                                              return 90;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถบรรทุก หัวลาก หางพ่วง') {
+                                                              return 130;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถแต่ง ต่อคอก') {
+                                                              return 90;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'กระบะไม่ต่อเติม') {
+                                                              return 100;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'กระบะต่อเติมเกินหัวเก๋ง') {
+                                                              return 130;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'กระบะต่อเติมไม่เกินหัวเก๋ง') {
+                                                              return 130;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'กระบะตู้ทึบ/ตู้แห้ง') {
+                                                              return 100;
+                                                            } else {
+                                                              return 0;
+                                                            }
+                                                          }()
+                                                              .toDouble(),
+                                                          fit: BoxFit.cover,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
                                                 ),
                                               ),
-                                            ],
+                                            ),
                                           ),
-                                        ),
+                                        ],
                                       ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 5.0, 0.0, 0.0),
-                                        child: Container(
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  1.0,
-                                          decoration: BoxDecoration(),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        12.0, 0.0, 12.0, 0.0),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 5.0, 0.0, 0.0),
+                                    child: Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          1.0,
+                                      decoration: BoxDecoration(),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 0.0, 12.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Text(
+                                                  'พื้นชั้นบน',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        fontSize: 15.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          10.0, 0.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    '(บังคับเลือก)',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          color:
+                                                              Color(0xFFFB0606),
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 5.0, 0.0, 0.0),
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                context.pushNamed(
+                                                  'FireSearchableListPage',
+                                                  queryParameters: {
+                                                    'titleText': serializeParam(
+                                                      'เลือกพื้นชั้นบน',
+                                                      ParamType.String,
+                                                    ),
+                                                    'searchLabel':
+                                                        serializeParam(
+                                                      'ระบุพื้นชั้นบน',
+                                                      ParamType.String,
+                                                    ),
+                                                    'dataList': serializeParam(
+                                                      widget!.masterDataFirebase
+                                                          ?.floor,
+                                                      ParamType.String,
+                                                      isList: true,
+                                                    ),
+                                                    'multiSelect':
+                                                        serializeParam(
+                                                      false,
+                                                      ParamType.bool,
+                                                    ),
+                                                  }.withoutNulls,
+                                                );
+                                              },
+                                              child: Container(
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        1.0,
+                                                height: 60.0,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                  border: Border.all(
+                                                    color: Color(0xFFB3B3B3),
+                                                  ),
+                                                ),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
                                                   children: [
-                                                    Text(
-                                                      'พื้นชั้นบน',
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Noto Sans Thai',
-                                                            fontSize: 15.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w500,
-                                                          ),
-                                                    ),
                                                     Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
@@ -1698,111 +1722,16 @@ class _FireInsuranceInfoPage2WidgetState
                                                                   0.0,
                                                                   0.0),
                                                       child: Text(
-                                                        '(บังคับเลือก)',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Noto Sans Thai',
-                                                              color: Color(
-                                                                  0xFFFB0606),
-                                                              fontSize: 12.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                            ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 5.0, 0.0, 0.0),
-                                                child: InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    context.pushNamed(
-                                                      'FireSearchableListPage',
-                                                      queryParameters: {
-                                                        'titleText':
-                                                            serializeParam(
+                                                        valueOrDefault<String>(
+                                                          FFAppState()
+                                                              .leadsHouse
+                                                              .firstOrNull
+                                                              ?.floorUpper,
                                                           'เลือกพื้นชั้นบน',
-                                                          ParamType.String,
                                                         ),
-                                                        'searchLabel':
-                                                            serializeParam(
-                                                          'ระบุพื้นชั้นบน',
-                                                          ParamType.String,
-                                                        ),
-                                                        'dataList':
-                                                            serializeParam(
-                                                          widget!
-                                                              .masterDataFirebase
-                                                              ?.floor,
-                                                          ParamType.String,
-                                                          isList: true,
-                                                        ),
-                                                        'multiSelect':
-                                                            serializeParam(
-                                                          false,
-                                                          ParamType.bool,
-                                                        ),
-                                                      }.withoutNulls,
-                                                    );
-                                                  },
-                                                  child: Container(
-                                                    width: MediaQuery.sizeOf(
-                                                                context)
-                                                            .width *
-                                                        1.0,
-                                                    height: 60.0,
-                                                    decoration: BoxDecoration(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .secondaryBackground,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
-                                                      border: Border.all(
-                                                        color:
-                                                            Color(0xFFB3B3B3),
-                                                      ),
-                                                    ),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceBetween,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      10.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            valueOrDefault<
-                                                                String>(
-                                                              FFAppState()
-                                                                  .leadsHouse
-                                                                  .firstOrNull
-                                                                  ?.floorUpper,
-                                                              'เลือกพื้นชั้นบน',
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
                                                                 .bodyMedium
                                                                 .override(
                                                                   fontFamily:
@@ -1828,162 +1757,241 @@ class _FireInsuranceInfoPage2WidgetState
                                                                       FontWeight
                                                                           .w600,
                                                                 ),
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      20.0,
-                                                                      0.0),
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        8.0),
-                                                            child:
-                                                                Image.network(
-                                                              getCORSProxyUrl(
-                                                                () {
-                                                                  if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'รถเก๋ง') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=68ef0a76-99d9-4c43-ae86-b48970b7fb09';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'รถตู้') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B8%95%E0%B8%B9%E0%B9%89.png?alt=media&token=8969fa4a-52e0-4b0c-9c44-f349976bc624';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'รถกระบะ 2 ประตู') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%20%E0%B8%95%E0%B8%AD%E0%B8%99%E0%B9%80%E0%B8%94%E0%B8%B5%E0%B8%A2%E0%B8%A7%20(%E0%B8%A3%E0%B8%A7%E0%B8%A1).png?alt=media&token=bd62e47d-dd92-41ca-8f51-3632edfd54a6';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'รถกระบะ 4 ประตู') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%204%20%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%95%E0%B8%B9.png?alt=media&token=45bc2e60-3a29-47dc-aa4d-e9c82a113bbc';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'รถบรรทุก หัวลาก หางพ่วง') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B8%A5%E0%B8%B2%E0%B8%81%20%E0%B8%AB%E0%B8%B2%E0%B8%87%E0%B8%9E%E0%B9%88%E0%B8%A7%E0%B8%87.png?alt=media&token=1d749f04-0765-422a-b0b7-34a3d5d60519';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'รถแต่ง ต่อคอก') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B9%81%E0%B8%95%E0%B9%88%E0%B8%87%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B8%84%E0%B8%AD%E0%B8%81.png?alt=media&token=80501c24-fec4-4c34-ac0f-361db3b698b3';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'กระบะไม่ต่อเติม') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%202%20%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%95%E0%B8%B9%E0%B9%84%E0%B8%A1%E0%B9%88%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1.png?alt=media&token=ca1d014f-d1aa-4f27-bd54-3d97d5efba3f';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'กระบะต่อเติมเกินหัวเก๋ง') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1%E0%B9%80%E0%B8%81%E0%B8%B4%E0%B8%99%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=957c9ae1-6d8a-41d5-b7aa-23965926a562';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'กระบะต่อเติมเกินหัวเก๋ง') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1%E0%B9%80%E0%B8%81%E0%B8%B4%E0%B8%99%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=957c9ae1-6d8a-41d5-b7aa-23965926a562';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'กระบะตู้ทึบ/ตู้แห้ง') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F2_%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B8%B9%E0%B9%89%E0%B8%97%E0%B8%B6%E0%B8%9A_%E0%B8%95%E0%B8%B9%E0%B9%89%E0%B9%81%E0%B8%AB%E0%B9%89%E0%B8%87.png?alt=media&token=71715c79-6196-4a63-9a9e-c179033218ea';
-                                                                  } else {
-                                                                    return '-';
-                                                                  }
-                                                                }(),
-                                                              ),
-                                                              width: () {
-                                                                if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'รถเก๋ง') {
-                                                                  return 90;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'รถตู้') {
-                                                                  return 90;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'รถกระบะ 2 ประตู') {
-                                                                  return 90;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'รถกระบะ 4 ประตู') {
-                                                                  return 90;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'รถบรรทุก หัวลาก หางพ่วง') {
-                                                                  return 130;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'รถแต่ง ต่อคอก') {
-                                                                  return 90;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'กระบะไม่ต่อเติม') {
-                                                                  return 100;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'กระบะต่อเติมเกินหัวเก๋ง') {
-                                                                  return 130;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'กระบะต่อเติมไม่เกินหัวเก๋ง') {
-                                                                  return 130;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'กระบะตู้ทึบ/ตู้แห้ง') {
-                                                                  return 100;
-                                                                } else {
-                                                                  return 0;
-                                                                }
-                                                              }()
-                                                                  .toDouble(),
-                                                              fit: BoxFit.cover,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ],
+                                                      ),
                                                     ),
-                                                  ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  20.0,
+                                                                  0.0),
+                                                      child: ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                        child: Image.network(
+                                                          getCORSProxyUrl(
+                                                            () {
+                                                              if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'รถเก๋ง') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=68ef0a76-99d9-4c43-ae86-b48970b7fb09';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'รถตู้') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B8%95%E0%B8%B9%E0%B9%89.png?alt=media&token=8969fa4a-52e0-4b0c-9c44-f349976bc624';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'รถกระบะ 2 ประตู') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%20%E0%B8%95%E0%B8%AD%E0%B8%99%E0%B9%80%E0%B8%94%E0%B8%B5%E0%B8%A2%E0%B8%A7%20(%E0%B8%A3%E0%B8%A7%E0%B8%A1).png?alt=media&token=bd62e47d-dd92-41ca-8f51-3632edfd54a6';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'รถกระบะ 4 ประตู') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%204%20%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%95%E0%B8%B9.png?alt=media&token=45bc2e60-3a29-47dc-aa4d-e9c82a113bbc';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'รถบรรทุก หัวลาก หางพ่วง') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B8%A5%E0%B8%B2%E0%B8%81%20%E0%B8%AB%E0%B8%B2%E0%B8%87%E0%B8%9E%E0%B9%88%E0%B8%A7%E0%B8%87.png?alt=media&token=1d749f04-0765-422a-b0b7-34a3d5d60519';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'รถแต่ง ต่อคอก') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B9%81%E0%B8%95%E0%B9%88%E0%B8%87%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B8%84%E0%B8%AD%E0%B8%81.png?alt=media&token=80501c24-fec4-4c34-ac0f-361db3b698b3';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'กระบะไม่ต่อเติม') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%202%20%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%95%E0%B8%B9%E0%B9%84%E0%B8%A1%E0%B9%88%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1.png?alt=media&token=ca1d014f-d1aa-4f27-bd54-3d97d5efba3f';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'กระบะต่อเติมเกินหัวเก๋ง') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1%E0%B9%80%E0%B8%81%E0%B8%B4%E0%B8%99%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=957c9ae1-6d8a-41d5-b7aa-23965926a562';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'กระบะต่อเติมเกินหัวเก๋ง') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1%E0%B9%80%E0%B8%81%E0%B8%B4%E0%B8%99%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=957c9ae1-6d8a-41d5-b7aa-23965926a562';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'กระบะตู้ทึบ/ตู้แห้ง') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F2_%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B8%B9%E0%B9%89%E0%B8%97%E0%B8%B6%E0%B8%9A_%E0%B8%95%E0%B8%B9%E0%B9%89%E0%B9%81%E0%B8%AB%E0%B9%89%E0%B8%87.png?alt=media&token=71715c79-6196-4a63-9a9e-c179033218ea';
+                                                              } else {
+                                                                return '-';
+                                                              }
+                                                            }(),
+                                                          ),
+                                                          width: () {
+                                                            if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถเก๋ง') {
+                                                              return 90;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถตู้') {
+                                                              return 90;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถกระบะ 2 ประตู') {
+                                                              return 90;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถกระบะ 4 ประตู') {
+                                                              return 90;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถบรรทุก หัวลาก หางพ่วง') {
+                                                              return 130;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถแต่ง ต่อคอก') {
+                                                              return 90;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'กระบะไม่ต่อเติม') {
+                                                              return 100;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'กระบะต่อเติมเกินหัวเก๋ง') {
+                                                              return 130;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'กระบะต่อเติมไม่เกินหัวเก๋ง') {
+                                                              return 130;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'กระบะตู้ทึบ/ตู้แห้ง') {
+                                                              return 100;
+                                                            } else {
+                                                              return 0;
+                                                            }
+                                                          }()
+                                                              .toDouble(),
+                                                          fit: BoxFit.cover,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
                                                 ),
                                               ),
-                                            ],
+                                            ),
                                           ),
-                                        ),
+                                        ],
                                       ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 5.0, 0.0, 0.0),
-                                        child: Container(
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  1.0,
-                                          decoration: BoxDecoration(),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        12.0, 0.0, 12.0, 0.0),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 5.0, 0.0, 0.0),
+                                    child: Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          1.0,
+                                      decoration: BoxDecoration(),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 0.0, 12.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Text(
+                                                  'พื้นชั้นล่าง',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        fontSize: 15.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          10.0, 0.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    '(บังคับเลือก)',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          color:
+                                                              Color(0xFFFB0606),
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 5.0, 0.0, 0.0),
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                context.pushNamed(
+                                                  'FireSearchableListPage',
+                                                  queryParameters: {
+                                                    'titleText': serializeParam(
+                                                      'เลือกพื้นชั้นล่าง',
+                                                      ParamType.String,
+                                                    ),
+                                                    'searchLabel':
+                                                        serializeParam(
+                                                      'ระบุพื้นชั้นล่าง',
+                                                      ParamType.String,
+                                                    ),
+                                                    'dataList': serializeParam(
+                                                      widget!.masterDataFirebase
+                                                          ?.floor,
+                                                      ParamType.String,
+                                                      isList: true,
+                                                    ),
+                                                    'multiSelect':
+                                                        serializeParam(
+                                                      false,
+                                                      ParamType.bool,
+                                                    ),
+                                                  }.withoutNulls,
+                                                );
+                                              },
+                                              child: Container(
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        1.0,
+                                                height: 60.0,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                  border: Border.all(
+                                                    color: Color(0xFFB3B3B3),
+                                                  ),
+                                                ),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
                                                   children: [
-                                                    Text(
-                                                      'พื้นชั้นล่าง',
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Noto Sans Thai',
-                                                            fontSize: 15.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w500,
-                                                          ),
-                                                    ),
                                                     Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
@@ -1993,111 +2001,16 @@ class _FireInsuranceInfoPage2WidgetState
                                                                   0.0,
                                                                   0.0),
                                                       child: Text(
-                                                        '(บังคับเลือก)',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Noto Sans Thai',
-                                                              color: Color(
-                                                                  0xFFFB0606),
-                                                              fontSize: 12.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                            ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 5.0, 0.0, 0.0),
-                                                child: InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    context.pushNamed(
-                                                      'FireSearchableListPage',
-                                                      queryParameters: {
-                                                        'titleText':
-                                                            serializeParam(
+                                                        valueOrDefault<String>(
+                                                          FFAppState()
+                                                              .leadsHouse
+                                                              .firstOrNull
+                                                              ?.floorGround,
                                                           'เลือกพื้นชั้นล่าง',
-                                                          ParamType.String,
                                                         ),
-                                                        'searchLabel':
-                                                            serializeParam(
-                                                          'ระบุพื้นชั้นล่าง',
-                                                          ParamType.String,
-                                                        ),
-                                                        'dataList':
-                                                            serializeParam(
-                                                          widget!
-                                                              .masterDataFirebase
-                                                              ?.floor,
-                                                          ParamType.String,
-                                                          isList: true,
-                                                        ),
-                                                        'multiSelect':
-                                                            serializeParam(
-                                                          false,
-                                                          ParamType.bool,
-                                                        ),
-                                                      }.withoutNulls,
-                                                    );
-                                                  },
-                                                  child: Container(
-                                                    width: MediaQuery.sizeOf(
-                                                                context)
-                                                            .width *
-                                                        1.0,
-                                                    height: 60.0,
-                                                    decoration: BoxDecoration(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .secondaryBackground,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
-                                                      border: Border.all(
-                                                        color:
-                                                            Color(0xFFB3B3B3),
-                                                      ),
-                                                    ),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceBetween,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      10.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            valueOrDefault<
-                                                                String>(
-                                                              FFAppState()
-                                                                  .leadsHouse
-                                                                  .firstOrNull
-                                                                  ?.floorGround,
-                                                              'เลือกพื้นชั้นล่าง',
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
                                                                 .bodyMedium
                                                                 .override(
                                                                   fontFamily:
@@ -2123,162 +2036,241 @@ class _FireInsuranceInfoPage2WidgetState
                                                                       FontWeight
                                                                           .w600,
                                                                 ),
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      20.0,
-                                                                      0.0),
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        8.0),
-                                                            child:
-                                                                Image.network(
-                                                              getCORSProxyUrl(
-                                                                () {
-                                                                  if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'รถเก๋ง') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=68ef0a76-99d9-4c43-ae86-b48970b7fb09';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'รถตู้') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B8%95%E0%B8%B9%E0%B9%89.png?alt=media&token=8969fa4a-52e0-4b0c-9c44-f349976bc624';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'รถกระบะ 2 ประตู') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%20%E0%B8%95%E0%B8%AD%E0%B8%99%E0%B9%80%E0%B8%94%E0%B8%B5%E0%B8%A2%E0%B8%A7%20(%E0%B8%A3%E0%B8%A7%E0%B8%A1).png?alt=media&token=bd62e47d-dd92-41ca-8f51-3632edfd54a6';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'รถกระบะ 4 ประตู') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%204%20%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%95%E0%B8%B9.png?alt=media&token=45bc2e60-3a29-47dc-aa4d-e9c82a113bbc';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'รถบรรทุก หัวลาก หางพ่วง') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B8%A5%E0%B8%B2%E0%B8%81%20%E0%B8%AB%E0%B8%B2%E0%B8%87%E0%B8%9E%E0%B9%88%E0%B8%A7%E0%B8%87.png?alt=media&token=1d749f04-0765-422a-b0b7-34a3d5d60519';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'รถแต่ง ต่อคอก') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B9%81%E0%B8%95%E0%B9%88%E0%B8%87%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B8%84%E0%B8%AD%E0%B8%81.png?alt=media&token=80501c24-fec4-4c34-ac0f-361db3b698b3';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'กระบะไม่ต่อเติม') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%202%20%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%95%E0%B8%B9%E0%B9%84%E0%B8%A1%E0%B9%88%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1.png?alt=media&token=ca1d014f-d1aa-4f27-bd54-3d97d5efba3f';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'กระบะต่อเติมเกินหัวเก๋ง') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1%E0%B9%80%E0%B8%81%E0%B8%B4%E0%B8%99%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=957c9ae1-6d8a-41d5-b7aa-23965926a562';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'กระบะต่อเติมเกินหัวเก๋ง') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1%E0%B9%80%E0%B8%81%E0%B8%B4%E0%B8%99%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=957c9ae1-6d8a-41d5-b7aa-23965926a562';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'กระบะตู้ทึบ/ตู้แห้ง') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F2_%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B8%B9%E0%B9%89%E0%B8%97%E0%B8%B6%E0%B8%9A_%E0%B8%95%E0%B8%B9%E0%B9%89%E0%B9%81%E0%B8%AB%E0%B9%89%E0%B8%87.png?alt=media&token=71715c79-6196-4a63-9a9e-c179033218ea';
-                                                                  } else {
-                                                                    return '-';
-                                                                  }
-                                                                }(),
-                                                              ),
-                                                              width: () {
-                                                                if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'รถเก๋ง') {
-                                                                  return 90;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'รถตู้') {
-                                                                  return 90;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'รถกระบะ 2 ประตู') {
-                                                                  return 90;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'รถกระบะ 4 ประตู') {
-                                                                  return 90;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'รถบรรทุก หัวลาก หางพ่วง') {
-                                                                  return 130;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'รถแต่ง ต่อคอก') {
-                                                                  return 90;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'กระบะไม่ต่อเติม') {
-                                                                  return 100;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'กระบะต่อเติมเกินหัวเก๋ง') {
-                                                                  return 130;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'กระบะต่อเติมไม่เกินหัวเก๋ง') {
-                                                                  return 130;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'กระบะตู้ทึบ/ตู้แห้ง') {
-                                                                  return 100;
-                                                                } else {
-                                                                  return 0;
-                                                                }
-                                                              }()
-                                                                  .toDouble(),
-                                                              fit: BoxFit.cover,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ],
+                                                      ),
                                                     ),
-                                                  ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  20.0,
+                                                                  0.0),
+                                                      child: ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                        child: Image.network(
+                                                          getCORSProxyUrl(
+                                                            () {
+                                                              if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'รถเก๋ง') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=68ef0a76-99d9-4c43-ae86-b48970b7fb09';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'รถตู้') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B8%95%E0%B8%B9%E0%B9%89.png?alt=media&token=8969fa4a-52e0-4b0c-9c44-f349976bc624';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'รถกระบะ 2 ประตู') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%20%E0%B8%95%E0%B8%AD%E0%B8%99%E0%B9%80%E0%B8%94%E0%B8%B5%E0%B8%A2%E0%B8%A7%20(%E0%B8%A3%E0%B8%A7%E0%B8%A1).png?alt=media&token=bd62e47d-dd92-41ca-8f51-3632edfd54a6';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'รถกระบะ 4 ประตู') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%204%20%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%95%E0%B8%B9.png?alt=media&token=45bc2e60-3a29-47dc-aa4d-e9c82a113bbc';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'รถบรรทุก หัวลาก หางพ่วง') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B8%A5%E0%B8%B2%E0%B8%81%20%E0%B8%AB%E0%B8%B2%E0%B8%87%E0%B8%9E%E0%B9%88%E0%B8%A7%E0%B8%87.png?alt=media&token=1d749f04-0765-422a-b0b7-34a3d5d60519';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'รถแต่ง ต่อคอก') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B9%81%E0%B8%95%E0%B9%88%E0%B8%87%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B8%84%E0%B8%AD%E0%B8%81.png?alt=media&token=80501c24-fec4-4c34-ac0f-361db3b698b3';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'กระบะไม่ต่อเติม') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%202%20%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%95%E0%B8%B9%E0%B9%84%E0%B8%A1%E0%B9%88%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1.png?alt=media&token=ca1d014f-d1aa-4f27-bd54-3d97d5efba3f';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'กระบะต่อเติมเกินหัวเก๋ง') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1%E0%B9%80%E0%B8%81%E0%B8%B4%E0%B8%99%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=957c9ae1-6d8a-41d5-b7aa-23965926a562';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'กระบะต่อเติมเกินหัวเก๋ง') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1%E0%B9%80%E0%B8%81%E0%B8%B4%E0%B8%99%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=957c9ae1-6d8a-41d5-b7aa-23965926a562';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'กระบะตู้ทึบ/ตู้แห้ง') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F2_%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B8%B9%E0%B9%89%E0%B8%97%E0%B8%B6%E0%B8%9A_%E0%B8%95%E0%B8%B9%E0%B9%89%E0%B9%81%E0%B8%AB%E0%B9%89%E0%B8%87.png?alt=media&token=71715c79-6196-4a63-9a9e-c179033218ea';
+                                                              } else {
+                                                                return '-';
+                                                              }
+                                                            }(),
+                                                          ),
+                                                          width: () {
+                                                            if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถเก๋ง') {
+                                                              return 90;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถตู้') {
+                                                              return 90;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถกระบะ 2 ประตู') {
+                                                              return 90;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถกระบะ 4 ประตู') {
+                                                              return 90;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถบรรทุก หัวลาก หางพ่วง') {
+                                                              return 130;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถแต่ง ต่อคอก') {
+                                                              return 90;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'กระบะไม่ต่อเติม') {
+                                                              return 100;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'กระบะต่อเติมเกินหัวเก๋ง') {
+                                                              return 130;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'กระบะต่อเติมไม่เกินหัวเก๋ง') {
+                                                              return 130;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'กระบะตู้ทึบ/ตู้แห้ง') {
+                                                              return 100;
+                                                            } else {
+                                                              return 0;
+                                                            }
+                                                          }()
+                                                              .toDouble(),
+                                                          fit: BoxFit.cover,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
                                                 ),
                                               ),
-                                            ],
+                                            ),
                                           ),
-                                        ),
+                                        ],
                                       ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 5.0, 0.0, 0.0),
-                                        child: Container(
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  1.0,
-                                          decoration: BoxDecoration(),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        12.0, 0.0, 12.0, 0.0),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 5.0, 0.0, 0.0),
+                                    child: Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          1.0,
+                                      decoration: BoxDecoration(),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 0.0, 12.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Text(
+                                                  'โครงสร้างหลังคา',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        fontSize: 15.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          10.0, 0.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    '(บังคับเลือก)',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          color:
+                                                              Color(0xFFFB0606),
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 5.0, 0.0, 0.0),
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                context.pushNamed(
+                                                  'FireSearchableListPage',
+                                                  queryParameters: {
+                                                    'titleText': serializeParam(
+                                                      'เลือกโครงสร้างหลังคา',
+                                                      ParamType.String,
+                                                    ),
+                                                    'searchLabel':
+                                                        serializeParam(
+                                                      'ระบุโครงสร้างหลังคา',
+                                                      ParamType.String,
+                                                    ),
+                                                    'dataList': serializeParam(
+                                                      widget!.masterDataFirebase
+                                                          ?.roofFrame,
+                                                      ParamType.String,
+                                                      isList: true,
+                                                    ),
+                                                    'multiSelect':
+                                                        serializeParam(
+                                                      false,
+                                                      ParamType.bool,
+                                                    ),
+                                                  }.withoutNulls,
+                                                );
+                                              },
+                                              child: Container(
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        1.0,
+                                                height: 60.0,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                  border: Border.all(
+                                                    color: Color(0xFFB3B3B3),
+                                                  ),
+                                                ),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
                                                   children: [
-                                                    Text(
-                                                      'โครงสร้างหลังคา',
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Noto Sans Thai',
-                                                            fontSize: 15.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w500,
-                                                          ),
-                                                    ),
                                                     Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
@@ -2288,111 +2280,16 @@ class _FireInsuranceInfoPage2WidgetState
                                                                   0.0,
                                                                   0.0),
                                                       child: Text(
-                                                        '(บังคับเลือก)',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Noto Sans Thai',
-                                                              color: Color(
-                                                                  0xFFFB0606),
-                                                              fontSize: 12.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                            ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 5.0, 0.0, 0.0),
-                                                child: InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    context.pushNamed(
-                                                      'FireSearchableListPage',
-                                                      queryParameters: {
-                                                        'titleText':
-                                                            serializeParam(
-                                                          'เลือกโครงสร้างหลังคา',
-                                                          ParamType.String,
-                                                        ),
-                                                        'searchLabel':
-                                                            serializeParam(
-                                                          'ระบุโครงสร้างหลังคา',
-                                                          ParamType.String,
-                                                        ),
-                                                        'dataList':
-                                                            serializeParam(
-                                                          widget!
-                                                              .masterDataFirebase
+                                                        valueOrDefault<String>(
+                                                          FFAppState()
+                                                              .leadsHouse
+                                                              .firstOrNull
                                                               ?.roofFrame,
-                                                          ParamType.String,
-                                                          isList: true,
+                                                          'เลือกโครงสร้างหลังคา',
                                                         ),
-                                                        'multiSelect':
-                                                            serializeParam(
-                                                          false,
-                                                          ParamType.bool,
-                                                        ),
-                                                      }.withoutNulls,
-                                                    );
-                                                  },
-                                                  child: Container(
-                                                    width: MediaQuery.sizeOf(
-                                                                context)
-                                                            .width *
-                                                        1.0,
-                                                    height: 60.0,
-                                                    decoration: BoxDecoration(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .secondaryBackground,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
-                                                      border: Border.all(
-                                                        color:
-                                                            Color(0xFFB3B3B3),
-                                                      ),
-                                                    ),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceBetween,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      10.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            valueOrDefault<
-                                                                String>(
-                                                              FFAppState()
-                                                                  .leadsHouse
-                                                                  .firstOrNull
-                                                                  ?.roofFrame,
-                                                              'เลือกโครงสร้างหลังคา',
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
                                                                 .bodyMedium
                                                                 .override(
                                                                   fontFamily:
@@ -2418,162 +2315,241 @@ class _FireInsuranceInfoPage2WidgetState
                                                                       FontWeight
                                                                           .w600,
                                                                 ),
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      20.0,
-                                                                      0.0),
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        8.0),
-                                                            child:
-                                                                Image.network(
-                                                              getCORSProxyUrl(
-                                                                () {
-                                                                  if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'รถเก๋ง') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=68ef0a76-99d9-4c43-ae86-b48970b7fb09';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'รถตู้') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B8%95%E0%B8%B9%E0%B9%89.png?alt=media&token=8969fa4a-52e0-4b0c-9c44-f349976bc624';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'รถกระบะ 2 ประตู') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%20%E0%B8%95%E0%B8%AD%E0%B8%99%E0%B9%80%E0%B8%94%E0%B8%B5%E0%B8%A2%E0%B8%A7%20(%E0%B8%A3%E0%B8%A7%E0%B8%A1).png?alt=media&token=bd62e47d-dd92-41ca-8f51-3632edfd54a6';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'รถกระบะ 4 ประตู') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%204%20%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%95%E0%B8%B9.png?alt=media&token=45bc2e60-3a29-47dc-aa4d-e9c82a113bbc';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'รถบรรทุก หัวลาก หางพ่วง') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B8%A5%E0%B8%B2%E0%B8%81%20%E0%B8%AB%E0%B8%B2%E0%B8%87%E0%B8%9E%E0%B9%88%E0%B8%A7%E0%B8%87.png?alt=media&token=1d749f04-0765-422a-b0b7-34a3d5d60519';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'รถแต่ง ต่อคอก') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B9%81%E0%B8%95%E0%B9%88%E0%B8%87%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B8%84%E0%B8%AD%E0%B8%81.png?alt=media&token=80501c24-fec4-4c34-ac0f-361db3b698b3';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'กระบะไม่ต่อเติม') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%202%20%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%95%E0%B8%B9%E0%B9%84%E0%B8%A1%E0%B9%88%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1.png?alt=media&token=ca1d014f-d1aa-4f27-bd54-3d97d5efba3f';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'กระบะต่อเติมเกินหัวเก๋ง') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1%E0%B9%80%E0%B8%81%E0%B8%B4%E0%B8%99%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=957c9ae1-6d8a-41d5-b7aa-23965926a562';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'กระบะต่อเติมเกินหัวเก๋ง') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1%E0%B9%80%E0%B8%81%E0%B8%B4%E0%B8%99%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=957c9ae1-6d8a-41d5-b7aa-23965926a562';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'กระบะตู้ทึบ/ตู้แห้ง') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F2_%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B8%B9%E0%B9%89%E0%B8%97%E0%B8%B6%E0%B8%9A_%E0%B8%95%E0%B8%B9%E0%B9%89%E0%B9%81%E0%B8%AB%E0%B9%89%E0%B8%87.png?alt=media&token=71715c79-6196-4a63-9a9e-c179033218ea';
-                                                                  } else {
-                                                                    return '-';
-                                                                  }
-                                                                }(),
-                                                              ),
-                                                              width: () {
-                                                                if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'รถเก๋ง') {
-                                                                  return 90;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'รถตู้') {
-                                                                  return 90;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'รถกระบะ 2 ประตู') {
-                                                                  return 90;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'รถกระบะ 4 ประตู') {
-                                                                  return 90;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'รถบรรทุก หัวลาก หางพ่วง') {
-                                                                  return 130;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'รถแต่ง ต่อคอก') {
-                                                                  return 90;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'กระบะไม่ต่อเติม') {
-                                                                  return 100;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'กระบะต่อเติมเกินหัวเก๋ง') {
-                                                                  return 130;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'กระบะต่อเติมไม่เกินหัวเก๋ง') {
-                                                                  return 130;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'กระบะตู้ทึบ/ตู้แห้ง') {
-                                                                  return 100;
-                                                                } else {
-                                                                  return 0;
-                                                                }
-                                                              }()
-                                                                  .toDouble(),
-                                                              fit: BoxFit.cover,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ],
+                                                      ),
                                                     ),
-                                                  ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  20.0,
+                                                                  0.0),
+                                                      child: ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                        child: Image.network(
+                                                          getCORSProxyUrl(
+                                                            () {
+                                                              if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'รถเก๋ง') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=68ef0a76-99d9-4c43-ae86-b48970b7fb09';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'รถตู้') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B8%95%E0%B8%B9%E0%B9%89.png?alt=media&token=8969fa4a-52e0-4b0c-9c44-f349976bc624';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'รถกระบะ 2 ประตู') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%20%E0%B8%95%E0%B8%AD%E0%B8%99%E0%B9%80%E0%B8%94%E0%B8%B5%E0%B8%A2%E0%B8%A7%20(%E0%B8%A3%E0%B8%A7%E0%B8%A1).png?alt=media&token=bd62e47d-dd92-41ca-8f51-3632edfd54a6';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'รถกระบะ 4 ประตู') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%204%20%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%95%E0%B8%B9.png?alt=media&token=45bc2e60-3a29-47dc-aa4d-e9c82a113bbc';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'รถบรรทุก หัวลาก หางพ่วง') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B8%A5%E0%B8%B2%E0%B8%81%20%E0%B8%AB%E0%B8%B2%E0%B8%87%E0%B8%9E%E0%B9%88%E0%B8%A7%E0%B8%87.png?alt=media&token=1d749f04-0765-422a-b0b7-34a3d5d60519';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'รถแต่ง ต่อคอก') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B9%81%E0%B8%95%E0%B9%88%E0%B8%87%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B8%84%E0%B8%AD%E0%B8%81.png?alt=media&token=80501c24-fec4-4c34-ac0f-361db3b698b3';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'กระบะไม่ต่อเติม') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%202%20%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%95%E0%B8%B9%E0%B9%84%E0%B8%A1%E0%B9%88%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1.png?alt=media&token=ca1d014f-d1aa-4f27-bd54-3d97d5efba3f';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'กระบะต่อเติมเกินหัวเก๋ง') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1%E0%B9%80%E0%B8%81%E0%B8%B4%E0%B8%99%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=957c9ae1-6d8a-41d5-b7aa-23965926a562';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'กระบะต่อเติมเกินหัวเก๋ง') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1%E0%B9%80%E0%B8%81%E0%B8%B4%E0%B8%99%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=957c9ae1-6d8a-41d5-b7aa-23965926a562';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'กระบะตู้ทึบ/ตู้แห้ง') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F2_%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B8%B9%E0%B9%89%E0%B8%97%E0%B8%B6%E0%B8%9A_%E0%B8%95%E0%B8%B9%E0%B9%89%E0%B9%81%E0%B8%AB%E0%B9%89%E0%B8%87.png?alt=media&token=71715c79-6196-4a63-9a9e-c179033218ea';
+                                                              } else {
+                                                                return '-';
+                                                              }
+                                                            }(),
+                                                          ),
+                                                          width: () {
+                                                            if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถเก๋ง') {
+                                                              return 90;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถตู้') {
+                                                              return 90;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถกระบะ 2 ประตู') {
+                                                              return 90;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถกระบะ 4 ประตู') {
+                                                              return 90;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถบรรทุก หัวลาก หางพ่วง') {
+                                                              return 130;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถแต่ง ต่อคอก') {
+                                                              return 90;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'กระบะไม่ต่อเติม') {
+                                                              return 100;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'กระบะต่อเติมเกินหัวเก๋ง') {
+                                                              return 130;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'กระบะต่อเติมไม่เกินหัวเก๋ง') {
+                                                              return 130;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'กระบะตู้ทึบ/ตู้แห้ง') {
+                                                              return 100;
+                                                            } else {
+                                                              return 0;
+                                                            }
+                                                          }()
+                                                              .toDouble(),
+                                                          fit: BoxFit.cover,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
                                                 ),
                                               ),
-                                            ],
+                                            ),
                                           ),
-                                        ),
+                                        ],
                                       ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 5.0, 0.0, 0.0),
-                                        child: Container(
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  1.0,
-                                          decoration: BoxDecoration(),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        12.0, 0.0, 12.0, 0.0),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 5.0, 0.0, 0.0),
+                                    child: Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          1.0,
+                                      decoration: BoxDecoration(),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 0.0, 12.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Text(
+                                                  'หลังคา',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        fontSize: 15.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          10.0, 0.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    '(บังคับเลือก)',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          color:
+                                                              Color(0xFFFB0606),
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 5.0, 0.0, 0.0),
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                context.pushNamed(
+                                                  'FireSearchableListPage',
+                                                  queryParameters: {
+                                                    'titleText': serializeParam(
+                                                      'เลือกหลังคา',
+                                                      ParamType.String,
+                                                    ),
+                                                    'searchLabel':
+                                                        serializeParam(
+                                                      'ระบุหลังคา',
+                                                      ParamType.String,
+                                                    ),
+                                                    'dataList': serializeParam(
+                                                      widget!.masterDataFirebase
+                                                          ?.roof,
+                                                      ParamType.String,
+                                                      isList: true,
+                                                    ),
+                                                    'multiSelect':
+                                                        serializeParam(
+                                                      false,
+                                                      ParamType.bool,
+                                                    ),
+                                                  }.withoutNulls,
+                                                );
+                                              },
+                                              child: Container(
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        1.0,
+                                                height: 60.0,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                  border: Border.all(
+                                                    color: Color(0xFFB3B3B3),
+                                                  ),
+                                                ),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
                                                   children: [
-                                                    Text(
-                                                      'หลังคา',
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Noto Sans Thai',
-                                                            fontSize: 15.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w500,
-                                                          ),
-                                                    ),
                                                     Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
@@ -2583,111 +2559,16 @@ class _FireInsuranceInfoPage2WidgetState
                                                                   0.0,
                                                                   0.0),
                                                       child: Text(
-                                                        '(บังคับเลือก)',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Noto Sans Thai',
-                                                              color: Color(
-                                                                  0xFFFB0606),
-                                                              fontSize: 12.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                            ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 5.0, 0.0, 0.0),
-                                                child: InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    context.pushNamed(
-                                                      'FireSearchableListPage',
-                                                      queryParameters: {
-                                                        'titleText':
-                                                            serializeParam(
-                                                          'เลือกหลังคา',
-                                                          ParamType.String,
-                                                        ),
-                                                        'searchLabel':
-                                                            serializeParam(
-                                                          'ระบุหลังคา',
-                                                          ParamType.String,
-                                                        ),
-                                                        'dataList':
-                                                            serializeParam(
-                                                          widget!
-                                                              .masterDataFirebase
+                                                        valueOrDefault<String>(
+                                                          FFAppState()
+                                                              .leadsHouse
+                                                              .firstOrNull
                                                               ?.roof,
-                                                          ParamType.String,
-                                                          isList: true,
+                                                          'เลือกหลังคา',
                                                         ),
-                                                        'multiSelect':
-                                                            serializeParam(
-                                                          false,
-                                                          ParamType.bool,
-                                                        ),
-                                                      }.withoutNulls,
-                                                    );
-                                                  },
-                                                  child: Container(
-                                                    width: MediaQuery.sizeOf(
-                                                                context)
-                                                            .width *
-                                                        1.0,
-                                                    height: 60.0,
-                                                    decoration: BoxDecoration(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .secondaryBackground,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
-                                                      border: Border.all(
-                                                        color:
-                                                            Color(0xFFB3B3B3),
-                                                      ),
-                                                    ),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceBetween,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      10.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            valueOrDefault<
-                                                                String>(
-                                                              FFAppState()
-                                                                  .leadsHouse
-                                                                  .firstOrNull
-                                                                  ?.roof,
-                                                              'เลือกหลังคา',
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
                                                                 .bodyMedium
                                                                 .override(
                                                                   fontFamily:
@@ -2713,130 +2594,126 @@ class _FireInsuranceInfoPage2WidgetState
                                                                       FontWeight
                                                                           .w600,
                                                                 ),
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      20.0,
-                                                                      0.0),
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        8.0),
-                                                            child:
-                                                                Image.network(
-                                                              getCORSProxyUrl(
-                                                                () {
-                                                                  if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'รถเก๋ง') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=68ef0a76-99d9-4c43-ae86-b48970b7fb09';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'รถตู้') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B8%95%E0%B8%B9%E0%B9%89.png?alt=media&token=8969fa4a-52e0-4b0c-9c44-f349976bc624';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'รถกระบะ 2 ประตู') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%20%E0%B8%95%E0%B8%AD%E0%B8%99%E0%B9%80%E0%B8%94%E0%B8%B5%E0%B8%A2%E0%B8%A7%20(%E0%B8%A3%E0%B8%A7%E0%B8%A1).png?alt=media&token=bd62e47d-dd92-41ca-8f51-3632edfd54a6';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'รถกระบะ 4 ประตู') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%204%20%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%95%E0%B8%B9.png?alt=media&token=45bc2e60-3a29-47dc-aa4d-e9c82a113bbc';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'รถบรรทุก หัวลาก หางพ่วง') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B8%A5%E0%B8%B2%E0%B8%81%20%E0%B8%AB%E0%B8%B2%E0%B8%87%E0%B8%9E%E0%B9%88%E0%B8%A7%E0%B8%87.png?alt=media&token=1d749f04-0765-422a-b0b7-34a3d5d60519';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'รถแต่ง ต่อคอก') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B9%81%E0%B8%95%E0%B9%88%E0%B8%87%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B8%84%E0%B8%AD%E0%B8%81.png?alt=media&token=80501c24-fec4-4c34-ac0f-361db3b698b3';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'กระบะไม่ต่อเติม') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%202%20%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%95%E0%B8%B9%E0%B9%84%E0%B8%A1%E0%B9%88%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1.png?alt=media&token=ca1d014f-d1aa-4f27-bd54-3d97d5efba3f';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'กระบะต่อเติมเกินหัวเก๋ง') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1%E0%B9%80%E0%B8%81%E0%B8%B4%E0%B8%99%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=957c9ae1-6d8a-41d5-b7aa-23965926a562';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'กระบะต่อเติมเกินหัวเก๋ง') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1%E0%B9%80%E0%B8%81%E0%B8%B4%E0%B8%99%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=957c9ae1-6d8a-41d5-b7aa-23965926a562';
-                                                                  } else if (FFAppState()
-                                                                          .insuranceInfoCarTypeDetail ==
-                                                                      'กระบะตู้ทึบ/ตู้แห้ง') {
-                                                                    return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F2_%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B8%B9%E0%B9%89%E0%B8%97%E0%B8%B6%E0%B8%9A_%E0%B8%95%E0%B8%B9%E0%B9%89%E0%B9%81%E0%B8%AB%E0%B9%89%E0%B8%87.png?alt=media&token=71715c79-6196-4a63-9a9e-c179033218ea';
-                                                                  } else {
-                                                                    return '-';
-                                                                  }
-                                                                }(),
-                                                              ),
-                                                              width: () {
-                                                                if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'รถเก๋ง') {
-                                                                  return 90;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'รถตู้') {
-                                                                  return 90;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'รถกระบะ 2 ประตู') {
-                                                                  return 90;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'รถกระบะ 4 ประตู') {
-                                                                  return 90;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'รถบรรทุก หัวลาก หางพ่วง') {
-                                                                  return 130;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'รถแต่ง ต่อคอก') {
-                                                                  return 90;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'กระบะไม่ต่อเติม') {
-                                                                  return 100;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'กระบะต่อเติมเกินหัวเก๋ง') {
-                                                                  return 130;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'กระบะต่อเติมไม่เกินหัวเก๋ง') {
-                                                                  return 130;
-                                                                } else if (FFAppState()
-                                                                        .insuranceInfoCarTypeDetail ==
-                                                                    'กระบะตู้ทึบ/ตู้แห้ง') {
-                                                                  return 100;
-                                                                } else {
-                                                                  return 0;
-                                                                }
-                                                              }()
-                                                                  .toDouble(),
-                                                              fit: BoxFit.cover,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ],
+                                                      ),
                                                     ),
-                                                  ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  20.0,
+                                                                  0.0),
+                                                      child: ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                        child: Image.network(
+                                                          getCORSProxyUrl(
+                                                            () {
+                                                              if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'รถเก๋ง') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=68ef0a76-99d9-4c43-ae86-b48970b7fb09';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'รถตู้') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B8%95%E0%B8%B9%E0%B9%89.png?alt=media&token=8969fa4a-52e0-4b0c-9c44-f349976bc624';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'รถกระบะ 2 ประตู') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%20%E0%B8%95%E0%B8%AD%E0%B8%99%E0%B9%80%E0%B8%94%E0%B8%B5%E0%B8%A2%E0%B8%A7%20(%E0%B8%A3%E0%B8%A7%E0%B8%A1).png?alt=media&token=bd62e47d-dd92-41ca-8f51-3632edfd54a6';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'รถกระบะ 4 ประตู') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%204%20%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%95%E0%B8%B9.png?alt=media&token=45bc2e60-3a29-47dc-aa4d-e9c82a113bbc';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'รถบรรทุก หัวลาก หางพ่วง') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B8%A5%E0%B8%B2%E0%B8%81%20%E0%B8%AB%E0%B8%B2%E0%B8%87%E0%B8%9E%E0%B9%88%E0%B8%A7%E0%B8%87.png?alt=media&token=1d749f04-0765-422a-b0b7-34a3d5d60519';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'รถแต่ง ต่อคอก') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B9%81%E0%B8%95%E0%B9%88%E0%B8%87%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B8%84%E0%B8%AD%E0%B8%81.png?alt=media&token=80501c24-fec4-4c34-ac0f-361db3b698b3';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'กระบะไม่ต่อเติม') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%202%20%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%95%E0%B8%B9%E0%B9%84%E0%B8%A1%E0%B9%88%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1.png?alt=media&token=ca1d014f-d1aa-4f27-bd54-3d97d5efba3f';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'กระบะต่อเติมเกินหัวเก๋ง') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1%E0%B9%80%E0%B8%81%E0%B8%B4%E0%B8%99%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=957c9ae1-6d8a-41d5-b7aa-23965926a562';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'กระบะต่อเติมเกินหัวเก๋ง') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1%E0%B9%80%E0%B8%81%E0%B8%B4%E0%B8%99%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=957c9ae1-6d8a-41d5-b7aa-23965926a562';
+                                                              } else if (FFAppState()
+                                                                      .insuranceInfoCarTypeDetail ==
+                                                                  'กระบะตู้ทึบ/ตู้แห้ง') {
+                                                                return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F2_%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B8%B9%E0%B9%89%E0%B8%97%E0%B8%B6%E0%B8%9A_%E0%B8%95%E0%B8%B9%E0%B9%89%E0%B9%81%E0%B8%AB%E0%B9%89%E0%B8%87.png?alt=media&token=71715c79-6196-4a63-9a9e-c179033218ea';
+                                                              } else {
+                                                                return '-';
+                                                              }
+                                                            }(),
+                                                          ),
+                                                          width: () {
+                                                            if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถเก๋ง') {
+                                                              return 90;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถตู้') {
+                                                              return 90;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถกระบะ 2 ประตู') {
+                                                              return 90;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถกระบะ 4 ประตู') {
+                                                              return 90;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถบรรทุก หัวลาก หางพ่วง') {
+                                                              return 130;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถแต่ง ต่อคอก') {
+                                                              return 90;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'กระบะไม่ต่อเติม') {
+                                                              return 100;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'กระบะต่อเติมเกินหัวเก๋ง') {
+                                                              return 130;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'กระบะต่อเติมไม่เกินหัวเก๋ง') {
+                                                              return 130;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'กระบะตู้ทึบ/ตู้แห้ง') {
+                                                              return 100;
+                                                            } else {
+                                                              return 0;
+                                                            }
+                                                          }()
+                                                              .toDouble(),
+                                                          fit: BoxFit.cover,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
                                                 ),
                                               ),
-                                            ],
+                                            ),
                                           ),
-                                        ),
+                                        ],
                                       ),
-                                    ],
+                                    ),
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
