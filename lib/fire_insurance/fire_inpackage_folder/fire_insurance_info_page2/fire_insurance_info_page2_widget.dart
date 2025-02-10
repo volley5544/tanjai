@@ -5092,246 +5092,264 @@ class _FireInsuranceInfoPage2WidgetState
                                         ),
                                       ),
                                     ),
-                                  Expanded(
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 10.0, 0.0, 10.0),
-                                      child: InkWell(
-                                        splashColor: Colors.transparent,
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onTap: () async {
-                                          context.pushNamed(
-                                            'showPeoplePage',
-                                            queryParameters: {
-                                              'firestoreDataConfigList':
-                                                  serializeParam(
-                                                widget!.masterDataFirebase,
-                                                ParamType.Document,
-                                              ),
-                                              'maxPeople': serializeParam(
-                                                FFAppState()
-                                                    .insuranceinfoPage1MaximumInsuredPerson,
-                                                ParamType.String,
-                                              ),
-                                            }.withoutNulls,
-                                            extra: <String, dynamic>{
-                                              'firestoreDataConfigList':
+                                  if (int.parse(FFAppState()
+                                          .insuranceinfoPage1MaximumInsuredPerson) >
+                                      0)
+                                    Expanded(
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 10.0, 0.0, 10.0),
+                                        child: InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            context.pushNamed(
+                                              'showPeoplePage',
+                                              queryParameters: {
+                                                'firestoreDataConfigList':
+                                                    serializeParam(
                                                   widget!.masterDataFirebase,
-                                            },
-                                          );
+                                                  ParamType.Document,
+                                                ),
+                                                'maxPeople': serializeParam(
+                                                  FFAppState()
+                                                      .insuranceinfoPage1MaximumInsuredPerson,
+                                                  ParamType.String,
+                                                ),
+                                              }.withoutNulls,
+                                              extra: <String, dynamic>{
+                                                'firestoreDataConfigList':
+                                                    widget!.masterDataFirebase,
+                                              },
+                                            );
 
-                                          await actions.hideKeyboardAction(
-                                            context,
-                                          );
-                                        },
-                                        child: Container(
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  1.0,
-                                          height: 100.0,
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                            border: Border.all(
-                                              color: Color(0xFFB3B3B3),
+                                            await actions.hideKeyboardAction(
+                                              context,
+                                            );
+                                          },
+                                          child: Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                1.0,
+                                            height: 100.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                              border: Border.all(
+                                                color: Color(0xFFB3B3B3),
+                                              ),
                                             ),
-                                          ),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          10.0, 0.0, 0.0, 0.0),
-                                                  child: Container(
-                                                    width: 50.0,
-                                                    height: 50.0,
-                                                    decoration: BoxDecoration(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .secondaryBackground,
-                                                      shape: BoxShape.circle,
-                                                      border: Border.all(
-                                                        color: Colors.black,
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(10.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: Container(
+                                                      width: 50.0,
+                                                      height: 50.0,
+                                                      decoration: BoxDecoration(
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        shape: BoxShape.circle,
+                                                        border: Border.all(
+                                                          color: Colors.black,
+                                                        ),
                                                       ),
-                                                    ),
-                                                    child: Align(
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              0.0, 0.0),
-                                                      child: Icon(
-                                                        Icons
-                                                            .person_add_alt_outlined,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .secondaryText,
-                                                        size: 30.0,
+                                                      child: Align(
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                0.0, 0.0),
+                                                        child: Icon(
+                                                          Icons
+                                                              .person_add_alt_outlined,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryText,
+                                                          size: 30.0,
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
                                                 ),
-                                              ),
-                                              Container(
-                                                width:
-                                                    MediaQuery.sizeOf(context)
-                                                            .width *
-                                                        0.6,
-                                                height: 100.0,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryBackground,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
-                                                ),
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    Text(
-                                                      'ระบุชื่อเพื่อขยายความคุ้มครอง',
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Noto Sans Thai',
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryText,
-                                                            fontSize: 15.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w600,
-                                                          ),
-                                                    ),
-                                                    Text(
-                                                      'ประกันภัยอุบัติเหตุส่วนบุคคล',
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Noto Sans Thai',
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryText,
-                                                            fontSize: 15.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w600,
-                                                          ),
-                                                    ),
-                                                    Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      5.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            '(บังคับระบุ 1 คน)',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  color: Color(
-                                                                      0xFFFB0606),
-                                                                  fontSize:
-                                                                      12.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      5.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            '${FFAppState().benefitorData.length == 1 ? ((FFAppState().benefitorData.length == 1) && ((FFAppState().benefitorData.firstOrNull?.firstNameTh != '') && (FFAppState().benefitorData.firstOrNull?.lastNameTh != '') && (FFAppState().benefitorData.firstOrNull?.birthDay != '') && (FFAppState().benefitorData.firstOrNull?.beneficiaryName != '') && (FFAppState().benefitorData.firstOrNull?.relationName != '')) ? FFAppState().benefitorData.length.toString() : '0') : FFAppState().benefitorData.length.toString()}/${FFAppState().insuranceinfoPage1MaximumInsuredPerson}',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  color: Color(
-                                                                      0xFFFB0606),
-                                                                  fontSize:
-                                                                      12.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                              Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 10.0, 0.0),
+                                                Container(
+                                                  width:
+                                                      MediaQuery.sizeOf(context)
+                                                              .width *
+                                                          0.6,
+                                                  height: 100.0,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                  ),
                                                   child: Column(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
                                                     mainAxisAlignment:
                                                         MainAxisAlignment
                                                             .center,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
                                                     children: [
-                                                      Align(
-                                                        alignment:
-                                                            AlignmentDirectional(
-                                                                0.0, 0.0),
-                                                        child: Icon(
-                                                          Icons.navigate_next,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryText,
-                                                          size: 36.0,
-                                                        ),
+                                                      Text(
+                                                        'ระบุชื่อเพื่อขยายความคุ้มครอง',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Noto Sans Thai',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                  fontSize:
+                                                                      15.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                ),
+                                                      ),
+                                                      Text(
+                                                        'ประกันภัยอุบัติเหตุส่วนบุคคล',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Noto Sans Thai',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                  fontSize:
+                                                                      15.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                ),
+                                                      ),
+                                                      Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        5.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child: Text(
+                                                              '(บังคับระบุ 1 คน)',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Noto Sans Thai',
+                                                                    color: Color(
+                                                                        0xFFFB0606),
+                                                                    fontSize:
+                                                                        12.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        5.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child: Text(
+                                                              '${FFAppState().benefitorData.length == 1 ? ((FFAppState().benefitorData.length == 1) && ((FFAppState().benefitorData.firstOrNull?.firstNameTh != '') && (FFAppState().benefitorData.firstOrNull?.lastNameTh != '') && (FFAppState().benefitorData.firstOrNull?.birthDay != '') && (FFAppState().benefitorData.firstOrNull?.beneficiaryName != '') && (FFAppState().benefitorData.firstOrNull?.relationName != '')) ? FFAppState().benefitorData.length.toString() : '0') : FFAppState().benefitorData.length.toString()}/${FFAppState().insuranceinfoPage1MaximumInsuredPerson}',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Noto Sans Thai',
+                                                                    color: Color(
+                                                                        0xFFFB0606),
+                                                                    fontSize:
+                                                                        12.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                        ],
                                                       ),
                                                     ],
                                                   ),
                                                 ),
-                                              ),
-                                            ],
+                                                Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                10.0, 0.0),
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  0.0, 0.0),
+                                                          child: Icon(
+                                                            Icons.navigate_next,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryText,
+                                                            size: 36.0,
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       ),
                                     ),
-                                  ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 5.0, 0.0, 0.0),
@@ -5765,71 +5783,93 @@ class _FireInsuranceInfoPage2WidgetState
                                                     safeSetState(() {});
                                                   return;
                                                 }
-                                                if ((FFAppState()
-                                                                .benefitorData
-                                                                .length ==
-                                                            1
-                                                        ? ((FFAppState()
-                                                                        .benefitorData
-                                                                        .length ==
-                                                                    1) &&
-                                                                ((FFAppState()
-                                                                            .benefitorData
-                                                                            .firstOrNull
-                                                                            ?.firstNameTh !=
-                                                                        '') &&
-                                                                    (FFAppState()
-                                                                            .benefitorData
-                                                                            .firstOrNull
-                                                                            ?.lastNameTh !=
-                                                                        '') &&
-                                                                    (FFAppState()
-                                                                            .benefitorData
-                                                                            .firstOrNull
-                                                                            ?.birthDay !=
-                                                                        '') &&
-                                                                    (FFAppState()
-                                                                            .benefitorData
-                                                                            .firstOrNull
-                                                                            ?.beneficiaryName !=
-                                                                        '') &&
-                                                                    (FFAppState()
-                                                                            .benefitorData
-                                                                            .firstOrNull
-                                                                            ?.relationName !=
-                                                                        ''))
-                                                            ? FFAppState()
-                                                                .benefitorData
-                                                                .length
-                                                            : 0)
-                                                        : FFAppState()
-                                                            .benefitorData
-                                                            .length) <=
+                                                if (int.parse(FFAppState()
+                                                        .insuranceinfoPage1MaximumInsuredPerson) >
                                                     0) {
-                                                  await showDialog(
-                                                    context: context,
-                                                    builder:
-                                                        (alertDialogContext) {
-                                                      return WebViewAware(
-                                                        child: AlertDialog(
-                                                          content: Text(
-                                                              'บังคับเพิ่มผู้รับประกันภัย 1 คน'),
-                                                          actions: [
-                                                            TextButton(
-                                                              onPressed: () =>
-                                                                  Navigator.pop(
-                                                                      alertDialogContext),
-                                                              child: Text('Ok'),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      );
-                                                    },
+                                                  if ((FFAppState().benefitorData.length ==
+                                                              1
+                                                          ? ((FFAppState()
+                                                                          .benefitorData
+                                                                          .length ==
+                                                                      1) &&
+                                                                  ((FFAppState().benefitorData.firstOrNull?.firstNameTh != '') &&
+                                                                      (FFAppState()
+                                                                              .benefitorData
+                                                                              .firstOrNull
+                                                                              ?.lastNameTh !=
+                                                                          '') &&
+                                                                      (FFAppState()
+                                                                              .benefitorData
+                                                                              .firstOrNull
+                                                                              ?.birthDay !=
+                                                                          '') &&
+                                                                      (FFAppState()
+                                                                              .benefitorData
+                                                                              .firstOrNull
+                                                                              ?.beneficiaryName !=
+                                                                          '') &&
+                                                                      (FFAppState()
+                                                                              .benefitorData
+                                                                              .firstOrNull
+                                                                              ?.relationName !=
+                                                                          ''))
+                                                              ? FFAppState()
+                                                                  .benefitorData
+                                                                  .length
+                                                              : 0)
+                                                          : FFAppState()
+                                                              .benefitorData
+                                                              .length) <=
+                                                      0) {
+                                                    await showDialog(
+                                                      context: context,
+                                                      builder:
+                                                          (alertDialogContext) {
+                                                        return WebViewAware(
+                                                          child: AlertDialog(
+                                                            content: Text(
+                                                                'บังคับเพิ่มผู้รับประกันภัย 1 คน'),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        );
+                                                      },
+                                                    );
+                                                    if (_shouldSetState)
+                                                      safeSetState(() {});
+                                                    return;
+                                                  }
+                                                } else {
+                                                  FFAppState()
+                                                      .updateBenefitorDataAtIndex(
+                                                    0,
+                                                    (_) => BenefitorModelStruct(
+                                                      insuredPersonId: '',
+                                                      insuredPersonNo: '',
+                                                      insuredPersonType: '',
+                                                      applicationId: '',
+                                                      gender: '',
+                                                      titleThId: '',
+                                                      titleTh: '',
+                                                      firstNameTh: '',
+                                                      lastNameTh: '',
+                                                      birthDay: '',
+                                                      beneficiaryName: '',
+                                                      relationName: '',
+                                                      insuredPersonTypeName: '',
+                                                      age: '',
+                                                    ),
                                                   );
-                                                  if (_shouldSetState)
-                                                    safeSetState(() {});
-                                                  return;
+                                                  safeSetState(() {});
                                                 }
+
                                                 if ((double.parse(FFAppState()
                                                                 .leadsHouse
                                                                 .firstOrNull!
