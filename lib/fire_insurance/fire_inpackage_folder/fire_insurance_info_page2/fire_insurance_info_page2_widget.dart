@@ -395,40 +395,40 @@ class _FireInsuranceInfoPage2WidgetState
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        FutureBuilder<List<EffectiveDayConfigRecord>>(
-                          future: queryEffectiveDayConfigRecordOnce(
-                            singleRecord: true,
-                          ),
-                          builder: (context, snapshot) {
-                            // Customize what your widget looks like when it's loading.
-                            if (!snapshot.hasData) {
-                              return Center(
-                                child: SizedBox(
-                                  width: 50.0,
-                                  height: 50.0,
-                                  child: CircularProgressIndicator(
-                                    valueColor: AlwaysStoppedAnimation<Color>(
-                                      FlutterFlowTheme.of(context).primary,
+                        Container(
+                          decoration: BoxDecoration(),
+                          child: FutureBuilder<List<EffectiveDayConfigRecord>>(
+                            future: queryEffectiveDayConfigRecordOnce(
+                              singleRecord: true,
+                            ),
+                            builder: (context, snapshot) {
+                              // Customize what your widget looks like when it's loading.
+                              if (!snapshot.hasData) {
+                                return Center(
+                                  child: SizedBox(
+                                    width: 50.0,
+                                    height: 50.0,
+                                    child: CircularProgressIndicator(
+                                      valueColor: AlwaysStoppedAnimation<Color>(
+                                        FlutterFlowTheme.of(context).primary,
+                                      ),
                                     ),
                                   ),
-                                ),
-                              );
-                            }
-                            List<EffectiveDayConfigRecord>
-                                columnEffectiveDayConfigRecordList =
-                                snapshot.data!;
-                            // Return an empty Container when the item does not exist.
-                            if (snapshot.data!.isEmpty) {
-                              return Container();
-                            }
-                            final columnEffectiveDayConfigRecord =
-                                columnEffectiveDayConfigRecordList.isNotEmpty
-                                    ? columnEffectiveDayConfigRecordList.first
-                                    : null;
+                                );
+                              }
+                              List<EffectiveDayConfigRecord>
+                                  columnEffectiveDayConfigRecordList =
+                                  snapshot.data!;
+                              // Return an empty Container when the item does not exist.
+                              if (snapshot.data!.isEmpty) {
+                                return Container();
+                              }
+                              final columnEffectiveDayConfigRecord =
+                                  columnEffectiveDayConfigRecordList.isNotEmpty
+                                      ? columnEffectiveDayConfigRecordList.first
+                                      : null;
 
-                            return SingleChildScrollView(
-                              primary: false,
-                              child: Column(
+                              return Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   if (FFAppState().insuranceinfoActType ==
@@ -6382,9 +6382,9 @@ class _FireInsuranceInfoPage2WidgetState
                                     ),
                                   ),
                                 ],
-                              ),
-                            );
-                          },
+                              );
+                            },
+                          ),
                         ),
                       ].addToEnd(SizedBox(height: 50.0)),
                     ),
