@@ -17,9 +17,11 @@ class ShowPeoplePageWidget extends StatefulWidget {
   const ShowPeoplePageWidget({
     super.key,
     required this.firestoreDataConfigList,
+    required this.maxPeople,
   });
 
   final DataListRecord? firestoreDataConfigList;
+  final String? maxPeople;
 
   @override
   State<ShowPeoplePageWidget> createState() => _ShowPeoplePageWidgetState();
@@ -77,7 +79,7 @@ class _ShowPeoplePageWidgetState extends State<ShowPeoplePageWidget> {
             },
           ),
           title: Text(
-            'เพิ่มผู้รับประกันภัย(${'${FFAppState().benefitorData.length == 1 ? ((FFAppState().benefitorData.length == 1) && ((FFAppState().benefitorData.firstOrNull?.firstNameTh != '') && (FFAppState().benefitorData.firstOrNull?.lastNameTh != '') && (FFAppState().benefitorData.firstOrNull?.birthDay != '') && (FFAppState().benefitorData.firstOrNull?.beneficiaryName != '') && (FFAppState().benefitorData.firstOrNull?.relationName != '')) ? FFAppState().benefitorData.length.toString() : '0') : FFAppState().benefitorData.length.toString()}/1'})',
+            'เพิ่มผู้รับประกันภัย(${'${FFAppState().benefitorData.length == 1 ? ((FFAppState().benefitorData.length == 1) && ((FFAppState().benefitorData.firstOrNull?.firstNameTh != '') && (FFAppState().benefitorData.firstOrNull?.lastNameTh != '') && (FFAppState().benefitorData.firstOrNull?.birthDay != '') && (FFAppState().benefitorData.firstOrNull?.beneficiaryName != '') && (FFAppState().benefitorData.firstOrNull?.relationName != '')) ? FFAppState().benefitorData.length.toString() : '0') : FFAppState().benefitorData.length.toString()}/${widget!.maxPeople}'})',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Noto Sans Thai',
                   color: Color(0xFF204A77),
@@ -97,8 +99,7 @@ class _ShowPeoplePageWidgetState extends State<ShowPeoplePageWidget> {
               Expanded(
                 child: Builder(
                   builder: (context) {
-                    final peopleListItem =
-                        FFAppState().benefitorData.toList().take(5).toList();
+                    final peopleListItem = FFAppState().benefitorData.toList();
 
                     return ListView.builder(
                       padding: EdgeInsets.fromLTRB(
@@ -114,32 +115,39 @@ class _ShowPeoplePageWidgetState extends State<ShowPeoplePageWidget> {
                         final peopleListItemItem =
                             peopleListItem[peopleListItemIndex];
                         return Visibility(
-                          visible: false
-                              ? true
-                              : (FFAppState().benefitorData.length == 1
-                                  ? ((FFAppState().benefitorData.length == 1) &&
-                                      ((FFAppState().benefitorData.firstOrNull?.firstNameTh != '') &&
-                                          (FFAppState()
-                                                  .benefitorData
-                                                  .firstOrNull
-                                                  ?.lastNameTh !=
-                                              '') &&
-                                          (FFAppState()
-                                                  .benefitorData
-                                                  .firstOrNull
-                                                  ?.birthDay !=
-                                              '') &&
-                                          (FFAppState()
-                                                  .benefitorData
-                                                  .firstOrNull
-                                                  ?.beneficiaryName !=
-                                              '') &&
-                                          (FFAppState()
-                                                  .benefitorData
-                                                  .firstOrNull
-                                                  ?.relationName !=
-                                              '')))
-                                  : true),
+                          visible: FFAppState().benefitorData.length == 1
+                              ? ((FFAppState().benefitorData.length <=
+                                      functions.parseStrToInt(widget!
+                                          .maxPeople)!) &&
+                                  ((FFAppState()
+                                              .benefitorData
+                                              .firstOrNull
+                                              ?.firstNameTh !=
+                                          '') &&
+                                      (FFAppState()
+                                              .benefitorData
+                                              .firstOrNull
+                                              ?.lastNameTh !=
+                                          '') &&
+                                      (FFAppState()
+                                              .benefitorData
+                                              .firstOrNull
+                                              ?.birthDay !=
+                                          '') &&
+                                      (FFAppState()
+                                              .benefitorData
+                                              .firstOrNull
+                                              ?.beneficiaryName !=
+                                          '') &&
+                                      (FFAppState()
+                                              .benefitorData
+                                              .firstOrNull
+                                              ?.relationName !=
+                                          '')))
+                              : (peopleListItemIndex <=
+                                  ((functions
+                                          .parseStrToInt(widget!.maxPeople)!) -
+                                      1)),
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 12.0, 0.0, 12.0, 16.0),
@@ -1029,116 +1037,129 @@ class _ShowPeoplePageWidgetState extends State<ShowPeoplePageWidget> {
                                           ?.relationName ==
                                       ''))
                           ? true
-                          : false)
+                          : (FFAppState().benefitorData.length <
+                              int.parse((widget!.maxPeople!))))
                         Expanded(
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 8.0, 0.0, 0.0),
                             child: FFButtonWidget(
                               onPressed: () async {
-                                if (true) {
-                                  context.pushNamed(
-                                    'addPeopleFireInsurancePage',
-                                    queryParameters: {
-                                      'firestoreDataConfigList': serializeParam(
-                                        widget!.firestoreDataConfigList,
-                                        ParamType.Document,
-                                      ),
-                                      'index': serializeParam(
-                                        FFAppState().benefitorData.length - 1,
-                                        ParamType.int,
-                                      ),
-                                      'isEditing': serializeParam(
-                                        false,
-                                        ParamType.bool,
-                                      ),
-                                    }.withoutNulls,
-                                    extra: <String, dynamic>{
-                                      'firestoreDataConfigList':
+                                if (FFAppState().benefitorData.length == 1) {
+                                  if ((FFAppState()
+                                              .benefitorData
+                                              .firstOrNull
+                                              ?.beneficiaryName ==
+                                          '') &&
+                                      (FFAppState()
+                                              .benefitorData
+                                              .firstOrNull
+                                              ?.relationName ==
+                                          '')) {
+                                    context.pushNamed(
+                                      'addPeopleFireInsurancePage',
+                                      queryParameters: {
+                                        'firestoreDataConfigList':
+                                            serializeParam(
                                           widget!.firestoreDataConfigList,
-                                    },
-                                  );
-                                } else {
-                                  if (FFAppState().benefitorData.length != 0) {
-                                    if (FFAppState()
-                                            .benefitorData
-                                            .lastOrNull
-                                            ?.firstNameTh ==
-                                        '') {
-                                      context.pushNamed(
-                                        'addPeopleFireInsurancePage',
-                                        queryParameters: {
-                                          'firestoreDataConfigList':
-                                              serializeParam(
+                                          ParamType.Document,
+                                        ),
+                                        'index': serializeParam(
+                                          FFAppState().benefitorData.length - 1,
+                                          ParamType.int,
+                                        ),
+                                        'isEditing': serializeParam(
+                                          true,
+                                          ParamType.bool,
+                                        ),
+                                      }.withoutNulls,
+                                      extra: <String, dynamic>{
+                                        'firestoreDataConfigList':
                                             widget!.firestoreDataConfigList,
-                                            ParamType.Document,
-                                          ),
-                                          'index': serializeParam(
-                                            FFAppState().benefitorData.length -
-                                                1,
-                                            ParamType.int,
-                                          ),
-                                          'isEditing': serializeParam(
-                                            true,
-                                            ParamType.bool,
-                                          ),
-                                        }.withoutNulls,
-                                        extra: <String, dynamic>{
-                                          'firestoreDataConfigList':
-                                              widget!.firestoreDataConfigList,
-                                        },
-                                      );
+                                      },
+                                    );
 
-                                      return;
-                                    }
+                                    return;
                                   }
-                                  FFAppState()
-                                      .addToBenefitorData(BenefitorModelStruct(
-                                    insuredPersonId: '',
-                                    insuredPersonNo: '',
-                                    applicationId: '',
-                                    gender: '',
-                                    titleThId: '',
-                                    titleTh: '',
-                                    firstNameTh: '',
-                                    lastNameTh: '',
-                                    birthDay: '',
-                                    beneficiaryName: '',
-                                    relationName: '',
-                                    insuredPersonType:
-                                        FFAppState().benefitorData.length == 0
-                                            ? 'I'
-                                            : '',
-                                    insuredPersonTypeName:
-                                        FFAppState().benefitorData.length == 0
-                                            ? 'ผู้เอาประกัน'
-                                            : '',
-                                    age: '',
-                                  ));
-                                  safeSetState(() {});
-
-                                  context.pushNamed(
-                                    'addPeopleFireInsurancePage',
-                                    queryParameters: {
-                                      'firestoreDataConfigList': serializeParam(
-                                        widget!.firestoreDataConfigList,
-                                        ParamType.Document,
-                                      ),
-                                      'index': serializeParam(
-                                        FFAppState().benefitorData.length - 1,
-                                        ParamType.int,
-                                      ),
-                                      'isEditing': serializeParam(
-                                        false,
-                                        ParamType.bool,
-                                      ),
-                                    }.withoutNulls,
-                                    extra: <String, dynamic>{
-                                      'firestoreDataConfigList':
+                                } else {
+                                  if (FFAppState()
+                                          .benefitorData
+                                          .lastOrNull
+                                          ?.firstNameTh ==
+                                      '') {
+                                    context.pushNamed(
+                                      'addPeopleFireInsurancePage',
+                                      queryParameters: {
+                                        'firestoreDataConfigList':
+                                            serializeParam(
                                           widget!.firestoreDataConfigList,
-                                    },
-                                  );
+                                          ParamType.Document,
+                                        ),
+                                        'index': serializeParam(
+                                          FFAppState().benefitorData.length - 1,
+                                          ParamType.int,
+                                        ),
+                                        'isEditing': serializeParam(
+                                          true,
+                                          ParamType.bool,
+                                        ),
+                                      }.withoutNulls,
+                                      extra: <String, dynamic>{
+                                        'firestoreDataConfigList':
+                                            widget!.firestoreDataConfigList,
+                                      },
+                                    );
+
+                                    return;
+                                  }
                                 }
+
+                                FFAppState()
+                                    .addToBenefitorData(BenefitorModelStruct(
+                                  insuredPersonId: '',
+                                  insuredPersonNo: '',
+                                  applicationId: '',
+                                  gender: '',
+                                  titleThId: '',
+                                  titleTh: '',
+                                  firstNameTh: '',
+                                  lastNameTh: '',
+                                  birthDay: '',
+                                  beneficiaryName: '',
+                                  relationName: '',
+                                  insuredPersonType:
+                                      FFAppState().benefitorData.length == 0
+                                          ? 'I'
+                                          : '',
+                                  insuredPersonTypeName:
+                                      FFAppState().benefitorData.length == 0
+                                          ? 'ผู้เอาประกัน'
+                                          : '',
+                                  age: '',
+                                ));
+                                safeSetState(() {});
+
+                                context.pushNamed(
+                                  'addPeopleFireInsurancePage',
+                                  queryParameters: {
+                                    'firestoreDataConfigList': serializeParam(
+                                      widget!.firestoreDataConfigList,
+                                      ParamType.Document,
+                                    ),
+                                    'index': serializeParam(
+                                      FFAppState().benefitorData.length - 1,
+                                      ParamType.int,
+                                    ),
+                                    'isEditing': serializeParam(
+                                      false,
+                                      ParamType.bool,
+                                    ),
+                                  }.withoutNulls,
+                                  extra: <String, dynamic>{
+                                    'firestoreDataConfigList':
+                                        widget!.firestoreDataConfigList,
+                                  },
+                                );
                               },
                               text: 'เพิ่มผู้รับประกันภัย',
                               icon: Icon(

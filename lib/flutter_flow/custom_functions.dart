@@ -4366,6 +4366,18 @@ bool? checkIsStringLengthInLength(
   return isInLength;
 }
 
+List<BenefitorModelStruct>? returnBenefitorModelListByMaxPeople(
+  List<BenefitorModelStruct>? benefitorModelInput,
+  int? maxPeople,
+) {
+  List<BenefitorModelStruct> outputList = [];
+  for (int i = 0; i < maxPeople!; i++) {
+    outputList.add(benefitorModelInput![i]);
+  }
+
+  return outputList;
+}
+
 List<String>? randomItemList(List<String>? originalList) {
   originalList!.shuffle();
   List<String> randomList = originalList!;

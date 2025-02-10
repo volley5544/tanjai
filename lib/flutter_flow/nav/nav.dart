@@ -2462,6 +2462,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'firestoreDataConfigList',
                   ParamType.Document,
                 ),
+                maxPeople: params.getParam(
+                  'maxPeople',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(

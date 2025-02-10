@@ -14125,6 +14125,13 @@ class FFAppState extends ChangeNotifier {
   set insuranceInfoPage4ImageApp2(String value) {
     _insuranceInfoPage4ImageApp2 = value;
   }
+
+  String _insuranceinfoPage1MaximumInsuredPerson = '';
+  String get insuranceinfoPage1MaximumInsuredPerson =>
+      _insuranceinfoPage1MaximumInsuredPerson;
+  set insuranceinfoPage1MaximumInsuredPerson(String value) {
+    _insuranceinfoPage1MaximumInsuredPerson = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

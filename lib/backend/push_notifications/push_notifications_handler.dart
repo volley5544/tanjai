@@ -715,6 +715,7 @@ final parametersBuilderMap =
         allParams: {
           'firestoreDataConfigList': await getDocumentParameter<DataListRecord>(
               data, 'firestoreDataConfigList', DataListRecord.fromSnapshot),
+          'maxPeople': getParameter<String>(data, 'maxPeople'),
         },
       ),
   'FireQuotationCopy': (data) async => ParameterData(

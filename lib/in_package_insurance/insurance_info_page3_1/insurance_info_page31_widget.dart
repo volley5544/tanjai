@@ -12116,7 +12116,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget> {
                                                 FFAppState()
                                                         .nonePackageImageLeftFrontUploaded !=
                                                     '') &&
-                                            (FFAppState().nonePackageVehicleType ==
+                                            (FFAppState().insuranceInfoVehicleType ==
                                                     'รถบรรทุก หัวลาก หางพ่วง'
                                                 ? true
                                                 : (FFAppState().nonePackageImageRoofUploaded !=

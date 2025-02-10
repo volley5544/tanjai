@@ -11,7 +11,6 @@ import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -466,7 +465,7 @@ class _PeopleFireInfomationFormComponentWidgetState
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
-                          if (true) {
+                          if (false) {
                             return;
                           }
 
@@ -641,7 +640,7 @@ class _PeopleFireInfomationFormComponentWidgetState
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              if (true) {
+                              if (false) {
                                 return;
                               }
 
@@ -850,7 +849,6 @@ class _PeopleFireInfomationFormComponentWidgetState
                                         () => safeSetState(() {}),
                                       ),
                                       autofocus: false,
-                                      readOnly: true,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         labelStyle: FlutterFlowTheme.of(context)
@@ -986,7 +984,6 @@ class _PeopleFireInfomationFormComponentWidgetState
                                         () => safeSetState(() {}),
                                       ),
                                       autofocus: false,
-                                      readOnly: true,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         labelStyle: FlutterFlowTheme.of(context)
@@ -1096,53 +1093,29 @@ class _PeopleFireInfomationFormComponentWidgetState
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-                            if (true) {
+                            if (false) {
                               return;
                             }
-                            if (kIsWeb) {
-                              final _datePickedDate = await showDatePicker(
-                                context: context,
-                                initialDate: (functions.currentDate18YearsAgo(
-                                        getCurrentTimestamp) ??
-                                    DateTime.now()),
-                                firstDate: DateTime(1900),
-                                lastDate: (functions.currentDate18YearsAgo(
-                                        getCurrentTimestamp) ??
-                                    DateTime.now()),
-                              );
+                            final _datePickedDate = await showDatePicker(
+                              context: context,
+                              initialDate: (functions.currentDate18YearsAgo(
+                                      getCurrentTimestamp) ??
+                                  DateTime.now()),
+                              firstDate: DateTime(1900),
+                              lastDate: (functions.currentDate18YearsAgo(
+                                      getCurrentTimestamp) ??
+                                  DateTime.now()),
+                            );
 
-                              if (_datePickedDate != null) {
-                                safeSetState(() {
-                                  _model.datePicked = DateTime(
-                                    _datePickedDate.year,
-                                    _datePickedDate.month,
-                                    _datePickedDate.day,
-                                  );
-                                });
-                              }
-                            } else {
-                              await DatePicker.showDatePicker(
-                                context,
-                                showTitleActions: true,
-                                onConfirm: (date) {
-                                  safeSetState(() {
-                                    _model.datePicked = date;
-                                  });
-                                },
-                                currentTime: functions.currentDate18YearsAgo(
-                                    getCurrentTimestamp)!,
-                                minTime: DateTime(0, 0, 0),
-                                maxTime: functions.currentDate18YearsAgo(
-                                    getCurrentTimestamp)!,
-                                locale: LocaleType.values.firstWhere(
-                                  (l) =>
-                                      l.name ==
-                                      FFLocalizations.of(context).languageCode,
-                                  orElse: () => LocaleType.en,
-                                ),
-                              );
+                            if (_datePickedDate != null) {
+                              safeSetState(() {
+                                _model.datePicked = DateTime(
+                                  _datePickedDate.year,
+                                  _datePickedDate.month,
+                                  _datePickedDate.day,
+                                );
+                              });
                             }
-
                             FFAppState().updateBenefitorDataAtIndex(
                               widget!.index!,
                               (e) => e

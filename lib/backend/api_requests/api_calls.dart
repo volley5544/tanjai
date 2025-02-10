@@ -14780,10 +14780,16 @@ class IbsApplicationsDetailCall {
           .map((x) => BenefitorModelStruct.maybeFromMap(x))
           .withoutNulls
           .toList();
-  static dynamic imageapplication2(dynamic response) => getJsonField(
+  static String? imageapplication2(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.results.data.app_document[:].image_application_2''',
-      );
+      ));
+  static String? maximuminsuredperson(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.data.maximum_insured_person''',
+      ));
 }
 
 class IbsApplicationsPaymentSaveCall {

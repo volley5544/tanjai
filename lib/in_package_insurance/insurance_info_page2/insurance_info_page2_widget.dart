@@ -17,7 +17,6 @@ import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
@@ -2619,80 +2618,49 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                 highlightColor:
                                                     Colors.transparent,
                                                 onTap: () async {
-                                                  if (kIsWeb) {
-                                                    final _datePicked1Date =
-                                                        await showDatePicker(
-                                                      context: context,
-                                                      initialDate:
-                                                          getCurrentTimestamp,
-                                                      firstDate: DateTime(1900),
-                                                      lastDate: DateTime(2050),
-                                                      builder:
-                                                          (context, child) {
-                                                        return wrapInMaterialDatePickerTheme(
-                                                          context,
-                                                          child!,
-                                                          headerBackgroundColor:
-                                                              Color(0x00000000),
-                                                          headerForegroundColor:
-                                                              Color(0x00000000),
-                                                          headerTextStyle:
-                                                              TextStyle(),
-                                                          pickerBackgroundColor:
-                                                              Color(0x00000000),
-                                                          pickerForegroundColor:
-                                                              Color(0x00000000),
-                                                          selectedDateTimeBackgroundColor:
-                                                              Color(0x00000000),
-                                                          selectedDateTimeForegroundColor:
-                                                              Color(0x00000000),
-                                                          actionButtonForegroundColor:
-                                                              Color(0x00000000),
-                                                          iconSize: 24,
-                                                        );
-                                                      },
-                                                    );
+                                                  final _datePicked1Date =
+                                                      await showDatePicker(
+                                                    context: context,
+                                                    initialDate:
+                                                        getCurrentTimestamp,
+                                                    firstDate: DateTime(1900),
+                                                    lastDate: DateTime(2050),
+                                                    builder: (context, child) {
+                                                      return wrapInMaterialDatePickerTheme(
+                                                        context,
+                                                        child!,
+                                                        headerBackgroundColor:
+                                                            Color(0x00000000),
+                                                        headerForegroundColor:
+                                                            Color(0x00000000),
+                                                        headerTextStyle:
+                                                            TextStyle(),
+                                                        pickerBackgroundColor:
+                                                            Color(0x00000000),
+                                                        pickerForegroundColor:
+                                                            Color(0x00000000),
+                                                        selectedDateTimeBackgroundColor:
+                                                            Color(0x00000000),
+                                                        selectedDateTimeForegroundColor:
+                                                            Color(0x00000000),
+                                                        actionButtonForegroundColor:
+                                                            Color(0x00000000),
+                                                        iconSize: 24,
+                                                      );
+                                                    },
+                                                  );
 
-                                                    if (_datePicked1Date !=
-                                                        null) {
-                                                      safeSetState(() {
-                                                        _model.datePicked1 =
-                                                            DateTime(
-                                                          _datePicked1Date.year,
-                                                          _datePicked1Date
-                                                              .month,
-                                                          _datePicked1Date.day,
-                                                        );
-                                                      });
-                                                    }
-                                                  } else {
-                                                    await DatePicker
-                                                        .showDatePicker(
-                                                      context,
-                                                      showTitleActions: true,
-                                                      onConfirm: (date) {
-                                                        safeSetState(() {
-                                                          _model.datePicked1 =
-                                                              date;
-                                                        });
-                                                      },
-                                                      currentTime:
-                                                          getCurrentTimestamp,
-                                                      minTime:
-                                                          DateTime(0, 0, 0),
-                                                      locale: LocaleType.values
-                                                          .firstWhere(
-                                                        (l) =>
-                                                            l.name ==
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .languageCode,
-                                                        orElse: () =>
-                                                            LocaleType.en,
-                                                      ),
-                                                    );
+                                                  if (_datePicked1Date !=
+                                                      null) {
+                                                    safeSetState(() {
+                                                      _model.datePicked1 =
+                                                          DateTime(
+                                                        _datePicked1Date.year,
+                                                        _datePicked1Date.month,
+                                                        _datePicked1Date.day,
+                                                      );
+                                                    });
                                                   }
-
                                                   if (!(_model.datePicked1 !=
                                                       null)) {
                                                     await actions
@@ -2884,81 +2852,39 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                 highlightColor:
                                                     Colors.transparent,
                                                 onTap: () async {
-                                                  if (kIsWeb) {
-                                                    final _datePicked2Date =
-                                                        await showDatePicker(
-                                                      context: context,
-                                                      initialDate: ((FFAppState()
-                                                                      .nonePackageWorkType ==
-                                                                  'งานต่ออายุ') ||
-                                                              (FFAppState()
-                                                                      .nonePackageWorkType ==
-                                                                  'งานโอนโค้ด')
-                                                          ? getCurrentTimestamp
-                                                          : getCurrentTimestamp),
-                                                      firstDate: ((FFAppState()
-                                                                      .nonePackageWorkType ==
-                                                                  'งานต่ออายุ') ||
-                                                              (FFAppState()
-                                                                      .nonePackageWorkType ==
-                                                                  'งานโอนโค้ด')
-                                                          ? getCurrentTimestamp
-                                                          : getCurrentTimestamp),
-                                                      lastDate: DateTime(2050),
-                                                    );
+                                                  final _datePicked2Date =
+                                                      await showDatePicker(
+                                                    context: context,
+                                                    initialDate: ((FFAppState()
+                                                                    .nonePackageWorkType ==
+                                                                'งานต่ออายุ') ||
+                                                            (FFAppState()
+                                                                    .nonePackageWorkType ==
+                                                                'งานโอนโค้ด')
+                                                        ? getCurrentTimestamp
+                                                        : getCurrentTimestamp),
+                                                    firstDate: ((FFAppState()
+                                                                    .nonePackageWorkType ==
+                                                                'งานต่ออายุ') ||
+                                                            (FFAppState()
+                                                                    .nonePackageWorkType ==
+                                                                'งานโอนโค้ด')
+                                                        ? getCurrentTimestamp
+                                                        : getCurrentTimestamp),
+                                                    lastDate: DateTime(2050),
+                                                  );
 
-                                                    if (_datePicked2Date !=
-                                                        null) {
-                                                      safeSetState(() {
-                                                        _model.datePicked2 =
-                                                            DateTime(
-                                                          _datePicked2Date.year,
-                                                          _datePicked2Date
-                                                              .month,
-                                                          _datePicked2Date.day,
-                                                        );
-                                                      });
-                                                    }
-                                                  } else {
-                                                    await DatePicker
-                                                        .showDatePicker(
-                                                      context,
-                                                      showTitleActions: true,
-                                                      onConfirm: (date) {
-                                                        safeSetState(() {
-                                                          _model.datePicked2 =
-                                                              date;
-                                                        });
-                                                      },
-                                                      currentTime: (FFAppState()
-                                                                      .nonePackageWorkType ==
-                                                                  'งานต่ออายุ') ||
-                                                              (FFAppState()
-                                                                      .nonePackageWorkType ==
-                                                                  'งานโอนโค้ด')
-                                                          ? getCurrentTimestamp
-                                                          : getCurrentTimestamp,
-                                                      minTime: (FFAppState()
-                                                                      .nonePackageWorkType ==
-                                                                  'งานต่ออายุ') ||
-                                                              (FFAppState()
-                                                                      .nonePackageWorkType ==
-                                                                  'งานโอนโค้ด')
-                                                          ? getCurrentTimestamp
-                                                          : getCurrentTimestamp,
-                                                      locale: LocaleType.values
-                                                          .firstWhere(
-                                                        (l) =>
-                                                            l.name ==
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .languageCode,
-                                                        orElse: () =>
-                                                            LocaleType.en,
-                                                      ),
-                                                    );
+                                                  if (_datePicked2Date !=
+                                                      null) {
+                                                    safeSetState(() {
+                                                      _model.datePicked2 =
+                                                          DateTime(
+                                                        _datePicked2Date.year,
+                                                        _datePicked2Date.month,
+                                                        _datePicked2Date.day,
+                                                      );
+                                                    });
                                                   }
-
                                                   if (!(_model.datePicked2 !=
                                                       null)) {
                                                     await actions
@@ -3167,81 +3093,39 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                 highlightColor:
                                                     Colors.transparent,
                                                 onTap: () async {
-                                                  if (kIsWeb) {
-                                                    final _datePicked3Date =
-                                                        await showDatePicker(
-                                                      context: context,
-                                                      initialDate: ((FFAppState()
-                                                                      .nonePackageWorkType ==
-                                                                  'งานต่ออายุ') ||
-                                                              (FFAppState()
-                                                                      .nonePackageWorkType ==
-                                                                  'งานโอนโค้ด')
-                                                          ? getCurrentTimestamp
-                                                          : getCurrentTimestamp),
-                                                      firstDate: ((FFAppState()
-                                                                      .nonePackageWorkType ==
-                                                                  'งานต่ออายุ') ||
-                                                              (FFAppState()
-                                                                      .nonePackageWorkType ==
-                                                                  'งานโอนโค้ด')
-                                                          ? getCurrentTimestamp
-                                                          : getCurrentTimestamp),
-                                                      lastDate: DateTime(2050),
-                                                    );
+                                                  final _datePicked3Date =
+                                                      await showDatePicker(
+                                                    context: context,
+                                                    initialDate: ((FFAppState()
+                                                                    .nonePackageWorkType ==
+                                                                'งานต่ออายุ') ||
+                                                            (FFAppState()
+                                                                    .nonePackageWorkType ==
+                                                                'งานโอนโค้ด')
+                                                        ? getCurrentTimestamp
+                                                        : getCurrentTimestamp),
+                                                    firstDate: ((FFAppState()
+                                                                    .nonePackageWorkType ==
+                                                                'งานต่ออายุ') ||
+                                                            (FFAppState()
+                                                                    .nonePackageWorkType ==
+                                                                'งานโอนโค้ด')
+                                                        ? getCurrentTimestamp
+                                                        : getCurrentTimestamp),
+                                                    lastDate: DateTime(2050),
+                                                  );
 
-                                                    if (_datePicked3Date !=
-                                                        null) {
-                                                      safeSetState(() {
-                                                        _model.datePicked3 =
-                                                            DateTime(
-                                                          _datePicked3Date.year,
-                                                          _datePicked3Date
-                                                              .month,
-                                                          _datePicked3Date.day,
-                                                        );
-                                                      });
-                                                    }
-                                                  } else {
-                                                    await DatePicker
-                                                        .showDatePicker(
-                                                      context,
-                                                      showTitleActions: true,
-                                                      onConfirm: (date) {
-                                                        safeSetState(() {
-                                                          _model.datePicked3 =
-                                                              date;
-                                                        });
-                                                      },
-                                                      currentTime: (FFAppState()
-                                                                      .nonePackageWorkType ==
-                                                                  'งานต่ออายุ') ||
-                                                              (FFAppState()
-                                                                      .nonePackageWorkType ==
-                                                                  'งานโอนโค้ด')
-                                                          ? getCurrentTimestamp
-                                                          : getCurrentTimestamp,
-                                                      minTime: (FFAppState()
-                                                                      .nonePackageWorkType ==
-                                                                  'งานต่ออายุ') ||
-                                                              (FFAppState()
-                                                                      .nonePackageWorkType ==
-                                                                  'งานโอนโค้ด')
-                                                          ? getCurrentTimestamp
-                                                          : getCurrentTimestamp,
-                                                      locale: LocaleType.values
-                                                          .firstWhere(
-                                                        (l) =>
-                                                            l.name ==
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .languageCode,
-                                                        orElse: () =>
-                                                            LocaleType.en,
-                                                      ),
-                                                    );
+                                                  if (_datePicked3Date !=
+                                                      null) {
+                                                    safeSetState(() {
+                                                      _model.datePicked3 =
+                                                          DateTime(
+                                                        _datePicked3Date.year,
+                                                        _datePicked3Date.month,
+                                                        _datePicked3Date.day,
+                                                      );
+                                                    });
                                                   }
-
                                                   if (!(_model.datePicked3 !=
                                                       null)) {
                                                     await actions
@@ -3835,8 +3719,11 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                               highlightColor:
                                                   Colors.transparent,
                                               onTap: () async {
-                                                if (FFAppState().flagRenew !=
-                                                    '1') {
+                                                if (!((FFAppState().flagRenew ==
+                                                        '1') &&
+                                                    (FFAppState()
+                                                            .insuranceInfoRegisYear ==
+                                                        ''))) {
                                                   return;
                                                 }
 
@@ -4195,24 +4082,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                       Colors.transparent,
                                                   highlightColor:
                                                       Colors.transparent,
-                                                  onTap: () async {
-                                                    context.pushNamed(
-                                                      'showPeoplePage',
-                                                      queryParameters: {
-                                                        'firestoreDataConfigList':
-                                                            serializeParam(
-                                                          widget!
-                                                              .masterDataFirebase,
-                                                          ParamType.Document,
-                                                        ),
-                                                      }.withoutNulls,
-                                                      extra: <String, dynamic>{
-                                                        'firestoreDataConfigList':
-                                                            widget!
-                                                                .masterDataFirebase,
-                                                      },
-                                                    );
-                                                  },
+                                                  onTap: () async {},
                                                   child: Text(
                                                     'จังหวัดที่จดทะเบียน',
                                                     style: FlutterFlowTheme.of(

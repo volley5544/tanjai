@@ -18,7 +18,6 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -5111,6 +5110,11 @@ class _FireInsuranceInfoPage2WidgetState
                                                 widget!.masterDataFirebase,
                                                 ParamType.Document,
                                               ),
+                                              'maxPeople': serializeParam(
+                                                FFAppState()
+                                                    .insuranceinfoPage1MaximumInsuredPerson,
+                                                ParamType.String,
+                                              ),
                                             }.withoutNulls,
                                             extra: <String, dynamic>{
                                               'firestoreDataConfigList':
@@ -5271,7 +5275,7 @@ class _FireInsuranceInfoPage2WidgetState
                                                                       0.0,
                                                                       0.0),
                                                           child: Text(
-                                                            '${FFAppState().benefitorData.length == 1 ? ((FFAppState().benefitorData.length == 1) && ((FFAppState().benefitorData.firstOrNull?.firstNameTh != '') && (FFAppState().benefitorData.firstOrNull?.lastNameTh != '') && (FFAppState().benefitorData.firstOrNull?.birthDay != '') && (FFAppState().benefitorData.firstOrNull?.beneficiaryName != '') && (FFAppState().benefitorData.firstOrNull?.relationName != '')) ? FFAppState().benefitorData.length.toString() : '0') : FFAppState().benefitorData.length.toString()}/1',
+                                                            '${FFAppState().benefitorData.length == 1 ? ((FFAppState().benefitorData.length == 1) && ((FFAppState().benefitorData.firstOrNull?.firstNameTh != '') && (FFAppState().benefitorData.firstOrNull?.lastNameTh != '') && (FFAppState().benefitorData.firstOrNull?.birthDay != '') && (FFAppState().benefitorData.firstOrNull?.beneficiaryName != '') && (FFAppState().benefitorData.firstOrNull?.relationName != '')) ? FFAppState().benefitorData.length.toString() : '0') : FFAppState().benefitorData.length.toString()}/${FFAppState().insuranceinfoPage1MaximumInsuredPerson}',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
@@ -5392,55 +5396,26 @@ class _FireInsuranceInfoPage2WidgetState
                                               highlightColor:
                                                   Colors.transparent,
                                               onTap: () async {
-                                                if (kIsWeb) {
-                                                  final _datePickedDate =
-                                                      await showDatePicker(
-                                                    context: context,
-                                                    initialDate:
-                                                        getCurrentTimestamp,
-                                                    firstDate:
-                                                        getCurrentTimestamp,
-                                                    lastDate: DateTime(2050),
-                                                  );
+                                                final _datePickedDate =
+                                                    await showDatePicker(
+                                                  context: context,
+                                                  initialDate:
+                                                      getCurrentTimestamp,
+                                                  firstDate:
+                                                      getCurrentTimestamp,
+                                                  lastDate: DateTime(2050),
+                                                );
 
-                                                  if (_datePickedDate != null) {
-                                                    safeSetState(() {
-                                                      _model.datePicked =
-                                                          DateTime(
-                                                        _datePickedDate.year,
-                                                        _datePickedDate.month,
-                                                        _datePickedDate.day,
-                                                      );
-                                                    });
-                                                  }
-                                                } else {
-                                                  await DatePicker
-                                                      .showDatePicker(
-                                                    context,
-                                                    showTitleActions: true,
-                                                    onConfirm: (date) {
-                                                      safeSetState(() {
-                                                        _model.datePicked =
-                                                            date;
-                                                      });
-                                                    },
-                                                    currentTime:
-                                                        getCurrentTimestamp,
-                                                    minTime:
-                                                        getCurrentTimestamp,
-                                                    locale: LocaleType.values
-                                                        .firstWhere(
-                                                      (l) =>
-                                                          l.name ==
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .languageCode,
-                                                      orElse: () =>
-                                                          LocaleType.en,
-                                                    ),
-                                                  );
+                                                if (_datePickedDate != null) {
+                                                  safeSetState(() {
+                                                    _model.datePicked =
+                                                        DateTime(
+                                                      _datePickedDate.year,
+                                                      _datePickedDate.month,
+                                                      _datePickedDate.day,
+                                                    );
+                                                  });
                                                 }
-
                                                 if (_model.datePicked != null) {
                                                 } else {
                                                   await actions

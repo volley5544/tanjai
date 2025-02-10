@@ -14,7 +14,6 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
@@ -912,50 +911,26 @@ class _DriverInfomationFormComponentWidgetState
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-                            if (kIsWeb) {
-                              final _datePickedDate = await showDatePicker(
-                                context: context,
-                                initialDate: (functions.currentDate18YearsAgo(
-                                        getCurrentTimestamp) ??
-                                    DateTime.now()),
-                                firstDate: DateTime(1900),
-                                lastDate: (functions.currentDate18YearsAgo(
-                                        getCurrentTimestamp) ??
-                                    DateTime.now()),
-                              );
+                            final _datePickedDate = await showDatePicker(
+                              context: context,
+                              initialDate: (functions.currentDate18YearsAgo(
+                                      getCurrentTimestamp) ??
+                                  DateTime.now()),
+                              firstDate: DateTime(1900),
+                              lastDate: (functions.currentDate18YearsAgo(
+                                      getCurrentTimestamp) ??
+                                  DateTime.now()),
+                            );
 
-                              if (_datePickedDate != null) {
-                                safeSetState(() {
-                                  _model.datePicked = DateTime(
-                                    _datePickedDate.year,
-                                    _datePickedDate.month,
-                                    _datePickedDate.day,
-                                  );
-                                });
-                              }
-                            } else {
-                              await DatePicker.showDatePicker(
-                                context,
-                                showTitleActions: true,
-                                onConfirm: (date) {
-                                  safeSetState(() {
-                                    _model.datePicked = date;
-                                  });
-                                },
-                                currentTime: functions.currentDate18YearsAgo(
-                                    getCurrentTimestamp)!,
-                                minTime: DateTime(0, 0, 0),
-                                maxTime: functions.currentDate18YearsAgo(
-                                    getCurrentTimestamp)!,
-                                locale: LocaleType.values.firstWhere(
-                                  (l) =>
-                                      l.name ==
-                                      FFLocalizations.of(context).languageCode,
-                                  orElse: () => LocaleType.en,
-                                ),
-                              );
+                            if (_datePickedDate != null) {
+                              safeSetState(() {
+                                _model.datePicked = DateTime(
+                                  _datePickedDate.year,
+                                  _datePickedDate.month,
+                                  _datePickedDate.day,
+                                );
+                              });
                             }
-
                             FFAppState().updateDriverListAtIndex(
                               widget!.index!,
                               (e) => e
