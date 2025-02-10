@@ -5572,10 +5572,29 @@ class _FireInsuranceInfoPage2WidgetState
                                                   return;
                                                 }
                                               } else {
-                                                FFAppState().benefitorData = []
-                                                    .toList()
-                                                    .cast<
-                                                        BenefitorModelStruct>();
+                                                FFAppState().benefitorData =
+                                                    functions
+                                                        .returnBenefitorModelList(
+                                                            BenefitorModelStruct(
+                                                          insuredPersonId: '',
+                                                          insuredPersonNo: '',
+                                                          insuredPersonType: '',
+                                                          applicationId: '',
+                                                          gender: '',
+                                                          titleThId: '',
+                                                          titleTh: '',
+                                                          firstNameTh: '',
+                                                          lastNameTh: '',
+                                                          birthDay: '',
+                                                          beneficiaryName: '',
+                                                          relationName: '',
+                                                          insuredPersonTypeName:
+                                                              '',
+                                                          age: '',
+                                                        ))!
+                                                        .toList()
+                                                        .cast<
+                                                            BenefitorModelStruct>();
                                                 safeSetState(() {});
                                               }
 
