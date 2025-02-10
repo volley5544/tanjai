@@ -5444,6 +5444,65 @@ class _FireInsuranceInfoPage2WidgetState
                                                   safeSetState(() {});
                                                 return;
                                               }
+                                              await showDialog(
+                                                context: context,
+                                                builder: (alertDialogContext) {
+                                                  return WebViewAware(
+                                                    child: AlertDialog(
+                                                      content: Text('wow'),
+                                                      actions: [
+                                                        TextButton(
+                                                          onPressed: () =>
+                                                              Navigator.pop(
+                                                                  alertDialogContext),
+                                                          child: Text('Ok'),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  );
+                                                },
+                                              );
+                                              await showDialog(
+                                                context: context,
+                                                builder: (alertDialogContext) {
+                                                  return WebViewAware(
+                                                    child: AlertDialog(
+                                                      content: Text(FFAppState()
+                                                          .insuranceinfoPage1MaximumInsuredPerson),
+                                                      actions: [
+                                                        TextButton(
+                                                          onPressed: () =>
+                                                              Navigator.pop(
+                                                                  alertDialogContext),
+                                                          child: Text('Ok'),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  );
+                                                },
+                                              );
+                                              await showDialog(
+                                                context: context,
+                                                builder: (alertDialogContext) {
+                                                  return WebViewAware(
+                                                    child: AlertDialog(
+                                                      content: Text((int.parse(
+                                                                  FFAppState()
+                                                                      .insuranceinfoPage1MaximumInsuredPerson) >
+                                                              0)
+                                                          .toString()),
+                                                      actions: [
+                                                        TextButton(
+                                                          onPressed: () =>
+                                                              Navigator.pop(
+                                                                  alertDialogContext),
+                                                          child: Text('Ok'),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  );
+                                                },
+                                              );
                                               if (int.parse(FFAppState()
                                                       .insuranceinfoPage1MaximumInsuredPerson) >
                                                   0) {
@@ -5513,26 +5572,10 @@ class _FireInsuranceInfoPage2WidgetState
                                                   return;
                                                 }
                                               } else {
-                                                FFAppState()
-                                                    .updateBenefitorDataAtIndex(
-                                                  0,
-                                                  (_) => BenefitorModelStruct(
-                                                    insuredPersonId: '',
-                                                    insuredPersonNo: '',
-                                                    insuredPersonType: '',
-                                                    applicationId: '',
-                                                    gender: '',
-                                                    titleThId: '',
-                                                    titleTh: '',
-                                                    firstNameTh: '',
-                                                    lastNameTh: '',
-                                                    birthDay: '',
-                                                    beneficiaryName: '',
-                                                    relationName: '',
-                                                    insuredPersonTypeName: '',
-                                                    age: '',
-                                                  ),
-                                                );
+                                                FFAppState().benefitorData = []
+                                                    .toList()
+                                                    .cast<
+                                                        BenefitorModelStruct>();
                                                 safeSetState(() {});
                                               }
 
