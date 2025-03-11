@@ -27,6 +27,9 @@ class AddDriverPageWidget extends StatefulWidget {
   final int? index;
   final bool? isEditing;
 
+  static String routeName = 'AddDriverPage';
+  static String routePath = 'addDriverPage';
+
   @override
   State<AddDriverPageWidget> createState() => _AddDriverPageWidgetState();
 }

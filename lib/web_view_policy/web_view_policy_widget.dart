@@ -13,6 +13,9 @@ export 'web_view_policy_model.dart';
 class WebViewPolicyWidget extends StatefulWidget {
   const WebViewPolicyWidget({super.key});
 
+  static String routeName = 'webViewPolicy';
+  static String routePath = 'webViewPolicy';
+
   @override
   State<WebViewPolicyWidget> createState() => _WebViewPolicyWidgetState();
 }

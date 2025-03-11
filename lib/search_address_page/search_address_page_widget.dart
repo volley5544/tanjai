@@ -13,6 +13,9 @@ export 'search_address_page_model.dart';
 class SearchAddressPageWidget extends StatefulWidget {
   const SearchAddressPageWidget({super.key});
 
+  static String routeName = 'SearchAddressPage';
+  static String routePath = 'searchAddressPage';
+
   @override
   State<SearchAddressPageWidget> createState() =>
       _SearchAddressPageWidgetState();

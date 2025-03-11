@@ -15,6 +15,7 @@ import 'dart:math';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
@@ -45,6 +46,9 @@ class MakeInsuranceListPageSearchWidget extends StatefulWidget {
   final String? fromPage;
   final String? type;
   final String? carRegistration;
+
+  static String routeName = 'MakeInsuranceListPageSearch';
+  static String routePath = 'MakeInsuranceListPageSearch';
 
   @override
   State<MakeInsuranceListPageSearchWidget> createState() =>
@@ -175,7 +179,7 @@ class _MakeInsuranceListPageSearchWidgetState
                   ),
                   onPressed: () async {
                     if (widget!.fromPage == 'FollowUpPage') {
-                      context.goNamed('LeadFollowUpPage');
+                      context.goNamed(LeadFollowUpPageWidget.routeName);
 
                       return;
                     }
@@ -855,7 +859,7 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                               safeSetState(() {});
 
                                                                               context.pushNamed(
-                                                                                'QuotationCopy',
+                                                                                QuotationCopyWidget.routeName,
                                                                                 queryParameters: {
                                                                                   'quotation': serializeParam(
                                                                                     (getJsonField(
@@ -997,6 +1001,127 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                                 padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                                                                                 iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                 color: Color(0xFFA75194),
+                                                                                textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                      fontFamily: 'Noto Sans Thai',
+                                                                                      color: Colors.white,
+                                                                                      fontSize: 13.0,
+                                                                                      letterSpacing: 0.0,
+                                                                                      fontWeight: FontWeight.w500,
+                                                                                    ),
+                                                                                elevation: 3.0,
+                                                                                borderSide: BorderSide(
+                                                                                  color: Colors.transparent,
+                                                                                  width: 1.0,
+                                                                                ),
+                                                                                borderRadius: BorderRadius.circular(15.0),
+                                                                              ),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                      ),
+                                                                    if (('อนุมัติ' ==
+                                                                            getJsonField(
+                                                                              widget!.list?.elementAtOrNull(leadListItemItem),
+                                                                              r'''$.quotation_status''',
+                                                                            ).toString()) &&
+                                                                        ('1' ==
+                                                                            getJsonField(
+                                                                              widget!.list?.elementAtOrNull(leadListItemItem),
+                                                                              r'''$.flg_act''',
+                                                                            ).toString()))
+                                                                      Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            0.0,
+                                                                            8.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            Row(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          mainAxisAlignment:
+                                                                              MainAxisAlignment.spaceBetween,
+                                                                          children: [
+                                                                            Text(
+                                                                              'พ.ร.บ',
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Noto Sans Thai',
+                                                                                    color: FlutterFlowTheme.of(context).primaryText,
+                                                                                    fontSize: 13.0,
+                                                                                    letterSpacing: 0.0,
+                                                                                  ),
+                                                                            ),
+                                                                            FFButtonWidget(
+                                                                              onPressed: () async {
+                                                                                var _shouldSetState = false;
+                                                                                _model.getFileCmiOutput = await GetFileCmiApiCall.call(
+                                                                                  apiUrl: FFAppState().apiUrlInsuranceAppState,
+                                                                                  token: FFAppState().accessToken,
+                                                                                  quotationId: getJsonField(
+                                                                                    widget!.list?.elementAtOrNull(leadListItemIndex),
+                                                                                    r'''$.quotation_id''',
+                                                                                  ).toString(),
+                                                                                  ownerId: FFAppState().employeeID,
+                                                                                );
+
+                                                                                _shouldSetState = true;
+                                                                                if ((_model.getFileCmiOutput?.statusCode ?? 200) != 200) {
+                                                                                  await showDialog(
+                                                                                    context: context,
+                                                                                    builder: (alertDialogContext) {
+                                                                                      return WebViewAware(
+                                                                                        child: AlertDialog(
+                                                                                          content: Text('พบข้อผิดพลาด (${(_model.getFileCmiOutput?.statusCode ?? 200).toString()})'),
+                                                                                          actions: [
+                                                                                            TextButton(
+                                                                                              onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                              child: Text('Ok'),
+                                                                                            ),
+                                                                                          ],
+                                                                                        ),
+                                                                                      );
+                                                                                    },
+                                                                                  );
+                                                                                  if (_shouldSetState) safeSetState(() {});
+                                                                                  return;
+                                                                                }
+                                                                                if (GetFileCmiApiCall.statusLayer1(
+                                                                                      (_model.getFileCmiOutput?.jsonBody ?? ''),
+                                                                                    ) !=
+                                                                                    200) {
+                                                                                  await showDialog(
+                                                                                    context: context,
+                                                                                    builder: (alertDialogContext) {
+                                                                                      return WebViewAware(
+                                                                                        child: AlertDialog(
+                                                                                          content: Text('${GetFileCmiApiCall.messageLayer1(
+                                                                                            (_model.getFileCmiOutput?.jsonBody ?? ''),
+                                                                                          )}'),
+                                                                                          actions: [
+                                                                                            TextButton(
+                                                                                              onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                              child: Text('Ok'),
+                                                                                            ),
+                                                                                          ],
+                                                                                        ),
+                                                                                      );
+                                                                                    },
+                                                                                  );
+                                                                                  if (_shouldSetState) safeSetState(() {});
+                                                                                  return;
+                                                                                }
+                                                                                await launchURL(GetFileCmiApiCall.cMIdocumentUrl(
+                                                                                  (_model.getFileCmiOutput?.jsonBody ?? ''),
+                                                                                )!);
+                                                                                if (_shouldSetState) safeSetState(() {});
+                                                                              },
+                                                                              text: 'ดู พ.ร.บ',
+                                                                              options: FFButtonOptions(
+                                                                                width: 115.0,
+                                                                                height: 40.0,
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                                                                                iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                color: Color(0xFFA3933D),
                                                                                 textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                       fontFamily: 'Noto Sans Thai',
                                                                                       color: Colors.white,

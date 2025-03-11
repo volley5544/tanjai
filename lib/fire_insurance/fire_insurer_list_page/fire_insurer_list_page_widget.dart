@@ -1,3 +1,4 @@
+import '';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
@@ -12,6 +13,7 @@ import 'dart:convert';
 import 'dart:math';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -39,6 +41,9 @@ class FireInsurerListPageWidget extends StatefulWidget {
   final String? sumInsureHouse;
   final String? sumInsureBuilding;
   final String? sumInsureOther;
+
+  static String routeName = 'fireInsurerListPage';
+  static String routePath = 'fireInsurerListPage';
 
   @override
   State<FireInsurerListPageWidget> createState() =>
@@ -772,7 +777,7 @@ class _FireInsurerListPageWidgetState extends State<FireInsurerListPageWidget>
                                                                                   safeSetState(() {});
 
                                                                                   context.pushNamed(
-                                                                                    'detailsFireInsurancePage',
+                                                                                    DetailsFireInsurancePageWidget.routeName,
                                                                                     queryParameters: {
                                                                                       'packageData': serializeParam(
                                                                                         _model.packagePageStage.elementAtOrNull(listInsuranceItemIndex),

@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -24,6 +25,9 @@ class DetailsFireInsurancePageWidget extends StatefulWidget {
   final GetPackageFireInsurerDataTypeStruct? packageData;
   final String? sumInsureHouse;
   final String? sumInsureBuildin;
+
+  static String routeName = 'detailsFireInsurancePage';
+  static String routePath = 'detailsFireInsurancePage';
 
   @override
   State<DetailsFireInsurancePageWidget> createState() =>
@@ -1758,7 +1762,7 @@ class _DetailsFireInsurancePageWidgetState
                                 child: FFButtonWidget(
                                   onPressed: () async {
                                     context.pushNamed(
-                                      'AddFireCustomerName',
+                                      AddFireCustomerNameWidget.routeName,
                                       queryParameters: {
                                         'packageDetail': serializeParam(
                                           widget!.packageData,
@@ -1806,7 +1810,7 @@ class _DetailsFireInsurancePageWidgetState
                                 child: FFButtonWidget(
                                   onPressed: () async {
                                     context.pushNamed(
-                                      'AddFireCustomerName',
+                                      AddFireCustomerNameWidget.routeName,
                                       queryParameters: {
                                         'packageDetail': serializeParam(
                                           widget!.packageData,

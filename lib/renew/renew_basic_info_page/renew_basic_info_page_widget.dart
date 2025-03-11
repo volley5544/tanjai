@@ -15,6 +15,7 @@ import 'dart:math';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -33,6 +34,9 @@ class RenewBasicInfoPageWidget extends StatefulWidget {
 
   final String? quotationId;
   final int? leadDetailId;
+
+  static String routeName = 'RenewBasicInfoPage';
+  static String routePath = 'RenewBasicInfoPage';
 
   @override
   State<RenewBasicInfoPageWidget> createState() =>
@@ -475,7 +479,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
               onPressed: () async {
                 await Future.delayed(const Duration(milliseconds: 500));
 
-                context.goNamed('LeadFollowUpPage');
+                context.goNamed(LeadFollowUpPageWidget.routeName);
               },
             ),
             title: Text(
@@ -1934,7 +1938,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
                                           context.pushNamed(
-                                            'Homepage_Request_4_1',
+                                            HomepageRequest41Widget.routeName,
                                             queryParameters: {
                                               'fromPage': serializeParam(
                                                 'RenewBasic',
@@ -2087,7 +2091,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
                                             context.pushNamed(
-                                              'SearchBranchPage',
+                                              SearchBranchPageWidget.routeName,
                                               queryParameters: {
                                                 'fromPage': serializeParam(
                                                   'RenewBasic',

@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
@@ -15,6 +16,9 @@ export 'login_screen1_model.dart';
 
 class LoginScreen1Widget extends StatefulWidget {
   const LoginScreen1Widget({super.key});
+
+  static String routeName = 'LoginScreen_1';
+  static String routePath = 'LoginScreen_1';
 
   @override
   State<LoginScreen1Widget> createState() => _LoginScreen1WidgetState();
@@ -89,7 +93,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                 size: 30.0,
               ),
               onPressed: () async {
-                context.pushNamed('LoginPage');
+                context.pushNamed(LoginPageWidget.routeName);
               },
             ),
             title: Text(
@@ -1400,7 +1404,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                   },
                                 );
 
-                                context.goNamed('LoginPage');
+                                context.goNamed(LoginPageWidget.routeName);
 
                                 if (_shouldSetState) safeSetState(() {});
                               },

@@ -1,3 +1,4 @@
+import '';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
@@ -7,6 +8,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:convert';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -64,6 +66,7 @@ class CompareInsurancePageWidget extends StatefulWidget {
     required this.carLost,
     required this.motorAddOn,
     required this.driverBehavior,
+    this.inspectionExcept,
   })  : this.currentDate = currentDate ?? '-',
         this.brandId = brandId ?? '-',
         this.brandName = brandName ?? '-',
@@ -117,6 +120,10 @@ class CompareInsurancePageWidget extends StatefulWidget {
   final List<String>? carLost;
   final List<String>? motorAddOn;
   final List<String>? driverBehavior;
+  final List<String>? inspectionExcept;
+
+  static String routeName = 'compareInsurancePage';
+  static String routePath = 'compareInsurancePage';
 
   @override
   State<CompareInsurancePageWidget> createState() =>
@@ -1602,8 +1609,36 @@ class _CompareInsurancePageWidgetState
                                                                 10.0, 0.0),
                                                     child: FFButtonWidget(
                                                       onPressed: () async {
+                                                        if (widget!
+                                                            .inspectionExcept!
+                                                            .contains("Y")) {
+                                                          await showDialog(
+                                                            context: context,
+                                                            builder:
+                                                                (alertDialogContext) {
+                                                              return WebViewAware(
+                                                                child:
+                                                                    AlertDialog(
+                                                                  content: Text(
+                                                                      'แพ็กเกจที่เลือกบังคับอัปโหลดไฟล์ตารางกรมธรรม์เดิมที่ยังไม่หมดอายุ'),
+                                                                  actions: [
+                                                                    TextButton(
+                                                                      onPressed:
+                                                                          () =>
+                                                                              Navigator.pop(alertDialogContext),
+                                                                      child: Text(
+                                                                          'Ok'),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              );
+                                                            },
+                                                          );
+                                                        }
+
                                                         context.pushNamed(
-                                                          'AddCustomerName',
+                                                          AddCustomerNameWidget
+                                                              .routeName,
                                                           queryParameters: {
                                                             'insurerId':
                                                                 serializeParam(
@@ -1918,6 +1953,13 @@ class _CompareInsurancePageWidgetState
                                                               ParamType.String,
                                                               isList: true,
                                                             ),
+                                                            'inspectionExcept':
+                                                                serializeParam(
+                                                              widget!
+                                                                  .inspectionExcept,
+                                                              ParamType.String,
+                                                              isList: true,
+                                                            ),
                                                           }.withoutNulls,
                                                         );
                                                       },
@@ -1980,7 +2022,8 @@ class _CompareInsurancePageWidgetState
                                                     child: FFButtonWidget(
                                                       onPressed: () async {
                                                         context.pushNamed(
-                                                            'Quotation');
+                                                            QuotationWidget
+                                                                .routeName);
                                                       },
                                                       text: 'ดูใบเสนอราคา',
                                                       options: FFButtonOptions(
@@ -2148,9 +2191,34 @@ class _CompareInsurancePageWidgetState
                                                       );
                                                     }
                                                   }
+                                                  if (widget!.inspectionExcept!
+                                                      .contains("Y")) {
+                                                    await showDialog(
+                                                      context: context,
+                                                      builder:
+                                                          (alertDialogContext) {
+                                                        return WebViewAware(
+                                                          child: AlertDialog(
+                                                            content: Text(
+                                                                'แพ็กเกจที่เลือกบังคับอัปโหลดไฟล์ตารางกรมธรรม์เดิมที่ยังไม่หมดอายุ'),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        );
+                                                      },
+                                                    );
+                                                  }
 
                                                   context.pushNamed(
-                                                    'AddCustomerName',
+                                                    AddCustomerNameWidget
+                                                        .routeName,
                                                     queryParameters: {
                                                       'insurerId':
                                                           serializeParam(
@@ -2430,6 +2498,13 @@ class _CompareInsurancePageWidgetState
                                                       'driverBehavior':
                                                           serializeParam(
                                                         widget!.driverBehavior,
+                                                        ParamType.String,
+                                                        isList: true,
+                                                      ),
+                                                      'inspectionExcept':
+                                                          serializeParam(
+                                                        widget!
+                                                            .inspectionExcept,
                                                         ParamType.String,
                                                         isList: true,
                                                       ),

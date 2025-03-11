@@ -12,6 +12,7 @@ import 'dart:convert';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -105,6 +106,9 @@ class NonePackageBasicPageWidget extends StatefulWidget {
   final String? oldVmiExpireDate;
   final String? workType;
   final String? yearChrist;
+
+  static String routeName = 'NonePackageBasicPage';
+  static String routePath = 'NonePackageBasicPage';
 
   @override
   State<NonePackageBasicPageWidget> createState() =>
@@ -813,7 +817,7 @@ class _NonePackageBasicPageWidgetState
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
                                   context.pushNamed(
-                                    'SearchBranchPage',
+                                    SearchBranchPageWidget.routeName,
                                     queryParameters: {
                                       'fromPage': serializeParam(
                                         'NonePackage',
@@ -940,7 +944,7 @@ class _NonePackageBasicPageWidgetState
                               highlightColor: Colors.transparent,
                               onTap: () async {
                                 context.pushNamed(
-                                  'SearchableCarListPage',
+                                  SearchableCarListPageWidget.routeName,
                                   queryParameters: {
                                     'titleText': serializeParam(
                                       'เลือกประเภทรถ',
@@ -1087,7 +1091,7 @@ class _NonePackageBasicPageWidgetState
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
                                   context.pushNamed(
-                                    'SearchableListPage',
+                                    SearchableListPageWidget.routeName,
                                     queryParameters: {
                                       'titleText': serializeParam(
                                         'เลือกส่วนของรถบรรทุก',
@@ -1228,7 +1232,7 @@ class _NonePackageBasicPageWidgetState
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
                                   context.pushNamed(
-                                    'SearchableListPage',
+                                    SearchableListPageWidget.routeName,
                                     queryParameters: {
                                       'titleText': serializeParam(
                                         'เลือกประเภทลูกค้า',
@@ -1828,7 +1832,7 @@ class _NonePackageBasicPageWidgetState
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
                                   context.pushNamed(
-                                    'SearchableListPage',
+                                    SearchableListPageWidget.routeName,
                                     queryParameters: {
                                       'titleText': serializeParam(
                                         'เลือกประเภทตู้เหล็ก',
@@ -2640,7 +2644,7 @@ class _NonePackageBasicPageWidgetState
                               highlightColor: Colors.transparent,
                               onTap: () async {
                                 context.pushNamed(
-                                  'SearchableListPage',
+                                  SearchableListPageWidget.routeName,
                                   queryParameters: {
                                     'titleText': serializeParam(
                                       'เลือกปีจดทะเบียน',
@@ -2932,6 +2936,10 @@ class _NonePackageBasicPageWidgetState
                                       _datePickedDate.day,
                                     );
                                   });
+                                } else if (_model.datePicked != null) {
+                                  safeSetState(() {
+                                    _model.datePicked = getCurrentTimestamp;
+                                  });
                                 }
                                 await actions.hideKeyboardAction(
                                   context,
@@ -3082,7 +3090,7 @@ class _NonePackageBasicPageWidgetState
                               highlightColor: Colors.transparent,
                               onTap: () async {
                                 context.pushNamed(
-                                  'SearchableListPage',
+                                  SearchableListPageWidget.routeName,
                                   queryParameters: {
                                     'titleText': serializeParam(
                                       'เลือกลักษณะการใช้รถ',
@@ -3272,7 +3280,7 @@ class _NonePackageBasicPageWidgetState
                               highlightColor: Colors.transparent,
                               onTap: () async {
                                 context.pushNamed(
-                                  'SearchableListPage',
+                                  SearchableListPageWidget.routeName,
                                   queryParameters: {
                                     'titleText': serializeParam(
                                       'เลือกประเภทชั้นประกัน',
@@ -3428,7 +3436,7 @@ class _NonePackageBasicPageWidgetState
                               highlightColor: Colors.transparent,
                               onTap: () async {
                                 context.pushNamed(
-                                  'SearchableListPage',
+                                  SearchableListPageWidget.routeName,
                                   queryParameters: {
                                     'titleText': serializeParam(
                                       'เลือกประเภทการซ่อม',
@@ -4078,7 +4086,7 @@ class _NonePackageBasicPageWidgetState
                               highlightColor: Colors.transparent,
                               onTap: () async {
                                 context.pushNamed(
-                                  'SearchableListPage',
+                                  SearchableListPageWidget.routeName,
                                   queryParameters: {
                                     'titleText': serializeParam(
                                       'เลือกจังหวัดจดทะเบียน',
@@ -5087,7 +5095,8 @@ class _NonePackageBasicPageWidgetState
                                             hoverColor: Colors.transparent,
                                             highlightColor: Colors.transparent,
                                             onTap: () async {
-                                              context.pushNamed('SampleIDcard');
+                                              context.pushNamed(
+                                                  SampleIDcardWidget.routeName);
                                             },
                                             child: Text(
                                               'ดูตัวอย่าง',
@@ -6504,7 +6513,8 @@ class _NonePackageBasicPageWidgetState
                                       (FFAppState().nonePackageCoverTypeName ==
                                           'ชั้น 3')) {
                                     context.pushNamed(
-                                      'NonePackageBasicImage2Page',
+                                      NonePackageBasicImage2PageWidget
+                                          .routeName,
                                       queryParameters: {
                                         'workType': serializeParam(
                                           widget!.workType,
@@ -6514,7 +6524,8 @@ class _NonePackageBasicPageWidgetState
                                     );
                                   } else {
                                     context.pushNamed(
-                                      'NonePackageBasicImage1Page',
+                                      NonePackageBasicImage1PageWidget
+                                          .routeName,
                                       queryParameters: {
                                         'workType': serializeParam(
                                           widget!.workType,

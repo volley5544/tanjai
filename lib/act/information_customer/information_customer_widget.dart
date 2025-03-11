@@ -11,6 +11,9 @@ export 'information_customer_model.dart';
 class InformationCustomerWidget extends StatefulWidget {
   const InformationCustomerWidget({super.key});
 
+  static String routeName = 'InformationCustomer';
+  static String routePath = 'informationCustomer';
+
   @override
   State<InformationCustomerWidget> createState() =>
       _InformationCustomerWidgetState();

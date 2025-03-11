@@ -29,6 +29,9 @@ class InsuranceInfoPage4InstallmentsWidget extends StatefulWidget {
   final int maxSelected;
   final String fromPage;
 
+  static String routeName = 'insuranceInfoPage4_installments';
+  static String routePath = 'insuranceInfoPage4_installments';
+
   @override
   State<InsuranceInfoPage4InstallmentsWidget> createState() =>
       _InsuranceInfoPage4InstallmentsWidgetState();

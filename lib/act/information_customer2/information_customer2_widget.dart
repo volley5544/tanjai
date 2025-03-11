@@ -12,6 +12,7 @@ import 'dart:math';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
@@ -33,6 +34,9 @@ class InformationCustomer2Widget extends StatefulWidget {
 
   final String? bodyNumber;
   final DateTime? effectiveDateAct;
+
+  static String routeName = 'informationCustomer2';
+  static String routePath = 'informationCustomer2';
 
   @override
   State<InformationCustomer2Widget> createState() =>
@@ -742,7 +746,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
                                       context.pushNamed(
-                                        'SearchableCarListPage',
+                                        SearchableCarListPageWidget.routeName,
                                         queryParameters: {
                                           'titleText': serializeParam(
                                             'เลือกประเภทรถ',
@@ -897,7 +901,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
                                       context.pushNamed(
-                                        'SearchableListPage',
+                                        SearchableListPageWidget.routeName,
                                         queryParameters: {
                                           'titleText': serializeParam(
                                             'เลือกยี่ห้อรถ',
@@ -1075,7 +1079,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
                                         context.pushNamed(
-                                          'SearchableListPage',
+                                          SearchableListPageWidget.routeName,
                                           queryParameters: {
                                             'titleText': serializeParam(
                                               'เลือกรุ่นรถ',
@@ -1232,7 +1236,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
                                       context.pushNamed(
-                                        'SearchableListPage',
+                                        SearchableListPageWidget.routeName,
                                         queryParameters: {
                                           'titleText': serializeParam(
                                             'เลือกปีจดทะเบียน',
@@ -2573,7 +2577,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                               safeSetState(() {});
 
                               context.pushNamed(
-                                'insuranceInfoPage1',
+                                InsuranceInfoPage1Widget.routeName,
                                 queryParameters: {
                                   'quotationId': serializeParam(
                                     CmiSaveLeadsCall.quotationid(

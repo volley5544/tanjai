@@ -7,6 +7,7 @@ import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
 import 'dart:convert';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'information_act_widget.dart' show InformationActWidget;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';

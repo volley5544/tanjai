@@ -14,6 +14,9 @@ export 'gemini_page_model.dart';
 class GeminiPageWidget extends StatefulWidget {
   const GeminiPageWidget({super.key});
 
+  static String routeName = 'GeminiPage';
+  static String routePath = 'GeminiPage';
+
   @override
   State<GeminiPageWidget> createState() => _GeminiPageWidgetState();
 }

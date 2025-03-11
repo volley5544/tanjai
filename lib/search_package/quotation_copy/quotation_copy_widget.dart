@@ -24,6 +24,9 @@ class QuotationCopyWidget extends StatefulWidget {
 
   final List<String>? quotation;
 
+  static String routeName = 'QuotationCopy';
+  static String routePath = 'QuotationCopy';
+
   @override
   State<QuotationCopyWidget> createState() => _QuotationCopyWidgetState();
 }

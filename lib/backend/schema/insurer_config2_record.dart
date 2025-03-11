@@ -37,6 +37,16 @@ class InsurerConfig2Record extends FirestoreRecord {
   List<String> get insurerInstallment => _insurerInstallment ?? const [];
   bool hasInsurerInstallment() => _insurerInstallment != null;
 
+  // "insurerCoverType" field.
+  List<String>? _insurerCoverType;
+  List<String> get insurerCoverType => _insurerCoverType ?? const [];
+  bool hasInsurerCoverType() => _insurerCoverType != null;
+
+  // "insurerGarageType" field.
+  List<String>? _insurerGarageType;
+  List<String> get insurerGarageType => _insurerGarageType ?? const [];
+  bool hasInsurerGarageType() => _insurerGarageType != null;
+
   void _initializeFields() {
     _configName = snapshotData['config_name'] as String?;
     _insurerShortNameMap =
@@ -46,6 +56,8 @@ class InsurerConfig2Record extends FirestoreRecord {
                 snapshotData['insurer_short_name_map']);
     _insurerFullPayment = getDataList(snapshotData['InsurerFullPayment']);
     _insurerInstallment = getDataList(snapshotData['InsurerInstallment']);
+    _insurerCoverType = getDataList(snapshotData['insurerCoverType']);
+    _insurerGarageType = getDataList(snapshotData['insurerGarageType']);
   }
 
   static CollectionReference get collection =>
@@ -110,7 +122,9 @@ class InsurerConfig2RecordDocumentEquality
     return e1?.configName == e2?.configName &&
         e1?.insurerShortNameMap == e2?.insurerShortNameMap &&
         listEquality.equals(e1?.insurerFullPayment, e2?.insurerFullPayment) &&
-        listEquality.equals(e1?.insurerInstallment, e2?.insurerInstallment);
+        listEquality.equals(e1?.insurerInstallment, e2?.insurerInstallment) &&
+        listEquality.equals(e1?.insurerCoverType, e2?.insurerCoverType) &&
+        listEquality.equals(e1?.insurerGarageType, e2?.insurerGarageType);
   }
 
   @override
@@ -118,7 +132,9 @@ class InsurerConfig2RecordDocumentEquality
         e?.configName,
         e?.insurerShortNameMap,
         e?.insurerFullPayment,
-        e?.insurerInstallment
+        e?.insurerInstallment,
+        e?.insurerCoverType,
+        e?.insurerGarageType
       ]);
 
   @override

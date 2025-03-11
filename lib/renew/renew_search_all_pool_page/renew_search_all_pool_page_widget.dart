@@ -14,6 +14,7 @@ import 'dart:convert';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'dart:async';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -31,6 +32,9 @@ export 'renew_search_all_pool_page_model.dart';
 
 class RenewSearchAllPoolPageWidget extends StatefulWidget {
   const RenewSearchAllPoolPageWidget({super.key});
+
+  static String routeName = 'renewSearchAllPoolPage';
+  static String routePath = 'renewSearchAllPoolPage';
 
   @override
   State<RenewSearchAllPoolPageWidget> createState() =>
@@ -1057,7 +1061,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                             () async {
                                                                           context
                                                                               .pushNamed(
-                                                                            'renewDetailPage',
+                                                                            RenewDetailPageWidget.routeName,
                                                                             queryParameters:
                                                                                 {
                                                                               'refRenewId': serializeParam(
@@ -1127,7 +1131,8 @@ class _RenewSearchAllPoolPageWidgetState
                                                                           () async {
                                                                         context
                                                                             .pushNamed(
-                                                                          'renewSaveHistory',
+                                                                          RenewSaveHistoryWidget
+                                                                              .routeName,
                                                                           queryParameters:
                                                                               {
                                                                             'title':
@@ -1300,7 +1305,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                             () async {
                                                                           context
                                                                               .pushNamed(
-                                                                            'renewHistory',
+                                                                            RenewHistoryWidget.routeName,
                                                                             queryParameters:
                                                                                 {
                                                                               'refRenewId': serializeParam(
@@ -2293,7 +2298,8 @@ class _RenewSearchAllPoolPageWidgetState
                                                                       () async {
                                                                     context
                                                                         .pushNamed(
-                                                                      'renewDetailPage',
+                                                                      RenewDetailPageWidget
+                                                                          .routeName,
                                                                       queryParameters:
                                                                           {
                                                                         'refRenewId':
@@ -2373,7 +2379,8 @@ class _RenewSearchAllPoolPageWidgetState
                                                                     () async {
                                                                   context
                                                                       .pushNamed(
-                                                                    'renewSaveHistory',
+                                                                    RenewSaveHistoryWidget
+                                                                        .routeName,
                                                                     queryParameters:
                                                                         {
                                                                       'title':
@@ -2550,7 +2557,8 @@ class _RenewSearchAllPoolPageWidgetState
                                                                       () async {
                                                                     context
                                                                         .pushNamed(
-                                                                      'renewHistory',
+                                                                      RenewHistoryWidget
+                                                                          .routeName,
                                                                       queryParameters:
                                                                           {
                                                                         'refRenewId':
@@ -3721,7 +3729,8 @@ class _RenewSearchAllPoolPageWidgetState
                                                             onPressed:
                                                                 () async {
                                                               context.pushNamed(
-                                                                'renewDetailPage',
+                                                                RenewDetailPageWidget
+                                                                    .routeName,
                                                                 queryParameters:
                                                                     {
                                                                   'refRenewId':
@@ -3800,7 +3809,8 @@ class _RenewSearchAllPoolPageWidgetState
                                                         child: FFButtonWidget(
                                                           onPressed: () async {
                                                             context.pushNamed(
-                                                              'renewSaveHistory',
+                                                              RenewSaveHistoryWidget
+                                                                  .routeName,
                                                               queryParameters: {
                                                                 'title':
                                                                     serializeParam(
@@ -4002,7 +4012,8 @@ class _RenewSearchAllPoolPageWidgetState
                                                             onPressed:
                                                                 () async {
                                                               context.pushNamed(
-                                                                'renewHistory',
+                                                                RenewHistoryWidget
+                                                                    .routeName,
                                                                 queryParameters:
                                                                     {
                                                                   'refRenewId':
@@ -4588,7 +4599,8 @@ class _RenewSearchAllPoolPageWidgetState
                                           safeSetState(() {});
 
                                           context.pushNamed(
-                                            'NonePackageRenewPage',
+                                            NonePackageRenewPageWidget
+                                                .routeName,
                                             queryParameters: {
                                               'workType': serializeParam(
                                                 'renew',

@@ -11,6 +11,7 @@ import '/flutter_flow/upload_data.dart';
 import 'dart:math';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'my_profile_page_widget.dart' show MyProfilePageWidget;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';

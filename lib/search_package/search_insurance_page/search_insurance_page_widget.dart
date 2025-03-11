@@ -13,6 +13,7 @@ import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
@@ -32,6 +33,9 @@ class SearchInsurancePageWidget extends StatefulWidget {
   });
 
   final String? fromIcon;
+
+  static String routeName = 'SearchInsurancePage';
+  static String routePath = 'searchInsurancePage';
 
   @override
   State<SearchInsurancePageWidget> createState() =>
@@ -1448,7 +1452,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                 FFAppState().insuranceCarTypeDetailSelected = '';
                 safeSetState(() {});
 
-                context.goNamed('SuperAppPage');
+                context.goNamed(SuperAppPageWidget.routeName);
               },
               child: Icon(
                 Icons.arrow_back,
@@ -1543,7 +1547,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                     onTap: () async {
                                       if (widget!.fromIcon != 'MC') {
                                         context.pushNamed(
-                                          'SearchableCarListPage',
+                                          SearchableCarListPageWidget.routeName,
                                           queryParameters: {
                                             'titleText': serializeParam(
                                               'เลือกประเภทรถ',
@@ -1699,7 +1703,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
                                       context.pushNamed(
-                                        'SearchableListPage',
+                                        SearchableListPageWidget.routeName,
                                         queryParameters: {
                                           'titleText': serializeParam(
                                             'เลือกยี่ห้อรถ',
@@ -1848,7 +1852,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
                                         context.pushNamed(
-                                          'SearchableListPage',
+                                          SearchableListPageWidget.routeName,
                                           queryParameters: {
                                             'titleText': serializeParam(
                                               'เลือกรุ่นรถ',
@@ -2005,7 +2009,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
                                       context.pushNamed(
-                                        'SearchableListPage',
+                                        SearchableListPageWidget.routeName,
                                         queryParameters: {
                                           'titleText': serializeParam(
                                             'เลือกปีจดทะเบียน',
@@ -2190,7 +2194,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
                                           context.pushNamed(
-                                            'SearchableListPage',
+                                            SearchableListPageWidget.routeName,
                                             queryParameters: {
                                               'titleText': serializeParam(
                                                 'เลือกลักษณะการใช้รถ',
@@ -2383,7 +2387,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
                                       context.pushNamed(
-                                        'SearchableListPage',
+                                        SearchableListPageWidget.routeName,
                                         queryParameters: {
                                           'titleText': serializeParam(
                                             'เลือกประเภทชั้นประกัน',
@@ -2541,7 +2545,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
                                       context.pushNamed(
-                                        'SearchableListPage',
+                                        SearchableListPageWidget.routeName,
                                         queryParameters: {
                                           'titleText': serializeParam(
                                             'เลือกประเภทการซ่อม',
@@ -2698,7 +2702,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
                                         context.pushNamed(
-                                          'SearchableListPage',
+                                          SearchableListPageWidget.routeName,
                                           queryParameters: {
                                             'titleText': serializeParam(
                                               'เลือกจังหวัดที่จดทะเบียน',
@@ -2862,6 +2866,11 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                             _datePickedDate.month,
                                             _datePickedDate.day,
                                           );
+                                        });
+                                      } else if (_model.datePicked != null) {
+                                        safeSetState(() {
+                                          _model.datePicked =
+                                              getCurrentTimestamp;
                                         });
                                       }
                                       if (!(_model.datePicked != null)) {
@@ -3293,7 +3302,8 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                   },
                                 );
 
-                                context.pushNamed('InsuranceWorkSelectPage');
+                                context.pushNamed(
+                                    InsuranceWorkSelectPageWidget.routeName);
 
                                 return;
                               }
@@ -3330,7 +3340,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                               if (FFAppState().searchPackageSubProduct !=
                                   'MC') {
                                 context.pushNamed(
-                                  'insurerListOverallPage',
+                                  InsurerListOverallPageWidget.routeName,
                                   queryParameters: {
                                     'brandCode': serializeParam(
                                       FFAppState().insuranceBasicBrandId,
@@ -3402,7 +3412,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                               }
 
                               context.pushNamed(
-                                'insurerListPage',
+                                InsurerListPageWidget.routeName,
                                 queryParameters: {
                                   'brandCode': serializeParam(
                                     FFAppState().insuranceBasicBrandId,

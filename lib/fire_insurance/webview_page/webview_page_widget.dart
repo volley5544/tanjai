@@ -20,6 +20,9 @@ class WebviewPageWidget extends StatefulWidget {
 
   final String? webUrl;
 
+  static String routeName = 'WebviewPage';
+  static String routePath = 'webviewPage';
+
   @override
   State<WebviewPageWidget> createState() => _WebviewPageWidgetState();
 }

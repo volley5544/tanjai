@@ -4366,6 +4366,12 @@ bool? checkIsStringLengthInLength(
   return isInLength;
 }
 
+List<BenefitorModelStruct>? returnBenefitorModelListEmpty() {
+  List<BenefitorModelStruct> outputList = [];
+
+  return outputList;
+}
+
 List<BenefitorModelStruct>? returnBenefitorModelListByMaxPeople(
   List<BenefitorModelStruct>? benefitorModelInput,
   int? maxPeople,
@@ -4700,6 +4706,7 @@ dynamic sendJsonData(
   List<String>? carLost,
   List<String>? motorAddOn,
   List<String>? driverBehavior,
+  List<String>? inspectionExcept,
 ) {
   List<Map<String, String>> jsonList = [];
 
@@ -4740,6 +4747,7 @@ dynamic sendJsonData(
       'car_lost': carLost![i],
       'motor_add_on': motorAddOn![i],
       'driver_behavior': driverBehavior![i],
+      'inspection_except': inspectionExcept![i],
     };
     jsonList.add(jsonObject);
   }

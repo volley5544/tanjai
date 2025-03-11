@@ -19,6 +19,9 @@ class QuotationWidget extends StatefulWidget {
 
   final String? fromPage;
 
+  static String routeName = 'Quotation';
+  static String routePath = 'Quotation';
+
   @override
   State<QuotationWidget> createState() => _QuotationWidgetState();
 }

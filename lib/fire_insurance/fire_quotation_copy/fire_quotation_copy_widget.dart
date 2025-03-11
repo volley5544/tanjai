@@ -25,6 +25,9 @@ class FireQuotationCopyWidget extends StatefulWidget {
 
   final List<String>? quotation;
 
+  static String routeName = 'FireQuotationCopy';
+  static String routePath = 'FireQuotationCopy';
+
   @override
   State<FireQuotationCopyWidget> createState() =>
       _FireQuotationCopyWidgetState();

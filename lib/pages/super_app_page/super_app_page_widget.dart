@@ -1,3 +1,4 @@
+import '';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
@@ -19,6 +20,7 @@ import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/permissions_util.dart';
+import '/index.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
@@ -46,6 +48,9 @@ class SuperAppPageWidget extends StatefulWidget {
   });
 
   final String? dailyText;
+
+  static String routeName = 'SuperAppPage';
+  static String routePath = 'superAppPage';
 
   @override
   State<SuperAppPageWidget> createState() => _SuperAppPageWidgetState();
@@ -348,7 +353,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
         await actions.a22();
         Navigator.pop(context);
 
-        context.goNamed('LoginPage');
+        context.goNamed(LoginPageWidget.routeName);
 
         return;
       }
@@ -357,7 +362,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
         if (!FFAppState().isFromSetPinPage) {
           Navigator.pop(context);
 
-          context.goNamed('SetPinCodePage');
+          context.goNamed(SetPinCodePageWidget.routeName);
 
           return;
         }
@@ -365,7 +370,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
         if (!FFAppState().isFromAuthenPage) {
           Navigator.pop(context);
 
-          context.goNamed('PinCodePage');
+          context.goNamed(PinCodePageWidget.routeName);
 
           return;
         }
@@ -378,7 +383,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
             FFAppState().update(() {});
             Navigator.pop(context);
 
-            context.goNamed('LeadFollowUpPage');
+            context.goNamed(LeadFollowUpPageWidget.routeName);
 
             return;
           }
@@ -386,7 +391,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
           FFAppState().update(() {});
           Navigator.pop(context);
 
-          context.goNamed('insuranceListPage');
+          context.goNamed(InsuranceListPageWidget.routeName);
 
           return;
         }
@@ -686,7 +691,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                         }
 
                                                         context.goNamed(
-                                                            'NotificationIBS');
+                                                            NotificationIBSWidget
+                                                                .routeName);
                                                       },
                                                       child: badges.Badge(
                                                         badgeContent: Text(
@@ -1150,7 +1156,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
 
                                                                     context
                                                                         .goNamed(
-                                                                      'SearchInsurancePage',
+                                                                      SearchInsurancePageWidget
+                                                                          .routeName,
                                                                       queryParameters:
                                                                           {
                                                                         'fromIcon':
@@ -1386,7 +1393,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                             .isViewCarFollowUp) {
                                                                           context
                                                                               .goNamed(
-                                                                            'MakeFireInsuranceListPage',
+                                                                            MakeFireInsuranceListPageWidget.routeName,
                                                                             queryParameters:
                                                                                 {
                                                                               'list': serializeParam(
@@ -1423,7 +1430,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
 
                                                                         context
                                                                             .pushNamed(
-                                                                          'MakeInsuranceListPage',
+                                                                          MakeInsuranceListPageWidget
+                                                                              .routeName,
                                                                           queryParameters:
                                                                               {
                                                                             'checkTotal':
@@ -1587,10 +1595,12 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                     if (FFAppState()
                                                                         .isViewCarFollowUp) {
                                                                       context.goNamed(
-                                                                          'LeadFollowUpPage');
+                                                                          LeadFollowUpPageWidget
+                                                                              .routeName);
                                                                     } else {
                                                                       context.goNamed(
-                                                                          'fireLeadFollowUpPage');
+                                                                          FireLeadFollowUpPageWidget
+                                                                              .routeName);
                                                                     }
 
                                                                     if (_shouldSetState)
@@ -1756,7 +1766,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
 
                                                                       context
                                                                           .goNamed(
-                                                                        'SearchInsurancePage',
+                                                                        SearchInsurancePageWidget
+                                                                            .routeName,
                                                                         queryParameters:
                                                                             {
                                                                           'fromIcon':
@@ -1958,7 +1969,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                           if (!FFAppState()
                                                                               .isViewCarFollowUp) {
                                                                             context.goNamed(
-                                                                              'MakeFireInsuranceListPage',
+                                                                              MakeFireInsuranceListPageWidget.routeName,
                                                                               queryParameters: {
                                                                                 'list': serializeParam(
                                                                                   GetVMICall.houseApproveData(
@@ -1991,7 +2002,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
 
                                                                           context
                                                                               .pushNamed(
-                                                                            'MakeInsuranceListPage',
+                                                                            MakeInsuranceListPageWidget.routeName,
                                                                             queryParameters:
                                                                                 {
                                                                               'checkTotal': serializeParam(
@@ -2134,10 +2145,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                         if (FFAppState()
                                                                             .isViewCarFollowUp) {
                                                                           context
-                                                                              .goNamed('LeadFollowUpPage');
+                                                                              .goNamed(LeadFollowUpPageWidget.routeName);
                                                                         } else {
                                                                           context
-                                                                              .goNamed('fireLeadFollowUpPage');
+                                                                              .goNamed(FireLeadFollowUpPageWidget.routeName);
                                                                         }
 
                                                                         if (_shouldSetState)
@@ -2214,7 +2225,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                           () {});
 
                                                                       context.pushNamed(
-                                                                          'renewSearchAllPoolPage');
+                                                                          RenewSearchAllPoolPageWidget
+                                                                              .routeName);
                                                                     },
                                                                     child:
                                                                         Container(
@@ -2720,7 +2732,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
 
                                                                       context
                                                                           .pushNamed(
-                                                                        'NonePackageRenewPage',
+                                                                        NonePackageRenewPageWidget
+                                                                            .routeName,
                                                                         queryParameters:
                                                                             {
                                                                           'workType':
@@ -2868,7 +2881,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                             context);
 
                                                                         context.pushNamed(
-                                                                            'InformationAct');
+                                                                            InformationActWidget.routeName);
 
                                                                         safeSetState(
                                                                             () {});
@@ -2952,7 +2965,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
 
                                                                       context
                                                                           .pushNamed(
-                                                                        'SearchInsurancePage',
+                                                                        SearchInsurancePageWidget
+                                                                            .routeName,
                                                                         queryParameters:
                                                                             {
                                                                           'fromIcon':
@@ -3047,7 +3061,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
 
                                                                         context
                                                                             .pushNamed(
-                                                                          'SearchInsurancePage',
+                                                                          SearchInsurancePageWidget
+                                                                              .routeName,
                                                                           queryParameters:
                                                                               {
                                                                             'fromIcon':
@@ -3353,7 +3368,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                         () async {
                                                                       context
                                                                           .pushNamed(
-                                                                        'SearchPackageFireInsurancePage',
+                                                                        SearchPackageFireInsurancePageWidget
+                                                                            .routeName,
                                                                         queryParameters:
                                                                             {
                                                                           'token':
@@ -3597,7 +3613,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              context.goNamed('insuranceListPage');
+                              context
+                                  .goNamed(InsuranceListPageWidget.routeName);
                             },
                             child: Text(
                               'ดูทั้งหมด',
@@ -4219,7 +4236,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                                             ''))
                                                                                     : true) {
                                                                                   context.pushNamed(
-                                                                                    'MakeInsuranceListPage',
+                                                                                    MakeInsuranceListPageWidget.routeName,
                                                                                     queryParameters: {
                                                                                       'checkTotal': serializeParam(
                                                                                         InsuranceRequestListAPIDashBoardCall.waitingInfo(
@@ -4484,7 +4501,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              context.goNamed('fireInsuranceListPage');
+                              context.goNamed(
+                                  FireInsuranceListPageWidget.routeName);
                             },
                             child: Text(
                               'ดูทั้งหมด',
@@ -5000,7 +5018,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
 
                                                                         context
                                                                             .pushNamed(
-                                                                          'MakeFireInsuranceListPage',
+                                                                          MakeFireInsuranceListPageWidget
+                                                                              .routeName,
                                                                           queryParameters:
                                                                               {
                                                                             'list':
@@ -5226,7 +5245,9 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                       onTap: () async {
                                         HapticFeedback.mediumImpact();
 
-                                        context.goNamed('webViewPromotionPage');
+                                        context.goNamed(
+                                            WebViewPromotionPageWidget
+                                                .routeName);
                                       },
                                       child: ClipRRect(
                                         borderRadius:
@@ -5305,7 +5326,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    context.goNamed('InsurerInfomationPage');
+                                    context.goNamed(
+                                        InsurerInfomationPageWidget.routeName);
                                   },
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(20.0),

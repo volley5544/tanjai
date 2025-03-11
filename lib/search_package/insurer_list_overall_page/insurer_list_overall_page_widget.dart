@@ -11,6 +11,7 @@ import 'dart:convert';
 import 'dart:math';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -50,6 +51,9 @@ class InsurerListOverallPageWidget extends StatefulWidget {
   final String? carTypeDetail;
   final String? oldVmiExpDate;
   final String? provinceCode;
+
+  static String routeName = 'insurerListOverallPage';
+  static String routePath = 'insurerListOverallPage';
 
   @override
   State<InsurerListOverallPageWidget> createState() =>
@@ -466,6 +470,12 @@ class _InsurerListOverallPageWidgetState
       )!
               .toList()
               .cast<String>();
+      FFAppState().searchInspectionExcept =
+          TelePackageSearchAPICall.inspectionExcept(
+        (_model.packageAPIOutput?.jsonBody ?? ''),
+      )!
+              .toList()
+              .cast<String>();
       safeSetState(() {});
       FFAppState().sliderMinGrossPage2 = functions.getMinMaxValueFromList(
           FFAppState().searchInsurerMinnetpremium.toList(), 'min')!;
@@ -703,7 +713,8 @@ class _InsurerListOverallPageWidgetState
                                                               .length >
                                                           0) {
                                                         context.pushNamed(
-                                                          'PackageFilterPage',
+                                                          PackageFilterPageWidget
+                                                              .routeName,
                                                           queryParameters: {
                                                             'fromPage':
                                                                 serializeParam(
@@ -1328,7 +1339,7 @@ class _InsurerListOverallPageWidgetState
                                                                                             }
 
                                                                                             context.pushNamed(
-                                                                                              'insurerListPage',
+                                                                                              InsurerListPageWidget.routeName,
                                                                                               queryParameters: {
                                                                                                 'garageType': serializeParam(
                                                                                                   widget!.garageType,
@@ -2027,7 +2038,8 @@ class _InsurerListOverallPageWidgetState
 
                                                                   context
                                                                       .pushNamed(
-                                                                    'NonePackageRenewPage',
+                                                                    NonePackageRenewPageWidget
+                                                                        .routeName,
                                                                     queryParameters:
                                                                         {
                                                                       'workType':
@@ -2618,7 +2630,8 @@ class _InsurerListOverallPageWidgetState
                                                                       () {});
 
                                                                   context.pushNamed(
-                                                                      'SelectReasonPage');
+                                                                      SelectReasonPageWidget
+                                                                          .routeName);
                                                                 },
                                                                 text: 'นอกเรท',
                                                                 options:

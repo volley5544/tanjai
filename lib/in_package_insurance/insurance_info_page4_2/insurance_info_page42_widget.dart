@@ -14,6 +14,7 @@ import 'dart:convert';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -31,6 +32,9 @@ class InsuranceInfoPage42Widget extends StatefulWidget {
 
   final String? quotationId;
   final int? leadDetailId;
+
+  static String routeName = 'insuranceInfoPage4_2';
+  static String routePath = 'insuranceInfoPage4_2';
 
   @override
   State<InsuranceInfoPage42Widget> createState() =>
@@ -2344,7 +2348,8 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                       safeSetState(() {});
 
                                                       context.pushNamed(
-                                                        'PaywithQRcode',
+                                                        PaywithQRcodeWidget
+                                                            .routeName,
                                                         queryParameters: {
                                                           'taxId':
                                                               serializeParam(
@@ -2480,7 +2485,8 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
                                             context.pushNamed(
-                                              'SearchableListPage',
+                                              SearchableListPageWidget
+                                                  .routeName,
                                               queryParameters: {
                                                 'titleText': serializeParam(
                                                   'จำนวนงวด',
@@ -3029,7 +3035,8 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                         safeSetState(() {});
 
                                                         context.pushNamed(
-                                                          'PaywithQRcode',
+                                                          PaywithQRcodeWidget
+                                                              .routeName,
                                                           queryParameters: {
                                                             'taxId':
                                                                 serializeParam(
@@ -4378,7 +4385,8 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                             }
 
                                                             context.pushNamed(
-                                                              'insuranceInfoPage5',
+                                                              InsuranceInfoPage5Widget
+                                                                  .routeName,
                                                               queryParameters: {
                                                                 'quotationId':
                                                                     serializeParam(

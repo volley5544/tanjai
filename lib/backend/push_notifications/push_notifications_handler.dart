@@ -53,11 +53,19 @@ class _PushNotificationsHandlerState extends State<PushNotificationsHandler> {
       final parametersBuilder = parametersBuilderMap[initialPageName];
       if (parametersBuilder != null) {
         final parameterData = await parametersBuilder(initialParameterData);
-        context.pushNamed(
-          initialPageName,
-          pathParameters: parameterData.pathParameters,
-          extra: parameterData.extra,
-        );
+        if (mounted) {
+          context.pushNamed(
+            initialPageName,
+            pathParameters: parameterData.pathParameters,
+            extra: parameterData.extra,
+          );
+        } else {
+          appNavigatorKey.currentContext?.pushNamed(
+            initialPageName,
+            pathParameters: parameterData.pathParameters,
+            extra: parameterData.extra,
+          );
+        }
       }
     } catch (e) {
       print('Error: $e');
@@ -238,6 +246,7 @@ final parametersBuilderMap =
           'carLost': getParameter<String>(data, 'carLost'),
           'motorAddOn': getParameter<String>(data, 'motorAddOn'),
           'driverBehavior': getParameter<String>(data, 'driverBehavior'),
+          'inspectionExcept': getParameter<String>(data, 'inspectionExcept'),
         },
       ),
   'NonePackageEditPage1': ParameterData.none(),

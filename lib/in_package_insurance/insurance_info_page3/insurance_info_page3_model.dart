@@ -14,6 +14,7 @@ import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
 import 'dart:convert';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'insurance_info_page3_widget.dart' show InsuranceInfoPage3Widget;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -87,6 +88,11 @@ class InsuranceInfoPage3Model
   FFUploadedFile uploadedLocalFile12 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
   String uploadedFileUrl12 = '';
+
+  bool isDataUploading13 = false;
+  FFUploadedFile uploadedLocalFile13 =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+  String uploadedFileUrl13 = '';
 
   // State field(s) for sensitive_consent widget.
   bool? sensitiveConsentValue;

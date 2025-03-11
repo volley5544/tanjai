@@ -11,6 +11,7 @@ import 'dart:convert';
 import 'dart:math';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -50,6 +51,9 @@ class FireInsurerListAllWidget extends StatefulWidget {
   final String? carTypeDetail;
   final String? oldVmiExpDate;
   final String? provinceCode;
+
+  static String routeName = 'fireInsurerListAll';
+  static String routePath = 'fireInsurerListAll';
 
   @override
   State<FireInsurerListAllWidget> createState() =>
@@ -703,7 +707,8 @@ class _FireInsurerListAllWidgetState extends State<FireInsurerListAllWidget>
                                                               .length >
                                                           0) {
                                                         context.pushNamed(
-                                                          'PackageFilterPage',
+                                                          PackageFilterPageWidget
+                                                              .routeName,
                                                           queryParameters: {
                                                             'fromPage':
                                                                 serializeParam(
@@ -1328,7 +1333,7 @@ class _FireInsurerListAllWidgetState extends State<FireInsurerListAllWidget>
                                                                                             }
 
                                                                                             context.pushNamed(
-                                                                                              'insurerListPage',
+                                                                                              InsurerListPageWidget.routeName,
                                                                                               queryParameters: {
                                                                                                 'garageType': serializeParam(
                                                                                                   widget!.garageType,
@@ -2027,7 +2032,8 @@ class _FireInsurerListAllWidgetState extends State<FireInsurerListAllWidget>
 
                                                                   context
                                                                       .pushNamed(
-                                                                    'NonePackageRenewPage',
+                                                                    NonePackageRenewPageWidget
+                                                                        .routeName,
                                                                     queryParameters:
                                                                         {
                                                                       'workType':
@@ -2618,7 +2624,8 @@ class _FireInsurerListAllWidgetState extends State<FireInsurerListAllWidget>
                                                                       () {});
 
                                                                   context.pushNamed(
-                                                                      'SelectReasonPage');
+                                                                      SelectReasonPageWidget
+                                                                          .routeName);
                                                                 },
                                                                 text: 'นอกเรท',
                                                                 options:

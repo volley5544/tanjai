@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'dart:ui';
+import '/index.dart';
 import 'none_package_basic_image2_page_widget.dart'
     show NonePackageBasicImage2PageWidget;
 import 'package:flutter/material.dart';

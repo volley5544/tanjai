@@ -14,6 +14,7 @@ import 'dart:convert';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -23,6 +24,9 @@ export 'fire_insurance_info_page3_model.dart';
 
 class FireInsuranceInfoPage3Widget extends StatefulWidget {
   const FireInsuranceInfoPage3Widget({super.key});
+
+  static String routeName = 'fireInsuranceInfoPage3';
+  static String routePath = 'fireInsuranceInfoPage3';
 
   @override
   State<FireInsuranceInfoPage3Widget> createState() =>
@@ -2143,7 +2147,8 @@ class _FireInsuranceInfoPage3WidgetState
                                                           Colors.transparent,
                                                       onTap: () async {
                                                         context.pushNamed(
-                                                          'SampleIDcard',
+                                                          SampleIDcardWidget
+                                                              .routeName,
                                                           queryParameters: {
                                                             'fromPage':
                                                                 serializeParam(
@@ -3463,7 +3468,8 @@ class _FireInsuranceInfoPage3WidgetState
                                               child: FFButtonWidget(
                                                 onPressed: () async {
                                                   context.pushNamed(
-                                                      'fireInsuranceInfoPage4');
+                                                      FireInsuranceInfoPage4Widget
+                                                          .routeName);
                                                 },
                                                 text: 'ถัดไป',
                                                 options: FFButtonOptions(

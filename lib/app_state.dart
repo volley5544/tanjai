@@ -14132,6 +14132,47 @@ class FFAppState extends ChangeNotifier {
   set insuranceinfoPage1MaximumInsuredPerson(String value) {
     _insuranceinfoPage1MaximumInsuredPerson = value;
   }
+
+  String _insuranceInfoInspectionExcept = '';
+  String get insuranceInfoInspectionExcept => _insuranceInfoInspectionExcept;
+  set insuranceInfoInspectionExcept(String value) {
+    _insuranceInfoInspectionExcept = value;
+  }
+
+  List<String> _searchInspectionExcept = [];
+  List<String> get searchInspectionExcept => _searchInspectionExcept;
+  set searchInspectionExcept(List<String> value) {
+    _searchInspectionExcept = value;
+  }
+
+  void addToSearchInspectionExcept(String value) {
+    searchInspectionExcept.add(value);
+  }
+
+  void removeFromSearchInspectionExcept(String value) {
+    searchInspectionExcept.remove(value);
+  }
+
+  void removeAtIndexFromSearchInspectionExcept(int index) {
+    searchInspectionExcept.removeAt(index);
+  }
+
+  void updateSearchInspectionExceptAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    searchInspectionExcept[index] = updateFn(_searchInspectionExcept[index]);
+  }
+
+  void insertAtIndexInSearchInspectionExcept(int index, String value) {
+    searchInspectionExcept.insert(index, value);
+  }
+
+  String _insuranceinfoOldVMIimage = '';
+  String get insuranceinfoOldVMIimage => _insuranceinfoOldVMIimage;
+  set insuranceinfoOldVMIimage(String value) {
+    _insuranceinfoOldVMIimage = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

@@ -27,6 +27,9 @@ class AddPeopleFireInsurancePageWidget extends StatefulWidget {
   final int? index;
   final bool? isEditing;
 
+  static String routeName = 'addPeopleFireInsurancePage';
+  static String routePath = 'addPeopleFireInsurancePage';
+
   @override
   State<AddPeopleFireInsurancePageWidget> createState() =>
       _AddPeopleFireInsurancePageWidgetState();

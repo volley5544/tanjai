@@ -12,6 +12,9 @@ export 'homepage_request542_model.dart';
 class HomepageRequest542Widget extends StatefulWidget {
   const HomepageRequest542Widget({super.key});
 
+  static String routeName = 'Homepage_Request_5_4_2';
+  static String routePath = 'Homepage_Request_5_4_2';
+
   @override
   State<HomepageRequest542Widget> createState() =>
       _HomepageRequest542WidgetState();

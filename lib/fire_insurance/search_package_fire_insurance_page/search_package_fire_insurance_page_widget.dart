@@ -1,3 +1,4 @@
+import '';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/schema/structs/index.dart';
@@ -11,6 +12,7 @@ import 'dart:convert';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -28,6 +30,9 @@ class SearchPackageFireInsurancePageWidget extends StatefulWidget {
 
   final String? token;
   final dynamic userProfileData;
+
+  static String routeName = 'SearchPackageFireInsurancePage';
+  static String routePath = 'searchPackageFireInsurancePage';
 
   @override
   State<SearchPackageFireInsurancePageWidget> createState() =>
@@ -708,7 +713,7 @@ class _SearchPackageFireInsurancePageWidgetState
                                     safeSetState(() {});
 
                                     context.pushNamed(
-                                      'SearchableHouseList',
+                                      SearchableHouseListWidget.routeName,
                                       queryParameters: {
                                         'titleText': serializeParam(
                                           'เลือกประเภทที่อยู่อาศัย',
@@ -1898,7 +1903,7 @@ class _SearchPackageFireInsurancePageWidgetState
                                     safeSetState(() {});
 
                                     context.pushNamed(
-                                      'FireSearchableListPage',
+                                      FireSearchableListPageWidget.routeName,
                                       queryParameters: {
                                         'titleText': serializeParam(
                                           'เลือกจำนวนชั้น',
@@ -2488,7 +2493,7 @@ class _SearchPackageFireInsurancePageWidgetState
                                   safeSetState(() {});
 
                                   context.pushNamed(
-                                    'fireInsurerListPage',
+                                    FireInsurerListPageWidget.routeName,
                                     queryParameters: {
                                       'yearMin': serializeParam(
                                         '1',

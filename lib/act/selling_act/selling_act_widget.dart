@@ -11,6 +11,9 @@ export 'selling_act_model.dart';
 class SellingActWidget extends StatefulWidget {
   const SellingActWidget({super.key});
 
+  static String routeName = 'SellingAct';
+  static String routePath = 'sellingAct';
+
   @override
   State<SellingActWidget> createState() => _SellingActWidgetState();
 }

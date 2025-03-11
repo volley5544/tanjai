@@ -12,6 +12,7 @@ import 'dart:convert';
 import 'dart:math';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
@@ -26,6 +27,9 @@ export 'lead_follow_up_page_model.dart';
 
 class LeadFollowUpPageWidget extends StatefulWidget {
   const LeadFollowUpPageWidget({super.key});
+
+  static String routeName = 'LeadFollowUpPage';
+  static String routePath = 'LeadFollowUpPage';
 
   @override
   State<LeadFollowUpPageWidget> createState() => _LeadFollowUpPageWidgetState();
@@ -263,7 +267,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
 
                 await Future.delayed(const Duration(milliseconds: 500));
 
-                context.goNamed('SuperAppPage');
+                context.goNamed(SuperAppPageWidget.routeName);
 
                 Navigator.pop(context);
               },
@@ -539,7 +543,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                           highlightColor: Colors.transparent,
                           onTap: () async {
                             context.goNamed(
-                              'MakeInsuranceListPage',
+                              MakeInsuranceListPageWidget.routeName,
                               queryParameters: {
                                 'checkTotal': serializeParam(
                                   InsuranceRequestListAPICall.waitingInfo(
@@ -647,7 +651,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                           highlightColor: Colors.transparent,
                           onTap: () async {
                             context.goNamed(
-                              'MakeInsuranceListPage',
+                              MakeInsuranceListPageWidget.routeName,
                               queryParameters: {
                                 'checkTotal': serializeParam(
                                   InsuranceRequestListAPICall.waitingCar(
@@ -763,7 +767,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                           highlightColor: Colors.transparent,
                           onTap: () async {
                             context.goNamed(
-                              'MakeInsuranceListPage',
+                              MakeInsuranceListPageWidget.routeName,
                               queryParameters: {
                                 'checkTotal': serializeParam(
                                   InsuranceRequestListAPICall.approve(
@@ -876,7 +880,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                           highlightColor: Colors.transparent,
                           onTap: () async {
                             context.goNamed(
-                              'MakeInsuranceListPage',
+                              MakeInsuranceListPageWidget.routeName,
                               queryParameters: {
                                 'checkTotal': serializeParam(
                                   InsuranceRequestListAPICall.notApprove(
@@ -992,7 +996,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                           highlightColor: Colors.transparent,
                           onTap: () async {
                             context.goNamed(
-                              'MakeInsuranceListPage',
+                              MakeInsuranceListPageWidget.routeName,
                               queryParameters: {
                                 'checkTotal': serializeParam(
                                   InsuranceRequestListAPICall.payment(
@@ -1106,7 +1110,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                           highlightColor: Colors.transparent,
                           onTap: () async {
                             context.goNamed(
-                              'MakeInsuranceListPage',
+                              MakeInsuranceListPageWidget.routeName,
                               queryParameters: {
                                 'checkTotal': serializeParam(
                                   InsuranceRequestListAPICall.cancle(
@@ -1229,7 +1233,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                           highlightColor: Colors.transparent,
                           onTap: () async {
                             context.goNamed(
-                              'MakeInsuranceListPage',
+                              MakeInsuranceListPageWidget.routeName,
                               queryParameters: {
                                 'checkTotal': serializeParam(
                                   InsuranceRequestListAPICall.refund(
@@ -1343,7 +1347,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                           highlightColor: Colors.transparent,
                           onTap: () async {
                             context.goNamed(
-                              'MakeInsuranceListPage',
+                              MakeInsuranceListPageWidget.routeName,
                               queryParameters: {
                                 'checkTotal': serializeParam(
                                   InsuranceRequestListAPICall.statustransfer(

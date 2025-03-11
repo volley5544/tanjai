@@ -11,6 +11,9 @@ export 'about_us_page_model.dart';
 class AboutUsPageWidget extends StatefulWidget {
   const AboutUsPageWidget({super.key});
 
+  static String routeName = 'AboutUsPage';
+  static String routePath = 'aboutUsPage';
+
   @override
   State<AboutUsPageWidget> createState() => _AboutUsPageWidgetState();
 }

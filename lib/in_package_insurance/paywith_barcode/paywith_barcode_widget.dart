@@ -14,6 +14,9 @@ export 'paywith_barcode_model.dart';
 class PaywithBarcodeWidget extends StatefulWidget {
   const PaywithBarcodeWidget({super.key});
 
+  static String routeName = 'PaywithBarcode';
+  static String routePath = 'PaywithBarcode';
+
   @override
   State<PaywithBarcodeWidget> createState() => _PaywithBarcodeWidgetState();
 }

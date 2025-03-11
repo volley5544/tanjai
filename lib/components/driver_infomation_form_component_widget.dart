@@ -10,6 +10,7 @@ import '/flutter_flow/upload_data.dart';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -302,7 +303,7 @@ class _DriverInfomationFormComponentWidgetState
                         highlightColor: Colors.transparent,
                         onTap: () async {
                           context.pushNamed(
-                            'SearchableListPage',
+                            SearchableListPageWidget.routeName,
                             queryParameters: {
                               'titleText': serializeParam(
                                 'เพศ',
@@ -473,7 +474,7 @@ class _DriverInfomationFormComponentWidgetState
                             highlightColor: Colors.transparent,
                             onTap: () async {
                               context.pushNamed(
-                                'SearchableListPage',
+                                SearchableListPageWidget.routeName,
                                 queryParameters: {
                                   'titleText': serializeParam(
                                     'คำนำหน้า',
@@ -930,6 +931,11 @@ class _DriverInfomationFormComponentWidgetState
                                   _datePickedDate.day,
                                 );
                               });
+                            } else if (_model.datePicked != null) {
+                              safeSetState(() {
+                                _model.datePicked = functions
+                                    .currentDate18YearsAgo(getCurrentTimestamp);
+                              });
                             }
                             FFAppState().updateDriverListAtIndex(
                               widget!.index!,
@@ -1072,7 +1078,7 @@ class _DriverInfomationFormComponentWidgetState
                           highlightColor: Colors.transparent,
                           onTap: () async {
                             context.pushNamed(
-                              'SearchableListPage',
+                              SearchableListPageWidget.routeName,
                               queryParameters: {
                                 'titleText': serializeParam(
                                   'อาชีพ',
@@ -1236,7 +1242,7 @@ class _DriverInfomationFormComponentWidgetState
                           highlightColor: Colors.transparent,
                           onTap: () async {
                             context.pushNamed(
-                              'SearchableListPage',
+                              SearchableListPageWidget.routeName,
                               queryParameters: {
                                 'titleText': serializeParam(
                                   'ค้นหาที่อยู่',

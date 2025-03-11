@@ -25,6 +25,9 @@ class SearchBranchPageWidget extends StatefulWidget {
 
   final String? fromPage;
 
+  static String routeName = 'SearchBranchPage';
+  static String routePath = 'SearchBranchPage';
+
   @override
   State<SearchBranchPageWidget> createState() => _SearchBranchPageWidgetState();
 }

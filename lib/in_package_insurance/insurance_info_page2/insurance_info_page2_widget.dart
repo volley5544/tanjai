@@ -12,6 +12,7 @@ import 'dart:convert';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/foundation.dart';
@@ -31,6 +32,9 @@ class InsuranceInfoPage2Widget extends StatefulWidget {
   });
 
   final DataListRecord? masterDataFirebase;
+
+  static String routeName = 'insuranceInfoPage2';
+  static String routePath = 'insuranceInfoPage2';
 
   @override
   State<InsuranceInfoPage2Widget> createState() =>
@@ -870,7 +874,8 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                         Colors.transparent,
                                                     onTap: () async {
                                                       context.pushNamed(
-                                                        'SearchBranchPage',
+                                                        SearchBranchPageWidget
+                                                            .routeName,
                                                         queryParameters: {
                                                           'fromPage':
                                                               serializeParam(
@@ -1061,7 +1066,8 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                     }
 
                                                     context.pushNamed(
-                                                      'SearchableCarListPage',
+                                                      SearchableCarListPageWidget
+                                                          .routeName,
                                                       queryParameters: {
                                                         'titleText':
                                                             serializeParam(
@@ -2625,29 +2631,6 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                         getCurrentTimestamp,
                                                     firstDate: DateTime(1900),
                                                     lastDate: DateTime(2050),
-                                                    builder: (context, child) {
-                                                      return wrapInMaterialDatePickerTheme(
-                                                        context,
-                                                        child!,
-                                                        headerBackgroundColor:
-                                                            Color(0x00000000),
-                                                        headerForegroundColor:
-                                                            Color(0x00000000),
-                                                        headerTextStyle:
-                                                            TextStyle(),
-                                                        pickerBackgroundColor:
-                                                            Color(0x00000000),
-                                                        pickerForegroundColor:
-                                                            Color(0x00000000),
-                                                        selectedDateTimeBackgroundColor:
-                                                            Color(0x00000000),
-                                                        selectedDateTimeForegroundColor:
-                                                            Color(0x00000000),
-                                                        actionButtonForegroundColor:
-                                                            Color(0x00000000),
-                                                        iconSize: 24,
-                                                      );
-                                                    },
                                                   );
 
                                                   if (_datePicked1Date !=
@@ -2659,6 +2642,13 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                         _datePicked1Date.month,
                                                         _datePicked1Date.day,
                                                       );
+                                                    });
+                                                  } else if (_model
+                                                          .datePicked1 !=
+                                                      null) {
+                                                    safeSetState(() {
+                                                      _model.datePicked1 =
+                                                          getCurrentTimestamp;
                                                     });
                                                   }
                                                   if (!(_model.datePicked1 !=
@@ -2883,6 +2873,20 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                         _datePicked2Date.month,
                                                         _datePicked2Date.day,
                                                       );
+                                                    });
+                                                  } else if (_model
+                                                          .datePicked2 !=
+                                                      null) {
+                                                    safeSetState(() {
+                                                      _model
+                                                          .datePicked2 = ((FFAppState()
+                                                                      .nonePackageWorkType ==
+                                                                  'งานต่ออายุ') ||
+                                                              (FFAppState()
+                                                                      .nonePackageWorkType ==
+                                                                  'งานโอนโค้ด')
+                                                          ? getCurrentTimestamp
+                                                          : getCurrentTimestamp);
                                                     });
                                                   }
                                                   if (!(_model.datePicked2 !=
@@ -3124,6 +3128,20 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                         _datePicked3Date.month,
                                                         _datePicked3Date.day,
                                                       );
+                                                    });
+                                                  } else if (_model
+                                                          .datePicked3 !=
+                                                      null) {
+                                                    safeSetState(() {
+                                                      _model
+                                                          .datePicked3 = ((FFAppState()
+                                                                      .nonePackageWorkType ==
+                                                                  'งานต่ออายุ') ||
+                                                              (FFAppState()
+                                                                      .nonePackageWorkType ==
+                                                                  'งานโอนโค้ด')
+                                                          ? getCurrentTimestamp
+                                                          : getCurrentTimestamp);
                                                     });
                                                   }
                                                   if (!(_model.datePicked3 !=
@@ -3728,7 +3746,8 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                 }
 
                                                 context.pushNamed(
-                                                  'SearchableListPage',
+                                                  SearchableListPageWidget
+                                                      .routeName,
                                                   queryParameters: {
                                                     'titleText': serializeParam(
                                                       'เลือกปีจดทะเบียน',
@@ -3920,7 +3939,8 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                     Colors.transparent,
                                                 onTap: () async {
                                                   context.pushNamed(
-                                                    'SearchableListPage',
+                                                    SearchableListPageWidget
+                                                        .routeName,
                                                     queryParameters: {
                                                       'titleText':
                                                           serializeParam(
@@ -4132,7 +4152,8 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                   Colors.transparent,
                                               onTap: () async {
                                                 context.pushNamed(
-                                                  'SearchableListPage',
+                                                  SearchableListPageWidget
+                                                      .routeName,
                                                   queryParameters: {
                                                     'titleText': serializeParam(
                                                       'เลือกจังหวัดที่จดทะเบียน',
@@ -4390,7 +4411,8 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                               }
 
                                               context.pushNamed(
-                                                'SearchableListPage',
+                                                SearchableListPageWidget
+                                                    .routeName,
                                                 queryParameters: {
                                                   'titleText': serializeParam(
                                                     'เลือกลักษณะการใช้รถ',
@@ -5902,7 +5924,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                   .insuranceInfoEvFlag ==
                                               'Y') {
                                             context.pushNamed(
-                                              'ShowDriverPage',
+                                              ShowDriverPageWidget.routeName,
                                               queryParameters: {
                                                 'firestoreDataConfigList':
                                                     serializeParam(
@@ -6094,7 +6116,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
                                           context.pushNamed(
-                                            'Homepage_Request_2_1',
+                                            HomepageRequest21Widget.routeName,
                                             queryParameters: {
                                               'accessory': serializeParam(
                                                 FFAppState()
@@ -6328,7 +6350,8 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
                                           context.pushNamed(
-                                              'Homepage_Request_2_2');
+                                              HomepageRequest22Widget
+                                                  .routeName);
 
                                           await actions.hideKeyboardAction(
                                             context,
@@ -6582,7 +6605,8 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
                                           context.pushNamed(
-                                              'Homepage_Request_2_3');
+                                              HomepageRequest23Widget
+                                                  .routeName);
 
                                           await actions.hideKeyboardAction(
                                             context,
@@ -9274,13 +9298,15 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                               .insuranceInfoApplicationType !=
                                                           'auto') {
                                                         context.pushNamed(
-                                                            'insuranceInfoPage3_1');
+                                                            InsuranceInfoPage31Widget
+                                                                .routeName);
 
                                                         return;
                                                       }
 
                                                       context.pushNamed(
-                                                          'insuranceInfoPage3');
+                                                          InsuranceInfoPage3Widget
+                                                              .routeName);
                                                     } else {
                                                       FFAppState()
                                                               .insuranceInfoCarRegis =
@@ -9317,13 +9343,15 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                               .insuranceInfoApplicationType !=
                                                           'auto') {
                                                         context.pushNamed(
-                                                            'insuranceInfoPage3_1');
+                                                            InsuranceInfoPage31Widget
+                                                                .routeName);
 
                                                         return;
                                                       }
 
                                                       context.pushNamed(
-                                                          'insuranceInfoPage3');
+                                                          InsuranceInfoPage3Widget
+                                                              .routeName);
                                                     }
                                                   },
                                                   text: 'ถัดไป',

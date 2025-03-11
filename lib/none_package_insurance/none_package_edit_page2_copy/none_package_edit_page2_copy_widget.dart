@@ -15,6 +15,9 @@ export 'none_package_edit_page2_copy_model.dart';
 class NonePackageEditPage2CopyWidget extends StatefulWidget {
   const NonePackageEditPage2CopyWidget({super.key});
 
+  static String routeName = 'NonePackageEditPage2Copy';
+  static String routePath = 'NonePackageEditPage22';
+
   @override
   State<NonePackageEditPage2CopyWidget> createState() =>
       _NonePackageEditPage2CopyWidgetState();

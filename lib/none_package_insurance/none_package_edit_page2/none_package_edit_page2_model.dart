@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'none_package_edit_page2_widget.dart' show NonePackageEditPage2Widget;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';

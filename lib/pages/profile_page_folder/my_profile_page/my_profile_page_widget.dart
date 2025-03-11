@@ -11,6 +11,7 @@ import '/flutter_flow/upload_data.dart';
 import 'dart:math';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -24,6 +25,9 @@ export 'my_profile_page_model.dart';
 
 class MyProfilePageWidget extends StatefulWidget {
   const MyProfilePageWidget({super.key});
+
+  static String routeName = 'MyProfilePage';
+  static String routePath = 'myProfilePage';
 
   @override
   State<MyProfilePageWidget> createState() => _MyProfilePageWidgetState();
@@ -1076,7 +1080,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                             child: FFButtonWidget(
                                               onPressed: () async {
                                                 context.goNamed(
-                                                    'LifeInsuranceLicenseCardPage');
+                                                    LifeInsuranceLicenseCardPageWidget
+                                                        .routeName);
                                               },
                                               text: 'ดูบัตร',
                                               options: FFButtonOptions(

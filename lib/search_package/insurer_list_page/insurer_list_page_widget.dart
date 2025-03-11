@@ -11,6 +11,7 @@ import 'dart:convert';
 import 'dart:math';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -51,6 +52,9 @@ class InsurerListPageWidget extends StatefulWidget {
   final String? carTypeDetail;
   final String? oldVmiExpDate;
   final String? provinceCode;
+
+  static String routeName = 'insurerListPage';
+  static String routePath = 'insurerListPage';
 
   @override
   State<InsurerListPageWidget> createState() => _InsurerListPageWidgetState();
@@ -978,7 +982,8 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                       }
 
                                                       context.pushNamed(
-                                                        'PackageFilterPage',
+                                                        PackageFilterPageWidget
+                                                            .routeName,
                                                         queryParameters: {
                                                           'fromPage':
                                                               serializeParam(
@@ -1533,6 +1538,25 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                                                 ],
                                                                                               ),
                                                                                             ),
+                                                                                          if (FFAppState().searchInspectionExcept.elementAtOrNull(listinsuranceIndex) == 'Y')
+                                                                                            Padding(
+                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 3.0),
+                                                                                              child: Row(
+                                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                                children: [
+                                                                                                  Text(
+                                                                                                    'ไม่ต้องถ่ายรูปรถ',
+                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                          fontFamily: 'Noto Sans Thai',
+                                                                                                          color: FlutterFlowTheme.of(context).alternate,
+                                                                                                          fontSize: 12.0,
+                                                                                                          letterSpacing: 0.0,
+                                                                                                        ),
+                                                                                                  ),
+                                                                                                ],
+                                                                                              ),
+                                                                                            ),
                                                                                           if (columnInsurerConfig2Record?.insurerInstallment?.contains(FFAppState().searchShortName.elementAtOrNull(listinsuranceIndex)) ?? true)
                                                                                             Padding(
                                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 3.0),
@@ -1774,7 +1798,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                                       child: FFButtonWidget(
                                                                                         onPressed: () async {
                                                                                           context.pushNamed(
-                                                                                            'detailsInsurancePage',
+                                                                                            DetailsInsurancePageWidget.routeName,
                                                                                             queryParameters: {
                                                                                               'insurerFullName': serializeParam(
                                                                                                 functions.checkNullValueAndReturn(FFAppState().searchSerialName.elementAtOrNull(listinsuranceIndex)),
@@ -1964,6 +1988,10 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                                                 FFAppState().searchDriverbehavior.elementAtOrNull(listinsuranceIndex),
                                                                                                 ParamType.String,
                                                                                               ),
+                                                                                              'inspectionExcept': serializeParam(
+                                                                                                FFAppState().searchInspectionExcept.elementAtOrNull(listinsuranceIndex),
+                                                                                                ParamType.String,
+                                                                                              ),
                                                                                             }.withoutNulls,
                                                                                             extra: <String, dynamic>{
                                                                                               'insurerConfig': columnInsurerConfig2Record,
@@ -2141,7 +2169,8 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                   Colors.transparent,
                                               onTap: () async {
                                                 context.pushNamed(
-                                                  'compareInsurancePage',
+                                                  CompareInsurancePageWidget
+                                                      .routeName,
                                                   queryParameters: {
                                                     'brandName': serializeParam(
                                                       widget!.brandName,
@@ -2708,6 +2737,19 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                       functions.returnMappedListFromBoolList(
                                                           FFAppState()
                                                               .searchDriverbehavior
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .selectInsurerList
+                                                              .toList(),
+                                                          true),
+                                                      ParamType.String,
+                                                      isList: true,
+                                                    ),
+                                                    'inspectionExcept':
+                                                        serializeParam(
+                                                      functions.returnMappedListFromBoolList(
+                                                          FFAppState()
+                                                              .searchInspectionExcept
                                                               .toList(),
                                                           FFAppState()
                                                               .selectInsurerList
@@ -3307,7 +3349,8 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
 
                                                                   context
                                                                       .pushNamed(
-                                                                    'NonePackageRenewPage',
+                                                                    NonePackageRenewPageWidget
+                                                                        .routeName,
                                                                     queryParameters:
                                                                         {
                                                                       'workType':
@@ -3898,7 +3941,8 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                       () {});
 
                                                                   context.pushNamed(
-                                                                      'SelectReasonPage');
+                                                                      SelectReasonPageWidget
+                                                                          .routeName);
                                                                 },
                                                                 text: 'นอกเรท',
                                                                 options:

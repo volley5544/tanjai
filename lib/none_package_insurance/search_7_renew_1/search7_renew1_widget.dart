@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -11,6 +12,9 @@ export 'search7_renew1_model.dart';
 
 class Search7Renew1Widget extends StatefulWidget {
   const Search7Renew1Widget({super.key});
+
+  static String routeName = 'Search_7_Renew_1';
+  static String routePath = 'Search_7_Renew_1';
 
   @override
   State<Search7Renew1Widget> createState() => _Search7Renew1WidgetState();
@@ -245,7 +249,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                               highlightColor: Colors.transparent,
                               onTap: () async {
                                 context.pushNamed(
-                                  'SearchableListPage',
+                                  SearchableListPageWidget.routeName,
                                   queryParameters: {
                                     'titleText': serializeParam(
                                       'เพศ',

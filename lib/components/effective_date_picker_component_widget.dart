@@ -180,6 +180,12 @@ class _EffectiveDatePickerComponentWidgetState
                                       _datePicked1Date.day,
                                     );
                                   });
+                                } else if (_model.datePicked1 != null) {
+                                  safeSetState(() {
+                                    _model.datePicked1 =
+                                        functions.parseStringToDatetime(
+                                            widget!.currentDate);
+                                  });
                                 }
                               },
                               text: _model.datePicked1 != null
@@ -284,6 +290,12 @@ class _EffectiveDatePickerComponentWidgetState
                                       _datePicked2Date.month,
                                       _datePicked2Date.day,
                                     );
+                                  });
+                                } else if (_model.datePicked2 != null) {
+                                  safeSetState(() {
+                                    _model.datePicked2 =
+                                        functions.parseStringToDatetime(
+                                            widget!.currentDate);
                                   });
                                 }
                               },

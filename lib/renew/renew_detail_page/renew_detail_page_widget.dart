@@ -8,6 +8,7 @@ import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
 import 'dart:convert';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -24,6 +25,9 @@ class RenewDetailPageWidget extends StatefulWidget {
   });
 
   final String? refRenewId;
+
+  static String routeName = 'renewDetailPage';
+  static String routePath = 'renewDetailPage';
 
   @override
   State<RenewDetailPageWidget> createState() => _RenewDetailPageWidgetState();
@@ -944,14 +948,10 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                           ),
                           Text(
                             '${valueOrDefault<String>(
-                              functions
-                                  .showNumberWithComma(valueOrDefault<String>(
-                                GetDataRenewCall.netpremiumtotal(
-                                  (_model.getDataRenewAPIOutput?.jsonBody ??
-                                      ''),
-                                )?.toString(),
-                                '-',
-                              )),
+                              functions.showNumberWithComma(
+                                  '${GetDataRenewCall.netpremiumtotal(
+                                (_model.getDataRenewAPIOutput?.jsonBody ?? ''),
+                              )?.toString()}'),
                               '-',
                             )} บาท',
                             style: FlutterFlowTheme.of(context)
@@ -995,14 +995,10 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                           ),
                           Text(
                             '${valueOrDefault<String>(
-                              functions
-                                  .showNumberWithComma(valueOrDefault<String>(
-                                GetDataRenewCall.acttotal(
-                                  (_model.getDataRenewAPIOutput?.jsonBody ??
-                                      ''),
-                                )?.toString(),
-                                '-',
-                              )),
+                              functions.showNumberWithComma(
+                                  '${GetDataRenewCall.acttotal(
+                                (_model.getDataRenewAPIOutput?.jsonBody ?? ''),
+                              )?.toString()}'),
                               '-',
                             )} บาท',
                             style: FlutterFlowTheme.of(context)
@@ -1336,7 +1332,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                       context.pop();
                                     }
                                     context.pushNamed(
-                                      'Quotation',
+                                      QuotationWidget.routeName,
                                       queryParameters: {
                                         'fromPage': serializeParam(
                                           'RenewDetail',
@@ -1521,7 +1517,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                     }
 
                                     context.pushNamed(
-                                      'insuranceInfoPage1',
+                                      InsuranceInfoPage1Widget.routeName,
                                       queryParameters: {
                                         'quotationId': serializeParam(
                                           RenewSaveCall.quotationid(
@@ -1580,7 +1576,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                   child: FFButtonWidget(
                                     onPressed: () async {
                                       context.pushNamed(
-                                        'renewSaveHistory',
+                                        RenewSaveHistoryWidget.routeName,
                                         queryParameters: {
                                           'title': serializeParam(
                                             GetDataRenewCall.titleth(
@@ -1737,7 +1733,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                     safeSetState(() {});
 
                                     context.goNamed(
-                                      'SearchInsurancePage',
+                                      SearchInsurancePageWidget.routeName,
                                       queryParameters: {
                                         'fromIcon': serializeParam(
                                           'motor',

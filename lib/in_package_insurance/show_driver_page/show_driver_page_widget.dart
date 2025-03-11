@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -20,6 +21,9 @@ class ShowDriverPageWidget extends StatefulWidget {
   });
 
   final DataListRecord? firestoreDataConfigList;
+
+  static String routeName = 'ShowDriverPage';
+  static String routePath = 'showDriverPage';
 
   @override
   State<ShowDriverPageWidget> createState() => _ShowDriverPageWidgetState();
@@ -152,7 +156,7 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                               highlightColor: Colors.transparent,
                               onTap: () async {
                                 context.pushNamed(
-                                  'AddDriverPage',
+                                  AddDriverPageWidget.routeName,
                                   queryParameters: {
                                     'firestoreDataConfigList': serializeParam(
                                       widget!.firestoreDataConfigList,
@@ -832,7 +836,7 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                           ?.firstNameTh ==
                                       '') {
                                     context.pushNamed(
-                                      'AddDriverPage',
+                                      AddDriverPageWidget.routeName,
                                       queryParameters: {
                                         'firestoreDataConfigList':
                                             serializeParam(
@@ -881,7 +885,7 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                 safeSetState(() {});
 
                                 context.pushNamed(
-                                  'AddDriverPage',
+                                  AddDriverPageWidget.routeName,
                                   queryParameters: {
                                     'firestoreDataConfigList': serializeParam(
                                       widget!.firestoreDataConfigList,

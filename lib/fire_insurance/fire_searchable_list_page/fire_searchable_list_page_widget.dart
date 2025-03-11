@@ -8,6 +8,7 @@ import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
 import 'dart:convert';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -39,6 +40,9 @@ class FireSearchableListPageWidget extends StatefulWidget {
   final int maxSelected;
   final String fromPage;
   final int? index;
+
+  static String routeName = 'FireSearchableListPage';
+  static String routePath = 'FireSearchableListPage';
 
   @override
   State<FireSearchableListPageWidget> createState() =>
@@ -1057,8 +1061,9 @@ class _FireSearchableListPageWidgetState
                                                       .toList(),
                                                   true))) ==
                                           'รถบรรทุก หัวลาก หางพ่วง') {
-                                        context
-                                            .goNamed('InsuranceWorkSelectPage');
+                                        context.goNamed(
+                                            InsuranceWorkSelectPageWidget
+                                                .routeName);
 
                                         return;
                                       } else {
@@ -1070,7 +1075,8 @@ class _FireSearchableListPageWidgetState
                                                     true))) ==
                                             'รถแต่ง ต่อคอก') {
                                           context.goNamed(
-                                              'InsuranceWorkSelectPage');
+                                              InsuranceWorkSelectPageWidget
+                                                  .routeName);
 
                                           return;
                                         }

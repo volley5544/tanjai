@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'dart:ui';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -20,6 +21,9 @@ class NonePackageBasicImage1PageWidget extends StatefulWidget {
   });
 
   final String? workType;
+
+  static String routeName = 'NonePackageBasicImage1Page';
+  static String routePath = 'NonePackageBasicImage1Page';
 
   @override
   State<NonePackageBasicImage1PageWidget> createState() =>
@@ -5406,7 +5410,7 @@ class _NonePackageBasicImage1PageWidgetState
                                 }
 
                                 context.pushNamed(
-                                  'NonePackageBasicImage2Page',
+                                  NonePackageBasicImage2PageWidget.routeName,
                                   queryParameters: {
                                     'workType': serializeParam(
                                       widget!.workType,

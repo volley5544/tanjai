@@ -6,6 +6,7 @@ import 'dart:math';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'search_insurance_page_copy_widget.dart'
     show SearchInsurancePageCopyWidget;
 import 'package:flutter/foundation.dart';

@@ -1,3 +1,4 @@
+import '';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
@@ -14,6 +15,7 @@ import 'dart:convert';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -31,6 +33,9 @@ class FireInsuranceInfoPage2Widget extends StatefulWidget {
   });
 
   final DataListRecord? masterDataFirebase;
+
+  static String routeName = 'fireInsuranceInfoPage2';
+  static String routePath = 'fireInsuranceInfoPage2';
 
   @override
   State<FireInsuranceInfoPage2Widget> createState() =>
@@ -854,7 +859,8 @@ class _FireInsuranceInfoPage2WidgetState
                                               }
 
                                               context.pushNamed(
-                                                'SearchableCarListPage',
+                                                SearchableCarListPageWidget
+                                                    .routeName,
                                                 queryParameters: {
                                                   'titleText': serializeParam(
                                                     'เลือกประเภทรถ',
@@ -1072,7 +1078,8 @@ class _FireInsuranceInfoPage2WidgetState
                                             highlightColor: Colors.transparent,
                                             onTap: () async {
                                               context.pushNamed(
-                                                'FireSearchableListPage',
+                                                FireSearchableListPageWidget
+                                                    .routeName,
                                                 queryParameters: {
                                                   'titleText': serializeParam(
                                                     'เลือกผู้เอาประกันภัย',
@@ -1337,7 +1344,8 @@ class _FireInsuranceInfoPage2WidgetState
                                             highlightColor: Colors.transparent,
                                             onTap: () async {
                                               context.pushNamed(
-                                                'FireSearchableListPage',
+                                                FireSearchableListPageWidget
+                                                    .routeName,
                                                 queryParameters: {
                                                   'titleText': serializeParam(
                                                     'เลือกฝาผนัง',
@@ -1602,7 +1610,8 @@ class _FireInsuranceInfoPage2WidgetState
                                             highlightColor: Colors.transparent,
                                             onTap: () async {
                                               context.pushNamed(
-                                                'FireSearchableListPage',
+                                                FireSearchableListPageWidget
+                                                    .routeName,
                                                 queryParameters: {
                                                   'titleText': serializeParam(
                                                     'เลือกพื้นชั้นบน',
@@ -1867,7 +1876,8 @@ class _FireInsuranceInfoPage2WidgetState
                                             highlightColor: Colors.transparent,
                                             onTap: () async {
                                               context.pushNamed(
-                                                'FireSearchableListPage',
+                                                FireSearchableListPageWidget
+                                                    .routeName,
                                                 queryParameters: {
                                                   'titleText': serializeParam(
                                                     'เลือกพื้นชั้นล่าง',
@@ -2132,7 +2142,8 @@ class _FireInsuranceInfoPage2WidgetState
                                             highlightColor: Colors.transparent,
                                             onTap: () async {
                                               context.pushNamed(
-                                                'FireSearchableListPage',
+                                                FireSearchableListPageWidget
+                                                    .routeName,
                                                 queryParameters: {
                                                   'titleText': serializeParam(
                                                     'เลือกโครงสร้างหลังคา',
@@ -2397,7 +2408,8 @@ class _FireInsuranceInfoPage2WidgetState
                                             highlightColor: Colors.transparent,
                                             onTap: () async {
                                               context.pushNamed(
-                                                'FireSearchableListPage',
+                                                FireSearchableListPageWidget
+                                                    .routeName,
                                                 queryParameters: {
                                                   'titleText': serializeParam(
                                                     'เลือกหลังคา',
@@ -2662,7 +2674,8 @@ class _FireInsuranceInfoPage2WidgetState
                                             highlightColor: Colors.transparent,
                                             onTap: () async {
                                               context.pushNamed(
-                                                'SearchableListPage',
+                                                SearchableListPageWidget
+                                                    .routeName,
                                                 queryParameters: {
                                                   'titleText': serializeParam(
                                                     'เลือกปีที่ผลิต',
@@ -3586,7 +3599,8 @@ class _FireInsuranceInfoPage2WidgetState
                                             highlightColor: Colors.transparent,
                                             onTap: () async {
                                               context.pushNamed(
-                                                'SearchableListPage',
+                                                SearchableListPageWidget
+                                                    .routeName,
                                                 queryParameters: {
                                                   'titleText': serializeParam(
                                                     'เลือกปีที่ผลิต',
@@ -3810,7 +3824,8 @@ class _FireInsuranceInfoPage2WidgetState
                                             highlightColor: Colors.transparent,
                                             onTap: () async {
                                               context.pushNamed(
-                                                'SearchableListPage',
+                                                SearchableListPageWidget
+                                                    .routeName,
                                                 queryParameters: {
                                                   'titleText': serializeParam(
                                                     'เลือกปีที่ผลิต',
@@ -4038,7 +4053,8 @@ class _FireInsuranceInfoPage2WidgetState
                                             highlightColor: Colors.transparent,
                                             onTap: () async {
                                               context.pushNamed(
-                                                'SearchableListPage',
+                                                SearchableListPageWidget
+                                                    .routeName,
                                                 queryParameters: {
                                                   'titleText': serializeParam(
                                                     'เลือกปีที่ผลิต',
@@ -4571,8 +4587,8 @@ class _FireInsuranceInfoPage2WidgetState
                                       hoverColor: Colors.transparent,
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
-                                        context
-                                            .pushNamed('Homepage_Request_2_3');
+                                        context.pushNamed(
+                                            HomepageRequest23Widget.routeName);
 
                                         await actions.hideKeyboardAction(
                                           context,
@@ -4797,7 +4813,7 @@ class _FireInsuranceInfoPage2WidgetState
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
                                           context.pushNamed(
-                                            'showPeoplePage',
+                                            ShowPeoplePageWidget.routeName,
                                             queryParameters: {
                                               'firestoreDataConfigList':
                                                   serializeParam(
@@ -5105,6 +5121,12 @@ class _FireInsuranceInfoPage2WidgetState
                                                     _datePickedDate.month,
                                                     _datePickedDate.day,
                                                   );
+                                                });
+                                              } else if (_model.datePicked !=
+                                                  null) {
+                                                safeSetState(() {
+                                                  _model.datePicked =
+                                                      getCurrentTimestamp;
                                                 });
                                               }
                                               if (_model.datePicked != null) {
@@ -5444,65 +5466,6 @@ class _FireInsuranceInfoPage2WidgetState
                                                   safeSetState(() {});
                                                 return;
                                               }
-                                              await showDialog(
-                                                context: context,
-                                                builder: (alertDialogContext) {
-                                                  return WebViewAware(
-                                                    child: AlertDialog(
-                                                      content: Text('wow'),
-                                                      actions: [
-                                                        TextButton(
-                                                          onPressed: () =>
-                                                              Navigator.pop(
-                                                                  alertDialogContext),
-                                                          child: Text('Ok'),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  );
-                                                },
-                                              );
-                                              await showDialog(
-                                                context: context,
-                                                builder: (alertDialogContext) {
-                                                  return WebViewAware(
-                                                    child: AlertDialog(
-                                                      content: Text(FFAppState()
-                                                          .insuranceinfoPage1MaximumInsuredPerson),
-                                                      actions: [
-                                                        TextButton(
-                                                          onPressed: () =>
-                                                              Navigator.pop(
-                                                                  alertDialogContext),
-                                                          child: Text('Ok'),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  );
-                                                },
-                                              );
-                                              await showDialog(
-                                                context: context,
-                                                builder: (alertDialogContext) {
-                                                  return WebViewAware(
-                                                    child: AlertDialog(
-                                                      content: Text((int.parse(
-                                                                  FFAppState()
-                                                                      .insuranceinfoPage1MaximumInsuredPerson) >
-                                                              0)
-                                                          .toString()),
-                                                      actions: [
-                                                        TextButton(
-                                                          onPressed: () =>
-                                                              Navigator.pop(
-                                                                  alertDialogContext),
-                                                          child: Text('Ok'),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  );
-                                                },
-                                              );
                                               if (int.parse(FFAppState()
                                                       .insuranceinfoPage1MaximumInsuredPerson) >
                                                   0) {
@@ -5572,29 +5535,11 @@ class _FireInsuranceInfoPage2WidgetState
                                                   return;
                                                 }
                                               } else {
-                                                FFAppState().benefitorData =
-                                                    functions
-                                                        .returnBenefitorModelList(
-                                                            BenefitorModelStruct(
-                                                          insuredPersonId: '',
-                                                          insuredPersonNo: '',
-                                                          insuredPersonType: '',
-                                                          applicationId: '',
-                                                          gender: '',
-                                                          titleThId: '',
-                                                          titleTh: '',
-                                                          firstNameTh: '',
-                                                          lastNameTh: '',
-                                                          birthDay: '',
-                                                          beneficiaryName: '',
-                                                          relationName: '',
-                                                          insuredPersonTypeName:
-                                                              '',
-                                                          age: '',
-                                                        ))!
-                                                        .toList()
-                                                        .cast<
-                                                            BenefitorModelStruct>();
+                                                FFAppState().benefitorData = functions
+                                                    .returnBenefitorModelListEmpty()!
+                                                    .toList()
+                                                    .cast<
+                                                        BenefitorModelStruct>();
                                                 safeSetState(() {});
                                               }
 
@@ -6052,7 +5997,8 @@ class _FireInsuranceInfoPage2WidgetState
                                               child: FFButtonWidget(
                                                 onPressed: () async {
                                                   context.pushNamed(
-                                                      'fireInsuranceInfoPage3');
+                                                      FireInsuranceInfoPage3Widget
+                                                          .routeName);
                                                 },
                                                 text: 'ถัดไป',
                                                 options: FFButtonOptions(

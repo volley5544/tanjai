@@ -8,6 +8,7 @@ import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
 import 'dart:convert';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -24,6 +25,9 @@ class NonePackageInsurerPageWidget extends StatefulWidget {
   });
 
   final String? workType;
+
+  static String routeName = 'NonePackageInsurerPage';
+  static String routePath = 'NonePackageInsurerPage';
 
   @override
   State<NonePackageInsurerPageWidget> createState() =>
@@ -1534,8 +1538,9 @@ class _NonePackageInsurerPageWidgetState
                                             .nonePackageCompanyBookImageUrl = '';
                                         safeSetState(() {});
 
-                                        context
-                                            .goNamed('InsuranceUnSuccessPage');
+                                        context.goNamed(
+                                            InsuranceUnSuccessPageWidget
+                                                .routeName);
 
                                         if (_shouldSetState)
                                           safeSetState(() {});
@@ -2223,7 +2228,8 @@ class _NonePackageInsurerPageWidgetState
                                           safeSetState(() {});
 
                                           context.goNamed(
-                                              'InsuranceUnSuccessPage');
+                                              InsuranceUnSuccessPageWidget
+                                                  .routeName);
                                         } else {
                                           await showDialog(
                                             context: context,
@@ -2550,7 +2556,8 @@ class _NonePackageInsurerPageWidgetState
                                         .nonePackageCompanyBookImageUrl = '';
                                     safeSetState(() {});
 
-                                    context.goNamed('InsuranceSuccessPage');
+                                    context.goNamed(
+                                        InsuranceSuccessPageWidget.routeName);
 
                                     if (_shouldSetState) safeSetState(() {});
                                   },

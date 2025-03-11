@@ -7,6 +7,7 @@ import 'dart:math';
 import 'dart:ui';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -23,6 +24,9 @@ class PackageFilterPageWidget extends StatefulWidget {
   });
 
   final String? fromPage;
+
+  static String routeName = 'PackageFilterPage';
+  static String routePath = 'PackageFilterPage';
 
   @override
   State<PackageFilterPageWidget> createState() =>
@@ -245,7 +249,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
                                         context.pushNamed(
-                                          'SearchableListPage',
+                                          SearchableListPageWidget.routeName,
                                           queryParameters: {
                                             'titleText': serializeParam(
                                               'ค้นหาเปรียบเทียบบริษัทประกัน',
@@ -403,7 +407,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
                                         context.pushNamed(
-                                          'SearchableListPage',
+                                          SearchableListPageWidget.routeName,
                                           queryParameters: {
                                             'titleText': serializeParam(
                                               'ค้นหาเปรียบเทียบชั้นประกัน',
@@ -561,7 +565,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
                                         context.pushNamed(
-                                          'SearchableListPage',
+                                          SearchableListPageWidget.routeName,
                                           queryParameters: {
                                             'titleText': serializeParam(
                                               'ค้นหาเปรียบเทียบประเภทการซ่อม',

@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -32,6 +33,9 @@ class SearchablePickUpListPageWidget extends StatefulWidget {
   final bool multiSelect;
   final int maxSelected;
   final String fromPage;
+
+  static String routeName = 'SearchablePickUpListPage';
+  static String routePath = 'SearchablePickUpListPage';
 
   @override
   State<SearchablePickUpListPageWidget> createState() =>
@@ -466,7 +470,8 @@ class _SearchablePickUpListPageWidgetState
                                                   );
 
                                                   context.goNamed(
-                                                      'InsuranceWorkSelectPage');
+                                                      InsuranceWorkSelectPageWidget
+                                                          .routeName);
 
                                                   return;
                                                 }
@@ -841,7 +846,8 @@ class _SearchablePickUpListPageWidgetState
                                                   );
 
                                                   context.goNamed(
-                                                      'InsuranceWorkSelectPage');
+                                                      InsuranceWorkSelectPageWidget
+                                                          .routeName);
 
                                                   return;
                                                 }
@@ -2136,7 +2142,8 @@ class _SearchablePickUpListPageWidgetState
                                                   );
 
                                                   context.goNamed(
-                                                      'InsuranceWorkSelectPage');
+                                                      InsuranceWorkSelectPageWidget
+                                                          .routeName);
 
                                                   return;
                                                 }
@@ -3418,7 +3425,8 @@ class _SearchablePickUpListPageWidgetState
                                               );
 
                                               context.goNamed(
-                                                  'InsuranceWorkSelectPage');
+                                                  InsuranceWorkSelectPageWidget
+                                                      .routeName);
 
                                               return;
                                             }
@@ -4530,7 +4538,8 @@ class _SearchablePickUpListPageWidgetState
                                                     true))) ==
                                             'รถบรรทุก หัวลาก หางพ่วง') {
                                           context.goNamed(
-                                              'InsuranceWorkSelectPage');
+                                              InsuranceWorkSelectPageWidget
+                                                  .routeName);
 
                                           return;
                                         } else {
@@ -4542,7 +4551,8 @@ class _SearchablePickUpListPageWidgetState
                                                       true))) ==
                                               'รถแต่ง ต่อคอก') {
                                             context.goNamed(
-                                                'InsuranceWorkSelectPage');
+                                                InsuranceWorkSelectPageWidget
+                                                    .routeName);
 
                                             return;
                                           }

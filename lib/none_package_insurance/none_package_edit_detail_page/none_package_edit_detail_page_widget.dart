@@ -16,6 +16,9 @@ export 'none_package_edit_detail_page_model.dart';
 class NonePackageEditDetailPageWidget extends StatefulWidget {
   const NonePackageEditDetailPageWidget({super.key});
 
+  static String routeName = 'NonePackageEditDetailPage';
+  static String routePath = 'NonePackageEditDetailPage';
+
   @override
   State<NonePackageEditDetailPageWidget> createState() =>
       _NonePackageEditDetailPageWidgetState();

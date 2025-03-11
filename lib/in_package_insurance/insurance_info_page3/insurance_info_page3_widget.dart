@@ -14,6 +14,7 @@ import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
 import 'dart:convert';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -23,6 +24,9 @@ export 'insurance_info_page3_model.dart';
 
 class InsuranceInfoPage3Widget extends StatefulWidget {
   const InsuranceInfoPage3Widget({super.key});
+
+  static String routeName = 'insuranceInfoPage3';
+  static String routePath = 'insuranceInfoPage3';
 
   @override
   State<InsuranceInfoPage3Widget> createState() =>
@@ -1927,6 +1931,499 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                 ),
                               ),
                             ),
+                            if (FFAppState().insuranceInfoInspectionExcept ==
+                                'Y')
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 10.0, 0.0, 0.0),
+                                child: Container(
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
+                                  height: 80.0,
+                                  decoration: BoxDecoration(),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Text(
+                                            'ตารางกรมธรรม์เดิมที่ยังไม่หมดอายุ',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Noto Sans Thai',
+                                                  fontSize: 15.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    10.0, 0.0, 0.0, 0.0),
+                                            child: Text(
+                                              'บังคับอัพโหลดรูป',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        color:
+                                                            Color(0xFFFB0606),
+                                                        fontSize: 12.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 5.0, 0.0, 0.0),
+                                        child: Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  1.0,
+                                          height: 45.0,
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Align(
+                                                alignment: AlignmentDirectional(
+                                                    0.0, 0.0),
+                                                child: Container(
+                                                  width:
+                                                      MediaQuery.sizeOf(context)
+                                                              .width *
+                                                          0.74,
+                                                  height: 100.0,
+                                                  decoration: BoxDecoration(),
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Align(
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                -1.0, 0.0),
+                                                        child: InkWell(
+                                                          splashColor: Colors
+                                                              .transparent,
+                                                          focusColor: Colors
+                                                              .transparent,
+                                                          hoverColor: Colors
+                                                              .transparent,
+                                                          highlightColor: Colors
+                                                              .transparent,
+                                                          onTap: () async {
+                                                            final selectedMedia =
+                                                                await selectMediaWithSourceBottomSheet(
+                                                              context: context,
+                                                              imageQuality: 30,
+                                                              allowPhoto: true,
+                                                            );
+                                                            if (selectedMedia !=
+                                                                    null &&
+                                                                selectedMedia.every((m) =>
+                                                                    validateFileFormat(
+                                                                        m.storagePath,
+                                                                        context))) {
+                                                              safeSetState(() =>
+                                                                  _model.isDataUploading4 =
+                                                                      true);
+                                                              var selectedUploadedFiles =
+                                                                  <FFUploadedFile>[];
+
+                                                              var downloadUrls =
+                                                                  <String>[];
+                                                              try {
+                                                                selectedUploadedFiles =
+                                                                    selectedMedia
+                                                                        .map((m) =>
+                                                                            FFUploadedFile(
+                                                                              name: m.storagePath.split('/').last,
+                                                                              bytes: m.bytes,
+                                                                              height: m.dimensions?.height,
+                                                                              width: m.dimensions?.width,
+                                                                              blurHash: m.blurHash,
+                                                                            ))
+                                                                        .toList();
+
+                                                                downloadUrls = (await Future
+                                                                        .wait(
+                                                                  selectedMedia
+                                                                      .map(
+                                                                    (m) async =>
+                                                                        await uploadData(
+                                                                            m.storagePath,
+                                                                            m.bytes),
+                                                                  ),
+                                                                ))
+                                                                    .where((u) =>
+                                                                        u !=
+                                                                        null)
+                                                                    .map((u) =>
+                                                                        u!)
+                                                                    .toList();
+                                                              } finally {
+                                                                _model.isDataUploading4 =
+                                                                    false;
+                                                              }
+                                                              if (selectedUploadedFiles
+                                                                          .length ==
+                                                                      selectedMedia
+                                                                          .length &&
+                                                                  downloadUrls
+                                                                          .length ==
+                                                                      selectedMedia
+                                                                          .length) {
+                                                                safeSetState(
+                                                                    () {
+                                                                  _model.uploadedLocalFile4 =
+                                                                      selectedUploadedFiles
+                                                                          .first;
+                                                                  _model.uploadedFileUrl4 =
+                                                                      downloadUrls
+                                                                          .first;
+                                                                });
+                                                              } else {
+                                                                safeSetState(
+                                                                    () {});
+                                                                return;
+                                                              }
+                                                            }
+
+                                                            FFAppState()
+                                                                    .insuranceinfoOldVMIimage =
+                                                                _model
+                                                                    .uploadedFileUrl4;
+                                                            safeSetState(() {});
+                                                            if (_model.uploadedFileUrl4 !=
+                                                                    null &&
+                                                                _model.uploadedFileUrl4 !=
+                                                                    '') {
+                                                              ScaffoldMessenger
+                                                                      .of(context)
+                                                                  .showSnackBar(
+                                                                SnackBar(
+                                                                  content: Text(
+                                                                    'เลือกรูปสำเร็จ!',
+                                                                    style:
+                                                                        TextStyle(
+                                                                      color: Colors
+                                                                          .white,
+                                                                    ),
+                                                                  ),
+                                                                  duration: Duration(
+                                                                      milliseconds:
+                                                                          3000),
+                                                                  backgroundColor:
+                                                                      Color(
+                                                                          0xB2000000),
+                                                                ),
+                                                              );
+                                                            } else {
+                                                              ScaffoldMessenger
+                                                                      .of(context)
+                                                                  .showSnackBar(
+                                                                SnackBar(
+                                                                  content: Text(
+                                                                    'เลือกรูปล้มเหลว กรุณาลองอีกครั้ง',
+                                                                    style:
+                                                                        TextStyle(
+                                                                      color: Colors
+                                                                          .white,
+                                                                    ),
+                                                                  ),
+                                                                  duration: Duration(
+                                                                      milliseconds:
+                                                                          3000),
+                                                                  backgroundColor:
+                                                                      Color(
+                                                                          0xB2000000),
+                                                                ),
+                                                              );
+                                                            }
+                                                          },
+                                                          child: Container(
+                                                            width: MediaQuery
+                                                                        .sizeOf(
+                                                                            context)
+                                                                    .width *
+                                                                0.35,
+                                                            height: 60.0,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: Color(
+                                                                  0xFFFCEFE4),
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          16.0),
+                                                            ),
+                                                            child: Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      -1.0,
+                                                                      0.0),
+                                                              child: Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            10.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                child: Row(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  children: [
+                                                                    Icon(
+                                                                      Icons
+                                                                          .file_upload_outlined,
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                      size:
+                                                                          24.0,
+                                                                    ),
+                                                                    Padding(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          8.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                      child:
+                                                                          Text(
+                                                                        'อัพโหลดรูป',
+                                                                        textAlign:
+                                                                            TextAlign.start,
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Noto Sans Thai',
+                                                                              color: Color(0xFFD9761A),
+                                                                              fontSize: 16.0,
+                                                                              letterSpacing: 0.0,
+                                                                            ),
+                                                                      ),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    10.0,
+                                                                    0.0,
+                                                                    5.0,
+                                                                    0.0),
+                                                        child: Text(
+                                                          'สถานะ :',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Noto Sans Thai',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                      if (!((FFAppState()
+                                                                  .insuranceinfoOldVMIimage !=
+                                                              '') &&
+                                                          (FFAppState()
+                                                                  .insuranceinfoOldVMIimage !=
+                                                              '') &&
+                                                          (FFAppState()
+                                                                      .insuranceinfoOldVMIimage !=
+                                                                  null &&
+                                                              FFAppState()
+                                                                      .insuranceinfoOldVMIimage !=
+                                                                  '')))
+                                                        Text(
+                                                          'ยังไม่อัพโหลด',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Noto Sans Thai',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                        ),
+                                                      if ((FFAppState().insuranceinfoOldVMIimage != '') &&
+                                                          (FFAppState()
+                                                                  .insuranceinfoOldVMIimage !=
+                                                              '') &&
+                                                          (FFAppState()
+                                                                      .insuranceinfoOldVMIimage !=
+                                                                  null &&
+                                                              FFAppState()
+                                                                      .insuranceinfoOldVMIimage !=
+                                                                  ''))
+                                                        Text(
+                                                          'อัพโหลดสำเร็จ',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Noto Sans Thai',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                        ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                              if ((FFAppState().insuranceinfoOldVMIimage != '') &&
+                                                  (FFAppState()
+                                                          .insuranceinfoOldVMIimage !=
+                                                      '') &&
+                                                  (FFAppState()
+                                                              .insuranceinfoOldVMIimage !=
+                                                          null &&
+                                                      FFAppState()
+                                                              .insuranceinfoOldVMIimage !=
+                                                          ''))
+                                                InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    await showModalBottomSheet(
+                                                      isScrollControlled: true,
+                                                      backgroundColor:
+                                                          Color(0xB3000000),
+                                                      enableDrag: false,
+                                                      context: context,
+                                                      builder: (context) {
+                                                        return WebViewAware(
+                                                          child:
+                                                              GestureDetector(
+                                                            onTap: () {
+                                                              FocusScope.of(
+                                                                      context)
+                                                                  .unfocus();
+                                                              FocusManager
+                                                                  .instance
+                                                                  .primaryFocus
+                                                                  ?.unfocus();
+                                                            },
+                                                            child: Padding(
+                                                              padding: MediaQuery
+                                                                  .viewInsetsOf(
+                                                                      context),
+                                                              child: Container(
+                                                                height: double
+                                                                    .infinity,
+                                                                child:
+                                                                    ShowImageComponentWidget(
+                                                                  imageUrl: FFAppState()
+                                                                              .insuranceInfoPage3ImageIdCard !=
+                                                                          ''
+                                                                      ? functions
+                                                                          .stringToImgPath(
+                                                                              FFAppState().insuranceInfoPage3ImageIdCard)!
+                                                                      : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        );
+                                                      },
+                                                    ).then((value) =>
+                                                        safeSetState(() {}));
+                                                  },
+                                                  child: Container(
+                                                    height: 100.0,
+                                                    decoration: BoxDecoration(),
+                                                    child: Icon(
+                                                      Icons
+                                                          .content_paste_search_rounded,
+                                                      color: Color(0xFF354052),
+                                                      size: 24.0,
+                                                    ),
+                                                  ),
+                                                ),
+                                              if (!((FFAppState()
+                                                          .insuranceinfoOldVMIimage !=
+                                                      '') &&
+                                                  (FFAppState()
+                                                          .insuranceinfoOldVMIimage !=
+                                                      '') &&
+                                                  (FFAppState()
+                                                              .insuranceinfoOldVMIimage !=
+                                                          null &&
+                                                      FFAppState()
+                                                              .insuranceinfoOldVMIimage !=
+                                                          '')))
+                                                Flexible(
+                                                  child: Container(
+                                                    height: 100.0,
+                                                    decoration: BoxDecoration(),
+                                                    child: Icon(
+                                                      Icons.close,
+                                                      color: Color(0xFFFC0A0A),
+                                                      size: 24.0,
+                                                    ),
+                                                  ),
+                                                ),
+                                              if ((FFAppState().insuranceinfoOldVMIimage != '') &&
+                                                  (FFAppState()
+                                                          .insuranceinfoOldVMIimage !=
+                                                      '') &&
+                                                  (FFAppState()
+                                                              .insuranceinfoOldVMIimage !=
+                                                          null &&
+                                                      FFAppState()
+                                                              .insuranceinfoOldVMIimage !=
+                                                          ''))
+                                                Flexible(
+                                                  child: Container(
+                                                    height: 100.0,
+                                                    decoration: BoxDecoration(),
+                                                    child: Icon(
+                                                      Icons.check_sharp,
+                                                      color: Color(0xFF00FD76),
+                                                      size: 24.0,
+                                                    ),
+                                                  ),
+                                                ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
                             if ((FFAppState().nonePackageWorkType !=
                                     'งานต่ออายุ') &&
                                 (FFAppState().insuranceinfoActType != 'CMI') &&
@@ -2023,7 +2520,8 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                               .transparent,
                                                           onTap: () async {
                                                             context.pushNamed(
-                                                              'uploadImgPage',
+                                                              UploadImgPageWidget
+                                                                  .routeName,
                                                               queryParameters: {
                                                                 'titleText':
                                                                     serializeParam(
@@ -2432,7 +2930,8 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                               .transparent,
                                                           onTap: () async {
                                                             context.pushNamed(
-                                                              'uploadImgPage',
+                                                              UploadImgPageWidget
+                                                                  .routeName,
                                                               queryParameters: {
                                                                 'titleText':
                                                                     serializeParam(
@@ -2787,7 +3286,8 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                               .transparent,
                                                           onTap: () async {
                                                             context.pushNamed(
-                                                              'uploadImgPage',
+                                                              UploadImgPageWidget
+                                                                  .routeName,
                                                               queryParameters: {
                                                                 'titleText':
                                                                     serializeParam(
@@ -3048,7 +3548,9 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                               ),
                           ],
                         ),
-                        if ((FFAppState().insuranceInfocoverType == 'ชั้น 1') &&
+                        if (((FFAppState().insuranceInfocoverType == 'ชั้น 1') &&
+                                (FFAppState().insuranceInfoInspectionExcept !=
+                                    'Y')) &&
                             (FFAppState().nonePackageWorkType !=
                                 'งานต่ออายุ') &&
                             (FFAppState().insuranceinfoActType != 'CMI'))
@@ -3129,7 +3631,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
                                           safeSetState(() =>
-                                              _model.isDataUploading4 = true);
+                                              _model.isDataUploading5 = true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
 
@@ -3160,16 +3662,16 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                 .map((u) => u!)
                                                 .toList();
                                           } finally {
-                                            _model.isDataUploading4 = false;
+                                            _model.isDataUploading5 = false;
                                           }
                                           if (selectedUploadedFiles.length ==
                                                   selectedMedia.length &&
                                               downloadUrls.length ==
                                                   selectedMedia.length) {
                                             safeSetState(() {
-                                              _model.uploadedLocalFile4 =
+                                              _model.uploadedLocalFile5 =
                                                   selectedUploadedFiles.first;
-                                              _model.uploadedFileUrl4 =
+                                              _model.uploadedFileUrl5 =
                                                   downloadUrls.first;
                                             });
                                           } else {
@@ -3180,10 +3682,10 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
 
                                         FFAppState()
                                                 .insuranceInfoPage3ImageFront =
-                                            _model.uploadedFileUrl4;
+                                            _model.uploadedFileUrl5;
                                         safeSetState(() {});
-                                        if (_model.uploadedFileUrl4 != null &&
-                                            _model.uploadedFileUrl4 != '') {
+                                        if (_model.uploadedFileUrl5 != null &&
+                                            _model.uploadedFileUrl5 != '') {
                                           ScaffoldMessenger.of(context)
                                               .showSnackBar(
                                             SnackBar(
@@ -3278,7 +3780,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
                                           safeSetState(() =>
-                                              _model.isDataUploading5 = true);
+                                              _model.isDataUploading6 = true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
 
@@ -3309,16 +3811,16 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                 .map((u) => u!)
                                                 .toList();
                                           } finally {
-                                            _model.isDataUploading5 = false;
+                                            _model.isDataUploading6 = false;
                                           }
                                           if (selectedUploadedFiles.length ==
                                                   selectedMedia.length &&
                                               downloadUrls.length ==
                                                   selectedMedia.length) {
                                             safeSetState(() {
-                                              _model.uploadedLocalFile5 =
+                                              _model.uploadedLocalFile6 =
                                                   selectedUploadedFiles.first;
-                                              _model.uploadedFileUrl5 =
+                                              _model.uploadedFileUrl6 =
                                                   downloadUrls.first;
                                             });
                                           } else {
@@ -3329,10 +3831,10 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
 
                                         FFAppState()
                                                 .insuranceInfoPage3ImageRightFront =
-                                            _model.uploadedFileUrl5;
+                                            _model.uploadedFileUrl6;
                                         safeSetState(() {});
-                                        if (_model.uploadedFileUrl5 != null &&
-                                            _model.uploadedFileUrl5 != '') {
+                                        if (_model.uploadedFileUrl6 != null &&
+                                            _model.uploadedFileUrl6 != '') {
                                           ScaffoldMessenger.of(context)
                                               .showSnackBar(
                                             SnackBar(
@@ -3426,7 +3928,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
                                           safeSetState(() =>
-                                              _model.isDataUploading6 = true);
+                                              _model.isDataUploading7 = true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
 
@@ -3457,16 +3959,16 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                 .map((u) => u!)
                                                 .toList();
                                           } finally {
-                                            _model.isDataUploading6 = false;
+                                            _model.isDataUploading7 = false;
                                           }
                                           if (selectedUploadedFiles.length ==
                                                   selectedMedia.length &&
                                               downloadUrls.length ==
                                                   selectedMedia.length) {
                                             safeSetState(() {
-                                              _model.uploadedLocalFile6 =
+                                              _model.uploadedLocalFile7 =
                                                   selectedUploadedFiles.first;
-                                              _model.uploadedFileUrl6 =
+                                              _model.uploadedFileUrl7 =
                                                   downloadUrls.first;
                                             });
                                           } else {
@@ -3477,10 +3979,10 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
 
                                         FFAppState()
                                                 .insuranceInfoPage3ImageRight =
-                                            _model.uploadedFileUrl6;
+                                            _model.uploadedFileUrl7;
                                         safeSetState(() {});
-                                        if (_model.uploadedFileUrl6 != null &&
-                                            _model.uploadedFileUrl6 != '') {
+                                        if (_model.uploadedFileUrl7 != null &&
+                                            _model.uploadedFileUrl7 != '') {
                                           ScaffoldMessenger.of(context)
                                               .showSnackBar(
                                             SnackBar(
@@ -3574,7 +4076,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
                                           safeSetState(() =>
-                                              _model.isDataUploading7 = true);
+                                              _model.isDataUploading8 = true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
 
@@ -3605,16 +4107,16 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                 .map((u) => u!)
                                                 .toList();
                                           } finally {
-                                            _model.isDataUploading7 = false;
+                                            _model.isDataUploading8 = false;
                                           }
                                           if (selectedUploadedFiles.length ==
                                                   selectedMedia.length &&
                                               downloadUrls.length ==
                                                   selectedMedia.length) {
                                             safeSetState(() {
-                                              _model.uploadedLocalFile7 =
+                                              _model.uploadedLocalFile8 =
                                                   selectedUploadedFiles.first;
-                                              _model.uploadedFileUrl7 =
+                                              _model.uploadedFileUrl8 =
                                                   downloadUrls.first;
                                             });
                                           } else {
@@ -3625,10 +4127,10 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
 
                                         FFAppState()
                                                 .insuranceInfoPage3ImageRightRear =
-                                            _model.uploadedFileUrl7;
+                                            _model.uploadedFileUrl8;
                                         safeSetState(() {});
-                                        if (_model.uploadedFileUrl7 != null &&
-                                            _model.uploadedFileUrl7 != '') {
+                                        if (_model.uploadedFileUrl8 != null &&
+                                            _model.uploadedFileUrl8 != '') {
                                           ScaffoldMessenger.of(context)
                                               .showSnackBar(
                                             SnackBar(
@@ -3721,7 +4223,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
                                           safeSetState(() =>
-                                              _model.isDataUploading8 = true);
+                                              _model.isDataUploading9 = true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
 
@@ -3752,16 +4254,16 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                 .map((u) => u!)
                                                 .toList();
                                           } finally {
-                                            _model.isDataUploading8 = false;
+                                            _model.isDataUploading9 = false;
                                           }
                                           if (selectedUploadedFiles.length ==
                                                   selectedMedia.length &&
                                               downloadUrls.length ==
                                                   selectedMedia.length) {
                                             safeSetState(() {
-                                              _model.uploadedLocalFile8 =
+                                              _model.uploadedLocalFile9 =
                                                   selectedUploadedFiles.first;
-                                              _model.uploadedFileUrl8 =
+                                              _model.uploadedFileUrl9 =
                                                   downloadUrls.first;
                                             });
                                           } else {
@@ -3772,10 +4274,10 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
 
                                         FFAppState()
                                                 .insuranceInfoPageImageRear =
-                                            _model.uploadedFileUrl8;
+                                            _model.uploadedFileUrl9;
                                         safeSetState(() {});
-                                        if (_model.uploadedFileUrl8 != null &&
-                                            _model.uploadedFileUrl8 != '') {
+                                        if (_model.uploadedFileUrl9 != null &&
+                                            _model.uploadedFileUrl9 != '') {
                                           ScaffoldMessenger.of(context)
                                               .showSnackBar(
                                             SnackBar(
@@ -3870,7 +4372,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
                                           safeSetState(() =>
-                                              _model.isDataUploading9 = true);
+                                              _model.isDataUploading10 = true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
 
@@ -3901,16 +4403,16 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                 .map((u) => u!)
                                                 .toList();
                                           } finally {
-                                            _model.isDataUploading9 = false;
+                                            _model.isDataUploading10 = false;
                                           }
                                           if (selectedUploadedFiles.length ==
                                                   selectedMedia.length &&
                                               downloadUrls.length ==
                                                   selectedMedia.length) {
                                             safeSetState(() {
-                                              _model.uploadedLocalFile9 =
+                                              _model.uploadedLocalFile10 =
                                                   selectedUploadedFiles.first;
-                                              _model.uploadedFileUrl9 =
+                                              _model.uploadedFileUrl10 =
                                                   downloadUrls.first;
                                             });
                                           } else {
@@ -3921,10 +4423,10 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
 
                                         FFAppState()
                                                 .insuranceInfoPage3ImageLeftRear =
-                                            _model.uploadedFileUrl9;
+                                            _model.uploadedFileUrl10;
                                         safeSetState(() {});
-                                        if (_model.uploadedFileUrl9 != null &&
-                                            _model.uploadedFileUrl9 != '') {
+                                        if (_model.uploadedFileUrl10 != null &&
+                                            _model.uploadedFileUrl10 != '') {
                                           ScaffoldMessenger.of(context)
                                               .showSnackBar(
                                             SnackBar(
@@ -4017,7 +4519,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
                                           safeSetState(() =>
-                                              _model.isDataUploading10 = true);
+                                              _model.isDataUploading11 = true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
 
@@ -4048,16 +4550,16 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                 .map((u) => u!)
                                                 .toList();
                                           } finally {
-                                            _model.isDataUploading10 = false;
+                                            _model.isDataUploading11 = false;
                                           }
                                           if (selectedUploadedFiles.length ==
                                                   selectedMedia.length &&
                                               downloadUrls.length ==
                                                   selectedMedia.length) {
                                             safeSetState(() {
-                                              _model.uploadedLocalFile10 =
+                                              _model.uploadedLocalFile11 =
                                                   selectedUploadedFiles.first;
-                                              _model.uploadedFileUrl10 =
+                                              _model.uploadedFileUrl11 =
                                                   downloadUrls.first;
                                             });
                                           } else {
@@ -4068,10 +4570,10 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
 
                                         FFAppState()
                                                 .insuranceInfoPage3ImageLeft =
-                                            _model.uploadedFileUrl10;
+                                            _model.uploadedFileUrl11;
                                         safeSetState(() {});
-                                        if (_model.uploadedFileUrl10 != null &&
-                                            _model.uploadedFileUrl10 != '') {
+                                        if (_model.uploadedFileUrl11 != null &&
+                                            _model.uploadedFileUrl11 != '') {
                                           ScaffoldMessenger.of(context)
                                               .showSnackBar(
                                             SnackBar(
@@ -4166,7 +4668,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
                                           safeSetState(() =>
-                                              _model.isDataUploading11 = true);
+                                              _model.isDataUploading12 = true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
 
@@ -4197,16 +4699,16 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                 .map((u) => u!)
                                                 .toList();
                                           } finally {
-                                            _model.isDataUploading11 = false;
+                                            _model.isDataUploading12 = false;
                                           }
                                           if (selectedUploadedFiles.length ==
                                                   selectedMedia.length &&
                                               downloadUrls.length ==
                                                   selectedMedia.length) {
                                             safeSetState(() {
-                                              _model.uploadedLocalFile11 =
+                                              _model.uploadedLocalFile12 =
                                                   selectedUploadedFiles.first;
-                                              _model.uploadedFileUrl11 =
+                                              _model.uploadedFileUrl12 =
                                                   downloadUrls.first;
                                             });
                                           } else {
@@ -4217,10 +4719,10 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
 
                                         FFAppState()
                                                 .insuranceInfoPage3ImageLeftFront =
-                                            _model.uploadedFileUrl11;
+                                            _model.uploadedFileUrl12;
                                         safeSetState(() {});
-                                        if (_model.uploadedFileUrl11 != null &&
-                                            _model.uploadedFileUrl11 != '') {
+                                        if (_model.uploadedFileUrl12 != null &&
+                                            _model.uploadedFileUrl12 != '') {
                                           ScaffoldMessenger.of(context)
                                               .clearSnackBars();
                                           ScaffoldMessenger.of(context)
@@ -4319,7 +4821,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
                                           safeSetState(() =>
-                                              _model.isDataUploading12 = true);
+                                              _model.isDataUploading13 = true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
 
@@ -4350,16 +4852,16 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                 .map((u) => u!)
                                                 .toList();
                                           } finally {
-                                            _model.isDataUploading12 = false;
+                                            _model.isDataUploading13 = false;
                                           }
                                           if (selectedUploadedFiles.length ==
                                                   selectedMedia.length &&
                                               downloadUrls.length ==
                                                   selectedMedia.length) {
                                             safeSetState(() {
-                                              _model.uploadedLocalFile12 =
+                                              _model.uploadedLocalFile13 =
                                                   selectedUploadedFiles.first;
-                                              _model.uploadedFileUrl12 =
+                                              _model.uploadedFileUrl13 =
                                                   downloadUrls.first;
                                             });
                                           } else {
@@ -4370,10 +4872,10 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
 
                                         FFAppState()
                                                 .insuranceInfoPage3ImageRoof =
-                                            _model.uploadedFileUrl12;
+                                            _model.uploadedFileUrl13;
                                         safeSetState(() {});
-                                        if (_model.uploadedFileUrl12 != null &&
-                                            _model.uploadedFileUrl12 != '') {
+                                        if (_model.uploadedFileUrl13 != null &&
+                                            _model.uploadedFileUrl13 != '') {
                                           ScaffoldMessenger.of(context)
                                               .showSnackBar(
                                             SnackBar(
@@ -4418,7 +4920,9 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                               ),
                             ),
                           ),
-                        if ((FFAppState().insuranceInfocoverType == 'ชั้น 1') &&
+                        if (((FFAppState().insuranceInfocoverType == 'ชั้น 1') &&
+                                (FFAppState().insuranceInfoInspectionExcept !=
+                                    'Y')) &&
                             (FFAppState().nonePackageWorkType !=
                                 'งานต่ออายุ') &&
                             (FFAppState().insuranceinfoActType != 'CMI'))
@@ -4463,7 +4967,9 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                               ),
                             ),
                           ),
-                        if ((FFAppState().insuranceInfocoverType == 'ชั้น 1') &&
+                        if (((FFAppState().insuranceInfocoverType == 'ชั้น 1') &&
+                                (FFAppState().insuranceInfoInspectionExcept !=
+                                    'Y')) &&
                             (FFAppState().nonePackageWorkType !=
                                 'งานต่ออายุ') &&
                             (FFAppState().insuranceinfoActType != 'CMI'))
@@ -7001,9 +7507,12 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                       Column(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
-                                          if ((FFAppState()
-                                                      .insuranceInfocoverType ==
-                                                  'ชั้น 1') &&
+                                          if (((FFAppState()
+                                                          .insuranceInfocoverType ==
+                                                      'ชั้น 1') &&
+                                                  (FFAppState()
+                                                          .insuranceInfoInspectionExcept !=
+                                                      'Y')) &&
                                               (FFAppState()
                                                       .nonePackageWorkType !=
                                                   'งานต่ออายุ') &&
@@ -7369,9 +7878,12 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                     BorderRadius.circular(16.0),
                                               ),
                                             ),
-                                          if ((FFAppState()
-                                                      .insuranceInfocoverType !=
-                                                  'ชั้น 1') &&
+                                          if (((FFAppState()
+                                                          .insuranceInfocoverType !=
+                                                      'ชั้น 1') ||
+                                                  (FFAppState()
+                                                          .insuranceInfoInspectionExcept ==
+                                                      'Y')) &&
                                               (FFAppState()
                                                       .nonePackageWorkType !=
                                                   'งานต่ออายุ') &&
@@ -7455,6 +7967,47 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                     if (_shouldSetState)
                                                       safeSetState(() {});
                                                     return;
+                                                  }
+                                                  if (FFAppState()
+                                                          .insuranceInfoInspectionExcept ==
+                                                      'Y') {
+                                                    if (!((FFAppState()
+                                                                .insuranceinfoOldVMIimage !=
+                                                            '') &&
+                                                        (FFAppState()
+                                                                .insuranceinfoOldVMIimage !=
+                                                            '') &&
+                                                        (FFAppState()
+                                                                    .insuranceinfoOldVMIimage !=
+                                                                null &&
+                                                            FFAppState()
+                                                                    .insuranceinfoOldVMIimage !=
+                                                                ''))) {
+                                                      await showDialog(
+                                                        context: context,
+                                                        builder:
+                                                            (alertDialogContext) {
+                                                          return WebViewAware(
+                                                            child: AlertDialog(
+                                                              content: Text(
+                                                                  'บังคับถ่ายรูปตารางกรมธรรม์เดิมที่ยังไม่หมดอายุ'),
+                                                              actions: [
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext),
+                                                                  child: Text(
+                                                                      'Ok'),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          );
+                                                        },
+                                                      );
+                                                      if (_shouldSetState)
+                                                        safeSetState(() {});
+                                                      return;
+                                                    }
                                                   }
                                                   showModalBottomSheet(
                                                     isScrollControlled: true,
@@ -7540,6 +8093,8 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                             .sanctionConsentValue!
                                                         ? '1'
                                                         : '0',
+                                                    oldVMIImage: FFAppState()
+                                                        .insuranceinfoOldVMIimage,
                                                   );
 
                                                   _shouldSetState = true;
@@ -8055,7 +8610,8 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                       .insuranceinfoActType !=
                                                   'CMI') {
                                                 context.pushNamed(
-                                                    'insuranceInfoPage4');
+                                                    InsuranceInfoPage4Widget
+                                                        .routeName);
                                               } else {
                                                 showModalBottomSheet(
                                                   isScrollControlled: true,
@@ -8224,7 +8780,8 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                 safeSetState(() {});
 
                                                 context.pushNamed(
-                                                  'insuranceInfoPage4_2',
+                                                  InsuranceInfoPage42Widget
+                                                      .routeName,
                                                   queryParameters: {
                                                     'quotationId':
                                                         serializeParam(

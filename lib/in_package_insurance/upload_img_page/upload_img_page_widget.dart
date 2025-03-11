@@ -26,6 +26,9 @@ class UploadImgPageWidget extends StatefulWidget {
   final String? searchLabel;
   final String fromPage;
 
+  static String routeName = 'uploadImgPage';
+  static String routePath = 'uploadImgPage';
+
   @override
   State<UploadImgPageWidget> createState() => _UploadImgPageWidgetState();
 }

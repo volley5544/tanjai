@@ -20,6 +20,9 @@ class SampleIDcardWidget extends StatefulWidget {
   final String? fromPage;
   final String? imageUrl;
 
+  static String routeName = 'SampleIDcard';
+  static String routePath = 'SampleIDcard';
+
   @override
   State<SampleIDcardWidget> createState() => _SampleIDcardWidgetState();
 }

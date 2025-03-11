@@ -16,6 +16,7 @@ import 'dart:math';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -36,6 +37,9 @@ class FireInsuranceInfoPage5Widget extends StatefulWidget {
 
   final String? quotationId;
   final int? leadDtlId;
+
+  static String routeName = 'fireInsuranceInfoPage5';
+  static String routePath = 'fireInsuranceInfoPage5';
 
   @override
   State<FireInsuranceInfoPage5Widget> createState() =>
@@ -4581,7 +4585,7 @@ class _FireInsuranceInfoPage5WidgetState
                                     child: FFButtonWidget(
                                       onPressed: () async {
                                         context.goNamed(
-                                          'SearchInsurancePage',
+                                          SearchInsurancePageWidget.routeName,
                                           queryParameters: {
                                             'fromIcon': serializeParam(
                                               'page5',
@@ -4661,7 +4665,8 @@ class _FireInsuranceInfoPage5WidgetState
                                                 child: FFButtonWidget(
                                                   onPressed: () async {
                                                     context.goNamed(
-                                                      'insuranceInfoPage5Cancel',
+                                                      InsuranceInfoPage5CancelWidget
+                                                          .routeName,
                                                       queryParameters: {
                                                         'quotationId':
                                                             serializeParam(

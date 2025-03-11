@@ -7,6 +7,7 @@ import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
 import 'dart:convert';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,6 +18,9 @@ export 'information_act_model.dart';
 
 class InformationActWidget extends StatefulWidget {
   const InformationActWidget({super.key});
+
+  static String routeName = 'InformationAct';
+  static String routePath = 'Actinformation';
 
   @override
   State<InformationActWidget> createState() => _InformationActWidgetState();
@@ -152,7 +156,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              context.pushNamed('SellingAct');
+                              context.pushNamed(SellingActWidget.routeName);
                             },
                             child: Container(
                               width: double.infinity,
@@ -604,6 +608,31 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                                 _datePickedDate.month,
                                                 _datePickedDate.day,
                                               );
+                                            });
+                                          } else if (_model.datePicked !=
+                                              null) {
+                                            safeSetState(() {
+                                              _model
+                                                  .datePicked = ((CmiCheckAPICall
+                                                              .statuslayer1(
+                                                            (_model.cmiCheckAPIOutput
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          ) ==
+                                                          200) &&
+                                                      ('${CmiCheckAPICall.xdate(
+                                                            (_model.cmiCheckAPIOutput
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )}' !=
+                                                          'null')
+                                                  ? functions.changeYearBDtoAD(
+                                                      CmiCheckAPICall.xdate(
+                                                      (_model.cmiCheckAPIOutput
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    ))
+                                                  : getCurrentTimestamp);
                                             });
                                           }
                                         },
@@ -1219,7 +1248,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                   ) ==
                                   '0') {
                                 context.pushNamed(
-                                  'NonePackageRenewPage',
+                                  NonePackageRenewPageWidget.routeName,
                                   queryParameters: {
                                     'workType': serializeParam(
                                       'CMI',

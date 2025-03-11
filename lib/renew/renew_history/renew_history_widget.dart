@@ -26,6 +26,9 @@ class RenewHistoryWidget extends StatefulWidget {
 
   final String? refRenewId;
 
+  static String routeName = 'renewHistory';
+  static String routePath = 'renewHistory';
+
   @override
   State<RenewHistoryWidget> createState() => _RenewHistoryWidgetState();
 }

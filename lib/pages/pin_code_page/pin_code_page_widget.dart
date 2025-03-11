@@ -14,6 +14,7 @@ import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/permissions_util.dart';
+import '/index.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -29,6 +30,9 @@ export 'pin_code_page_model.dart';
 
 class PinCodePageWidget extends StatefulWidget {
   const PinCodePageWidget({super.key});
+
+  static String routeName = 'PinCodePage';
+  static String routePath = 'pinCodePage';
 
   @override
   State<PinCodePageWidget> createState() => _PinCodePageWidgetState();
@@ -153,12 +157,14 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
         FFAppState().leadChannelAmountList = [];
         FFAppState().update(() {});
 
-        context.goNamed('LoginPage');
+        context.goNamed(LoginPageWidget.routeName);
 
         return;
       }
       _model.getBuildVersion = await actions.getBuildVersion1();
     });
+
+    _model.pinCodeFocusNode ??= FocusNode();
 
     animationsMap.addAll({
       'imageOnPageLoadAnimation': AnimationInfo(
@@ -746,7 +752,8 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                   .a22();
 
                                                               context.goNamed(
-                                                                  'LoginPage');
+                                                                  LoginPageWidget
+                                                                      .routeName);
 
                                                               if (_shouldSetState)
                                                                 safeSetState(
@@ -1068,6 +1075,8 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                 true,
                                                                             autoFocus:
                                                                                 false,
+                                                                            focusNode:
+                                                                                _model.pinCodeFocusNode,
                                                                             enablePinAutofill:
                                                                                 false,
                                                                             errorTextSpace:
@@ -1390,7 +1399,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                 Navigator.pop(context);
                                                                                 await actions.a22();
 
-                                                                                context.goNamed('LoginPage');
+                                                                                context.goNamed(LoginPageWidget.routeName);
 
                                                                                 if (_shouldSetState) safeSetState(() {});
                                                                                 return;
@@ -1401,7 +1410,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                               FFAppState().update(() {});
                                                                               Navigator.pop(context);
 
-                                                                              context.goNamed('SuperAppPage');
+                                                                              context.goNamed(SuperAppPageWidget.routeName);
 
                                                                               if (_shouldSetState)
                                                                                 safeSetState(() {});
@@ -2283,7 +2292,8 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                         .a22();
 
                                                                     context.goNamed(
-                                                                        'LoginPage');
+                                                                        LoginPageWidget
+                                                                            .routeName);
 
                                                                     if (_shouldSetState)
                                                                       safeSetState(
@@ -2308,7 +2318,8 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                       context);
 
                                                                   context.goNamed(
-                                                                      'SuperAppPage');
+                                                                      SuperAppPageWidget
+                                                                          .routeName);
 
                                                                   if (_shouldSetState)
                                                                     safeSetState(

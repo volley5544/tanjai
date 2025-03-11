@@ -10,6 +10,7 @@ import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/permissions_util.dart';
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -28,6 +29,9 @@ class LoginPageWidget extends StatefulWidget {
 
   final DocumentReference? apiURL;
   final String token;
+
+  static String routeName = 'LoginPage';
+  static String routePath = 'loginPage';
 
   @override
   State<LoginPageWidget> createState() => _LoginPageWidgetState();
@@ -870,7 +874,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                 onTap:
                                                                     () async {
                                                                   context.goNamed(
-                                                                      'LoginScreen_1');
+                                                                      LoginScreen1Widget
+                                                                          .routeName);
                                                                 },
                                                                 child: Text(
                                                                   'สมัครสมาชิก',
@@ -1517,7 +1522,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                     }
 
                                                                     context.goNamed(
-                                                                        'SetPinCodePage');
+                                                                        SetPinCodePageWidget
+                                                                            .routeName);
 
                                                                     if (_shouldSetState)
                                                                       safeSetState(

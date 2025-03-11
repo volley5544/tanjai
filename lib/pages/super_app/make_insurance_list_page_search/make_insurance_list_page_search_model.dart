@@ -15,6 +15,7 @@ import 'dart:math';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'make_insurance_list_page_search_widget.dart'
     show MakeInsuranceListPageSearchWidget;
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -36,6 +37,8 @@ class MakeInsuranceListPageSearchModel
   BuildVersionRecord? buildVersionQuery;
   // Stores action output result for [Backend Call - API (getFileVmiApi)] action in Button widget.
   ApiCallResponse? getFileVmiButton;
+  // Stores action output result for [Backend Call - API (getFileCmiApi )] action in Button widget.
+  ApiCallResponse? getFileCmiOutput;
   // Stores action output result for [Backend Call - API (getNonePackageHistoryAPI)] action in Button widget.
   ApiCallResponse? getHistory;
 

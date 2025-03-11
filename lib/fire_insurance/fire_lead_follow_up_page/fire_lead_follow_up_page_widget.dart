@@ -12,6 +12,7 @@ import 'dart:convert';
 import 'dart:math';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
@@ -26,6 +27,9 @@ export 'fire_lead_follow_up_page_model.dart';
 
 class FireLeadFollowUpPageWidget extends StatefulWidget {
   const FireLeadFollowUpPageWidget({super.key});
+
+  static String routeName = 'fireLeadFollowUpPage';
+  static String routePath = 'fireLeadFollowUpPage';
 
   @override
   State<FireLeadFollowUpPageWidget> createState() =>
@@ -257,7 +261,7 @@ class _FireLeadFollowUpPageWidgetState extends State<FireLeadFollowUpPageWidget>
 
                 await Future.delayed(const Duration(milliseconds: 500));
 
-                context.goNamed('SuperAppPage');
+                context.goNamed(SuperAppPageWidget.routeName);
 
                 Navigator.pop(context);
               },
@@ -385,7 +389,7 @@ class _FireLeadFollowUpPageWidgetState extends State<FireLeadFollowUpPageWidget>
                           highlightColor: Colors.transparent,
                           onTap: () async {
                             context.goNamed(
-                              'MakeFireInsuranceListPage',
+                              MakeFireInsuranceListPageWidget.routeName,
                               queryParameters: {
                                 'list': serializeParam(
                                   HouseInsuranceGroup.getListFireApiCall
@@ -505,7 +509,7 @@ class _FireLeadFollowUpPageWidgetState extends State<FireLeadFollowUpPageWidget>
                           highlightColor: Colors.transparent,
                           onTap: () async {
                             context.goNamed(
-                              'MakeFireInsuranceListPage',
+                              MakeFireInsuranceListPageWidget.routeName,
                               queryParameters: {
                                 'list': serializeParam(
                                   HouseInsuranceGroup.getListFireApiCall
@@ -633,7 +637,7 @@ class _FireLeadFollowUpPageWidgetState extends State<FireLeadFollowUpPageWidget>
                           highlightColor: Colors.transparent,
                           onTap: () async {
                             context.goNamed(
-                              'MakeFireInsuranceListPage',
+                              MakeFireInsuranceListPageWidget.routeName,
                               queryParameters: {
                                 'list': serializeParam(
                                   HouseInsuranceGroup.getListFireApiCall
@@ -758,7 +762,7 @@ class _FireLeadFollowUpPageWidgetState extends State<FireLeadFollowUpPageWidget>
                           highlightColor: Colors.transparent,
                           onTap: () async {
                             context.goNamed(
-                              'MakeFireInsuranceListPage',
+                              MakeFireInsuranceListPageWidget.routeName,
                               queryParameters: {
                                 'list': serializeParam(
                                   HouseInsuranceGroup.getListFireApiCall
@@ -893,7 +897,7 @@ class _FireLeadFollowUpPageWidgetState extends State<FireLeadFollowUpPageWidget>
                           highlightColor: Colors.transparent,
                           onTap: () async {
                             context.goNamed(
-                              'MakeFireInsuranceListPage',
+                              MakeFireInsuranceListPageWidget.routeName,
                               queryParameters: {
                                 'list': serializeParam(
                                   HouseInsuranceGroup.getListFireApiCall
@@ -1019,7 +1023,7 @@ class _FireLeadFollowUpPageWidgetState extends State<FireLeadFollowUpPageWidget>
                           highlightColor: Colors.transparent,
                           onTap: () async {
                             context.goNamed(
-                              'MakeFireInsuranceListPage',
+                              MakeFireInsuranceListPageWidget.routeName,
                               queryParameters: {
                                 'list': serializeParam(
                                   HouseInsuranceGroup.getListFireApiCall

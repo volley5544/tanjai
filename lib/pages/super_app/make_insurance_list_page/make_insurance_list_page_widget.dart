@@ -16,6 +16,7 @@ import 'dart:math';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:easy_debounce/easy_debounce.dart';
@@ -45,6 +46,9 @@ class MakeInsuranceListPageWidget extends StatefulWidget {
   final String checkVMI;
   final String? fromPage;
   final String? type;
+
+  static String routeName = 'MakeInsuranceListPage';
+  static String routePath = 'MakeInsuranceListPage';
 
   @override
   State<MakeInsuranceListPageWidget> createState() =>
@@ -202,7 +206,7 @@ class _MakeInsuranceListPageWidgetState
               ),
               onPressed: () async {
                 if (widget!.fromPage == 'FollowUpPage') {
-                  context.goNamed('LeadFollowUpPage');
+                  context.goNamed(LeadFollowUpPageWidget.routeName);
 
                   return;
                 }
@@ -1265,7 +1269,7 @@ class _MakeInsuranceListPageWidgetState
                                                                             safeSetState(() {});
 
                                                                             context.pushNamed(
-                                                                              'QuotationCopy',
+                                                                              QuotationCopyWidget.routeName,
                                                                               queryParameters: {
                                                                                 'quotation': serializeParam(
                                                                                   (getJsonField(
@@ -2330,7 +2334,8 @@ class _MakeInsuranceListPageWidgetState
                                                                               ).toString())) {
                                                                         context
                                                                             .pushNamed(
-                                                                          'insuranceInfoPage5',
+                                                                          InsuranceInfoPage5Widget
+                                                                              .routeName,
                                                                           queryParameters:
                                                                               {
                                                                             'quotationId':
@@ -2360,7 +2365,8 @@ class _MakeInsuranceListPageWidgetState
 
                                                                       context
                                                                           .pushNamed(
-                                                                        'insuranceInfoPage4_2',
+                                                                        InsuranceInfoPage42Widget
+                                                                            .routeName,
                                                                         queryParameters:
                                                                             {
                                                                           'quotationId':
@@ -2394,7 +2400,8 @@ class _MakeInsuranceListPageWidgetState
                                                                           ).toString()) {
                                                                         context
                                                                             .pushNamed(
-                                                                          'insuranceInfoPage1',
+                                                                          InsuranceInfoPage1Widget
+                                                                              .routeName,
                                                                           queryParameters:
                                                                               {
                                                                             'quotationId':
@@ -2437,7 +2444,7 @@ class _MakeInsuranceListPageWidgetState
                                                                         } else {
                                                                           context
                                                                               .pushNamed(
-                                                                            'insuranceInfoPage1',
+                                                                            InsuranceInfoPage1Widget.routeName,
                                                                             queryParameters:
                                                                                 {
                                                                               'quotationId': serializeParam(
@@ -2464,7 +2471,8 @@ class _MakeInsuranceListPageWidgetState
 
                                                                         context
                                                                             .pushNamed(
-                                                                          'NonePackageSelectedInsurerPage',
+                                                                          NonePackageSelectedInsurerPageWidget
+                                                                              .routeName,
                                                                           queryParameters:
                                                                               {
                                                                             'leadID':
@@ -2560,7 +2568,8 @@ class _MakeInsuranceListPageWidgetState
                                                                         ).toString()) {
                                                                       context
                                                                           .pushNamed(
-                                                                        'insuranceInfoPage5',
+                                                                        InsuranceInfoPage5Widget
+                                                                            .routeName,
                                                                         queryParameters:
                                                                             {
                                                                           'quotationId':

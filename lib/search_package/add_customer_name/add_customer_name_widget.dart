@@ -10,6 +10,7 @@ import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
 import 'dart:convert';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
@@ -72,6 +73,7 @@ class AddCustomerNameWidget extends StatefulWidget {
     required this.carLost,
     required this.motorAddOn,
     required this.driverBehavior,
+    this.inspectionExcept,
   }) : this.driverType = driverType ?? '0';
 
   final List<String>? insurerId;
@@ -123,6 +125,10 @@ class AddCustomerNameWidget extends StatefulWidget {
   final List<String>? carLost;
   final List<String>? motorAddOn;
   final List<String>? driverBehavior;
+  final List<String>? inspectionExcept;
+
+  static String routeName = 'AddCustomerName';
+  static String routePath = 'AddCustomerName';
 
   @override
   State<AddCustomerNameWidget> createState() => _AddCustomerNameWidgetState();
@@ -1211,7 +1217,8 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                         widget!.cc?.toList(),
                                         widget!.carLost?.toList(),
                                         widget!.motorAddOn?.toList(),
-                                        widget!.driverBehavior?.toList()),
+                                        widget!.driverBehavior?.toList(),
+                                        widget!.inspectionExcept?.toList()),
                                     r'''$''',
                                   ),
                                   insuranceUrl:
@@ -1333,7 +1340,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                             .profileIsHaveInsuranceCard
                                         : true) {
                                       context.pushNamed(
-                                        'insuranceInfoPage1',
+                                        InsuranceInfoPage1Widget.routeName,
                                         queryParameters: {
                                           'quotationId': serializeParam(
                                             '${IbsQuotationsSaveCall.quotationid(
@@ -1354,13 +1361,15 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                         }.withoutNulls,
                                       );
                                     } else {
-                                      context.goNamed('insuranceListPage');
+                                      context.goNamed(
+                                          InsuranceListPageWidget.routeName);
                                     }
                                   } else {
                                     if (Navigator.of(context).canPop()) {
                                       context.pop();
                                     }
-                                    context.pushNamed('Quotation');
+                                    context
+                                        .pushNamed(QuotationWidget.routeName);
                                   }
                                 } else {
                                   if (widget!.fromBtn == 'saveBtn') {
@@ -1370,7 +1379,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                             .profileIsHaveInsuranceCard
                                         : true) {
                                       context.pushNamed(
-                                        'insuranceInfoPage1',
+                                        InsuranceInfoPage1Widget.routeName,
                                         queryParameters: {
                                           'quotationId': serializeParam(
                                             '${IbsQuotationsSaveCall.quotationid(
@@ -1391,13 +1400,15 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                         }.withoutNulls,
                                       );
                                     } else {
-                                      context.goNamed('insuranceListPage');
+                                      context.goNamed(
+                                          InsuranceListPageWidget.routeName);
                                     }
                                   } else {
                                     if (Navigator.of(context).canPop()) {
                                       context.pop();
                                     }
-                                    context.pushNamed('Quotation');
+                                    context
+                                        .pushNamed(QuotationWidget.routeName);
                                   }
                                 }
 

@@ -14,6 +14,9 @@ export 'contact_us_page_model.dart';
 class ContactUsPageWidget extends StatefulWidget {
   const ContactUsPageWidget({super.key});
 
+  static String routeName = 'ContactUsPage';
+  static String routePath = 'ContactUsPage';
+
   @override
   State<ContactUsPageWidget> createState() => _ContactUsPageWidgetState();
 }

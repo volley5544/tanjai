@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:convert';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -431,7 +432,7 @@ class _SearchOldVmiWidgetState extends State<SearchOldVmiWidget> {
                                 }
                                 if (!widget!.isSearchCarVmi) {
                                   context.goNamed(
-                                    'MakeFireInsuranceListPage',
+                                    MakeFireInsuranceListPageWidget.routeName,
                                     queryParameters: {
                                       'list': serializeParam(
                                         SearchOldVmiApiCall.approveList(
@@ -464,7 +465,7 @@ class _SearchOldVmiWidgetState extends State<SearchOldVmiWidget> {
                                 }
 
                                 context.pushNamed(
-                                  'MakeInsuranceListPageSearch',
+                                  MakeInsuranceListPageSearchWidget.routeName,
                                   queryParameters: {
                                     'checkTotal': serializeParam(
                                       SearchOldVmiApiCall.approve(

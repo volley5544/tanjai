@@ -14,6 +14,7 @@ import 'dart:convert';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -23,6 +24,9 @@ export 'insurance_info_page31_model.dart';
 
 class InsuranceInfoPage31Widget extends StatefulWidget {
   const InsuranceInfoPage31Widget({super.key});
+
+  static String routeName = 'insuranceInfoPage3_1';
+  static String routePath = 'insuranceInfoPage3_1';
 
   @override
   State<InsuranceInfoPage31Widget> createState() =>
@@ -2875,7 +2879,8 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget> {
                                                               onTap: () async {
                                                                 context
                                                                     .pushNamed(
-                                                                  'uploadImgPage',
+                                                                  UploadImgPageWidget
+                                                                      .routeName,
                                                                   queryParameters:
                                                                       {
                                                                     'titleText':
@@ -3283,7 +3288,8 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget> {
                                                               onTap: () async {
                                                                 context
                                                                     .pushNamed(
-                                                                  'uploadImgPage',
+                                                                  UploadImgPageWidget
+                                                                      .routeName,
                                                                   queryParameters:
                                                                       {
                                                                     'titleText':
@@ -3650,7 +3656,8 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget> {
                                                               onTap: () async {
                                                                 context
                                                                     .pushNamed(
-                                                                  'uploadImgPage',
+                                                                  UploadImgPageWidget
+                                                                      .routeName,
                                                                   queryParameters:
                                                                       {
                                                                     'titleText':
@@ -12450,7 +12457,8 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget> {
                                         12.0, 0.0, 12.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
-                                        context.pushNamed('insuranceInfoPage4');
+                                        context.pushNamed(
+                                            InsuranceInfoPage4Widget.routeName);
                                       },
                                       text: 'ถัดไป',
                                       options: FFButtonOptions(

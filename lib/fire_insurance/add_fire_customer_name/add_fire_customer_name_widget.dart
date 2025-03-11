@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:convert';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
@@ -25,6 +26,9 @@ class AddFireCustomerNameWidget extends StatefulWidget {
 
   final GetPackageFireInsurerDataTypeStruct? packageDetail;
   final String button;
+
+  static String routeName = 'AddFireCustomerName';
+  static String routePath = 'AddFireCustomerName';
 
   @override
   State<AddFireCustomerNameWidget> createState() =>
@@ -1017,7 +1021,7 @@ class _AddFireCustomerNameWidgetState extends State<AddFireCustomerNameWidget> {
                                 }
                                 if (widget!.button == 'doInsurance') {
                                   context.goNamed(
-                                    'insuranceInfoPage1',
+                                    InsuranceInfoPage1Widget.routeName,
                                     queryParameters: {
                                       'quotationId': serializeParam(
                                         '${getJsonField(
@@ -1045,7 +1049,7 @@ class _AddFireCustomerNameWidgetState extends State<AddFireCustomerNameWidget> {
                                 }
 
                                 context.goNamed(
-                                  'FireQuotationPage',
+                                  FireQuotationPageWidget.routeName,
                                   queryParameters: {
                                     'pdfUrl': serializeParam(
                                       (getJsonField(

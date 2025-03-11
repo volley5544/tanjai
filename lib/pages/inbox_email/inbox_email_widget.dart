@@ -19,6 +19,9 @@ export 'inbox_email_model.dart';
 class InboxEmailWidget extends StatefulWidget {
   const InboxEmailWidget({super.key});
 
+  static String routeName = 'inboxEmail';
+  static String routePath = 'inboxEmail';
+
   @override
   State<InboxEmailWidget> createState() => _InboxEmailWidgetState();
 }

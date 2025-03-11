@@ -12,6 +12,7 @@ import 'dart:convert';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -29,6 +30,9 @@ class FireInsuranceInfoPage42Widget extends StatefulWidget {
 
   final String? quotationId;
   final int? leadDetailId;
+
+  static String routeName = 'fireInsuranceInfoPage4_2';
+  static String routePath = 'fireInsuranceInfoPage4_2';
 
   @override
   State<FireInsuranceInfoPage42Widget> createState() =>
@@ -2244,7 +2248,8 @@ class _FireInsuranceInfoPage42WidgetState
                                                       safeSetState(() {});
 
                                                       context.pushNamed(
-                                                        'PaywithQRcode',
+                                                        PaywithQRcodeWidget
+                                                            .routeName,
                                                         queryParameters: {
                                                           'taxId':
                                                               serializeParam(
@@ -2380,7 +2385,8 @@ class _FireInsuranceInfoPage42WidgetState
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
                                             context.pushNamed(
-                                              'SearchableListPage',
+                                              SearchableListPageWidget
+                                                  .routeName,
                                               queryParameters: {
                                                 'titleText': serializeParam(
                                                   'จำนวนงวด',
@@ -2929,7 +2935,8 @@ class _FireInsuranceInfoPage42WidgetState
                                                         safeSetState(() {});
 
                                                         context.pushNamed(
-                                                          'PaywithQRcode',
+                                                          PaywithQRcodeWidget
+                                                              .routeName,
                                                           queryParameters: {
                                                             'taxId':
                                                                 serializeParam(
@@ -4278,7 +4285,8 @@ class _FireInsuranceInfoPage42WidgetState
                                                             }
 
                                                             context.pushNamed(
-                                                              'insuranceInfoPage5',
+                                                              InsuranceInfoPage5Widget
+                                                                  .routeName,
                                                               queryParameters: {
                                                                 'quotationId':
                                                                     serializeParam(

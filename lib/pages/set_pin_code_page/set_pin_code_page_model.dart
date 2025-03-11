@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'set_pin_code_page_widget.dart' show SetPinCodePageWidget;
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -20,6 +21,7 @@ class SetPinCodePageModel extends FlutterFlowModel<SetPinCodePageWidget> {
 
   // State field(s) for PinCode widget.
   TextEditingController? pinCodeController;
+  FocusNode? pinCodeFocusNode;
   String? Function(BuildContext, String?)? pinCodeControllerValidator;
   // Stores action output result for [Backend Call - Create Document] action in Button widget.
   UserLogRecord? createdUserLogSetPin;
@@ -35,6 +37,7 @@ class SetPinCodePageModel extends FlutterFlowModel<SetPinCodePageWidget> {
 
   @override
   void dispose() {
+    pinCodeFocusNode?.dispose();
     pinCodeController?.dispose();
   }
 }

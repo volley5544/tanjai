@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:convert';
 import 'dart:ui';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -22,6 +23,9 @@ class FireInsuranceInfoPage5CancelWidget extends StatefulWidget {
 
   final String? quotationId;
   final int? leadDtlId;
+
+  static String routeName = 'fireInsuranceInfoPage5Cancel';
+  static String routePath = 'fireInsuranceInfoPage5Cancel';
 
   @override
   State<FireInsuranceInfoPage5CancelWidget> createState() =>
@@ -175,7 +179,7 @@ class _FireInsuranceInfoPage5CancelWidgetState
                             FFButtonWidget(
                               onPressed: () async {
                                 context.goNamed(
-                                  'insuranceInfoPage5',
+                                  InsuranceInfoPage5Widget.routeName,
                                   queryParameters: {
                                     'quotationId': serializeParam(
                                       widget!.quotationId,
@@ -328,7 +332,7 @@ class _FireInsuranceInfoPage5CancelWidgetState
                                   );
 
                                   context.goNamed(
-                                    'insuranceInfoPage5',
+                                    InsuranceInfoPage5Widget.routeName,
                                     queryParameters: {
                                       'quotationId': serializeParam(
                                         widget!.quotationId,

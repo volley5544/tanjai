@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:convert';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -64,6 +65,7 @@ class DetailsInsurancePageWidget extends StatefulWidget {
     required this.carLost,
     required this.motorAddOn,
     required this.driverBehavior,
+    this.inspectionExcept,
   })  : this.insurerFullName = insurerFullName ?? '-',
         this.currentDate = currentDate ?? '-',
         this.brandId = brandId ?? '-',
@@ -138,6 +140,10 @@ class DetailsInsurancePageWidget extends StatefulWidget {
   final String? carLost;
   final String? motorAddOn;
   final String? driverBehavior;
+  final String? inspectionExcept;
+
+  static String routeName = 'detailsInsurancePage';
+  static String routePath = 'detailsInsurancePage';
 
   @override
   State<DetailsInsurancePageWidget> createState() =>
@@ -1206,8 +1212,30 @@ class _DetailsInsurancePageWidgetState
                                         0.0, 0.0, 10.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
+                                        if (widget!.inspectionExcept == 'Y') {
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return WebViewAware(
+                                                child: AlertDialog(
+                                                  content: Text(
+                                                      'แพ็กเกจที่เลือกบังคับอัปโหลดไฟล์ตารางกรมธรรม์เดิมที่ยังไม่หมดอายุ'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                          );
+                                        }
+
                                         context.pushNamed(
-                                          'AddCustomerName',
+                                          AddCustomerNameWidget.routeName,
                                           queryParameters: {
                                             'insurerId': serializeParam(
                                               functions.makeStringToList1(
@@ -1498,6 +1526,12 @@ class _DetailsInsurancePageWidgetState
                                               ParamType.String,
                                               isList: true,
                                             ),
+                                            'inspectionExcept': serializeParam(
+                                              functions.makeStringToList1(
+                                                  widget!.inspectionExcept),
+                                              ParamType.String,
+                                              isList: true,
+                                            ),
                                           }.withoutNulls,
                                         );
                                       },
@@ -1619,9 +1653,30 @@ class _DetailsInsurancePageWidgetState
                                             );
                                           }
                                         }
+                                        if (widget!.inspectionExcept == 'Y') {
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return WebViewAware(
+                                                child: AlertDialog(
+                                                  content: Text(
+                                                      'แพ็กเกจที่เลือกบังคับอัปโหลดไฟล์ตารางกรมธรรม์เดิมที่ยังไม่หมดอายุ'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                          );
+                                        }
 
                                         context.pushNamed(
-                                          'AddCustomerName',
+                                          AddCustomerNameWidget.routeName,
                                           queryParameters: {
                                             'insurerId': serializeParam(
                                               functions.makeStringToList1(
@@ -1909,6 +1964,12 @@ class _DetailsInsurancePageWidgetState
                                             'driverBehavior': serializeParam(
                                               functions.makeStringToList1(
                                                   widget!.driverBehavior),
+                                              ParamType.String,
+                                              isList: true,
+                                            ),
+                                            'inspectionExcept': serializeParam(
+                                              functions.makeStringToList1(
+                                                  widget!.inspectionExcept),
                                               ParamType.String,
                                               isList: true,
                                             ),

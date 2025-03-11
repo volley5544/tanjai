@@ -13,6 +13,7 @@ import 'dart:convert';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -22,6 +23,9 @@ export 'none_package_edit_page3_model.dart';
 
 class NonePackageEditPage3Widget extends StatefulWidget {
   const NonePackageEditPage3Widget({super.key});
+
+  static String routeName = 'NonePackageEditPage3';
+  static String routePath = 'NonePackageEditPage3';
 
   @override
   State<NonePackageEditPage3Widget> createState() =>
@@ -675,7 +679,8 @@ class _NonePackageEditPage3WidgetState
                                                         Colors.transparent,
                                                     onTap: () async {
                                                       context.pushNamed(
-                                                          'SampleIDcard');
+                                                          SampleIDcardWidget
+                                                              .routeName);
                                                     },
                                                     child: Text(
                                                       'ดูตัวอย่าง',
@@ -3600,8 +3605,9 @@ class _NonePackageEditPage3WidgetState
                                                 ''),
                                           ) ==
                                           FFAppState().unsuccessStatusJson) {
-                                        context
-                                            .goNamed('InsuranceUnSuccessPage');
+                                        context.goNamed(
+                                            InsuranceUnSuccessPageWidget
+                                                .routeName);
                                       } else {
                                         await showDialog(
                                           context: context,
@@ -3858,7 +3864,8 @@ class _NonePackageEditPage3WidgetState
                                         .nonePackageInsurerShortNameDupList = [];
                                     safeSetState(() {});
 
-                                    context.goNamed('insuranceListPage');
+                                    context.goNamed(
+                                        InsuranceListPageWidget.routeName);
 
                                     if (_shouldSetState) safeSetState(() {});
                                   },

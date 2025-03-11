@@ -21,6 +21,9 @@ class FireQuotationPageWidget extends StatefulWidget {
   final String? fromPage;
   final List<String>? pdfUrl;
 
+  static String routeName = 'FireQuotationPage';
+  static String routePath = 'FireQuotationPage';
+
   @override
   State<FireQuotationPageWidget> createState() =>
       _FireQuotationPageWidgetState();

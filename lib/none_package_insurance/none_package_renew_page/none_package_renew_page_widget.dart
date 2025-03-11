@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
@@ -27,6 +28,9 @@ class NonePackageRenewPageWidget extends StatefulWidget {
   final String? workType;
   final String? bodynumber;
   final DateTime? effectivedate;
+
+  static String routeName = 'NonePackageRenewPage';
+  static String routePath = 'NonePackageRenewPage';
 
   @override
   State<NonePackageRenewPageWidget> createState() =>
@@ -533,7 +537,7 @@ class _NonePackageRenewPageWidgetState
                                     }
                                     if (widget!.workType == 'CMI') {
                                       context.pushNamed(
-                                        'informationCustomer2',
+                                        InformationCustomer2Widget.routeName,
                                         queryParameters: {
                                           'bodyNumber': serializeParam(
                                             widget!.bodynumber,
@@ -547,7 +551,7 @@ class _NonePackageRenewPageWidgetState
                                       );
                                     } else {
                                       context.pushNamed(
-                                        'NonePackageBasicPage',
+                                        NonePackageBasicPageWidget.routeName,
                                         queryParameters: {
                                           'workType': serializeParam(
                                             widget!.workType,

@@ -9,6 +9,7 @@ import 'dart:convert';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -20,6 +21,9 @@ export 'add_address_model.dart';
 
 class AddAddressWidget extends StatefulWidget {
   const AddAddressWidget({super.key});
+
+  static String routeName = 'AddAddress';
+  static String routePath = 'addAddress';
 
   @override
   State<AddAddressWidget> createState() => _AddAddressWidgetState();
@@ -298,7 +302,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
                                     context.pushNamed(
-                                      'SearchableListPage',
+                                      SearchableListPageWidget.routeName,
                                       queryParameters: {
                                         'titleText': serializeParam(
                                           'ค้นหาที่อยู่',
@@ -1106,7 +1110,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
                                         context.pushNamed(
-                                          'SearchableListPage',
+                                          SearchableListPageWidget.routeName,
                                           queryParameters: {
                                             'titleText': serializeParam(
                                               'ค้นหาที่อยู่',

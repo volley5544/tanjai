@@ -1,3 +1,4 @@
+import '';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
@@ -12,6 +13,7 @@ import 'dart:math';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -45,6 +47,9 @@ class NonePackageSelectedInsurerPageWidget extends StatefulWidget {
   final int? leadDtlId;
   final bool? actFlag;
   final String? masterActAmount;
+
+  static String routeName = 'NonePackageSelectedInsurerPage';
+  static String routePath = 'NonePackageSelectedInsurerPage';
 
   @override
   State<NonePackageSelectedInsurerPageWidget> createState() =>
@@ -1658,7 +1663,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                     Navigator.pop(context);
 
                                     context.pushNamed(
-                                      'insuranceInfoPage1',
+                                      InsuranceInfoPage1Widget.routeName,
                                       queryParameters: {
                                         'quotationId': serializeParam(
                                           widget!.quotationId,

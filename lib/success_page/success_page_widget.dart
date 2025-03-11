@@ -12,6 +12,9 @@ export 'success_page_model.dart';
 class SuccessPageWidget extends StatefulWidget {
   const SuccessPageWidget({super.key});
 
+  static String routeName = 'SuccessPage';
+  static String routePath = 'successPage';
+
   @override
   State<SuccessPageWidget> createState() => _SuccessPageWidgetState();
 }

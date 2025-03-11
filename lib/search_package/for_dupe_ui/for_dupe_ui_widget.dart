@@ -13,6 +13,9 @@ export 'for_dupe_ui_model.dart';
 class ForDupeUiWidget extends StatefulWidget {
   const ForDupeUiWidget({super.key});
 
+  static String routeName = 'forDupeUi';
+  static String routePath = 'forDupeUi';
+
   @override
   State<ForDupeUiWidget> createState() => _ForDupeUiWidgetState();
 }

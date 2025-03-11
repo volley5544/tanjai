@@ -37,6 +37,9 @@ class FirePaywithQRcodeWidget extends StatefulWidget {
   final String? fromPage;
   final bool? actCMI;
 
+  static String routeName = 'firePaywithQRcode';
+  static String routePath = 'firePaywithQRcode';
+
   @override
   State<FirePaywithQRcodeWidget> createState() =>
       _FirePaywithQRcodeWidgetState();

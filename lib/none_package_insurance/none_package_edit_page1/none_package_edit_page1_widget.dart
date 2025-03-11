@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -16,6 +17,9 @@ export 'none_package_edit_page1_model.dart';
 
 class NonePackageEditPage1Widget extends StatefulWidget {
   const NonePackageEditPage1Widget({super.key});
+
+  static String routeName = 'NonePackageEditPage1';
+  static String routePath = 'NonePackageEditPage1';
 
   @override
   State<NonePackageEditPage1Widget> createState() =>
@@ -122,7 +126,7 @@ class _NonePackageEditPage1WidgetState
                     size: 30.0,
                   ),
                   onPressed: () async {
-                    context.goNamed('insuranceListPage');
+                    context.goNamed(InsuranceListPageWidget.routeName);
                   },
                 ),
                 title: Text(
@@ -201,7 +205,7 @@ class _NonePackageEditPage1WidgetState
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
                                     context.pushNamed(
-                                      'SearchBranchPage',
+                                      SearchBranchPageWidget.routeName,
                                       queryParameters: {
                                         'fromPage': serializeParam(
                                           'NonePackage',
@@ -743,8 +747,9 @@ class _NonePackageEditPage1WidgetState
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    context
-                                        .pushNamed('NonePackageEditDetailPage');
+                                    context.pushNamed(
+                                        NonePackageEditDetailPageWidget
+                                            .routeName);
                                   },
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -905,13 +910,15 @@ class _NonePackageEditPage1WidgetState
                                           if (FFAppState()
                                               .nonePackageFlagRenew) {
                                             context.pushNamed(
-                                                'NonePackageEditPage3');
+                                                NonePackageEditPage3Widget
+                                                    .routeName);
 
                                             return;
                                           }
 
                                           context.pushNamed(
-                                              'NonePackageEditPage2');
+                                              NonePackageEditPage2Widget
+                                                  .routeName);
                                         },
                                         text: 'ถัดไป',
                                         options: FFButtonOptions(

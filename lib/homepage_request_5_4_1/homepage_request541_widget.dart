@@ -1,3 +1,4 @@
+import '';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -7,6 +8,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
 import 'dart:convert';
 import 'dart:ui';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,6 +19,9 @@ export 'homepage_request541_model.dart';
 
 class HomepageRequest541Widget extends StatefulWidget {
   const HomepageRequest541Widget({super.key});
+
+  static String routeName = 'Homepage_Request_5_4_1';
+  static String routePath = 'Homepage_Request_5_4_1';
 
   @override
   State<HomepageRequest541Widget> createState() =>
@@ -300,7 +305,7 @@ class _HomepageRequest541WidgetState extends State<HomepageRequest541Widget> {
                     hoverColor: Colors.transparent,
                     highlightColor: Colors.transparent,
                     onTap: () async {
-                      context.pushNamed('testPage');
+                      context.pushNamed(TestPageWidget.routeName);
                     },
                     child: Text(
                       'Event Data : ',

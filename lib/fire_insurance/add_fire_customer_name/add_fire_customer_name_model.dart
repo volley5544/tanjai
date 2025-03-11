@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:convert';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'add_fire_customer_name_widget.dart' show AddFireCustomerNameWidget;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';

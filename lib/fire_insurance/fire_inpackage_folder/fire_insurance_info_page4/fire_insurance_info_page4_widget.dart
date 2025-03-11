@@ -10,6 +10,7 @@ import '/flutter_flow/upload_data.dart';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -19,6 +20,9 @@ export 'fire_insurance_info_page4_model.dart';
 
 class FireInsuranceInfoPage4Widget extends StatefulWidget {
   const FireInsuranceInfoPage4Widget({super.key});
+
+  static String routeName = 'fireInsuranceInfoPage4';
+  static String routePath = 'fireInsuranceInfoPage4';
 
   @override
   State<FireInsuranceInfoPage4Widget> createState() =>
@@ -2101,7 +2105,8 @@ class _FireInsuranceInfoPage4WidgetState
                                       return;
                                     }
 
-                                    context.pushNamed('Homepage_Request_4_1');
+                                    context.pushNamed(
+                                        HomepageRequest41Widget.routeName);
                                   },
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,

@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -16,6 +17,9 @@ export 'my_account_page_model.dart';
 
 class MyAccountPageWidget extends StatefulWidget {
   const MyAccountPageWidget({super.key});
+
+  static String routeName = 'MyAccountPage';
+  static String routePath = 'myAccountPage';
 
   @override
   State<MyAccountPageWidget> createState() => _MyAccountPageWidgetState();
@@ -224,7 +228,8 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
-                                            context.pushNamed('MyProfilePage');
+                                            context.pushNamed(
+                                                MyProfilePageWidget.routeName);
                                           },
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -237,7 +242,8 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                                     Colors.transparent,
                                                 onTap: () async {
                                                   context.pushNamed(
-                                                      'MyProfilePage');
+                                                      MyProfilePageWidget
+                                                          .routeName);
                                                 },
                                                 child: Text(
                                                   'ดูข้อมูลของฉัน',
@@ -487,7 +493,8 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
-                                      context.pushNamed('AboutUsPage');
+                                      context.pushNamed(
+                                          AboutUsPageWidget.routeName);
                                     },
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -642,7 +649,8 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
-                                      context.pushNamed('ContactUsPage');
+                                      context.pushNamed(
+                                          ContactUsPageWidget.routeName);
                                     },
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -872,7 +880,7 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                   await actions.a22();
                                   Navigator.pop(context);
 
-                                  context.goNamed('LoginPage');
+                                  context.goNamed(LoginPageWidget.routeName);
                                 },
                                 text: 'ออกจากระบบ',
                                 icon: Icon(
@@ -989,7 +997,7 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                     return;
                                   }
 
-                                  context.goNamed('LoginPage');
+                                  context.goNamed(LoginPageWidget.routeName);
 
                                   if (_shouldSetState) safeSetState(() {});
                                 },

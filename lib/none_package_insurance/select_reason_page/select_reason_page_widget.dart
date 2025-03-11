@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -14,6 +15,9 @@ export 'select_reason_page_model.dart';
 
 class SelectReasonPageWidget extends StatefulWidget {
   const SelectReasonPageWidget({super.key});
+
+  static String routeName = 'SelectReasonPage';
+  static String routePath = 'selectReasonPage';
 
   @override
   State<SelectReasonPageWidget> createState() => _SelectReasonPageWidgetState();
@@ -770,7 +774,8 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                             }
 
                                             context.pushNamed(
-                                              'NonePackageBasicPage',
+                                              NonePackageBasicPageWidget
+                                                  .routeName,
                                               queryParameters: {
                                                 'workType': serializeParam(
                                                   'manual',

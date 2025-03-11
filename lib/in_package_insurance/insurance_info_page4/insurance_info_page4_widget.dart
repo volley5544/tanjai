@@ -10,6 +10,7 @@ import '/flutter_flow/upload_data.dart';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -19,6 +20,9 @@ export 'insurance_info_page4_model.dart';
 
 class InsuranceInfoPage4Widget extends StatefulWidget {
   const InsuranceInfoPage4Widget({super.key});
+
+  static String routeName = 'insuranceInfoPage4';
+  static String routePath = 'insuranceInfoPage4';
 
   @override
   State<InsuranceInfoPage4Widget> createState() =>
@@ -3042,7 +3046,7 @@ class _InsuranceInfoPage4WidgetState extends State<InsuranceInfoPage4Widget> {
                                                                           onTap:
                                                                               () async {
                                                                             context.pushNamed(
-                                                                              'SampleIDcard',
+                                                                              SampleIDcardWidget.routeName,
                                                                               queryParameters: {
                                                                                 'fromPage': serializeParam(
                                                                                   'Step4',
@@ -3562,7 +3566,8 @@ class _InsuranceInfoPage4WidgetState extends State<InsuranceInfoPage4Widget> {
                                       return;
                                     }
 
-                                    context.pushNamed('Homepage_Request_4_1');
+                                    context.pushNamed(
+                                        HomepageRequest41Widget.routeName);
                                   },
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,

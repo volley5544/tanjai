@@ -15,6 +15,7 @@ import 'dart:math';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/foundation.dart';
@@ -39,6 +40,9 @@ class FireInsuranceInfoPage1Widget extends StatefulWidget {
 
   final String? quotationId;
   final int? leadDtailId;
+
+  static String routeName = 'fireInsuranceInfoPage1';
+  static String routePath = 'fireInsuranceInfoPage1';
 
   @override
   State<FireInsuranceInfoPage1Widget> createState() =>
@@ -1654,7 +1658,7 @@ class _FireInsuranceInfoPage1WidgetState
               onPressed: () async {
                 await Future.delayed(const Duration(milliseconds: 500));
 
-                context.goNamed('LeadFollowUpPage');
+                context.goNamed(LeadFollowUpPageWidget.routeName);
               },
             ),
             title: Text(
@@ -2082,7 +2086,8 @@ class _FireInsuranceInfoPage1WidgetState
                                         onTap: () async {
                                           if (!FFAppState().isCorporate) {
                                             context.pushNamed(
-                                              'SearchableListPage',
+                                              SearchableListPageWidget
+                                                  .routeName,
                                               queryParameters: {
                                                 'titleText': serializeParam(
                                                   'ประเภทบัตร',
@@ -3956,7 +3961,8 @@ class _FireInsuranceInfoPage1WidgetState
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
                                             context.pushNamed(
-                                              'SearchableListPage',
+                                              SearchableListPageWidget
+                                                  .routeName,
                                               queryParameters: {
                                                 'titleText': serializeParam(
                                                   'เพศ',
@@ -4146,7 +4152,8 @@ class _FireInsuranceInfoPage1WidgetState
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
                                             context.pushNamed(
-                                              'SearchableListPage',
+                                              SearchableListPageWidget
+                                                  .routeName,
                                               queryParameters: {
                                                 'titleText': serializeParam(
                                                   'คำนำหน้า',
@@ -4646,6 +4653,13 @@ class _FireInsuranceInfoPage1WidgetState
                                                       _datePickedDate.day,
                                                     );
                                                   });
+                                                } else if (_model.datePicked !=
+                                                    null) {
+                                                  safeSetState(() {
+                                                    _model.datePicked = functions
+                                                        .currentDate18YearsAgo(
+                                                            getCurrentTimestamp);
+                                                  });
                                                 }
                                                 safeSetState(() {
                                                   _model.ageTextFieldTextController
@@ -5000,7 +5014,8 @@ class _FireInsuranceInfoPage1WidgetState
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
                                             context.pushNamed(
-                                              'SearchableListPage',
+                                              SearchableListPageWidget
+                                                  .routeName,
                                               queryParameters: {
                                                 'titleText': serializeParam(
                                                   'กลุ่มอาชีพ',
@@ -5188,7 +5203,8 @@ class _FireInsuranceInfoPage1WidgetState
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
                                             context.pushNamed(
-                                              'SearchableListPage',
+                                              SearchableListPageWidget
+                                                  .routeName,
                                               queryParameters: {
                                                 'titleText': serializeParam(
                                                   'อาชีพ',
@@ -5861,7 +5877,7 @@ class _FireInsuranceInfoPage1WidgetState
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  context.pushNamed('AddAddress');
+                                  context.pushNamed(AddAddressWidget.routeName);
 
                                   await actions.hideKeyboardAction(
                                     context,
@@ -9428,7 +9444,8 @@ class _FireInsuranceInfoPage1WidgetState
                                                   );
 
                                                   context.pushNamed(
-                                                    'insuranceInfoPage2',
+                                                    InsuranceInfoPage2Widget
+                                                        .routeName,
                                                     queryParameters: {
                                                       'masterDataFirebase':
                                                           serializeParam(

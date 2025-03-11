@@ -37,6 +37,9 @@ class PaywithQRcodeWidget extends StatefulWidget {
   final String? fromPage;
   final bool? actCMI;
 
+  static String routeName = 'PaywithQRcode';
+  static String routePath = 'PaywithQRcode';
+
   @override
   State<PaywithQRcodeWidget> createState() => _PaywithQRcodeWidgetState();
 }

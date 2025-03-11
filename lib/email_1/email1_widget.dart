@@ -19,6 +19,9 @@ export 'email1_model.dart';
 class Email1Widget extends StatefulWidget {
   const Email1Widget({super.key});
 
+  static String routeName = 'Email_1';
+  static String routePath = 'List_out_1_EDIT1Copy';
+
   @override
   State<Email1Widget> createState() => _Email1WidgetState();
 }

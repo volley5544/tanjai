@@ -15,6 +15,7 @@ import 'dart:math';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:easy_debounce/easy_debounce.dart';
@@ -36,6 +37,9 @@ class InsuranceListPageWidget extends StatefulWidget {
   });
 
   final dynamic checkType;
+
+  static String routeName = 'insuranceListPage';
+  static String routePath = 'insuranceListPage';
 
   @override
   State<InsuranceListPageWidget> createState() =>
@@ -408,7 +412,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                 safeSetState(() {});
                 await Future.delayed(const Duration(milliseconds: 500));
 
-                context.goNamed('SuperAppPage');
+                context.goNamed(SuperAppPageWidget.routeName);
               },
             ),
             title: Align(
@@ -584,7 +588,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-                            context.goNamed('insuranceListPage');
+                            context.goNamed(InsuranceListPageWidget.routeName);
                           },
                           child: Icon(
                             Icons.refresh_sharp,
@@ -2837,7 +2841,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                               context);
 
                                                           context.pushNamed(
-                                                              'NonePackageEditPage1');
+                                                              NonePackageEditPage1Widget
+                                                                  .routeName);
 
                                                           if (_shouldSetState)
                                                             safeSetState(() {});
@@ -4054,7 +4059,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                               context);
 
                                                           context.pushNamed(
-                                                            'NonePackageBasicPage',
+                                                            NonePackageBasicPageWidget
+                                                                .routeName,
                                                             queryParameters: {
                                                               'branchCode':
                                                                   serializeParam(
@@ -4781,7 +4787,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                   : true) {
                                                                 context
                                                                     .pushNamed(
-                                                                  'MakeInsuranceListPage',
+                                                                  MakeInsuranceListPageWidget
+                                                                      .routeName,
                                                                   queryParameters:
                                                                       {
                                                                     'checkTotal':

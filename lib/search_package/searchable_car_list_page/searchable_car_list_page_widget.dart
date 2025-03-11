@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -32,6 +33,9 @@ class SearchableCarListPageWidget extends StatefulWidget {
   final bool multiSelect;
   final int maxSelected;
   final String fromPage;
+
+  static String routeName = 'SearchableCarListPage';
+  static String routePath = 'SearchableCarListPage';
 
   @override
   State<SearchableCarListPageWidget> createState() =>
@@ -376,7 +380,8 @@ class _SearchableCarListPageWidgetState
                                                   );
 
                                                   context.goNamed(
-                                                      'InsuranceWorkSelectPage');
+                                                      InsuranceWorkSelectPageWidget
+                                                          .routeName);
 
                                                   return;
                                                 }
@@ -676,7 +681,8 @@ class _SearchableCarListPageWidgetState
                                                   );
 
                                                   context.goNamed(
-                                                      'InsuranceWorkSelectPage');
+                                                      InsuranceWorkSelectPageWidget
+                                                          .routeName);
 
                                                   return;
                                                 }
@@ -965,7 +971,8 @@ class _SearchableCarListPageWidgetState
                                                   );
 
                                                   context.goNamed(
-                                                      'InsuranceWorkSelectPage');
+                                                      InsuranceWorkSelectPageWidget
+                                                          .routeName);
 
                                                   return;
                                                 }
@@ -974,7 +981,8 @@ class _SearchableCarListPageWidgetState
                                                   context.pop();
                                                 }
                                                 context.pushNamed(
-                                                  'SearchablePickUpListPage',
+                                                  SearchablePickUpListPageWidget
+                                                      .routeName,
                                                   queryParameters: {
                                                     'titleText': serializeParam(
                                                       'เลือกประเภทรถกระบะ 2 ประตู',
@@ -1055,7 +1063,8 @@ class _SearchableCarListPageWidgetState
                                                     context.pop();
                                                   }
                                                   context.pushNamed(
-                                                    'SearchablePickUpListPage',
+                                                    SearchablePickUpListPageWidget
+                                                        .routeName,
                                                     queryParameters: {
                                                       'titleText':
                                                           serializeParam(
@@ -1114,7 +1123,8 @@ class _SearchableCarListPageWidgetState
                                                       context.pop();
                                                     }
                                                     context.pushNamed(
-                                                      'SearchablePickUpListPage',
+                                                      SearchablePickUpListPageWidget
+                                                          .routeName,
                                                       queryParameters: {
                                                         'titleText':
                                                             serializeParam(
@@ -1259,7 +1269,8 @@ class _SearchableCarListPageWidgetState
                                                   );
 
                                                   context.goNamed(
-                                                      'InsuranceWorkSelectPage');
+                                                      InsuranceWorkSelectPageWidget
+                                                          .routeName);
 
                                                   return;
                                                 }
@@ -2473,7 +2484,8 @@ class _SearchableCarListPageWidgetState
                                                   );
 
                                                   context.goNamed(
-                                                      'InsuranceWorkSelectPage');
+                                                      InsuranceWorkSelectPageWidget
+                                                          .routeName);
 
                                                   return;
                                                 }
@@ -2684,7 +2696,8 @@ class _SearchableCarListPageWidgetState
                                                   'searchPackage') {
                                                 if (true) {
                                                   context.goNamed(
-                                                      'InsuranceWorkSelectPage');
+                                                      InsuranceWorkSelectPageWidget
+                                                          .routeName);
 
                                                   return;
                                                 } else {
@@ -2697,7 +2710,8 @@ class _SearchableCarListPageWidgetState
                                                                   true))) ==
                                                       'รถแต่ง ต่อคอก') {
                                                     context.goNamed(
-                                                        'InsuranceWorkSelectPage');
+                                                        InsuranceWorkSelectPageWidget
+                                                            .routeName);
 
                                                     return;
                                                   }
@@ -2898,7 +2912,8 @@ class _SearchableCarListPageWidgetState
                                                   );
 
                                                   context.goNamed(
-                                                      'InsuranceWorkSelectPage');
+                                                      InsuranceWorkSelectPageWidget
+                                                          .routeName);
 
                                                   return;
                                                 }
@@ -4017,13 +4032,15 @@ class _SearchableCarListPageWidgetState
                                                   'searchPackage') {
                                                 if (false) {
                                                   context.goNamed(
-                                                      'InsuranceWorkSelectPage');
+                                                      InsuranceWorkSelectPageWidget
+                                                          .routeName);
 
                                                   return;
                                                 } else {
                                                   if (true) {
                                                     context.goNamed(
-                                                        'InsuranceWorkSelectPage');
+                                                        InsuranceWorkSelectPageWidget
+                                                            .routeName);
 
                                                     return;
                                                   }
@@ -4177,7 +4194,8 @@ class _SearchableCarListPageWidgetState
                                                   );
 
                                                   context.goNamed(
-                                                      'InsuranceWorkSelectPage');
+                                                      InsuranceWorkSelectPageWidget
+                                                          .routeName);
 
                                                   return;
                                                 }
@@ -5296,13 +5314,15 @@ class _SearchableCarListPageWidgetState
                                                   'searchPackage') {
                                                 if (false) {
                                                   context.goNamed(
-                                                      'InsuranceWorkSelectPage');
+                                                      InsuranceWorkSelectPageWidget
+                                                          .routeName);
 
                                                   return;
                                                 } else {
                                                   if (true) {
                                                     context.goNamed(
-                                                        'InsuranceWorkSelectPage');
+                                                        InsuranceWorkSelectPageWidget
+                                                            .routeName);
 
                                                     return;
                                                   }
@@ -5456,7 +5476,8 @@ class _SearchableCarListPageWidgetState
                                                   );
 
                                                   context.goNamed(
-                                                      'InsuranceWorkSelectPage');
+                                                      InsuranceWorkSelectPageWidget
+                                                          .routeName);
 
                                                   return;
                                                 }
@@ -6566,13 +6587,15 @@ class _SearchableCarListPageWidgetState
                                                 'searchPackage') {
                                               if (false) {
                                                 context.goNamed(
-                                                    'InsuranceWorkSelectPage');
+                                                    InsuranceWorkSelectPageWidget
+                                                        .routeName);
 
                                                 return;
                                               } else {
                                                 if (true) {
                                                   context.goNamed(
-                                                      'InsuranceWorkSelectPage');
+                                                      InsuranceWorkSelectPageWidget
+                                                          .routeName);
 
                                                   return;
                                                 }
@@ -6744,7 +6767,8 @@ class _SearchableCarListPageWidgetState
                                                 );
 
                                                 context.goNamed(
-                                                    'InsuranceWorkSelectPage');
+                                                    InsuranceWorkSelectPageWidget
+                                                        .routeName);
 
                                                 return;
                                               }
@@ -7868,7 +7892,8 @@ class _SearchableCarListPageWidgetState
                                                     true))) ==
                                             'รถบรรทุก หัวลาก หางพ่วง') {
                                           context.goNamed(
-                                              'InsuranceWorkSelectPage');
+                                              InsuranceWorkSelectPageWidget
+                                                  .routeName);
 
                                           return;
                                         } else {
@@ -7880,7 +7905,8 @@ class _SearchableCarListPageWidgetState
                                                       true))) ==
                                               'รถแต่ง ต่อคอก') {
                                             context.goNamed(
-                                                'InsuranceWorkSelectPage');
+                                                InsuranceWorkSelectPageWidget
+                                                    .routeName);
 
                                             return;
                                           }

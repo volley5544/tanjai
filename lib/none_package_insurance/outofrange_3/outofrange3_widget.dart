@@ -13,6 +13,9 @@ export 'outofrange3_model.dart';
 class Outofrange3Widget extends StatefulWidget {
   const Outofrange3Widget({super.key});
 
+  static String routeName = 'Outofrange_3';
+  static String routePath = 'Outofrange_3';
+
   @override
   State<Outofrange3Widget> createState() => _Outofrange3WidgetState();
 }

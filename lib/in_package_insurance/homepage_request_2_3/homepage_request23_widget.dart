@@ -21,6 +21,9 @@ export 'homepage_request23_model.dart';
 class HomepageRequest23Widget extends StatefulWidget {
   const HomepageRequest23Widget({super.key});
 
+  static String routeName = 'Homepage_Request_2_3';
+  static String routePath = 'Homepage_Request_2_3';
+
   @override
   State<HomepageRequest23Widget> createState() =>
       _HomepageRequest23WidgetState();

@@ -1,3 +1,4 @@
+import '';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
@@ -14,6 +15,7 @@ import 'dart:math';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:easy_debounce/easy_debounce.dart';
@@ -34,6 +36,9 @@ class FireInsuranceListPageWidget extends StatefulWidget {
   });
 
   final dynamic checkType;
+
+  static String routeName = 'fireInsuranceListPage';
+  static String routePath = 'fireInsuranceListPage';
 
   @override
   State<FireInsuranceListPageWidget> createState() =>
@@ -270,7 +275,7 @@ class _FireInsuranceListPageWidgetState
                 size: 30.0,
               ),
               onPressed: () async {
-                context.goNamed('SuperAppPage');
+                context.goNamed(SuperAppPageWidget.routeName);
               },
             ),
             title: Align(
@@ -1068,7 +1073,8 @@ class _FireInsuranceListPageWidgetState
                                                         }
 
                                                         context.pushNamed(
-                                                          'MakeFireInsuranceListPage',
+                                                          MakeFireInsuranceListPageWidget
+                                                              .routeName,
                                                           queryParameters: {
                                                             'list':
                                                                 serializeParam(
@@ -1178,7 +1184,8 @@ class _FireInsuranceListPageWidgetState
                                                         );
 
                                                         context.pushNamed(
-                                                          'insuranceInfoPage1',
+                                                          InsuranceInfoPage1Widget
+                                                              .routeName,
                                                           queryParameters: {
                                                             'quotationId':
                                                                 serializeParam(

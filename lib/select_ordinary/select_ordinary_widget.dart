@@ -12,6 +12,9 @@ export 'select_ordinary_model.dart';
 class SelectOrdinaryWidget extends StatefulWidget {
   const SelectOrdinaryWidget({super.key});
 
+  static String routeName = 'SelectOrdinary';
+  static String routePath = 'selectOrdinary';
+
   @override
   State<SelectOrdinaryWidget> createState() => _SelectOrdinaryWidgetState();
 }

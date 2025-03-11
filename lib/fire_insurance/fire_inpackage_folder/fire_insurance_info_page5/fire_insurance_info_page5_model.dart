@@ -16,6 +16,7 @@ import 'dart:math';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'fire_insurance_info_page5_widget.dart'
     show FireInsuranceInfoPage5Widget;
 import 'package:auto_size_text/auto_size_text.dart';

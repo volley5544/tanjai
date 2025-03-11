@@ -8,6 +8,7 @@ import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
 import 'dart:convert';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -36,6 +37,9 @@ class SearchableHouseListWidget extends StatefulWidget {
   final bool multiSelect;
   final int maxSelected;
   final String fromPage;
+
+  static String routeName = 'SearchableHouseList';
+  static String routePath = 'SearchableHouseList';
 
   @override
   State<SearchableHouseListWidget> createState() =>
@@ -3323,7 +3327,8 @@ class _SearchableHouseListWidgetState extends State<SearchableHouseListWidget> {
                                                     true))) ==
                                             'รถบรรทุก หัวลาก หางพ่วง') {
                                           context.goNamed(
-                                              'InsuranceWorkSelectPage');
+                                              InsuranceWorkSelectPageWidget
+                                                  .routeName);
 
                                           return;
                                         } else {
@@ -3335,7 +3340,8 @@ class _SearchableHouseListWidgetState extends State<SearchableHouseListWidget> {
                                                       true))) ==
                                               'รถแต่ง ต่อคอก') {
                                             context.goNamed(
-                                                'InsuranceWorkSelectPage');
+                                                InsuranceWorkSelectPageWidget
+                                                    .routeName);
 
                                             return;
                                           }

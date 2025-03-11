@@ -12,6 +12,9 @@ export 'compare_prices_model.dart';
 class ComparePricesWidget extends StatefulWidget {
   const ComparePricesWidget({super.key});
 
+  static String routeName = 'ComparePrices';
+  static String routePath = 'ComparePrices';
+
   @override
   State<ComparePricesWidget> createState() => _ComparePricesWidgetState();
 }

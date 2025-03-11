@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -16,6 +17,9 @@ export 'notification_i_b_s_model.dart';
 
 class NotificationIBSWidget extends StatefulWidget {
   const NotificationIBSWidget({super.key});
+
+  static String routeName = 'NotificationIBS';
+  static String routePath = 'notificationIBS';
 
   @override
   State<NotificationIBSWidget> createState() => _NotificationIBSWidgetState();
@@ -69,7 +73,7 @@ class _NotificationIBSWidgetState extends State<NotificationIBSWidget> {
               size: 30.0,
             ),
             onPressed: () async {
-              context.goNamed('SuperAppPage');
+              context.goNamed(SuperAppPageWidget.routeName);
             },
           ),
           title: Text(
@@ -193,13 +197,15 @@ class _NotificationIBSWidgetState extends State<NotificationIBSWidget> {
                               thisNotiIsRead: true,
                             ));
                             if (listViewNotificationRecord.notiType == 'vmi') {
-                              context.pushNamed('LeadFollowUpPage');
+                              context
+                                  .pushNamed(LeadFollowUpPageWidget.routeName);
 
                               return;
                             }
                             if (listViewNotificationRecord.notiType ==
                                 'quotation') {
-                              context.pushNamed('insuranceListPage');
+                              context
+                                  .pushNamed(InsuranceListPageWidget.routeName);
 
                               return;
                             }

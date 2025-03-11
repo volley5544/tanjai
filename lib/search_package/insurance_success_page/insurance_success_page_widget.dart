@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
@@ -11,6 +12,9 @@ export 'insurance_success_page_model.dart';
 
 class InsuranceSuccessPageWidget extends StatefulWidget {
   const InsuranceSuccessPageWidget({super.key});
+
+  static String routeName = 'InsuranceSuccessPage';
+  static String routePath = 'InsuranceSuccessPage';
 
   @override
   State<InsuranceSuccessPageWidget> createState() =>
@@ -146,7 +150,7 @@ class _InsuranceSuccessPageWidgetState
                               24.0, 0.0, 24.0, 0.0),
                           child: FFButtonWidget(
                             onPressed: () async {
-                              context.goNamed('SuperAppPage');
+                              context.goNamed(SuperAppPageWidget.routeName);
                             },
                             text: 'ปิด',
                             options: FFButtonOptions(

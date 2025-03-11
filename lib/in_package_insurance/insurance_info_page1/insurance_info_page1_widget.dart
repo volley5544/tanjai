@@ -16,6 +16,7 @@ import 'dart:math';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/foundation.dart';
@@ -42,6 +43,9 @@ class InsuranceInfoPage1Widget extends StatefulWidget {
   final String? quotationId;
   final int? leadDtailId;
   final String? fromPage;
+
+  static String routeName = 'insuranceInfoPage1';
+  static String routePath = 'insuranceInfoPage1';
 
   @override
   State<InsuranceInfoPage1Widget> createState() =>
@@ -944,6 +948,22 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
           '${IbsApplicationsDetailCall.maximuminsuredperson(
         (_model.detailAPIOutput?.jsonBody ?? ''),
       )}';
+      FFAppState().insuranceInfoInspectionExcept =
+          '${IbsApplicationsDetailCall.inspectionexcept(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )?.elementAtOrNull(functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+                r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                true,
+              )).toList(), widget!.leadDtailId))}';
+      FFAppState().insuranceinfoOldVMIimage =
+          '${IbsApplicationsDetailCall.imageOldVmi(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) == '' ? IbsApplicationsDetailCall.nonePackageImageOldVmi(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            ) : IbsApplicationsDetailCall.imageOldVmi(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            )}';
       safeSetState(() {});
       if (FFAppState().insuranceInfoApplicationType != 'auto') {
         FFAppState().insuranceInfoActFlag = '${IbsApplicationsDetailCall.actflg(
@@ -1798,12 +1818,12 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
               onPressed: () async {
                 await Future.delayed(const Duration(milliseconds: 500));
                 if (widget!.fromPage == 'FireInsurance') {
-                  context.goNamed('fireLeadFollowUpPage');
+                  context.goNamed(FireLeadFollowUpPageWidget.routeName);
 
                   return;
                 }
 
-                context.goNamed('LeadFollowUpPage');
+                context.goNamed(LeadFollowUpPageWidget.routeName);
               },
             ),
             title: Text(
@@ -2239,7 +2259,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                         onTap: () async {
                                           if (!FFAppState().isCorporate) {
                                             context.pushNamed(
-                                              'SearchableListPage',
+                                              SearchableListPageWidget
+                                                  .routeName,
                                               queryParameters: {
                                                 'titleText': serializeParam(
                                                   'ประเภทบัตร',
@@ -4113,7 +4134,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
                                             context.pushNamed(
-                                              'SearchableListPage',
+                                              SearchableListPageWidget
+                                                  .routeName,
                                               queryParameters: {
                                                 'titleText': serializeParam(
                                                   'เพศ',
@@ -4303,7 +4325,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
                                             context.pushNamed(
-                                              'SearchableListPage',
+                                              SearchableListPageWidget
+                                                  .routeName,
                                               queryParameters: {
                                                 'titleText': serializeParam(
                                                   'คำนำหน้า',
@@ -4803,6 +4826,13 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                       _datePickedDate.day,
                                                     );
                                                   });
+                                                } else if (_model.datePicked !=
+                                                    null) {
+                                                  safeSetState(() {
+                                                    _model.datePicked = functions
+                                                        .currentDate18YearsAgo(
+                                                            getCurrentTimestamp);
+                                                  });
                                                 }
                                                 safeSetState(() {
                                                   _model.ageTextFieldTextController
@@ -5157,7 +5187,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
                                             context.pushNamed(
-                                              'SearchableListPage',
+                                              SearchableListPageWidget
+                                                  .routeName,
                                               queryParameters: {
                                                 'titleText': serializeParam(
                                                   'กลุ่มอาชีพ',
@@ -5345,7 +5376,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
                                             context.pushNamed(
-                                              'SearchableListPage',
+                                              SearchableListPageWidget
+                                                  .routeName,
                                               queryParameters: {
                                                 'titleText': serializeParam(
                                                   'อาชีพ',
@@ -6018,7 +6050,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  context.pushNamed('AddAddress');
+                                  context.pushNamed(AddAddressWidget.routeName);
 
                                   await actions.hideKeyboardAction(
                                     context,
@@ -9696,7 +9728,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                     }
 
                                                     context.pushNamed(
-                                                      'fireInsuranceInfoPage2',
+                                                      FireInsuranceInfoPage2Widget
+                                                          .routeName,
                                                       queryParameters: {
                                                         'masterDataFirebase':
                                                             serializeParam(
@@ -9711,7 +9744,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                     );
                                                   } else {
                                                     context.pushNamed(
-                                                      'insuranceInfoPage2',
+                                                      InsuranceInfoPage2Widget
+                                                          .routeName,
                                                       queryParameters: {
                                                         'masterDataFirebase':
                                                             serializeParam(

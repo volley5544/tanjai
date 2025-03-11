@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -14,6 +15,9 @@ export 'insurance_work_select_page_model.dart';
 
 class InsuranceWorkSelectPageWidget extends StatefulWidget {
   const InsuranceWorkSelectPageWidget({super.key});
+
+  static String routeName = 'InsuranceWorkSelectPage';
+  static String routePath = 'InsuranceWorkSelectPage';
 
   @override
   State<InsuranceWorkSelectPageWidget> createState() =>
@@ -72,7 +76,7 @@ class _InsuranceWorkSelectPageWidgetState
               ),
               onPressed: () async {
                 context.goNamed(
-                  'SearchInsurancePage',
+                  SearchInsurancePageWidget.routeName,
                   queryParameters: {
                     'fromIcon': serializeParam(
                       'moto',
@@ -751,7 +755,7 @@ class _InsuranceWorkSelectPageWidgetState
                                       safeSetState(() {});
 
                                       context.pushNamed(
-                                        'NonePackageRenewPage',
+                                        NonePackageRenewPageWidget.routeName,
                                         queryParameters: {
                                           'workType': serializeParam(
                                             'renew',
@@ -1207,7 +1211,8 @@ class _InsuranceWorkSelectPageWidgetState
                                         .nonePackageCompanyBookImageUrl = '';
                                     safeSetState(() {});
 
-                                    context.pushNamed('SelectReasonPage');
+                                    context.pushNamed(
+                                        SelectReasonPageWidget.routeName);
                                   },
                                   text: 'นอกเรท',
                                   options: FFButtonOptions(

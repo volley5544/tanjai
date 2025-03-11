@@ -18,6 +18,9 @@ class HomepageRequest21Widget extends StatefulWidget {
 
   final String? accessory;
 
+  static String routeName = 'Homepage_Request_2_1';
+  static String routePath = 'Homepage_Request_2_1';
+
   @override
   State<HomepageRequest21Widget> createState() =>
       _HomepageRequest21WidgetState();

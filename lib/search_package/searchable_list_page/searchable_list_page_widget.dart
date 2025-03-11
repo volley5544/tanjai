@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -35,6 +36,9 @@ class SearchableListPageWidget extends StatefulWidget {
   final int maxSelected;
   final String fromPage;
   final int? index;
+
+  static String routeName = 'SearchableListPage';
+  static String routePath = 'SearchableListPage';
 
   @override
   State<SearchableListPageWidget> createState() =>
@@ -335,7 +339,8 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                                   true))) ==
                                                       'รถบรรทุก หัวลาก หางพ่วง') {
                                                     context.goNamed(
-                                                        'InsuranceWorkSelectPage');
+                                                        InsuranceWorkSelectPageWidget
+                                                            .routeName);
 
                                                     return;
                                                   } else {
@@ -348,7 +353,8 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                                     true))) ==
                                                         'รถแต่ง ต่อคอก') {
                                                       context.goNamed(
-                                                          'InsuranceWorkSelectPage');
+                                                          InsuranceWorkSelectPageWidget
+                                                              .routeName);
 
                                                       return;
                                                     }
@@ -521,7 +527,8 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                       );
 
                                                       context.goNamed(
-                                                          'InsuranceWorkSelectPage');
+                                                          InsuranceWorkSelectPageWidget
+                                                              .routeName);
 
                                                       return;
                                                     }
@@ -633,7 +640,8 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                       );
 
                                                       context.goNamed(
-                                                          'InsuranceWorkSelectPage');
+                                                          InsuranceWorkSelectPageWidget
+                                                              .routeName);
 
                                                       return;
                                                     }
@@ -2056,8 +2064,9 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                       .toList(),
                                                   true))) ==
                                           'รถบรรทุก หัวลาก หางพ่วง') {
-                                        context
-                                            .goNamed('InsuranceWorkSelectPage');
+                                        context.goNamed(
+                                            InsuranceWorkSelectPageWidget
+                                                .routeName);
 
                                         return;
                                       } else {
@@ -2069,7 +2078,8 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                     true))) ==
                                             'รถแต่ง ต่อคอก') {
                                           context.goNamed(
-                                              'InsuranceWorkSelectPage');
+                                              InsuranceWorkSelectPageWidget
+                                                  .routeName);
 
                                           return;
                                         }

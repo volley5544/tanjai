@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_web_view.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -14,6 +15,9 @@ export 'web_view_promotion_page_model.dart';
 
 class WebViewPromotionPageWidget extends StatefulWidget {
   const WebViewPromotionPageWidget({super.key});
+
+  static String routeName = 'webViewPromotionPage';
+  static String routePath = 'webViewPromotionPage';
 
   @override
   State<WebViewPromotionPageWidget> createState() =>
@@ -128,7 +132,7 @@ class _WebViewPromotionPageWidgetState
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                context.goNamed('MyProfilePage');
+                                context.goNamed(MyProfilePageWidget.routeName);
                               },
                               child: Container(
                                 width: 50.0,
@@ -145,7 +149,8 @@ class _WebViewPromotionPageWidgetState
                                   onTap: () async {
                                     await actions.lockOrientation();
 
-                                    context.goNamed('SuperAppPage');
+                                    context
+                                        .goNamed(SuperAppPageWidget.routeName);
                                   },
                                   child: Icon(
                                     Icons.arrow_back,

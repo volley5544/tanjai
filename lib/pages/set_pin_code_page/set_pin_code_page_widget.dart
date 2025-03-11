@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +19,9 @@ export 'set_pin_code_page_model.dart';
 
 class SetPinCodePageWidget extends StatefulWidget {
   const SetPinCodePageWidget({super.key});
+
+  static String routeName = 'SetPinCodePage';
+  static String routePath = 'setPinCodePage';
 
   @override
   State<SetPinCodePageWidget> createState() => _SetPinCodePageWidgetState();
@@ -41,6 +45,8 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
       FFAppState().isLoadedInsuranceData = false;
       FFAppState().update(() {});
     });
+
+    _model.pinCodeFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -176,6 +182,7 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                                             MainAxisAlignment.spaceEvenly,
                                         enableActiveFill: true,
                                         autoFocus: true,
+                                        focusNode: _model.pinCodeFocusNode,
                                         enablePinAutofill: true,
                                         errorTextSpace: 16.0,
                                         showCursor: false,
@@ -401,7 +408,7 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                             _shouldSetState = true;
                           }
 
-                          context.goNamed('SuperAppPage');
+                          context.goNamed(SuperAppPageWidget.routeName);
 
                           if (_shouldSetState) safeSetState(() {});
                         },

@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -17,6 +18,9 @@ export 'none_package_edit_page2_model.dart';
 
 class NonePackageEditPage2Widget extends StatefulWidget {
   const NonePackageEditPage2Widget({super.key});
+
+  static String routeName = 'NonePackageEditPage2';
+  static String routePath = 'NonePackageEditPage2';
 
   @override
   State<NonePackageEditPage2Widget> createState() =>
@@ -6604,7 +6608,8 @@ class _NonePackageEditPage2WidgetState
                                 12.0, 0.0, 12.0, 0.0),
                             child: FFButtonWidget(
                               onPressed: () async {
-                                context.pushNamed('NonePackageEditPage3');
+                                context.pushNamed(
+                                    NonePackageEditPage3Widget.routeName);
                               },
                               text: 'ถัดไป',
                               options: FFButtonOptions(

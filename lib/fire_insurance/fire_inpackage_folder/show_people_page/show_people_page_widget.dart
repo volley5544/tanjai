@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -22,6 +23,9 @@ class ShowPeoplePageWidget extends StatefulWidget {
 
   final DataListRecord? firestoreDataConfigList;
   final String? maxPeople;
+
+  static String routeName = 'showPeoplePage';
+  static String routePath = 'showPeoplePage';
 
   @override
   State<ShowPeoplePageWidget> createState() => _ShowPeoplePageWidgetState();
@@ -158,7 +162,7 @@ class _ShowPeoplePageWidgetState extends State<ShowPeoplePageWidget> {
                               highlightColor: Colors.transparent,
                               onTap: () async {
                                 context.pushNamed(
-                                  'addPeopleFireInsurancePage',
+                                  AddPeopleFireInsurancePageWidget.routeName,
                                   queryParameters: {
                                     'firestoreDataConfigList': serializeParam(
                                       widget!.firestoreDataConfigList,
@@ -823,7 +827,8 @@ class _ShowPeoplePageWidgetState extends State<ShowPeoplePageWidget> {
                                             ?.firstNameTh ==
                                         '') {
                                       context.pushNamed(
-                                        'addPeopleFireInsurancePage',
+                                        AddPeopleFireInsurancePageWidget
+                                            .routeName,
                                         queryParameters: {
                                           'firestoreDataConfigList':
                                               serializeParam(
@@ -875,7 +880,7 @@ class _ShowPeoplePageWidgetState extends State<ShowPeoplePageWidget> {
                                   safeSetState(() {});
 
                                   context.pushNamed(
-                                    'addPeopleFireInsurancePage',
+                                    AddPeopleFireInsurancePageWidget.routeName,
                                     queryParameters: {
                                       'firestoreDataConfigList': serializeParam(
                                         widget!.firestoreDataConfigList,
@@ -1057,7 +1062,8 @@ class _ShowPeoplePageWidgetState extends State<ShowPeoplePageWidget> {
                                               ?.relationName ==
                                           '')) {
                                     context.pushNamed(
-                                      'addPeopleFireInsurancePage',
+                                      AddPeopleFireInsurancePageWidget
+                                          .routeName,
                                       queryParameters: {
                                         'firestoreDataConfigList':
                                             serializeParam(
@@ -1088,7 +1094,8 @@ class _ShowPeoplePageWidgetState extends State<ShowPeoplePageWidget> {
                                           ?.firstNameTh ==
                                       '') {
                                     context.pushNamed(
-                                      'addPeopleFireInsurancePage',
+                                      AddPeopleFireInsurancePageWidget
+                                          .routeName,
                                       queryParameters: {
                                         'firestoreDataConfigList':
                                             serializeParam(
@@ -1140,7 +1147,7 @@ class _ShowPeoplePageWidgetState extends State<ShowPeoplePageWidget> {
                                 safeSetState(() {});
 
                                 context.pushNamed(
-                                  'addPeopleFireInsurancePage',
+                                  AddPeopleFireInsurancePageWidget.routeName,
                                   queryParameters: {
                                     'firestoreDataConfigList': serializeParam(
                                       widget!.firestoreDataConfigList,

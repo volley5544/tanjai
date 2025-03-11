@@ -17,6 +17,9 @@ export 'homepage_request22_model.dart';
 class HomepageRequest22Widget extends StatefulWidget {
   const HomepageRequest22Widget({super.key});
 
+  static String routeName = 'Homepage_Request_2_2';
+  static String routePath = 'Homepage_Request_2_2';
+
   @override
   State<HomepageRequest22Widget> createState() =>
       _HomepageRequest22WidgetState();
@@ -859,6 +862,24 @@ class _HomepageRequest22WidgetState extends State<HomepageRequest22Widget> {
                                                     _datePickedDate.month,
                                                     _datePickedDate.day,
                                                   );
+                                                });
+                                              } else if (_model.datePicked !=
+                                                  null) {
+                                                safeSetState(() {
+                                                  _model.datePicked = ((FFAppState()
+                                                                  .nonePackageWorkType ==
+                                                              'งานต่ออายุ') ||
+                                                          (FFAppState()
+                                                                  .nonePackageWorkType ==
+                                                              'งานโอนโค้ด')
+                                                      ? functions.addDateTimeDuration(
+                                                          1,
+                                                          functions
+                                                              .parseStringToDatetime(
+                                                                  FFAppState()
+                                                                      .nonePackageOldVmiExpDate)
+                                                              ?.toString())
+                                                      : getCurrentTimestamp);
                                                 });
                                               }
                                               if (!(_model.datePicked !=

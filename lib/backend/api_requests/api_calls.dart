@@ -5542,6 +5542,15 @@ class TelePackageSearchAPICall {
         r'''$.results.data''',
         true,
       ) as List?;
+  static List<String>? inspectionExcept(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[*][*].package[:].inspection_except''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class TelePackageSearchMCAPICall {
@@ -14790,6 +14799,15 @@ class IbsApplicationsDetailCall {
         response,
         r'''$.results.data.maximum_insured_person''',
       ));
+  static List<String>? inspectionexcept(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data.leads_detail[:].inspection_except''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class IbsApplicationsPaymentSaveCall {

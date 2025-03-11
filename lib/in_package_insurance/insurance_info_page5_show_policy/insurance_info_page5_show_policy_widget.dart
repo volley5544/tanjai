@@ -20,6 +20,9 @@ class InsuranceInfoPage5ShowPolicyWidget extends StatefulWidget {
 
   final String? vmiDocumentUrl;
 
+  static String routeName = 'insuranceInfoPage5ShowPolicy';
+  static String routePath = 'insuranceInfoPage5ShowPolicy';
+
   @override
   State<InsuranceInfoPage5ShowPolicyWidget> createState() =>
       _InsuranceInfoPage5ShowPolicyWidgetState();
