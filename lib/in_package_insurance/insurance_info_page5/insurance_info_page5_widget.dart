@@ -5082,9 +5082,9 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  24.0,
                                                                   0.0,
-                                                                  24.0,
+                                                                  0.0,
+                                                                  0.0,
                                                                   0.0),
                                                       iconPadding:
                                                           EdgeInsetsDirectional
@@ -5106,6 +5106,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                     'Noto Sans Thai',
                                                                 color: Colors
                                                                     .white,
+                                                                fontSize: 13.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -5504,9 +5505,9 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  24.0,
                                                                   0.0,
-                                                                  24.0,
+                                                                  0.0,
+                                                                  0.0,
                                                                   0.0),
                                                       iconPadding:
                                                           EdgeInsetsDirectional
@@ -5528,6 +5529,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                     'Noto Sans Thai',
                                                                 color: Colors
                                                                     .white,
+                                                                fontSize: 13.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -5858,9 +5860,9 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  24.0,
                                                                   0.0,
-                                                                  24.0,
+                                                                  0.0,
+                                                                  0.0,
                                                                   0.0),
                                                       iconPadding:
                                                           EdgeInsetsDirectional
@@ -5882,7 +5884,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                                     'Noto Sans Thai',
                                                                 color: Colors
                                                                     .white,
-                                                                fontSize: 16.0,
+                                                                fontSize: 13.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
