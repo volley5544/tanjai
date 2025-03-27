@@ -4420,7 +4420,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                             await Future.delayed(
                                                                 const Duration(
                                                                     milliseconds:
-                                                                        10000));
+                                                                        30000));
                                                             FFAppState()
                                                                     .isProcessing =
                                                                 false;

@@ -165,7 +165,7 @@ final parametersBuilderMap =
         },
       ),
   'insuranceListPage': (data) async => ParameterData(
-        allParams: {},
+        allParams: <String, dynamic>{},
       ),
   'insuranceInfoPage2': (data) async => ParameterData(
         allParams: {
@@ -461,7 +461,7 @@ final parametersBuilderMap =
       ),
   'InsuranceUnSuccessPage': ParameterData.none(),
   'QuotationCopy': (data) async => ParameterData(
-        allParams: {},
+        allParams: <String, dynamic>{},
       ),
   'InsurerInfomationPage': ParameterData.none(),
   'webViewPromotionPage': ParameterData.none(),
@@ -612,7 +612,7 @@ final parametersBuilderMap =
         },
       ),
   'fireInsuranceListPage': (data) async => ParameterData(
-        allParams: {},
+        allParams: <String, dynamic>{},
       ),
   'MakeFireInsuranceListPage': (data) async => ParameterData(
         allParams: {
@@ -728,7 +728,7 @@ final parametersBuilderMap =
         },
       ),
   'FireQuotationCopy': (data) async => ParameterData(
-        allParams: {},
+        allParams: <String, dynamic>{},
       ),
   'uploadImgFireInsurerPage': (data) async => ParameterData(
         allParams: {

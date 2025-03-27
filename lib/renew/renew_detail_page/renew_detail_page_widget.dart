@@ -951,7 +951,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                               functions.showNumberWithComma(
                                   '${GetDataRenewCall.netpremiumtotal(
                                 (_model.getDataRenewAPIOutput?.jsonBody ?? ''),
-                              )?.toString()}'),
+                              )}'),
                               '-',
                             )} บาท',
                             style: FlutterFlowTheme.of(context)
@@ -998,7 +998,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                               functions.showNumberWithComma(
                                   '${GetDataRenewCall.acttotal(
                                 (_model.getDataRenewAPIOutput?.jsonBody ?? ''),
-                              )?.toString()}'),
+                              )}'),
                               '-',
                             )} บาท',
                             style: FlutterFlowTheme.of(context)

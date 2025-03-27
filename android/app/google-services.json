@@ -12,12 +12,7 @@
           "package_name": "com.mycompany.webinsuane"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "556125230802-b01mfq5rr9qhhiuuq4nimi90q9153r2q.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
           "current_key": "AIzaSyDlMj0gc-u3bF84-LvHzOEV6fMKWthGpTQ"
@@ -26,10 +21,6 @@
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
-            {
-              "client_id": "556125230802-b01mfq5rr9qhhiuuq4nimi90q9153r2q.apps.googleusercontent.com",
-              "client_type": 3
-            },
             {
               "client_id": "556125230802-fkmllp1mi0scbmeohekhlh5sm1r3fl3m.apps.googleusercontent.com",
               "client_type": 2,
@@ -56,10 +47,6 @@
             "package_name": "com.srisawad.ibsmobileapp",
             "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
           }
-        },
-        {
-          "client_id": "556125230802-b01mfq5rr9qhhiuuq4nimi90q9153r2q.apps.googleusercontent.com",
-          "client_type": 3
         }
       ],
       "api_key": [
@@ -70,10 +57,6 @@
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
-            {
-              "client_id": "556125230802-b01mfq5rr9qhhiuuq4nimi90q9153r2q.apps.googleusercontent.com",
-              "client_type": 3
-            },
             {
               "client_id": "556125230802-fkmllp1mi0scbmeohekhlh5sm1r3fl3m.apps.googleusercontent.com",
               "client_type": 2,

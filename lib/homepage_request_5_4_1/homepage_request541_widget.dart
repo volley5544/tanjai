@@ -1,4 +1,3 @@
-import '';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -68,7 +67,8 @@ class _HomepageRequest541WidgetState extends State<HomepageRequest541Widget> {
 
       _model.timerApiOutput = await TimerApiCall.call();
       if (_model.timerApiOutput?.succeeded ?? true) {
-        _model.timerApiOutput?.streamedResponse?.stream
+        final streamSubscription = _model
+            .timerApiOutput?.streamedResponse?.stream
             .transform(utf8.decoder)
             .transform(const LineSplitter())
             .transform(ServerSentEventLineTransformer())
@@ -107,7 +107,8 @@ class _HomepageRequest541WidgetState extends State<HomepageRequest541Widget> {
               await Future.delayed(const Duration(milliseconds: 5000));
               final streamingApiResult = await TimerApiCall.call();
               if (streamingApiResult?.succeeded ?? true) {
-                streamingApiResult?.streamedResponse?.stream
+                final streamSubscription = streamingApiResult
+                    ?.streamedResponse?.stream
                     .transform(utf8.decoder)
                     .transform(const LineSplitter())
                     .transform(ServerSentEventLineTransformer())

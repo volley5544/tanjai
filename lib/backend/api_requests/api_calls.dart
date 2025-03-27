@@ -16346,11 +16346,15 @@ class RenewBranchListCall {
     String? token = '',
     String? level = '',
     String? branchCode = '',
+    String? page = '',
+    String? perPage = '',
   }) async {
     final ffApiRequestBody = '''
 {
   "level": "${level}",
-  "branch_code": "${branchCode}"
+  "branch_code": "${branchCode}",
+  "page": "${page}",
+  "per_page": "${perPage}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'renewBranchList',
@@ -17438,12 +17442,12 @@ class GetDataRenewCall {
         response,
         r'''$.results.data.save_renew_status''',
       ));
-  static double? netpremiumtotal(dynamic response) =>
-      castToType<double>(getJsonField(
+  static String? netpremiumtotal(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.results.data.net_premium_total''',
       ));
-  static int? acttotal(dynamic response) => castToType<int>(getJsonField(
+  static String? acttotal(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.results.data.act_total''',
       ));

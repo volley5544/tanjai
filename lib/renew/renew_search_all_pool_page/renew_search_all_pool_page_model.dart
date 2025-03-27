@@ -52,6 +52,10 @@ class RenewSearchAllPoolPageModel
   TextEditingController? textController1;
   String? Function(BuildContext, String?)? textController1Validator;
   Completer<ApiCallResponse>? apiRequestCompleter2;
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode2;
+  TextEditingController? textController2;
+  String? Function(BuildContext, String?)? textController2Validator;
   // State field(s) for PoolAllListview widget.
 
   PagingController<ApiPagingParams, dynamic>? poolAllListviewPagingController;
@@ -61,9 +65,9 @@ class RenewSearchAllPoolPageModel
   String? dropDownValue;
   FormFieldController<String>? dropDownValueController;
   // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode2;
-  TextEditingController? textController2;
-  String? Function(BuildContext, String?)? textController2Validator;
+  FocusNode? textFieldFocusNode3;
+  TextEditingController? textController3;
+  String? Function(BuildContext, String?)? textController3Validator;
   // Stores action output result for [Backend Call - API (renewCheckRenew)] action in Icon widget.
   ApiCallResponse? checkRenewAPIOutput;
 
@@ -76,9 +80,12 @@ class RenewSearchAllPoolPageModel
     textFieldFocusNode1?.dispose();
     textController1?.dispose();
 
-    poolAllListviewPagingController?.dispose();
     textFieldFocusNode2?.dispose();
     textController2?.dispose();
+
+    poolAllListviewPagingController?.dispose();
+    textFieldFocusNode3?.dispose();
+    textController3?.dispose();
   }
 
   /// Additional helper methods.
