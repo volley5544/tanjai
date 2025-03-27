@@ -5072,8 +5072,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                         ),
                                                       );
                                                     },
-                                                    text:
-                                                        'คัดลอกลิ้งคดูความคุ้มครอง',
+                                                    text: 'คัดลอกความคุ้มครอง',
                                                     icon: Icon(
                                                       Icons.content_copy,
                                                       size: 15.0,
