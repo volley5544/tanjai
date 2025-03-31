@@ -47,6 +47,22 @@ class InsurerConfig2Record extends FirestoreRecord {
   List<String> get insurerGarageType => _insurerGarageType ?? const [];
   bool hasInsurerGarageType() => _insurerGarageType != null;
 
+  // "canInstallmentList" field.
+  List<String>? _canInstallmentList;
+  List<String> get canInstallmentList => _canInstallmentList ?? const [];
+  bool hasCanInstallmentList() => _canInstallmentList != null;
+
+  // "canInstallmentListEmployee" field.
+  List<String>? _canInstallmentListEmployee;
+  List<String> get canInstallmentListEmployee =>
+      _canInstallmentListEmployee ?? const [];
+  bool hasCanInstallmentListEmployee() => _canInstallmentListEmployee != null;
+
+  // "canInstallmentLevel" field.
+  List<String>? _canInstallmentLevel;
+  List<String> get canInstallmentLevel => _canInstallmentLevel ?? const [];
+  bool hasCanInstallmentLevel() => _canInstallmentLevel != null;
+
   void _initializeFields() {
     _configName = snapshotData['config_name'] as String?;
     _insurerShortNameMap =
@@ -58,6 +74,10 @@ class InsurerConfig2Record extends FirestoreRecord {
     _insurerInstallment = getDataList(snapshotData['InsurerInstallment']);
     _insurerCoverType = getDataList(snapshotData['insurerCoverType']);
     _insurerGarageType = getDataList(snapshotData['insurerGarageType']);
+    _canInstallmentList = getDataList(snapshotData['canInstallmentList']);
+    _canInstallmentListEmployee =
+        getDataList(snapshotData['canInstallmentListEmployee']);
+    _canInstallmentLevel = getDataList(snapshotData['canInstallmentLevel']);
   }
 
   static CollectionReference get collection =>
@@ -124,7 +144,11 @@ class InsurerConfig2RecordDocumentEquality
         listEquality.equals(e1?.insurerFullPayment, e2?.insurerFullPayment) &&
         listEquality.equals(e1?.insurerInstallment, e2?.insurerInstallment) &&
         listEquality.equals(e1?.insurerCoverType, e2?.insurerCoverType) &&
-        listEquality.equals(e1?.insurerGarageType, e2?.insurerGarageType);
+        listEquality.equals(e1?.insurerGarageType, e2?.insurerGarageType) &&
+        listEquality.equals(e1?.canInstallmentList, e2?.canInstallmentList) &&
+        listEquality.equals(
+            e1?.canInstallmentListEmployee, e2?.canInstallmentListEmployee) &&
+        listEquality.equals(e1?.canInstallmentLevel, e2?.canInstallmentLevel);
   }
 
   @override
@@ -134,7 +158,10 @@ class InsurerConfig2RecordDocumentEquality
         e?.insurerFullPayment,
         e?.insurerInstallment,
         e?.insurerCoverType,
-        e?.insurerGarageType
+        e?.insurerGarageType,
+        e?.canInstallmentList,
+        e?.canInstallmentListEmployee,
+        e?.canInstallmentLevel
       ]);
 
   @override
