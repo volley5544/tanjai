@@ -311,17 +311,23 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                                 ),
                               ),
                             ),
-                            if (!columnInsurerConfig2Record!.insurerInstallment
+                            if ((FFAppState().flagRenew == '1') &&
+                                    columnInsurerConfig2Record!.renewInstallment
+                                ? !columnInsurerConfig2Record!.insurerInstallment
                                     .contains(
-                                        FFAppState().insuranceInfoCompayId) ||
-                                columnInsurerConfig2Record!.canInstallmentList
-                                    .contains(
-                                        FFAppState().profilePositionName) ||
-                                columnInsurerConfig2Record!
-                                    .canInstallmentListEmployee
-                                    .contains(FFAppState().employeeID) ||
-                                columnInsurerConfig2Record!.canInstallmentLevel
-                                    .contains(FFAppState().profileLevel))
+                                        FFAppState().insuranceInfoCompayId)
+                                : (!columnInsurerConfig2Record!.insurerInstallment.contains(
+                                        FFAppState().insuranceInfoCompayId) &&
+                                    (columnInsurerConfig2Record!.canInstallmentList
+                                            .contains(FFAppState()
+                                                .profilePositionName) ||
+                                        columnInsurerConfig2Record!
+                                            .canInstallmentListEmployee
+                                            .contains(
+                                                FFAppState().employeeID) ||
+                                        columnInsurerConfig2Record!
+                                            .canInstallmentLevel
+                                            .contains(FFAppState().profileLevel))))
                               InkWell(
                                 splashColor: Colors.transparent,
                                 focusColor: Colors.transparent,

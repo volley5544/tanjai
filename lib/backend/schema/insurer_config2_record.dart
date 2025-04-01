@@ -63,6 +63,11 @@ class InsurerConfig2Record extends FirestoreRecord {
   List<String> get canInstallmentLevel => _canInstallmentLevel ?? const [];
   bool hasCanInstallmentLevel() => _canInstallmentLevel != null;
 
+  // "renewInstallment" field.
+  bool? _renewInstallment;
+  bool get renewInstallment => _renewInstallment ?? false;
+  bool hasRenewInstallment() => _renewInstallment != null;
+
   void _initializeFields() {
     _configName = snapshotData['config_name'] as String?;
     _insurerShortNameMap =
@@ -78,6 +83,7 @@ class InsurerConfig2Record extends FirestoreRecord {
     _canInstallmentListEmployee =
         getDataList(snapshotData['canInstallmentListEmployee']);
     _canInstallmentLevel = getDataList(snapshotData['canInstallmentLevel']);
+    _renewInstallment = snapshotData['renewInstallment'] as bool?;
   }
 
   static CollectionReference get collection =>
@@ -117,11 +123,13 @@ class InsurerConfig2Record extends FirestoreRecord {
 Map<String, dynamic> createInsurerConfig2RecordData({
   String? configName,
   InsurerShortNameMapStruct? insurerShortNameMap,
+  bool? renewInstallment,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'config_name': configName,
       'insurer_short_name_map': InsurerShortNameMapStruct().toMap(),
+      'renewInstallment': renewInstallment,
     }.withoutNulls,
   );
 
@@ -148,7 +156,8 @@ class InsurerConfig2RecordDocumentEquality
         listEquality.equals(e1?.canInstallmentList, e2?.canInstallmentList) &&
         listEquality.equals(
             e1?.canInstallmentListEmployee, e2?.canInstallmentListEmployee) &&
-        listEquality.equals(e1?.canInstallmentLevel, e2?.canInstallmentLevel);
+        listEquality.equals(e1?.canInstallmentLevel, e2?.canInstallmentLevel) &&
+        e1?.renewInstallment == e2?.renewInstallment;
   }
 
   @override
@@ -161,7 +170,8 @@ class InsurerConfig2RecordDocumentEquality
         e?.insurerGarageType,
         e?.canInstallmentList,
         e?.canInstallmentListEmployee,
-        e?.canInstallmentLevel
+        e?.canInstallmentLevel,
+        e?.renewInstallment
       ]);
 
   @override
