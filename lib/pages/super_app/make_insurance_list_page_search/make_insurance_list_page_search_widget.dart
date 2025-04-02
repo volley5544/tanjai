@@ -1021,12 +1021,12 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                       ),
                                                                     if (('อนุมัติ' ==
                                                                             getJsonField(
-                                                                              widget!.list?.elementAtOrNull(leadListItemItem),
+                                                                              widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                               r'''$.quotation_status''',
                                                                             ).toString()) &&
                                                                         ('1' ==
                                                                             getJsonField(
-                                                                              widget!.list?.elementAtOrNull(leadListItemItem),
+                                                                              widget!.list?.elementAtOrNull(leadListItemIndex),
                                                                               r'''$.flg_act''',
                                                                             ).toString()))
                                                                       Padding(
