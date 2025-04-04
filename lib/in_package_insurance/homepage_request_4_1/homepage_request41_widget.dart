@@ -1,6 +1,7 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -727,6 +728,38 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                                           )!
                                                   .toList()
                                                   .cast<String>();
+                                          FFAppState()
+                                                  .insuranceInfoPage4TenorOverList =
+                                              (getJsonField(
+                                            (_model.save4APIOutput?.jsonBody ??
+                                                ''),
+                                            r'''$.results.data.payment.installment[:].tenor_first_due''',
+                                            true,
+                                          ) as List)
+                                                  .map<String>(
+                                                      (s) => s.toString())
+                                                  .toList()!
+                                                  .toList()
+                                                  .cast<String>();
+                                          FFAppState()
+                                                  .installmentDataTypeAppState =
+                                              (getJsonField(
+                                            (_model.save4APIOutput?.jsonBody ??
+                                                ''),
+                                            r'''$.results.data.payment.installment[:]''',
+                                            true,
+                                          )!
+                                                          .toList()
+                                                          .map<InstallmentDataTypeStruct?>(
+                                                              InstallmentDataTypeStruct
+                                                                  .maybeFromMap)
+                                                          .toList()
+                                                      as Iterable<
+                                                          InstallmentDataTypeStruct?>)
+                                                  .withoutNulls
+                                                  .toList()
+                                                  .cast<
+                                                      InstallmentDataTypeStruct>();
                                           safeSetState(() {});
                                         } else {
                                           FFAppState()

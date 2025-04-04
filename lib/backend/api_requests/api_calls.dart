@@ -15744,11 +15744,20 @@ class IbsCalculateInstallmentCall {
         response,
         r'''$.message''',
       ));
+  static List<String>? tenorfirstdue(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data.calculate.installment[:].tenor_first_due''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
   static List<InstallmentDataTypeStruct>? installmentDataType(
           dynamic response) =>
       (getJsonField(
         response,
-        r'''$.results.data.calculate.installment''',
+        r'''$.results.data.calculate.installment[:]''',
         true,
       ) as List?)
           ?.withoutNulls

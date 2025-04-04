@@ -10,46 +10,10 @@ import '/flutter_flow/flutter_flow_util.dart';
 
 class InstallmentDataTypeStruct extends FFFirebaseStruct {
   InstallmentDataTypeStruct({
-    String? tenor,
-    String? installmentFirstDue,
-    String? installmentLastDue,
-    String? paymentFirst,
     List<String>? tenorFirstDue,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
-  })  : _tenor = tenor,
-        _installmentFirstDue = installmentFirstDue,
-        _installmentLastDue = installmentLastDue,
-        _paymentFirst = paymentFirst,
-        _tenorFirstDue = tenorFirstDue,
+  })  : _tenorFirstDue = tenorFirstDue,
         super(firestoreUtilData);
-
-  // "tenor" field.
-  String? _tenor;
-  String get tenor => _tenor ?? '';
-  set tenor(String? val) => _tenor = val;
-
-  bool hasTenor() => _tenor != null;
-
-  // "installment_first_due" field.
-  String? _installmentFirstDue;
-  String get installmentFirstDue => _installmentFirstDue ?? '';
-  set installmentFirstDue(String? val) => _installmentFirstDue = val;
-
-  bool hasInstallmentFirstDue() => _installmentFirstDue != null;
-
-  // "installment_last_due" field.
-  String? _installmentLastDue;
-  String get installmentLastDue => _installmentLastDue ?? '';
-  set installmentLastDue(String? val) => _installmentLastDue = val;
-
-  bool hasInstallmentLastDue() => _installmentLastDue != null;
-
-  // "payment_first" field.
-  String? _paymentFirst;
-  String get paymentFirst => _paymentFirst ?? '';
-  set paymentFirst(String? val) => _paymentFirst = val;
-
-  bool hasPaymentFirst() => _paymentFirst != null;
 
   // "tenor_first_due" field.
   List<String>? _tenorFirstDue;
@@ -64,10 +28,6 @@ class InstallmentDataTypeStruct extends FFFirebaseStruct {
 
   static InstallmentDataTypeStruct fromMap(Map<String, dynamic> data) =>
       InstallmentDataTypeStruct(
-        tenor: data['tenor'] as String?,
-        installmentFirstDue: data['installment_first_due'] as String?,
-        installmentLastDue: data['installment_last_due'] as String?,
-        paymentFirst: data['payment_first'] as String?,
         tenorFirstDue: getDataList(data['tenor_first_due']),
       );
 
@@ -76,31 +36,11 @@ class InstallmentDataTypeStruct extends FFFirebaseStruct {
       : null;
 
   Map<String, dynamic> toMap() => {
-        'tenor': _tenor,
-        'installment_first_due': _installmentFirstDue,
-        'installment_last_due': _installmentLastDue,
-        'payment_first': _paymentFirst,
         'tenor_first_due': _tenorFirstDue,
       }.withoutNulls;
 
   @override
   Map<String, dynamic> toSerializableMap() => {
-        'tenor': serializeParam(
-          _tenor,
-          ParamType.String,
-        ),
-        'installment_first_due': serializeParam(
-          _installmentFirstDue,
-          ParamType.String,
-        ),
-        'installment_last_due': serializeParam(
-          _installmentLastDue,
-          ParamType.String,
-        ),
-        'payment_first': serializeParam(
-          _paymentFirst,
-          ParamType.String,
-        ),
         'tenor_first_due': serializeParam(
           _tenorFirstDue,
           ParamType.String,
@@ -111,26 +51,6 @@ class InstallmentDataTypeStruct extends FFFirebaseStruct {
   static InstallmentDataTypeStruct fromSerializableMap(
           Map<String, dynamic> data) =>
       InstallmentDataTypeStruct(
-        tenor: deserializeParam(
-          data['tenor'],
-          ParamType.String,
-          false,
-        ),
-        installmentFirstDue: deserializeParam(
-          data['installment_first_due'],
-          ParamType.String,
-          false,
-        ),
-        installmentLastDue: deserializeParam(
-          data['installment_last_due'],
-          ParamType.String,
-          false,
-        ),
-        paymentFirst: deserializeParam(
-          data['payment_first'],
-          ParamType.String,
-          false,
-        ),
         tenorFirstDue: deserializeParam<String>(
           data['tenor_first_due'],
           ParamType.String,
@@ -145,38 +65,20 @@ class InstallmentDataTypeStruct extends FFFirebaseStruct {
   bool operator ==(Object other) {
     const listEquality = ListEquality();
     return other is InstallmentDataTypeStruct &&
-        tenor == other.tenor &&
-        installmentFirstDue == other.installmentFirstDue &&
-        installmentLastDue == other.installmentLastDue &&
-        paymentFirst == other.paymentFirst &&
         listEquality.equals(tenorFirstDue, other.tenorFirstDue);
   }
 
   @override
-  int get hashCode => const ListEquality().hash([
-        tenor,
-        installmentFirstDue,
-        installmentLastDue,
-        paymentFirst,
-        tenorFirstDue
-      ]);
+  int get hashCode => const ListEquality().hash([tenorFirstDue]);
 }
 
 InstallmentDataTypeStruct createInstallmentDataTypeStruct({
-  String? tenor,
-  String? installmentFirstDue,
-  String? installmentLastDue,
-  String? paymentFirst,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
   bool delete = false,
 }) =>
     InstallmentDataTypeStruct(
-      tenor: tenor,
-      installmentFirstDue: installmentFirstDue,
-      installmentLastDue: installmentLastDue,
-      paymentFirst: paymentFirst,
       firestoreUtilData: FirestoreUtilData(
         clearUnsetFields: clearUnsetFields,
         create: create,
