@@ -510,10 +510,10 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
             '${IbsApplicationsDetailCall.lastnameth(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
         )}';
-        FFAppState().insuranceInfoPage4NetPremiumTotal = '${getJsonField(
+        FFAppState().insuranceInfoPage4NetPremiumTotal =
+            '${IbsApplicationsDetailCall.netpremiumtotalAppdetail(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-          r'''$.results.data.app_detail[:].net_premium_total''',
-        ).toString().toString()}';
+        )}';
         FFAppState().insuranceinfoActType =
             '${IbsApplicationsDetailCall.subProduct(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
@@ -549,7 +549,9 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
         safeSetState(() {
           _model.netPremiumTotalTextController?.text =
               functions.showNumberWithComma(
-                  '${FFAppState().insuranceInfoPage4NetPremiumTotal}')!;
+                  '${IbsApplicationsDetailCall.netpremiumtotalAppdetail(
+            (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+          )}')!;
         });
         Navigator.pop(context);
       } else {
@@ -669,10 +671,10 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
         });
         safeSetState(() {
           _model.netPremiumTotalTextController?.text =
-              functions.showNumberWithComma('${getJsonField(
+              functions.showNumberWithComma(
+                  '${IbsApplicationsDetailCall.netpremiumtotalAppdetail(
             (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-            r'''$.results.data.app_detail_house[0].net_premium_total''',
-          ).toString().toString()}')!;
+          )}')!;
         });
         safeSetState(() {
           _model.actTotalTextController?.text =
