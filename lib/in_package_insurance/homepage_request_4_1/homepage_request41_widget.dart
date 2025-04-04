@@ -729,19 +729,6 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                                                   .toList()
                                                   .cast<String>();
                                           FFAppState()
-                                                  .insuranceInfoPage4TenorOverList =
-                                              (getJsonField(
-                                            (_model.save4APIOutput?.jsonBody ??
-                                                ''),
-                                            r'''$.results.data.payment.installment[:].tenor_first_due''',
-                                            true,
-                                          ) as List)
-                                                  .map<String>(
-                                                      (s) => s.toString())
-                                                  .toList()!
-                                                  .toList()
-                                                  .cast<String>();
-                                          FFAppState()
                                                   .installmentDataTypeAppState =
                                               (getJsonField(
                                             (_model.save4APIOutput?.jsonBody ??

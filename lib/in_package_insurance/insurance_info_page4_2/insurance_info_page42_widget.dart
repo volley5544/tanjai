@@ -616,6 +616,12 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
         )!
                 .toList()
                 .cast<String>();
+        FFAppState().installmentDataTypeAppState =
+            IbsCalculateInstallmentCall.installmentDataType(
+          (_model.calInstallmentAPIOutput?.jsonBody ?? ''),
+        )!
+                .toList()
+                .cast<InstallmentDataTypeStruct>();
         safeSetState(() {});
         safeSetState(() {
           _model.paymentTypeTextController?.text =
