@@ -540,10 +540,8 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
         });
         safeSetState(() {
           _model.netPremiumTotalTextController?.text =
-              functions.showNumberWithComma('${getJsonField(
-            (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-            r'''$.results.data.app_detail_house[0].net_premium_total''',
-          ).toString().toString()}')!;
+              functions.showNumberWithComma(
+                  '${FFAppState().insuranceInfoPage4NetPremiumTotal}')!;
         });
         Navigator.pop(context);
       } else {
@@ -639,6 +637,20 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                 .toList()
                 .cast<InstallmentDataTypeStruct>();
         safeSetState(() {});
+        if ((FFAppState().insuranceInfoPage4SelectTenor != null &&
+                FFAppState().insuranceInfoPage4SelectTenor != '') &&
+            (FFAppState().insuranceInfoPage4SelectTenor != '') &&
+            (FFAppState().insuranceInfoPage4SelectTenor != '')) {
+          FFAppState().insuranceInfoPage4TenorOverList = FFAppState()
+              .installmentDataTypeAppState
+              .elementAtOrNull(functions.getIndexOfSomethingList(
+                  FFAppState().InsuranceInfoPage4Tenor.toList(),
+                  FFAppState().insuranceInfoPage4SelectTenor))!
+              .tenorFirstDue
+              .toList()
+              .cast<String>();
+          safeSetState(() {});
+        }
         safeSetState(() {
           _model.paymentTypeTextController?.text =
               FFAppState().insuranceInfoPage4PaymentType;
