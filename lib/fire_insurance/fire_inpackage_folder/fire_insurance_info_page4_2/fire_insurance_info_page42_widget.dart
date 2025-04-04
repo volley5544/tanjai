@@ -413,6 +413,10 @@ class _FireInsuranceInfoPage42WidgetState
           '${IbsApplicationsDetailCall.subProduct(
         (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
       )}';
+      FFAppState().insuranceInfoPage4TenorOverSelect =
+          '${IbsApplicationsDetailCall.tenor(
+        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+      )}';
       safeSetState(() {});
       if (FFAppState().insuranceInfoPage4PaymentType == 'จ่ายเต็ม') {
         safeSetState(() {
@@ -519,6 +523,12 @@ class _FireInsuranceInfoPage42WidgetState
                 .toList()
                 .cast<String>();
         FFAppState().InsuranceInfoPage4Tenor =
+            IbsCalculateInstallmentCall.tenor(
+          (_model.calInstallmentAPIOutput?.jsonBody ?? ''),
+        )!
+                .toList()
+                .cast<String>();
+        FFAppState().insuranceInfoPage4TenorOverList =
             IbsCalculateInstallmentCall.tenor(
           (_model.calInstallmentAPIOutput?.jsonBody ?? ''),
         )!

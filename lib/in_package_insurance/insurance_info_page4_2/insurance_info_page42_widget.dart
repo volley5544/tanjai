@@ -1,5 +1,6 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
+import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/components/effective_date_picker_component_widget.dart';
 import '/components/infomation_customer_act_widget.dart';
@@ -615,6 +616,12 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
         )!
                 .toList()
                 .cast<String>();
+        FFAppState().installmentDataTypeAppState =
+            IbsCalculateInstallmentCall.installmentDataType(
+          (_model.calInstallmentAPIOutput?.jsonBody ?? ''),
+        )!
+                .toList()
+                .cast<InstallmentDataTypeStruct>();
         safeSetState(() {});
         safeSetState(() {
           _model.paymentTypeTextController?.text =
@@ -2589,6 +2596,186 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                   ),
                                 ),
                               ),
+                            if ((FFAppState().insuranceInfoPage4PaymentType ==
+                                    'ผ่อนชำระ') &&
+                                ((FFAppState()
+                                                .insuranceInfoPage4SelectTenor !=
+                                            null &&
+                                        FFAppState()
+                                                .insuranceInfoPage4SelectTenor !=
+                                            '') &&
+                                    (FFAppState()
+                                            .insuranceInfoPage4SelectTenor !=
+                                        '') &&
+                                    (FFAppState()
+                                            .insuranceInfoPage4SelectTenor !=
+                                        '')))
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 5.0, 0.0, 0.0),
+                                child: Container(
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
+                                  decoration: BoxDecoration(
+                                    color: Color(0xFFFAFAFA),
+                                  ),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            12.0, 0.0, 12.0, 0.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Text(
+                                              'ระบุงวดที่ต้องการจ่ายล่วงหน้า',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        fontSize: 15.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(5.0, 0.0, 0.0, 0.0),
+                                              child: Text(
+                                                '(บังคับเลือก)',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          color:
+                                                              Color(0xFFFB0606),
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 5.0, 0.0, 0.0),
+                                        child: InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            context.pushNamed(
+                                              SearchableListPageWidget
+                                                  .routeName,
+                                              queryParameters: {
+                                                'titleText': serializeParam(
+                                                  'จำนวนงวดชำระล่วงหน้า',
+                                                  ParamType.String,
+                                                ),
+                                                'searchLabel': serializeParam(
+                                                  'เลือกงวดชำระล่วงหน้า',
+                                                  ParamType.String,
+                                                ),
+                                                'dataList': serializeParam(
+                                                  FFAppState()
+                                                      .insuranceInfoPage4TenorOverList,
+                                                  ParamType.String,
+                                                  isList: true,
+                                                ),
+                                                'multiSelect': serializeParam(
+                                                  false,
+                                                  ParamType.bool,
+                                                ),
+                                                'maxSelected': serializeParam(
+                                                  0,
+                                                  ParamType.int,
+                                                ),
+                                              }.withoutNulls,
+                                            );
+
+                                            await actions.hideKeyboardAction(
+                                              context,
+                                            );
+                                          },
+                                          child: Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                1.0,
+                                            height: 60.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                              border: Border.all(
+                                                color: Color(0xFFB3B3B3),
+                                              ),
+                                            ),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      10.0, 0.0, 0.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Text(
+                                                    (FFAppState().insuranceInfoPage4TenorOverSelect !=
+                                                                    null &&
+                                                                FFAppState().insuranceInfoPage4TenorOverSelect !=
+                                                                    '') &&
+                                                            (FFAppState()
+                                                                    .insuranceInfoPage4TenorOverSelect !=
+                                                                '') &&
+                                                            (FFAppState()
+                                                                    .insuranceInfoPage4TenorOverSelect !=
+                                                                '')
+                                                        ? FFAppState()
+                                                            .insuranceInfoPage4TenorOverSelect
+                                                        : 'เลือกงวดที่ต้องการจ่ายล่วงหน้า',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                10.0, 0.0),
+                                                    child: Icon(
+                                                      Icons.arrow_forward_ios,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondaryText,
+                                                      size: 24.0,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
                             if (FFAppState().insuranceInfoPage4PaymentType ==
                                 'ผ่อนชำระ')
                               Padding(
@@ -3548,6 +3735,9 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                                   : '0',
                                                               token: FFAppState()
                                                                   .accessToken,
+                                                              tenorFirstDue:
+                                                                  FFAppState()
+                                                                      .insuranceInfoPage4TenorOverSelect,
                                                             );
 
                                                             _shouldSetState =

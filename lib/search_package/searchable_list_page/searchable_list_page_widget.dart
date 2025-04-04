@@ -1734,7 +1734,31 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                                     .searchableListComponentSelectedList
                                                                     .toList(),
                                                                 true))!;
+                                                FFAppState()
+                                                        .insuranceInfoPage4TenorOverList =
+                                                    FFAppState()
+                                                        .installmentDataTypeAppState
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))!
+                                                        .tenorFirstDue
+                                                        .toList()
+                                                        .cast<String>();
                                                 safeSetState(() {});
+                                                if (FFAppState()
+                                                        .insuranceInfoPage4TenorOverList
+                                                        .length ==
+                                                    1) {
+                                                  FFAppState()
+                                                          .insuranceInfoPage4TenorOverSelect =
+                                                      FFAppState()
+                                                          .insuranceInfoPage4TenorOverList
+                                                          .firstOrNull!;
+                                                  safeSetState(() {});
+                                                }
                                                 context.safePop();
                                                 return;
                                               }
@@ -1882,6 +1906,22 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                             true)
                                                         .toList()
                                                         .cast<String>();
+                                                safeSetState(() {});
+                                                context.safePop();
+                                                return;
+                                              }
+                                              if (widget!.titleText ==
+                                                  'จำนวนงวดชำระล่วงหน้า') {
+                                                FFAppState()
+                                                        .insuranceInfoPage4TenorOverSelect =
+                                                    FFAppState()
+                                                        .insuranceInfoPage4TenorOverList
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))!;
                                                 safeSetState(() {});
                                                 context.safePop();
                                                 return;

@@ -313,12 +313,15 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                             ),
                             if ((FFAppState().flagRenew == '1') &&
                                     columnInsurerConfig2Record!.renewInstallment
-                                ? !columnInsurerConfig2Record!.insurerInstallment
+                                ? !columnInsurerConfig2Record!
+                                    .insurerInstallment
                                     .contains(
                                         FFAppState().insuranceInfoCompayId)
-                                : (!columnInsurerConfig2Record!.insurerInstallment.contains(
-                                        FFAppState().insuranceInfoCompayId) &&
-                                    (columnInsurerConfig2Record!.canInstallmentList
+                                : (!columnInsurerConfig2Record!.insurerInstallment
+                                        .contains(FFAppState()
+                                            .insuranceInfoCompayId) &&
+                                    (columnInsurerConfig2Record!
+                                            .canInstallmentList
                                             .contains(FFAppState()
                                                 .profilePositionName) ||
                                         columnInsurerConfig2Record!
@@ -327,7 +330,47 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                                                 FFAppState().employeeID) ||
                                         columnInsurerConfig2Record!
                                             .canInstallmentLevel
-                                            .contains(FFAppState().profileLevel))))
+                                            .contains(FFAppState().profileLevel)) &&
+                                    () {
+                                      if (FFAppState()
+                                              .insuranceInfoCoverTypeCode ==
+                                          'VMI1') {
+                                        return columnInsurerConfig2Record!
+                                            .checkInstallmentVmi1
+                                            .contains(FFAppState()
+                                                .insuranceInfoCompayId);
+                                      } else if (FFAppState()
+                                              .insuranceInfoCoverTypeCode ==
+                                          'VMI2') {
+                                        return columnInsurerConfig2Record!
+                                            .checkInstallmentVmi2
+                                            .contains(FFAppState()
+                                                .insuranceInfoCompayId);
+                                      } else if (FFAppState()
+                                              .insuranceInfoCoverTypeCode ==
+                                          'VMI2+') {
+                                        return columnInsurerConfig2Record!
+                                            .checkInstallmentVmi2plus
+                                            .contains(FFAppState()
+                                                .insuranceInfoCompayId);
+                                      } else if (FFAppState()
+                                              .insuranceInfoCoverTypeCode ==
+                                          'VMI3') {
+                                        return columnInsurerConfig2Record!
+                                            .checkInstallmentVmi3
+                                            .contains(FFAppState()
+                                                .insuranceInfoCompayId);
+                                      } else if (FFAppState()
+                                              .insuranceInfoCoverTypeCode ==
+                                          'VMI3+') {
+                                        return columnInsurerConfig2Record!
+                                            .checkInstallmentVmi3plus
+                                            .contains(FFAppState()
+                                                .insuranceInfoCompayId);
+                                      } else {
+                                        return true;
+                                      }
+                                    }()))
                               InkWell(
                                 splashColor: Colors.transparent,
                                 focusColor: Colors.transparent,

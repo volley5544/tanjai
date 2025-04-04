@@ -964,6 +964,14 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
             ) : IbsApplicationsDetailCall.imageOldVmi(
               (_model.detailAPIOutput?.jsonBody ?? ''),
             )}';
+      FFAppState().insuranceInfoCoverTypeCode =
+          '${IbsApplicationsDetailCall.covertypecode(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )?.elementAtOrNull(functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+                r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                true,
+              )).toList(), widget!.leadDtailId))}';
       safeSetState(() {});
       if (FFAppState().insuranceInfoApplicationType != 'auto') {
         FFAppState().insuranceInfoActFlag = '${IbsApplicationsDetailCall.actflg(

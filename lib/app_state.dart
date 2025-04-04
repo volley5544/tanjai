@@ -14179,6 +14179,82 @@ class FFAppState extends ChangeNotifier {
   set insuranceInfoPage5DocumentURL(String value) {
     _insuranceInfoPage5DocumentURL = value;
   }
+
+  List<String> _insuranceInfoPage4TenorOverList = [];
+  List<String> get insuranceInfoPage4TenorOverList =>
+      _insuranceInfoPage4TenorOverList;
+  set insuranceInfoPage4TenorOverList(List<String> value) {
+    _insuranceInfoPage4TenorOverList = value;
+  }
+
+  void addToInsuranceInfoPage4TenorOverList(String value) {
+    insuranceInfoPage4TenorOverList.add(value);
+  }
+
+  void removeFromInsuranceInfoPage4TenorOverList(String value) {
+    insuranceInfoPage4TenorOverList.remove(value);
+  }
+
+  void removeAtIndexFromInsuranceInfoPage4TenorOverList(int index) {
+    insuranceInfoPage4TenorOverList.removeAt(index);
+  }
+
+  void updateInsuranceInfoPage4TenorOverListAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    insuranceInfoPage4TenorOverList[index] =
+        updateFn(_insuranceInfoPage4TenorOverList[index]);
+  }
+
+  void insertAtIndexInInsuranceInfoPage4TenorOverList(int index, String value) {
+    insuranceInfoPage4TenorOverList.insert(index, value);
+  }
+
+  String _insuranceInfoPage4TenorOverSelect = '';
+  String get insuranceInfoPage4TenorOverSelect =>
+      _insuranceInfoPage4TenorOverSelect;
+  set insuranceInfoPage4TenorOverSelect(String value) {
+    _insuranceInfoPage4TenorOverSelect = value;
+  }
+
+  String _insuranceInfoCoverTypeCode = '';
+  String get insuranceInfoCoverTypeCode => _insuranceInfoCoverTypeCode;
+  set insuranceInfoCoverTypeCode(String value) {
+    _insuranceInfoCoverTypeCode = value;
+  }
+
+  List<InstallmentDataTypeStruct> _installmentDataTypeAppState = [];
+  List<InstallmentDataTypeStruct> get installmentDataTypeAppState =>
+      _installmentDataTypeAppState;
+  set installmentDataTypeAppState(List<InstallmentDataTypeStruct> value) {
+    _installmentDataTypeAppState = value;
+  }
+
+  void addToInstallmentDataTypeAppState(InstallmentDataTypeStruct value) {
+    installmentDataTypeAppState.add(value);
+  }
+
+  void removeFromInstallmentDataTypeAppState(InstallmentDataTypeStruct value) {
+    installmentDataTypeAppState.remove(value);
+  }
+
+  void removeAtIndexFromInstallmentDataTypeAppState(int index) {
+    installmentDataTypeAppState.removeAt(index);
+  }
+
+  void updateInstallmentDataTypeAppStateAtIndex(
+    int index,
+    InstallmentDataTypeStruct Function(InstallmentDataTypeStruct) updateFn,
+  ) {
+    installmentDataTypeAppState[index] =
+        updateFn(_installmentDataTypeAppState[index]);
+  }
+
+  void insertAtIndexInInstallmentDataTypeAppState(
+      int index, InstallmentDataTypeStruct value) {
+    installmentDataTypeAppState.insert(index, value);
+  }
 }
 
 void _safeInit(Function() initializeField) {

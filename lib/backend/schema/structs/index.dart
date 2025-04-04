@@ -10,6 +10,7 @@ export 'user_profile_model_struct.dart';
 export 'vehicle_type_info_struct.dart';
 export 'get_package_fire_insurer_data_type_struct.dart';
 export 'house_cal_estimated_model_struct.dart';
+export 'installment_data_type_struct.dart';
 export 'insurer_short_name_map_struct.dart';
 export 'lead_detail_struct.dart';
 export 'leads_detail_house_struct.dart';

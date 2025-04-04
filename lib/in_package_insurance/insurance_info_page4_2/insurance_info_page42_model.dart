@@ -1,5 +1,6 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
+import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/components/effective_date_picker_component_widget.dart';
 import '/components/infomation_customer_act_widget.dart';
@@ -24,6 +25,14 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 
 class InsuranceInfoPage42Model
     extends FlutterFlowModel<InsuranceInfoPage42Widget> {
+  ///  Local state fields for this page.
+
+  InstallmentDataTypeStruct? installmentDataPageState;
+  void updateInstallmentDataPageStateStruct(
+      Function(InstallmentDataTypeStruct) updateFn) {
+    updateFn(installmentDataPageState ??= InstallmentDataTypeStruct());
+  }
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Backend Call - API (insuranceRequestGetInsurerAPI)] action in insuranceInfoPage4_2 widget.

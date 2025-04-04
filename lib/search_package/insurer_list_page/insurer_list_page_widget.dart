@@ -384,6 +384,12 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
         )!
                 .toList()
                 .cast<String>();
+        FFAppState().searchInspectionExcept =
+            TelePackageSearchMCAPICall.inspectionexcept(
+          (_model.packageAPIMCOutput?.jsonBody ?? ''),
+        )!
+                .toList()
+                .cast<String>();
         safeSetState(() {});
         FFAppState().selectInsurerList = functions
             .createFalseListByItemNumber(

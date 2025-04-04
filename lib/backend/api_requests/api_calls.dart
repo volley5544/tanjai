@@ -5987,6 +5987,15 @@ class TelePackageSearchMCAPICall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
+  static List<String>? inspectionexcept(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].inspection_except''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class TelePackageSearchAPICopyCall {
@@ -14808,6 +14817,15 @@ class IbsApplicationsDetailCall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
+  static List<String>? covertypecode(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data.leads_detail[:].cover_type_code''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class IbsApplicationsPaymentSaveCall {
@@ -14823,9 +14841,11 @@ class IbsApplicationsPaymentSaveCall {
     String? installmentFirstDue = '',
     String? installmentLastDue = '',
     String? token = '',
+    String? tenorFirstDue = '',
   }) async {
     final ffApiRequestBody = '''
 {
+"tenor_first_due":"${tenorFirstDue}",
   "quotation_id": "${quotationId}",
   "insurance_url": "${insuranceUrl}",
   "lead_dtl_id": "${leadDtlId}",
@@ -15724,6 +15744,17 @@ class IbsCalculateInstallmentCall {
         response,
         r'''$.message''',
       ));
+  static List<InstallmentDataTypeStruct>? installmentDataType(
+          dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.results.data.calculate.installment''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => InstallmentDataTypeStruct.maybeFromMap(x))
+          .withoutNulls
+          .toList();
 }
 
 class IbsApplicationsEditCall {

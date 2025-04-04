@@ -68,6 +68,33 @@ class InsurerConfig2Record extends FirestoreRecord {
   bool get renewInstallment => _renewInstallment ?? false;
   bool hasRenewInstallment() => _renewInstallment != null;
 
+  // "checkInstallmentVmi1" field.
+  List<String>? _checkInstallmentVmi1;
+  List<String> get checkInstallmentVmi1 => _checkInstallmentVmi1 ?? const [];
+  bool hasCheckInstallmentVmi1() => _checkInstallmentVmi1 != null;
+
+  // "checkInstallmentVmi2" field.
+  List<String>? _checkInstallmentVmi2;
+  List<String> get checkInstallmentVmi2 => _checkInstallmentVmi2 ?? const [];
+  bool hasCheckInstallmentVmi2() => _checkInstallmentVmi2 != null;
+
+  // "checkInstallmentVmi2plus" field.
+  List<String>? _checkInstallmentVmi2plus;
+  List<String> get checkInstallmentVmi2plus =>
+      _checkInstallmentVmi2plus ?? const [];
+  bool hasCheckInstallmentVmi2plus() => _checkInstallmentVmi2plus != null;
+
+  // "checkInstallmentVmi3" field.
+  List<String>? _checkInstallmentVmi3;
+  List<String> get checkInstallmentVmi3 => _checkInstallmentVmi3 ?? const [];
+  bool hasCheckInstallmentVmi3() => _checkInstallmentVmi3 != null;
+
+  // "checkInstallmentVmi3plus" field.
+  List<String>? _checkInstallmentVmi3plus;
+  List<String> get checkInstallmentVmi3plus =>
+      _checkInstallmentVmi3plus ?? const [];
+  bool hasCheckInstallmentVmi3plus() => _checkInstallmentVmi3plus != null;
+
   void _initializeFields() {
     _configName = snapshotData['config_name'] as String?;
     _insurerShortNameMap =
@@ -84,6 +111,13 @@ class InsurerConfig2Record extends FirestoreRecord {
         getDataList(snapshotData['canInstallmentListEmployee']);
     _canInstallmentLevel = getDataList(snapshotData['canInstallmentLevel']);
     _renewInstallment = snapshotData['renewInstallment'] as bool?;
+    _checkInstallmentVmi1 = getDataList(snapshotData['checkInstallmentVmi1']);
+    _checkInstallmentVmi2 = getDataList(snapshotData['checkInstallmentVmi2']);
+    _checkInstallmentVmi2plus =
+        getDataList(snapshotData['checkInstallmentVmi2plus']);
+    _checkInstallmentVmi3 = getDataList(snapshotData['checkInstallmentVmi3']);
+    _checkInstallmentVmi3plus =
+        getDataList(snapshotData['checkInstallmentVmi3plus']);
   }
 
   static CollectionReference get collection =>
@@ -157,7 +191,17 @@ class InsurerConfig2RecordDocumentEquality
         listEquality.equals(
             e1?.canInstallmentListEmployee, e2?.canInstallmentListEmployee) &&
         listEquality.equals(e1?.canInstallmentLevel, e2?.canInstallmentLevel) &&
-        e1?.renewInstallment == e2?.renewInstallment;
+        e1?.renewInstallment == e2?.renewInstallment &&
+        listEquality.equals(
+            e1?.checkInstallmentVmi1, e2?.checkInstallmentVmi1) &&
+        listEquality.equals(
+            e1?.checkInstallmentVmi2, e2?.checkInstallmentVmi2) &&
+        listEquality.equals(
+            e1?.checkInstallmentVmi2plus, e2?.checkInstallmentVmi2plus) &&
+        listEquality.equals(
+            e1?.checkInstallmentVmi3, e2?.checkInstallmentVmi3) &&
+        listEquality.equals(
+            e1?.checkInstallmentVmi3plus, e2?.checkInstallmentVmi3plus);
   }
 
   @override
@@ -171,7 +215,12 @@ class InsurerConfig2RecordDocumentEquality
         e?.canInstallmentList,
         e?.canInstallmentListEmployee,
         e?.canInstallmentLevel,
-        e?.renewInstallment
+        e?.renewInstallment,
+        e?.checkInstallmentVmi1,
+        e?.checkInstallmentVmi2,
+        e?.checkInstallmentVmi2plus,
+        e?.checkInstallmentVmi3,
+        e?.checkInstallmentVmi3plus
       ]);
 
   @override
