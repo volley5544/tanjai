@@ -342,6 +342,19 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
           '${IbsApplicationsDetailCall.subProduct(
         (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
       )}';
+      FFAppState().insuranceInfoCoverTypeCode =
+          (IbsApplicationsDetailCall.covertypecode(
+        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+      )!
+              .elementAtOrNull(functions.getIndexOfIntList(
+                  functions
+                      .convertDynamicListToIntList(getJsonField(
+                        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+                        r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                        true,
+                      ))
+                      .toList(),
+                  widget!.leadDetailId)))!;
       safeSetState(() {});
       if (FFAppState().insuranceinfoActType == 'House') {
         FFAppState().leadsHouse = IbsApplicationsDetailCall.apphouse(
@@ -543,6 +556,9 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
           insuranceUrl: FFAppState().apiUrlInsuranceAppState,
           token: FFAppState().accessToken,
           subProduct: FFAppState().insuranceinfoActType,
+          actFlg: FFAppState().insuranceInfoActFlag,
+          insurerCode2: FFAppState().insuranceInfoCompayId,
+          coverTypeCode: FFAppState().insuranceInfoCoverTypeCode,
         );
 
         if ((_model.calInstallmentAPIOutput?.statusCode ?? 200) != 200) {
@@ -3556,6 +3572,39 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                                           AlertDialog(
                                                                         content:
                                                                             Text('บังคับเลือกงวด'),
+                                                                        actions: [
+                                                                          TextButton(
+                                                                            onPressed: () =>
+                                                                                Navigator.pop(alertDialogContext),
+                                                                            child:
+                                                                                Text('Ok'),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    );
+                                                                  },
+                                                                );
+                                                                if (_shouldSetState)
+                                                                  safeSetState(
+                                                                      () {});
+                                                                return;
+                                                              }
+                                                              if (!(FFAppState()
+                                                                          .insuranceInfoPage4TenorOverSelect !=
+                                                                      null &&
+                                                                  FFAppState()
+                                                                          .insuranceInfoPage4TenorOverSelect !=
+                                                                      '')) {
+                                                                await showDialog(
+                                                                  context:
+                                                                      context,
+                                                                  builder:
+                                                                      (alertDialogContext) {
+                                                                    return WebViewAware(
+                                                                      child:
+                                                                          AlertDialog(
+                                                                        content:
+                                                                            Text('บังคับเลือกงวดที่ต้องการจ่ายล่'),
                                                                         actions: [
                                                                           TextButton(
                                                                             onPressed: () =>

@@ -15669,9 +15669,15 @@ class IbsCalculateInstallmentCall {
     String? insuranceUrl = '',
     String? token = '',
     String? subProduct = '',
+    String? actFlg = '',
+    String? insurerCode2 = '',
+    String? coverTypeCode = '',
   }) async {
     final ffApiRequestBody = '''
 {
+"act_flg":"${actFlg}",
+ "insurer_code2":"${insurerCode2}",
+    "cover_type_code":"${coverTypeCode}",
   "insurance_url": "${insuranceUrl}",
   "gross_total_net": "${grossTotalNet}",
   "vehicle_code": "${vehicleCode}",
