@@ -1734,19 +1734,18 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                                     .searchableListComponentSelectedList
                                                                     .toList(),
                                                                 true))!;
-                                                FFAppState()
-                                                        .insuranceInfoPage4TenorOverList =
-                                                    FFAppState()
-                                                        .installmentDataTypeAppState
+                                                FFAppState().insuranceInfoPage4TenorOverList = FFAppState()
+                                                    .installmentDataTypeAppState
+                                                    .map((e) => e.tenorFirstDue
                                                         .elementAtOrNull(functions
                                                             .getIndexOfBoolList(
                                                                 FFAppState()
                                                                     .searchableListComponentSelectedList
                                                                     .toList(),
-                                                                true))!
-                                                        .tenorFirstDue
-                                                        .toList()
-                                                        .cast<String>();
+                                                                true)))
+                                                    .withoutNulls
+                                                    .toList()
+                                                    .cast<String>();
                                                 safeSetState(() {});
                                                 if (FFAppState()
                                                         .insuranceInfoPage4TenorOverList
