@@ -14826,6 +14826,11 @@ class IbsApplicationsDetailCall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
+  static String? tenorfirstdue(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.data.app_installment[:].tenor_first_due''',
+      ));
 }
 
 class IbsApplicationsPaymentSaveCall {

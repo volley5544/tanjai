@@ -448,6 +448,10 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
         )}';
         FFAppState().insuranceInfoEffectiveDateInsure =
             FFAppState().leadsDetailHouse.firstOrNull!.effectiveDateInsure;
+        FFAppState().insuranceInfoPage4TenorOverSelect =
+            '${IbsApplicationsDetailCall.tenorfirstdue(
+          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+        )}';
         safeSetState(() {});
       } else {
         FFAppState().insuranceInfoPage4PaymentType =
@@ -512,6 +516,10 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
         ).toString().toString()}';
         FFAppState().insuranceinfoActType =
             '${IbsApplicationsDetailCall.subProduct(
+          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+        )}';
+        FFAppState().insuranceInfoPage4TenorOverSelect =
+            '${IbsApplicationsDetailCall.tenorfirstdue(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
         )}';
         safeSetState(() {});
