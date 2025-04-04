@@ -1734,18 +1734,19 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                                     .searchableListComponentSelectedList
                                                                     .toList(),
                                                                 true))!;
-                                                FFAppState().insuranceInfoPage4TenorOverList = FFAppState()
-                                                    .installmentDataTypeAppState
-                                                    .map((e) => e.tenorFirstDue
+                                                FFAppState()
+                                                        .insuranceInfoPage4TenorOverList =
+                                                    FFAppState()
+                                                        .installmentDataTypeAppState
                                                         .elementAtOrNull(functions
                                                             .getIndexOfBoolList(
                                                                 FFAppState()
                                                                     .searchableListComponentSelectedList
                                                                     .toList(),
-                                                                true)))
-                                                    .withoutNulls
-                                                    .toList()
-                                                    .cast<String>();
+                                                                true))!
+                                                        .tenorFirstDue
+                                                        .toList()
+                                                        .cast<String>();
                                                 safeSetState(() {});
                                                 await showDialog(
                                                   context: context,
