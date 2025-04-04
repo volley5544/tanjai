@@ -1747,6 +1747,71 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                     .toList()
                                                     .cast<String>();
                                                 safeSetState(() {});
+                                                await showDialog(
+                                                  context: context,
+                                                  builder:
+                                                      (alertDialogContext) {
+                                                    return WebViewAware(
+                                                      child: AlertDialog(
+                                                        title: Text('num list'),
+                                                        content: Text(FFAppState()
+                                                            .insuranceInfoPage4TenorOverList
+                                                            .length
+                                                            .toString()),
+                                                        actions: [
+                                                          TextButton(
+                                                            onPressed: () =>
+                                                                Navigator.pop(
+                                                                    alertDialogContext),
+                                                            child: Text('Ok'),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    );
+                                                  },
+                                                );
+                                                await showDialog(
+                                                  context: context,
+                                                  builder:
+                                                      (alertDialogContext) {
+                                                    return WebViewAware(
+                                                      child: AlertDialog(
+                                                        content: Text(FFAppState()
+                                                            .insuranceInfoPage4TenorOverList
+                                                            .firstOrNull!),
+                                                        actions: [
+                                                          TextButton(
+                                                            onPressed: () =>
+                                                                Navigator.pop(
+                                                                    alertDialogContext),
+                                                            child: Text('Ok'),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    );
+                                                  },
+                                                );
+                                                await showDialog(
+                                                  context: context,
+                                                  builder:
+                                                      (alertDialogContext) {
+                                                    return WebViewAware(
+                                                      child: AlertDialog(
+                                                        content: Text(FFAppState()
+                                                            .insuranceInfoPage4TenorOverList
+                                                            .lastOrNull!),
+                                                        actions: [
+                                                          TextButton(
+                                                            onPressed: () =>
+                                                                Navigator.pop(
+                                                                    alertDialogContext),
+                                                            child: Text('Ok'),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    );
+                                                  },
+                                                );
                                                 if (FFAppState()
                                                         .insuranceInfoPage4TenorOverList
                                                         .length ==
