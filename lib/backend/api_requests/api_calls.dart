@@ -14831,6 +14831,11 @@ class IbsApplicationsDetailCall {
         response,
         r'''$.results.data.app_installment[:].tenor_first_due''',
       ));
+  static String? paymentamount(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.data.payments[:].amount''',
+      ));
 }
 
 class IbsApplicationsPaymentSaveCall {

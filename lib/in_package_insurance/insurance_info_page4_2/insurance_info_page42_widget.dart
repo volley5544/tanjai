@@ -3626,7 +3626,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                                       child:
                                                                           AlertDialog(
                                                                         content:
-                                                                            Text('บังคับเลือกงวดที่ต้องการจ่ายล่'),
+                                                                            Text('บังคับเลือกจำนวนงวดที่ต้องการจ่ายล่วงหน้า'),
                                                                         actions: [
                                                                           TextButton(
                                                                             onPressed: () =>

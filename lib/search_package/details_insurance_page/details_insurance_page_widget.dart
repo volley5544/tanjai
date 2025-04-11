@@ -1039,7 +1039,7 @@ class _DetailsInsurancePageWidgetState
                                 Text(
                                   widget!.carLost == '-'
                                       ? '-'
-                                      : '${functions.showNumberWithComma(widget!.pa)} บาท',
+                                      : '${functions.showNumberWithComma(widget!.carLost)} บาท',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(

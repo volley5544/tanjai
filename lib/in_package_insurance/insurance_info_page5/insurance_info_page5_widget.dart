@@ -295,6 +295,9 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
           '${IbsApplicationsDetailCall.quotationtype(
         (_model.applicationDetailOutput?.jsonBody ?? ''),
       )}';
+      FFAppState().page5amount = '${IbsApplicationsDetailCall.paymentamount(
+        (_model.applicationDetailOutput?.jsonBody ?? ''),
+      )}';
       safeSetState(() {});
       if (FFAppState().insuranceinfoActType == 'House') {
         FFAppState().leadsHouse = IbsApplicationsDetailCall.apphouse(
@@ -3560,6 +3563,97 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                     functions.showNumberWithComma(
                                                         FFAppState()
                                                             .page5NetPremium),
+                                                    '-',
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        fontSize: 15.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            if ((FFAppState().page5QuotationStatus ==
+                                    'อนุมัติ') &&
+                                (FFAppState().insuranceinfoActType != 'CMI'))
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 5.0, 0.0, 0.0),
+                                child: Container(
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
+                                  decoration: BoxDecoration(
+                                    color: Color(0xFFFAFAFA),
+                                  ),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            12.0, 0.0, 12.0, 0.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Text(
+                                              'ราคาเบี้ยจ่ายล่วงหน้า (รวม พ.ร.บ. ถ้ามี)',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        fontSize: 15.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 5.0, 0.0, 0.0),
+                                        child: Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  1.0,
+                                          height: 60.0,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .lineColor,
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            border: Border.all(
+                                              color: Color(0xFFB3B3B3),
+                                            ),
+                                          ),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    10.0, 0.0, 10.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Text(
+                                                  valueOrDefault<String>(
+                                                    functions
+                                                        .showNumberWithComma(
+                                                            FFAppState()
+                                                                .page5amount),
                                                     '-',
                                                   ),
                                                   style: FlutterFlowTheme.of(

@@ -2,7 +2,7 @@
   "name": "functions",
   "description": "Firebase Custom Cloud Functions",
   "engines": {
-    "node": "18"
+    "node": "20"
   },
   "main": "index.js",
   "dependencies": {

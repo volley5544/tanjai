@@ -6361,6 +6361,11 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                               focusNode: _model
                                                                   .licenseCodeFocusNode,
                                                               autofocus: false,
+                                                              readOnly: FFAppState()
+                                                                  .addAddressLicenseEmployeeId
+                                                                  .contains(
+                                                                      FFAppState()
+                                                                          .employeeID),
                                                               obscureText:
                                                                   false,
                                                               decoration:
