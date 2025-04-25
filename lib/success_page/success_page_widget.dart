@@ -77,10 +77,22 @@ class _SuccessPageWidgetState extends State<SuccessPageWidget> {
               Text(
                 'Congrats!',
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
-                      fontFamily: 'Noto Sans Thai',
+                      font: GoogleFonts.notoSansThai(
+                        fontWeight: FlutterFlowTheme.of(context)
+                            .headlineMedium
+                            .fontWeight,
+                        fontStyle: FlutterFlowTheme.of(context)
+                            .headlineMedium
+                            .fontStyle,
+                      ),
                       color: FlutterFlowTheme.of(context).primaryBtnText,
                       fontSize: 32.0,
                       letterSpacing: 0.0,
+                      fontWeight: FlutterFlowTheme.of(context)
+                          .headlineMedium
+                          .fontWeight,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).headlineMedium.fontStyle,
                     ),
               ),
               Padding(
@@ -88,11 +100,17 @@ class _SuccessPageWidgetState extends State<SuccessPageWidget> {
                 child: Text(
                   'Thanks for taking the quiz.',
                   style: FlutterFlowTheme.of(context).titleSmall.override(
-                        fontFamily: 'Noto Sans Thai',
+                        font: GoogleFonts.notoSansThai(
+                          fontWeight: FontWeight.w300,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).titleSmall.fontStyle,
+                        ),
                         color: FlutterFlowTheme.of(context).primaryBtnText,
                         fontSize: 20.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w300,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).titleSmall.fontStyle,
                       ),
                 ),
               ),
@@ -109,9 +127,21 @@ class _SuccessPageWidgetState extends State<SuccessPageWidget> {
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).primaryBtnText,
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                          fontFamily: 'Noto Sans Thai',
+                          font: GoogleFonts.notoSansThai(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .fontStyle,
+                          ),
                           color: FlutterFlowTheme.of(context).secondary,
                           letterSpacing: 0.0,
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .titleSmall
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).titleSmall.fontStyle,
                         ),
                     elevation: 3.0,
                     borderSide: BorderSide(

@@ -89,10 +89,19 @@ class _LoadingSceneInsuranceWidgetState
                 'กำลังอัพโหลดรูปภาพและส่งอีเมลไปยังบริษัทประกัน กระบวนการนี้อาจใช้เวลาสักครู่\nกรุณาอย่าปิดหน้านี้',
                 textAlign: TextAlign.center,
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Noto Sans Thai',
+                      font: GoogleFonts.notoSansThai(
+                        fontWeight:
+                            FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                      ),
                       color: Colors.white,
                       fontSize: 16.0,
                       letterSpacing: 0.0,
+                      fontWeight:
+                          FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                     ),
               ),
             ),

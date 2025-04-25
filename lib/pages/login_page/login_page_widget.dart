@@ -382,8 +382,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                               context)
                                                                           .titleMedium
                                                                           .override(
-                                                                            fontFamily:
-                                                                                'Noto Sans Thai',
+                                                                            font:
+                                                                                GoogleFonts.notoSansThai(
+                                                                              fontWeight: FontWeight.w600,
+                                                                              fontStyle: FlutterFlowTheme.of(context).titleMedium.fontStyle,
+                                                                            ),
                                                                             color:
                                                                                 Color(0xFF002D5E),
                                                                             fontSize:
@@ -392,6 +395,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                                 0.0,
                                                                             fontWeight:
                                                                                 FontWeight.w600,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).titleMedium.fontStyle,
                                                                           ),
                                                                     ),
                                                                   ),
@@ -443,8 +448,13 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                             context)
                                                                         .bodyMedium
                                                                         .override(
-                                                                          fontFamily:
-                                                                              'Noto Sans Thai',
+                                                                          font:
+                                                                              GoogleFonts.notoSansThai(
+                                                                            fontWeight:
+                                                                                FontWeight.w600,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                          ),
                                                                           color:
                                                                               Color(0xFF7F8A8D),
                                                                           fontSize:
@@ -453,6 +463,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                               0.0,
                                                                           fontWeight:
                                                                               FontWeight.w600,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
                                                                         ),
                                                                   ),
                                                                 ),
@@ -489,12 +502,23 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                             context)
                                                                         .labelMedium
                                                                         .override(
-                                                                          fontFamily:
-                                                                              'Noto Sans Thai',
+                                                                          font:
+                                                                              GoogleFonts.notoSansThai(
+                                                                            fontWeight:
+                                                                                FlutterFlowTheme.of(context).labelMedium.fontWeight,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).labelMedium.fontStyle,
+                                                                          ),
                                                                           fontSize:
                                                                               16.0,
                                                                           letterSpacing:
                                                                               0.0,
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .labelMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .labelMedium
+                                                                              .fontStyle,
                                                                         ),
                                                                     hintText:
                                                                         'username',
@@ -502,8 +526,13 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                             context)
                                                                         .labelMedium
                                                                         .override(
-                                                                          fontFamily:
-                                                                              'Noto Sans Thai',
+                                                                          font:
+                                                                              GoogleFonts.notoSansThai(
+                                                                            fontWeight:
+                                                                                FontWeight.bold,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).labelMedium.fontStyle,
+                                                                          ),
                                                                           color:
                                                                               Color(0xFFDBDBDB),
                                                                           fontSize:
@@ -512,6 +541,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                               0.0,
                                                                           fontWeight:
                                                                               FontWeight.bold,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .labelMedium
+                                                                              .fontStyle,
                                                                         ),
                                                                     enabledBorder:
                                                                         UnderlineInputBorder(
@@ -570,8 +602,14 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Noto Sans Thai',
+                                                                        font: GoogleFonts
+                                                                            .notoSansThai(
+                                                                          fontWeight:
+                                                                              FontWeight.w600,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryText,
                                                                         fontSize:
@@ -580,6 +618,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                             0.0,
                                                                         fontWeight:
                                                                             FontWeight.w600,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                   validator: _model
                                                                       .usernameTextFieldTextControllerValidator
@@ -643,11 +684,15 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
-                                                                              fontFamily: 'Noto Sans Thai',
+                                                                              font: GoogleFonts.notoSansThai(
+                                                                                fontWeight: FontWeight.w600,
+                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                              ),
                                                                               color: Color(0xFF7F8A8D),
                                                                               fontSize: 14.0,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.w600,
+                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                             ),
                                                                       ),
                                                                     ),
@@ -687,12 +732,23 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                             context)
                                                                         .labelMedium
                                                                         .override(
-                                                                          fontFamily:
-                                                                              'Noto Sans Thai',
+                                                                          font:
+                                                                              GoogleFonts.notoSansThai(
+                                                                            fontWeight:
+                                                                                FlutterFlowTheme.of(context).labelMedium.fontWeight,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).labelMedium.fontStyle,
+                                                                          ),
                                                                           fontSize:
                                                                               16.0,
                                                                           letterSpacing:
                                                                               0.0,
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .labelMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .labelMedium
+                                                                              .fontStyle,
                                                                         ),
                                                                     hintText:
                                                                         'password',
@@ -700,8 +756,13 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                             context)
                                                                         .labelMedium
                                                                         .override(
-                                                                          fontFamily:
-                                                                              'Noto Sans Thai',
+                                                                          font:
+                                                                              GoogleFonts.notoSansThai(
+                                                                            fontWeight:
+                                                                                FontWeight.bold,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).labelMedium.fontStyle,
+                                                                          ),
                                                                           color:
                                                                               Color(0xFFDBDBDB),
                                                                           fontSize:
@@ -710,6 +771,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                               0.0,
                                                                           fontWeight:
                                                                               FontWeight.bold,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .labelMedium
+                                                                              .fontStyle,
                                                                         ),
                                                                     enabledBorder:
                                                                         UnderlineInputBorder(
@@ -787,12 +851,25 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Noto Sans Thai',
+                                                                        font: GoogleFonts
+                                                                            .notoSansThai(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         fontSize:
                                                                             16.0,
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                   validator: _model
                                                                       .passwordTextFieldTextControllerValidator
@@ -839,14 +916,27 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Noto Sans Thai',
+                                                                        font: GoogleFonts
+                                                                            .notoSansThai(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         color: Color(
                                                                             0xFF5D78FF),
                                                                         fontSize:
                                                                             12.0,
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                         decoration:
                                                                             TextDecoration.underline,
                                                                       ),
@@ -886,14 +976,27 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Noto Sans Thai',
+                                                                        font: GoogleFonts
+                                                                            .notoSansThai(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryText,
                                                                         fontSize:
                                                                             13.0,
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                         decoration:
                                                                             TextDecoration.underline,
                                                                       ),
@@ -929,14 +1032,27 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Noto Sans Thai',
+                                                                        font: GoogleFonts
+                                                                            .notoSansThai(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         color: Color(
                                                                             0xFFDB771A),
                                                                         fontSize:
                                                                             13.0,
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                         decoration:
                                                                             TextDecoration.underline,
                                                                       ),
@@ -1552,14 +1668,25 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                             context)
                                                                         .titleSmall
                                                                         .override(
-                                                                          fontFamily:
-                                                                              'Noto Sans Thai',
+                                                                          font:
+                                                                              GoogleFonts.notoSansThai(
+                                                                            fontWeight:
+                                                                                FlutterFlowTheme.of(context).titleSmall.fontWeight,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).titleSmall.fontStyle,
+                                                                          ),
                                                                           color:
                                                                               Colors.white,
                                                                           fontSize:
                                                                               16.0,
                                                                           letterSpacing:
                                                                               0.0,
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .titleSmall
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .titleSmall
+                                                                              .fontStyle,
                                                                         ),
                                                                     elevation:
                                                                         3.0,

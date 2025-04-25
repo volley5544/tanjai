@@ -11,8 +11,10 @@ import '/flutter_flow/flutter_flow_util.dart';
 class InstallmentDataTypeStruct extends FFFirebaseStruct {
   InstallmentDataTypeStruct({
     List<String>? tenorFirstDue,
+    List<String>? tenorFirstDueDefault,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _tenorFirstDue = tenorFirstDue,
+        _tenorFirstDueDefault = tenorFirstDueDefault,
         super(firestoreUtilData);
 
   // "tenor_first_due" field.
@@ -26,9 +28,21 @@ class InstallmentDataTypeStruct extends FFFirebaseStruct {
 
   bool hasTenorFirstDue() => _tenorFirstDue != null;
 
+  // "tenor_first_due_default" field.
+  List<String>? _tenorFirstDueDefault;
+  List<String> get tenorFirstDueDefault => _tenorFirstDueDefault ?? const [];
+  set tenorFirstDueDefault(List<String>? val) => _tenorFirstDueDefault = val;
+
+  void updateTenorFirstDueDefault(Function(List<String>) updateFn) {
+    updateFn(_tenorFirstDueDefault ??= []);
+  }
+
+  bool hasTenorFirstDueDefault() => _tenorFirstDueDefault != null;
+
   static InstallmentDataTypeStruct fromMap(Map<String, dynamic> data) =>
       InstallmentDataTypeStruct(
         tenorFirstDue: getDataList(data['tenor_first_due']),
+        tenorFirstDueDefault: getDataList(data['tenor_first_due_default']),
       );
 
   static InstallmentDataTypeStruct? maybeFromMap(dynamic data) => data is Map
@@ -37,12 +51,18 @@ class InstallmentDataTypeStruct extends FFFirebaseStruct {
 
   Map<String, dynamic> toMap() => {
         'tenor_first_due': _tenorFirstDue,
+        'tenor_first_due_default': _tenorFirstDueDefault,
       }.withoutNulls;
 
   @override
   Map<String, dynamic> toSerializableMap() => {
         'tenor_first_due': serializeParam(
           _tenorFirstDue,
+          ParamType.String,
+          isList: true,
+        ),
+        'tenor_first_due_default': serializeParam(
+          _tenorFirstDueDefault,
           ParamType.String,
           isList: true,
         ),
@@ -56,6 +76,11 @@ class InstallmentDataTypeStruct extends FFFirebaseStruct {
           ParamType.String,
           true,
         ),
+        tenorFirstDueDefault: deserializeParam<String>(
+          data['tenor_first_due_default'],
+          ParamType.String,
+          true,
+        ),
       );
 
   @override
@@ -65,11 +90,13 @@ class InstallmentDataTypeStruct extends FFFirebaseStruct {
   bool operator ==(Object other) {
     const listEquality = ListEquality();
     return other is InstallmentDataTypeStruct &&
-        listEquality.equals(tenorFirstDue, other.tenorFirstDue);
+        listEquality.equals(tenorFirstDue, other.tenorFirstDue) &&
+        listEquality.equals(tenorFirstDueDefault, other.tenorFirstDueDefault);
   }
 
   @override
-  int get hashCode => const ListEquality().hash([tenorFirstDue]);
+  int get hashCode =>
+      const ListEquality().hash([tenorFirstDue, tenorFirstDueDefault]);
 }
 
 InstallmentDataTypeStruct createInstallmentDataTypeStruct({

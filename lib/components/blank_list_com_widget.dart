@@ -44,9 +44,14 @@ class _BlankListComWidgetState extends State<BlankListComWidget> {
       child: Text(
         'ไม่พบข้อมูลที่ค้นหา',
         style: FlutterFlowTheme.of(context).bodyMedium.override(
-              fontFamily: 'Noto Sans Thai',
+              font: GoogleFonts.notoSansThai(
+                fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+              ),
               fontSize: 18.0,
               letterSpacing: 0.0,
+              fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
             ),
       ),
     );

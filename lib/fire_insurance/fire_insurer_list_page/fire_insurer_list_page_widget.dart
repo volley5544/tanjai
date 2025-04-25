@@ -200,11 +200,18 @@ class _FireInsurerListPageWidgetState extends State<FireInsurerListPageWidget>
               title: Text(
                 'ค้นหาประกันอัคคีภัย',
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
-                      fontFamily: 'Noto Sans Thai',
+                      font: GoogleFonts.notoSansThai(
+                        fontWeight: FontWeight.w600,
+                        fontStyle: FlutterFlowTheme.of(context)
+                            .headlineMedium
+                            .fontStyle,
+                      ),
                       color: Color(0xFF003063),
                       fontSize: 18.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.w600,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).headlineMedium.fontStyle,
                     ),
               ),
               actions: [],
@@ -250,10 +257,31 @@ class _FireInsurerListPageWidgetState extends State<FireInsurerListPageWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              'Noto Sans Thai',
+                                                          font: GoogleFonts
+                                                              .notoSansThai(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                          ),
                                                           fontSize: 16.0,
                                                           letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
                                                         ),
                                               ),
                                             ),
@@ -341,14 +369,27 @@ class _FireInsurerListPageWidgetState extends State<FireInsurerListPageWidget>
                                                                 .of(context)
                                                             .bodyMedium
                                                             .override(
-                                                              fontFamily:
-                                                                  'Noto Sans Thai',
+                                                              font: GoogleFonts
+                                                                  .notoSansThai(
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                              ),
                                                               fontSize: 13.0,
                                                               letterSpacing:
                                                                   0.0,
                                                               fontWeight:
                                                                   FontWeight
                                                                       .w500,
+                                                              fontStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                             ),
                                                       ),
                                                     ),
@@ -540,9 +581,14 @@ class _FireInsurerListPageWidgetState extends State<FireInsurerListPageWidget>
                                                                                           child: Text(
                                                                                             '${listInsuranceItemItem.serialName}',
                                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                  fontFamily: 'Noto Sans Thai',
+                                                                                                  font: GoogleFonts.notoSansThai(
+                                                                                                    fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                  ),
                                                                                                   fontSize: 11.0,
                                                                                                   letterSpacing: 0.0,
+                                                                                                  fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                 ),
                                                                                           ),
                                                                                         ),
@@ -579,9 +625,14 @@ class _FireInsurerListPageWidgetState extends State<FireInsurerListPageWidget>
                                                                                         Text(
                                                                                           'ประเภทประกัน',
                                                                                           style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                fontFamily: 'Noto Sans Thai',
+                                                                                                font: GoogleFonts.notoSansThai(
+                                                                                                  fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                ),
                                                                                                 fontSize: 11.0,
                                                                                                 letterSpacing: 0.0,
+                                                                                                fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                               ),
                                                                                         ),
                                                                                         Padding(
@@ -589,9 +640,14 @@ class _FireInsurerListPageWidgetState extends State<FireInsurerListPageWidget>
                                                                                           child: Text(
                                                                                             'ประกันอัคคีภัย',
                                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                  fontFamily: 'Noto Sans Thai',
+                                                                                                  font: GoogleFonts.notoSansThai(
+                                                                                                    fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                  ),
                                                                                                   fontSize: 11.0,
                                                                                                   letterSpacing: 0.0,
+                                                                                                  fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                 ),
                                                                                           ),
                                                                                         ),
@@ -607,9 +663,14 @@ class _FireInsurerListPageWidgetState extends State<FireInsurerListPageWidget>
                                                                                         Text(
                                                                                           'แผนประกัน',
                                                                                           style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                fontFamily: 'Noto Sans Thai',
+                                                                                                font: GoogleFonts.notoSansThai(
+                                                                                                  fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                ),
                                                                                                 fontSize: 11.0,
                                                                                                 letterSpacing: 0.0,
+                                                                                                fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                               ),
                                                                                         ),
                                                                                         Padding(
@@ -617,9 +678,14 @@ class _FireInsurerListPageWidgetState extends State<FireInsurerListPageWidget>
                                                                                           child: Text(
                                                                                             '${listInsuranceItemItem.packageName}',
                                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                  fontFamily: 'Noto Sans Thai',
+                                                                                                  font: GoogleFonts.notoSansThai(
+                                                                                                    fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                  ),
                                                                                                   fontSize: 11.0,
                                                                                                   letterSpacing: 0.0,
+                                                                                                  fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                 ),
                                                                                           ),
                                                                                         ),
@@ -635,10 +701,15 @@ class _FireInsurerListPageWidgetState extends State<FireInsurerListPageWidget>
                                                                                         Text(
                                                                                           'ทุนประกันภัย',
                                                                                           style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                fontFamily: 'Noto Sans Thai',
+                                                                                                font: GoogleFonts.notoSansThai(
+                                                                                                  fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                ),
                                                                                                 color: FlutterFlowTheme.of(context).secondaryText,
                                                                                                 fontSize: 10.0,
                                                                                                 letterSpacing: 0.0,
+                                                                                                fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                               ),
                                                                                         ),
                                                                                         Padding(
@@ -649,10 +720,15 @@ class _FireInsurerListPageWidgetState extends State<FireInsurerListPageWidget>
                                                                                               '0',
                                                                                             ),
                                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                  fontFamily: 'Noto Sans Thai',
+                                                                                                  font: GoogleFonts.notoSansThai(
+                                                                                                    fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                  ),
                                                                                                   color: FlutterFlowTheme.of(context).secondaryText,
                                                                                                   fontSize: 10.0,
                                                                                                   letterSpacing: 0.0,
+                                                                                                  fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                 ),
                                                                                           ),
                                                                                         ),
@@ -668,10 +744,15 @@ class _FireInsurerListPageWidgetState extends State<FireInsurerListPageWidget>
                                                                                         Text(
                                                                                           'สิ่งปลูกสร้าง (ไม่รวมฐานราก)',
                                                                                           style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                fontFamily: 'Noto Sans Thai',
+                                                                                                font: GoogleFonts.notoSansThai(
+                                                                                                  fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                ),
                                                                                                 color: FlutterFlowTheme.of(context).secondaryText,
                                                                                                 fontSize: 10.0,
                                                                                                 letterSpacing: 0.0,
+                                                                                                fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                               ),
                                                                                         ),
                                                                                         Padding(
@@ -682,10 +763,15 @@ class _FireInsurerListPageWidgetState extends State<FireInsurerListPageWidget>
                                                                                               '0',
                                                                                             ),
                                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                  fontFamily: 'Noto Sans Thai',
+                                                                                                  font: GoogleFonts.notoSansThai(
+                                                                                                    fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                  ),
                                                                                                   color: FlutterFlowTheme.of(context).secondaryText,
                                                                                                   fontSize: 10.0,
                                                                                                   letterSpacing: 0.0,
+                                                                                                  fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                 ),
                                                                                           ),
                                                                                         ),
@@ -701,10 +787,15 @@ class _FireInsurerListPageWidgetState extends State<FireInsurerListPageWidget>
                                                                                         Text(
                                                                                           'ทรัพย์สินภายในสิ่งปลูกสร้าง',
                                                                                           style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                fontFamily: 'Noto Sans Thai',
+                                                                                                font: GoogleFonts.notoSansThai(
+                                                                                                  fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                ),
                                                                                                 color: FlutterFlowTheme.of(context).secondaryText,
                                                                                                 fontSize: 10.0,
                                                                                                 letterSpacing: 0.0,
+                                                                                                fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                               ),
                                                                                         ),
                                                                                         Padding(
@@ -715,10 +806,15 @@ class _FireInsurerListPageWidgetState extends State<FireInsurerListPageWidget>
                                                                                               '0',
                                                                                             ),
                                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                  fontFamily: 'Noto Sans Thai',
+                                                                                                  font: GoogleFonts.notoSansThai(
+                                                                                                    fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                  ),
                                                                                                   color: FlutterFlowTheme.of(context).secondaryText,
                                                                                                   fontSize: 10.0,
                                                                                                   letterSpacing: 0.0,
+                                                                                                  fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                 ),
                                                                                           ),
                                                                                         ),
@@ -748,10 +844,15 @@ class _FireInsurerListPageWidgetState extends State<FireInsurerListPageWidget>
                                                                                   Text(
                                                                                     'ราคาเบี้ยประกัน/ปี',
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: 'Noto Sans Thai',
+                                                                                          font: GoogleFonts.notoSansThai(
+                                                                                            fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                            fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                          ),
                                                                                           color: FlutterFlowTheme.of(context).secondaryText,
                                                                                           fontSize: 10.0,
                                                                                           letterSpacing: 0.0,
+                                                                                          fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                          fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                         ),
                                                                                   ),
                                                                                   Text(
@@ -760,9 +861,14 @@ class _FireInsurerListPageWidgetState extends State<FireInsurerListPageWidget>
                                                                                       '0',
                                                                                     )} บาท',
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: 'Noto Sans Thai',
+                                                                                          font: GoogleFonts.notoSansThai(
+                                                                                            fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                            fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                          ),
                                                                                           fontSize: 11.0,
                                                                                           letterSpacing: 0.0,
+                                                                                          fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                          fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                         ),
                                                                                   ),
                                                                                 ],
@@ -800,10 +906,15 @@ class _FireInsurerListPageWidgetState extends State<FireInsurerListPageWidget>
                                                                                   iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                   color: Color(0x9EFF6500),
                                                                                   textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                        fontFamily: 'Noto Sans Thai',
+                                                                                        font: GoogleFonts.notoSansThai(
+                                                                                          fontWeight: FlutterFlowTheme.of(context).titleSmall.fontWeight,
+                                                                                          fontStyle: FlutterFlowTheme.of(context).titleSmall.fontStyle,
+                                                                                        ),
                                                                                         color: Colors.white,
                                                                                         fontSize: 12.0,
                                                                                         letterSpacing: 0.0,
+                                                                                        fontWeight: FlutterFlowTheme.of(context).titleSmall.fontWeight,
+                                                                                        fontStyle: FlutterFlowTheme.of(context).titleSmall.fontStyle,
                                                                                       ),
                                                                                   elevation: 3.0,
                                                                                   borderSide: BorderSide(
@@ -874,14 +985,31 @@ class _FireInsurerListPageWidgetState extends State<FireInsurerListPageWidget>
                                                                   context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
+                                                                font: GoogleFonts
+                                                                    .notoSansThai(
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .grayIcon,
                                                                 fontSize: 20.0,
                                                                 letterSpacing:
                                                                     0.0,
+                                                                fontWeight: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
                                                               ),
                                                     ),
                                                   ),

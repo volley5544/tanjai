@@ -44,6 +44,10 @@ class NonePackageSelectedInsurerPageModel
   TextEditingController? accessoryTotalTextController;
   String? Function(BuildContext, String?)?
       accessoryTotalTextControllerValidator;
+  // State field(s) for suminsured widget.
+  FocusNode? suminsuredFocusNode;
+  TextEditingController? suminsuredTextController;
+  String? Function(BuildContext, String?)? suminsuredTextControllerValidator;
   // Stores action output result for [Backend Call - API (saveInsurerAPI)] action in Button widget.
   ApiCallResponse? saveInirer;
 
@@ -60,5 +64,8 @@ class NonePackageSelectedInsurerPageModel
 
     accessoryTotalFocusNode?.dispose();
     accessoryTotalTextController?.dispose();
+
+    suminsuredFocusNode?.dispose();
+    suminsuredTextController?.dispose();
   }
 }

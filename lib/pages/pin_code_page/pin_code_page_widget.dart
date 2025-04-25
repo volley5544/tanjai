@@ -768,11 +768,28 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
+                                                                font: GoogleFonts
+                                                                    .notoSansThai(
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
                                                                     0.0,
+                                                                fontWeight: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
                                                               ),
                                                         )),
                                                       ],
@@ -881,12 +898,29 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
+                                                                  font: GoogleFonts
+                                                                      .notoSansThai(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
                                                                   fontSize:
                                                                       14.0,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                                 ),
                                                           )),
                                                         ),
@@ -1002,14 +1036,27 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'Noto Sans Thai',
+                                                                        font: GoogleFonts
+                                                                            .notoSansThai(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         color: Color(
                                                                             0xFF1D4774),
                                                                         fontSize:
                                                                             28.0,
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 ),
                                                               ),
@@ -1031,12 +1078,23 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                             context)
                                                                         .headlineSmall
                                                                         .override(
-                                                                          fontFamily:
-                                                                              'Noto Sans Thai',
+                                                                          font:
+                                                                              GoogleFonts.notoSansThai(
+                                                                            fontWeight:
+                                                                                FlutterFlowTheme.of(context).headlineSmall.fontWeight,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).headlineSmall.fontStyle,
+                                                                          ),
                                                                           color:
                                                                               Color(0xFF1D4774),
                                                                           letterSpacing:
                                                                               0.0,
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .headlineSmall
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .headlineSmall
+                                                                              .fontStyle,
                                                                         ),
                                                                   ),
                                                                   Container(
@@ -1065,9 +1123,14 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                             length:
                                                                                 6,
                                                                             textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                  fontFamily: 'Noto Sans Thai',
+                                                                                  font: GoogleFonts.notoSansThai(
+                                                                                    fontWeight: FlutterFlowTheme.of(context).titleSmall.fontWeight,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).titleSmall.fontStyle,
+                                                                                  ),
                                                                                   color: FlutterFlowTheme.of(context).primary,
                                                                                   letterSpacing: 0.0,
+                                                                                  fontWeight: FlutterFlowTheme.of(context).titleSmall.fontWeight,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).titleSmall.fontStyle,
                                                                                 ),
                                                                             mainAxisAlignment:
                                                                                 MainAxisAlignment.spaceEvenly,
@@ -1461,11 +1524,15 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                             child: Text(
                                                                                               '1',
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    fontFamily: 'Noto Sans Thai',
+                                                                                                    font: GoogleFonts.notoSansThai(
+                                                                                                      fontWeight: FontWeight.w800,
+                                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                    ),
                                                                                                     color: Color(0xFF1D4774),
                                                                                                     fontSize: 20.0,
                                                                                                     letterSpacing: 0.0,
                                                                                                     fontWeight: FontWeight.w800,
+                                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                   ),
                                                                                             ),
                                                                                           ),
@@ -1481,11 +1548,15 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                             child: Text(
                                                                                               '2',
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    fontFamily: 'Noto Sans Thai',
+                                                                                                    font: GoogleFonts.notoSansThai(
+                                                                                                      fontWeight: FontWeight.w800,
+                                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                    ),
                                                                                                     color: Color(0xFF1D4774),
                                                                                                     fontSize: 20.0,
                                                                                                     letterSpacing: 0.0,
                                                                                                     fontWeight: FontWeight.w800,
+                                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                   ),
                                                                                             ),
                                                                                           ),
@@ -1501,11 +1572,15 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                             child: Text(
                                                                                               '3',
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    fontFamily: 'Noto Sans Thai',
+                                                                                                    font: GoogleFonts.notoSansThai(
+                                                                                                      fontWeight: FontWeight.w800,
+                                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                    ),
                                                                                                     color: Color(0xFF1D4774),
                                                                                                     fontSize: 20.0,
                                                                                                     letterSpacing: 0.0,
                                                                                                     fontWeight: FontWeight.w800,
+                                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                   ),
                                                                                             ),
                                                                                           ),
@@ -1521,11 +1596,15 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                             child: Text(
                                                                                               '4',
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    fontFamily: 'Noto Sans Thai',
+                                                                                                    font: GoogleFonts.notoSansThai(
+                                                                                                      fontWeight: FontWeight.w800,
+                                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                    ),
                                                                                                     color: Color(0xFF1D4774),
                                                                                                     fontSize: 20.0,
                                                                                                     letterSpacing: 0.0,
                                                                                                     fontWeight: FontWeight.w800,
+                                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                   ),
                                                                                             ),
                                                                                           ),
@@ -1541,11 +1620,15 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                             child: Text(
                                                                                               '5',
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    fontFamily: 'Noto Sans Thai',
+                                                                                                    font: GoogleFonts.notoSansThai(
+                                                                                                      fontWeight: FontWeight.w800,
+                                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                    ),
                                                                                                     color: Color(0xFF1D4774),
                                                                                                     fontSize: 20.0,
                                                                                                     letterSpacing: 0.0,
                                                                                                     fontWeight: FontWeight.w800,
+                                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                   ),
                                                                                             ),
                                                                                           ),
@@ -1561,11 +1644,15 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                             child: Text(
                                                                                               '6',
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    fontFamily: 'Noto Sans Thai',
+                                                                                                    font: GoogleFonts.notoSansThai(
+                                                                                                      fontWeight: FontWeight.w800,
+                                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                    ),
                                                                                                     color: Color(0xFF1D4774),
                                                                                                     fontSize: 20.0,
                                                                                                     letterSpacing: 0.0,
                                                                                                     fontWeight: FontWeight.w800,
+                                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                   ),
                                                                                             ),
                                                                                           ),
@@ -1581,11 +1668,15 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                             child: Text(
                                                                                               '7',
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    fontFamily: 'Noto Sans Thai',
+                                                                                                    font: GoogleFonts.notoSansThai(
+                                                                                                      fontWeight: FontWeight.w800,
+                                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                    ),
                                                                                                     color: Color(0xFF1D4774),
                                                                                                     fontSize: 20.0,
                                                                                                     letterSpacing: 0.0,
                                                                                                     fontWeight: FontWeight.w800,
+                                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                   ),
                                                                                             ),
                                                                                           ),
@@ -1601,11 +1692,15 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                             child: Text(
                                                                                               '8',
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    fontFamily: 'Noto Sans Thai',
+                                                                                                    font: GoogleFonts.notoSansThai(
+                                                                                                      fontWeight: FontWeight.w800,
+                                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                    ),
                                                                                                     color: Color(0xFF1D4774),
                                                                                                     fontSize: 20.0,
                                                                                                     letterSpacing: 0.0,
                                                                                                     fontWeight: FontWeight.w800,
+                                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                   ),
                                                                                             ),
                                                                                           ),
@@ -1621,11 +1716,15 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                             child: Text(
                                                                                               '9',
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    fontFamily: 'Noto Sans Thai',
+                                                                                                    font: GoogleFonts.notoSansThai(
+                                                                                                      fontWeight: FontWeight.w800,
+                                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                    ),
                                                                                                     color: Color(0xFF1D4774),
                                                                                                     fontSize: 20.0,
                                                                                                     letterSpacing: 0.0,
                                                                                                     fontWeight: FontWeight.w800,
+                                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                   ),
                                                                                             ),
                                                                                           ),
@@ -1648,9 +1747,14 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                             child: Text(
                                                                                               '0',
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    fontFamily: 'Noto Sans Thai',
+                                                                                                    font: GoogleFonts.notoSansThai(
+                                                                                                      fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                    ),
                                                                                                     fontSize: 20.0,
                                                                                                     letterSpacing: 0.0,
+                                                                                                    fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                   ),
                                                                                             ),
                                                                                           ),
@@ -1678,10 +1782,15 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                     child: Text(
                                                                                       'ลืมรหัสผ่าน?',
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                            fontFamily: 'Noto Sans Thai',
+                                                                                            font: GoogleFonts.notoSansThai(
+                                                                                              fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                            ),
                                                                                             color: Color(0xFFDF8633),
                                                                                             fontSize: 15.0,
                                                                                             letterSpacing: 0.0,
+                                                                                            fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                            fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                             decoration: TextDecoration.underline,
                                                                                           ),
                                                                                     ),

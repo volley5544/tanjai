@@ -56,11 +56,17 @@ class _SliderBarComponentWidgetState extends State<SliderBarComponentWidget> {
               Text(
                 'เลือกราคาเบี้ยประกันต่ำสุด - สูงสุด',
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Noto Sans Thai',
+                      font: GoogleFonts.notoSansThai(
+                        fontWeight: FontWeight.w500,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                      ),
                       color: Color(0xFF424242),
                       fontSize: 15.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.w500,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                     ),
               ),
             ],

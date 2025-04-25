@@ -11461,9 +11461,11 @@ class SaveInsurerAPICall {
     String? leadId = '',
     String? type = '',
     String? flgAct = '',
+    String? sumInsured = '',
   }) async {
     final ffApiRequestBody = '''
 {
+"sum_insured":"${sumInsured}",
   "flg_act": "${flgAct}",
   "insurer_short_name": "${insurerShortName}",
   "net_premium": "${netPremium}",
@@ -14836,6 +14838,10 @@ class IbsApplicationsDetailCall {
         response,
         r'''$.results.data.payments[:].amount''',
       ));
+  static String? worktype(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.results.data.app_detail[:].work_type''',
+      ));
 }
 
 class IbsApplicationsPaymentSaveCall {
@@ -15682,9 +15688,11 @@ class IbsCalculateInstallmentCall {
     String? actFlg = '',
     String? insurerCode2 = '',
     String? coverTypeCode = '',
+    String? workType = '',
   }) async {
     final ffApiRequestBody = '''
 {
+"work_type":"${workType}",
 "act_flg":"${actFlg}",
  "insurer_code2":"${insurerCode2}",
     "cover_type_code":"${coverTypeCode}",

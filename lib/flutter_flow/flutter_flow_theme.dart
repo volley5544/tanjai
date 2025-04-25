@@ -6,11 +6,13 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 const kThemeModeKey = '__theme_mode__';
+
 SharedPreferences? _prefs;
 
 abstract class FlutterFlowTheme {
   static Future initialize() async =>
       _prefs = await SharedPreferences.getInstance();
+
   static ThemeMode get themeMode {
     final darkMode = _prefs?.getBool(kThemeModeKey);
     return darkMode == null
@@ -202,103 +204,87 @@ class ThemeTypography extends Typography {
   final FlutterFlowTheme theme;
 
   String get displayLargeFamily => 'Noto Sans Thai';
-  TextStyle get displayLarge => GoogleFonts.getFont(
-        'Noto Sans Thai',
+  TextStyle get displayLarge => GoogleFonts.notoSansThai(
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 57.0,
       );
   String get displayMediumFamily => 'Noto Sans Thai';
-  TextStyle get displayMedium => GoogleFonts.getFont(
-        'Noto Sans Thai',
+  TextStyle get displayMedium => GoogleFonts.notoSansThai(
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 45.0,
       );
   String get displaySmallFamily => 'Noto Sans Thai';
-  TextStyle get displaySmall => GoogleFonts.getFont(
-        'Noto Sans Thai',
+  TextStyle get displaySmall => GoogleFonts.notoSansThai(
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 24.0,
       );
   String get headlineLargeFamily => 'Noto Sans Thai';
-  TextStyle get headlineLarge => GoogleFonts.getFont(
-        'Noto Sans Thai',
+  TextStyle get headlineLarge => GoogleFonts.notoSansThai(
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 32.0,
       );
   String get headlineMediumFamily => 'Noto Sans Thai';
-  TextStyle get headlineMedium => GoogleFonts.getFont(
-        'Noto Sans Thai',
+  TextStyle get headlineMedium => GoogleFonts.notoSansThai(
         color: theme.secondaryText,
         fontWeight: FontWeight.w600,
         fontSize: 22.0,
       );
   String get headlineSmallFamily => 'Noto Sans Thai';
-  TextStyle get headlineSmall => GoogleFonts.getFont(
-        'Noto Sans Thai',
+  TextStyle get headlineSmall => GoogleFonts.notoSansThai(
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 20.0,
       );
   String get titleLargeFamily => 'Noto Sans Thai';
-  TextStyle get titleLarge => GoogleFonts.getFont(
-        'Noto Sans Thai',
+  TextStyle get titleLarge => GoogleFonts.notoSansThai(
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 22.0,
       );
   String get titleMediumFamily => 'Noto Sans Thai';
-  TextStyle get titleMedium => GoogleFonts.getFont(
-        'Noto Sans Thai',
+  TextStyle get titleMedium => GoogleFonts.notoSansThai(
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 18.0,
       );
   String get titleSmallFamily => 'Noto Sans Thai';
-  TextStyle get titleSmall => GoogleFonts.getFont(
-        'Noto Sans Thai',
+  TextStyle get titleSmall => GoogleFonts.notoSansThai(
         color: theme.secondaryText,
         fontWeight: FontWeight.w600,
         fontSize: 16.0,
       );
   String get labelLargeFamily => 'Noto Sans Thai';
-  TextStyle get labelLarge => GoogleFonts.getFont(
-        'Noto Sans Thai',
+  TextStyle get labelLarge => GoogleFonts.notoSansThai(
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 14.0,
       );
   String get labelMediumFamily => 'Noto Sans Thai';
-  TextStyle get labelMedium => GoogleFonts.getFont(
-        'Noto Sans Thai',
+  TextStyle get labelMedium => GoogleFonts.notoSansThai(
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 12.0,
       );
   String get labelSmallFamily => 'Noto Sans Thai';
-  TextStyle get labelSmall => GoogleFonts.getFont(
-        'Noto Sans Thai',
+  TextStyle get labelSmall => GoogleFonts.notoSansThai(
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 11.0,
       );
   String get bodyLargeFamily => '';
-  TextStyle get bodyLarge => GoogleFonts.getFont(
-        'Roboto',
-      );
+  TextStyle get bodyLarge => GoogleFonts.roboto();
   String get bodyMediumFamily => 'Noto Sans Thai';
-  TextStyle get bodyMedium => GoogleFonts.getFont(
-        'Noto Sans Thai',
+  TextStyle get bodyMedium => GoogleFonts.notoSansThai(
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 14.0,
       );
   String get bodySmallFamily => 'Noto Sans Thai';
-  TextStyle get bodySmall => GoogleFonts.getFont(
-        'Noto Sans Thai',
+  TextStyle get bodySmall => GoogleFonts.notoSansThai(
         color: theme.secondaryText,
         fontWeight: FontWeight.w600,
         fontSize: 14.0,
@@ -343,38 +329,45 @@ class DarkModeTheme extends FlutterFlowTheme {
 
 extension TextStyleHelper on TextStyle {
   TextStyle override({
+    TextStyle? font,
     String? fontFamily,
     Color? color,
     double? fontSize,
     FontWeight? fontWeight,
     double? letterSpacing,
     FontStyle? fontStyle,
-    bool useGoogleFonts = true,
+    bool useGoogleFonts = false,
     TextDecoration? decoration,
     double? lineHeight,
     List<Shadow>? shadows,
-  }) =>
-      useGoogleFonts
-          ? GoogleFonts.getFont(
-              fontFamily!,
-              color: color ?? this.color,
-              fontSize: fontSize ?? this.fontSize,
-              letterSpacing: letterSpacing ?? this.letterSpacing,
-              fontWeight: fontWeight ?? this.fontWeight,
-              fontStyle: fontStyle ?? this.fontStyle,
-              decoration: decoration,
-              height: lineHeight,
-              shadows: shadows,
-            )
-          : copyWith(
-              fontFamily: fontFamily,
-              color: color,
-              fontSize: fontSize,
-              letterSpacing: letterSpacing,
-              fontWeight: fontWeight,
-              fontStyle: fontStyle,
-              decoration: decoration,
-              height: lineHeight,
-              shadows: shadows,
-            );
+  }) {
+    if (useGoogleFonts && fontFamily != null) {
+      font = GoogleFonts.getFont(fontFamily,
+          fontWeight: fontWeight ?? this.fontWeight,
+          fontStyle: fontStyle ?? this.fontStyle);
+    }
+
+    return font != null
+        ? font.copyWith(
+            color: color ?? this.color,
+            fontSize: fontSize ?? this.fontSize,
+            letterSpacing: letterSpacing ?? this.letterSpacing,
+            fontWeight: fontWeight ?? this.fontWeight,
+            fontStyle: fontStyle ?? this.fontStyle,
+            decoration: decoration,
+            height: lineHeight,
+            shadows: shadows,
+          )
+        : copyWith(
+            fontFamily: fontFamily,
+            color: color,
+            fontSize: fontSize,
+            letterSpacing: letterSpacing,
+            fontWeight: fontWeight,
+            fontStyle: fontStyle,
+            decoration: decoration,
+            height: lineHeight,
+            shadows: shadows,
+          );
+  }
 }

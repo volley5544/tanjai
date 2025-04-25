@@ -220,8 +220,7 @@ class _NavBarPageState extends State<NavBarPage> {
                 Text(
                   'Home',
                   overflow: TextOverflow.ellipsis,
-                  style: GoogleFonts.getFont(
-                    'Noto Sans Thai',
+                  style: GoogleFonts.notoSansThai(
                     fontSize: 13.0,
                   ),
                 ),
@@ -240,8 +239,7 @@ class _NavBarPageState extends State<NavBarPage> {
                 Text(
                   'Profile',
                   overflow: TextOverflow.ellipsis,
-                  style: GoogleFonts.getFont(
-                    'Noto Sans Thai',
+                  style: GoogleFonts.notoSansThai(
                     fontSize: 13.0,
                   ),
                 ),
