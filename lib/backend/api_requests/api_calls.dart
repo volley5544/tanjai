@@ -10568,6 +10568,16 @@ class InsuranceRequestListAPICall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
+  static List? approveInstallment(dynamic response) => getJsonField(
+        response,
+        r'''$.results.info.approve_installment''',
+        true,
+      ) as List?;
+  static int? statusapproveinstallment(dynamic response) =>
+      castToType<int>(getJsonField(
+        response,
+        r'''$.results.counting.status_approve_installment''',
+      ));
 }
 
 class InsuranceRequestListAPIDashBoardCall {

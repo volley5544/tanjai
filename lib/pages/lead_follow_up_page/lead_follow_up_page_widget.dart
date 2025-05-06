@@ -1684,6 +1684,163 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                       ],
                     ),
                   ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 10.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.goNamed(
+                              MakeInsuranceListPageWidget.routeName,
+                              queryParameters: {
+                                'checkTotal': serializeParam(
+                                  InsuranceRequestListAPICall
+                                      .statusapproveinstallment(
+                                    (_model.getRequestList?.jsonBody ?? ''),
+                                  ),
+                                  ParamType.int,
+                                ),
+                                'list': serializeParam(
+                                  InsuranceRequestListAPICall
+                                      .approveInstallment(
+                                    (_model.getRequestList?.jsonBody ?? ''),
+                                  ),
+                                  ParamType.JSON,
+                                  isList: true,
+                                ),
+                                'checkPayment': serializeParam(
+                                  '0',
+                                  ParamType.String,
+                                ),
+                                'fromPage': serializeParam(
+                                  'FollowUpPage',
+                                  ParamType.String,
+                                ),
+                              }.withoutNulls,
+                            );
+                          },
+                          child: Container(
+                            width: MediaQuery.sizeOf(context).width * 0.4,
+                            decoration: BoxDecoration(
+                              color: Color(0xFFE1FF74),
+                              boxShadow: [
+                                BoxShadow(
+                                  blurRadius: 0.0,
+                                  color: FlutterFlowTheme.of(context).lineColor,
+                                  offset: Offset(
+                                    0.0,
+                                    1.0,
+                                  ),
+                                )
+                              ],
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Align(
+                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    child: Container(
+                                      width: 50.0,
+                                      height: 50.0,
+                                      decoration: BoxDecoration(
+                                        color: Color(0xFFF6FF55),
+                                        borderRadius:
+                                            BorderRadius.circular(60.0),
+                                        border: Border.all(
+                                          color: Colors.black,
+                                          width: 1.5,
+                                        ),
+                                      ),
+                                      child: Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
+                                        child: Icon(
+                                          Icons.schedule,
+                                          color: Color(0xFF204A77),
+                                          size: 30.0,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 10.0, 0.0, 0.0),
+                                    child: Text(
+                                      valueOrDefault<String>(
+                                        InsuranceRequestListAPICall
+                                            .statusapproveinstallment(
+                                          (_model.getRequestList?.jsonBody ??
+                                              ''),
+                                        )?.toString(),
+                                        '0',
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .titleMedium
+                                          .override(
+                                            font: GoogleFonts.notoSansThai(
+                                              fontWeight: FontWeight.w800,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleMedium
+                                                      .fontStyle,
+                                            ),
+                                            color: Color(0xFF204A77),
+                                            fontSize: 15.0,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.w800,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleMedium
+                                                    .fontStyle,
+                                          ),
+                                    ),
+                                  ),
+                                  Text(
+                                    'รอ ภาค/สาขา อนุมัติ',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          font: GoogleFonts.notoSansThai(
+                                            fontWeight: FontWeight.bold,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
+                                          color: Color(0xFF204A77),
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          width: MediaQuery.sizeOf(context).width * 0.4,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ].addToEnd(SizedBox(height: 50.0)),
               ),
             ),

@@ -1836,6 +1836,18 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                                 true))!
                                                         .tenorFirstDueDefault
                                                         .firstOrNull!;
+                                                FFAppState()
+                                                        .insuranceinfoPage4TenorDefault =
+                                                    FFAppState()
+                                                        .installmentDataTypeAppState
+                                                        .elementAtOrNull(functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true))!
+                                                        .tenorFirstDueDefault
+                                                        .firstOrNull!;
                                                 safeSetState(() {});
                                                 context.safePop();
                                                 return;
@@ -2058,6 +2070,10 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                                         ?.toList())
                                                                     ?.elementAtOrNull(
                                                                         dataListIndex));
+                                                              } else if (widget!
+                                                                      .titleText ==
+                                                                  'จำนวนงวดชำระล่วงหน้า') {
+                                                                return '${dataListItem}    ${int.parse(dataListItem) < int.parse('${FFAppState().insuranceinfoPage4TenorDefault}') ? '(รออนุมัติ)' : '(ไม่ต้องรออนุมัติ)'}';
                                                               } else {
                                                                 return (widget!
                                                                     .dataList

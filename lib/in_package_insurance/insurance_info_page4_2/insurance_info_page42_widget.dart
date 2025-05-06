@@ -652,20 +652,23 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                 .toList()
                 .cast<InstallmentDataTypeStruct>();
         safeSetState(() {});
-        if ((FFAppState().insuranceInfoPage4SelectTenor != null &&
-                FFAppState().insuranceInfoPage4SelectTenor != '') &&
-            (FFAppState().insuranceInfoPage4SelectTenor != '') &&
-            (FFAppState().insuranceInfoPage4SelectTenor != '')) {
-          FFAppState().insuranceInfoPage4TenorOverList = FFAppState()
-              .installmentDataTypeAppState
-              .elementAtOrNull(functions.getIndexOfSomethingList(
-                  FFAppState().InsuranceInfoPage4Tenor.toList(),
-                  FFAppState().insuranceInfoPage4SelectTenor))!
-              .tenorFirstDue
-              .toList()
-              .cast<String>();
-          safeSetState(() {});
-        }
+        FFAppState().insuranceInfoPage4TenorOverList = FFAppState()
+            .installmentDataTypeAppState
+            .elementAtOrNull(functions.getIndexOfSomethingList(
+                FFAppState().InsuranceInfoPage4Tenor.toList(),
+                FFAppState().insuranceInfoPage4SelectTenor))!
+            .tenorFirstDue
+            .toList()
+            .cast<String>();
+        safeSetState(() {});
+        FFAppState().insuranceinfoPage4TenorDefault = FFAppState()
+            .installmentDataTypeAppState
+            .elementAtOrNull(functions.getIndexOfSomethingList(
+                FFAppState().InsuranceInfoPage4Tenor.toList(),
+                FFAppState().insuranceInfoPage4SelectTenor))!
+            .tenorFirstDueDefault
+            .firstOrNull!;
+        safeSetState(() {});
         safeSetState(() {
           _model.paymentTypeTextController?.text =
               FFAppState().insuranceInfoPage4PaymentType;
@@ -2755,8 +2758,8 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                           .insuranceInfo4pageStatus !=
                                                       'เตรียมข้อมูล') &&
                                                   (FFAppState()
-                                                          .insuranceInfo4pagePaymentStatus !=
-                                                      'ชำระแล้ว'))
+                                                          .insuranceInfo4pagePaymentStatus ==
+                                                      'รอชำระเงิน'))
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
@@ -3103,38 +3106,44 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
-                                            context.pushNamed(
-                                              SearchableListPageWidget
-                                                  .routeName,
-                                              queryParameters: {
-                                                'titleText': serializeParam(
-                                                  'จำนวนงวด',
-                                                  ParamType.String,
-                                                ),
-                                                'searchLabel': serializeParam(
-                                                  'เลือกงวดชำระ',
-                                                  ParamType.String,
-                                                ),
-                                                'dataList': serializeParam(
-                                                  FFAppState()
-                                                      .InsuranceInfoPage4Tenor,
-                                                  ParamType.String,
-                                                  isList: true,
-                                                ),
-                                                'multiSelect': serializeParam(
-                                                  false,
-                                                  ParamType.bool,
-                                                ),
-                                                'maxSelected': serializeParam(
-                                                  0,
-                                                  ParamType.int,
-                                                ),
-                                              }.withoutNulls,
-                                            );
+                                            if (FFAppState()
+                                                    .insuranceInfo4pageStatus !=
+                                                'รออนุมัติค่างวดล่วงหน้า') {
+                                              context.pushNamed(
+                                                SearchableListPageWidget
+                                                    .routeName,
+                                                queryParameters: {
+                                                  'titleText': serializeParam(
+                                                    'จำนวนงวด',
+                                                    ParamType.String,
+                                                  ),
+                                                  'searchLabel': serializeParam(
+                                                    'เลือกงวดชำระ',
+                                                    ParamType.String,
+                                                  ),
+                                                  'dataList': serializeParam(
+                                                    FFAppState()
+                                                        .InsuranceInfoPage4Tenor,
+                                                    ParamType.String,
+                                                    isList: true,
+                                                  ),
+                                                  'multiSelect': serializeParam(
+                                                    false,
+                                                    ParamType.bool,
+                                                  ),
+                                                  'maxSelected': serializeParam(
+                                                    0,
+                                                    ParamType.int,
+                                                  ),
+                                                }.withoutNulls,
+                                              );
 
-                                            await actions.hideKeyboardAction(
-                                              context,
-                                            );
+                                              await actions.hideKeyboardAction(
+                                                context,
+                                              );
+                                            } else {
+                                              return;
+                                            }
                                           },
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
@@ -3338,38 +3347,44 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
-                                            context.pushNamed(
-                                              SearchableListPageWidget
-                                                  .routeName,
-                                              queryParameters: {
-                                                'titleText': serializeParam(
-                                                  'จำนวนงวดชำระล่วงหน้า',
-                                                  ParamType.String,
-                                                ),
-                                                'searchLabel': serializeParam(
-                                                  'เลือกงวดชำระล่วงหน้า',
-                                                  ParamType.String,
-                                                ),
-                                                'dataList': serializeParam(
-                                                  FFAppState()
-                                                      .insuranceInfoPage4TenorOverList,
-                                                  ParamType.String,
-                                                  isList: true,
-                                                ),
-                                                'multiSelect': serializeParam(
-                                                  false,
-                                                  ParamType.bool,
-                                                ),
-                                                'maxSelected': serializeParam(
-                                                  0,
-                                                  ParamType.int,
-                                                ),
-                                              }.withoutNulls,
-                                            );
+                                            if (FFAppState()
+                                                    .insuranceInfo4pageStatus !=
+                                                'รออนุมัติค่างวดล่วงหน้า') {
+                                              context.pushNamed(
+                                                SearchableListPageWidget
+                                                    .routeName,
+                                                queryParameters: {
+                                                  'titleText': serializeParam(
+                                                    'จำนวนงวดชำระล่วงหน้า',
+                                                    ParamType.String,
+                                                  ),
+                                                  'searchLabel': serializeParam(
+                                                    'เลือกงวดชำระล่วงหน้า',
+                                                    ParamType.String,
+                                                  ),
+                                                  'dataList': serializeParam(
+                                                    FFAppState()
+                                                        .insuranceInfoPage4TenorOverList,
+                                                    ParamType.String,
+                                                    isList: true,
+                                                  ),
+                                                  'multiSelect': serializeParam(
+                                                    false,
+                                                    ParamType.bool,
+                                                  ),
+                                                  'maxSelected': serializeParam(
+                                                    0,
+                                                    ParamType.int,
+                                                  ),
+                                                }.withoutNulls,
+                                              );
 
-                                            await actions.hideKeyboardAction(
-                                              context,
-                                            );
+                                              await actions.hideKeyboardAction(
+                                                context,
+                                              );
+                                            } else {
+                                              return;
+                                            }
                                           },
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
@@ -3828,8 +3843,8 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                             .insuranceInfo4pageStatus !=
                                                         'เตรียมข้อมูล') &&
                                                     (FFAppState()
-                                                            .insuranceInfo4pagePaymentStatus !=
-                                                        'ชำระแล้ว'))
+                                                            .insuranceInfo4pagePaymentStatus ==
+                                                        'รอชำระเงิน'))
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
@@ -4331,9 +4346,12 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.center,
                                                 children: [
-                                                  if (FFAppState()
-                                                          .insuranceInfo4pagePaymentStatus ==
-                                                      'รอชำระเงิน')
+                                                  if ((FFAppState()
+                                                              .insuranceInfo4pagePaymentStatus !=
+                                                          'ชำระแล้ว') &&
+                                                      (FFAppState()
+                                                              .insuranceInfo4pageStatus !=
+                                                          'รออนุมัติค่างวดล่วงหน้า'))
                                                     Expanded(
                                                       child: Padding(
                                                         padding:
@@ -4415,6 +4433,47 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                                   safeSetState(
                                                                       () {});
                                                                 return;
+                                                              }
+                                                              if (FFAppState()
+                                                                      .profileLevel ==
+                                                                  'ภาค') {
+                                                                if (int.parse(
+                                                                        FFAppState()
+                                                                            .insuranceInfoPage4TenorOverSelect) <
+                                                                    int.parse(
+                                                                        '${FFAppState().insuranceinfoPage4TenorDefault}')) {
+                                                                  var confirmDialogResponse =
+                                                                      await showDialog<
+                                                                              bool>(
+                                                                            context:
+                                                                                context,
+                                                                            builder:
+                                                                                (alertDialogContext) {
+                                                                              return WebViewAware(
+                                                                                child: AlertDialog(
+                                                                                  content: Text('จำนวนงวดจ่ายล่วงหน้าที่คุณเลือก น้อยกว่าจำนวนงวดล่วงหน้าปกติ คุณต้องการยืนยันหรือไม่?'),
+                                                                                  actions: [
+                                                                                    TextButton(
+                                                                                      onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                      child: Text('ยกเลิก'),
+                                                                                    ),
+                                                                                    TextButton(
+                                                                                      onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                      child: Text('ยืนยัน'),
+                                                                                    ),
+                                                                                  ],
+                                                                                ),
+                                                                              );
+                                                                            },
+                                                                          ) ??
+                                                                          false;
+                                                                  if (!confirmDialogResponse) {
+                                                                    if (_shouldSetState)
+                                                                      safeSetState(
+                                                                          () {});
+                                                                    return;
+                                                                  }
+                                                                }
                                                               }
                                                             }
                                                             var confirmDialogResponse =
@@ -4598,7 +4657,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                                     child:
                                                                         AlertDialog(
                                                                       content: Text(
-                                                                          'คุณชำระเงินเรียบร้อยแล้ว กรุณากดปุ่มรีเฟรชเพื่อทำรายการต่อ'),
+                                                                          'พบข้อผิดพลาด connection (${(_model.paymentAPIOutpu?.statusCode ?? 200).toString()})'),
                                                                       actions: [
                                                                         TextButton(
                                                                           onPressed: () =>

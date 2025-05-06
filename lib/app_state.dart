@@ -14267,6 +14267,12 @@ class FFAppState extends ChangeNotifier {
   set InsuranceInfoWorkType(String value) {
     _InsuranceInfoWorkType = value;
   }
+
+  String _insuranceinfoPage4TenorDefault = '';
+  String get insuranceinfoPage4TenorDefault => _insuranceinfoPage4TenorDefault;
+  set insuranceinfoPage4TenorDefault(String value) {
+    _insuranceinfoPage4TenorDefault = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {
