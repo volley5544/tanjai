@@ -231,6 +231,35 @@ class _NotificationIBSWidgetState extends State<NotificationIBSWidget> {
 
                               return;
                             }
+                            if (listViewNotificationRecord.notiType ==
+                                'installment_request') {
+                              await actions.openInappBrowser(
+                                'https://land-and-house-web-aujw3o-uat.flutterflow.app/approveInsurancePage?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9wcmQtcHJveHkuc3dwZmluLmNvbTo4MDg5XC9hcGlcL2xvZ2luIiwiaWF0IjoxNzQzMDQxNTA2LCJuYmYiOjE3NDMwNDE1MDYsImp0aSI6IkoySXFBMkR6M1JsR2lYM3ciLCJzdWIiOjE3NTc1LCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.ShUMyOOU1tPvm4lIp3UZTwWt_Wa_NQmDweBQeHzNoMU',
+                              );
+                              return;
+                            }
+                            if (listViewNotificationRecord.notiType ==
+                                'installment_approve') {
+                              context.pushNamed(
+                                FireInsuranceInfoPage42Widget.routeName,
+                                queryParameters: {
+                                  'quotationId': serializeParam(
+                                    functions.getFieldFromJson(
+                                        listViewNotificationRecord.notiData,
+                                        'quotation_id'),
+                                    ParamType.String,
+                                  ),
+                                  'leadDetailId': serializeParam(
+                                    int.parse((functions.getFieldFromJson(
+                                        listViewNotificationRecord.notiData,
+                                        'lead_id')!)),
+                                    ParamType.int,
+                                  ),
+                                }.withoutNulls,
+                              );
+
+                              return;
+                            }
                           },
                           child: Column(
                             mainAxisSize: MainAxisSize.max,

@@ -29,23 +29,35 @@ Future openInappBrowser(String? url) async {
     WidgetsFlutterBinding.ensureInitialized();
 
     final MyInAppBrowser browser = new MyInAppBrowser();
-    await AndroidInAppWebViewController.setWebContentsDebuggingEnabled(true);
+    // await AndroidInAppWebViewController.setWebContentsDebuggingEnabled(true);
 
-    var options = InAppBrowserClassOptions(
-        crossPlatform: InAppBrowserOptions(
-          hideUrlBar: true,
-          hideToolbarTop: true,
-        ),
-        inAppWebViewGroupOptions: InAppWebViewGroupOptions(
-          crossPlatform: InAppWebViewOptions(
-              javaScriptEnabled: true,
-              javaScriptCanOpenWindowsAutomatically: true),
-        ));
+    var options = InAppBrowserClassSettings(
+      browserSettings: inAppBrowserSettings(
+        hideUrlBar: true,
+        hideToolbarTop: true,
+        toolbarTopBackgroundColor: Colors.black,
+      ),
+      webViewSettings: inappWebview.InAppWebViewSettings(
+        cacheEnabled: false,
+        javaScriptEnabled: true,
+        allowFileAccessFromFileURLs: true,
+        allowUniversalAccessFromFileURLs: true,
+        javaScriptCanOpenWindowsAutomatically: true,
+        useOnDownloadStart: true,
+        useShouldOverrideUrlLoading: true,
+        mediaPlaybackRequiresUserGesture: false,
+        clearCache: true,
+        useHybridComposition: true,
+        clearSessionCache: true,
+        cacheMode: inappWebview.CacheMode.LOAD_NO_CACHE,
+        allowsInlineMediaPlayback: true,
+      ),
+    );
 
     await browser.openUrlRequest(
         urlRequest: URLRequest(
-            url: Uri.parse(encodedUrl)), // method: 'GET', headers: headers),
-        options: options);
+            url: WebUri(encodedUrl)), // method: 'GET', headers: headers),
+        settings: options);
 
     // use here
     // final ChromeSafariBrowser browser = ChromeSafariBrowser();

@@ -29,22 +29,38 @@ Future openTableauBrowserCopy2(String? tableauURL) async {
     WidgetsFlutterBinding.ensureInitialized();
 
     final MyInAppBrowser browser = new MyInAppBrowser();
-    await inappWebview.AndroidInAppWebViewController
-        .setWebContentsDebuggingEnabled(true);
+    // await inappWebview.AndroidInAppWebViewController
+    //.setWebContentsDebuggingEnabled(true);
 
-    var options = inappWebview.InAppBrowserClassOptions(
-        crossPlatform: inappWebview.InAppBrowserOptions(
-          hideUrlBar: true,
-          hideToolbarTop: true,
-        ),
-        inAppWebViewGroupOptions: inappWebview.InAppWebViewGroupOptions(
-            crossPlatform:
-                inappWebview.InAppWebViewOptions(javaScriptEnabled: true)));
+    var options = inappWebview.InAppBrowserClassSettings(
+      browserSettings: inappWebview.InAppBrowserSettings(
+        hideUrlBar: true,
+        hideToolbarTop: true,
+        toolbarTopBackgroundColor: Colors.black,
+      ),
+      webViewSettings: inappWebview.InAppWebViewSettings(
+        cacheEnabled: false,
+        javaScriptEnabled: true,
+        allowFileAccessFromFileURLs: true,
+        allowUniversalAccessFromFileURLs: true,
+        javaScriptCanOpenWindowsAutomatically: true,
+        useOnDownloadStart: true,
+        useShouldOverrideUrlLoading: true,
+        mediaPlaybackRequiresUserGesture: false,
+        clearCache: true,
+        useHybridComposition: true,
+        clearSessionCache: true,
+        cacheMode: inappWebview.CacheMode.LOAD_NO_CACHE,
+        allowsInlineMediaPlayback: true,
+      ),
+    );
 
     await browser.openUrlRequest(
         urlRequest: inappWebview.URLRequest(
-            url: Uri.parse(encodedUrl), method: 'GET', headers: headers),
-        options: options);
+            url: inappWebview.WebUri(encodedUrl),
+            method: 'GET',
+            headers: headers),
+        settings: options);
 
     // use here
     // final ChromeSafariBrowser browser = ChromeSafariBrowser();

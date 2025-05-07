@@ -220,3 +220,5 @@ export '/fire_insurance/fire_quotation_copy/fire_quotation_copy_widget.dart'
     show FireQuotationCopyWidget;
 export '/fire_insurance/fire_inpackage_folder/upload_img_fire_insurer_page/upload_img_fire_insurer_page_widget.dart'
     show UploadImgFireInsurerPageWidget;
+export '/webview_new_page/webview_new_page_widget.dart'
+    show WebviewNewPageWidget;

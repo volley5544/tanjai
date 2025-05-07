@@ -5440,3 +5440,12 @@ List<BenefitorModelStruct>? returnBenefitorModelList(
 
   return outputList;
 }
+
+String? getFieldFromJson(
+  String? jsonString,
+  String? fieldName,
+) {
+  Map<String, dynamic> data = jsonDecode(jsonString!);
+
+  return (data[fieldName!]);
+}

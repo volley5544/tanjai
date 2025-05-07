@@ -3844,7 +3844,13 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                         'เตรียมข้อมูล') &&
                                                     (FFAppState()
                                                             .insuranceInfo4pagePaymentStatus ==
-                                                        'รอชำระเงิน'))
+                                                        'รอชำระเงิน') &&
+                                                    (FFAppState()
+                                                            .insuranceInfo4pageStatus !=
+                                                        'รออนุมัติค่างวดล่วงหน้า') &&
+                                                    (FFAppState()
+                                                            .insuranceInfo4pageStatus !=
+                                                        'รอสาขายืนยันลูกค้า'))
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional

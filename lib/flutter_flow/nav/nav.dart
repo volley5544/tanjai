@@ -2514,6 +2514,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   ParamType.String,
                 ),
               ),
+            ),
+            FFRoute(
+              name: WebviewNewPageWidget.routeName,
+              path: WebviewNewPageWidget.routePath,
+              builder: (context, params) => WebviewNewPageWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
