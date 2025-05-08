@@ -32,12 +32,12 @@ Future openInappBrowser(String? url) async {
     // await AndroidInAppWebViewController.setWebContentsDebuggingEnabled(true);
 
     var options = InAppBrowserClassSettings(
-      browserSettings: inAppBrowserSettings(
+      browserSettings: InAppBrowserSettings(
         hideUrlBar: true,
         hideToolbarTop: true,
         toolbarTopBackgroundColor: Colors.black,
       ),
-      webViewSettings: inappWebview.InAppWebViewSettings(
+      webViewSettings: InAppWebViewSettings(
         cacheEnabled: false,
         javaScriptEnabled: true,
         allowFileAccessFromFileURLs: true,
@@ -49,7 +49,7 @@ Future openInappBrowser(String? url) async {
         clearCache: true,
         useHybridComposition: true,
         clearSessionCache: true,
-        cacheMode: inappWebview.CacheMode.LOAD_NO_CACHE,
+        cacheMode: CacheMode.LOAD_NO_CACHE,
         allowsInlineMediaPlayback: true,
       ),
     );

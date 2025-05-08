@@ -1729,7 +1729,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                           child: Container(
                             width: MediaQuery.sizeOf(context).width * 0.4,
                             decoration: BoxDecoration(
-                              color: Color(0xFFE1FF74),
+                              color: Color(0xFFE9FFEA),
                               boxShadow: [
                                 BoxShadow(
                                   blurRadius: 0.0,
@@ -1753,7 +1753,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                       width: 50.0,
                                       height: 50.0,
                                       decoration: BoxDecoration(
-                                        color: Color(0xFFF6FF55),
+                                        color: Color(0xFFE9FFEA),
                                         borderRadius:
                                             BorderRadius.circular(60.0),
                                         border: Border.all(

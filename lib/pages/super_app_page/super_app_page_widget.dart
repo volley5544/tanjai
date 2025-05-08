@@ -3631,9 +3631,18 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                             .transparent,
                                                                     onTap:
                                                                         () async {
-                                                                      await actions
-                                                                          .openInappBrowser(
-                                                                        'https://land-and-house-web-aujw3o-uat.flutterflow.app/approveInsurancePage?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9wcmQtcHJveHkuc3dwZmluLmNvbTo4MDg5XC9hcGlcL2xvZ2luIiwiaWF0IjoxNzQzMDQxNTA2LCJuYmYiOjE3NDMwNDE1MDYsImp0aSI6IkoySXFBMkR6M1JsR2lYM3ciLCJzdWIiOjE3NTc1LCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.ShUMyOOU1tPvm4lIp3UZTwWt_Wa_NQmDweBQeHzNoMU',
+                                                                      context
+                                                                          .goNamed(
+                                                                        WebviewNewPageWidget
+                                                                            .routeName,
+                                                                        queryParameters:
+                                                                            {
+                                                                          'webUrl':
+                                                                              serializeParam(
+                                                                            'https://land-and-house-web-aujw3o-uat.flutterflow.app/approveInsurancePage',
+                                                                            ParamType.String,
+                                                                          ),
+                                                                        }.withoutNulls,
                                                                       );
                                                                     },
                                                                     child:

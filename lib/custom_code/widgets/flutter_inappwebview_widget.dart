@@ -66,6 +66,8 @@ class FlutterInappwebviewWidgetState extends State<FlutterInappwebviewWidget> {
                     mediaPlaybackRequiresUserGesture: false,
                     useShouldOverrideUrlLoading: true,
                     clearCache: true,
+                    cacheEnabled: false,
+                    cacheMode: CacheMode.LOAD_NO_CACHE,
                     javaScriptEnabled: true,
                     javaScriptCanOpenWindowsAutomatically: true
                     //debuggingEnabled: true,

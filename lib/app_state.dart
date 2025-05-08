@@ -14273,6 +14273,20 @@ class FFAppState extends ChangeNotifier {
   set insuranceinfoPage4TenorDefault(String value) {
     _insuranceinfoPage4TenorDefault = value;
   }
+
+  bool _insurancePage4CheckSavePaymentBtn = false;
+  bool get insurancePage4CheckSavePaymentBtn =>
+      _insurancePage4CheckSavePaymentBtn;
+  set insurancePage4CheckSavePaymentBtn(bool value) {
+    _insurancePage4CheckSavePaymentBtn = value;
+  }
+
+  String _insurancePageTenorFirstDueFromAPI = '';
+  String get insurancePageTenorFirstDueFromAPI =>
+      _insurancePageTenorFirstDueFromAPI;
+  set insurancePageTenorFirstDueFromAPI(String value) {
+    _insurancePageTenorFirstDueFromAPI = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

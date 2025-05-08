@@ -737,7 +737,11 @@ final parametersBuilderMap =
           'fromPage': getParameter<String>(data, 'fromPage'),
         },
       ),
-  'WebviewNewPage': ParameterData.none(),
+  'WebviewNewPage': (data) async => ParameterData(
+        allParams: {
+          'webUrl': getParameter<String>(data, 'webUrl'),
+        },
+      ),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

@@ -456,6 +456,11 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
             '${IbsApplicationsDetailCall.tenorfirstdue(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
         )}';
+        FFAppState().insurancePageTenorFirstDueFromAPI =
+            '${IbsApplicationsDetailCall.tenorfirstdue(
+          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+        )}';
+        FFAppState().insurancePage4CheckSavePaymentBtn = true;
         safeSetState(() {});
       } else {
         FFAppState().insuranceInfoPage4PaymentType =
@@ -526,6 +531,11 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
             '${IbsApplicationsDetailCall.tenorfirstdue(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
         )}';
+        FFAppState().insurancePageTenorFirstDueFromAPI =
+            '${IbsApplicationsDetailCall.tenorfirstdue(
+          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+        )}';
+        FFAppState().insurancePage4CheckSavePaymentBtn = true;
         safeSetState(() {});
       }
 
@@ -906,6 +916,15 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                       IbsApplicationsDetailCall.quotationstatus(
                     (_model.ibsDetailAPIOutputCopy?.jsonBody ?? ''),
                   )!;
+                  FFAppState().insuranceInfoPage4TenorOverSelect =
+                      IbsApplicationsDetailCall.tenorfirstdue(
+                    (_model.ibsDetailAPIOutputCopy?.jsonBody ?? ''),
+                  )!;
+                  FFAppState().insurancePageTenorFirstDueFromAPI =
+                      IbsApplicationsDetailCall.tenorfirstdue(
+                    (_model.ibsDetailAPIOutputCopy?.jsonBody ?? ''),
+                  )!;
+                  FFAppState().insurancePage4CheckSavePaymentBtn = true;
                   safeSetState(() {});
                   Navigator.pop(context);
                 },
@@ -1730,6 +1749,13 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                     FFAppState()
                                                             .insuranceInfo4pageStatus =
                                                         '${IbsApplicationsDetailCall.quotationstatus(
+                                                      (_model.ibsDetailAPIOutputCopyRefresh
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )}';
+                                                    FFAppState()
+                                                            .insuranceInfoPage4TenorOverSelect =
+                                                        '${IbsApplicationsDetailCall.tenorfirstdue(
                                                       (_model.ibsDetailAPIOutputCopyRefresh
                                                               ?.jsonBody ??
                                                           ''),
@@ -3850,7 +3876,9 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                         'รออนุมัติค่างวดล่วงหน้า') &&
                                                     (FFAppState()
                                                             .insuranceInfo4pageStatus !=
-                                                        'รอสาขายืนยันลูกค้า'))
+                                                        'รอสาขายืนยันลูกค้า') &&
+                                                    FFAppState()
+                                                        .insurancePage4CheckSavePaymentBtn)
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
@@ -4855,6 +4883,17 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                             FFAppState()
                                                                     .insuranceInfo4pagePaymentStatus =
                                                                 '${IbsApplicationsDetailCall.paymentstatus(
+                                                              (_model.ibsDetailAPIOutputSavebtn
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                            )}';
+                                                            safeSetState(() {});
+                                                            FFAppState()
+                                                                    .insurancePage4CheckSavePaymentBtn =
+                                                                true;
+                                                            FFAppState()
+                                                                    .insurancePageTenorFirstDueFromAPI =
+                                                                '${IbsApplicationsDetailCall.tenorfirstdue(
                                                               (_model.ibsDetailAPIOutputSavebtn
                                                                       ?.jsonBody ??
                                                                   ''),

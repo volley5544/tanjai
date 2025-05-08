@@ -66,6 +66,16 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
           .toList()
           .cast<bool>();
       safeSetState(() {});
+      if (widget!.titleText == 'จำนวนงวดชำระล่วงหน้า') {
+        FFAppState().updateSearchableListComponentSelectedListAtIndex(
+          functions.getIndexOfSomethingList(widget!.dataList?.toList(),
+              FFAppState().insuranceInfoPage4TenorOverSelect),
+          (_) => true,
+        );
+        safeSetState(() {});
+      } else {
+        return;
+      }
     });
 
     _model.textController ??= TextEditingController();
@@ -2013,6 +2023,14 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                                     .toList(),
                                                                 true))!;
                                                 safeSetState(() {});
+                                                FFAppState()
+                                                        .insurancePage4CheckSavePaymentBtn =
+                                                    FFAppState().insuranceInfoPage4TenorOverSelect ==
+                                                            FFAppState()
+                                                                .insurancePageTenorFirstDueFromAPI
+                                                        ? true
+                                                        : false;
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -2073,7 +2091,7 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                               } else if (widget!
                                                                       .titleText ==
                                                                   'จำนวนงวดชำระล่วงหน้า') {
-                                                                return '${dataListItem}    ${int.parse(dataListItem) < int.parse('${FFAppState().insuranceinfoPage4TenorDefault}') ? '(รออนุมัติ)' : '(ไม่ต้องรออนุมัติ)'}';
+                                                                return '${dataListItem}   งวด   ${int.parse(dataListItem) < int.parse('${FFAppState().insuranceinfoPage4TenorDefault}') ? '(รออนุมัติ)' : '(ไม่ต้องรออนุมัติ)'}';
                                                               } else {
                                                                 return (widget!
                                                                     .dataList
