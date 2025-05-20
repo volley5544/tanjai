@@ -1859,6 +1859,16 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                         .tenorFirstDueDefault
                                                         .firstOrNull!;
                                                 safeSetState(() {});
+                                                FFAppState()
+                                                    .insurancePage4CheckSavePaymentBtn = (FFAppState()
+                                                                .insuranceInfoPage4SelectTenor ==
+                                                            '${FFAppState().insurancePage4TenorDueFromApi}') &&
+                                                        (FFAppState()
+                                                                .insuranceInfoPage4TenorOverSelect ==
+                                                            '${FFAppState().insurancePageTenorFirstDueFromAPI}')
+                                                    ? true
+                                                    : false;
+                                                safeSetState(() {});
                                                 context.safePop();
                                                 return;
                                               }
@@ -2024,12 +2034,14 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                                 true))!;
                                                 safeSetState(() {});
                                                 FFAppState()
-                                                        .insurancePage4CheckSavePaymentBtn =
-                                                    FFAppState().insuranceInfoPage4TenorOverSelect ==
-                                                            FFAppState()
-                                                                .insurancePageTenorFirstDueFromAPI
-                                                        ? true
-                                                        : false;
+                                                    .insurancePage4CheckSavePaymentBtn = (FFAppState()
+                                                                .insuranceInfoPage4SelectTenor ==
+                                                            '${FFAppState().insurancePage4TenorDueFromApi}') &&
+                                                        (FFAppState()
+                                                                .insuranceInfoPage4TenorOverSelect ==
+                                                            '${FFAppState().insurancePageTenorFirstDueFromAPI}')
+                                                    ? true
+                                                    : false;
                                                 safeSetState(() {});
                                                 context.safePop();
                                                 return;

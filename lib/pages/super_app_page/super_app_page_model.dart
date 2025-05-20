@@ -74,6 +74,10 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   bool? selectedInsuranceTypeFollowUpExpanded;
   // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
   UrlLinkStorageRecord? getCmiApiUrl;
+  // Stores action output result for [Backend Call - Read Document] action in Container widget.
+  UrlLinkStorageRecord? webViewUrlProd;
+  // Stores action output result for [Backend Call - Read Document] action in Container widget.
+  UrlLinkStorageRecord? webViewUrlDev;
   // Stores action output result for [Alert Dialog - Custom Dialog] action in Container widget.
   bool? selectedInsuranceTypeVmiCollapse;
   // Stores action output result for [Alert Dialog - Custom Dialog] action in Container widget.

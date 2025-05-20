@@ -3684,7 +3684,7 @@ class FFAppState extends ChangeNotifier {
     welfareKpiStatusTextColorList.insert(index, value);
   }
 
-  bool _isProduction = false;
+  bool _isProduction = true;
   bool get isProduction => _isProduction;
   set isProduction(bool value) {
     _isProduction = value;
@@ -14286,6 +14286,32 @@ class FFAppState extends ChangeNotifier {
       _insurancePageTenorFirstDueFromAPI;
   set insurancePageTenorFirstDueFromAPI(String value) {
     _insurancePageTenorFirstDueFromAPI = value;
+  }
+
+  String _insurancePage4TenorDueFromApi = '';
+  String get insurancePage4TenorDueFromApi => _insurancePage4TenorDueFromApi;
+  set insurancePage4TenorDueFromApi(String value) {
+    _insurancePage4TenorDueFromApi = value;
+  }
+
+  DocumentReference? _webviewApproveDocRef =
+      FirebaseFirestore.instance.doc('/urlLinkStorage/sOtA3zPVito9tBlHiMik');
+  DocumentReference? get webviewApproveDocRef => _webviewApproveDocRef;
+  set webviewApproveDocRef(DocumentReference? value) {
+    _webviewApproveDocRef = value;
+  }
+
+  DocumentReference? _webViewApproveDocRefDev =
+      FirebaseFirestore.instance.doc('/urlLinkStorage/VimhEpVcCllgfugEI1Gk');
+  DocumentReference? get webViewApproveDocRefDev => _webViewApproveDocRefDev;
+  set webViewApproveDocRefDev(DocumentReference? value) {
+    _webViewApproveDocRefDev = value;
+  }
+
+  String _webViewUrlAppState = '';
+  String get webViewUrlAppState => _webViewUrlAppState;
+  set webViewUrlAppState(String value) {
+    _webViewUrlAppState = value;
   }
 }
 

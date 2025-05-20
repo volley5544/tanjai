@@ -13,10 +13,12 @@ class AdminRoleMenuStruct extends FFFirebaseStruct {
     String? groupName,
     List<String>? employeeId,
     List<String>? visibleMenuName,
+    List<String>? level,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _groupName = groupName,
         _employeeId = employeeId,
         _visibleMenuName = visibleMenuName,
+        _level = level,
         super(firestoreUtilData);
 
   // "group_name" field.
@@ -48,11 +50,23 @@ class AdminRoleMenuStruct extends FFFirebaseStruct {
 
   bool hasVisibleMenuName() => _visibleMenuName != null;
 
+  // "level" field.
+  List<String>? _level;
+  List<String> get level => _level ?? const [];
+  set level(List<String>? val) => _level = val;
+
+  void updateLevel(Function(List<String>) updateFn) {
+    updateFn(_level ??= []);
+  }
+
+  bool hasLevel() => _level != null;
+
   static AdminRoleMenuStruct fromMap(Map<String, dynamic> data) =>
       AdminRoleMenuStruct(
         groupName: data['group_name'] as String?,
         employeeId: getDataList(data['employee_id']),
         visibleMenuName: getDataList(data['visible_menu_name']),
+        level: getDataList(data['level']),
       );
 
   static AdminRoleMenuStruct? maybeFromMap(dynamic data) => data is Map
@@ -63,6 +77,7 @@ class AdminRoleMenuStruct extends FFFirebaseStruct {
         'group_name': _groupName,
         'employee_id': _employeeId,
         'visible_menu_name': _visibleMenuName,
+        'level': _level,
       }.withoutNulls;
 
   @override
@@ -78,6 +93,11 @@ class AdminRoleMenuStruct extends FFFirebaseStruct {
         ),
         'visible_menu_name': serializeParam(
           _visibleMenuName,
+          ParamType.String,
+          isList: true,
+        ),
+        'level': serializeParam(
+          _level,
           ParamType.String,
           isList: true,
         ),
@@ -100,6 +120,11 @@ class AdminRoleMenuStruct extends FFFirebaseStruct {
           ParamType.String,
           true,
         ),
+        level: deserializeParam<String>(
+          data['level'],
+          ParamType.String,
+          true,
+        ),
       );
 
   @override
@@ -111,12 +136,13 @@ class AdminRoleMenuStruct extends FFFirebaseStruct {
     return other is AdminRoleMenuStruct &&
         groupName == other.groupName &&
         listEquality.equals(employeeId, other.employeeId) &&
-        listEquality.equals(visibleMenuName, other.visibleMenuName);
+        listEquality.equals(visibleMenuName, other.visibleMenuName) &&
+        listEquality.equals(level, other.level);
   }
 
   @override
-  int get hashCode =>
-      const ListEquality().hash([groupName, employeeId, visibleMenuName]);
+  int get hashCode => const ListEquality()
+      .hash([groupName, employeeId, visibleMenuName, level]);
 }
 
 AdminRoleMenuStruct createAdminRoleMenuStruct({

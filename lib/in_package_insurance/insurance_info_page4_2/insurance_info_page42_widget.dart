@@ -461,6 +461,10 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
         )}';
         FFAppState().insurancePage4CheckSavePaymentBtn = true;
+        FFAppState().insurancePage4TenorDueFromApi =
+            '${IbsApplicationsDetailCall.tenor(
+          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+        )}';
         safeSetState(() {});
       } else {
         FFAppState().insuranceInfoPage4PaymentType =
@@ -536,6 +540,10 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
         )}';
         FFAppState().insurancePage4CheckSavePaymentBtn = true;
+        FFAppState().insurancePage4TenorDueFromApi =
+            '${IbsApplicationsDetailCall.tenor(
+          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+        )}';
         safeSetState(() {});
       }
 
@@ -925,6 +933,10 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                     (_model.ibsDetailAPIOutputCopy?.jsonBody ?? ''),
                   )!;
                   FFAppState().insurancePage4CheckSavePaymentBtn = true;
+                  FFAppState().insurancePage4TenorDueFromApi =
+                      IbsApplicationsDetailCall.tenor(
+                    (_model.ibsDetailAPIOutputCopy?.jsonBody ?? ''),
+                  )!;
                   safeSetState(() {});
                   Navigator.pop(context);
                 },
@@ -1760,6 +1772,23 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                               ?.jsonBody ??
                                                           ''),
                                                     )}';
+                                                    FFAppState()
+                                                            .insurancePageTenorFirstDueFromAPI =
+                                                        '${IbsApplicationsDetailCall.tenorfirstdue(
+                                                      (_model.ibsDetailAPIOutputCopyRefresh
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )}';
+                                                    FFAppState()
+                                                            .insurancePage4TenorDueFromApi =
+                                                        '${IbsApplicationsDetailCall.tenor(
+                                                      (_model.ibsDetailAPIOutputCopyRefresh
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )}';
+                                                    FFAppState()
+                                                            .insurancePage4CheckSavePaymentBtn =
+                                                        true;
                                                     safeSetState(() {});
                                                     await showDialog(
                                                       context: context,
