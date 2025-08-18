@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
 import 'package:screenshot/screenshot.dart';
-import 'package:image_gallery_saver/image_gallery_saver.dart';
+import 'package:image_gallery_saver_plus/image_gallery_saver_plus.dart';
 import 'dart:typed_data';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:barcode_widget/barcode_widget.dart';
@@ -220,7 +220,7 @@ Future<String> capQrCode(BuildContext context, String? suffix, String? ref1,
     )
         .then((capImage) async {
       DateTime currentDateTime = DateTime.now();
-      final result1 = await ImageGallerySaver.saveImage(
+      final result1 = await ImageGallerySaverPlus.saveImage(
           Uint8List.fromList(capImage),
           quality: 100,
           name: "${currentDateTime}");

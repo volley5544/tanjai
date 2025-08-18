@@ -84,7 +84,6 @@ dependencies:
   flutter_animate: 4.5.0
   flutter_blurhash: 0.9.1
   flutter_cache_manager: 3.4.1
-  flutter_contacts_service: ^0.0.3
   flutter_inappwebview: ^6.1.5
   flutter_map: ^3.1.0
   flutter_phone_direct_caller: ^2.1.1
@@ -99,12 +98,7 @@ dependencies:
   flutter_windowmanager: ^0.2.0
   font_awesome_flutter: 10.7.0
   from_css_color: 2.0.0
-  geolocator: 14.0.1
-  geolocator_android: ^4.2.0
-  geolocator_apple: 2.3.13
-  geolocator_platform_interface: 4.2.6
-  geolocator_web: 4.1.3
-  geolocator_windows: 0.2.5
+  geolocator: ^13.0.4
   go_router: 12.1.3
   google_fonts: 6.1.0
   google_generative_ai: 0.4.6
@@ -208,7 +202,6 @@ dependencies:
     git:
       url: https://github.com/wenkaifan0720/webviewx_plus.git
       ref: 4f84ece5e06d52643c5d844f41880baf8440c584
-  win32_registry: 1.1.2
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
